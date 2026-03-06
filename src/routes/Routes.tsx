@@ -103,6 +103,7 @@ export const AllRoutes = [
   { path: "/blog-podcast", name: "blog-podcast", element: <Podcast /> },
   { path: "/blog-simple-feed", name: "blog-simple-feed", element: <SimpleFeed /> },
   { path: "/blog-single", name: "blog-single", element: <BlogSingle /> },
+  { path: "/blog-single/:id", name: "blog-single-id", element: <BlogSingle /> },
   { path: "/contacts-v1", name: "contacts-v1", element: <ContactV1 /> },
   { path: "/contacts-v2", name: "contacts-v2", element: <ContactV2 /> },
   { path: "/contacts-v3", name: "contacts-v3", element: <ContactV3 /> },
