@@ -1,57 +1,19 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-
-import blog01 from '@/assets/img/blog/01.jpg';
-import blog03 from '@/assets/img/blog/03.jpg';
-import blog06 from '@/assets/img/blog/06.jpg';
-import avatar01 from '@/assets/img/avatar/01.jpg';
-import avatar02 from '@/assets/img/avatar/02.jpg';
-import avatar05 from '@/assets/img/avatar/05.jpg';
 import { Link } from 'react-router';
 import IconifyIcon from '@/components/IconifyIcon';
 import { CardBody, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import type { BlogPost } from '@/services/cmsApi';
 
-type BlogPost = {
-  id: number;
-  category: string;
-  date: string;
-  title: string;
-  image: string;
-  author: string;
-  authorImage: string;
-};
+const PLACEHOLDER_IMAGE = 'https://placehold.co/800x500/e2e8f0/94a3b8?text=No+Image';
 
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    category: 'Business',
-    date: 'May 19, 2023',
-    title: '5 Bad Landing Page Examples & How We Would Fix Them',
-    image: blog01,
-    author: 'Jerome Bell',
-    authorImage: avatar01,
-  },
-  {
-    id: 2,
-    category: 'Marketing',
-    date: 'Apr 2, 2023',
-    title: 'How Agile is Your Forecasting Process?',
-    image: blog06,
-    author: 'Albert Flores',
-    authorImage: avatar05,
-  },
-  {
-    id: 3,
-    category: 'Business',
-    date: 'Sep 16, 2023',
-    title: 'This Week in Search: New Limits and Exciting Features',
-    image: blog03,
-    author: 'Ralph Edwards',
-    authorImage: avatar02,
-  },
-];
+interface BlogProps {
+  related: BlogPost[];
+}
 
-const Blog: React.FC = () => {
+const Blog = ({ related }: BlogProps) => {
+  if (related.length === 0) return null;
+
   return (
     <section className="container mb-5 pt-md-4">
       <div className="d-flex flex-sm-row flex-column align-items-center justify-content-between mb-4 pb-1 pb-md-3">
@@ -73,31 +35,33 @@ const Blog: React.FC = () => {
         }}
         className="mx-n2"
       >
-        {blogPosts.map(post => (
+        {related.map((post) => (
           <SwiperSlide key={post.id} className="h-auto pb-3">
             <article className="card border-0 shadow-sm h-100 mx-2">
-              <div className="position-relative">
+              <div className="position-relative overflow-hidden" style={{ height: '200px' }}>
                 <Link
-                  to="/blog-single"
+                  to={`/blog-single/${post.slug}`}
                   className="position-absolute top-0 start-0 w-100 h-100"
                   aria-label="Read more"
-                ></Link>
+                />
                 <OverlayTrigger
                   placement="left"
-                  overlay={<Tooltip id="tooltip-read-later">Read later</Tooltip>}
+                  overlay={<Tooltip id={`tip-${post.id}`}>Read later</Tooltip>}
                 >
                   <Link
                     to="#"
                     className="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Read later"
                     aria-label="Read later"
                   >
                     <IconifyIcon icon="bx:bookmark" fontSize={18} />
                   </Link>
                 </OverlayTrigger>
-                <img src={post.image} className="card-img-top" alt="Blog image" />
+                <img
+                  src={post.image || PLACEHOLDER_IMAGE}
+                  className="w-100 h-100"
+                  style={{ objectFit: 'cover' }}
+                  alt={post.title}
+                />
               </div>
               <CardBody className="pb-4">
                 <div className="d-flex align-items-center justify-content-between mb-3">
@@ -107,28 +71,35 @@ const Blog: React.FC = () => {
                   <span className="fs-sm text-muted">{post.date}</span>
                 </div>
                 <h3 className="h5 mb-0">
-                  <Link to="/blog-single">{post.title}</Link>
+                  <Link to={`/blog-single/${post.slug}`}>{post.title}</Link>
                 </h3>
               </CardBody>
-              <div className="card-footer py-4">
-                <Link
-                  to="#"
-                  className="d-flex align-items-center fw-bold text-dark text-decoration-none"
-                >
-                  <img
-                    src={post.authorImage}
-                    className="rounded-circle me-3"
-                    width="48"
-                    alt="Author"
-                  />
-                  {post.author}
-                </Link>
-              </div>
+              {post.author.name && post.author.name !== 'Unknown' && (
+                <div className="card-footer py-4">
+                  <div className="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                    {post.author.avatar ? (
+                      <img
+                        src={post.author.avatar}
+                        className="rounded-circle me-3"
+                        width="48"
+                        alt={post.author.name}
+                      />
+                    ) : (
+                      <div
+                        className="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white fw-bold me-3"
+                        style={{ width: 48, height: 48, fontSize: 20, flexShrink: 0 }}
+                      >
+                        {post.author.name.charAt(0).toUpperCase()}
+                      </div>
+                    )}
+                    {post.author.name}
+                  </div>
+                </div>
+              )}
             </article>
           </SwiperSlide>
         ))}
-
-        <div className="swiper-pagination position-relative pt-2 pt-sm-3 mt-4"></div>
+        <div className="swiper-pagination position-relative pt-2 pt-sm-3 mt-4" />
       </Swiper>
     </section>
   );

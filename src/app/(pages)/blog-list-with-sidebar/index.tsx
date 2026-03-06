@@ -1,12 +1,5 @@
 import PageTitle from './components/PageTitle';
 import { Col, Row } from 'react-bootstrap';
-import Digital from './components/Digital';
-import Business from './components/Business';
-import Technology from './components/Technology';
-import Startups from './components/Startups';
-import Business1 from './components/Business1';
-import Digital1 from './components/Digital1';
-import Startups1 from './components/Startups1';
 import IconifyIcon from '@/components/IconifyIcon';
 import Sidebar from './components/Sidebar';
 import Cta from './components/Cta';
@@ -14,11 +7,12 @@ import Footer from './components/Footer';
 import Navbar from '@/components/navbar/Navbar';
 import { Link } from 'react-router';
 import PageMeta from '@/components/PageMeta';
+import BlogPosts from './components/BlogPosts';
 
 const Index = () => {
   return (
     <>
-      <PageMeta title='Blog List With Sidebar' />
+      <PageMeta title="Blog List With Sidebar" />
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light shadow-sm shadow-dark-mode-none fixed-top" />
       <nav className="container mt-lg-4 pt-5" aria-label="breadcrumb">
         <ol className="breadcrumb mb-0 pt-5">
@@ -40,24 +34,7 @@ const Index = () => {
         <PageTitle />
         <Row>
           <Col xl={9} lg={8}>
-            <Digital />
-            <div className="pb-2 pb-lg-3" />
-            <Business />
-            <div className="pb-2 pb-lg-3" />
-            <Technology />
-            <div className="pb-2 pb-lg-3" />
-            <Startups />
-            <div className="pb-2 pb-lg-3" />
-            <Business1 />
-            <div className="pb-2 pb-lg-3" />
-            <Digital1 />
-            <div className="pb-2 pb-lg-3" />
-            <Startups1 />
-            <div className="pb-2 pb-lg-3" />
-            <button type="button" className="btn btn-lg btn-outline-primary w-100 mt-4">
-              <IconifyIcon icon="bx:down-arrow-alt" className="fs-xl me-2" />
-              Show more
-            </button>
+            <BlogPosts />
           </Col>
           <Sidebar />
         </Row>
