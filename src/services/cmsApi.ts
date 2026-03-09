@@ -2,7 +2,8 @@
 // Base URL    : https://n0de-laravel-main-acyxzt.laravel.cloud
 // Project ID  : 56df7c73-d7a2-4651-bb4c-a57740d2932d
 // Collection  : Blogs  (slug: blogs)
-// Endpoint    : GET /api/blogs
+// Collection  : Header (slug: header)
+// Endpoint    : GET /api/blogs  |  GET /api/header
 // Auth        : Bearer token  +  Project-Id header
 // ──────────────────────────────────────────────────────────────────────────────
 
@@ -233,4 +234,238 @@ export async function fetchBlogBySlug(
     throw new Error(`Blog post with slug "${slug}" not found.`);
   }
   return match;
+}
+
+// ── Header / Navigation ───────────────────────────────────────────────────────
+
+/** A single nav link (used in dropdowns and plain links) */
+export interface NavLink {
+  label: string;
+  href: string;
+  badge?: string;
+}
+
+/** A titled group of links inside a mega-menu "Pages" column */
+export interface NavSection {
+  title: string;
+  links: NavLink[];
+}
+
+/** One top-level nav item */
+export interface NavItem {
+  label: string;
+  /** "mega-columns" = Landings-style grid | "mega-sections" = Pages-style | "dropdown" = simple list | "link" = plain */
+  type: 'mega-columns' | 'mega-sections' | 'dropdown' | 'link';
+  href?: string;                   // only for type === 'link'
+  columns?: NavLink[][];           // only for type === 'mega-columns'
+  sectioned_columns?: NavSection[][];  // only for type === 'mega-sections'
+  links?: NavLink[];               // only for type === 'dropdown'
+}
+
+/** CTA button in the top-right corner */
+export interface CtaButton {
+  label: string;
+  href: string;
+  icon?: string;
+  variant: string;
+  size?: string;
+}
+
+/** Full header config shape (mirrors the CMS JSON) */
+export interface HeaderConfig {
+  logo: { text: string; href: string };
+  nav_items: NavItem[];
+  cta_button: CtaButton;
+}
+
+/**
+ * Fetch the Header collection config from the CMS.
+ * The CMS entry's `fields` object must contain a `json` field
+ * (or a field named `config`) with the HeaderConfig value.
+ *
+ * Endpoint: GET /api/header
+ */
+export async function fetchHeader(collectionSlug = 'header'): Promise<HeaderConfig> {
+  const url = `${CMS_BASE_URL}/api/${collectionSlug}`;
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: buildHeaders(),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => response.statusText);
+    throw new Error(`CMS Header API error ${response.status}: ${errorText}`);
+  }
+
+  const json = await response.json();
+
+  // Entries can come as an array or wrapped in { data: [...] }
+  const entries: CmsEntry[] = Array.isArray(json) ? json : (json.data ?? [json]);
+
+  if (entries.length === 0) {
+    throw new Error('No header config found in CMS.');
+  }
+
+  // The JSON field is stored under fields.json (the "#json" field type in n0de CMS)
+  const fields = entries[0].fields;
+  
+  // Debug: log available field names
+  console.log('📋 Available fields in CMS entry:', Object.keys(fields));
+  
+  // Try multiple possible field names and handle both object and string JSON
+  // In n0de CMS, JSON fields might be stored with the field name as-is
+  let rawConfig = fields.json ?? fields.config ?? fields.header ?? fields.data ?? fields.content;
+  
+  // If still not found, try to find any object/string field that looks like our config
+  if (!rawConfig) {
+    for (const [key, value] of Object.entries(fields)) {
+      if (typeof value === 'object' && value !== null && 'nav_items' in value) {
+        rawConfig = value;
+        console.log(`✅ Found config in field: ${key}`);
+        break;
+      }
+      if (typeof value === 'string' && (value.startsWith('{') || value.startsWith('['))) {
+        try {
+          const parsed = JSON.parse(value);
+          if (parsed && typeof parsed === 'object' && 'nav_items' in parsed) {
+            rawConfig = parsed;
+            console.log(`✅ Found config in string field: ${key}`);
+            break;
+          }
+        } catch {
+          // Not valid JSON, continue
+        }
+      }
+    }
+  }
+  
+  // If it's a string, parse it
+  if (typeof rawConfig === 'string') {
+    try {
+      rawConfig = JSON.parse(rawConfig);
+    } catch (e) {
+      console.error('Failed to parse header JSON string:', e);
+      throw new Error('Header config is invalid JSON string.');
+    }
+  }
+  
+  const config = rawConfig as HeaderConfig;
+
+  if (!config || !config.nav_items || !Array.isArray(config.nav_items)) {
+    console.error('❌ Header config structure invalid:', config);
+    console.error('Available fields:', Object.keys(fields));
+    throw new Error('Header config field is empty or invalid in CMS.');
+  }
+
+  console.log('✅ Header config parsed successfully:', {
+    navItemsCount: config.nav_items.length,
+    navItems: config.nav_items.map(item => ({ label: item.label, type: item.type })),
+  });
+
+  return config;
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+
+export interface FooterLink {
+  title: string;
+  url: string;
+  icon?: string;
+  style?: { color?: string; hoverColor?: string; fontSize?: string; fontWeight?: string; className?: string };
+}
+
+export interface FooterColumn {
+  title: string;
+  titleStyle?: { color?: string; fontSize?: string; fontWeight?: string };
+  links: FooterLink[];
+}
+
+export interface FooterSocial {
+  title: string;
+  url: string;
+  icon?: string;
+  style?: { color?: string; backgroundColor?: string; borderRadius?: string };
+}
+
+export interface FooterNewsletter {
+  enabled: boolean;
+  label?: string;
+  placeholder?: string;
+  buttonText?: string;
+  buttonVariant?: string;
+  icon?: string;
+}
+
+export interface FooterCopyright {
+  text: string;
+  by?: string;
+  url?: string;
+  style?: { color?: string; fontSize?: string };
+}
+
+export interface FooterConfig {
+  brand: {
+    name: string;
+    logoUrl?: string;
+    logoWidth?: number;
+    href?: string;
+    style?: { color?: string; fontSize?: string; fontWeight?: string; fontFamily?: string };
+  };
+  description?: string;
+  descriptionStyle?: { color?: string; fontSize?: string };
+  email?: string;
+  emailLabel?: string;
+  newsletter?: FooterNewsletter;
+  columns?: FooterColumn[];
+  socials?: FooterSocial[];
+  copyright: FooterCopyright;
+  style?: {
+    backgroundColor?: string;
+    textColor?: string;
+    padding?: string;
+    className?: string;
+  };
+}
+
+/** Shared helper — same logic as fetchHeader, adapted for footer */
+async function fetchCmsJson<T>(
+  collectionSlug: string,
+  rootKey: string,
+): Promise<T> {
+  const url = `${CMS_BASE_URL}/api/${collectionSlug}`;
+  const response = await fetch(url, { method: 'GET', headers: buildHeaders() });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => response.statusText);
+    throw new Error(`CMS API error ${response.status}: ${errorText}`);
+  }
+
+  const json = await response.json();
+  const entries: CmsEntry[] = Array.isArray(json) ? json : (json.data ?? [json]);
+  if (entries.length === 0) throw new Error(`No ${collectionSlug} config found in CMS.`);
+
+  const fields = entries[0].fields;
+  let raw = fields.json ?? fields.config ?? fields[collectionSlug] ?? fields.data ?? fields.content;
+
+  if (!raw) {
+    for (const [, value] of Object.entries(fields)) {
+      if (typeof value === 'object' && value !== null && rootKey in value) { raw = value; break; }
+      if (typeof value === 'string' && value.startsWith('{')) {
+        try { const p = JSON.parse(value); if (p && rootKey in p) { raw = p; break; } } catch { /* skip */ }
+      }
+    }
+  }
+
+  if (typeof raw === 'string') raw = JSON.parse(raw);
+  if (!raw) throw new Error(`${collectionSlug} config field is empty in CMS.`);
+  return raw as T;
+}
+
+/**
+ * Fetch the Footer collection config from the CMS.
+ * Endpoint: GET /api/footer
+ */
+export async function fetchFooter(collectionSlug = 'footer'): Promise<FooterConfig> {
+  return fetchCmsJson<FooterConfig>(collectionSlug, 'brand');
 }
