@@ -228,25 +228,7 @@ const CmsViewer: React.FC = () => {
               </div>
             )}
 
-            {activeCollection && (
-              <div className="collection-view">
-                <div className="collection-heading">
-                  <h3>{activeCollection}</h3>
-                  {activeCollectionData.loading && <span className="muted">Loading…</span>}
-                  {activeCollectionData.error   && <span className="api-error">{activeCollectionData.error}</span>}
-                </div>
-                {activeCollectionData.data !== null && activeCollectionData.data !== undefined && (
-                  <pre className="collection-json">
-                    {JSON.stringify(activeCollectionData.data, null, 2)}
-                  </pre>
-                )}
-              </div>
-            )}
           </section>
-
-          {!activeCollection && (
-            <p className="muted picker-hint">Select one collection to preview only that collection.</p>
-          )}
 
           {/* Blogs */}
           {showBlogs && active ? (
@@ -309,28 +291,8 @@ const CmsViewer: React.FC = () => {
               <h2 className="section-title">{activeCollection}</h2>
               {activeCollectionData.loading && <p className="muted">Loading collection…</p>}
               {activeCollectionData.error   && <p className="api-error">{activeCollectionData.error}</p>}
-              {selectedHtml ? (
+              {selectedHtml && (
                 <div className="generic-html" dangerouslySetInnerHTML={{ __html: selectedHtml }} />
-              ) : activeCollectionData.data !== null && activeCollectionData.data !== undefined ? (
-                <pre className="collection-json">
-                  {JSON.stringify(activeCollectionData.data, null, 2)}
-                </pre>
-              ) : null}
-            </section>
-          ) : selectedSlug === 'header' ? (
-            <section className="generic-section">
-              <h2 className="section-title">Header Preview</h2>
-              <p className="muted">Header is displayed above. Raw data:</p>
-              {activeCollectionData.data !== null && activeCollectionData.data !== undefined && (
-                <pre className="collection-json">{JSON.stringify(activeCollectionData.data, null, 2)}</pre>
-              )}
-            </section>
-          ) : selectedSlug === 'footer' ? (
-            <section className="generic-section">
-              <h2 className="section-title">Footer Preview</h2>
-              <p className="muted">Footer is displayed below. Raw data:</p>
-              {activeCollectionData.data !== null && activeCollectionData.data !== undefined && (
-                <pre className="collection-json">{JSON.stringify(activeCollectionData.data, null, 2)}</pre>
               )}
             </section>
           ) : null}
