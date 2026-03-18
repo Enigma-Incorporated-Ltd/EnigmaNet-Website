@@ -16,7 +16,7 @@ type NavClass = {
 
 // ── Fallback hard-coded config (used while CMS loads or if fetch fails) ────────
 const FALLBACK_CONFIG: HeaderConfig = {
-  logo: { text: 'Silicon', href: '/index' },
+  logo: { text: 'enigmanet', href: '/index' },
   nav_items: [
     {
       label: 'Landings',
@@ -196,7 +196,13 @@ const Navbar = ({
       <div className="container px-3">
         {/* Logo */}
         <Link to={logo.href} className="navbar-brand pe-3">
-          <img src={Logo} width={47} alt={logo.text} />
+          <img
+            src={
+              'https://enigmanet.ai/wp-content/uploads/2024/05/Enigma-Device-Light-Blue-400x453.png'
+            }
+            width={47}
+            alt={logo.text}
+          />
           {logo.text}
         </Link>
 
@@ -205,7 +211,10 @@ const Navbar = ({
           placement="end"
           responsive="xl"
           show={showMenu}
-          onHide={() => { setShowMenu(false); setOpenMobileDropdown(null); }}
+          onHide={() => {
+            setShowMenu(false);
+            setOpenMobileDropdown(null);
+          }}
         >
           <OffcanvasHeader closeButton className="border-bottom">
             <h5 className="offcanvas-title">Menu</h5>
@@ -213,7 +222,7 @@ const Navbar = ({
 
           <OffcanvasBody className="offcanvas-body">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              {nav_items.map((item) => {
+              {nav_items.map(item => {
                 const allLinks = flatLinks(item);
                 const isActive = isParentActive(allLinks, pathname);
                 const key = item.label;
@@ -276,7 +285,9 @@ const Navbar = ({
                                       >
                                         {link.label}
                                         {link.badge && (
-                                          <span className="badge bg-success ms-2">{link.badge}</span>
+                                          <span className="badge bg-success ms-2">
+                                            {link.badge}
+                                          </span>
                                         )}
                                       </Link>
                                     </li>
@@ -381,9 +392,7 @@ const Navbar = ({
               rel="noopener"
               onClick={() => setShowMenu(false)}
             >
-              {cta_button.icon && (
-                <IconifyIcon icon={cta_button.icon} className="fs-4 lh-1 me-1" />
-              )}
+              {cta_button.icon && <IconifyIcon icon={cta_button.icon} className="fs-4 lh-1 me-1" />}
               &nbsp;{cta_button.label}
             </a>
           </div>
@@ -406,9 +415,7 @@ const Navbar = ({
           className={`btn btn-${cta_button.variant} ${cta_button.size ? `btn-${cta_button.size}` : ''} fs-sm rounded d-none d-lg-inline-flex`}
           rel="noopener"
         >
-          {cta_button.icon && (
-            <IconifyIcon icon={cta_button.icon} className="fs-5 lh-1 me-1" />
-          )}
+          {cta_button.icon && <IconifyIcon icon={cta_button.icon} className="fs-5 lh-1 me-1" />}
           &nbsp;{cta_button.label}
         </Button>
       </div>

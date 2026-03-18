@@ -18,6 +18,7 @@ const AppRoutes = () => {
             </Suspense>
           }
         />
+        
 
         {/* ── All other routes wrapped in MainLayout ── */}
         {AllRoutes.map((route) => (
