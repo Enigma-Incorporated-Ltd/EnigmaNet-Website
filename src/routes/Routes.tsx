@@ -22,7 +22,7 @@ const Agency1 = lazy(() => import('@/app/(landings)/software-dev-agency-v1'))
 const Agency2 = lazy(() => import('@/app/(landings)/software-dev-agency-v2'))
 const Agency3 = lazy(() => import('@/app/(landings)/software-dev-agency-v3'))
 const Startup = lazy(() => import('@/app/(landings)/startup'))
-
+const Legal = lazy(() => import('@/app//legal'))
 //pages
 
 const Error1 = lazy(() => import("@/app/(pages)/404-v1"))
@@ -67,120 +67,74 @@ const SignUp = lazy(() => import("@/app/(account)/account-signup"))
 
 
 export const AllRoutes = [
+  { path: '/', name: 'index', element: <Navigate to="/index" replace /> },
+  { path: '/index', name: 'index1', element: <Index /> },
+  { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
+  { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },
+  { path: '/app-showcase-v3', name: 'case3', element: <ShowCase3 /> },
+  { path: '/blog', name: 'blog', element: <Blog /> },
+  { path: '/legal', name: 'legal', element: <Legal /> },
+  { path: '/legal/:slug', name: 'legal', element: <Legal /> },
+  { path: '/conference', name: 'conercence', element: <Conference /> },
+  { path: '/digital-agency', name: 'DigitalAgency', element: <DigitalAgency /> },
+  { path: '/financial', name: 'finacial', element: <Finacial /> },
+  { path: '/medical', name: 'medical', element: <Medical /> },
+  { path: '/online-courses', name: 'OnlineCourse', element: <OnlineCourse /> },
+  { path: '/product', name: 'Product', element: <Product /> },
+  { path: '/saas-v1', name: 'saasV1', element: <SaasV1 /> },
+  { path: '/saas-v2', name: 'saasV2', element: <SaasV2 /> },
+  { path: '/saas-v3', name: 'saasV3', element: <SaasV3 /> },
+  { path: '/saas-v4', name: 'saasV4', element: <SaasV4 /> },
+  { path: '/saas-v5', name: 'saasV5', element: <SaasV5 /> },
+  { path: '/software-dev-agency-v1', name: 'agency1', element: <Agency1 /> },
+  { path: '/software-dev-agency-v2', name: 'agency2', element: <Agency2 /> },
+  { path: '/software-dev-agency-v3', name: 'agency3', element: <Agency3 /> },
+  { path: '/startup', name: 'startup', element: <Startup /> },
 
-  { path: "/", name: "index", element: <Navigate to="/index" replace /> },
-  { path: "/index", name: "index1", element: <Index /> },
-  { path: "/app-showcase-v1", name: "case1", element: <ShowCase1 /> },
-  { path: "/app-showcase-v2", name: "case2", element: <ShowCase2 /> },
-  { path: "/app-showcase-v3", name: "case3", element: <ShowCase3 /> },
-  { path: "/blog", name: "blog", element: <Blog /> },
-  { path: "/conference", name: "conercence", element: <Conference /> },
-  { path: "/digital-agency", name: "DigitalAgency", element: <DigitalAgency /> },
-  { path: "/financial", name: "finacial", element: < Finacial /> },
-  { path: "/medical", name: "medical", element: <Medical /> },
-  { path: "/online-courses", name: "OnlineCourse", element: <OnlineCourse /> },
-  { path: "/product", name: "Product", element: <Product /> },
-  { path: "/saas-v1", name: "saasV1", element: <SaasV1 /> },
-  { path: "/saas-v2", name: "saasV2", element: <SaasV2 /> },
-  { path: "/saas-v3", name: "saasV3", element: <SaasV3 /> },
-  { path: "/saas-v4", name: "saasV4", element: <SaasV4 /> },
-  { path: "/saas-v5", name: "saasV5", element: <SaasV5 /> },
-  { path: "/software-dev-agency-v1", name: "agency1", element: <Agency1 /> },
-  { path: "/software-dev-agency-v2", name: "agency2", element: <Agency2 /> },
-  { path: "/software-dev-agency-v3", name: "agency3", element: <Agency3 /> },
-  { path: "/startup", name: "startup", element: <Startup /> },
+  { path: '/404-v1', name: 'Error1', element: <Error1 /> },
+  { path: '/404-v2', name: 'Error2', element: <Error2 /> },
+  { path: '/about-v1', name: 'AboutV1', element: <AboutV1 /> },
+  { path: '/about-v2', name: 'AboutV2', element: <AboutV2 /> },
+  { path: '/about-v3', name: 'AboutV3', element: <AboutV3 /> },
+  { path: '/blog-grid-no-sidebar', name: 'blog-grid-no-sidebar', element: <GridNoSidebar /> },
+  { path: '/blog-grid-with-sidebar', name: 'blog-grid-with-sidebar', element: <GridWithSidebar /> },
+  { path: '/blog-list-no-sidebar', name: 'blog-list-no-sidebar', element: <ListNoSidebar /> },
+  { path: '/blog-list-with-sidebar', name: 'blog-list-with-sidebar', element: <ListWithSidebar /> },
+  { path: '/blog-podcast', name: 'blog-podcast', element: <Podcast /> },
+  { path: '/blog-simple-feed', name: 'blog-simple-feed', element: <SimpleFeed /> },
+  { path: '/blog-single', name: 'blog-single', element: <BlogSingle /> },
+  { path: '/blog-single/:id', name: 'blog-single-id', element: <BlogSingle /> },
+  { path: '/contacts-v1', name: 'contacts-v1', element: <ContactV1 /> },
+  { path: '/contacts-v2', name: 'contacts-v2', element: <ContactV2 /> },
+  { path: '/contacts-v3', name: 'contacts-v3', element: <ContactV3 /> },
+  { path: '/portfolio-courses', name: 'portfolio-courses', element: <PortfolioCourses /> },
+  { path: '/portfolio-grid', name: 'portfolio-grid', element: <PortfolioGrid /> },
+  { path: '/portfolio-list', name: 'portfolio-list', element: <PortfolioList /> },
+  {
+    path: '/portfolio-single-course',
+    name: 'portfolio-single-course',
+    element: <PortfolioSingleCourse />,
+  },
+  {
+    path: '/portfolio-single-project',
+    name: 'portfolio-single-project',
+    element: <PortfolioSingleProject />,
+  },
+  { path: '/portfolio-slider', name: 'portfolio-slider', element: <PortfolioSlider /> },
+  { path: '/pricing', name: 'pricing', element: <Pricing /> },
+  { path: '/services-single-v1', name: 'services-single-v1', element: <ServiceSingle1 /> },
+  { path: '/services-single-v2', name: 'services-single-v2', element: <ServiceSingle2 /> },
+  { path: '/services-v1', name: 'services-v1', element: <ServiceV1 /> },
+  { path: '/services-v2', name: 'services-v2', element: <ServiceV2 /> },
 
-
-  { path: "/404-v1", name: "Error1", element: <Error1 /> },
-  { path: "/404-v2", name: "Error2", element: <Error2 /> },
-  { path: "/about-v1", name: "AboutV1", element: <AboutV1 /> },
-  { path: "/about-v2", name: "AboutV2", element: <AboutV2 /> },
-  { path: "/about-v3", name: "AboutV3", element: <AboutV3 /> },
-  { path: "/blog-grid-no-sidebar", name: "blog-grid-no-sidebar", element: <GridNoSidebar /> },
-  { path: "/blog-grid-with-sidebar", name: "blog-grid-with-sidebar", element: <GridWithSidebar /> },
-  { path: "/blog-list-no-sidebar", name: "blog-list-no-sidebar", element: <ListNoSidebar /> },
-  { path: "/blog-list-with-sidebar", name: "blog-list-with-sidebar", element: <ListWithSidebar /> },
-  { path: "/blog-podcast", name: "blog-podcast", element: <Podcast /> },
-  { path: "/blog-simple-feed", name: "blog-simple-feed", element: <SimpleFeed /> },
-  { path: "/blog-single", name: "blog-single", element: <BlogSingle /> },
-  { path: "/blog-single/:id", name: "blog-single-id", element: <BlogSingle /> },
-  { path: "/contacts-v1", name: "contacts-v1", element: <ContactV1 /> },
-  { path: "/contacts-v2", name: "contacts-v2", element: <ContactV2 /> },
-  { path: "/contacts-v3", name: "contacts-v3", element: <ContactV3 /> },
-  { path: "/portfolio-courses", name: "portfolio-courses", element: <PortfolioCourses /> },
-  { path: "/portfolio-grid", name: "portfolio-grid", element: <PortfolioGrid /> },
-  { path: "/portfolio-list", name: "portfolio-list", element: <PortfolioList /> },
-  { path: "/portfolio-single-course", name: "portfolio-single-course", element: <PortfolioSingleCourse /> },
-  { path: "/portfolio-single-project", name: "portfolio-single-project", element: <PortfolioSingleProject /> },
-  { path: "/portfolio-slider", name: "portfolio-slider", element: <PortfolioSlider /> },
-  { path: "/pricing", name: "pricing", element: <Pricing /> },
-  { path: "/services-single-v1", name: "services-single-v1", element: <ServiceSingle1 /> },
-  { path: "/services-single-v2", name: "services-single-v2", element: <ServiceSingle2 /> },
-  { path: "/services-v1", name: "services-v1", element: <ServiceV1 /> },
-  { path: "/services-v2", name: "services-v2", element: <ServiceV2 /> },
-
-
-
-  { path: "/account-collections", name: "account-collections", element: <Collections /> },
-  { path: "/account-details", name: "account-details", element: <Details /> },
-  { path: "/account-messages", name: "account-messages", element: <Messages /> },
-  { path: "/account-notifications", name: "account-notification", element: <Notification /> },
-  { path: "/account-payment", name: "account-payment", element: <Payement /> },
-  { path: "/account-saved-items", name: "account-saveItem", element: <SaveItem /> },
-  { path: "/account-security", name: "account-security", element: <Security /> },
-  { path: "/account-signin", name: "account-signin", element: <SignIn /> },
-  { path: "/account-signup", name: "account-signup", element: <SignUp /> },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  { path: '/account-collections', name: 'account-collections', element: <Collections /> },
+  { path: '/account-details', name: 'account-details', element: <Details /> },
+  { path: '/account-messages', name: 'account-messages', element: <Messages /> },
+  { path: '/account-notifications', name: 'account-notification', element: <Notification /> },
+  { path: '/account-payment', name: 'account-payment', element: <Payement /> },
+  { path: '/account-saved-items', name: 'account-saveItem', element: <SaveItem /> },
+  { path: '/account-security', name: 'account-security', element: <Security /> },
+  { path: '/account-signin', name: 'account-signin', element: <SignIn /> },
+  { path: '/account-signup', name: 'account-signup', element: <SignUp /> },
 ];
 
