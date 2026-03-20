@@ -11,7 +11,7 @@ const ThemeToggle = ({ themeToggle }: HeaderToggleClass) => {
     document.documentElement.setAttribute('data-theme-loading', 'true');
 
     const checkbox = document.getElementById('theme-mode') as HTMLInputElement | null;
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
 
     document.body.setAttribute('data-bs-theme', savedTheme);
     if (checkbox) checkbox.checked = savedTheme === 'dark';

@@ -90,7 +90,7 @@ const CmsViewer: React.FC = () => {
     load(() => fetchFooter(),          setFooter);
     load(() => fetchCollectionsIndex(), setCollections);
   }, []);
-
+console.log(footer);
   useEffect(() => {
     if (!activeCollection) return;
     setActiveCollectionData({ loading: true, error: null, data: null });

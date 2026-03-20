@@ -27,7 +27,7 @@ const Index = () => {
             <IconifyIcon icon="bx:chevrons-right" />
           </span>
           <li className="breadcrumb-item active" aria-current="page">
-            Blog Grid with Sidebars
+            Blogs
           </li>
         </ol>
       </nav>
