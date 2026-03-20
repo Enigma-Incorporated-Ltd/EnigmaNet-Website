@@ -1,4 +1,4 @@
-import defaultLogo from '@/assets/img/logo.svg';
+import Logo from '@/assets/img/EnigmaNet-logo.png';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useEffect, useState } from 'react';
 import { Col, Collapse, Container, Row } from 'react-bootstrap';
@@ -7,7 +7,7 @@ import { fetchFooter, type FooterConfig } from '@/services/cmsApi';
 
 // ── Fallback hard-coded config ────────────────────────────────────────────────
 const FALLBACK: FooterConfig = {
-  brand: { name: 'Silicon', href: '/index' },
+  brand: { name: 'EnigmaNet', href: '/index' },
   description:
     'Proin ipsum pharetra, senectus eget scelerisque varius pretium platea velit. Lacus, eget eu vitae nullam proin turpis etiam mi sit.',
   email: 'email@example.com',
@@ -40,7 +40,11 @@ const FALLBACK: FooterConfig = {
     { title: 'Twitter', url: '#' },
     { title: 'Instagram', url: '#' },
   ],
-  copyright: { text: 'All rights reserved. Made by', by: 'Coderthemes', url: 'https://coderthemes.com/' },
+  copyright: {
+    text: 'All rights reserved. Made by',
+    by: 'Coderthemes',
+    url: 'https://coderthemes.com/',
+  },
 };
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -48,17 +52,29 @@ const Footer = () => {
   const [data, setData] = useState<FooterConfig>(FALLBACK);
   const [openColumns, setOpenColumns] = useState<Record<number, boolean>>({});
   const [openSocials, setOpenSocials] = useState(false);
-
+  const [openLegal, setOpenLegal] = useState(false);
   useEffect(() => {
     fetchFooter()
       .then(setData)
-      .catch(() => { /* silently use fallback */ });
+      .catch(() => {
+        /* silently use fallback */
+      });
   }, []);
 
-  const toggleColumn = (i: number) =>
-    setOpenColumns(prev => ({ ...prev, [i]: !prev[i] }));
+  const toggleColumn = (i: number) => setOpenColumns(prev => ({ ...prev, [i]: !prev[i] }));
 
-  const { brand, description, descriptionStyle, email, emailLabel, newsletter, columns, socials, copyright, style } = data;
+  const {
+    brand,
+    description,
+    descriptionStyle,
+    email,
+    emailLabel,
+    contact,
+    columns,
+    socials,
+    copyright,
+    style,
+  } = data;
 
   const footerStyle: React.CSSProperties = {
     ...(style?.backgroundColor && { backgroundColor: style.backgroundColor }),
@@ -66,7 +82,7 @@ const Footer = () => {
     ...(style?.padding && { padding: style.padding }),
   };
 
-  const logoSrc = brand.logoUrl || defaultLogo;
+  const logoSrc = brand.logoUrl || Logo;
   const logoWidth = brand.logoWidth || 47;
 
   const brandTextStyle: React.CSSProperties = {
@@ -96,8 +112,8 @@ const Footer = () => {
               className="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4 d-flex align-items-center gap-2"
               style={brandTextStyle}
             >
-              <img src={logoSrc} width={logoWidth} alt={brand.name} />
-              {brand.name}
+              <img src={logoSrc} alt={brand.name} />
+              {/* {brand.name} */}
             </Link>
 
             {description && (
@@ -106,7 +122,7 @@ const Footer = () => {
               </p>
             )}
 
-            {newsletter?.enabled && (
+            {/* {newsletter?.enabled && (
               <form className="needs-validation" noValidate>
                 {newsletter.label && (
                   <label htmlFor="subscr-email" className="form-label">
@@ -136,7 +152,7 @@ const Footer = () => {
                   </button>
                 </div>
               </form>
-            )}
+            )} */}
           </Col>
 
           {/* Link columns + socials + email */}
@@ -178,9 +194,7 @@ const Footer = () => {
                                   className={`nav-link d-inline-block px-0 pt-1 pb-2 ${link.style?.className || ''}`}
                                   style={linkStyle}
                                 >
-                                  {link.icon && (
-                                    <IconifyIcon icon={link.icon} className="me-2" />
-                                  )}
+                                  {link.icon && <IconifyIcon icon={link.icon} className="me-2" />}
                                   {link.title}
                                 </Link>
                               </li>
@@ -221,9 +235,7 @@ const Footer = () => {
                                 className="nav-link d-inline-block px-0 pt-1 pb-2"
                                 style={socialStyle}
                               >
-                                {social.icon && (
-                                  <IconifyIcon icon={social.icon} className="me-2" />
-                                )}
+                                {social.icon && <IconifyIcon icon={social.icon} className="me-2" />}
                                 {social.title}
                               </Link>
                             </li>
@@ -235,13 +247,51 @@ const Footer = () => {
                 </Col>
               )}
 
-              {/* Email */}
-              {email && (
+              {contact && (
                 <Col xl={4} lg={5} className="pt-2 pt-lg-0">
                   <h6 className="mb-2">{emailLabel || 'Contact Us'}</h6>
-                  <Link to={`mailto:${email}`} className="fw-medium">
-                    {email}
-                  </Link>
+
+                  {/* Phone */}
+                  {contact.phone && (
+                    <p className="mb-1">
+                      <a
+                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                        style={{
+                          textDecoration: 'none',
+                          fontWeight: 700,
+                        }}
+                      >
+                        {contact.phone}
+                      </a>
+                    </p>
+                  )}
+
+                  {/* Email */}
+                  {contact.email && (
+                    <p className="mb-1">
+                      <a
+                        href={`mailto:${contact.email}`}
+                        style={{
+                          textDecoration: 'none',
+                          fontWeight: 700,
+                        }}
+                      >
+                        {contact.email}
+                      </a>
+                    </p>
+                  )}
+
+                  {/* Address */}
+                  {contact.address && (
+                    <p
+                      className="mb-0 nav-link"
+                      style={{
+                        fontWeight: 700,
+                      }}
+                    >
+                      {contact.address}
+                    </p>
+                  )}
                 </Col>
               )}
             </Row>
@@ -251,7 +301,11 @@ const Footer = () => {
         {/* Copyright */}
         <p
           className="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0"
-          style={copyright.style ? { color: copyright.style.color, fontSize: copyright.style.fontSize } : {}}
+          style={
+            copyright.style
+              ? { color: copyright.style.color, fontSize: copyright.style.fontSize }
+              : {}
+          }
         >
           &copy; {copyright.text}{' '}
           {copyright.by && (

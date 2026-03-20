@@ -1,157 +1,517 @@
 import IconifyIcon from '@/components/IconifyIcon';
-import { Link } from 'react-router';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { useEffect, useRef, useState } from 'react';
 
 const Contact = () => {
+  const [focused, setFocused] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    setSending(true);
+    setTimeout(() => {
+      setSending(false);
+      setSubmitted(true);
+    }, 1800);
+  };
+
   return (
-    <section className="position-relative bg-secondary pt-5">
-      <Container className="position-relative zindex-2 pt-5">
-        <nav className="pt-lg-4 pb-3 mb-2 mb-sm-3" aria-label="breadcrumb">
-          <ol className="breadcrumb mb-0">
-            <li className="breadcrumb-item">
-              <Link to="/index">
-                <IconifyIcon icon="bx:home-alt" className="fs-lg me-1" />
-                Home
-              </Link>
-            </li>
-            <span className="d-flex align-items-center mx-2">
-              <IconifyIcon icon="bx:chevrons-right" />
-            </span>
-            <li className="breadcrumb-item active" aria-current="page">
-              Contacts v.2
-            </li>
-          </ol>
-        </nav>
-        <Row>
-          <Col xl={4} lg={5} className="pb-4 pb-sm-5 mb-2 mb-sm-0">
-            <div className="pe-lg-4 pe-xl-0">
-              <h1 className="pb-3 pb-md-4 mb-lg-5">Contact Us</h1>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
 
-              <div className="d-flex align-items-start pb-3 mb-sm-1 mb-md-3">
-                <div className="bg-light text-primary rounded-circle flex-shrink-0 fs-3 lh-1 p-3">
-                  <IconifyIcon icon="bx:envelope" />
+        .contact-section {
+          font-family: 'Manrope', sans-serif;
+          min-height: 100vh;
+          padding: 6rem 0 5rem;
+          position: relative;
+          overflow: hidden;
+        }
+
+       
+
+        .contact-section > * { position: relative; z-index: 1; }
+
+        /* ── Section title ── */
+        .contact-heading {
+          font-size: clamp(2rem, 5vw, 3rem);
+          font-weight: 800;
+          letter-spacing: -0.03em;
+          line-height: 1.15;
+          margin-bottom: 0.4rem;
+          background: linear-gradient(135deg, #3d5a9e 0%, #157bc9 55%, #2adeff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .contact-subtitle {
+          color: var(--si-gray-600, #9397ad);
+          font-size: 1.05rem;
+          font-weight: 400;
+          margin-bottom: 3.5rem;
+        }
+
+        /* ── Fade-slide-in animation ── */
+        .fade-in {
+          opacity: 0;
+          transform: translateY(28px);
+          transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.22s; }
+        .delay-3 { transition-delay: 0.34s; }
+        .delay-4 { transition-delay: 0.46s; }
+
+        /* ── Info cards (call/email) ── */
+        .info-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 1.125rem;
+          padding: 1.375rem 1.5rem;
+          border-radius: 16px;
+          margin-bottom: 1rem;
+          background: var(--si-body-bg, #fff);
+          border: 1px solid var(--si-gray-300, #e2e5f1);
+          transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        [data-bs-theme="dark"] .info-item {
+          background: rgba(255,255,255,0.04);
+          border-color: rgba(255,255,255,0.09);
+        }
+
+        .info-item:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 12px 32px rgba(61,90,158,0.14);
+          border-color: rgba(61,90,158,0.35);
+        }
+
+        .info-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
+          background: linear-gradient(135deg, rgba(61,90,158,0.12), rgba(42,222,255,0.1));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          color: #3d5a9e;
+          font-size: 1.25rem;
+          transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .info-item:hover .info-icon {
+          background: linear-gradient(135deg, #3d5a9e, #157bc9);
+          color: #fff;
+          transform: rotate(-6deg) scale(1.08);
+        }
+
+        [data-bs-theme="dark"] .info-item:hover .info-icon {
+          color: #fff;
+        }
+
+        .info-label {
+          font-size: 0.72rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: #3d5a9e;
+          margin-bottom: 0.2rem;
+        }
+
+        .info-title {
+          font-weight: 700;
+          font-size: 1rem;
+          color: var(--si-gray-900, #0b0f19);
+          margin-bottom: 0.15rem;
+          line-height: 1.3;
+        }
+
+        [data-bs-theme="dark"] .info-title { color: #fff; }
+
+        .info-link {
+          color: var(--si-gray-600, #9397ad) !important;
+          text-decoration: none !important;
+          font-size: 0.88rem;
+          transition: color 0.2s ease;
+        }
+
+        .info-link:hover { color: #157bc9 !important; }
+
+        .contact-cta {
+          margin-top: 2rem;
+          padding: 1.25rem 1.5rem;
+          border-radius: 14px;
+          border-left: 4px solid #2adeff;
+          background: linear-gradient(90deg, rgba(42,222,255,0.07), transparent);
+          font-size: 0.95rem;
+          color: var(--si-gray-700, #565973);
+          font-weight: 500;
+          line-height: 1.55;
+        }
+
+        [data-bs-theme="dark"] .contact-cta {
+          background: linear-gradient(90deg, rgba(42,222,255,0.1), transparent);
+          color: rgba(255,255,255,0.7);
+        }
+
+        /* ── Form card ── */
+        .contact-card {
+          border-radius: 20px !important;
+          border: 1px solid var(--si-gray-300, #e2e5f1) !important;
+          box-shadow: 0 8px 40px rgba(11,15,25,0.06), 0 2px 8px rgba(11,15,25,0.04) !important;
+          background: var(--si-body-bg, #fff) !important;
+          overflow: hidden;
+        }
+
+        [data-bs-theme="dark"] .contact-card {
+          border-color: rgba(255,255,255,0.09) !important;
+          background: rgba(255,255,255,0.03) !important;
+          box-shadow: 0 8px 40px rgba(0,0,0,0.3) !important;
+        }
+
+        .contact-card .card-body { padding: 2.25rem 2rem !important; }
+
+        /* ── Form labels ── */
+        .form-label {
+          font-size: 0.8rem !important;
+          font-weight: 700 !important;
+          text-transform: uppercase;
+          letter-spacing: 0.07em;
+          color: var(--si-gray-700, #565973) !important;
+          margin-bottom: 0.35rem !important;
+        }
+
+        [data-bs-theme="dark"] .form-label { color: rgba(255,255,255,0.55) !important; }
+
+        /* ── Form controls ── */
+        .form-control {
+          border-radius: 10px !important;
+          border: 1.5px solid var(--si-gray-300, #e2e5f1) !important;
+          padding: 0.7rem 1rem !important;
+          font-size: 0.92rem !important;
+          font-family: 'Manrope', sans-serif;
+          background: var(--si-body-bg, #fff) !important;
+          color: var(--si-gray-700, #565973) !important;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease !important;
+        }
+
+        [data-bs-theme="dark"] .form-control {
+          background: rgba(255,255,255,0.06) !important;
+          border-color: rgba(255,255,255,0.1) !important;
+          color: rgba(255,255,255,0.85) !important;
+        }
+
+        .form-control:focus {
+          border-color: #3d5a9e !important;
+          box-shadow: 0 0 0 3px rgba(61,90,158,0.12), 0 4px 16px rgba(61,90,158,0.12) !important;
+          transform: translateY(-1px);
+        }
+
+        [data-bs-theme="dark"] .form-control:focus {
+          border-color: #2adeff !important;
+          box-shadow: 0 0 0 3px rgba(42,222,255,0.15), 0 4px 16px rgba(42,222,255,0.08) !important;
+        }
+
+        .form-control::placeholder { color: var(--si-gray-500, #b4b7c9) !important; opacity: 1; }
+
+        textarea.form-control { resize: none; min-height: 120px; }
+
+        /* ── Submit button ── */
+        .submit-btn {
+          width: 100%;
+          padding: 0.85rem 2rem !important;
+          font-size: 0.9rem !important;
+          font-weight: 700 !important;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          border-radius: 12px !important;
+          border: none !important;
+          background: linear-gradient(135deg, #3d5a9e 0%, #157bc9 60%, #2adeff 100%) !important;
+          background-size: 200% 100% !important;
+          background-position: 0% 0% !important;
+          color: #fff !important;
+          box-shadow: 0 4px 20px rgba(61,90,158,0.35) !important;
+          transition: background-position 0.4s ease, box-shadow 0.25s ease, transform 0.15s ease !important;
+          position: relative;
+          overflow: hidden;
+          margin-top: 1rem !important;
+        }
+
+        .submit-btn::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+          transform: translateX(-100%);
+          transition: transform 0.45s ease;
+        }
+
+        .submit-btn:hover::after { transform: translateX(100%); }
+
+        .submit-btn:hover {
+          background-position: 100% 0% !important;
+          box-shadow: 0 8px 32px rgba(61,90,158,0.45) !important;
+          transform: translateY(-2px);
+        }
+
+        .submit-btn:active { transform: translateY(0) scale(0.99); }
+
+        .submit-btn:disabled {
+          opacity: 0.85 !important;
+          transform: none !important;
+        }
+
+        /* ── Spinner inside button ── */
+        .btn-spinner {
+          width: 16px;
+          height: 16px;
+          border: 2px solid rgba(255,255,255,0.4);
+          border-top-color: #fff;
+          border-radius: 50%;
+          display: inline-block;
+          animation: spin 0.7s linear infinite;
+          margin-right: 8px;
+          vertical-align: middle;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Success state ── */
+        .success-state {
+          text-align: center;
+          padding: 3rem 1.5rem;
+          animation: successPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+
+        @keyframes successPop {
+          from { opacity: 0; transform: scale(0.85); }
+          to   { opacity: 1; transform: scale(1); }
+        }
+
+        .success-icon {
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #3d5a9e, #2adeff);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 1.25rem;
+          font-size: 2rem;
+          color: #fff;
+          box-shadow: 0 8px 24px rgba(61,90,158,0.35);
+          animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+          0%, 100% { box-shadow: 0 8px 24px rgba(61,90,158,0.35); }
+          50% { box-shadow: 0 8px 40px rgba(42,222,255,0.45); }
+        }
+
+        .success-title {
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: var(--si-gray-900, #0b0f19);
+          margin-bottom: 0.5rem;
+        }
+
+        [data-bs-theme="dark"] .success-title { color: #fff; }
+
+        .success-text {
+          color: var(--si-gray-600, #9397ad);
+          font-size: 0.95rem;
+        }
+
+       
+        /* ── Animated accent line ── */
+        .accent-line {
+          width: 48px;
+          height: 4px;
+          background: linear-gradient(90deg, #3d5a9e, #2adeff);
+          border-radius: 4px;
+          margin: 0.6rem auto 0;
+          animation: lineExpand 0.8s ease 0.5s both;
+        }
+
+        @keyframes lineExpand {
+          from { width: 0; opacity: 0; }
+          to   { width: 48px; opacity: 1; }
+        }
+
+        /* ── Responsive tweaks ── */
+        @media (max-width: 575px) {
+          .contact-card .card-body { padding: 1.5rem 1.25rem !important; }
+          .info-item { padding: 1rem 1.125rem; }
+        }
+      `}</style>
+
+      <section className="contact-section" ref={sectionRef}>
+        {/* Decorative dots */}
+        <div className="dot-grid dot-grid-tl" />
+        <div className="dot-grid dot-grid-br" />
+
+        <Container>
+          {/* Heading */}
+          <div className={`text-center mb-2 fade-in ${visible ? 'visible' : ''}`}>
+            <h1 className="contact-heading mb-5">Contact Us</h1>
+
+           
+          </div>
+
+          <Row className="justify-content-center align-items-start g-4">
+            {/* ── Left column: info ── */}
+            <Col xl={4} lg={5} className={`fade-in delay-1 ${visible ? 'visible' : ''}`}>
+              {/* Call */}
+              <div className="info-item">
+                <div className="info-icon">
+                  <IconifyIcon icon="bx:phone" style={{ fontSize: '20px' }} />
                 </div>
-                <div className="ps-3 ps-sm-4">
-                  <h2 className="h4 pb-1 mb-2">Email us</h2>
-                  <p className="mb-2">
-                    Please feel free to drop us a line. We will respond as soon as possible.
-                  </p>
-                  <Button variant="link" size="lg" className="px-0">
-                    Leave a message
-                    <IconifyIcon icon="bx:right-arrow-alt" className="lead ms-2" />
-                  </Button>
+                <div>
+                  <p className="info-label mb-1">Phone</p>
+                  <p className="info-title mb-1">Call us</p>
+                  <a href="tel:+442080504632" className="info-link">
+                    +44 (0) 20 8050 4632
+                  </a>
                 </div>
               </div>
 
-              <div className="d-flex align-items-start">
-                <div className="bg-light text-primary rounded-circle flex-shrink-0 fs-3 lh-1 p-3">
-                  <IconifyIcon icon="bx:group" />
+              {/* Email */}
+              <div className="info-item">
+                <div className="info-icon">
+                  <IconifyIcon icon="bx:envelope" style={{ fontSize: '20px' }} />
                 </div>
-                <div className="ps-3 ps-sm-4">
-                  <h2 className="h4 pb-1 mb-2">Careers</h2>
-                  <p className="mb-2">
-                    Sit ac ipsum leo lorem magna nunc mattis maecenas non vestibulum.
-                  </p>
-                  <Button variant="link" size="lg" className="px-0">
-                    Send an application
-                    <IconifyIcon icon="bx:right-arrow-alt" className="lead ms-2" />
-                  </Button>
+                <div>
+                  <p className="info-label mb-1">Email</p>
+                  <p className="info-title mb-1">Email us</p>
+                  <a href="mailto:info@enigmanet.co.uk" className="info-link">
+                    info@enigmanet.co.uk
+                  </a>
                 </div>
               </div>
-            </div>
-          </Col>
 
-          <Col xl={{ span: 6, offset: 2 }} lg={7}>
-            <Card className="border-light shadow-lg py-3 p-sm-4 p-md-5 position-relative">
-              <div className="bg-dark position-absolute top-0 start-0 w-100 h-100 rounded-3 d-none d-dark-mode-block"></div>
-              <Card.Body className="position-relative zindex-2">
-                <h2 className="card-title pb-3 mb-4">Get Online Consultation</h2>
+              {/* CTA blurb */}
+              <div className="contact-cta">
+                Get in touch for quotes, further support, and any other information — we&apos;re
+                happy to help.
+              </div>
+            </Col>
 
-                <Form className="row g-4 needs-validation" noValidate>
-                  <Col xs={12}>
-                    <Form.Label htmlFor="fn" className="form-label fs-base">
-                      Full name
-                    </Form.Label>
-                    <Form.Control type="text" id="fn" required className="form-control-lg" />
-                    <div className="invalid-feedback">Please enter your full name!</div>
-                  </Col>
+            {/* ── Right column: form ── */}
+            <Col xl={6} lg={7} md={10} className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
+              <Card className="contact-card">
+                <Card.Body>
+                  {submitted ? (
+                    <div className="success-state">
+                      <div className="success-icon">✓</div>
+                      <p className="success-title">Message Sent!</p>
+                      <p className="success-text">
+                        Thank you for reaching out. A member of our team will be in touch shortly.
+                      </p>
+                    </div>
+                  ) : (
+                    <Form className="row g-3" onSubmit={handleSubmit}>
+                      {/* Company */}
+                      <Col xs={12} className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
+                        <Form.Label>Company Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Your company"
+                          onFocus={() => setFocused('company')}
+                          onBlur={() => setFocused(null)}
+                        />
+                      </Col>
 
-                  <Col xs={12}>
-                    <Form.Label htmlFor="email" className="form-label fs-base">
-                      Email address
-                    </Form.Label>
-                    <Form.Control type="email" id="email" required className="form-control-lg" />
-                    <div className="invalid-feedback">Please provid a valid email address!</div>
-                  </Col>
+                      {/* Email */}
+                      <Col xs={12} className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
+                        <Form.Label>Email Address</Form.Label>
+                        <Form.Control
+                          type="email"
+                          placeholder="you@company.com"
+                          onFocus={() => setFocused('email')}
+                          onBlur={() => setFocused(null)}
+                        />
+                      </Col>
 
-                  <Col xs={12}>
-                    <Form.Label htmlFor="specialist" className="form-label fs-base">
-                      Specialist
-                    </Form.Label>
-                    <Form.Select
-                      id="specialist"
-                      required
-                      className="form-select-lg"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Choose a specialist
-                      </option>
-                      <option value="Therapist">Therapist</option>
-                      <option value="Dentist">Dentist</option>
-                      <option value="Cardiologist">Cardiologist</option>
-                      <option value="Pediatrician">Pediatrician</option>
-                      <option value="Gynecologist">Gynecologist</option>
-                      <option value="Surgeon">Surgeon</option>
-                    </Form.Select>
-                    <div className="invalid-feedback">Choose a specialist from the list!</div>
-                  </Col>
+                      {/* First / Last */}
+                      <Col xs={12} sm={6} className={`fade-in delay-3 ${visible ? 'visible' : ''}`}>
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="First name"
+                          onFocus={() => setFocused('first')}
+                          onBlur={() => setFocused(null)}
+                        />
+                      </Col>
 
-                  <Col sm={6}>
-                    <Form.Label htmlFor="date" className="form-label fs-base">
-                      Date
-                    </Form.Label>
-                    <Form.Control
-                      type="text"
-                      id="date"
-                      placeholder="mm/dd"
-                      required
-                      className="form-control-lg"
-                    />
-                    <div className="invalid-feedback">Enter a date!</div>
-                  </Col>
+                      <Col xs={12} sm={6} className={`fade-in delay-3 ${visible ? 'visible' : ''}`}>
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Last name"
+                          onFocus={() => setFocused('last')}
+                          onBlur={() => setFocused(null)}
+                        />
+                      </Col>
 
-                  <Col sm={6}>
-                    <Form.Label htmlFor="time" className="form-label fs-base">
-                      Time
-                    </Form.Label>
-                    <Form.Control
-                      type="text"
-                      id="time"
-                      placeholder="hh:mm"
-                      required
-                      className="form-control-lg"
-                    />
-                    <div className="invalid-feedback">Enter a time!</div>
-                  </Col>
+                      {/* Job title */}
+                      <Col xs={12} className={`fade-in delay-3 ${visible ? 'visible' : ''}`}>
+                        <Form.Label>Job Title</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Your role"
+                          onFocus={() => setFocused('job')}
+                          onBlur={() => setFocused(null)}
+                        />
+                      </Col>
 
-                  <Col xs={12} className="pt-2 pt-sm-3">
-                    <Button type="submit" size="lg" className="btn-primary w-100 w-sm-auto">
-                      Make an appointment
-                    </Button>
-                  </Col>
-                </Form>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+                      {/* Message */}
+                      <Col xs={12} className={`fade-in delay-4 ${visible ? 'visible' : ''}`}>
+                        <Form.Label>Message</Form.Label>
+                        <Form.Control
+                          as="textarea"
+                          rows={4}
+                          placeholder="How can we help you?"
+                          onFocus={() => setFocused('msg')}
+                          onBlur={() => setFocused(null)}
+                        />
+                      </Col>
 
-      <div
-        className="position-absolute bottom-0 start-0 w-100 bg-light"
-        style={{ height: '8rem' }}
-      ></div>
-    </section>
+                      {/* Submit */}
+                      <Col xs={12} className={`mt-1 fade-in delay-4 ${visible ? 'visible' : ''}`}>
+                        <Button type="submit" className="submit-btn" disabled={sending}>
+                          {sending && <span className="btn-spinner" />}
+                          {sending ? 'Sending…' : 'Send Message'}
+                        </Button>
+                      </Col>
+                    </Form>
+                  )}
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    </>
   );
 };
 

@@ -68,7 +68,8 @@ const SignUp = lazy(() => import("@/app/(account)/account-signup"))
 
 export const AllRoutes = [
   { path: '/', name: 'index', element: <Navigate to="/index" replace /> },
-  { path: '/index', name: 'index1', element: <Index /> },
+  // { path: '/index', name: 'index1', element: <Index /> },
+  { path: '/index', name: 'index1', element: <SaasV3 /> },
   { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
   { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },
   { path: '/app-showcase-v3', name: 'case3', element: <ShowCase3 /> },

@@ -412,6 +412,11 @@ export interface FooterConfig {
     href?: string;
     style?: { color?: string; fontSize?: string; fontWeight?: string; fontFamily?: string };
   };
+  contact?: {
+    email?: string;
+    phone?: string;
+    address?: string;
+  }
   description?: string;
   descriptionStyle?: { color?: string; fontSize?: string };
   email?: string;

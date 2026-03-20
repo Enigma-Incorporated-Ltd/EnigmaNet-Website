@@ -1,6 +1,5 @@
 import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
-import Branches from './components/Branches';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -14,7 +13,7 @@ const Index = () => {
         headerSticky="navbar-stuck"
       />
       <Contact />
-      <Branches />
+      {/* <Branches /> */}
       <Footer />
     </>
   );
