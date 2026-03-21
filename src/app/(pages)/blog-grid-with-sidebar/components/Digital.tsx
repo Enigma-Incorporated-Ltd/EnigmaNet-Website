@@ -3,6 +3,7 @@ import { CardBody, Col, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router';
 import IconifyIcon from '@/components/IconifyIcon';
 import { fetchBlogs, type BlogPost } from '@/services/cmsApi';
+import { OverlayLoader } from '@/components/loading/Loader';
 
 const PLACEHOLDER_IMAGE = 'https://placehold.co/600x400/e2e8f0/94a3b8?text=No+Image';
 
@@ -20,9 +21,7 @@ const Digital = () => {
 
   if (loading) {
     return (
-      <div className="d-flex justify-content-center py-5">
-        <Spinner animation="border" variant="primary" />
-      </div>
+     <OverlayLoader visible  message="Loading" />
     );
   }
 
