@@ -173,7 +173,7 @@ const Sidebar = () => {
               </Card.Body>
             </Card>
 
-            <Card className="mb-4">
+            {/* <Card className="mb-4">
               <CardBody>
                 <h3 className="h5">Tags</h3>
                 <div className="d-flex flex-wrap">
@@ -197,7 +197,7 @@ const Sidebar = () => {
                   ))}
                 </div>
               </CardBody>
-            </Card>
+            </Card> */}
 
             <Card className="mb-4">
               <CardBody>
@@ -233,7 +233,7 @@ const Sidebar = () => {
               </CardBody>
             </Card>
 
-            <Card
+            {/* <Card
               className="border-0 bg-faded-primary bg-repeat-0 bg-size-cover"
               style={{
                 minHeight: '25rem',
@@ -243,7 +243,7 @@ const Sidebar = () => {
               <CardBody>
                 <h5 className="h3 mb-4 pb-2 text-center">Ad Banner</h5>
               </CardBody>
-            </Card>
+            </Card> */}
           </OffcanvasBody>
         </Offcanvas>
       </aside>

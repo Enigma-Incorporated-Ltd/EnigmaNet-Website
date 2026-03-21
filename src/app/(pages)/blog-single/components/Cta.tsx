@@ -7,7 +7,7 @@ const Cta = () => {
       <Row className="gy-5">
         <Col lg={9}>
           {/* Newsletter subscription section */}
-          <Card className="p-md-5 p-4 border-0 bg-secondary">
+          {/* <Card className="p-md-5 p-4 border-0 bg-secondary">
             <CardBody className="w-100 mx-auto px-0" style={{ maxWidth: '746px' }}>
               <h2 className="mb-4 pb-3">Enjoy this post? Join our newsletter</h2>
               <form className="needs-validation" noValidate>
@@ -28,7 +28,7 @@ const Cta = () => {
                 </button>
               </form>
             </CardBody>
-          </Card>
+          </Card> */}
         </Col>
       </Row>
     </section>

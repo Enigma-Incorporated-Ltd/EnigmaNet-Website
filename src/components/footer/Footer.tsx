@@ -75,13 +75,28 @@ const Footer = () => {
     copyright,
     style,
   } = data;
-
+ console.log('socials', socials);
   const footerStyle: React.CSSProperties = {
     ...(style?.backgroundColor && { backgroundColor: style.backgroundColor }),
     ...(style?.textColor && { color: style.textColor }),
     ...(style?.padding && { padding: style.padding }),
   };
-
+const getSocialIcon = (title: string) => {
+  switch (title.toLowerCase()) {
+    case 'linkedin':
+      return 'bxl:linkedin';
+    case 'facebook':
+      return 'bxl:facebook';
+    case 'twitter':
+      return 'bxl:twitter';
+    case 'instagram':
+      return 'bxl:instagram';
+    case 'youtube':
+      return 'bxl:youtube';
+    default:
+      return 'bx:link'; // fallback icon
+  }
+};
   const logoSrc = brand.logoUrl || Logo;
   const logoWidth = brand.logoWidth || 47;
 
@@ -206,47 +221,6 @@ const Footer = () => {
                   </Col>
                 );
               })}
-
-              {/* Socials */}
-              {socials && socials.length > 0 && (
-                <Col xl={4} lg={3}>
-                  <h6 className="mb-2">
-                    <Link
-                      to="#social-links"
-                      className="d-block text-dark dropdown-toggle d-lg-none py-2"
-                      onClick={() => setOpenSocials(!openSocials)}
-                    >
-                      Socials
-                      <IconifyIcon icon="bx:chevron-down" fontSize={24} className="ms-1" />
-                    </Link>
-                    <span className="d-none d-lg-block">Socials</span>
-                  </h6>
-                  <Collapse in={openSocials}>
-                    <div id="social-links" className="d-lg-block">
-                      <ul className="nav flex-column mb-2 mb-lg-0">
-                        {socials.map((social, i) => {
-                          const socialStyle: React.CSSProperties = {
-                            ...(social.style?.color && { color: social.style.color }),
-                          };
-                          return (
-                            <li key={i} className="nav-item">
-                              <Link
-                                to={social.url}
-                                className="nav-link d-inline-block px-0 pt-1 pb-2"
-                                style={socialStyle}
-                              >
-                                {social.icon && <IconifyIcon icon={social.icon} className="me-2" />}
-                                {social.title}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  </Collapse>
-                </Col>
-              )}
-
               {contact && (
                 <Col xl={4} lg={5} className="pt-2 pt-lg-0">
                   <h6 className="mb-2">{emailLabel || 'Contact Us'}</h6>
@@ -294,13 +268,52 @@ const Footer = () => {
                   )}
                 </Col>
               )}
+              {/* Socials */}
+              {socials && socials.length > 0 && (
+                <Col  className="pt-2 gap-2 d-flex align-items-center justify-content-left pt-lg-2">
+                  <h6 className="mb-2">
+                    <Link
+                      to="#social-links"
+                      className="d-block text-dark dropdown-toggle d-lg-none py-2"
+                      onClick={() => setOpenSocials(!openSocials)}
+                    >
+                      Follow Us:
+                      <IconifyIcon icon="bx:chevron-down" fontSize={24} className="ms-1" />
+                    </Link>
+
+                    <span className="d-none d-lg-block">Follow Us:</span>
+                  </h6>
+
+                  <Collapse in={openSocials}>
+                    <div id="social-links" className="d-lg-block">
+                      <div className="d-flex flex-wrap gap-2 mt-2">
+                        {socials.map((social, i) => {
+                          const iconName = getSocialIcon(social.title);
+
+                          return (
+                            <Link
+                              key={i}
+                              to={social.url}
+                              className="btn btn-icon btn-sm btn-secondary btn-linkedin me-2 mb-2  d-flex align-items-center justify-content-center"
+                              target="_blank"
+                              aria-label={social.title}
+                            >
+                              <IconifyIcon icon={iconName} fontSize={16} />
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </Collapse>
+                </Col>
+              )}
             </Row>
           </Col>
         </Row>
 
         {/* Copyright */}
         <p
-          className="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0"
+          className="nav d-block fs-xs mb-3 text-center text-md-start pb-2 pb-lg-0 mb-0"
           style={
             copyright.style
               ? { color: copyright.style.color, fontSize: copyright.style.fontSize }
