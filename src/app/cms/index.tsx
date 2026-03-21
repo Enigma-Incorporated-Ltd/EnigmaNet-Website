@@ -41,7 +41,7 @@ function extractRenderableHtml(value: unknown): string | null {
 
   if (value && typeof value === 'object') {
     const obj = value as Record<string, unknown>;
-    for (const key of ['html', 'content', 'body', 'long-text', 'markup', 'template']) {
+    for (const key of ['legal-content', 'content', 'body', 'long-text', 'markup', 'template']) {
       const found = extractRenderableHtml(obj[key]);
       if (found) return found;
     }
@@ -90,7 +90,7 @@ const CmsViewer: React.FC = () => {
     load(() => fetchFooter(),          setFooter);
     load(() => fetchCollectionsIndex(), setCollections);
   }, []);
-console.log(footer);
+console.log(' collections', activeCollectionData.data);
   useEffect(() => {
     if (!activeCollection) return;
     setActiveCollectionData({ loading: true, error: null, data: null });

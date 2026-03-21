@@ -3,6 +3,7 @@ import { CardBody, CardText, CardTitle, Col, OverlayTrigger, Row, Spinner, Toolt
 import { Link } from 'react-router';
 import IconifyIcon from '@/components/IconifyIcon';
 import { fetchBlogs, type BlogPost } from '@/services/cmsApi';
+import { OverlayLoader } from '@/components/loading/Loader';
 
 const BlogPosts = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -18,9 +19,7 @@ const BlogPosts = () => {
 
   if (loading) {
     return (
-      <div className="d-flex justify-content-center py-5">
-        <Spinner animation="border" variant="primary" />
-      </div>
+     <OverlayLoader visible  message="Loading" />
     );
   }
 
