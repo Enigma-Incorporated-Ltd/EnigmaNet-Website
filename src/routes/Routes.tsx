@@ -63,7 +63,7 @@ const SaveItem = lazy(() => import("@/app/(account)/account-saved-items"))
 const Security = lazy(() => import("@/app/(account)/account-security"))
 const SignIn = lazy(() => import("@/app/(account)/account-signin"))
 const SignUp = lazy(() => import("@/app/(account)/account-signup"))
-
+ const TCOCalculator = lazy(() => import("@/app/product-tco-calculator/index"))
 
 
 export const AllRoutes = [
@@ -71,6 +71,7 @@ export const AllRoutes = [
   // { path: '/index', name: 'index1', element: <Index /> },
   { path: '/index', name: 'index1', element: <SaasV3 /> },
   { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
+  { path: '/product-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
   { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },
   { path: '/app-showcase-v3', name: 'case3', element: <ShowCase3 /> },
   { path: '/blog', name: 'blog', element: <Blog /> },
