@@ -14,7 +14,11 @@ const Index = () => {
     <>
       <PageMeta title="Blog List With Sidebar" />
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light shadow-sm shadow-dark-mode-none fixed-top" />
-      <nav className="container mt-lg-4 pt-5" aria-label="breadcrumb">
+      <nav
+        className="container mt-lg-4 custom-padding "
+        aria-label="breadcrumb"
+       
+      >
         <ol className="breadcrumb mb-0 pt-5">
           <li className="breadcrumb-item">
             <Link to="/index">
@@ -39,7 +43,7 @@ const Index = () => {
           <Sidebar />
         </Row>
       </section>
-      <Cta />
+      {/* <Cta /> */}
       <Footer />
     </>
   );
