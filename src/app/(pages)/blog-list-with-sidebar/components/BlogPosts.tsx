@@ -1,27 +1,12 @@
-import { useEffect, useState } from 'react';
-import { CardBody, CardText, CardTitle, Col, OverlayTrigger, Row, Spinner, Tooltip } from 'react-bootstrap';
+import { useState } from 'react';
+import { CardBody, CardText, CardTitle, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router';
 import IconifyIcon from '@/components/IconifyIcon';
-import { fetchBlogs, type BlogPost } from '@/services/cmsApi';
+import { type BlogPost } from '@/services/cmsApi';
 import { OverlayLoader } from '@/components/loading/Loader';
 
-const BlogPosts = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [visibleCount, setVisibleCount] = useState(7);
-
-  useEffect(() => {
-    fetchBlogs('blogs')
-      .then(setPosts)
-      .catch(() => setPosts([]))
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) {
-    return (
-     <OverlayLoader visible  message="Loading" />
-    );
-  }
+const BlogPosts = ({ posts, loading }: { posts: BlogPost[]; loading: boolean }) => {
+  const [visibleCount, setVisibleCount] = useState(6);
 
   if (posts.length === 0) {
     return <p className="text-center text-muted py-5">No posts available yet.</p>;
@@ -29,6 +14,13 @@ const BlogPosts = () => {
 
   const visible = posts.slice(0, visibleCount);
   const hasMore = visibleCount < posts.length;
+  if (loading) {
+    return <OverlayLoader visible message="Loading" />;
+  }
+
+  if (posts.length === 0) {
+    return <p className="text-center text-muted py-5">No posts available yet.</p>;
+  }
 
   return (
     <>
@@ -52,18 +44,6 @@ const BlogPosts = () => {
                       className="position-absolute top-0 start-0 w-100 h-100"
                       aria-label="Read more"
                     />
-                    <OverlayTrigger
-                      placement="left"
-                      overlay={<Tooltip id={`tip-${post.id}`}>Read later</Tooltip>}
-                    >
-                      <Link
-                        to="#"
-                        className="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3"
-                        aria-label="Read later"
-                      >
-                        <IconifyIcon icon="bx:bookmark" fontSize={18} />
-                      </Link>
-                    </OverlayTrigger>
                   </Col>
                 )}
                 <Col sm={7}>
@@ -118,10 +98,7 @@ const BlogPosts = () => {
           <div key={post.id} className="card me-xl-5 mb-4">
             <CardBody>
               <div className="d-flex justify-content-between mb-3 position-relative">
-                <Link
-                  to="#"
-                  className="badge fs-sm text-nav bg-secondary text-decoration-none"
-                >
+                <Link to="#" className="badge fs-sm text-nav bg-secondary text-decoration-none">
                   {post.category}
                 </Link>
                 <OverlayTrigger
@@ -155,7 +132,7 @@ const BlogPosts = () => {
         <button
           type="button"
           className="btn btn-lg btn-outline-primary w-100 mt-4"
-          onClick={() => setVisibleCount((c) => c + 7)}
+          onClick={() => setVisibleCount(c => c + 7)}
         >
           <IconifyIcon icon="bx:down-arrow-alt" className="fs-xl me-2" />
           Show more

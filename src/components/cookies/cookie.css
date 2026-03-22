@@ -1,0 +1,359 @@
+
+.cookie-root {
+    /* Light palette */
+    --ck-bg: #ffffff;
+    --ck-surface: #f7f8fc;
+    --ck-border: #e4e7f0;
+    --ck-title: #0b0f1a;
+    --ck-body: #6b7280;
+    --ck-label: #374151;
+
+    /* Brand accent */
+    --ck-accent: #4f6ef7;
+    --ck-accent-hov: #3a57e8;
+    --ck-accent-glow: rgba(79, 110, 247, 0.30);
+    --ck-accent-soft: rgba(79, 110, 247, 0.10);
+
+    /* Ghost button */
+    --ck-ghost-bg: #f1f3f9;
+    --ck-ghost-bd: #dde1ed;
+    --ck-ghost-fg: #4b5568;
+    --ck-ghost-hov-bg: #e8ecf7;
+    --ck-ghost-hov-fg: #1e2740;
+
+    /* FAB */
+    --ck-fab-bg: #ffffff;
+    --ck-fab-bd: #e4e7f0;
+    --ck-fab-hov-bg: #f1f3f9;
+
+    /* Misc */
+    --ck-shadow-lg: 0 8px 32px rgba(11, 15, 26, 0.12), 0 2px 8px rgba(11, 15, 26, 0.06);
+    --ck-shadow-fab: 0 4px 16px rgba(11, 15, 26, 0.10);
+    --ck-radius: 16px;
+    --ck-radius-btn: 10px;
+    --ck-radius-toggle: 999px;
+
+    /* Toggle track */
+    --ck-track-off: #d1d5db;
+    --ck-track-on: var(--ck-accent);
+    --ck-thumb: #ffffff;
+    --ck-check-disabled: #c4c9d9;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-bs-theme="light"]) .cookie-root {
+        --ck-bg: #131927;
+        --ck-surface: #1c2538;
+        --ck-border: rgba(255, 255, 255, 0.10);
+        --ck-title: #f0f4ff;
+        --ck-body: #8b93a8;
+        --ck-label: #c9d0e4;
+
+        --ck-accent: #5b7bff;
+        --ck-accent-hov: #7a96ff;
+        --ck-accent-glow: rgba(91, 123, 255, 0.35);
+        --ck-accent-soft: rgba(91, 123, 255, 0.12);
+
+        --ck-ghost-bg: rgba(255, 255, 255, 0.06);
+        --ck-ghost-bd: rgba(255, 255, 255, 0.12);
+        --ck-ghost-fg: #9faabf;
+        --ck-ghost-hov-bg: rgba(255, 255, 255, 0.10);
+        --ck-ghost-hov-fg: #e8edf8;
+
+        --ck-fab-bg: #1c2538;
+        --ck-fab-bd: rgba(255, 255, 255, 0.12);
+        --ck-fab-hov-bg: rgba(255, 255, 255, 0.08);
+
+        --ck-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.25);
+        --ck-shadow-fab: 0 4px 16px rgba(0, 0, 0, 0.35);
+
+        --ck-track-off: rgba(255, 255, 255, 0.18);
+        --ck-check-disabled: rgba(255, 255, 255, 0.20);
+    }
+}
+
+:root[data-bs-theme="dark"] .cookie-root {
+    --ck-bg: #131927;
+    --ck-surface: #1c2538;
+    --ck-border: rgba(255, 255, 255, 0.10);
+    --ck-title: #f0f4ff;
+    --ck-body: #8b93a8;
+    --ck-label: #c9d0e4;
+
+    --ck-accent: #5b7bff;
+    --ck-accent-hov: #7a96ff;
+    --ck-accent-glow: rgba(91, 123, 255, 0.35);
+    --ck-accent-soft: rgba(91, 123, 255, 0.12);
+
+    --ck-ghost-bg: rgba(255, 255, 255, 0.06);
+    --ck-ghost-bd: rgba(255, 255, 255, 0.12);
+    --ck-ghost-fg: #9faabf;
+    --ck-ghost-hov-bg: rgba(255, 255, 255, 0.10);
+    --ck-ghost-hov-fg: #e8edf8;
+
+    --ck-fab-bg: #1c2538;
+    --ck-fab-bd: rgba(255, 255, 255, 0.12);
+    --ck-fab-hov-bg: rgba(255, 255, 255, 0.08);
+
+    --ck-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.25);
+    --ck-shadow-fab: 0 4px 16px rgba(0, 0, 0, 0.35);
+
+    --ck-track-off: rgba(255, 255, 255, 0.18);
+    --ck-check-disabled: rgba(255, 255, 255, 0.20);
+}
+
+
+@keyframes ck-slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes ck-fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.78);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes ck-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.cookie-root {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+
+.cookie-popup {
+    width: 320px;
+    background: var(--ck-bg);
+    border: 1px solid var(--ck-border);
+    border-radius: var(--ck-radius);
+    padding: 22px 22px 18px;
+    box-shadow: var(--ck-shadow-lg);
+    animation: ck-slideUp 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+.cookie-popup__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.cookie-popup__header h4 {
+    margin: 0;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--ck-title);
+    letter-spacing: -0.01em;
+}
+
+
+.cookie-popup p {
+    margin: 0 0 18px;
+    font-size: 0.8125rem;
+    line-height: 1.65;
+    color: var(--ck-body);
+}
+
+
+.cookie-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 18px;
+    border: 1px solid var(--ck-border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--ck-surface);
+}
+
+.cookie-options label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--ck-label);
+    cursor: pointer;
+    transition: background 0.15s ease;
+    border-bottom: 1px solid var(--ck-border);
+    gap: 10px;
+}
+
+.cookie-options label:last-child {
+    border-bottom: none;
+}
+
+.cookie-options label:not(:has(input:disabled)):hover {
+    background: var(--ck-accent-soft);
+}
+
+
+.cookie-options input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 36px;
+    height: 20px;
+    border-radius: var(--ck-radius-toggle);
+    background: var(--ck-track-off);
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+
+.cookie-options input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--ck-thumb);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cookie-options input[type="checkbox"]:checked {
+    background: var(--ck-track-on);
+    box-shadow: 0 0 0 3px var(--ck-accent-soft);
+}
+
+.cookie-options input[type="checkbox"]:checked::after {
+    transform: translateX(16px);
+}
+
+/* Disabled (Necessary) */
+.cookie-options input[type="checkbox"]:disabled {
+    background: var(--ck-check-disabled);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.cookie-options label:has(input:disabled) {
+    cursor: default;
+    opacity: 0.7;
+}
+
+
+.cookie-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.cookie-actions button {
+    flex: 1;
+    padding: 9px 12px;
+    border-radius: var(--ck-radius-btn);
+    border: none;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+.cookie-actions button:active {
+    transform: scale(0.96);
+}
+
+/* Reject All — ghost */
+.cookie-actions button:first-child {
+    background: var(--ck-ghost-bg);
+    color: var(--ck-ghost-fg);
+    border: 1px solid var(--ck-ghost-bd);
+}
+
+.cookie-actions button:first-child:hover {
+    background: var(--ck-ghost-hov-bg);
+    color: var(--ck-ghost-hov-fg);
+}
+
+/* Save Preferences — ghost with accent text */
+.cookie-actions button:nth-child(2) {
+    background: var(--ck-accent-soft);
+    color: var(--ck-accent);
+    border: 1px solid transparent;
+}
+
+.cookie-actions button:nth-child(2):hover {
+    background: var(--ck-ghost-hov-bg);
+}
+
+/* Accept All — filled accent */
+.cookie-actions button:last-child {
+    background: var(--ck-accent);
+    color: #fff;
+    box-shadow: 0 4px 14px -3px var(--ck-accent-glow);
+}
+
+.cookie-actions button:last-child:hover {
+    background: var(--ck-accent-hov);
+    box-shadow: 0 6px 18px -3px var(--ck-accent-glow);
+}
+
+
+.cookie-fab {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1.5px solid var(--ck-fab-bd);
+    background: var(--ck-fab-bg);
+    box-shadow: var(--ck-shadow-fab);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    animation: ck-fadeIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cookie-fab:hover {
+    border-color: var(--ck-accent);
+    background: var(--ck-fab-hov-bg);
+    box-shadow: 0 6px 20px -4px var(--ck-accent-glow), var(--ck-shadow-fab);
+    transform: scale(1.08);
+}
+
+.cookie-fab:hover svg {
+    animation: ck-spin 1.8s linear infinite;
+}
+
+.cookie-fab:active {
+    transform: scale(0.94);
+}

@@ -2,7 +2,6 @@ import IconifyIcon from '@/components/IconifyIcon';
 import Navbar from '@/components/navbar/Navbar';
 import { Link } from 'react-router';
 import BlogList from './components/BlogList';
-import Cta from './components/Cta';
 import Footer from './components/Footer';
 import PageMeta from '@/components/PageMeta';
 

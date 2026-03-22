@@ -15,7 +15,6 @@ import {
   OffcanvasHeader,
   OffcanvasTitle,
 } from 'react-bootstrap';
-import banner from '@/assets/img/blog/banner.png';
 import { useState } from 'react';
 
 const Sidebar = () => {

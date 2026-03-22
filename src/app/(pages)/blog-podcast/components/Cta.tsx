@@ -1,5 +1,3 @@
-import IconifyIcon from '@/components/IconifyIcon';
-import { Link } from 'react-router';
 import { Card, CardBody, Col, Row } from 'react-bootstrap';
 
 const Cta = () => {

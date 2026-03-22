@@ -3,7 +3,7 @@ import Logo from '@/assets/img/EnigmaNet-logo.png';
 
 import { Link, useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
-import { Button, Collapse, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'react-bootstrap';
+import { Collapse, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'react-bootstrap';
 import IconifyIcon from '../IconifyIcon';
 import ThemeToggle from '../ThemeToggle';
 import { fetchHeader, type HeaderConfig, type NavItem, type NavLink, type NavSection } from '@/services/cmsApi';
