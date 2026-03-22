@@ -9,8 +9,8 @@ import { fetchFooter, type FooterConfig } from '@/services/cmsApi';
 const FALLBACK: FooterConfig = {
   brand: { name: 'EnigmaNet', href: '/index' },
   description:
-    'Proin ipsum pharetra, senectus eget scelerisque varius pretium platea velit. Lacus, eget eu vitae nullam proin turpis etiam mi sit.',
-  email: 'email@example.com',
+    'Enigma Secure Cloud offers predictable, transparent pricing with no hidden fees. Store your data securely without worrying about egress, API, or retrieval costs.',
+  email: 'info@enigmanet.co.uk',
   emailLabel: 'Contact Us',
   newsletter: {
     enabled: true,
@@ -25,12 +25,12 @@ const FALLBACK: FooterConfig = {
       title: 'Useful Links',
       links: [
         { title: 'Home', url: '#' },
-        { title: 'Features', url: '#' },
-        { title: 'Integrations', url: '#' },
-        { title: 'Our Clients', url: '#' },
-        { title: 'Blog', url: '#' },
-        { title: 'Terms & Conditions', url: '#' },
-        { title: 'Privacy Policy', url: '#' },
+        // { title: 'Features', url: '#' },
+        // { title: 'Integrations', url: '#' },
+        // { title: 'Our Clients', url: '#' },
+        { title: 'Blog', url: '/blog-list-with-sidebar' },
+        { title: 'Legal', url: '/legal' },
+        // { title: 'Privacy Policy', url: '#' },
       ],
     },
   ],
@@ -41,9 +41,9 @@ const FALLBACK: FooterConfig = {
     { title: 'Instagram', url: '#' },
   ],
   copyright: {
-    text: 'All rights reserved. Made by',
-    by: 'Coderthemes',
-    url: 'https://coderthemes.com/',
+    text: 'All rights reserved.',
+    by: 'EnigmaNet',
+    url: '',
   },
 };
 
@@ -52,7 +52,7 @@ const Footer = () => {
   const [data, setData] = useState<FooterConfig>(FALLBACK);
   const [openColumns, setOpenColumns] = useState<Record<number, boolean>>({});
   const [openSocials, setOpenSocials] = useState(false);
-  const [openLegal, setOpenLegal] = useState(false);
+
   useEffect(() => {
     fetchFooter()
       .then(setData)
@@ -67,7 +67,6 @@ const Footer = () => {
     brand,
     description,
     descriptionStyle,
-    email,
     emailLabel,
     contact,
     columns,
@@ -75,30 +74,30 @@ const Footer = () => {
     copyright,
     style,
   } = data;
- console.log('socials', socials);
+
   const footerStyle: React.CSSProperties = {
     ...(style?.backgroundColor && { backgroundColor: style.backgroundColor }),
     ...(style?.textColor && { color: style.textColor }),
     ...(style?.padding && { padding: style.padding }),
   };
-const getSocialIcon = (title: string) => {
-  switch (title.toLowerCase()) {
-    case 'linkedin':
-      return 'bxl:linkedin';
-    case 'facebook':
-      return 'bxl:facebook';
-    case 'twitter':
-      return 'bxl:twitter';
-    case 'instagram':
-      return 'bxl:instagram';
-    case 'youtube':
-      return 'bxl:youtube';
-    default:
-      return 'bx:link'; // fallback icon
-  }
-};
+  const getSocialIcon = (title: string) => {
+    switch (title.toLowerCase()) {
+      case 'linkedin':
+        return 'bxl:linkedin';
+      case 'facebook':
+        return 'bxl:facebook';
+      case 'twitter':
+        return 'bxl:twitter';
+      case 'instagram':
+        return 'bxl:instagram';
+      case 'youtube':
+        return 'bxl:youtube';
+      default:
+        return 'bx:link'; // fallback icon
+    }
+  };
   const logoSrc = brand.logoUrl || Logo;
-  const logoWidth = brand.logoWidth || 47;
+  // const logoWidth = brand.logoWidth || 47;
 
   const brandTextStyle: React.CSSProperties = {
     ...(brand.style?.color && { color: brand.style.color }),
@@ -270,7 +269,7 @@ const getSocialIcon = (title: string) => {
               )}
               {/* Socials */}
               {socials && socials.length > 0 && (
-                <Col  className="pt-2 gap-2 d-flex align-items-center justify-content-left pt-lg-2">
+                <Col className="pt-2 gap-2 d-flex align-items-center justify-content-left pt-lg-2">
                   <h6 className="mb-2">
                     <Link
                       to="#social-links"

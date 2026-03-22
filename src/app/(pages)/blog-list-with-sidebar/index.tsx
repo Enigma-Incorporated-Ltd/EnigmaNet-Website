@@ -1,24 +1,37 @@
 import PageTitle from './components/PageTitle';
 import { Col, Row } from 'react-bootstrap';
 import IconifyIcon from '@/components/IconifyIcon';
-import Sidebar from './components/Sidebar';
-import Cta from './components/Cta';
+
 import Footer from './components/Footer';
 import Navbar from '@/components/navbar/Navbar';
 import { Link } from 'react-router';
 import PageMeta from '@/components/PageMeta';
 import BlogPosts from './components/BlogPosts';
-
+import Sidebar from '../blog-grid-with-sidebar/components/Sidebar';
+import { useEffect, useState } from 'react';
+import { fetchBlogs, type BlogPost } from '@/services/cmsApi';
 const Index = () => {
+   const [posts, setPosts] = useState<BlogPost[]>([]);
+    const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
+     const [loading, setLoading] = useState(true);
+  
+     useEffect(() => {
+       fetchBlogs('blogs')
+         .then(data => {
+           setPosts(data);
+           setFilteredPosts(data);
+         })
+         .catch(() => {
+           setPosts([]);
+           setFilteredPosts([]);
+         })
+         .finally(() => setLoading(false));
+     }, []);
   return (
     <>
       <PageMeta title="Blog List With Sidebar" />
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light shadow-sm shadow-dark-mode-none fixed-top" />
-      <nav
-        className="container mt-lg-4 custom-padding "
-        aria-label="breadcrumb"
-       
-      >
+      <nav className="container mt-lg-4 custom-padding " aria-label="breadcrumb">
         <ol className="breadcrumb mb-0 pt-5">
           <li className="breadcrumb-item">
             <Link to="/index">
@@ -38,9 +51,9 @@ const Index = () => {
         <PageTitle />
         <Row>
           <Col xl={9} lg={8}>
-            <BlogPosts />
+            <BlogPosts posts={filteredPosts} loading={loading} />
           </Col>
-          <Sidebar />
+          <Sidebar loading={loading} posts={posts} setFilteredPosts={setFilteredPosts} />
         </Row>
       </section>
       {/* <Cta /> */}

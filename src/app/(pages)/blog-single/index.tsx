@@ -7,7 +7,6 @@ import { Spinner } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { fetchBlogBySlug, fetchBlogs, type BlogPost } from '@/services/cmsApi';
 import Blog from './components/Blog';
-import Cta from './components/Cta';
 import Footer from './components/Footer';
 import PostContent from './components/PostContent';
 import PostTitle from './components/PostTitle';
@@ -87,7 +86,7 @@ const Index = () => {
         <>
           <PostTitle post={post} />
           <PostContent post={post} />
-          <Cta />
+          
           <Blog related={related} />
         </>
       )}

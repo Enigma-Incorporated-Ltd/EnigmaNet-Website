@@ -3,7 +3,7 @@ import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 
 const Contact = () => {
-  const [focused, setFocused] = useState(null);
+ const [focused, setFocused] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -22,6 +22,7 @@ const Contact = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    console.log(focused);
     setSending(true);
     setTimeout(() => {
       setSending(false);

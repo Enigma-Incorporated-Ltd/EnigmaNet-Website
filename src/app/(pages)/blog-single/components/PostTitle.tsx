@@ -1,4 +1,3 @@
-import IconifyIcon from '@/components/IconifyIcon';
 import { Link } from 'react-router';
 import type { BlogPost } from '@/services/cmsApi';
 

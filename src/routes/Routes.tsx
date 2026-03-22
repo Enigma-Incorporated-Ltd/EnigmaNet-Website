@@ -2,7 +2,7 @@ import { lazy } from "react";
 import { Navigate } from "react-router";
 
 // Landings
-const Index = lazy(() => import("@/app/(landings)/index"))
+// const Index = lazy(() => import("@/app/(landings)/index"))
 const ShowCase1 = lazy(() => import("@/app/(landings)/app-showcase-v1"))
 const ShowCase2 = lazy(() => import('@/app/(landings)/app-showcase-v2'))
 const ShowCase3 = lazy(() => import('@/app/(landings)/app-showcase-v3'))
