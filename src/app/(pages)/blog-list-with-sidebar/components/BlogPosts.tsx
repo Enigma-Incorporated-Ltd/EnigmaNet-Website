@@ -4,8 +4,6 @@ import { Link } from 'react-router';
 import IconifyIcon from '@/components/IconifyIcon';
 import { fetchBlogs, type BlogPost } from '@/services/cmsApi';
 
-const PLACEHOLDER_IMAGE = 'https://placehold.co/600x400/e2e8f0/94a3b8?text=No+Image';
-
 const BlogPosts = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
