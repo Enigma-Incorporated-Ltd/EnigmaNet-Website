@@ -45,14 +45,14 @@ const tokens: Record<Theme, ThemeTokens> = {
     skeletonShine: brand.gray100,
   },
   dark: {
-    bg: brand.petrol,
+    bg: '#0b0f19',
     surface: '#132233',
     border: 'rgba(255,255,255,0.10)',
     text: '#ffffff',
     muted: 'rgba(255,255,255,0.50)',
     cardBg: '#0f2030',
     skeletonBase: '#1a2f42',
-    skeletonShine: '#1f3a50',
+    skeletonShine: ' #1f3a50',
   },
 };
 

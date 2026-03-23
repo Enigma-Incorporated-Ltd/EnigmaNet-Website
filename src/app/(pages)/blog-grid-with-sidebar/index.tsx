@@ -27,6 +27,7 @@ const Index = () => {
        })
        .finally(() => setLoading(false));
    }, []);
+  console.log(filteredPosts);
   return (
     <>
       <PageMeta title="Blog grid With Sidebar" />
