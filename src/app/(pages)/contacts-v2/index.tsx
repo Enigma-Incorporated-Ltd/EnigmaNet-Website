@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 const Index = () => {
   return (
     <>
-      <PageMeta  title="Contacts v.2"/>
+      <PageMeta  title="Contact-us"/>
       <Navbar
         Headerclass="header navbar navbar-expand-lg position-absolute navbar-sticky"
         headerSticky="navbar-stuck"

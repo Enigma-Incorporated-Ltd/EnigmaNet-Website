@@ -29,15 +29,24 @@ const Sidebar = ({
   loading: boolean;
 }) => {
   const [show, setShow] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string>('All');
   const categories = ['All', ...new Set(posts.map(p => p.category))];
 
-  const handleCategoryClick = (cat: string) => {
+const handleCategoryClick = (cat: string) => {
+  if (cat === activeCategory) {
+    // Toggle off → reset
+    setActiveCategory('All');
+    setFilteredPosts(posts);
+  } else {
+    setActiveCategory(cat);
+
     if (cat === 'All') {
       setFilteredPosts(posts);
     } else {
       setFilteredPosts(posts.filter(p => p.category === cat));
     }
-  };
+  }
+};
   const handleSearch = (value: string) => {
     const filtered = posts.filter(p => p.title.toLowerCase().includes(value.toLowerCase()));
     setFilteredPosts(filtered);
@@ -95,6 +104,7 @@ const Sidebar = ({
                     <NavItem key={cat}>
                       <NavLink
                         href="#"
+                        active={activeCategory === cat}
                         onClick={e => {
                           e.preventDefault();
                           handleCategoryClick(cat);
