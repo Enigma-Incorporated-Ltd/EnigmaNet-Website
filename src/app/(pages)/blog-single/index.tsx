@@ -3,7 +3,6 @@ import { useParams } from 'react-router';
 import IconifyIcon from '@/components/IconifyIcon';
 import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
-import { Spinner } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { fetchBlogBySlug, fetchBlogs, type BlogPost } from '@/services/cmsApi';
 import Blog from './components/Blog';
