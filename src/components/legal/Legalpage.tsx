@@ -23,9 +23,24 @@ const LegalPage = () => {
       .then(data => setLegalData(data))
       .finally(() => setLoading(false));
   }, []);
+const ORDER = [
+  'standard-terms',
+  'fair-use-policy',
+  'end-user-policy',
+  'privacy-policy',
+  'dmca-policy',
+  'software-license-agreement',
+  'addendum-cloud-storage',
+  ];
+  const sortedLegalData = [...legalData].sort((a, b) => {
+    const indexA = ORDER.indexOf(a.slug);
+    const indexB = ORDER.indexOf(b.slug);
 
+    // If not found, push to end
+    return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+  });
   // ✅ Find active page
-  const active = legalData.find(item => item.slug === slug) || legalData[0];
+  const active = sortedLegalData.find(item => item.slug === slug) || sortedLegalData[0];
 
   // ✅ Animate content change
   useEffect(() => {
@@ -70,7 +85,7 @@ const LegalPage = () => {
         <nav className={`legal-sidebar ${sidebarVisible ? 'legal-sidebar--visible' : ''}`}>
           <p className="legal-sidebar-label">Documents</p>
 
-          {legalData.map((item, i) => (
+          {sortedLegalData.map((item, i) => (
             <button
               key={item.id}
               className={`legal-sidebar-item ${
@@ -117,14 +132,8 @@ const LegalPage = () => {
             }}
           />
 
-          {/* Footer */}
-          <div className="legal-content-footer">
-            <span className="legal-content-footer-icon">ℹ</span>
-            This document is subject to Enigma's Standard Terms. For queries, contact{' '}
-            <a href="mailto:info@enigmanet.co.uk" className="legal-footer-link">
-              info@enigmanet.co.uk
-            </a>
-          </div>
+       
+      
         </main>
       </div>
     </div>

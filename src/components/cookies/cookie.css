@@ -1,4 +1,3 @@
-
 .cookie-root {
     /* Light palette */
     --ck-bg: #ffffff;
@@ -149,7 +148,7 @@
 
 
 .cookie-popup {
-    width: 320px;
+    width: 720px;
     background: var(--ck-bg);
     border: 1px solid var(--ck-border);
     border-radius: var(--ck-radius);
@@ -356,4 +355,71 @@
 
 .cookie-fab:active {
     transform: scale(0.94);
+}
+
+.cookie-sections {
+    border: 1px solid var(--ck-border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--ck-surface);
+    margin-bottom: 18px;
+}
+
+.cookie-section {
+    border-bottom: 1px solid var(--ck-border);
+}
+
+.cookie-section:last-child {
+    border-bottom: none;
+}
+
+.cookie-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cookie-section-header:hover {
+    background: var(--ck-accent-soft);
+}
+
+.cookie-section-body {
+    padding: 12px 14px;
+    font-size: 0.78rem;
+    color: var(--ck-body);
+    animation: ck-slideUp 0.2s ease;
+}
+
+.cookie-detail-box {
+    margin-top: 10px;
+    padding: 10px;
+    background: var(--ck-bg);
+    border-radius: 8px;
+    border: 1px solid var(--ck-border);
+    font-size: 0.75rem;
+}
+
+.cookie-always {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    color: green;
+    font-weight: 600;
+}
+
+.cookie-popup p {
+    font-size: .9rem;
+}
+
+@media (max-width: 575px) {
+    .cookie-popup {
+        width: 320px;
+        font-size: 0.8rem;
+        height: 100%;
+        overflow-y: scroll
+    }
+
 }

@@ -154,13 +154,13 @@ const handleCategoryClick = (cat: string) => {
               <CardBody>
                 <h5 className="mb-4">Follow Us</h5>
                 <Link
-                  to="#"
+                  to="https://www.linkedin.com/company/enigmanet-ai/"
                   className="btn btn-icon btn-sm btn-secondary btn-linkedin me-2 mb-2"
                   aria-label="LinkedIn"
                 >
                   <IconifyIcon icon="bxl:linkedin" fontSize={18} />
                 </Link>
-                <Link
+                {/* <Link
                   to="#"
                   className="btn btn-icon btn-sm btn-secondary btn-facebook me-2 mb-2"
                   aria-label="Facebook"
@@ -180,7 +180,7 @@ const handleCategoryClick = (cat: string) => {
                   aria-label="Instagram"
                 >
                   <IconifyIcon icon="bxl:instagram" fontSize={18} />
-                </Link>
+                </Link> */}
               </CardBody>
             </Card>
           </OffcanvasBody>
