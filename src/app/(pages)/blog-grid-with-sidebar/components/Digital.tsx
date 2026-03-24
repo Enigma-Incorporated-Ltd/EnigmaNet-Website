@@ -56,8 +56,8 @@ const Digital = ({ posts, loading }: { posts: BlogPost[]; loading: boolean }) =>
                 </h3>
                 <p className="mb-4">{post.description}</p>
                 <div className="d-flex align-items-center text-muted">
-                  <div className="fs-sm border-end pe-3 me-3">{post.date}</div>
-                  <div className="d-flex align-items-center me-3">
+                  <div className="fs-sm  pe-3 me-3">{post.date}</div>
+                  {/* <div className="d-flex align-items-center me-3">
                     <IconifyIcon icon="bx:like" className="fs-lg me-1" />
                     <span className="fs-sm">{post.likes}</span>
                   </div>
@@ -68,7 +68,7 @@ const Digital = ({ posts, loading }: { posts: BlogPost[]; loading: boolean }) =>
                   <div className="d-flex align-items-center">
                     <IconifyIcon icon="bx:share-alt" className="fs-lg me-1" />
                     <span className="fs-sm">{post.shares}</span>
-                  </div>
+                  </div> */}
                 </div>
               </CardBody>
             </article>

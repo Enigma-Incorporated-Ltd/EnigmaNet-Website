@@ -18,7 +18,7 @@ const Hero = () => {
       data-bs-theme="dark"
     >
       <Container className="position-relative zindex-2 pt-5 pb-md-2 pb-lg-4 pb-xl-5">
-        <Row className="pt-3 pb-2 py-md-4">
+        <Row className="pt-5 pb-2 py-md-4">
           <Col xl={5} md={6} className="pt-lg-5 text-center text-md-start mb-4 mb-md-0">
             <h1 className="display-3 pb-2 pb-sm-3">Make Your Life Even Easier with Crypto Bank</h1>
             <p className="text-body fs-lg d-md-none d-xl-block pb-2 pb-md-0 mb-4 mb-md-5">

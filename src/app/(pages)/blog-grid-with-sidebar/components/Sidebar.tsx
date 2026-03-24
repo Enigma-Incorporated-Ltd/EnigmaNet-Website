@@ -131,7 +131,7 @@ const handleCategoryClick = (cat: string) => {
 
                       <div className="d-flex align-items-center text-muted pt-1">
                         <span className="fs-xs me-3">{post.date}</span>
-                        <div className="d-flex align-items-center me-3">
+                        {/* <div className="d-flex align-items-center me-3">
                           <IconifyIcon icon="bx:like" className="fs-base me-1" fontSize={18} />
                           <span className="fs-xs">{post.likes}</span>
                         </div>
@@ -142,7 +142,7 @@ const handleCategoryClick = (cat: string) => {
                         <div className="d-flex align-items-center">
                           <IconifyIcon icon="bx:share-alt" className="fs-base me-1" fontSize={18} />
                           <span className="fs-xs">{post.shares}</span>
-                        </div>
+                        </div> */}
                       </div>
                     </li>
                   ))}
