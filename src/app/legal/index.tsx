@@ -7,7 +7,10 @@ const Legal = () => {
   return (
     <>
       <PageMeta title="Standard Terms | Enigma Net" />
-      <Navbar Headerclass="header navbar navbar-expand-lg position-absolute navbar-sticky" />
+      <Navbar
+        Headerclass="header navbar navbar-expand-lg position-absolute navbar-sticky"
+        headerSticky="navbar-stuck"
+      />
       <LegalPage />
 
       <Footer />

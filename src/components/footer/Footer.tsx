@@ -35,14 +35,14 @@ const FALLBACK: FooterConfig = {
     },
   ],
   socials: [
-    { title: 'Facebook', url: '#' },
+    // { title: 'Facebook', url: '#' },
     { title: 'LinkedIn', url: '#' },
-    { title: 'Twitter', url: '#' },
-    { title: 'Instagram', url: '#' },
+    // { title: 'Twitter', url: '#' },
+    // { title: 'Instagram', url: '#' },
   ],
   copyright: {
-    text: 'All rights reserved.',
-    by: 'EnigmaNet',
+    text: ' Copyright 2026. All rights reserved.',
+    by: 'Enigma Incorporated Ltd',
     url: '',
   },
 };
@@ -84,14 +84,14 @@ const Footer = () => {
     switch (title.toLowerCase()) {
       case 'linkedin':
         return 'bxl:linkedin';
-      case 'facebook':
-        return 'bxl:facebook';
-      case 'twitter':
-        return 'bxl:twitter';
-      case 'instagram':
-        return 'bxl:instagram';
-      case 'youtube':
-        return 'bxl:youtube';
+      // case 'facebook':
+      //   return 'bxl:facebook';
+      // case 'twitter':
+      //   return 'bxl:twitter';
+      // case 'instagram':
+      //   return 'bxl:instagram';
+      // case 'youtube':
+      //   return 'bxl:youtube';
       default:
         return 'bx:link'; // fallback icon
     }

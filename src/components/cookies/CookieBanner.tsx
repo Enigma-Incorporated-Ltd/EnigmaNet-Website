@@ -55,7 +55,23 @@ export default function CookieBanner() {
   const [cookies, setCookie] = useCookies(['cookie-consent']);
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openSection, setOpenSection] = useState<string | null>(null);
+  const [showMore, setShowMore] = useState(false);
+  const toggleSection = (section: string) => {
+    setOpenSection(prev => (prev === section ? null : section));
+  };
+  const fullText = `We use cookies to help you navigate efficiently and perform certain functions. You will
+find detailed information about all cookies under each consent category below. The
+cookies that are categorized as "Necessary" are stored on your browser as they are
+essential for enabling the basic functionalities of the site. We also use third-party
+cookies that help us analyze how you use this website, store your preferences, and
+provide the content and advertisements that are relevant to you. These cookies will only
+be stored in your browser with your prior consent. You can choose to enable or disable
+some or all of these cookies but disabling some of them may affect your browsing
+experience.`;
 
+  const words = fullText.split(' ');
+  const shortText = words.slice(0, 20).join(' ') + '...';
   const [consent, setConsent] = useState<ConsentType>({
     necessary: true,
     analytics: false,
@@ -101,42 +117,143 @@ export default function CookieBanner() {
         <div className="cookie-popup" role="dialog" aria-label="Cookie preferences">
           <div className="cookie-popup__header">
             <CookieIcon size={26} />
-            <h4>Cookie Preferences</h4>
+            <h4>We value your privacy</h4>
           </div>
 
           <p>
-            We use cookies to improve your experience. Manage your preferences below or accept all
-            to continue.
+            We use cookies to enhance your browsing experience, serve personalized ads or content,
+            and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
           </p>
+          <div className="cookie-popup__header">
+            <h4>Customize Consent Preferences</h4>
+          </div>
+          <p>
+            {showMore ? fullText : shortText}{' '}
+            <span
+              className="show-more"
+              onClick={() => setShowMore(prev => !prev)}
+              style={{ color: '#007bff', cursor: 'pointer', fontWeight: 500 }}
+            >
+              {showMore ? 'Show less' : 'Show more'}
+            </span>
+          </p>
+          <div className="cookie-sections">
+            {/* Necessary */}
+            <div className="cookie-section">
+              <div className="cookie-section-header" onClick={() => toggleSection('necessary')}>
+                <span>Necessary</span>
+                <span>{openSection === 'necessary' ? '▲' : '▼'}</span>
+              </div>
 
-          <div className="cookie-options">
-            {/* <label>
-              <span>Necessary</span>
-              <input
-                type="checkbox"
-                checked
-                disabled
-                aria-label="Necessary cookies, always active"
-              />
-            </label> */}
-            <label>
-              <span>Analytics</span>
-              <input
-                type="checkbox"
-                checked={consent.analytics}
-                aria-label="Analytics cookies"
-                onChange={e => setConsent({ ...consent, analytics: e.target.checked })}
-              />
-            </label>
-            <label>
-              <span>Marketing</span>
-              <input
-                type="checkbox"
-                checked={consent.marketing}
-                aria-label="Marketing cookies"
-                onChange={e => setConsent({ ...consent, marketing: e.target.checked })}
-              />
-            </label>
+              {openSection === 'necessary' && (
+                <div className="cookie-section-body">
+                  <p>
+                    Necessary cookies are required to enable the basic features of this site, such
+                    as providing secure log-in or adjusting your consent preferences. These cookies
+                    do not store any personally identifiable data.
+                  </p>
+                  <div className="cookie-detail-box">
+                    <div>No cookies to display</div>
+                  </div>
+                  <div className="cookie-always">Always Active</div>
+                </div>
+              )}
+            </div>
+            {/* Functional */}
+            <div className="cookie-section">
+              <div className="cookie-section-header" onClick={() => toggleSection('functional')}>
+                <span>Functional</span>
+                <span>{openSection === 'functional' ? '▲' : '▼'}</span>
+              </div>
+
+              {openSection === 'functional' && (
+                <div className="cookie-section-body">
+                  <p>
+                    Functional cookies help perform certain functionalities like sharing the content
+                    of the website on social media platforms, collecting feedback, and other
+                    third-party features.
+                  </p>
+
+                  <div className="cookie-detail-box">
+                    <div>No cookies to display</div>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Analytics */}
+            <div className="cookie-section">
+              <div className="cookie-section-header" onClick={() => toggleSection('analytics')}>
+                <span>Analytics</span>
+                <input
+                  type="checkbox"
+                  checked={consent.analytics}
+                  onChange={e => setConsent({ ...consent, analytics: e.target.checked })}
+                  onClick={e => e.stopPropagation()}
+                />
+              </div>
+
+              {openSection === 'analytics' && (
+                <div className="cookie-section-body">
+                  <p>
+                    Analytical cookies are used to understand how visitors interact with the
+                    website. These cookies help provide information on metrics such as the number of
+                    visitors, bounce rate, traffic source, etc.
+                  </p>
+
+                  <div className="cookie-detail-box">
+                    <div>
+                      <strong>Cookie:</strong> Analytics
+                    </div>
+                    <div>
+                      <strong>Duration:</strong> 365 days
+                    </div>
+                    <div>
+                      <strong>Description:</strong> Non-necessary cookies
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="cookie-section">
+              <div className="cookie-section-header" onClick={() => toggleSection('performance')}>
+                <span>Performance</span>
+                <span>{openSection === 'performance' ? '▲' : '▼'}</span>
+              </div>
+
+              {openSection === 'performance' && (
+                <div className="cookie-section-body">
+                  <p>
+                    Performance cookies are used to understand and analyze the key performance
+                    indexes of the website which helps in delivering a better user experience for
+                    the visitors.
+                  </p>
+
+                  <div className="cookie-detail-box">
+                    <div>No cookies to display</div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="cookie-section">
+              <div className="cookie-section-header" onClick={() => toggleSection('advertisement')}>
+                <span>Advertisement</span>
+                <span>{openSection === 'advertisement' ? '▲' : '▼'}</span>
+              </div>
+
+              {openSection === 'advertisement' && (
+                <div className="cookie-section-body">
+                  <p>
+                    Advertisement cookies are used to provide visitors with customized
+                    advertisements based on the pages you visited previously and to analyze the
+                    effectiveness of the ad campaigns.
+                  </p>
+
+                  <div className="cookie-detail-box">
+                    <div>No cookies to display</div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="cookie-actions">
