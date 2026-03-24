@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import { Link } from 'react-router';
 import IconifyIcon from '@/components/IconifyIcon';
-import { CardBody, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { CardBody } from 'react-bootstrap';
 import type { BlogPost } from '@/services/cmsApi';
 
 const PLACEHOLDER_IMAGE = 'https://placehold.co/800x500/e2e8f0/94a3b8?text=No+Image';
@@ -44,7 +44,7 @@ const Blog = ({ related }: BlogProps) => {
                   className="position-absolute top-0 start-0 w-100 h-100"
                   aria-label="Read more"
                 />
-                <OverlayTrigger
+                {/* <OverlayTrigger
                   placement="left"
                   overlay={<Tooltip id={`tip-${post.id}`}>Read later</Tooltip>}
                 >
@@ -55,7 +55,7 @@ const Blog = ({ related }: BlogProps) => {
                   >
                     <IconifyIcon icon="bx:bookmark" fontSize={18} />
                   </Link>
-                </OverlayTrigger>
+                </OverlayTrigger> */}
                 <img
                   src={post.image || PLACEHOLDER_IMAGE}
                   className="w-100 h-100"

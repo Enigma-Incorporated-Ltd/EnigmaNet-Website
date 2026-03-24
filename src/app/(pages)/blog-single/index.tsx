@@ -10,6 +10,7 @@ import Blog from './components/Blog';
 import Footer from './components/Footer';
 import PostContent from './components/PostContent';
 import PostTitle from './components/PostTitle';
+import { OverlayLoader } from '@/components/loading/Loader';
 
 
 const Index = () => {
@@ -72,9 +73,7 @@ const Index = () => {
       </nav>
 
       {loading ? (
-        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
-          <Spinner animation="border" variant="primary" />
-        </div>
+       <OverlayLoader visible  message="Loading" />
       ) : !post ? (
         <div className="container text-center py-5">
           <h2 className="text-muted">Post not found.</h2>

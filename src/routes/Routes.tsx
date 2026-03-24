@@ -70,6 +70,7 @@ export const AllRoutes = [
   { path: '/', name: 'index', element: <Navigate to="/index" replace /> },
   // { path: '/index', name: 'index1', element: <Index /> },
   { path: '/index', name: 'index1', element: <SaasV3 /> },
+  { path: '*', name: 'not-found', element: <Error1 /> },
   { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
   { path: '/product-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
   { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },
