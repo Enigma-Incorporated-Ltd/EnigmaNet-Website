@@ -1,32 +1,27 @@
-import Lottie from 'lottie-react';
-import animation404 from '@/assets/json/animation-404-v1.json';
-import { Col, Row } from 'react-bootstrap';
 import IconifyIcon from '@/components/IconifyIcon';
 import { Link } from 'react-router';
 
 const Error = () => {
   return (
     <>
-      
       <section className="container my-5 text-md-start text-center">
-        <Row className="align-items-center pt-5">
-          <Col xl={6} md={7} className="order-md-2 ms-n5">
-            <Lottie animationData={animation404} loop autoplay />
-          </Col>
-
-          <Col md={5} className="offset-xl-1 order-md-1">
-            <h1 className="display-1 mb-sm-4 mt-n4 mt-sm-n5">Error 404</h1>
-            <p className="mb-md-5 mb-4 mx-md-0 mx-auto pb-2 lead">
-              The page you are looking for was moved, removed, or might never have existed.
-            </p>
-            <Link to="/" className="btn btn-lg btn-primary shadow-primary w-sm-auto w-100">
-              <IconifyIcon icon="bx:home-alt" className="me-2 ms-n1 lead" />
-              Go to homepage
-            </Link>
-          </Col>
-        </Row>
+        <div style={{
+          paddingTop: '200px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          minHeight: 'calc(100vh - 200px)'
+        }}>
+          <h1 className="display-1 mb-sm-4 mt-n4 mt-sm-n5">Error 404</h1>
+          <p className="mb-md-5 mb-4 mx-md-0 mx-auto pb-2 lead">
+            The page you are looking for was moved, removed, or might never have existed.
+          </p>
+          <Link to="/" className="btn btn-lg btn-primary shadow-primary w-sm-auto w-100">
+            <IconifyIcon icon="bx:home-alt" className="me-2 ms-n1 lead" />
+            Go to homepage
+          </Link>
+        </div>
       </section>
-     
     </>
   );
 };

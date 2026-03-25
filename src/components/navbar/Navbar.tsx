@@ -158,7 +158,7 @@ const FALLBACK_CONFIG: HeaderConfig = {
     //     { label: 'Sign Up', href: '/account-signup' },
     //   ],
     // },
-    { label: 'Contact', type: 'link', href: '/contacts-v2' },
+    { label: 'Get in Touch', type: 'link', href: '/contacts-v2' },
   ],
   cta_button: { label: 'Buy now', href: '#', icon: 'bx:cart', variant: 'primary', size: 'sm' },
 };

@@ -1,21 +1,22 @@
 import { useState, useMemo } from 'react';
-import { Card, CardBody, Col, Form, Row, ProgressBar } from 'react-bootstrap';
+import { Card, CardBody, Col, Form, Row } from 'react-bootstrap';
 import IconifyIcon from '@/components/IconifyIcon';
-
+import Logo from '@/assets/img/logo.png';
+import CostComparisonChart from './CostComparisonChart';
 // Pricing data based on the Enigma pricing model (per TB/month for storage, per 1k for API, per GB for retrieval/egress)
 const PRICING = {
   aws: {
     s3Standard: {
       name: 'S3 Standard',
-      storage: 23.00, // $/TB/month
+      storage: 23.0, // $/TB/month
       putCost: 0.01, // per 1k requests
       listCost: 0.01, // per 1k requests
-      retrieval: 0.00, // $/GB
+      retrieval: 0.0, // $/GB
       egress: 0.09, // $/GB
     },
     s3StandardIA: {
       name: 'S3 Standard-IA',
-      storage: 12.50,
+      storage: 12.5,
       putCost: 0.01,
       listCost: 0.01,
       retrieval: 0.01,
@@ -23,7 +24,7 @@ const PRICING = {
     },
     s3GlacierInstant: {
       name: 'S3 Glacier Instant',
-      storage: 4.00,
+      storage: 4.0,
       putCost: 0.02,
       listCost: 0.02,
       retrieval: 0.03,
@@ -33,15 +34,15 @@ const PRICING = {
   google: {
     gcpStandard: {
       name: 'GCP Standard',
-      storage: 20.00,
+      storage: 20.0,
       putCost: 0.01,
       listCost: 0.01,
-      retrieval: 0.00,
+      retrieval: 0.0,
       egress: 0.12,
     },
     gcpNearline: {
       name: 'GCP Nearline',
-      storage: 10.00,
+      storage: 10.0,
       putCost: 0.01,
       listCost: 0.01,
       retrieval: 0.01,
@@ -49,7 +50,7 @@ const PRICING = {
     },
     gcpColdline: {
       name: 'GCP Coldline',
-      storage: 4.00,
+      storage: 4.0,
       putCost: 0.01,
       listCost: 0.01,
       retrieval: 0.02,
@@ -57,7 +58,7 @@ const PRICING = {
     },
     gcpArchive: {
       name: 'GCP Archive',
-      storage: 1.20,
+      storage: 1.2,
       putCost: 0.05,
       listCost: 0.05,
       retrieval: 0.05,
@@ -68,30 +69,41 @@ const PRICING = {
     payAsYouGo: {
       name: 'Pay As You Go',
       storage: 12.99,
-      putCost: 0.00,
-      listCost: 0.00,
-      retrieval: 0.00,
-      egress: 0.00,
+      putCost: 0.0,
+      listCost: 0.0,
+      retrieval: 0.0,
+      egress: 0.0,
     },
     reservedCapacity: {
       name: 'Reserved Capacity',
       storage: 10.99,
-      putCost: 0.00,
-      listCost: 0.00,
-      retrieval: 0.00,
-      egress: 0.00,
+      putCost: 0.0,
+      listCost: 0.0,
+      retrieval: 0.0,
+      egress: 0.0,
     },
   },
 };
 
 type CompetitorType = 'aws' | 'google';
 type CurrencyType = 'USD' | 'GBP' | 'EUR';
-
-// Exchange rates (relative to USD)
 const EXCHANGE_RATES: Record<CurrencyType, number> = {
   USD: 1,
   GBP: 0.79,
   EUR: 0.92,
+};
+// Exchange rates (relative to USD)
+const ENIGMA_PRICING = {
+  payAsYouGo: {
+    USD: 12.99,
+    GBP: 9.99,
+    EUR: 10.99,
+  },
+  reservedCapacity: {
+    USD: 10.99,
+    GBP: 7.99,
+    EUR: 8.99,
+  },
 };
 
 const CURRENCY_SYMBOLS: Record<CurrencyType, string> = {
@@ -119,8 +131,10 @@ const Calculator = () => {
   const [activeRetrievalRate, setActiveRetrievalRate] = useState<number>(20); // %
   const [newDataRate, setNewDataRate] = useState<number>(10); // %
   const [competitor, setCompetitor] = useState<CompetitorType>('aws');
-  const [enigmaTier, setEnigmaTier] = useState<'payAsYouGo' | 'reservedCapacity'>('payAsYouGo');
-  
+  const [enigmaTier, setEnigmaTier] = useState<'payAsYouGo' | 'reservedCapacity'>(
+    'reservedCapacity'
+  );
+
   // AWS tier allocation
   const [awsAllocation, setAwsAllocation] = useState<TierAllocation[]>([
     { tier: 's3Standard', percentage: 100 },
@@ -137,7 +151,7 @@ const Calculator = () => {
   ]);
 
   const [calculated, setCalculated] = useState(false);
-  const [currency, setCurrency] = useState<CurrencyType>('USD');
+  const [currency, setCurrency] = useState<CurrencyType>('GBP');
 
   // Calculated metrics
   const calculatedMetrics = useMemo(() => {
@@ -159,10 +173,13 @@ const Calculator = () => {
 
   // Calculate costs for a specific provider tier
   const calculateTierCost = (pricing: typeof PRICING.aws.s3Standard, storageAmount: number) => {
-    const { monthlyEgressGB, monthlyRetrievalGB, monthlyPutRequests, monthlyListRequests } = calculatedMetrics;
-    
+    const { monthlyEgressGB, monthlyRetrievalGB, monthlyPutRequests, monthlyListRequests } =
+      calculatedMetrics;
+
     const storageCost = storageAmount * pricing.storage;
-    const apiFees = (monthlyPutRequests / 1000) * pricing.putCost + (monthlyListRequests / 1000) * pricing.listCost;
+    const apiFees =
+      (monthlyPutRequests / 1000) * pricing.putCost +
+      (monthlyListRequests / 1000) * pricing.listCost;
     const retrievalFees = monthlyRetrievalGB * pricing.retrieval;
     const egressFees = monthlyEgressGB * pricing.egress;
 
@@ -191,7 +208,7 @@ const Calculator = () => {
         const storageAmount = totalStorage * (percentage / 100);
         const pricing = pricingData[tier as keyof typeof pricingData];
         const costs = calculateTierCost(pricing, storageAmount);
-        
+
         totalStorageCost += costs.storageCost;
         totalApiFees += costs.apiFees;
         totalRetrievalFees += costs.retrievalFees;
@@ -213,8 +230,15 @@ const Calculator = () => {
 
   // Calculate Enigma cost
   const enigmaCosts = useMemo(() => {
-    const pricing = PRICING.enigma[enigmaTier];
-    const costs = calculateTierCost(pricing, totalStorage);
+    const pricePerTB = ENIGMA_PRICING[enigmaTier][currency];
+
+    const costs = calculateTierCost(
+      {
+        ...PRICING.enigma[enigmaTier],
+        storage: pricePerTB,
+      },
+      totalStorage
+    );
 
     return {
       ...costs,
@@ -226,9 +250,11 @@ const Calculator = () => {
   const savings = useMemo(() => {
     const monthly = competitorCosts.monthlyTotal - enigmaCosts.monthlyTotal;
     const annual = competitorCosts.annualTotal - enigmaCosts.annualTotal;
-    const percentage = competitorCosts.annualTotal > 0 
-      ? ((competitorCosts.annualTotal - enigmaCosts.annualTotal) / competitorCosts.annualTotal) * 100 
-      : 0;
+    const percentage =
+      competitorCosts.annualTotal > 0
+        ? ((competitorCosts.annualTotal - enigmaCosts.annualTotal) / competitorCosts.annualTotal) *
+          100
+        : 0;
 
     return { monthly, annual, percentage };
   }, [competitorCosts, enigmaCosts]);
@@ -276,14 +302,17 @@ const Calculator = () => {
     setCalculated(false);
   };
 
-  const formatCurrency = (value: number) => {
-    const convertedValue = value * EXCHANGE_RATES[currency];
+  const formatCurrency = (value: number, isEnigma = false) => {
+    const finalValue = isEnigma
+      ? value // ✅ Enigma already in correct currency
+      : value * EXCHANGE_RATES[currency]; // ✅ Convert AWS/GCP
+
     return new Intl.NumberFormat(CURRENCY_LOCALES[currency], {
       style: 'currency',
       currency: currency,
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
-    }).format(convertedValue);
+    }).format(finalValue);
   };
 
   const formatNumber = (value: number) => {
@@ -309,7 +338,7 @@ const Calculator = () => {
                 </h4>
                 {/* Currency Toggle */}
                 <div className="btn-group" role="group" aria-label="Currency selection">
-                  {(['USD', 'GBP', 'EUR'] as CurrencyType[]).map((curr) => (
+                  {(['USD', 'GBP', 'EUR'] as CurrencyType[]).map(curr => (
                     <button
                       key={curr}
                       type="button"
@@ -324,14 +353,12 @@ const Calculator = () => {
 
               {/* Total Storage */}
               <Form.Group className="mb-4">
-                <Form.Label className="fw-semibold">
-                  Est. Total Storage Capacity
-                </Form.Label>
+                <Form.Label className="fw-semibold">Est. Total Storage Capacity</Form.Label>
                 <div className="input-group">
                   <Form.Control
                     type="number"
                     value={totalStorage}
-                    onChange={(e) => setTotalStorage(Number(e.target.value))}
+                    onChange={e => setTotalStorage(Number(e.target.value))}
                     min={1}
                     className="form-control-lg"
                   />
@@ -341,14 +368,12 @@ const Calculator = () => {
 
               {/* Average Object Size */}
               <Form.Group className="mb-4">
-                <Form.Label className="fw-semibold">
-                  Est. Avg. Object Size
-                </Form.Label>
+                <Form.Label className="fw-semibold">Est. Avg. Object Size</Form.Label>
                 <div className="input-group">
                   <Form.Control
                     type="number"
                     value={avgObjectSize}
-                    onChange={(e) => setAvgObjectSize(Number(e.target.value))}
+                    onChange={e => setAvgObjectSize(Number(e.target.value))}
                     min={0.001}
                     step={0.1}
                     className="form-control-lg"
@@ -359,35 +384,29 @@ const Calculator = () => {
 
               {/* Monthly Egress Rate */}
               <Form.Group className="mb-4">
-                <Form.Label className="fw-semibold">
-                  Est. Monthly Data Egress
-                </Form.Label>
+                <Form.Label className="fw-semibold">Est. Monthly Data Egress</Form.Label>
                 <div className="input-group">
                   <Form.Control
                     type="number"
                     value={monthlyEgressRate}
-                    onChange={(e) => setMonthlyEgressRate(Number(e.target.value))}
+                    onChange={e => setMonthlyEgressRate(Number(e.target.value))}
                     min={0}
                     max={100}
                     className="form-control-lg"
                   />
                   <span className="input-group-text">%</span>
                 </div>
-                <Form.Text className="text-muted">
-                  Percentage of data downloaded monthly
-                </Form.Text>
+                <Form.Text className="text-muted">Percentage of data downloaded monthly</Form.Text>
               </Form.Group>
 
               {/* Active Retrieval Rate */}
               <Form.Group className="mb-4">
-                <Form.Label className="fw-semibold">
-                  Est. Active Data Retrieval
-                </Form.Label>
+                <Form.Label className="fw-semibold">Est. Active Data Retrieval</Form.Label>
                 <div className="input-group">
                   <Form.Control
                     type="number"
                     value={activeRetrievalRate}
-                    onChange={(e) => setActiveRetrievalRate(Number(e.target.value))}
+                    onChange={e => setActiveRetrievalRate(Number(e.target.value))}
                     min={0}
                     max={100}
                     className="form-control-lg"
@@ -401,23 +420,19 @@ const Calculator = () => {
 
               {/* New Data Rate */}
               <Form.Group className="mb-4">
-                <Form.Label className="fw-semibold">
-                  Est. New Data Added/Written
-                </Form.Label>
+                <Form.Label className="fw-semibold">Est. New Data Added/Written</Form.Label>
                 <div className="input-group">
                   <Form.Control
                     type="number"
                     value={newDataRate}
-                    onChange={(e) => setNewDataRate(Number(e.target.value))}
+                    onChange={e => setNewDataRate(Number(e.target.value))}
                     min={0}
                     max={100}
                     className="form-control-lg"
                   />
                   <span className="input-group-text">%</span>
                 </div>
-                <Form.Text className="text-muted">
-                  Percentage of new data written monthly
-                </Form.Text>
+                <Form.Text className="text-muted">Percentage of new data written monthly</Form.Text>
               </Form.Group>
 
               <hr className="my-4" />
@@ -427,7 +442,7 @@ const Calculator = () => {
                 <Form.Label className="fw-semibold">Compare Against</Form.Label>
                 <Form.Select
                   value={competitor}
-                  onChange={(e) => setCompetitor(e.target.value as CompetitorType)}
+                  onChange={e => setCompetitor(e.target.value as CompetitorType)}
                   className="form-select-lg"
                 >
                   <option value="aws">Amazon Web Services (AWS)</option>
@@ -452,15 +467,13 @@ const Calculator = () => {
                       </div>
                       <Form.Range
                         value={item.percentage}
-                        onChange={(e) => handleAllocationChange(index, Number(e.target.value), true)}
+                        onChange={e => handleAllocationChange(index, Number(e.target.value), true)}
                         min={0}
                         max={100}
                       />
                     </div>
                   ))}
-                  {!isValidAllocation && (
-                    <small className="text-danger">* Must equal 100%</small>
-                  )}
+                  {!isValidAllocation && <small className="text-danger">* Must equal 100%</small>}
                 </div>
               )}
 
@@ -476,20 +489,20 @@ const Calculator = () => {
                   {googleAllocation.map((item, index) => (
                     <div key={item.tier} className="mb-2">
                       <div className="d-flex justify-content-between mb-1">
-                        <small>{PRICING.google[item.tier as keyof typeof PRICING.google].name}</small>
+                        <small>
+                          {PRICING.google[item.tier as keyof typeof PRICING.google].name}
+                        </small>
                         <small>{item.percentage}%</small>
                       </div>
                       <Form.Range
                         value={item.percentage}
-                        onChange={(e) => handleAllocationChange(index, Number(e.target.value), false)}
+                        onChange={e => handleAllocationChange(index, Number(e.target.value), false)}
                         min={0}
                         max={100}
                       />
                     </div>
                   ))}
-                  {!isValidAllocation && (
-                    <small className="text-danger">* Must equal 100%</small>
-                  )}
+                  {!isValidAllocation && <small className="text-danger">* Must equal 100%</small>}
                 </div>
               )}
 
@@ -500,11 +513,17 @@ const Calculator = () => {
                 <Form.Label className="fw-semibold">Enigma Secure Cloud Tier</Form.Label>
                 <Form.Select
                   value={enigmaTier}
-                  onChange={(e) => setEnigmaTier(e.target.value as 'payAsYouGo' | 'reservedCapacity')}
+                  onChange={e => setEnigmaTier(e.target.value as 'payAsYouGo' | 'reservedCapacity')}
                   className="form-select-lg"
                 >
-                  <option value="payAsYouGo">Pay As You Go ({CURRENCY_SYMBOLS[currency]}{(12.99 * EXCHANGE_RATES[currency]).toFixed(2)}/TB)</option>
-                  <option value="reservedCapacity">Reserved Capacity ({CURRENCY_SYMBOLS[currency]}{(10.99 * EXCHANGE_RATES[currency]).toFixed(2)}/TB)</option>
+                  <option value="payAsYouGo">
+                    Pay As You Go ({CURRENCY_SYMBOLS[currency]}
+                    {ENIGMA_PRICING.payAsYouGo[currency].toFixed(2)}/TB)
+                  </option>
+                  <option value="reservedCapacity">
+                    Reserved Capacity ({CURRENCY_SYMBOLS[currency]}
+                    {ENIGMA_PRICING.reservedCapacity[currency].toFixed(2)}/TB)
+                  </option>
                 </Form.Select>
               </Form.Group>
 
@@ -518,10 +537,7 @@ const Calculator = () => {
                   <IconifyIcon icon="bx:calculator" className="me-2" />
                   Calculate My TCO
                 </button>
-                <button
-                  className="btn btn-outline-secondary"
-                  onClick={handleReset}
-                >
+                <button className="btn btn-outline-secondary" onClick={handleReset}>
                   Reset
                 </button>
               </div>
@@ -537,9 +553,9 @@ const Calculator = () => {
               <Card className="shadow-lg border-0 h-100">
                 <CardBody className="text-center p-4">
                   <div className="d-flex align-items-center justify-content-center mb-3">
-                    <IconifyIcon 
-                      icon={competitor === 'aws' ? 'bxl:aws' : 'bxl:google-cloud'} 
-                      className="text-muted" 
+                    <IconifyIcon
+                      icon={competitor === 'aws' ? 'bxl:aws' : 'bxl:google-cloud'}
+                      className="text-muted"
                       style={{ fontSize: '2rem' }}
                     />
                   </div>
@@ -561,18 +577,19 @@ const Calculator = () => {
               <Card className="shadow-lg border-0 h-100 bg-primary text-white">
                 <CardBody className="text-center p-4">
                   <div className="d-flex align-items-center justify-content-center mb-3">
-                    <IconifyIcon 
-                      icon="bx:shield-quarter" 
-                      style={{ fontSize: '2rem' }}
+                    <img
+                      src={Logo}
+                      alt="Enigma Logo"
+                      style={{ width: '1.5rem', marginLeft: '0.5rem' }}
                     />
                   </div>
                   <h6 className="opacity-75 mb-2">Enigma Secure Cloud 1 Year TCO</h6>
                   <div className="display-5 fw-bold mb-2">
-                    {calculated ? formatCurrency(enigmaCosts.annualTotal) : '$0.00'}
+                    {calculated ? formatCurrency(enigmaCosts.annualTotal, true) : '$0.00'}
                   </div>
                   {calculated && (
                     <small className="opacity-75">
-                      {formatCurrency(enigmaCosts.monthlyTotal)}/month
+                      {formatCurrency(enigmaCosts.monthlyTotal, true)}/month
                     </small>
                   )}
                 </CardBody>
@@ -591,13 +608,12 @@ const Calculator = () => {
                       Your Annual Savings with Enigma
                     </h5>
                     <small className="opacity-75">
-                      That's {savings.percentage.toFixed(1)}% less than {competitor === 'aws' ? 'AWS' : 'Google Cloud'}!
+                      That's {savings.percentage.toFixed(1)}% less than{' '}
+                      {competitor === 'aws' ? 'AWS' : 'Google Cloud'}!
                     </small>
                   </Col>
                   <Col xs="auto">
-                    <div className="display-6 fw-bold">
-                      {formatCurrency(savings.annual)}
-                    </div>
+                    <div className="display-6 fw-bold">{formatCurrency(savings.annual, false)}</div>
                   </Col>
                 </Row>
               </CardBody>
@@ -606,143 +622,89 @@ const Calculator = () => {
 
           {/* Cost Breakdown */}
           {calculated && (
-            <Card className="shadow-lg border-0">
-              <CardBody className="p-4">
-                <h5 className="mb-4">
-                  <IconifyIcon icon="bx:bar-chart-alt-2" className="me-2 text-primary" />
-                  Cost Breakdown Comparison
-                </h5>
-
-                {/* Storage Costs */}
-                <div className="mb-4">
-                  <div className="d-flex justify-content-between mb-2">
-                    <span className="fw-semibold">Storage Fees</span>
-                    <div>
-                      <span className="text-muted me-3">
-                        {competitor === 'aws' ? 'AWS' : 'GCP'}: {formatCurrency(competitorCosts.storageCost)}
-                      </span>
-                      <span className="text-primary fw-semibold">
-                        Enigma: {formatCurrency(enigmaCosts.storageCost)}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="d-flex gap-2">
-                    <ProgressBar 
-                      now={competitorCosts.storageCost > 0 ? 100 : 0} 
-                      className="flex-grow-1" 
-                      style={{ height: '8px' }}
-                      variant="secondary"
-                    />
-                    <ProgressBar 
-                      now={competitorCosts.storageCost > 0 ? (enigmaCosts.storageCost / competitorCosts.storageCost) * 100 : 0} 
-                      className="flex-grow-1" 
-                      style={{ height: '8px' }}
-                      variant="primary"
-                    />
-                  </div>
+            <Card className="shadow-lg border-0 overflow-hidden">
+              <CardBody className="p-0">
+                {/* Header */}
+                <div
+                  className="px-4 py-3 bg-gradient-primary text-white"
+                  style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
+                >
+                  <h5 className="mb-0 text-white">
+                    <IconifyIcon icon="bx:bar-chart-alt-2" className="me-2" />
+                    Cost Breakdown Comparison
+                  </h5>
                 </div>
 
-                {/* API Fees */}
-                <div className="mb-4">
-                  <div className="d-flex justify-content-between mb-2">
-                    <span className="fw-semibold">API Fees (PUT/LIST)</span>
-                    <div>
-                      <span className="text-muted me-3">
-                        {competitor === 'aws' ? 'AWS' : 'GCP'}: {formatCurrency(competitorCosts.apiFees)}
-                      </span>
-                      <span className="text-primary fw-semibold">
-                        Enigma: {formatCurrency(enigmaCosts.apiFees)}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="d-flex gap-2">
-                    <ProgressBar 
-                      now={100} 
-                      className="flex-grow-1" 
-                      style={{ height: '8px' }}
-                      variant="secondary"
-                    />
-                    <ProgressBar 
-                      now={0} 
-                      className="flex-grow-1" 
-                      style={{ height: '8px' }}
-                      variant="primary"
-                      label="$0"
-                    />
-                  </div>
-                </div>
-
-                {/* Retrieval Fees */}
-                <div className="mb-4">
-                  <div className="d-flex justify-content-between mb-2">
-                    <span className="fw-semibold">Retrieval Fees</span>
-                    <div>
-                      <span className="text-muted me-3">
-                        {competitor === 'aws' ? 'AWS' : 'GCP'}: {formatCurrency(competitorCosts.retrievalFees)}
-                      </span>
-                      <span className="text-primary fw-semibold">
-                        Enigma: {formatCurrency(enigmaCosts.retrievalFees)}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="d-flex gap-2">
-                    <ProgressBar 
-                      now={100} 
-                      className="flex-grow-1" 
-                      style={{ height: '8px' }}
-                      variant="secondary"
-                    />
-                    <ProgressBar 
-                      now={0} 
-                      className="flex-grow-1" 
-                      style={{ height: '8px' }}
-                      variant="primary"
-                    />
-                  </div>
-                </div>
-
-                {/* Egress Fees */}
-                <div className="mb-4">
-                  <div className="d-flex justify-content-between mb-2">
-                    <span className="fw-semibold">Egress Fees</span>
-                    <div>
-                      <span className="text-muted me-3">
-                        {competitor === 'aws' ? 'AWS' : 'GCP'}: {formatCurrency(competitorCosts.egressFees)}
-                      </span>
-                      <span className="text-primary fw-semibold">
-                        Enigma: {formatCurrency(enigmaCosts.egressFees)}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="d-flex gap-2">
-                    <ProgressBar 
-                      now={100} 
-                      className="flex-grow-1" 
-                      style={{ height: '8px' }}
-                      variant="secondary"
-                    />
-                    <ProgressBar 
-                      now={0} 
-                      className="flex-grow-1" 
-                      style={{ height: '8px' }}
-                      variant="primary"
-                    />
-                  </div>
-                </div>
-
-                <hr />
-
-                {/* Monthly Total */}
-                <div className="d-flex justify-content-between align-items-center">
-                  <span className="fw-bold fs-5">Monthly Total</span>
-                  <div>
-                    <span className="text-muted me-3 fs-5">
-                      {competitor === 'aws' ? 'AWS' : 'GCP'}: {formatCurrency(competitorCosts.monthlyTotal)}
-                    </span>
-                    <span className="text-primary fw-bold fs-5">
-                      Enigma: {formatCurrency(enigmaCosts.monthlyTotal)}
-                    </span>
-                  </div>
+                {/* Table */}
+                <div className="table-responsive">
+                  <table className="table table-borderless mb-0">
+                    <thead className="border-bottom">
+                      <tr className="text-muted">
+                        <th scope="col" className="ps-4 py-3 fw-semibold">
+                          Cost Category
+                        </th>
+                        <th scope="col" className="text-end py-3 fw-semibold">
+                          {competitor === 'aws' ? 'AWS' : 'GCP'}
+                        </th>
+                        <th scope="col" className="text-end pe-4 py-3 fw-semibold text-primary">
+                          Enigma
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        {
+                          label: 'Storage Fees',
+                          competitor: competitorCosts.storageCost,
+                          enigma: enigmaCosts.storageCost,
+                        },
+                        {
+                          label: 'API Fees (PUT/LIST)',
+                          competitor: competitorCosts.apiFees,
+                          enigma: enigmaCosts.apiFees,
+                        },
+                        {
+                          label: 'Retrieval Fees',
+                          competitor: competitorCosts.retrievalFees,
+                          enigma: enigmaCosts.retrievalFees,
+                        },
+                        {
+                          label: 'Egress Fees',
+                          competitor: competitorCosts.egressFees,
+                          enigma: enigmaCosts.egressFees,
+                        },
+                      ].map((item, idx) => (
+                        <tr key={idx} className="border-bottom">
+                          <td className="ps-4 py-3">
+                            <span className="fw-medium">{item.label}</span>
+                          </td>
+                          <td className="text-end py-3 text-muted">
+                            {formatCurrency(item.competitor)}
+                          </td>
+                          <td className="text-end pe-4 py-3 text-primary fw-semibold">
+                            {formatCurrency(item.enigma, true)}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                    <tfoot className="bg-light">
+                      <tr>
+                        <td className="ps-4 py-4">
+                          <span className="fw-bold fs-5">Monthly Total</span>
+                        </td>
+                        <td className="text-end py-4">
+                          <span className="fw-bold fs-5">
+                            {formatCurrency(competitorCosts.monthlyTotal)}
+                          </span>
+                        </td>
+                        <td className="text-end pe-4 py-4">
+                          <span className="fw-bold fs-5 text-primary">
+                            {formatCurrency(enigmaCosts.monthlyTotal, true)}
+                          </span>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
                 </div>
               </CardBody>
             </Card>
@@ -752,14 +714,15 @@ const Calculator = () => {
           {!calculated && (
             <Card className="shadow-lg border-0">
               <CardBody className="p-4 text-center">
-                <IconifyIcon 
-                  icon="bx:info-circle" 
-                  className="text-primary mb-3" 
+                <IconifyIcon
+                  icon="bx:info-circle"
+                  className="text-primary mb-3"
                   style={{ fontSize: '3rem' }}
                 />
                 <h5>Configure Your Storage Requirements</h5>
                 <p className="text-muted mb-0">
-                  Enter your storage parameters on the left and click "Calculate My TCO" to see how much you can save with Enigma Secure Cloud.
+                  Enter your storage parameters on the left and click "Calculate My TCO" to see how
+                  much you can save with Enigma Secure Cloud.
                 </p>
               </CardBody>
             </Card>
@@ -861,6 +824,19 @@ const Calculator = () => {
           </Card>
         </Col>
       </Row>
+      {calculated && (
+        <div className="mt-4">
+          <CostComparisonChart
+            competitorCosts={competitorCosts}
+            enigmaCosts={enigmaCosts}
+            competitor={competitor}
+            currency={currency}
+            formatCurrency={formatCurrency}
+            savings={savings}
+            
+          />
+        </div>
+      )}
     </section>
   );
 };
