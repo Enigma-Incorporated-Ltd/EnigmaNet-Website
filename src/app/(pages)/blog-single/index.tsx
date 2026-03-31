@@ -3,14 +3,13 @@ import { useParams } from 'react-router';
 import IconifyIcon from '@/components/IconifyIcon';
 import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
-import { Spinner } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { fetchBlogBySlug, fetchBlogs, type BlogPost } from '@/services/cmsApi';
 import Blog from './components/Blog';
-import Cta from './components/Cta';
 import Footer from './components/Footer';
 import PostContent from './components/PostContent';
 import PostTitle from './components/PostTitle';
+import { OverlayLoader } from '@/components/loading/Loader';
 
 
 const Index = () => {
@@ -73,9 +72,7 @@ const Index = () => {
       </nav>
 
       {loading ? (
-        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
-          <Spinner animation="border" variant="primary" />
-        </div>
+       <OverlayLoader visible  message="Loading" />
       ) : !post ? (
         <div className="container text-center py-5">
           <h2 className="text-muted">Post not found.</h2>
@@ -87,7 +84,7 @@ const Index = () => {
         <>
           <PostTitle post={post} />
           <PostContent post={post} />
-          <Cta />
+          
           <Blog related={related} />
         </>
       )}

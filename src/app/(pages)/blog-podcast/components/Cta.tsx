@@ -1,5 +1,3 @@
-import IconifyIcon from '@/components/IconifyIcon';
-import { Link } from 'react-router';
 import { Card, CardBody, Col, Row } from 'react-bootstrap';
 
 const Cta = () => {
@@ -66,7 +64,7 @@ const Cta = () => {
           </Card>
         </Col>
 
-        <Col lg={3} className="position-relative">
+        {/* <Col lg={3} className="position-relative">
           <div className="sticky-top ms-xl-5 ms-lg-4 ps-xxl-4" style={{ top: '70px !important' }}>
             <Row className="gy-lg-5 gy-4 justify-content-center text-lg-start text-center">
               <Col lg={12} sm={7} xs={11}>
@@ -125,7 +123,7 @@ const Cta = () => {
               </Col>
             </Row>
           </div>
-        </Col>
+        </Col> */}
       </Row>
     </section>
   );

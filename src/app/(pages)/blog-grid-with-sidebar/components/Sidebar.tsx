@@ -15,14 +15,53 @@ import {
   OffcanvasHeader,
   OffcanvasTitle,
 } from 'react-bootstrap';
-import banner from '@/assets/img/blog/banner.png';
 import { useState } from 'react';
+import type { BlogPost } from '@/services/cmsApi';
+import { OverlayLoader } from '@/components/loading/Loader';
 
-const Sidebar = () => {
+const Sidebar = ({
+  posts,
+  loading,
+  setFilteredPosts,
+}: {
+  posts: BlogPost[];
+  setFilteredPosts: (posts: BlogPost[]) => void;
+  loading: boolean;
+}) => {
   const [show, setShow] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+  const categories = ['All', ...new Set(posts.map(p => p.category))];
 
+const handleCategoryClick = (cat: string) => {
+  if (cat === activeCategory) {
+    // Toggle off → reset
+    setActiveCategory('All');
+    setFilteredPosts(posts);
+  } else {
+    setActiveCategory(cat);
+
+    if (cat === 'All') {
+      setFilteredPosts(posts);
+    } else {
+      setFilteredPosts(posts.filter(p => p.category === cat));
+    }
+  }
+};
+  const handleSearch = (value: string) => {
+    const filtered = posts.filter(p => p.title.toLowerCase().includes(value.toLowerCase()));
+    setFilteredPosts(filtered);
+  };
+  const popularPosts = [...posts].sort((a, b) => b.likes - a.likes).slice(0, 3);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center py-5">
+        <OverlayLoader visible={loading} />
+      </div>
+    );
+  }
   return (
     <>
       <Button
@@ -49,11 +88,7 @@ const Sidebar = () => {
           <OffcanvasBody>
             <Form className="position-relative mb-4">
               <InputGroup>
-                <FormControl
-                  type="text"
-                  placeholder="Search the blog..."
-                  className="rounded pe-5"
-                />
+                <FormControl onChange={e => handleSearch(e.target.value)} placeholder="Search..." />
               </InputGroup>
               <IconifyIcon
                 icon="bx:search"
@@ -65,42 +100,20 @@ const Sidebar = () => {
               <CardBody>
                 <h3 className="h5">Categories</h3>
                 <Nav className="flex-column fs-sm">
-                  <NavItem className="mb-1">
-                    <NavLink href="#" className="py-1 px-0 active">
-                      All topics
-                      <span className="fw-normal opacity-60 ms-1">(48)</span>
-                    </NavLink>
-                  </NavItem>
-                  <NavItem className="mb-1">
-                    <NavLink href="#" className="py-1 px-0">
-                      Digital <span className="fw-normal opacity-60 ms-1">(12)</span>
-                    </NavLink>
-                  </NavItem>
-                  <NavItem className="mb-1">
-                    <NavLink href="#" className="py-1 px-0">
-                      Marketing <span className="fw-normal opacity-60 ms-1">(5)</span>
-                    </NavLink>
-                  </NavItem>
-                  <NavItem className="mb-1">
-                    <NavLink href="#" className="py-1 px-0">
-                      Startups <span className="fw-normal opacity-60 ms-1">(10)</span>
-                    </NavLink>
-                  </NavItem>
-                  <NavItem className="mb-1">
-                    <NavLink href="#" className="py-1 px-0">
-                      Technology <span className="fw-normal opacity-60 ms-1">(9)</span>
-                    </NavLink>
-                  </NavItem>
-                  <NavItem className="mb-1">
-                    <NavLink href="#" className="py-1 px-0">
-                      Business <span className="fw-normal opacity-60 ms-1">(4)</span>
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="#" className="py-1 px-0">
-                      Processes &amp; Tools <span className="fw-normal opacity-60 ms-1">(3)</span>
-                    </NavLink>
-                  </NavItem>
+                  {categories.map(cat => (
+                    <NavItem key={cat}>
+                      <NavLink
+                        href="#"
+                        active={activeCategory === cat}
+                        onClick={e => {
+                          e.preventDefault();
+                          handleCategoryClick(cat);
+                        }}
+                      >
+                        {cat}
+                      </NavLink>
+                    </NavItem>
+                  ))}
                 </Nav>
               </CardBody>
             </Card>
@@ -110,107 +123,44 @@ const Sidebar = () => {
               <Card.Body className="position-relative zindex-2">
                 <h3 className="h5">Popular posts</h3>
                 <ul className="list-unstyled mb-0">
-                  <li className="border-bottom pb-3 mb-3">
-                    <h4 className="h6 mb-2">
-                      <Link to="#">5 Bad Landing Page Examples &amp; How We Would Fix Them</Link>
-                    </h4>
-                    <div className="d-flex align-items-center text-muted pt-1">
-                      <div className="fs-xs border-end pe-3 me-3">12 hours ago</div>
-                      <div className="d-flex align-items-center me-3">
-                        <IconifyIcon icon="bx:like" className="fs-base me-1" fontSize={18} />
-                        <span className="fs-xs">8</span>
+                  {popularPosts.map(post => (
+                    <li key={post.id} className="border-bottom pb-3 mb-3">
+                      <h4 className="h6 mb-2">
+                        <Link to={`/blog-single/${post.slug}`}>{post.title}</Link>
+                      </h4>
+
+                      <div className="d-flex align-items-center text-muted pt-1">
+                        <span className="fs-xs me-3">{post.date}</span>
+                        {/* <div className="d-flex align-items-center me-3">
+                          <IconifyIcon icon="bx:like" className="fs-base me-1" fontSize={18} />
+                          <span className="fs-xs">{post.likes}</span>
+                        </div>
+                        <div className="d-flex align-items-center me-3">
+                          <IconifyIcon icon="bx:comment" className="fs-base me-1" fontSize={18} />
+                          <span className="fs-xs">{post.comments}</span>
+                        </div>
+                        <div className="d-flex align-items-center">
+                          <IconifyIcon icon="bx:share-alt" className="fs-base me-1" fontSize={18} />
+                          <span className="fs-xs">{post.shares}</span>
+                        </div> */}
                       </div>
-                      <div className="d-flex align-items-center me-3">
-                        <IconifyIcon icon="bx:comment" className="fs-base me-1" fontSize={18} />
-                        <span className="fs-xs">4</span>
-                      </div>
-                      <div className="d-flex align-items-center">
-                        <IconifyIcon icon="bx:share-alt" className="fs-base me-1" fontSize={18} />
-                        <span className="fs-xs">2</span>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="border-bottom pb-3 mb-3">
-                    <h4 className="h6 mb-2">
-                      <Link to="#">How Agile is Your Forecasting Process?</Link>
-                    </h4>
-                    <div className="d-flex align-items-center text-muted pt-1">
-                      <div className="fs-xs border-end pe-3 me-3">Oct 9, 2023</div>
-                      <div className="d-flex align-items-center me-3">
-                        <IconifyIcon icon="bx:like" className="fs-base me-1" />
-                        <span className="fs-xs">4</span>
-                      </div>
-                      <div className="d-flex align-items-center me-3">
-                        <IconifyIcon icon="bx:comment" className="fs-base me-1" />
-                        <span className="fs-xs">1</span>
-                      </div>
-                      <div className="d-flex align-items-center">
-                        <IconifyIcon icon="bx:share-alt" className="fs-base me-1" />
-                        <span className="fs-xs">0</span>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <h4 className="h6 mb-2">
-                      <Link to="#">Inclusive Marketing: Why and How Does it Work?</Link>
-                    </h4>
-                    <div className="d-flex align-items-center text-muted pt-1">
-                      <div className="fs-xs border-end pe-3 me-3">Sep 13, 2023</div>
-                      <div className="d-flex align-items-center me-3">
-                        <IconifyIcon icon="bx:like" className="fs-base me-1" />
-                        <span className="fs-xs">5</span>
-                      </div>
-                      <div className="d-flex align-items-center me-3">
-                        <IconifyIcon icon="bx:comment" className="fs-base me-1" />
-                        <span className="fs-xs">2</span>
-                      </div>
-                      <div className="d-flex align-items-center">
-                        <IconifyIcon icon="bx:share-alt" className="fs-base me-1" />
-                        <span className="fs-xs">4</span>
-                      </div>
-                    </div>
-                  </li>
+                    </li>
+                  ))}
                 </ul>
               </Card.Body>
             </Card>
 
             <Card className="mb-4">
               <CardBody>
-                <h3 className="h5">Tags</h3>
-                <div className="d-flex flex-wrap">
-                  {[
-                    '#lifestyle',
-                    '#ux',
-                    '#tech',
-                    '#user',
-                    '#software',
-                    '#it',
-                    '#network',
-                    '#engineering',
-                  ].map(tag => (
-                    <Link
-                      key={tag}
-                      to="#"
-                      className="btn btn-outline-secondary btn-sm px-3 my-1 me-2"
-                    >
-                      {tag}
-                    </Link>
-                  ))}
-                </div>
-              </CardBody>
-            </Card>
-
-            <Card className="mb-4">
-              <CardBody>
                 <h5 className="mb-4">Follow Us</h5>
                 <Link
-                  to="#"
+                  to="https://www.linkedin.com/company/enigmanet-ai/"
                   className="btn btn-icon btn-sm btn-secondary btn-linkedin me-2 mb-2"
                   aria-label="LinkedIn"
                 >
                   <IconifyIcon icon="bxl:linkedin" fontSize={18} />
                 </Link>
-                <Link
+                {/* <Link
                   to="#"
                   className="btn btn-icon btn-sm btn-secondary btn-facebook me-2 mb-2"
                   aria-label="Facebook"
@@ -230,19 +180,7 @@ const Sidebar = () => {
                   aria-label="Instagram"
                 >
                   <IconifyIcon icon="bxl:instagram" fontSize={18} />
-                </Link>
-              </CardBody>
-            </Card>
-
-            <Card
-              className="border-0 bg-faded-primary bg-repeat-0 bg-size-cover"
-              style={{
-                minHeight: '25rem',
-                backgroundImage: `url(${banner})`,
-              }}
-            >
-              <CardBody>
-                <h5 className="h3 mb-4 pb-2 text-center">Ad Banner</h5>
+                </Link> */}
               </CardBody>
             </Card>
           </OffcanvasBody>

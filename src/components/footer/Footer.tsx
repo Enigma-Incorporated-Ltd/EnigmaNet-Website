@@ -1,4 +1,4 @@
-import defaultLogo from '@/assets/img/logo.svg';
+import Logo from '@/assets/img/EnigmaNet-logo.png';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useEffect, useState } from 'react';
 import { Col, Collapse, Container, Row } from 'react-bootstrap';
@@ -7,10 +7,10 @@ import { fetchFooter, type FooterConfig } from '@/services/cmsApi';
 
 // ── Fallback hard-coded config ────────────────────────────────────────────────
 const FALLBACK: FooterConfig = {
-  brand: { name: 'Silicon', href: '/index' },
+  brand: { name: 'EnigmaNet', href: '/index' },
   description:
-    'Proin ipsum pharetra, senectus eget scelerisque varius pretium platea velit. Lacus, eget eu vitae nullam proin turpis etiam mi sit.',
-  email: 'email@example.com',
+    'Enigma Secure Cloud offers predictable, transparent pricing with no hidden fees. Store your data securely without worrying about egress, API, or retrieval costs.',
+  email: 'info@enigmanet.co.uk',
   emailLabel: 'Contact Us',
   newsletter: {
     enabled: true,
@@ -25,22 +25,26 @@ const FALLBACK: FooterConfig = {
       title: 'Useful Links',
       links: [
         { title: 'Home', url: '#' },
-        { title: 'Features', url: '#' },
-        { title: 'Integrations', url: '#' },
-        { title: 'Our Clients', url: '#' },
-        { title: 'Blog', url: '#' },
-        { title: 'Terms & Conditions', url: '#' },
-        { title: 'Privacy Policy', url: '#' },
+        // { title: 'Features', url: '#' },
+        // { title: 'Integrations', url: '#' },
+        // { title: 'Our Clients', url: '#' },
+        { title: 'Blog', url: '/blog-list-with-sidebar' },
+        { title: 'Legal', url: '/legal' },
+        // { title: 'Privacy Policy', url: '#' },
       ],
     },
   ],
   socials: [
-    { title: 'Facebook', url: '#' },
+    // { title: 'Facebook', url: '#' },
     { title: 'LinkedIn', url: '#' },
-    { title: 'Twitter', url: '#' },
-    { title: 'Instagram', url: '#' },
+    // { title: 'Twitter', url: '#' },
+    // { title: 'Instagram', url: '#' },
   ],
-  copyright: { text: 'All rights reserved. Made by', by: 'Coderthemes', url: 'https://coderthemes.com/' },
+  copyright: {
+    text: ' Copyright 2026. All rights reserved.',
+    by: 'Enigma Incorporated Ltd',
+    url: '',
+  },
 };
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -52,22 +56,48 @@ const Footer = () => {
   useEffect(() => {
     fetchFooter()
       .then(setData)
-      .catch(() => { /* silently use fallback */ });
+      .catch(() => {
+        /* silently use fallback */
+      });
   }, []);
 
-  const toggleColumn = (i: number) =>
-    setOpenColumns(prev => ({ ...prev, [i]: !prev[i] }));
+  const toggleColumn = (i: number) => setOpenColumns(prev => ({ ...prev, [i]: !prev[i] }));
 
-  const { brand, description, descriptionStyle, email, emailLabel, newsletter, columns, socials, copyright, style } = data;
+  const {
+    brand,
+    description,
+    descriptionStyle,
+    emailLabel,
+    contact,
+    columns,
+    socials,
+    copyright,
+    style,
+  } = data;
 
   const footerStyle: React.CSSProperties = {
     ...(style?.backgroundColor && { backgroundColor: style.backgroundColor }),
     ...(style?.textColor && { color: style.textColor }),
     ...(style?.padding && { padding: style.padding }),
   };
-
-  const logoSrc = brand.logoUrl || defaultLogo;
-  const logoWidth = brand.logoWidth || 47;
+  const getSocialIcon = (title: string) => {
+    switch (title.toLowerCase()) {
+      case 'linkedin':
+        return 'bxl:linkedin';
+      // case 'facebook':
+      //   return 'bxl:facebook';
+      // case 'twitter':
+      //   return 'bxl:twitter';
+      // case 'instagram':
+      //   return 'bxl:instagram';
+      // case 'youtube':
+      //   return 'bxl:youtube';
+      default:
+        return 'bx:link'; // fallback icon
+    }
+  };
+  const logoSrc = brand.logoUrl || Logo;
+  // const logoWidth = brand.logoWidth || 47;
 
   const brandTextStyle: React.CSSProperties = {
     ...(brand.style?.color && { color: brand.style.color }),
@@ -96,8 +126,8 @@ const Footer = () => {
               className="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4 d-flex align-items-center gap-2"
               style={brandTextStyle}
             >
-              <img src={logoSrc} width={logoWidth} alt={brand.name} />
-              {brand.name}
+              <img src={logoSrc} alt={brand.name} />
+              {/* {brand.name} */}
             </Link>
 
             {description && (
@@ -106,7 +136,7 @@ const Footer = () => {
               </p>
             )}
 
-            {newsletter?.enabled && (
+            {/* {newsletter?.enabled && (
               <form className="needs-validation" noValidate>
                 {newsletter.label && (
                   <label htmlFor="subscr-email" className="form-label">
@@ -136,7 +166,7 @@ const Footer = () => {
                   </button>
                 </div>
               </form>
-            )}
+            )} */}
           </Col>
 
           {/* Link columns + socials + email */}
@@ -178,9 +208,7 @@ const Footer = () => {
                                   className={`nav-link d-inline-block px-0 pt-1 pb-2 ${link.style?.className || ''}`}
                                   style={linkStyle}
                                 >
-                                  {link.icon && (
-                                    <IconifyIcon icon={link.icon} className="me-2" />
-                                  )}
+                                  {link.icon && <IconifyIcon icon={link.icon} className="me-2" />}
                                   {link.title}
                                 </Link>
                               </li>
@@ -192,56 +220,90 @@ const Footer = () => {
                   </Col>
                 );
               })}
+              {contact && (
+                <Col xl={4} lg={5} className="pt-2 pt-lg-0">
+                  <h6 className="mb-2">{emailLabel || 'Contact Us'}</h6>
 
+                  {/* Phone */}
+                  {contact.phone && (
+                    <p className="mb-1">
+                      <a
+                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                        style={{
+                          textDecoration: 'none',
+                          fontWeight: 700,
+                        }}
+                      >
+                        {contact.phone}
+                      </a>
+                    </p>
+                  )}
+
+                  {/* Email */}
+                  {contact.email && (
+                    <p className="mb-1">
+                      <a
+                        href={`mailto:${contact.email}`}
+                        style={{
+                          textDecoration: 'none',
+                          fontWeight: 700,
+                        }}
+                      >
+                        {contact.email}
+                      </a>
+                    </p>
+                  )}
+
+                  {/* Address */}
+                  {contact.address && (
+                    <p
+                      className="mb-0 nav-link"
+                      style={{
+                        fontWeight: 700,
+                      }}
+                    >
+                      {contact.address}
+                    </p>
+                  )}
+                </Col>
+              )}
               {/* Socials */}
               {socials && socials.length > 0 && (
-                <Col xl={4} lg={3}>
+                <Col className="pt-2 gap-2 d-flex align-items-center justify-content-left pt-lg-2">
                   <h6 className="mb-2">
                     <Link
                       to="#social-links"
                       className="d-block text-dark dropdown-toggle d-lg-none py-2"
                       onClick={() => setOpenSocials(!openSocials)}
                     >
-                      Socials
+                      Follow Us:
                       <IconifyIcon icon="bx:chevron-down" fontSize={24} className="ms-1" />
                     </Link>
-                    <span className="d-none d-lg-block">Socials</span>
+
+                    <span className="d-none d-lg-block">Follow Us:</span>
                   </h6>
+
                   <Collapse in={openSocials}>
                     <div id="social-links" className="d-lg-block">
-                      <ul className="nav flex-column mb-2 mb-lg-0">
+                      <div className="d-flex flex-wrap gap-2 mt-2">
                         {socials.map((social, i) => {
-                          const socialStyle: React.CSSProperties = {
-                            ...(social.style?.color && { color: social.style.color }),
-                          };
+                          const iconName = getSocialIcon(social.title);
+
                           return (
-                            <li key={i} className="nav-item">
-                              <Link
-                                to={social.url}
-                                className="nav-link d-inline-block px-0 pt-1 pb-2"
-                                style={socialStyle}
-                              >
-                                {social.icon && (
-                                  <IconifyIcon icon={social.icon} className="me-2" />
-                                )}
-                                {social.title}
-                              </Link>
-                            </li>
+                            <Link
+                              key={i}
+                              to={social.url}
+                              className="btn btn-icon btn-sm btn-secondary btn-linkedin me-2 mb-2  d-flex align-items-center justify-content-center"
+                              target="_blank"
+                              aria-label={social.title}
+                            >
+                              <IconifyIcon icon={iconName} fontSize={16} />
+                            </Link>
                           );
                         })}
-                      </ul>
+                      </div>
                     </div>
                   </Collapse>
-                </Col>
-              )}
-
-              {/* Email */}
-              {email && (
-                <Col xl={4} lg={5} className="pt-2 pt-lg-0">
-                  <h6 className="mb-2">{emailLabel || 'Contact Us'}</h6>
-                  <Link to={`mailto:${email}`} className="fw-medium">
-                    {email}
-                  </Link>
                 </Col>
               )}
             </Row>
@@ -250,8 +312,12 @@ const Footer = () => {
 
         {/* Copyright */}
         <p
-          className="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0"
-          style={copyright.style ? { color: copyright.style.color, fontSize: copyright.style.fontSize } : {}}
+          className="nav d-block fs-xs mb-3 text-center text-md-start pb-2 pb-lg-0 mb-0"
+          style={
+            copyright.style
+              ? { color: copyright.style.color, fontSize: copyright.style.fontSize }
+              : {}
+          }
         >
           &copy; {copyright.text}{' '}
           {copyright.by && (

@@ -83,7 +83,16 @@
 .page-loading.active > .page-loading-inner {
   opacity: 1;
 }
+.custom-padding {
+  padding-top: 5rem;
+}
 
+/* Mobile */
+@media (max-width: 767px) {
+  .custom-padding {
+    padding-top: 7rem;
+  }
+}
 .page-loading-inner > span {
   display: block;
   font-size: 1rem;
