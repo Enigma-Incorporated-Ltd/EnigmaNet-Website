@@ -30,3 +30,9 @@ export function extractRenderableHtml(value: unknown): string | null {
 
   return null;
 }
+
+
+export const toSentenceCase = (text: string) => {
+  if (!text) return '';
+  return text.toLowerCase().replace(/^./, c => c.toUpperCase());
+};

@@ -1,0 +1,29 @@
+.feature-card {
+    position: relative;
+    padding: 30px;
+    border-radius: 16px;
+    overflow: hidden;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+}
+
+/* Dark overlay */
+.feature-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Keep content above overlay */
+.feature-card * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover effect 🔥 */
+.feature-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}

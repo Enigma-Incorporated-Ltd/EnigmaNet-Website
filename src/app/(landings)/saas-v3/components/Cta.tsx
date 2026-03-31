@@ -5,9 +5,9 @@ import sass3 from '@/assets/img/landing/saas-3/cta-bg.jpg';
 
 const Cta = () => {
   return (
-    <Container>
+    <Container className='pb-4'>
       <div
-        className="bg-dark bg-size-cover bg-position-center bg-repeat-0 position-relative overflow-hidden rounded-3 py-lg-3 py-xl-5 px-4 px-lg-5 px-xl-0"
+        className="bg-dark  bg-size-cover bg-position-center bg-repeat-0 position-relative overflow-hidden rounded-3 py-lg-3 py-xl-5 px-4 px-lg-5 px-xl-0"
         style={{ backgroundImage: `url(${sass3})` }}
         data-bs-theme="dark"
       >

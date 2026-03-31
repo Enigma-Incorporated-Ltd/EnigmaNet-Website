@@ -14,7 +14,7 @@ const brands = [brand01, brand02, brand03, brand04, brand05, brand06];
 
 const Brand = () => {
   return (
-    <section className="container border-bottom-lg pt-sm-2">
+    <section className="container  pt-sm-2">
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}

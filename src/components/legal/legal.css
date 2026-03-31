@@ -326,6 +326,8 @@
     overflow-y: auto;
     padding-right: 0.5rem;
     scrollbar-width: thin;
+    font-variant-ligatures: none;
+        font-feature-settings: "liga" 0;
     scrollbar-color: var(--legal-border-strong) transparent;
 }
 
@@ -460,4 +462,7 @@
     .legal-content-body {
         max-height: 400px;
     }
+        .legal-content-body span {
+            white-space: normal !important;
+        }
 }

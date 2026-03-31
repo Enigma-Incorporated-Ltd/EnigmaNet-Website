@@ -49,6 +49,11 @@ const FALLBACK_CONFIG: HeaderConfig = {
     //   ],
     // },
     {
+      href: '/',
+      type: 'link',
+      label: 'Home',
+    },
+    {
       type: 'dropdown',
       label: 'Products',
       links: [

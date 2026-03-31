@@ -1,4 +1,3 @@
-import Hero from './components/Hero';
 import Brand from './components/Brand';
 import Feature from './components/Feature';
 import FeatureApp from './components/FeatureApp';
@@ -9,21 +8,48 @@ import Footer from './components/Footer';
 import Testimonials from './components/Testimonials';
 import PageMeta from '@/components/PageMeta';
 import Navbar from '@/components/navbar/Navbar';
+import HeroSlider from '@/components/landing/HeroSlider';
+
+import DataCard from './components/DataCard';
+import NetworkingCard from './components/NetworkingCard';
+import WorkCard from './components/workCard';
+import UseCase from './components/UseCase';
+import Brands from './components/Brands';
+import CustomerResults from './components/customerResults';
+import GetStarted from './components/GetStarted';
+import CTA2 from './components/CTA2';
+import Partner from './components/Partner';
+import Resources from './components/Resources';
+import Faqs from './components/faq/Faqs';
+import GetInTouch from './components/getinTouch/GetInTouch';
 
 
 const Index = () => {
   return (
     <>
-      <PageMeta title="SaaS Landing v.3" />
+      <PageMeta title="Home" />
       <Navbar
         Headerclass="header navbar navbar-expand-lg navbar-dark position-absolute navbar-sticky"
         headerSticky="navbar-stuck"
         isNavDark={true}
       />
-      <Hero />
-      <Brand />
+      <HeroSlider />
+      <Brands />
       <Feature />
+      <DataCard />
+      <NetworkingCard />
+      <WorkCard />
+      <UseCase />
+      <CustomerResults />
+
+      <GetStarted />
+      <Partner />
+      <Resources />
+      <Faqs />
+      <GetInTouch />
       <FeatureApp />
+      <Brand />
+      <CTA2 />
       <FeatureCrypto />
       <Work />
       <Testimonials />

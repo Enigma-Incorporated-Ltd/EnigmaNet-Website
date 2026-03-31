@@ -45,6 +45,7 @@ $warning: $gold !default; // #e5ae51  (was #ffba08)
 $danger: #ef4444 !default;
 $light: $white !default;
 $dark: $gray-900 !default;
+$light-blue: $light-blue !default;
 
 $primary-text-emphasis: darken($primary, 10%) !default;
 $secondary-text-emphasis: $gray-700 !default;
@@ -83,6 +84,7 @@ $theme-colors: (
   'danger': $danger,
   'light': $light,
   'dark': $dark,
+  'light-blue': $light-blue,
 ) !default;
 
 // Faded colors map
@@ -94,6 +96,7 @@ $theme-faded-colors: (
   'danger': rgba($danger, 0.12),
   'light': rgba($light, 0.05),
   'dark': rgba($dark, 0.12),
+  'light-blue': rgba($light-blue, 0.12),
 ) !default;
 
 // Gradients map — updated to use brand palette

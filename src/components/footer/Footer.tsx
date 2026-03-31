@@ -10,7 +10,7 @@ const FALLBACK: FooterConfig = {
   brand: { name: 'EnigmaNet', href: '/index' },
   description:
     'Enigma Secure Cloud offers predictable, transparent pricing with no hidden fees. Store your data securely without worrying about egress, API, or retrieval costs.',
-  email: 'info@enigmanet.co.uk',
+  email: 'info@enigmainc.co.uk',
   emailLabel: 'Contact Us',
   newsletter: {
     enabled: true,
@@ -256,14 +256,21 @@ const Footer = () => {
 
                   {/* Address */}
                   {contact.address && (
-                    <p
-                      className="mb-0 nav-link"
+                    <address
+                      className="mb-0 text-warning opacity-70"
                       style={{
-                        fontWeight: 700,
+                        fontStyle: 'normal',
+                        fontSize: 14,
+                        fontWeight: 400,
+                        // lineHeight: 1.6,
                       }}
                     >
-                      {contact.address}
-                    </p>
+                      {contact.address.split(/,\s*/).map((line, idx) => (
+                        <span key={idx} className="d-block">
+                          {line}
+                        </span>
+                      ))}
+                    </address>
                   )}
                 </Col>
               )}

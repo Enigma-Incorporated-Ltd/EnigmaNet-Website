@@ -3,34 +3,28 @@ import popup01 from '@/assets/img/landing/saas-3/feature-1/popup01.png';
 import popup02 from '@/assets/img/landing/saas-3/feature-1/popup02.png';
 import popup03 from '@/assets/img/landing/saas-3/feature-1/popup03.png';
 import { Container } from 'react-bootstrap';
-import IconifyIcon from '@/components/IconifyIcon';
 
 const Feature = () => {
   return (
     <Container className="py-5 my-md-2 my-lg-4 my-xl-5">
-      <h2 className="h1 text-center mx-auto mt-n2 mt-sm-0 pt-md-2" style={{ maxWidth: '530px' }}>
-        Get Possibilities for Better Trading with Silicon
+      <h5 className="h3 text-center text-warning mx-auto mt-n2 mt-sm-0 pt-md-2">
+        AI infrastructure and data movement challenges
+      </h5>
+      <h2 className="h1 text-center mx-auto mt-n2 mt-sm-0 pt-md-2">
+        The bottleneck isn't compute. It's moving the data.
       </h2>
 
-      <ul className="list-unstyled d-flex flex-wrap justify-content-center mb-5">
+      <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
-          <IconifyIcon icon="bx:check" className="lead text-primary mt-1 me-2" />
           <span>
-            Spend with the Crypto and get up to{' '}
-            <strong className="text-primary ms-1">12% back</strong>
+            Unpredictable performance, rising transfer costs, and fragile connectivity are slowing
+            down organisations — whether they're training models, connecting distributed sites, or
+            running mission-critical operations. <br /> Most infrastructure wasn't built for this.
           </span>
         </li>
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
-          <IconifyIcon icon="bx:check" className="lead text-primary mt-1 me-2" />
           <span>
-            Invite friends and get <strong className="text-primary ms-1">new opportunities</strong>
-          </span>
-        </li>
-        <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
-          <IconifyIcon icon="bx:check" className="lead text-primary mt-1 me-2" />
-          <span>
-            Trade and earn <strong className="text-primary mx-1">200+ cryptocurrencies</strong> and
-            get a permanent <strong className="text-primary ms-1">5% discount</strong>
+            <strong className="text-info h1 ms-1"> Common problems we encounter</strong>
           </span>
         </li>
       </ul>

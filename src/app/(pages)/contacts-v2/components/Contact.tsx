@@ -31,63 +31,63 @@ const Contact = () => {
       [e.target.name]: e.target.value,
     });
   };
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setSending(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
 
-  const portalId = '145144803';
-  const formId = '0d6ff619-5312-47aa-a346-7deb6981cd24';
+    const portalId = '145144803';
+    const formId = '0d6ff619-5312-47aa-a346-7deb6981cd24';
 
- const hutk = document.cookie
-   .split('; ')
-   .find(row => row.startsWith('hubspotutk='))
-   ?.split('=')[1];
+    const hutk = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('hubspotutk='))
+      ?.split('=')[1];
 
- const context: any = {
-   pageUri: window.location.href,
-   pageName: document.title,
- };
-if (hutk) {
-  context.hutk = hutk;
-}
-  const payload = {
-    fields: [
-      { name: 'company', value: formData.company || '' },
-      { name: 'email', value: formData.email || '' },
-      { name: 'firstname', value: formData.firstname || '' },
-      { name: 'lastname', value: formData.lastname || '' },
-      { name: 'jobtitle', value: formData.jobtitle || '' },
-      { name: 'comments', value: formData.message || '' },
-    ],
-    context,
-  };
-
-  try {
-    const res = await fetch(
-      `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      }
-    );
-
-    const data = await res.json();
-
-    if (res.ok) {
-      setSubmitted(true);
-      console.log('Success:', data);
-    } else {
-      console.error('HubSpot error:', data);
+    const context: any = {
+      pageUri: window.location.href,
+      pageName: document.title,
+    };
+    if (hutk) {
+      context.hutk = hutk;
     }
-  } catch (err) {
-    console.error('Network error:', err);
-  } finally {
-    setSending(false);
-  }
-};
+    const payload = {
+      fields: [
+        { name: 'company', value: formData.company || '' },
+        { name: 'email', value: formData.email || '' },
+        { name: 'firstname', value: formData.firstname || '' },
+        { name: 'lastname', value: formData.lastname || '' },
+        { name: 'jobtitle', value: formData.jobtitle || '' },
+        { name: 'comments', value: formData.message || '' },
+      ],
+      context,
+    };
+
+    try {
+      const res = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setSubmitted(true);
+        console.log('Success:', data);
+      } else {
+        console.error('HubSpot error:', data);
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+    } finally {
+      setSending(false);
+    }
+  };
   return (
     <>
       <section className="contact-section" ref={sectionRef}>
@@ -126,8 +126,8 @@ if (hutk) {
                 <div>
                   <p className="info-label mb-1">Email</p>
                   <p className="info-title mb-1">Email us</p>
-                  <a href="mailto:info@enigmanet.co.uk" className="info-link">
-                    info@enigmanet.co.uk
+                  <a href="mailto:info@enigmainc.co.uk" className="info-link">
+                    info@enigmainc.co.uk
                   </a>
                 </div>
               </div>
