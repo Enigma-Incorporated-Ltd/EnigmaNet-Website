@@ -1,5 +1,4 @@
 import { lazy } from "react";
-import { Navigate } from "react-router";
 
 // Landings
 // const Index = lazy(() => import("@/app/(landings)/index"))
