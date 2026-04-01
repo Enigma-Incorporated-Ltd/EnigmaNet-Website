@@ -61,24 +61,24 @@ export default function HeroSlider() {
      setTimeout(() => setAnimating(false), 500);
    };
  };
-  const prev = () => {
-    // Clear auto-slide interval when user interacts
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-    const idx = (current - 1 + slides.length) % slides.length;
-    goTo(idx, 'left');
-  };
+  // const prev = () => {
+  //   // Clear auto-slide interval when user interacts
+  //   if (intervalRef.current) {
+  //     clearInterval(intervalRef.current);
+  //     intervalRef.current = null;
+  //   }
+  //   const idx = (current - 1 + slides.length) % slides.length;
+  //   goTo(idx, 'left');
+  // };
 
-  const next = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-    const idx = (current + 1) % slides.length;
-    goTo(idx, 'right');
-  };
+  // const next = () => {
+  //   if (intervalRef.current) {
+  //     clearInterval(intervalRef.current);
+  //     intervalRef.current = null;
+  //   }
+  //   const idx = (current + 1) % slides.length;
+  //   goTo(idx, 'right');
+  // };
 
   useEffect(() => {
     return () => {
@@ -87,7 +87,32 @@ export default function HeroSlider() {
   }, []);
 
   const slide = slides[current];
+useEffect(() => {
+  intervalRef.current = setInterval(() => {
+    setCurrent(prev => {
+      const nextIndex = (prev + 1) % slides.length;
 
+      // preload image before switching (like your goTo logic)
+      const img = new Image();
+      img.src = slides[nextIndex].img;
+
+      img.onload = () => {
+        setDirection('right');
+        setAnimating(true);
+        setBgImage(slides[nextIndex].img);
+        setBgGradient(slides[nextIndex].gradient);
+
+        setTimeout(() => setAnimating(false), 500);
+      };
+
+      return nextIndex;
+    });
+  }, 5000);
+
+  return () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+}, []);
   return (
     <>
       <section className="hero-section">
@@ -116,7 +141,7 @@ export default function HeroSlider() {
                 key={current}
               >
                 {/* Nav arrows */}
-                <div className="nav-arrows">
+                {/* <div className="nav-arrows">
                   <button className="arrow-btn" onClick={prev} aria-label="Previous slide">
                     <svg viewBox="0 0 24 24">
                       <polyline points="15 18 9 12 15 6" />
@@ -127,7 +152,7 @@ export default function HeroSlider() {
                       <polyline points="9 18 15 12 9 6" />
                     </svg>
                   </button>
-                </div>
+                </div> */}
 
                 {/* Title */}
                 <h1 className="hero-title">{slide.title}</h1>

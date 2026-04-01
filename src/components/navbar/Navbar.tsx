@@ -16,7 +16,7 @@ type NavClass = {
 
 // ── Fallback hard-coded config (used while CMS loads or if fetch fails) ────────
 const FALLBACK_CONFIG: HeaderConfig = {
-  logo: { text: 'enigmanet', href: '/index' },
+  logo: { text: 'enigmanet', href: '/' },
   nav_items: [
     // {
     //   label: 'Landings',
@@ -222,7 +222,7 @@ const Navbar = ({
 
   return (
     <header className={`${Headerclass} ${isSticky && headerSticky ? headerSticky : ''}`}>
-      <div className="container px-3">
+      <div className="container px-3 d-flex align-items-center flex-nowrap">
         {/* Logo */}
         <Link to={logo.href} className="navbar-brand pe-3">
           <img src={Logo} width={250} height={150} alt={logo.text} style={{

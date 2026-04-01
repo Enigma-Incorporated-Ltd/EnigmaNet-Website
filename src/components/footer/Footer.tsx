@@ -7,7 +7,7 @@ import { fetchFooter, type FooterConfig } from '@/services/cmsApi';
 
 // ── Fallback hard-coded config ────────────────────────────────────────────────
 const FALLBACK: FooterConfig = {
-  brand: { name: 'EnigmaNet', href: '/index' },
+  brand: { name: 'EnigmaNet', href: '/' },
   description:
     'Enigma Secure Cloud offers predictable, transparent pricing with no hidden fees. Store your data securely without worrying about egress, API, or retrieval costs.',
   email: 'info@enigmainc.co.uk',
@@ -36,7 +36,7 @@ const FALLBACK: FooterConfig = {
   ],
   socials: [
     // { title: 'Facebook', url: '#' },
-    { title: 'LinkedIn', url: '#' },
+    { title: 'LinkedIn', url: 'https://www.linkedin.com/company/enigmanet-ai/' },
     // { title: 'Twitter', url: '#' },
     // { title: 'Instagram', url: '#' },
   ],
