@@ -1,5 +1,5 @@
+import CustomButton from '@/components/ui/CustomButton';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 type FeatureItem = {
@@ -69,7 +69,7 @@ const DataCard = () => {
       </Swiper>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <Link
+        {/* <Link
           to="#"
           className="btn btn-light-blue text-black btn-lg shadow-primary btn-lg rounded-pill px-5"
           style={{
@@ -88,7 +88,9 @@ const DataCard = () => {
           }}
         >
           BOOK A CALL
-        </Link>
+        </Link> */}
+        <CustomButton label=" OUR SOLUTION " bgColor="light-blue" href="/" className="btn-lg" />
+        <CustomButton label="BOOK A CALL " bgColor="warning" href="/" className="btn-lg" />
       </div>
     </section>
   );

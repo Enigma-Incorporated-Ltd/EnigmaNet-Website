@@ -14,7 +14,7 @@ import DataCard from './components/DataCard';
 import NetworkingCard from './components/NetworkingCard';
 import WorkCard from './components/workCard';
 import UseCase from './components/UseCase';
-import Brands from './components/Brands';
+import Brands from './components/brands';
 import CustomerResults from './components/customerResults';
 import GetStarted from './components/GetStarted';
 import CTA2 from './components/CTA2';

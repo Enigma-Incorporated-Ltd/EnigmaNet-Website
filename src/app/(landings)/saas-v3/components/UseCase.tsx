@@ -1,6 +1,6 @@
 import IconifyIcon from '@/components/IconifyIcon';
+import CustomButton from '@/components/ui/CustomButton';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 type FeatureItem = {
@@ -130,16 +130,8 @@ const UseCase = () => {
       </div>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <Link
-          to="#"
-          className="btn btn-warning text-black btn-lg shadow-primary btn-lg rounded-pill px-5"
-          style={{
-            fontWeight: '800',
-            letterSpacing: '3px',
-          }}
-        >
-          INDUSTRIES
-        </Link>
+       
+        <CustomButton label="INDUSTRIES" bgColor="warning" href="/" className="btn-lg" />
       </div>
     </section>
   );

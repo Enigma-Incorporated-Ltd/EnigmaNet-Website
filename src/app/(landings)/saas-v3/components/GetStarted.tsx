@@ -1,5 +1,6 @@
-import { Button, Card, CardBody, Container } from 'react-bootstrap';
+import { Card, CardBody, Container } from 'react-bootstrap';
 import contactBg from '@/assets/img/landing/digital-agency/contact-bg.png';
+import CustomButton from '@/components/ui/CustomButton';
 const GetStarted = () => {
   return (
     <Container
@@ -36,9 +37,7 @@ const GetStarted = () => {
             your existing infrastructure.
           </p>
           <div className="pt-md-5 pt-4 pb-md-2">
-            <Button variant="light" size="lg" style={{ fontWeight: 800 }}>
-              TALK TO OUR TEAM
-            </Button>
+            <CustomButton label=" TALK TO OUR TEAM" bgColor="warning" href="/" className="btn-lg" />
           </div>
         </CardBody>
       </Card>

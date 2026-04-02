@@ -1,6 +1,6 @@
 import IconifyIcon from '@/components/IconifyIcon';
+import CustomButton from '@/components/ui/CustomButton';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 type FeatureItem = {
@@ -70,7 +70,6 @@ const NetworkingCard = () => {
         {features.map(feature => (
           <SwiperSlide key={feature.id} className="h-auto py-3">
             <Card className="h-100 card-body card-hover mx-2">
-              
               <IconifyIcon
                 icon={`${feature.icon}`}
                 className="display-5 text-warning fw-normal card-icon"
@@ -84,16 +83,7 @@ const NetworkingCard = () => {
       </Swiper>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <Link
-          to="#"
-          className="btn btn-warning text-black btn-lg shadow-primary btn-lg rounded-pill px-5"
-          style={{
-            fontWeight: '800',
-            letterSpacing: '3px',
-          }}
-        >
-          OUR SOLUTION
-        </Link>
+        <CustomButton label=" OUR SOLUTION" bgColor="warning" href="/" className="btn-lg" />
       </div>
     </section>
   );

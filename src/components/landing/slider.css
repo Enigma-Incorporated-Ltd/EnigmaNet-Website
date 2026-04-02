@@ -104,7 +104,7 @@
 
  .hero-subtitle {
      font-family: 'Inter', sans-serif;
-     font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+     font-size: clamp(1.2rem, 1.5vw, 1.05rem);
      color: rgba(255, 255, 255, 0.8);
      line-height: 1.65;
      max-width: 480px;
@@ -250,7 +250,7 @@
      }
 
      .hero-subtitle {
-         font-size: 0.9rem;
+         font-size: 1rem;
          line-height: 1.5;
          margin-bottom: 1.5rem;
      }

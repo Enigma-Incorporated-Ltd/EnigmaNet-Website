@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router';
 import hero1 from '@/assets/img/heroSlider/data-transmit-supper-fast-in-dark-tunnel-abstract.jpg';
 import hero2 from '@/assets/img/heroSlider/motion-blur-of-train-moving-inside-tunnel-in-tokyo.jpg';
 import hero3 from '@/assets/img/heroSlider/server-room-data-center-networking-database-co.jpg';
 import './slider.css';
+import CustomButton from '../ui/CustomButton';
 
 const slides = [
   {
@@ -45,22 +45,21 @@ export default function HeroSlider() {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [bgGradient, setBgGradient] = useState(slides[0].gradient);
 
- const goTo = (index: number, dir: 'left' | 'right' = 'right') => {
-   if (animating) return;
+  const goTo = (index: number, dir: 'left' | 'right' = 'right') => {
+    if (animating) return;
 
-   setDirection(dir);
-   setAnimating(true);
-   setCurrent(index);
+    setDirection(dir);
+    setAnimating(true);
+    setCurrent(index);
 
-
-   const img = new Image();
-   img.src = slides[index].img;
-   img.onload = () => {
-     setBgImage(slides[index].img);
-     setBgGradient(slides[index].gradient);
-     setTimeout(() => setAnimating(false), 500);
-   };
- };
+    const img = new Image();
+    img.src = slides[index].img;
+    img.onload = () => {
+      setBgImage(slides[index].img);
+      setBgGradient(slides[index].gradient);
+      setTimeout(() => setAnimating(false), 500);
+    };
+  };
   // const prev = () => {
   //   // Clear auto-slide interval when user interacts
   //   if (intervalRef.current) {
@@ -87,32 +86,32 @@ export default function HeroSlider() {
   }, []);
 
   const slide = slides[current];
-useEffect(() => {
-  intervalRef.current = setInterval(() => {
-    setCurrent(prev => {
-      const nextIndex = (prev + 1) % slides.length;
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setCurrent(prev => {
+        const nextIndex = (prev + 1) % slides.length;
 
-      // preload image before switching (like your goTo logic)
-      const img = new Image();
-      img.src = slides[nextIndex].img;
+        // preload image before switching (like your goTo logic)
+        const img = new Image();
+        img.src = slides[nextIndex].img;
 
-      img.onload = () => {
-        setDirection('right');
-        setAnimating(true);
-        setBgImage(slides[nextIndex].img);
-        setBgGradient(slides[nextIndex].gradient);
+        img.onload = () => {
+          setDirection('right');
+          setAnimating(true);
+          setBgImage(slides[nextIndex].img);
+          setBgGradient(slides[nextIndex].gradient);
 
-        setTimeout(() => setAnimating(false), 500);
-      };
+          setTimeout(() => setAnimating(false), 500);
+        };
 
-      return nextIndex;
-    });
-  }, 5000);
+        return nextIndex;
+      });
+    }, 5000);
 
-  return () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  };
-}, []);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
   return (
     <>
       <section className="hero-section">
@@ -161,21 +160,38 @@ useEffect(() => {
                 <p className="hero-subtitle">{slide.subtitle}</p>
 
                 {/* Buttons */}
-                <div className="d-flex flex-wrap gap-3">
-                  <Link
+                <div className="d-flex  flex-wrap gap-3">
+                  {/* <Link
                     className="hero-btn btn-cyan"
                     style={{ background: slide.btn1.color }}
                     to={slide.btn1.href}
                   >
                     {slide.btn1.label}
-                  </Link>
-                  <Link
+                  </Link> */}
+                  <CustomButton
+                    label={slide.btn1.label}
+                    style={{
+                      background: slide.btn1.color,
+                      fontWeight: 600,
+                    }}
+                    href={slide.btn1.href}
+                    bgColor="light-blue"
+                    className="btn-lg"
+                  />
+                  <CustomButton
+                    label={slide.btn2.label}
+                    style={{ background: slide.btn2.color, fontWeight: 600 }}
+                    href={slide.btn2.href}
+                    bgColor="warning"
+                    className="btn-lg"
+                  />
+                  {/* <Link
                     className="hero-btn btn-amber"
                     style={{ background: slide.btn2.color }}
                     to={slide.btn2.href}
                   >
                     {slide.btn2.label}
-                  </Link>
+                  </Link> */}
                 </div>
 
                 {/* Dots */}

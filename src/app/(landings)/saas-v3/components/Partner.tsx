@@ -1,7 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router';
 import StraightLine from './StraightLine';
 import IconifyIcon from '@/components/IconifyIcon';
+import CustomButton from '@/components/ui/CustomButton';
 
 const features = [
   {
@@ -50,9 +50,7 @@ const Partner = () => {
             <div key={index} className="d-flex mb-4">
               {/* ICON */}
               <div className="me-3">
-                <div
-                  
-                >
+                <div>
                   <IconifyIcon
                     icon={'solar:forward-outline'}
                     className="display-5 text-warning mb-3"
@@ -70,16 +68,8 @@ const Partner = () => {
         </Col>
       </Row>
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <Link
-          to="#"
-          className="btn btn-warning text-black btn-lg shadow-primary btn-lg rounded-pill px-5"
-          style={{
-            fontWeight: '800',
-            letterSpacing: '3px',
-          }}
-        >
-          Become a Partner
-        </Link>
+       
+        <CustomButton label="OUR PARTNERS " bgColor="warning" href="/" className="btn-lg" />
       </div>
     </Container>
   );

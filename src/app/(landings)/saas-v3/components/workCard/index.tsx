@@ -1,9 +1,10 @@
 import IconifyIcon from '@/components/IconifyIcon';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import "./workcard.css"
+import './workcard.css';
+import CustomButton from '@/components/ui/CustomButton';
+
 type FeatureItem = {
   id: number | string;
   icon: string;
@@ -47,7 +48,6 @@ const features: FeatureItem[] = [
 const WorkCard = () => {
   return (
     <section className="container pt-5 my-5">
-  
       <h5 className="h3 text-center text-warning">How Enigma Net works</h5>
 
       <h2 className="h1 text-center mb-4">Deploys in minutes. Works on what you already have.</h2>
@@ -57,7 +57,7 @@ const WorkCard = () => {
             Enigma Net sits on top of your existing internet infrastructure. No rip-and-replace. No
             re-architecting. A physical appliance or software client that creates a private,
             accelerated network layer — and extends it into <br />
-            compute, storage, and GPU. 
+            compute, storage, and GPU.
           </span>
         </li>
       </ul>
@@ -122,16 +122,7 @@ const WorkCard = () => {
       </div>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <Link
-          to="#"
-          className="btn btn-warning text-black btn-lg shadow-primary btn-lg rounded-pill px-5"
-          style={{
-            fontWeight: '800',
-            letterSpacing: '3px',
-          }}
-        >
-          EXPLORE ENIGMA NET
-        </Link>
+        <CustomButton label="EXPLORE MORE" bgColor="warning" href="/" className="btn-lg" />
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
+import CustomButton from '@/components/ui/CustomButton';
 import { Card, CardBody } from 'react-bootstrap';
-import { Link } from 'react-router';
 
 const CTA2 = () => {
   return (
@@ -21,16 +21,12 @@ const CTA2 = () => {
               your existing infrastructure.
             </p>
             <div className="pt-md-5 pt-4 pb-md-2">
-              <Link
-                to="#"
-                className="btn btn-warning text-black btn-lg shadow-primary btn-lg  px-5"
-                style={{
-                  fontWeight: '800',
-                  letterSpacing: '3px',
-                }}
-              >
-                TALK TO OUR TEAM
-              </Link>
+              <CustomButton
+                label=" TALK TO OUR TEAM"
+                bgColor="warning"
+                href="/"
+                className="btn-lg"
+              />
             </div>
           </CardBody>
         </Card>

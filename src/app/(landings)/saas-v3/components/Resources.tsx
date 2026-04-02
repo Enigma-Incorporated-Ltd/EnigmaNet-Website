@@ -1,21 +1,21 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
-
 import avatar40 from '@/assets/img/avatar/40.jpg';
 import avatar04 from '@/assets/img/avatar/04.jpg';
 import avatar05 from '@/assets/img/avatar/05.jpg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { CardBody, Container } from 'react-bootstrap';
 import { Link } from 'react-router';
+import CustomButton from '@/components/ui/CustomButton';
 
 type NewsItem = {
   id: number;
-  category: string [];
+  category: string[];
   time: string;
   title: string;
   image: string;
-  des?:string
+  des?: string;
   author: {
     name: string;
     role: string;
@@ -148,11 +148,17 @@ const Resources = () => {
                           <IconifyIcon icon="bx:bookmark" fontSize={20} />
                         </Link>
                       </OverlayTrigger> */}
-                      <img src={item.image} alt={item.title} height={500} className="card-img-top" style={{
-                        height: "250px",
-                        opacity:0.85,
-                        objectFit:"cover"
-                      }} />
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        height={500}
+                        className="card-img-top"
+                        style={{
+                          height: '250px',
+                          opacity: 0.85,
+                          objectFit: 'cover',
+                        }}
+                      />
                     </div>
 
                     <CardBody className="pb-4">
@@ -175,7 +181,7 @@ const Resources = () => {
                       <h3 className="h5 mb-0">
                         <Link to="#">{item.title}</Link>
                       </h3>
-                      <p className='mt-2 text-muted'>{item.des}</p>
+                      <p className="mt-2 text-muted">{item.des}</p>
                     </CardBody>
 
                     {/* <CardFooter className="py-4">
@@ -201,16 +207,7 @@ const Resources = () => {
           </div>
         </div>
         <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-          <Link
-            to="#"
-            className="btn btn-warning text-black btn-lg shadow-primary btn-lg rounded-pill px-5"
-            style={{
-              fontWeight: '800',
-              letterSpacing: '3px',
-            }}
-          >
-            View All Resources
-          </Link>
+          <CustomButton label="Resources" bgColor="warning" href="/" className="btn-lg" />
         </div>
       </Container>
     </section>
