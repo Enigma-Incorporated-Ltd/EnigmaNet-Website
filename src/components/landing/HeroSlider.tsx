@@ -13,27 +13,27 @@ const slides = [
     img: hero1,
     gradient:
       'linear-gradient(164deg, rgb(11, 14, 24) 18%, rgb(8 11 20) 27%, rgb(9 10 13 / 85%) 41%, rgba(11, 14, 24, -15.6) 62%, rgb(199 201 206 / -36%) 9% 67%)',
-    btn1: { label: 'OUR PRODUCTS', color: '#00D4E8', href: '/products' },
-    btn2: { label: 'BOOK DEMO', color: '#E8A020', href: '/contact' },
+    btn1: { label: 'OUR PRODUCTS', color: '#00D4E8', href: '/' },
+    btn2: { label: 'BOOK DEMO', color: '#E8A020', href: '/get-in-touch' },
   },
   {
     id: 2,
     title: `Reliable connectivity and data movement for mission-critical environments.`,
     subtitle: 'Reliable connectivity and data movement for mission-critical environments.',
-    btn1: { label: 'OUR SOLUTION', color: '#00D4E8', href: '/products' },
+    btn1: { label: 'OUR SOLUTION', color: '#00D4E8', href: '/' },
     img: hero2,
     gradient: 'linear-gradient(104deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0))',
-    btn2: { label: 'CONTACT US', color: '#E8A020', href: '/contact' },
+    btn2: { label: 'CONTACT US', color: '#E8A020', href: '/get-in-touch' },
   },
   {
     id: 3,
     title: 'Deterministic networking for data‑intensive infrastructure',
     subtitle:
       'Move large datasets faster and more predictably across distributed compute environments — without replacing what you already have',
-    btn1: { label: 'OUR PRODUCTS', color: '#00D4E8', href: '/products' },
+    btn1: { label: 'OUR PRODUCTS', color: '#00D4E8', href: '/' },
     gradient: 'linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0))',
     img: hero3,
-    btn2: { label: 'CONTACT US', color: '#E8A020', href: '/contact' },
+    btn2: { label: 'CONTACT US', color: '#E8A020', href: '/get-in-touch' },
   },
 ];
 

@@ -14,7 +14,7 @@ const OnlineCourse = lazy(() => import('@/app/(landings)/online-courses'))
 const Product = lazy(() => import('@/app/(landings)/product'))
 const SaasV1 = lazy(() => import('@/app/(landings)/saas-v1'))
 const SaasV2 = lazy(() => import('@/app/(landings)/saas-v2'))
-const SaasV3 = lazy(() => import('@/app/(landings)/saas-v3'))
+const Home = lazy(() => import('@/app/Home'))
 const SaasV4 = lazy(() => import('@/app/(landings)/saas-v4'))
 const SaasV5 = lazy(() => import('@/app/(landings)/saas-v5'))
 const Agency1 = lazy(() => import('@/app/(landings)/software-dev-agency-v1'))
@@ -37,7 +37,7 @@ const Podcast = lazy(() => import("@/app/(pages)/blog-podcast"))
 const SimpleFeed = lazy(() => import("@/app/(pages)/blog-simple-feed"))
 const BlogSingle = lazy(() => import("@/app/(pages)/blog-single"))
 const ContactV1 = lazy(() => import("@/app/(pages)/contacts-v1"))
-const ContactV2 = lazy(() => import("@/app/(pages)/contacts-v2"))
+const ContactV2 = lazy(() => import('@/app/get-in-touch'));
 const ContactV3 = lazy(() => import("@/app/(pages)/contacts-v3"))
 const PortfolioCourses = lazy(() => import("@/app/(pages)/portfolio-courses"))
 const PortfolioGrid = lazy(() => import("@/app/(pages)/portfolio-grid"))
@@ -68,7 +68,7 @@ const SignUp = lazy(() => import("@/app/(account)/account-signup"))
 export const AllRoutes = [
   // { path: '/', name: 'index', element: <Navigate to="/" replace /> },
   // { path: '/index', name: 'index1', element: <Index /> },
-  { path: '/', name: 'index1', element: <SaasV3 /> },
+  { path: '/', name: 'index1', element: <Home /> },
   { path: '*', name: 'not-found', element: <Error1 /> },
   { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
   { path: '/product-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
@@ -85,7 +85,7 @@ export const AllRoutes = [
   { path: '/product', name: 'Product', element: <Product /> },
   { path: '/saas-v1', name: 'saasV1', element: <SaasV1 /> },
   { path: '/saas-v2', name: 'saasV2', element: <SaasV2 /> },
-  { path: '/saas-v3', name: 'saasV3', element: <SaasV3 /> },
+  { path: '/saas-v3', name: 'Home', element: <Home /> },
   { path: '/saas-v4', name: 'saasV4', element: <SaasV4 /> },
   { path: '/saas-v5', name: 'saasV5', element: <SaasV5 /> },
   { path: '/software-dev-agency-v1', name: 'agency1', element: <Agency1 /> },
@@ -107,7 +107,7 @@ export const AllRoutes = [
   { path: '/blog-single', name: 'blog-single', element: <BlogSingle /> },
   { path: '/blog-single/:id', name: 'blog-single-id', element: <BlogSingle /> },
   { path: '/contacts-v1', name: 'contacts-v1', element: <ContactV1 /> },
-  { path: '/contacts-v2', name: 'contacts-v2', element: <ContactV2 /> },
+  { path: '/get-in-touch', name: 'get-in-touch', element: <ContactV2 /> },
   { path: '/contacts-v3', name: 'contacts-v3', element: <ContactV3 /> },
   { path: '/portfolio-courses', name: 'portfolio-courses', element: <PortfolioCourses /> },
   { path: '/portfolio-grid', name: 'portfolio-grid', element: <PortfolioGrid /> },
