@@ -28,11 +28,11 @@ const GetStarted = () => {
             opacity: 0.8,
           }}
         >
-          <h3 className="h4   text-left opacity-75">Get Started</h3>
+          <h3 className="h3 text-left opacity-75">Get Started</h3>
           <h3 className="h4  text-light text-left opacity-75">
             Make your data movement predictable
           </h3>
-          <p className="h6 " style={{ fontWeight: 400 }}>
+          <p className="h5 text-light " style={{ fontWeight: 400 }}>
             Faster transfers, stable throughput, zero-trust security — deployed without replacing
             your existing infrastructure.
           </p>

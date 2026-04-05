@@ -6,25 +6,31 @@ type HeaderToggleClass = {
 
 const ThemeToggle = ({ themeToggle }: HeaderToggleClass) => {
   useEffect(() => {
-    if (typeof window === 'undefined') return; 
+    if (typeof window === 'undefined') return;
 
     document.documentElement.setAttribute('data-theme-loading', 'true');
 
     const checkbox = document.getElementById('theme-mode') as HTMLInputElement | null;
     const savedTheme = localStorage.getItem('theme') || 'dark';
 
-    document.body.setAttribute('data-bs-theme', savedTheme);
+    document.documentElement.setAttribute('data-bs-theme', savedTheme);
+
     if (checkbox) checkbox.checked = savedTheme === 'dark';
 
     document.documentElement.removeAttribute('data-theme-loading');
 
     const handleToggle = () => {
       const newTheme = checkbox?.checked ? 'dark' : 'light';
-      document.body.setAttribute('data-bs-theme', newTheme);
+
+      document.documentElement.setAttribute('data-bs-theme', newTheme);
       localStorage.setItem('theme', newTheme);
+
+      // 🔥 Trigger update everywhere
+      window.dispatchEvent(new Event('themeChange'));
     };
 
     checkbox?.addEventListener('change', handleToggle);
+
     return () => checkbox?.removeEventListener('change', handleToggle);
   }, []);
 
