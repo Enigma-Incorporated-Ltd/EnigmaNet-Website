@@ -32,7 +32,7 @@ const Digital = ({ posts, loading }: { posts: BlogPost[]; loading: boolean }) =>
             <article className="card border-0 bg-transparent h-100">
               <div className="position-relative overflow-hidden rounded-3">
                 <Link
-                  to={`/blog-single/${post.slug}`}
+                  to={`/blog/${post.slug}`}
                   className="position-absolute top-0 start-0 w-100 h-100"
                   aria-label="Read more"
                 />
@@ -52,7 +52,7 @@ const Digital = ({ posts, loading }: { posts: BlogPost[]; loading: boolean }) =>
                   {post.category}
                 </Link>
                 <h3 className="h4">
-                  <Link to={`/blog-single/${post.slug}`}>{post.title}</Link>
+                  <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
                 <p className="mb-4">{post.description}</p>
                 <div className="d-flex align-items-center text-muted">

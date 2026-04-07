@@ -7,29 +7,29 @@ import Navbar from '@/components/navbar/Navbar';
 import { Link } from 'react-router';
 import PageMeta from '@/components/PageMeta';
 import BlogPosts from './components/BlogPosts';
-import Sidebar from '../blog-grid-with-sidebar/components/Sidebar';
+import Sidebar from './grid/components/Sidebar';
 import { useEffect, useState } from 'react';
 import { fetchBlogs, type BlogPost } from '@/services/cmsApi';
 const Index = () => {
-   const [posts, setPosts] = useState<BlogPost[]>([]);
-    const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
-     const [loading, setLoading] = useState(true);
-  
-     useEffect(() => {
-       fetchBlogs('blogs')
-         .then(data => {
-           setPosts(data);
-           setFilteredPosts(data);
-         })
-         .catch(() => {
-           setPosts([]);
-           setFilteredPosts([]);
-         })
-         .finally(() => setLoading(false));
-     }, []);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchBlogs('blogs')
+      .then(data => {
+        setPosts(data);
+        setFilteredPosts(data);
+      })
+      .catch(() => {
+        setPosts([]);
+        setFilteredPosts([]);
+      })
+      .finally(() => setLoading(false));
+  }, []);
   return (
     <>
-      <PageMeta title="Blog List With Sidebar" />
+      <PageMeta title="Blog " />
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light shadow-sm shadow-dark-mode-none fixed-top" />
       <nav className="container mt-lg-4 custom-padding " aria-label="breadcrumb">
         <ol className="breadcrumb mb-0 pt-5">

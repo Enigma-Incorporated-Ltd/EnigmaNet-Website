@@ -30,7 +30,7 @@ const Index = () => {
   console.log(filteredPosts);
   return (
     <>
-      <PageMeta title="Blog grid With Sidebar" />
+      <PageMeta title="Blog" />
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light shadow-sm shadow-dark-mode-none fixed-top" />
       <nav className="container mt-lg-4 custom-padding " aria-label="breadcrumb">
         <ol className="breadcrumb mb-0 pt-5">

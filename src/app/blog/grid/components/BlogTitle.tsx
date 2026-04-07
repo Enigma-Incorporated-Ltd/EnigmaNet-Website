@@ -1,13 +1,11 @@
 import IconifyIcon from '@/components/IconifyIcon';
-import { Link } from 'react-router';
+import { Nav, NavLink } from 'react-bootstrap';
 
-import { Nav } from 'react-bootstrap';
-
-const PageTitle = () => {
+const BlogTitle = () => {
   return (
     <div className="d-flex align-items-center justify-content-between mb-4 pb-1 pb-md-3">
       <h1
-        className="mb-0 text-center"
+        className="mb-0"
         style={{
           fontSize: 'clamp(2rem, 5vw, 3rem)',
           fontWeight: 800,
@@ -23,19 +21,15 @@ const PageTitle = () => {
         Blogs
       </h1>
       <Nav className="flex-nowrap ms-sm-4 ms-3">
-        <Link
-          to="/blog-list-with-sidebar"
-          className="nav-link me-2 p-0 active"
-          aria-label="List view"
-        >
-          <IconifyIcon className="fs-4" icon="bx:list-ul" />
-        </Link>
-        <Link to="/blog-grid-with-sidebar" className="nav-link p-0" aria-label="Grid view">
-          <IconifyIcon className="fs-4" icon="bx:grid-alt" />
-        </Link>
+        <NavLink href="/blog" className="me-2 p-0" aria-label="List view">
+          <IconifyIcon icon="bx:list-ul" className="fs-4" />
+        </NavLink>
+        <NavLink href="/blog/grid" className="p-0 active" aria-label="Grid view">
+          <IconifyIcon icon="bx:grid-alt" className="fs-4"></IconifyIcon>
+        </NavLink>
       </Nav>
     </div>
   );
 };
 
-export default PageTitle;
+export default BlogTitle;

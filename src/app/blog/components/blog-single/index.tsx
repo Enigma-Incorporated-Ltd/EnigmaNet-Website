@@ -60,7 +60,7 @@ const Index = () => {
             <IconifyIcon icon="bx:chevrons-right" />
           </span>
           <li className="breadcrumb-item">
-            <Link to="/blog-list-with-sidebar">Blog</Link>
+            <Link to="/blog">Blog</Link>
           </li>
           <span className="d-flex align-items-center mx-2">
             <IconifyIcon icon="bx:chevrons-right" />
@@ -76,7 +76,7 @@ const Index = () => {
       ) : !post ? (
         <div className="container text-center py-5">
           <h2 className="text-muted">Post not found.</h2>
-          <Link to="/blog-list-with-sidebar" className="btn btn-primary mt-3">
+          <Link to="/blog" className="btn btn-primary mt-3">
             Back to Blog
           </Link>
         </div>

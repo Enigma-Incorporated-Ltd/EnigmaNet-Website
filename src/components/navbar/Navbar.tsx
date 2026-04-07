@@ -73,7 +73,7 @@ const FALLBACK_CONFIG: HeaderConfig = {
       label: 'Legal',
     },
     {
-      href: '/blog-list-with-sidebar',
+      href: '/blog',
       type: 'link',
       label: 'Blogs',
     },

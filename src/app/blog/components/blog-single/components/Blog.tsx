@@ -18,7 +18,7 @@ const Blog = ({ related }: BlogProps) => {
     <section className="container mb-5 pt-md-4">
       <div className="d-flex flex-sm-row flex-column align-items-center justify-content-between mb-4 pb-1 pb-md-3">
         <h2 className="h1 mb-sm-0">Related Articles</h2>
-        <Link to="/blog-list-with-sidebar" className="btn btn-lg btn-outline-primary ms-4">
+        <Link to="/blog" className="btn btn-lg btn-outline-primary ms-4">
           All posts
           <IconifyIcon icon="bx:right-arrow-alt" className="ms-1 me-n1 lh-1 lead" />
         </Link>
@@ -40,7 +40,7 @@ const Blog = ({ related }: BlogProps) => {
             <article className="card border-0 shadow-sm h-100 mx-2">
               <div className="position-relative overflow-hidden" style={{ height: '200px' }}>
                 <Link
-                  to={`/blog-single/${post.slug}`}
+                  to={`/blog/${post.slug}`}
                   className="position-absolute top-0 start-0 w-100 h-100"
                   aria-label="Read more"
                 />
@@ -71,7 +71,7 @@ const Blog = ({ related }: BlogProps) => {
                   <span className="fs-sm text-muted">{post.date}</span>
                 </div>
                 <h3 className="h5 mb-0">
-                  <Link to={`/blog-single/${post.slug}`}>{post.title}</Link>
+                  <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
               </CardBody>
               {post.author.name && post.author.name !== 'Unknown' && (

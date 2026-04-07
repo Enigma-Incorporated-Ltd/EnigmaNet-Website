@@ -126,7 +126,7 @@ const handleCategoryClick = (cat: string) => {
                   {popularPosts.map(post => (
                     <li key={post.id} className="border-bottom pb-3 mb-3">
                       <h4 className="h6 mb-2">
-                        <Link to={`/blog-single/${post.slug}`}>{post.title}</Link>
+                        <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                       </h4>
 
                       <div className="d-flex align-items-center text-muted pt-1">
