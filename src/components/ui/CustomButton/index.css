@@ -1,0 +1,44 @@
+.custom-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.custom-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    transform: translateY(-3px) scale(1.04);
+    filter: brightness(1.15);
+    z-index: 1;
+}
+
+.custom-btn:hover::after {
+    width: 100%;
+}
+
+.custom-btn {
+    z-index: 2;
+}
+
+.custom-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.custom-btn:active {
+    transform: scale(0.97);
+}
+
+
+ @media (max-width: 768px) {
+    .custom-btn {
+        font-size: 1.25rem;
+        padding: 0.75rem 1.5rem;
+        width: 100%;
+    }
+    
+}

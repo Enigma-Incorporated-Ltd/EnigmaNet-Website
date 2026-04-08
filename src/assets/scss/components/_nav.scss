@@ -6,6 +6,7 @@
 
 .nav-item {
   margin-bottom: 0;
+  font-size: large;
 }
 
 .nav {
@@ -76,6 +77,7 @@
     var(--#{$prefix}nav-tabs-alt-border-color);
   .nav-item {
     margin-bottom: calc(var(--#{$prefix}nav-tabs-alt-border-width) * -1);
+    
   }
   .nav-link {
     padding: var(--#{$prefix}nav-tabs-alt-link-padding-y)

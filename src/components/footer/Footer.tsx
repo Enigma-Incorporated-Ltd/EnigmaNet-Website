@@ -1,16 +1,74 @@
 import Logo from '@/assets/img/EnigmaNet-logo.png';
 import IconifyIcon from '@/components/IconifyIcon';
+import certificate1 from '@/assets/img/certificates/c1.png';
+import certificate2 from '@/assets/img/certificates/c2.png';
+import certificate3 from '@/assets/img/certificates/c3.png';
+import certificate4 from '@/assets/img/certificates/c4.webp';
+import certificate5 from '@/assets/img/certificates/c5.png';
+import certificate6 from '@/assets/img/certificates/c6.jpg';
 import { useEffect, useState } from 'react';
 import { Col, Collapse, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { fetchFooter, type FooterConfig } from '@/services/cmsApi';
+const brands = [
+  { src: certificate1, pending: false },
+  { src: certificate2, pending: false },
+  { src: certificate3, pending: true }, // ISO:27001
+  { src: certificate4, pending: false },
+  { src: certificate5, pending: false },
+  { src: certificate6, pending: true }, // NVIDIA
+];
+
+export const BrandStrip = () => {
+  return (
+    <div className="brand-strip d-flex rounded px-5 gap-3 mb-2 py-3">
+      <style>
+        {`
+          .brand-logo {
+            transition: all 0.3s ease;
+          }
+
+          .brand-logo:hover {
+            transform: scale(1.1);
+          }
+
+          .greyed {
+            filter: grayscale(100%) opacity(0.5);
+          }
+
+          .greyed:hover {
+            filter: grayscale(100%) opacity(0.7);
+          }
+        `}
+      </style>
+
+      <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+        {brands.map((brand, index) => (
+          <img
+            key={index}
+            src={brand.src}
+            alt="brand"
+            className={`brand-logo ${brand.pending ? 'greyed' : ''}`}
+            style={{
+              height: '55px',
+              width: 'auto',
+              objectFit: 'contain',
+              objectPosition: 'center',
+              position: 'relative',
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 // ── Fallback hard-coded config ────────────────────────────────────────────────
 const FALLBACK: FooterConfig = {
-  brand: { name: 'EnigmaNet', href: '/index' },
+  brand: { name: 'EnigmaNet', href: '/' },
   description:
     'Enigma Secure Cloud offers predictable, transparent pricing with no hidden fees. Store your data securely without worrying about egress, API, or retrieval costs.',
-  email: 'info@enigmanet.co.uk',
+  email: 'info@enigmainc.co.uk',
   emailLabel: 'Contact Us',
   newsletter: {
     enabled: true,
@@ -36,7 +94,7 @@ const FALLBACK: FooterConfig = {
   ],
   socials: [
     // { title: 'Facebook', url: '#' },
-    { title: 'LinkedIn', url: '#' },
+    { title: 'LinkedIn', url: 'https://www.linkedin.com/company/enigmanet-ai/' },
     // { title: 'Twitter', url: '#' },
     // { title: 'Instagram', url: '#' },
   ],
@@ -170,7 +228,7 @@ const Footer = () => {
           </Col>
 
           {/* Link columns + socials + email */}
-          <Col xl={6} lg={7} md={5} className="offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+          <Col xl={6} lg={6} md={5} className="offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
             <Row id="footer-links">
               {/* Columns */}
               {(columns ?? []).map((col, i) => {
@@ -256,14 +314,21 @@ const Footer = () => {
 
                   {/* Address */}
                   {contact.address && (
-                    <p
-                      className="mb-0 nav-link"
+                    <address
+                      className="mb-0 text-warning opacity-70"
                       style={{
-                        fontWeight: 700,
+                        fontStyle: 'normal',
+                        fontSize: 14,
+                        fontWeight: 400,
+                        // lineHeight: 1.6,
                       }}
                     >
-                      {contact.address}
-                    </p>
+                      {contact.address.split(/,\s*/).map((line, idx) => (
+                        <span key={idx} className="d-block">
+                          {line}
+                        </span>
+                      ))}
+                    </address>
                   )}
                 </Col>
               )}
@@ -309,7 +374,7 @@ const Footer = () => {
             </Row>
           </Col>
         </Row>
-
+        <BrandStrip />
         {/* Copyright */}
         <p
           className="nav d-block fs-xs mb-3 text-center text-md-start pb-2 pb-lg-0 mb-0"

@@ -1,0 +1,50 @@
+/* Common styles (both themes) */
+.faq-item {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+/* Hover effect */
+.faq-item:hover {
+    transform: translateY(-3px);
+}
+
+/* Accordion header */
+.faq-item .accordion-button {
+    background: transparent !important;
+    font-weight: 500;
+    box-shadow: none !important;
+    padding: 18px 20px;
+}
+
+/* Remove default bootstrap styles */
+.faq-item .accordion-button:not(.collapsed) {
+    box-shadow: none;
+}
+
+/* Icon rotation */
+.faq-item .accordion-button::after {
+    transition: transform 0.3s ease;
+}
+
+.faq-item .accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+
+/* Body */
+.faq-item .accordion-body {
+    padding: 0 20px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+[data-bs-theme="dark"] .faq-item .accordion-button {
+    color: #fff;
+}
+
+[data-bs-theme="dark"] .faq-item .accordion-body {
+    color: #a9b3c1;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+

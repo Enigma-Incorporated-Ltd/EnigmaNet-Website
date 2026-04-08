@@ -4,7 +4,21 @@ import { fetchLegalPages } from '@/services/legalApi';
 import type { LegalItem } from '@/services/legalApi';
 import './legal.css';
 import { OverlayLoader } from '../loading/Loader';
+import he from 'he';
+import { toSentenceCase } from '@/utils';
+const normalizeContent = (html: string) => {
+  if (!html) return '';
 
+  const decoded = he.decode(html);
+
+  return decoded
+    .replace(/<span[^>]*>/gi, '')
+    .replace(/<\/span>/gi, '')
+    .replace(/white-space:\s*pre-wrap;?/gi, '')
+    .replace(/\u00A0/g, ' ')
+    .replace(/ {2,}/g, ' ')
+    .replace(/©/g, '(c)');
+};
 const LegalPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -94,7 +108,7 @@ const ORDER = [
               onClick={() => handleSelect(item.slug)}
               style={{ animationDelay: `${i * 55}ms` }}
             >
-              <span className="legal-sidebar-text">{item.title}</span>
+              <span className="legal-sidebar-text">{toSentenceCase(item.title || '')}</span>
               {active?.slug === item.slug && <span className="legal-sidebar-pip" />}
             </button>
           ))}
@@ -109,12 +123,12 @@ const ORDER = [
           <div className="legal-breadcrumb">
             <span>Legal</span>
             <span className="legal-breadcrumb-sep">›</span>
-            <span className="legal-breadcrumb-active">{active?.title}</span>
+            <span className="legal-breadcrumb-active">{toSentenceCase(active?.title)}</span>
           </div>
 
           {/* Title */}
           <div className="legal-content-header">
-            <h2 className="legal-content-title">{active?.title}</h2>
+            <h2 className="legal-content-title">{toSentenceCase(active?.title)}</h2>
 
             <div className="legal-content-meta">
               <span className="legal-content-badge">Official Document</span>
@@ -128,12 +142,9 @@ const ORDER = [
           <div
             className="legal-content-body"
             dangerouslySetInnerHTML={{
-              __html: active?.content || '',
+              __html: normalizeContent(active?.content || ''),
             }}
           />
-
-       
-      
         </main>
       </div>
     </div>

@@ -45,6 +45,7 @@ $warning: $gold !default; // #e5ae51  (was #ffba08)
 $danger: #ef4444 !default;
 $light: $white !default;
 $dark: $gray-900 !default;
+$light-blue: $light-blue !default;
 
 $primary-text-emphasis: darken($primary, 10%) !default;
 $secondary-text-emphasis: $gray-700 !default;
@@ -83,6 +84,7 @@ $theme-colors: (
   'danger': $danger,
   'light': $light,
   'dark': $dark,
+  'light-blue': $light-blue,
 ) !default;
 
 // Faded colors map
@@ -94,6 +96,7 @@ $theme-faded-colors: (
   'danger': rgba($danger, 0.12),
   'light': rgba($light, 0.05),
   'dark': rgba($dark, 0.12),
+  'light-blue': rgba($light-blue, 0.12),
 ) !default;
 
 // Gradients map — updated to use brand palette
@@ -182,6 +185,7 @@ $border-colors: (
   'light': $border-light-color,
   'dark': rgba($dark, 0.35),
   'white': rgba($white, 0.35),
+  'light-blue': rgba($light-blue, 0.35),
 ) !default;
 
 // Theme shadows
@@ -204,9 +208,13 @@ $box-shadow-success: 0 0.5rem 1.125rem -0.5rem rgba($success, 0.9) !default;
 $box-shadow-warning: 0 0.5rem 1.125rem -0.5rem rgba($warning, 0.9) !default;
 $box-shadow-danger: 0 0.5rem 1.125rem -0.5rem rgba($danger, 0.9) !default;
 $box-shadow-dark: 0 0.5rem 1.125rem -0.5rem rgba($dark, 0.9) !default;
+$box-shadow-light: 0 0.5rem 1.125rem -0.5rem rgba($light, 0.9) !default;
+$box-shadow-light-blue: 0 0.5rem 1.125rem -0.5rem rgba($light-blue, 0.9) !default;
 
 $text-shadow: 0 0.0625rem $gray-900 !default;
-
+.shadow-light-blue {
+  box-shadow: $box-shadow-light-blue !important;
+}
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.

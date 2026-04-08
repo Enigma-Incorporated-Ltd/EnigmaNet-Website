@@ -16,7 +16,7 @@ type NavClass = {
 
 // ── Fallback hard-coded config (used while CMS loads or if fetch fails) ────────
 const FALLBACK_CONFIG: HeaderConfig = {
-  logo: { text: 'enigmanet', href: '/index' },
+  logo: { text: 'enigmanet', href: '/' },
   nav_items: [
     // {
     //   label: 'Landings',
@@ -49,6 +49,11 @@ const FALLBACK_CONFIG: HeaderConfig = {
     //   ],
     // },
     {
+      href: '/',
+      type: 'link',
+      label: 'Home',
+    },
+    {
       type: 'dropdown',
       label: 'Products',
       links: [
@@ -68,7 +73,7 @@ const FALLBACK_CONFIG: HeaderConfig = {
       label: 'Legal',
     },
     {
-      href: '/blog-list-with-sidebar',
+      href: '/blog',
       type: 'link',
       label: 'Blogs',
     },
@@ -158,7 +163,7 @@ const FALLBACK_CONFIG: HeaderConfig = {
     //     { label: 'Sign Up', href: '/account-signup' },
     //   ],
     // },
-    { label: 'Get in Touch', type: 'link', href: '/contacts-v2' },
+    { label: 'Get in Touch', type: 'link', href: '/get-in-touch' },
   ],
   cta_button: { label: 'Buy now', href: '#', icon: 'bx:cart', variant: 'primary', size: 'sm' },
 };
@@ -217,7 +222,7 @@ const Navbar = ({
 
   return (
     <header className={`${Headerclass} ${isSticky && headerSticky ? headerSticky : ''}`}>
-      <div className="container px-3">
+      <div className="container px-3 d-flex align-items-center flex-nowrap">
         {/* Logo */}
         <Link to={logo.href} className="navbar-brand pe-3">
           <img src={Logo} width={250} height={150} alt={logo.text} style={{

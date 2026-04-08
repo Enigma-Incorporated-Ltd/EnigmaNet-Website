@@ -15,6 +15,9 @@ const brands = [brand1, brand2, brand3, brand4, brand5, brand6];
 const Brands = () => {
   return (
     <Container className="py-5 mt-md-2 mt-lg-4">
+      <h5 className="h5 text-center ">
+        Trusted by infrastructure teams moving critical workloads
+      </h5>
       <Swiper
         modules={[Pagination]}
         slidesPerView={2}
