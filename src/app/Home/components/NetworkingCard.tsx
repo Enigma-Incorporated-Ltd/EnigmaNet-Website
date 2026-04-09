@@ -1,92 +1,185 @@
-import IconifyIcon from '@/components/IconifyIcon';
 import CustomButton from '@/components/ui/CustomButton';
-import { Card } from 'react-bootstrap';
-import { Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-type FeatureItem = {
-  id: number | string;
-  icon: string;
+
+type SubFeature = {
   title: string;
   description: string;
 };
 
-const features: FeatureItem[] = [
+type PillarItem = {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  dark?: boolean;
+  bulletPoints?: { title: string; description: string }[];
+  subFeatures?: SubFeature[];
+  buttonLabel: string;
+  buttonHref: string;
+  buttonColor: string;
+};
+
+const pillars: PillarItem[] = [
   {
     id: '01',
-    icon: 'solar:shield-network-linear',
+    label: 'PILLAR ONE',
     title: 'Secure Networking',
-    description: `A private, resilient network overlay across your existing internet links. Bonding, failover, and optimisation — without ripping out infrastructure.`,
+    description:
+      'A private, resilient network overlay across your existing internet links. Bonding, failover, and optimisation, without ripping out infrastructure.',
+    dark: false,
+    bulletPoints: [
+      {
+        title: 'Multi-link bonding',
+        description: 'Combine fibre, 5G, satellite into a single resilient path',
+      },
+      {
+        title: 'Predictive failover',
+        description: '20ms directional failover across links',
+      },
+      {
+        title: 'Zero-trust encryption',
+        description: 'All traffic through encrypted tunnels with identity-based access',
+      },
+      {
+        title: 'Five-9s reliability',
+        description: 'Using standard internet links, not dedicated circuits',
+      },
+    ],
+    buttonLabel: 'Explore Enigma Connect',
+    buttonHref: '/',
+    buttonColor: 'light-blue',
   },
   {
     id: '02',
-    icon: 'solar:server-broken',
-    title: 'Compute Hosting',
-    description: `Performance-optimised hosting with predictable pricing. No egress surprises, no hyperscaler complexity.`,
-  },
-  {
-    id: '03',
-    icon: 'solar:cpu-bolt-bold',
-    title: 'GPU Hosting',
+    label: 'PILLAR TWO',
+    title: 'Secure Cloud',
     description:
-      'Dedicated GPU infrastructure for AI training, inference, and data-heavy workloads — integrated into the same secure networking layer.',
-  },
-  {
-    id: '04',
-    icon: 'solar:cloud-bolt-minimalistic-outline',
-    title: 'Secure Storage & Transfer',
-    description:
-      'Move large datasets fast and reliably. AI-optimised storage with no egress penalties and predictable economics.',
+      'On-demand compute, GPU, and storage infrastructure with predictable pricing, integrated into the same secure networking layer.',
+    dark: true,
+    subFeatures: [
+      {
+        title: 'Compute & GPU Hosting',
+        description:
+          'Dedicated GPU and compute infrastructure for AI training, inference, and data-heavy workloads. No egress surprises, no hyperscaler complexity.',
+      },
+      {
+        title: 'Secure Storage',
+        description:
+          'AI-optimised storage with predictable pricing and no egress penalties. Designed for large sequential reads, checkpoint access, and dataset streaming.',
+      },
+      {
+        title: 'Secure Transfer',
+        description:
+          'Move large datasets fast and reliably across distributed environments. Up to 39–64× faster large-file transfer over high-latency networks.',
+      },
+    ],
+    buttonLabel: 'Explore Secure Cloud',
+    buttonHref: '/',
+    buttonColor: 'warning',
   },
 ];
 
-const NetworkingCard = () => {
+const NetworkingPillars = () => {
   return (
     <section className="container pt-5 my-2 my-md-4 my-lg-5">
-      <h5 className="h3 text-center text-warning mx-auto mt-n2 mt-sm-0 pt-md-2">
+      <h5 className="h3 text-center text-warning mx-auto text-uppercase mt-n2 mt-sm-0 pt-md-2">
         Secure infrastructure for data, compute, and AI
       </h5>
       <h2 className="h1 text-center mx-auto mt-n2 mt-sm-0 pt-md-2">We're more than networking</h2>
-
       <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
           <span>
-            EnigmaNet isn't just a connectivity layer. It's secure infrastructure for data movement,
-            compute, storage, and <br /> AI — deployed without replacing what you already have.
+            Affordable, accessible and scalable hosting alongside performant and
+            <br /> secure networking, deployed without replacing what you already have.
           </span>
         </li>
       </ul>
-      <Swiper
-        modules={[Pagination]}
-        spaceBetween={8}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        breakpoints={{
-          500: { slidesPerView: 2 },
-          800: { slidesPerView: 3 },
-          1200: { slidesPerView: 4 },
-        }}
-        className="mx-n2 pb-4"
-      >
-        {features.map(feature => (
-          <SwiperSlide key={feature.id} className="h-auto py-3">
-            <Card className="h-100 card-body card-hover mx-2">
-              <IconifyIcon
-                icon={`${feature.icon}`}
-                className="display-5 text-warning fw-normal card-icon"
-                style={{ color: '#b4b7c9' }}
-              />
-              <h3 className="h5 text-primary pt-3 pb-1 mb-2">{feature.title}</h3>
-              <p className="mb-0">{feature.description}</p>
-            </Card>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="row g-4">
+        {pillars.map(pillar => (
+          <div key={pillar.id} className="col-12 col-md-6">
+            <div
+              className={`h-100 rounded-3 p-4 p-lg-5 d-flex flex-column ${
+                pillar.dark ? 'bg-dark text-white' : ' border'
+              }`}
+              style={pillar.dark ? { backgroundColor: '#0d1117' } : {}}
+            >
+              {/* Pillar label */}
+              <p
+                className="text-warning fw-semibold text-uppercase mb-2"
+                style={{ fontSize: '0.75rem', letterSpacing: '0.08em' }}
+              >
+                {pillar.label}
+              </p>
 
-      <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <CustomButton label=" OUR SOLUTION" bgColor="warning" href="/" className="btn-lg" />
+              {/* Title */}
+              <h2
+                className={`fw-bold mb-3 ${pillar.dark ? 'text-white' : 'text-dark'}`}
+                style={{ fontSize: '1.75rem' }}
+              >
+                {pillar.title}
+              </h2>
+
+              {/* Description */}
+              <p className={`mb-4 ${pillar.dark ? 'text-white-50' : 'text-muted'}`}>
+                {pillar.description}
+              </p>
+
+              {/* Bullet points (Pillar One) */}
+              {pillar.bulletPoints && (
+                <ul className="list-unstyled mb-4 flex-grow-1">
+                  {pillar.bulletPoints.map((point, idx) => (
+                    <li key={idx} className="d-flex align-items-start mb-3">
+                      <span
+                        className="rounded-circle bg-light-blue flex-shrink-0 me-3 mt-2"
+                        style={{ width: '10px', height: '10px', minWidth: '10px' }}
+                      />
+                      <span className={pillar.dark ? 'text-white-50' : 'text-muted'}>
+                        <strong className={pillar.dark ? 'text-white' : 'text-dark'}>
+                          {point.title}
+                        </strong>
+                        {', '}
+                        {point.description}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Sub-feature cards (Pillar Two) */}
+              {pillar.subFeatures && (
+                <div className="d-flex flex-column gap-3 mb-4 flex-grow-1">
+                  {pillar.subFeatures.map((feature, idx) => (
+                    <div
+                      key={idx}
+                      className="rounded-3 p-3"
+                      style={{
+                        backgroundColor: 'rgba(255,255,255,0.07)',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                      }}
+                    >
+                      <h6 className="text-light-blue fw-semibold mb-2">{feature.title}</h6>
+                      <p className="text-white-50 mb-0" style={{ fontSize: '0.875rem' }}>
+                        {feature.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* CTA Button */}
+              <div className="mt-auto pt-3">
+                <CustomButton
+                  label={pillar.buttonLabel}
+                  bgColor={pillar.buttonColor as 'info' | 'warning' | 'light-blue'}
+                  href={pillar.buttonHref}
+                  className="btn-lg"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
-export default NetworkingCard;
+export default NetworkingPillars;

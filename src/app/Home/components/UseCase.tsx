@@ -1,7 +1,7 @@
 import IconifyIcon from '@/components/IconifyIcon';
 import CustomButton from '@/components/ui/CustomButton';
 import { Card } from 'react-bootstrap';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 type FeatureItem = {
   id: number | string;
@@ -16,7 +16,7 @@ const features: FeatureItem[] = [
     id: '01',
     icon: 'solar:cpu-bolt-bold',
     title: 'AI & GPU Compute',
-    description: `Move training datasets, model checkpoints, and inference outputs across GPU clusters and cloud regions without bottlenecks or unpredictable costs.  `,
+    description: `Move training datasets, model checkpoints, and inference outputs across GPU clusters and cloud regions without bottlenecks or unpredictable costs. `,
     Tags: ['GPU Cloud', 'HPC', 'ML Piplines'],
   },
   {
@@ -51,7 +51,7 @@ const features: FeatureItem[] = [
     id: '06',
     icon: 'solar:remote-controller-minimalistic-linear',
     title: 'Energy & Remote Ops',
-    description: `Reliable connectivity for oil rigs, pipelines, wind farms, and mining — bonding satellite, microwave, and cellular into a single resilient path`,
+    description: `Reliable connectivity for oil rigs, pipelines, wind farms, and mining, bonding satellite, microwave, and cellular into a single resilient path.`,
     Tags: ['Oil & Gas', 'Remote Sites'],
   },
 ];
@@ -59,15 +59,14 @@ const features: FeatureItem[] = [
 const UseCase = () => {
   return (
     <section className="container pt-5 my-5">
-      <h5 className="h3 text-center text-warning">Industries / Use Cases</h5>
+      <h5 className="h3 text-center text-uppercase text-warning">Industries / Use Cases</h5>
 
       <h2 className="h1 text-center mb-4">Where Enigma Net fits</h2>
       <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
           <span>
-            Current internet infrastructure creates real bottlenecks for AI workloads, distributed
-            teams, and data-heavy
-            <br /> operations.
+            Current internet infrastructure creates real bottlenecks for AI workloads, <br />
+            distributed teams, and data-heavy operations.
           </span>
         </li>
       </ul>
@@ -88,7 +87,7 @@ const UseCase = () => {
                 {feature.Tags?.map(tag => (
                   <p
                     key={tag}
-                    className="badge p-2  border border-primary bg-transparent text-primary  me-1"
+                    className="badge p-2 text-uppercase  border border-warning bg-warning text-black  me-1"
                   >
                     {tag}
                   </p>
@@ -102,7 +101,8 @@ const UseCase = () => {
       {/* ✅ Mobile Slider */}
       <div className="d-lg-none">
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
           spaceBetween={16}
           slidesPerView={1}
           pagination={{ clickable: true }}
@@ -112,12 +112,12 @@ const UseCase = () => {
               <Card className="feature-card">
                 <IconifyIcon icon={feature.icon} className="display-5 text-warning mb-3" />
                 <h3 className="h5 text-primary">{feature.title}</h3>
-                <p className="mb-0 text-black">{feature.description}</p>
+                <p className="mb-0 ">{feature.description}</p>
                 <div className="py-4 gap-1 d-flex flex-wrap">
                   {feature.Tags?.map(tag => (
                     <p
                       key={tag}
-                      className="badge p-2  border border-primary bg-transparent text-primary  me-1"
+                      className="badge p-2  border border-warning bg-warning text-black   me-1"
                     >
                       {tag}
                     </p>
@@ -130,8 +130,7 @@ const UseCase = () => {
       </div>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-       
-        <CustomButton label="INDUSTRIES" bgColor="warning" href="/" className="btn-lg" />
+        <CustomButton label="Industries" bgColor="warning" href="/" className="btn-lg" />
       </div>
     </section>
   );

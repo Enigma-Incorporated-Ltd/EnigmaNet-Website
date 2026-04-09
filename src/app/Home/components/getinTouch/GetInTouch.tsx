@@ -92,13 +92,11 @@ const GetInTouch = () => {
   return (
     <>
       <section className="contact-section" ref={sectionRef}>
-        {/* Decorative dots */}
-        <div className="dot-grid dot-grid-tl" />
-        <div className="dot-grid dot-grid-br" />
+       
 
         <Container>
           {/* Heading */}
-          <div className={`text-center mb-2 pb-5 fade-in ${visible ? 'visible' : ''}`}>
+          <div className={`text-center fade-in ${visible ? 'visible' : ''}`}>
             <h1 className=" text-warning mb-5">Get in touch</h1>
           </div>
 
@@ -108,9 +106,9 @@ const GetInTouch = () => {
               <h2 className="mb-3">See how EnigmaNet fits your infrastructure</h2>
               <StraightLine />
               <p className="mb-4">
-                Whether you're scaling AI workloads, improving connectivity across distributed
-                sites, or looking for a differentiated partner offering — book a short call and
-                we'll show you what's possible.
+                Whether you’re scaling AI workloads, improving connectivity across distributed
+                sites, or looking for a differentiated partner offering, book a short call and we’ll
+                show you what’s possible.
               </p>
               <div className="d-flex flex-column gap-3">
                 <div className="info-item">
@@ -232,7 +230,7 @@ const GetInTouch = () => {
                       <Col xs={12} className={`mt-1 fade-in delay-4 ${visible ? 'visible' : ''}`}>
                         <Button type="submit" className="submit-btn" disabled={sending}>
                           {sending && <span className="btn-spinner" />}
-                          {sending ? 'Sending…' : 'Send Message'}
+                          {sending ? 'Sending…' : 'Call me Back'}
                         </Button>
                       </Col>
                     </Form>

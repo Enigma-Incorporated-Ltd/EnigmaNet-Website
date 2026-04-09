@@ -63,7 +63,7 @@ const Security = lazy(() => import('@/app/(account)/account-security'));
 const SignIn = lazy(() => import('@/app/(account)/account-signin'));
 const SignUp = lazy(() => import('@/app/(account)/account-signup'));
 const TCOCalculator = lazy(() => import('@/app/product-tco-calculator/index'));
-
+ const Product2 = lazy(() => import('@/app/product-2/index'));
 export const AllRoutes = [
   // { path: '/', name: 'index', element: <Navigate to="/" replace /> },
   // { path: '/index', name: 'index1', element: <Index /> },
@@ -71,6 +71,7 @@ export const AllRoutes = [
   { path: '*', name: 'not-found', element: <Error1 /> },
   { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
   { path: '/product-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
+  { path: '/product-2', name: 'CommingSoon', element: <Product2 /> },
   { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },
   { path: '/app-showcase-v3', name: 'case3', element: <ShowCase3 /> },
   { path: '/blog-list', name: 'blog', element: <Blog /> },

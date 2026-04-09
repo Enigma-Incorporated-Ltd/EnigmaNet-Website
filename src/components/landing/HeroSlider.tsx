@@ -8,32 +8,35 @@ import CustomButton from '../ui/CustomButton';
 const slides = [
   {
     id: 1,
-    title: 'More reliable, secure connectivity across sites, clouds and internet links.',
-    subtitle: 'More reliable, secure connectivity across sites, clouds and internet links.',
+    title: 'Deterministic infrastructure for data-intensive environments',
+    subtitle:
+      'Move large datasets faster and more predictably across distributed compute environment without replacing what you already have',
     img: hero1,
     gradient:
       'linear-gradient(164deg, rgb(11, 14, 24) 18%, rgb(8 11 20) 27%, rgb(9 10 13 / 85%) 41%, rgba(11, 14, 24, -15.6) 62%, rgb(199 201 206 / -36%) 9% 67%)',
-    btn1: { label: 'OUR PRODUCTS', color: '#00D4E8', href: '/' },
-    btn2: { label: 'BOOK DEMO', color: '#E8A020', href: '/get-in-touch' },
+    btn1: { label: 'Our Solutions', color: '#00D4E8', href: '/' },
+    btn2: { label: 'Book A Call', color: '#E8A020', href: '/get-in-touch' },
   },
   {
     id: 2,
-    title: `Reliable connectivity and data movement for mission-critical environments.`,
-    subtitle: 'Reliable connectivity and data movement for mission-critical environments.',
-    btn1: { label: 'OUR SOLUTION', color: '#00D4E8', href: '/' },
+    title: `Affordable, Accessible, Scalable Hosting for Compute, GPU and Storage`,
+    subtitle:
+      'On-demand compute, GPU and storage infrastructure that efficiently scales with your workloads',
     img: hero2,
     gradient: 'linear-gradient(104deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0))',
-    btn2: { label: 'CONTACT US', color: '#E8A020', href: '/get-in-touch' },
+    btn1: { label: 'Our Solutions', color: '#00D4E8', href: '/' },
+    btn2: { label: 'Book A Call', color: '#E8A020', href: '/get-in-touch' },
   },
   {
     id: 3,
-    title: 'Deterministic networking for data‑intensive infrastructure',
+    title: 'Complete AI Infrastructure Designed around your Needs',
     subtitle:
-      'Move large datasets faster and more predictably across distributed compute environments — without replacing what you already have',
-    btn1: { label: 'OUR PRODUCTS', color: '#00D4E8', href: '/' },
+      'Data movement, compute and storage working as one controlled, high-performance system.',
+
     gradient: 'linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0))',
     img: hero3,
-    btn2: { label: 'CONTACT US', color: '#E8A020', href: '/get-in-touch' },
+    btn1: { label: 'Our Solutions', color: '#00D4E8', href: '/' },
+    btn2: { label: 'Book A Call', color: '#E8A020', href: '/get-in-touch' },
   },
 ];
 

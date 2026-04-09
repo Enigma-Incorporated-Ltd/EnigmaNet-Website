@@ -6,19 +6,19 @@ import CustomButton from '@/components/ui/CustomButton';
 const features = [
   {
     title: 'New Revenue Stream',
-    desc: 'Resell secure networking and cloud infrastructure as a managed service with margin built in.',
+    desc: 'Resell secure networking and cloud infrastructure as a managed service with margin built in..',
   },
   {
     title: 'Solve Real Customer Pain',
-    desc: 'Your customers get more reliable connectivity and data movement — you get a compelling reason to call.',
+    desc: 'Your customers get more reliable connectivity and data movement, you get a compelling reason to call.',
   },
   {
     title: 'Bundle And Grow',
-    desc: 'Start with networking, add compute, GPU, and storage as your customers need it.',
+    desc: ' Start with networking, add compute, GPU, and storage as your customers need it.',
   },
   {
     title: 'Simple Enablement',
-    desc: 'Positioning, provisioning, and support designed for partners — not an afterthought.',
+    desc: ' Positioning, provisioning, and support designed for partners, not an afterthought.',
   },
 ];
 
@@ -31,7 +31,7 @@ const Partner = () => {
           <p className=" h2 text-warning fw-semibold text-uppercase mb-4">For Partners</p>
 
           <h1 className="fw-bold mb-4" style={{ lineHeight: '1.3' }}>
-            Help your customers get more reliable connectivity and data movement - without building
+            Help your customers get more reliable connectivity and data movement, without building
             it all yourself
           </h1>
 
@@ -68,8 +68,7 @@ const Partner = () => {
         </Col>
       </Row>
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-       
-        <CustomButton label="OUR PARTNERS " bgColor="warning" href="/" className="btn-lg" />
+        <CustomButton label="Our  Partners " bgColor="warning" href="/" className="btn-lg" />
       </div>
     </Container>
   );

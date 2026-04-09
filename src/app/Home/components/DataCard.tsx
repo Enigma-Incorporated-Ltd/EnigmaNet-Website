@@ -1,6 +1,6 @@
 import CustomButton from '@/components/ui/CustomButton';
 import { Card } from 'react-bootstrap';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 type FeatureItem = {
   id: number;
@@ -42,7 +42,8 @@ const DataCard = () => {
   return (
     <section className="container  my-2 my-md-4 my-lg-5">
       <Swiper
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         spaceBetween={8}
         slidesPerView={1}
         pagination={{ clickable: true }}
@@ -89,8 +90,13 @@ const DataCard = () => {
         >
           BOOK A CALL
         </Link> */}
-        <CustomButton label=" OUR SOLUTION " bgColor="light-blue" href="/" className="btn-lg" />
-        <CustomButton label="BOOK A CALL " bgColor="warning" href="/" className="btn-lg" />
+        <CustomButton label=" Our Solutions " bgColor="light-blue" href="/" className="btn-lg" />
+        <CustomButton
+          label="Book A Call "
+          bgColor="warning"
+          href="/get-in-touch"
+          className="btn-lg"
+        />
       </div>
     </section>
   );

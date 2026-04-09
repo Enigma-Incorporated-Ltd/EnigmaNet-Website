@@ -24,6 +24,7 @@ import Partner from './components/Partner';
 import Resources from './components/Resources';
 import Faqs from './components/faq/Faqs';
 import GetInTouch from './components/getinTouch/GetInTouch';
+import { BASE_URL } from '@/utils';
 
 const Index = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -40,14 +41,93 @@ const Index = () => {
    // ✅ Listen to custom event (same tab)
    window.addEventListener('themeChange', getTheme);
 
-   return () => {
-     window.removeEventListener('themeChange', getTheme);
-   };
- }, []);
+    return () => {
+      window.removeEventListener('themeChange', getTheme);
+    };
+  }, []);
+  
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Do I need to change my ISP or existing infrastructure?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. Enigma Net sits on top of your existing internet connections, fibre, 5G, satellite, whatever you have. No rip-and-replace, no dependency on a specific provider.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is Enigma Net secure?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'All traffic through encrypted tunnels. Identity-based access control. No logs. Zero-trust architecture throughout.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can MSPs and channel partners resell Enigma Net?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Absolutely. MSPs can package, provision and resell as a differentiated managed offering with new revenue streams.',
+        },
+      },
+    ],
+  };
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Enigma Net',
+    url: BASE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${BASE_URL}/logo.png`,
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+44 (0) 20 8050 4632',
+      contactType: 'customer support',
+      email: 'info@enigmainc.co.uk',
+      areaServed: 'GB',
+      availableLanguage: 'en',
+    },
+    sameAs: ['hhttps://www.linkedin.com/company/enigmanet-ai/'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Enigma Net',
+    url: BASE_URL,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${BASE_URL}/search?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Enigma Net - Home',
+    url: BASE_URL,
+    description:
+      'Enigma Net advanced networking services optimise your current internet connection. Our solutions deliver greater speed, reliability, and measurable superior performance.',
+  },
+  faqSchema,
+];
 
   return (
     <>
-      <PageMeta title="Home" />
+      {/* ✅ META */}
+      <PageMeta
+        title="Home"
+        description="Enigma Net advanced networking services optimise your current internet connection. Our solutions deliver greater speed, reliability, and measurable superior performance."
+        url={BASE_URL}
+        image={`${BASE_URL}/logo.png`}
+        structuredData={structuredData}
+      />
 
       <Navbar
         Headerclass="header navbar navbar-expand-lg navbar-dark position-absolute navbar-sticky"
@@ -64,7 +144,6 @@ const Index = () => {
       <UseCase />
       <CustomerResults />
 
-      {/* ✅ Conditional Rendering */}
       {theme === 'dark' ? <CTA2 /> : <GetStarted />}
 
       <Partner />

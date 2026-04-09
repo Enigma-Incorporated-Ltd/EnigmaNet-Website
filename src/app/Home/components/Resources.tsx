@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 import avatar40 from '@/assets/img/avatar/40.jpg';
 import avatar04 from '@/assets/img/avatar/04.jpg';
@@ -28,10 +28,10 @@ const newsData: NewsItem[] = [
     id: 1,
     category: ['White Paper', 'AI Infrastructure'],
     time: '12 hours ago',
-    des: 'You could add text here to explain...',
+    des: 'Consistent network throughput is becoming the critical factor for AI systems processing massive datasets efficiently.',
     title: 'The AI Data Bottleneck: Why Predictable Networking Matters More Than Peak Bandwidth',
     image:
-      'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3986a8f48ec50742b65b9_AdobeStock_326629053-p-2000.jpeg',
+      'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3986a40e90480ac0fe985_AdobeStock_930716590.jpeg',
     author: {
       name: 'Marvin McKinney',
       role: 'Deputy Director, Capital Department',
@@ -44,8 +44,8 @@ const newsData: NewsItem[] = [
     time: '1 day ago',
     title: 'MPLS vs APN: A Cost and Performance Comparison for Distributed Organisations',
     image:
-      'https://images.unsplash.com/photo-1644325349124-d1756b79dd42?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    des: 'You could add text here to explain...',
+      'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3986a8f48ec50742b65b9_AdobeStock_326629053.jpeg',
+    des: 'Breaking down the real-world cost and performance trade-offs between MPLS and APN connectivity.',
     author: {
       name: 'Jenny Wilson',
       role: 'Financial Sector Expert',
@@ -58,26 +58,12 @@ const newsData: NewsItem[] = [
     time: 'Nov 24, 2023',
     title: 'EnigmaNet Platform Overview — Networking, Storage & Compute',
     image:
-      'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3986a8f48ec50742b65b9_AdobeStock_326629053-p-2000.jpeg',
-    des: 'You could add text here to explain...',
+      'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3986a2cffd22fa9e2c121_AdobeStock_599930736.jpeg',
+    des: 'A unified platform delivering enterprise networking, scalable storage and high-performance compute in one solution.',
     author: {
       name: 'Albert Flores',
       role: 'Financial Counsellor and Director',
       avatar: avatar05,
-    },
-  },
-  {
-    id: 4,
-    category: ['Enterprise Networking'],
-    time: '1 day ago',
-    title: 'MPLS vs APN: A Cost and Performance Comparison for Distributed Organisations',
-    image:
-      'https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    des: 'You could add text here to explain...',
-    author: {
-      name: 'Jenny Wilson',
-      role: 'Financial Sector Expert',
-      avatar: avatar04,
     },
   },
 ];
@@ -86,7 +72,7 @@ const Resources = () => {
   return (
     <section className=" py-5">
       <Container className="py-2 py-md-4 py-lg-5">
-        <h2 className="h3 text-center text-warning  mb-1 mb-lg-3">Resources</h2>
+        <h2 className="h3 text-center text-uppercase text-warning  mb-1 mb-lg-3">Resources</h2>
         <h2 className="h1 text-center pb-4 mb-1 mb-lg-3">
           Insights and guides for data-heavy infrastructure
         </h2>
@@ -110,7 +96,8 @@ const Resources = () => {
 
           <div className="">
             <Swiper
-              modules={[Navigation, Pagination]}
+              modules={[Navigation, Pagination, Autoplay]}
+              autoplay={{ delay: 2000, disableOnInteraction: false }}
               loop={true}
               navigation={{ prevEl: '#prev-news', nextEl: '#next-news' }}
               breakpoints={{

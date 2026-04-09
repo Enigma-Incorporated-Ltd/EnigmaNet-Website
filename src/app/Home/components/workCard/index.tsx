@@ -1,6 +1,6 @@
 import IconifyIcon from '@/components/IconifyIcon';
 import { Card } from 'react-bootstrap';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './workcard.css';
 import CustomButton from '@/components/ui/CustomButton';
@@ -18,8 +18,7 @@ const features: FeatureItem[] = [
     id: '01',
     icon: 'solar:plug-circle-broken',
     title: 'Plugin',
-    description: `A physical appliance connects to your existing broadband, fibre, 5G, satellite — whatever you have. No new circuits, no provider changes.
-`,
+    description: `A physical appliance connects to your existing broadband, fibre, 5G, satellite, whatever you have. No new circuits, no provider changes.`,
     bg: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa',
   },
   {
@@ -40,7 +39,7 @@ const features: FeatureItem[] = [
     id: '04',
     icon: 'solar:cloud-storage-broken',
     title: 'Extend into infrastructure',
-    description: `Add compute, GPU, and storage when you're ready. Same secure layer, same predictable performance. No separate platform to manage.`,
+    description: `Add compute, GPU, and storage when you’re ready. Same secure layer, same predictable performance. No separate platform to manage.`,
     bg: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
   },
 ];
@@ -48,21 +47,21 @@ const features: FeatureItem[] = [
 const WorkCard = () => {
   return (
     <section className="container pt-5 my-5">
-      <h5 className="h3 text-center text-warning">How Enigma Net works</h5>
+      <h5 className="h3 text-center text-uppercase text-warning">How Enigma Net works</h5>
 
       <h2 className="h1 text-center mb-4">Deploys in minutes. Works on what you already have.</h2>
       <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
           <span>
-            Enigma Net sits on top of your existing internet infrastructure. No rip-and-replace. No
-            re-architecting. A physical appliance or software client that creates a private,
-            accelerated network layer — and extends it into <br />
-            compute, storage, and GPU.
+            Enigma Net sits on top of your existing internet infrastructure. No rip-and- <br />
+            replace. No re-architecting. A physical appliance or software client that <br /> creates
+            a private, accelerated network layer,and extends it into compute, <br /> storage, and
+            GPU.
           </span>
         </li>
       </ul>
       {/* ✅ Desktop Grid (2x2) */}
-      <div className="row d-none px-5 d-lg-flex">
+      <div className="row d-none px-5  d-lg-flex" >
         {features.map(feature => (
           <div
             className="col-lg-6 mb-4"
@@ -75,6 +74,7 @@ const WorkCard = () => {
               className="feature-card h-100"
               style={{
                 backgroundImage: `url(${feature.bg})`,
+                
               }}
             >
               <div className="overlay"></div>
@@ -97,7 +97,8 @@ const WorkCard = () => {
       {/* ✅ Mobile Slider */}
       <div className="d-lg-none">
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
           spaceBetween={16}
           slidesPerView={1}
           pagination={{ clickable: true }}
@@ -122,7 +123,7 @@ const WorkCard = () => {
       </div>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <CustomButton label="EXPLORE MORE" bgColor="warning" href="/" className="btn-lg" />
+        <CustomButton label="Explore More" bgColor="warning" href="/" className="btn-lg" />
       </div>
     </section>
   );
