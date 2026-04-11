@@ -8,6 +8,8 @@ import he from 'he';
 import { toSentenceCase } from '@/utils';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
+import Breadcrumb from '../ui/Breadcrumb';
+import Header from '../ui/Header';
 const normalizeContent = (html: string) => {
   if (!html) return '';
 
@@ -133,7 +135,7 @@ const LegalPage = () => {
   }
 
   return (
-    <div className="legal-page">
+    <div className="legal-page container">
       <PageMeta
         title={toSentenceCase(active?.title || 'Legal')}
         description={`Read ${toSentenceCase(active?.title || '')} of Enigma Net.`}
@@ -142,11 +144,20 @@ const LegalPage = () => {
         keywords={'Enigma Net, Legal, Policies, Agreements, Terms of Service'}
         structuredData={finalStructuredData}
       />
+      <Breadcrumb
+        items={[{ label: 'Legal' }]}
+      
+        style={{
+          paddingTop: '6rem ',
+        }}
+      />{' '}
+      <Header
+        title="Policies & Agreements"
+        style={{
+          padding: '21px 0px ',
+        }}
+      />
       {/* Header */}
-      <div className="legal-header">
-        <h1 className="legal-header-title mt-5 text-center">Policies &amp; Agreements</h1>
-      </div>
-
       <div className="legal-shell">
         {/* ── Sidebar ── */}
         <nav className={`legal-sidebar ${sidebarVisible ? 'legal-sidebar--visible' : ''}`}>

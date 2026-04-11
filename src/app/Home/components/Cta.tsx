@@ -1,11 +1,11 @@
 import IconifyIcon from '@/components/IconifyIcon';
-import { Link } from 'react-router';
 import { Col, Container, Row } from 'react-bootstrap';
 import sass3 from '@/assets/img/landing/saas-3/cta-bg.jpg';
+import PremiumButton from '@/components/ui/PremiumButton';
 
 const Cta = () => {
   return (
-    <Container className='pb-4'>
+    <Container className="pb-4">
       <div
         className="bg-dark  bg-size-cover bg-position-center bg-repeat-0 position-relative overflow-hidden rounded-3 py-lg-3 py-xl-5 px-4 px-lg-5 px-xl-0"
         style={{ backgroundImage: `url(${sass3})` }}
@@ -41,9 +41,13 @@ const Cta = () => {
                   Venenatis risus faucibus volutpat amet feugiat a
                 </li>
               </ul>
-              <Link to="#" className="btn btn-lg btn-primary shadow-primary w-100 w-sm-auto">
-                Start trial now
-              </Link>
+            
+              <PremiumButton
+                label="Start trial now"
+                variant="blue"
+                className="btn-lg"
+                href="/"
+              />
             </div>
           </Col>
           <Col md={6} className="pt-lg-3 pt-xl-4">

@@ -1,4 +1,4 @@
-import CustomButton from '@/components/ui/CustomButton';
+import PremiumButton from '@/components/ui/PremiumButton';
 import { Card } from 'react-bootstrap';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -57,11 +57,6 @@ const DataCard = () => {
         {features.map(feature => (
           <SwiperSlide key={feature.id} className="h-auto py-3">
             <Card className="h-100 card-body card-hover mx-2">
-              {/* <IconifyIcon
-                icon={`${feature.icon}`}
-                className="display-5 fw-normal card-icon"
-                style={{ color: '#b4b7c9' }}
-              /> */}
               <h3 className="h5 text-warning pt-3 pb-1 mb-2">{feature.title}</h3>
               <p className="mb-0">{feature.description}</p>
             </Card>
@@ -70,33 +65,8 @@ const DataCard = () => {
       </Swiper>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        {/* <Link
-          to="#"
-          className="btn btn-light-blue text-black btn-lg shadow-primary btn-lg rounded-pill px-5"
-          style={{
-            fontWeight: '800',
-            letterSpacing: '3px',
-          }}
-        >
-          OUR SOLUTION
-        </Link>
-        <Link
-          to="#"
-          className="btn btn-warning shadow-primary text-black btn-lg rounded-pill px-5"
-          style={{
-            fontWeight: '800',
-            letterSpacing: '3px',
-          }}
-        >
-          BOOK A CALL
-        </Link> */}
-        <CustomButton label=" Our Solutions " bgColor="light-blue" href="/" className="btn-lg" />
-        <CustomButton
-          label="Book A Call "
-          bgColor="warning"
-          href="/get-in-touch"
-          className="btn-lg"
-        />
+        <PremiumButton label="Our Solutions" variant="blue" href="/" className="btn-lg" />
+        <PremiumButton label="Book A Call" variant="gold" className="btn-lg" href="/get-in-touch" />
       </div>
     </section>
   );

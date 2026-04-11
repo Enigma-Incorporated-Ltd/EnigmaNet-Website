@@ -1,4 +1,4 @@
-import CustomButton from '@/components/ui/CustomButton';
+import PremiumButton from '@/components/ui/PremiumButton';
 
 type SubFeature = {
   title: string;
@@ -46,7 +46,7 @@ const pillars: PillarItem[] = [
     ],
     buttonLabel: 'Explore Enigma Connect',
     buttonHref: '/',
-    buttonColor: 'light-blue',
+    buttonColor: 'blue',
   },
   {
     id: '02',
@@ -74,7 +74,7 @@ const pillars: PillarItem[] = [
     ],
     buttonLabel: 'Explore Secure Cloud',
     buttonHref: '/',
-    buttonColor: 'warning',
+    buttonColor: 'gold',
   },
 ];
 
@@ -125,23 +125,25 @@ const NetworkingPillars = () => {
 
               {/* Bullet points (Pillar One) */}
               {pillar.bulletPoints && (
-                <ul className="list-unstyled mb-4 flex-grow-1">
+                <div className="d-flex flex-column gap-3 mb-4 flex-grow-1">
                   {pillar.bulletPoints.map((point, idx) => (
-                    <li key={idx} className="d-flex align-items-start mb-3">
-                      <span
-                        className="rounded-circle bg-light-blue flex-shrink-0 me-3 mt-2"
-                        style={{ width: '10px', height: '10px', minWidth: '10px' }}
-                      />
-                      <span className={pillar.dark ? 'text-white-50' : 'text-muted'}>
-                        <strong className={pillar.dark ? 'text-white' : 'text-dark'}>
-                          {point.title}
-                        </strong>
-                        {', '}
+                    <div
+                      key={idx}
+                      className={`rounded-3 p-3 border-${pillar.dark ? 'text-white-50' : 'text-muted'} border`}
+                      style={{
+                        border: '1px solid rgba(255,255,255,0.1)',
+                      }}
+                    >
+                      <h6 className="text-light-blue fw-semibold mb-2">{point.title}</h6>
+                      <p
+                        className={` mb-0 ${pillar.dark ? 'text-white-50' : 'text-muted'}`}
+                        style={{ fontSize: '0.875rem' }}
+                      >
                         {point.description}
-                      </span>
-                    </li>
+                      </p>
+                    </div>
                   ))}
-                </ul>
+                </div>
               )}
 
               {/* Sub-feature cards (Pillar Two) */}
@@ -157,7 +159,7 @@ const NetworkingPillars = () => {
                       }}
                     >
                       <h6 className="text-light-blue fw-semibold mb-2">{feature.title}</h6>
-                      <p className="text-white-50 mb-0" style={{ fontSize: '0.875rem' }}>
+                      <p className=" mb-0" style={{ fontSize: '0.875rem' }}>
                         {feature.description}
                       </p>
                     </div>
@@ -167,9 +169,9 @@ const NetworkingPillars = () => {
 
               {/* CTA Button */}
               <div className="mt-auto pt-3">
-                <CustomButton
+                <PremiumButton
                   label={pillar.buttonLabel}
-                  bgColor={pillar.buttonColor as 'info' | 'warning' | 'light-blue'}
+                  variant={pillar.buttonColor as 'blue' | 'gold'}
                   href={pillar.buttonHref}
                   className="btn-lg"
                 />

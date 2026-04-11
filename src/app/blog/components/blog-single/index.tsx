@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router';
-import IconifyIcon from '@/components/IconifyIcon';
 import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { fetchBlogBySlug, fetchBlogs, type BlogPost } from '@/services/cmsApi';
@@ -10,6 +9,7 @@ import PostContent from './components/PostContent';
 import PostTitle from './components/PostTitle';
 import { OverlayLoader } from '@/components/loading/Loader';
 import { BASE_URL } from '@/utils';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 
 const Index = () => {
   const { id: slug } = useParams<{ id: string }>();
@@ -100,7 +100,7 @@ const Index = () => {
       <PageMeta
         title={post ? post.title : 'Blog Post'}
         description={post?.description}
-        ogType='article'
+        ogType="article"
         keywords={
           post?.category
             ? `Enigma Net, Blog, ${post.category}, Articles, Insights, Networking`
@@ -115,9 +115,13 @@ const Index = () => {
         Headerclass="header navbar navbar-expand-lg bg-light navbar-sticky"
         headerSticky="navbar-stuck"
       />
-
+      <Breadcrumb
+        items={[{ label: 'Blog', href: '/blog' }, { label: post ? post.title : 'Single Post' }]}
+        className={"py-0 mt-0"}
+       
+      />
       {/* Breadcrumb */}
-      <nav className="container pt-4 mt-lg-3" aria-label="breadcrumb">
+      {/* <nav className="container pt-4 mt-lg-3" aria-label="breadcrumb">
         <ol className="breadcrumb mb-0">
           <li className="breadcrumb-item">
             <Link to="/">
@@ -138,7 +142,7 @@ const Index = () => {
             {post ? post.title : 'Single Post'}
           </li>
         </ol>
-      </nav>
+      </nav> */}
 
       {loading ? (
         <OverlayLoader visible message="Loading" />

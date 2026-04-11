@@ -1,4 +1,4 @@
-import CustomButton from '@/components/ui/CustomButton';
+import PremiumButton from '@/components/ui/PremiumButton';
 import { Card, CardBody } from 'react-bootstrap';
 
 const CTA2 = () => {
@@ -21,11 +21,11 @@ const CTA2 = () => {
               your existing infrastructure.
             </p>
             <div className="pt-md-5 pt-4 pb-md-2">
-              <CustomButton
-                label=" TALK TO OUR TEAM"
-                bgColor="warning"
-                href="/"
+              <PremiumButton
+                label="TALK TO OUR TEAM"
+                variant="gold"
                 className="btn-lg"
+                href="/get-in-touch"
               />
             </div>
           </CardBody>

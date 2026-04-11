@@ -9,6 +9,7 @@ const Legal = () => {
         Headerclass="header navbar navbar-expand-lg position-absolute navbar-sticky"
         headerSticky="navbar-stuck"
       />
+      
       <LegalPage />
 
       <Footer />

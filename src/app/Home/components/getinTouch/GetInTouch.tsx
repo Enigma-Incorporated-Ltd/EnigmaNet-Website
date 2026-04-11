@@ -1,8 +1,9 @@
 import IconifyIcon from '@/components/IconifyIcon';
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 import './contact.css';
 import StraightLine from '../StraightLine';
+import PremiumButton from '@/components/ui/PremiumButton';
 const GetInTouch = () => {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -92,8 +93,6 @@ const GetInTouch = () => {
   return (
     <>
       <section className="contact-section" ref={sectionRef}>
-       
-
         <Container>
           {/* Heading */}
           <div className={`text-center fade-in ${visible ? 'visible' : ''}`}>
@@ -228,10 +227,20 @@ const GetInTouch = () => {
 
                       {/* Submit */}
                       <Col xs={12} className={`mt-1 fade-in delay-4 ${visible ? 'visible' : ''}`}>
-                        <Button type="submit" className="submit-btn" disabled={sending}>
+                        {/* <Button type="submit" className="submit-btn" disabled={sending}>
                           {sending && <span className="btn-spinner" />}
                           {sending ? 'Sending…' : 'Call me Back'}
-                        </Button>
+                        </Button> */}
+                        <PremiumButton
+                          variant="blue"
+                          type="submit"
+                          label="Call me Back"
+                          isLoading={sending}
+                          disabled={sending}
+                          loadingLabel="Sending…"
+                          className="my-3"
+                          fullWidth
+                        />
                       </Col>
                     </Form>
                   )}

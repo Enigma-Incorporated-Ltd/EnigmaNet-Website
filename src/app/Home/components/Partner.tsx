@@ -1,7 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import StraightLine from './StraightLine';
 import IconifyIcon from '@/components/IconifyIcon';
-import CustomButton from '@/components/ui/CustomButton';
+import PremiumButton from '@/components/ui/PremiumButton';
 
 const features = [
   {
@@ -25,12 +25,15 @@ const features = [
 const Partner = () => {
   return (
     <Container className="py-5  mt-md-4">
+      <h5 className="h1 text-center text-warning mx-auto text-uppercase mt-n2 mt-sm-0 pt-md-2">
+        For Partners
+      </h5>
       <Row className="align-items-center mt-5">
         {/* LEFT CONTENT */}
         <Col lg={6} className="mb-4 mb-lg-0">
-          <p className=" h2 text-warning fw-semibold text-uppercase mb-4">For Partners</p>
+         
 
-          <h1 className="fw-bold mb-4" style={{ lineHeight: '1.3' }}>
+          <h1 className="fw-bold pb-5" style={{ lineHeight: '1.3' }}>
             Help your customers get more reliable connectivity and data movement, without building
             it all yourself
           </h1>
@@ -68,7 +71,7 @@ const Partner = () => {
         </Col>
       </Row>
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <CustomButton label="Our  Partners " bgColor="warning" href="/" className="btn-lg" />
+        <PremiumButton label="Our  Partners" variant="gold" className="btn-lg" href="/" />
       </div>
     </Container>
   );

@@ -1,7 +1,10 @@
 import IconifyIcon from '@/components/IconifyIcon';
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 import './contact.css';
+import Header from '@/components/ui/Header';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import PremiumButton from '@/components/ui/PremiumButton';
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -90,17 +93,25 @@ const Contact = () => {
   };
   return (
     <>
-      <section className="contact-section" ref={sectionRef}>
+      <section className="contact-section container" ref={sectionRef}>
         {/* Decorative dots */}
         <div className="dot-grid dot-grid-tl" />
         <div className="dot-grid dot-grid-br" />
 
         <Container>
           {/* Heading */}
-          <div className={`text-center mb-2 fade-in ${visible ? 'visible' : ''}`}>
-            <h1 className="contact-heading mb-5">Contact Us</h1>
-          </div>
-
+          <Breadcrumb
+            items={[{ label: 'Contact Us' }]}
+            style={{
+              paddingTop: '3rem ',
+            }}
+          />
+          <Header
+            title="Contact Us"
+            style={{
+              padding: '2rem 0px ',
+            }}
+          />
           <Row className="justify-content-center align-items-start g-4">
             {/* ── Left column: info ── */}
             <Col xl={4} lg={5} className={`fade-in delay-1 ${visible ? 'visible' : ''}`}>
@@ -140,7 +151,7 @@ const Contact = () => {
             </Col>
 
             {/* ── Right column: form ── */}
-            <Col xl={6} lg={7} md={10} className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
+            <Col xl={7} lg={8} md={11} className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
               <Card className="contact-card">
                 <Card.Body>
                   {submitted ? (
@@ -227,10 +238,20 @@ const Contact = () => {
 
                       {/* Submit */}
                       <Col xs={12} className={`mt-1 fade-in delay-4 ${visible ? 'visible' : ''}`}>
-                        <Button type="submit" className="submit-btn" disabled={sending}>
+                        {/* <Button type="submit" className="submit-btn" disabled={sending}>
                           {sending && <span className="btn-spinner" />}
                           {sending ? 'Sending…' : 'Send Message'}
-                        </Button>
+                        </Button> */}
+                        <PremiumButton
+                          variant="blue"
+                          type="submit"
+                          label="Send a request"
+                          isLoading={sending}
+                          disabled={sending}
+                          loadingLabel="Sending…"
+                          className="my-3"
+                          fullWidth
+                        />
                       </Col>
                     </Form>
                   )}

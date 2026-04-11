@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './workcard.css';
-import CustomButton from '@/components/ui/CustomButton';
+import PremiumButton from '@/components/ui/PremiumButton';
 
 type FeatureItem = {
   id: number | string;
@@ -61,7 +61,7 @@ const WorkCard = () => {
         </li>
       </ul>
       {/* ✅ Desktop Grid (2x2) */}
-      <div className="row d-none px-5  d-lg-flex" >
+      <div className="row d-none px-5  d-lg-flex">
         {features.map(feature => (
           <div
             className="col-lg-6 mb-4"
@@ -74,7 +74,6 @@ const WorkCard = () => {
               className="feature-card h-100"
               style={{
                 backgroundImage: `url(${feature.bg})`,
-                
               }}
             >
               <div className="overlay"></div>
@@ -123,7 +122,7 @@ const WorkCard = () => {
       </div>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <CustomButton label="Explore More" bgColor="warning" href="/" className="btn-lg" />
+        <PremiumButton label="Explore More" variant="gold" className="btn-lg" href="/" />
       </div>
     </section>
   );

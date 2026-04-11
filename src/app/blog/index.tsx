@@ -1,16 +1,15 @@
 import PageTitle from './components/PageTitle';
 import { Col, Row } from 'react-bootstrap';
-import IconifyIcon from '@/components/IconifyIcon';
 
 import Footer from './components/Footer';
 import Navbar from '@/components/navbar/Navbar';
-import { Link } from 'react-router';
 import PageMeta from '@/components/PageMeta';
 import BlogPosts from './components/BlogPosts';
 import Sidebar from './grid/components/Sidebar';
 import { useEffect, useState } from 'react';
 import { fetchBlogs, type BlogPost } from '@/services/cmsApi';
 import { BASE_URL } from '@/utils';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 const Index = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
@@ -67,25 +66,19 @@ const Index = () => {
         structuredData={structuredData}
       />
 
-      <Navbar Headerclass="header navbar navbar-expand-lg bg-light shadow-sm shadow-dark-mode-none fixed-top" />
+      <Navbar
+        Headerclass="header navbar navbar-expand-lg position-absolute navbar-sticky"
+        headerSticky="navbar-stuck"
+      />
 
       {/* ✅ Breadcrumb */}
-      <nav className="container mt-lg-4 custom-padding" aria-label="breadcrumb">
-        <ol className="breadcrumb mb-0 pt-5">
-          <li className="breadcrumb-item">
-            <Link to="/">
-              <IconifyIcon icon="bx:home-alt" className="fs-lg me-1" />
-              Home
-            </Link>
-          </li>
-          <span className="d-flex align-items-center mx-2">
-            <IconifyIcon icon="bx:chevrons-right" />
-          </span>
-          <li className="breadcrumb-item active" aria-current="page">
-            Blog
-          </li>
-        </ol>
-      </nav>
+      <Breadcrumb
+        items={[{ label: 'Blog' }]}
+      
+        style={{
+          paddingTop: '9rem ',
+        }}
+      />
 
       {/* ✅ Main Content */}
       <section className="container mt-4 mb-2 mb-md-4 mb-lg-5 pt-lg-2 pb-5">

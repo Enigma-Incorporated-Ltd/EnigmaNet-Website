@@ -1,12 +1,12 @@
-import IconifyIcon from '@/components/IconifyIcon';
 import Navbar from '@/components/navbar/Navbar';
-import { Link } from 'react-router';
 import { Container } from 'react-bootstrap';
 import Calculator from './components/Calculator';
 
 import PageMeta from '@/components/PageMeta';
 import Footer from '@/components/footer/Footer';
 import { BASE_URL } from '@/utils';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import Header from '@/components/ui/Header';
 
 const TCOCalculator = () => {
   const structuredData = [
@@ -88,28 +88,28 @@ const TCOCalculator = () => {
         isNavDark={true}
       />
       <section className="bg-dark py-4" data-bs-theme="dark">
-        <Container className="pb-2 py-lg-3">
-          <nav className="pb-4 mb-lg-3" aria-label="breadcrumb">
-            <ol className="breadcrumb justify-content-center justify-content-lg-start mb-0">
-              <li className="breadcrumb-item">
-                <Link to="/">
-                  <IconifyIcon icon="bx:home-alt" className="fs-lg me-1" />
-                  Home
-                </Link>
-              </li>
-              <span className="d-flex align-items-center mx-2">
-                <IconifyIcon icon="bx:chevrons-right" />
-              </span>
-              <li className="breadcrumb-item active" aria-current="page">
-                TCO Calculator
-              </li>
-            </ol>
-          </nav>
-          <h1 className="text-center mb-2">Total Cost of Ownership Calculator</h1>
-          <p className="text-center text-light opacity-70 fs-lg mb-0">
-            See for yourself how unpredictable fees for transport, egress, and API requests can
+        <Container className="pb-2 ">
+          <Breadcrumb
+            items={[{ label: ' TCO Calculator' }]}
+            style={{
+              paddingBottom: '10px',
+            }}
+          />
+          <Header
+            title="Total Cost of Ownership"
+            style={{
+              padding: '21px 0px ',
+            }}
+          />
+          {/* <h1 className="text-center mb-2">Total Cost of Ownership Calculator</h1> */}
+          <h5 className="text-center text-light opacity-70 " style={{
+            fontSize:"28px"
+          }}>
+            {' '}
+            See for yourself how unpredictable fees for transport, <br />egress, and API requests can
             inflate your cloud storage budget.
-          </p>
+          </h5>
+          {/* <p className="text-center text-light opacity-70 fs-xl mt-2"></p> */}
         </Container>
         <div style={{ height: '100px' }}></div>
       </section>

@@ -26,6 +26,7 @@ import Faqs from './components/faq/Faqs';
 import GetInTouch from './components/getinTouch/GetInTouch';
 import { BASE_URL } from '@/utils';
 
+
 const Index = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
@@ -137,6 +138,7 @@ const structuredData = [
 
       <HeroSlider />
       <Brands />
+      
       <Feature />
       <DataCard />
       <NetworkingCard />

@@ -1,5 +1,5 @@
 import IconifyIcon from '@/components/IconifyIcon';
-import CustomButton from '@/components/ui/CustomButton';
+import PremiumButton from '@/components/ui/PremiumButton';
 import { Card } from 'react-bootstrap';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -130,7 +130,7 @@ const UseCase = () => {
       </div>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <CustomButton label="Industries" bgColor="warning" href="/" className="btn-lg" />
+        <PremiumButton label="Industries" variant="gold" className="btn-lg" href="/" />
       </div>
     </section>
   );

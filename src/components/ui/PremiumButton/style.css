@@ -1,0 +1,214 @@
+/* =============================================
+   BASE BUTTON
+   ============================================= */
+.custom-btn {
+    position: relative;
+    padding: 16px 50px;
+    border-radius: 100px;
+    border: none;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    overflow: hidden;
+    min-width: 200px;
+    letter-spacing: 0.01em;
+    font-family: inherit;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+}
+
+/* Full width */
+.w-100 {
+    width: 100%;
+}
+
+/* Text */
+.custom-btn span {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    transition: all 0.35s ease;
+}
+
+/* =============================================
+   ✨ SHINE SWEEP
+   ============================================= */
+.custom-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    transform: skewX(-20deg);
+    transition: all 0.6s ease;
+    z-index: 1;
+}
+
+.custom-btn:hover::before {
+    left: 130%;
+}
+
+/* =============================================
+   🌊 DARK HOVER OVERLAY
+   ============================================= */
+.custom-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 100px;
+    background: linear-gradient(180deg, #1e1e22 0%, #111114 100%);
+    box-shadow:
+        inset 3px 3px 1px -3px rgba(255, 255, 255, 0.55),
+        inset 0 0 0 1px rgba(160, 160, 160, 0.45),
+        inset 0 0 10px rgba(242, 242, 242, 0.1);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.custom-btn:hover::after {
+    opacity: 1;
+}
+
+/* =============================================
+   💡 HOVER + PRESS FEEL
+   ============================================= */
+.custom-btn:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+.custom-btn:active {
+    transform: scale(0.95) translateY(1px);
+    transition: transform 0.1s ease;
+}
+
+/* =============================================
+   🌊 GRADIENT ANIMATION
+   ============================================= */
+.blue-filled,
+.gold-filled {
+    background-size: 200% 200%;
+    animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* =============================================
+   🔵 BLUE BUTTON
+   ============================================= */
+.blue-filled {
+    background: linear-gradient(90deg, #2a4099 0%, #18c8e8 100%);
+    box-shadow:
+        inset 2px 2px 5px rgba(255, 255, 255, 0.38),
+        inset -2px -2px 5px rgba(0, 0, 0, 0.38),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.25),
+        0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+.blue-filled span {
+    color: #fff;
+}
+
+.blue-filled:hover span {
+    background: linear-gradient(90deg, #ffffff 20%, #22d4f5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =============================================
+   🟡 GOLD BUTTON
+   ============================================= */
+.gold-filled {
+    background: linear-gradient(90deg, #A96A00 0%, #F1BA5F 100%);
+    box-shadow:
+        inset 2px 2px 5px rgba(255, 255, 255, 0.38),
+        inset -2px -2px 5px rgba(0, 0, 0, 0.38),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.25),
+        0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+.gold-filled span {
+    color: #fff;
+}
+
+.gold-filled:hover span {
+    background: linear-gradient(90deg, #c88c10 0%, #f5c840 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =============================================
+   📱 RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+    .custom-btn {
+        padding: 12px 28px;
+        font-size: 16px;
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+        min-width: 140px;
+        width: 100%;
+    }
+}
+.btn-spinner {
+    width: 20px ! important;
+    /* equal width & height */
+    height: 19px ;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    /* makes it circle */
+    display: inline-block;
+    animation: spin 0.7s linear infinite;
+    margin-right: 8px;
+}
+
+/* IMPORTANT: add this */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

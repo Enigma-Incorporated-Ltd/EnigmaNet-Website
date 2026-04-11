@@ -3,7 +3,7 @@ import hero1 from '@/assets/img/heroSlider/data-transmit-supper-fast-in-dark-tun
 import hero2 from '@/assets/img/heroSlider/motion-blur-of-train-moving-inside-tunnel-in-tokyo.jpg';
 import hero3 from '@/assets/img/heroSlider/server-room-data-center-networking-database-co.jpg';
 import './slider.css';
-import CustomButton from '../ui/CustomButton';
+import PremiumButton from '../ui/PremiumButton';
 
 const slides = [
   {
@@ -14,8 +14,8 @@ const slides = [
     img: hero1,
     gradient:
       'linear-gradient(164deg, rgb(11, 14, 24) 18%, rgb(8 11 20) 27%, rgb(9 10 13 / 85%) 41%, rgba(11, 14, 24, -15.6) 62%, rgb(199 201 206 / -36%) 9% 67%)',
-    btn1: { label: 'Our Solutions', color: '#00D4E8', href: '/' },
-    btn2: { label: 'Book A Call', color: '#E8A020', href: '/get-in-touch' },
+    btn1: { label: 'Our Solutions', color: 'blue', href: '/' },
+    btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
   },
   {
     id: 2,
@@ -24,8 +24,8 @@ const slides = [
       'On-demand compute, GPU and storage infrastructure that efficiently scales with your workloads',
     img: hero2,
     gradient: 'linear-gradient(104deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0))',
-    btn1: { label: 'Our Solutions', color: '#00D4E8', href: '/' },
-    btn2: { label: 'Book A Call', color: '#E8A020', href: '/get-in-touch' },
+    btn1: { label: 'Our Solutions', color: 'blue', href: '/' },
+    btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
   },
   {
     id: 3,
@@ -35,8 +35,8 @@ const slides = [
 
     gradient: 'linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0))',
     img: hero3,
-    btn1: { label: 'Our Solutions', color: '#00D4E8', href: '/' },
-    btn2: { label: 'Book A Call', color: '#E8A020', href: '/get-in-touch' },
+    btn1: { label: 'Our Solutions', color: 'blue', href: '/' },
+    btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
   },
 ];
 
@@ -63,24 +63,6 @@ export default function HeroSlider() {
       setTimeout(() => setAnimating(false), 500);
     };
   };
-  // const prev = () => {
-  //   // Clear auto-slide interval when user interacts
-  //   if (intervalRef.current) {
-  //     clearInterval(intervalRef.current);
-  //     intervalRef.current = null;
-  //   }
-  //   const idx = (current - 1 + slides.length) % slides.length;
-  //   goTo(idx, 'left');
-  // };
-
-  // const next = () => {
-  //   if (intervalRef.current) {
-  //     clearInterval(intervalRef.current);
-  //     intervalRef.current = null;
-  //   }
-  //   const idx = (current + 1) % slides.length;
-  //   goTo(idx, 'right');
-  // };
 
   useEffect(() => {
     return () => {
@@ -143,18 +125,6 @@ export default function HeroSlider() {
                 key={current}
               >
                 {/* Nav arrows */}
-                {/* <div className="nav-arrows">
-                  <button className="arrow-btn" onClick={prev} aria-label="Previous slide">
-                    <svg viewBox="0 0 24 24">
-                      <polyline points="15 18 9 12 15 6" />
-                    </svg>
-                  </button>
-                  <button className="arrow-btn" onClick={next} aria-label="Next slide">
-                    <svg viewBox="0 0 24 24">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                </div> */}
 
                 {/* Title */}
                 <h1 className="hero-title">{slide.title}</h1>
@@ -164,37 +134,19 @@ export default function HeroSlider() {
 
                 {/* Buttons */}
                 <div className="d-flex  flex-wrap gap-3">
-                  {/* <Link
-                    className="hero-btn btn-cyan"
-                    style={{ background: slide.btn1.color }}
-                    to={slide.btn1.href}
-                  >
-                    {slide.btn1.label}
-                  </Link> */}
-                  <CustomButton
+                  <PremiumButton
                     label={slide.btn1.label}
-                    style={{
-                      background: slide.btn1.color,
-                      fontWeight: 600,
-                    }}
+                    variant={slide.btn1.color as 'blue' | 'gold'}
                     href={slide.btn1.href}
-                    bgColor="light-blue"
                     className="btn-lg"
                   />
-                  <CustomButton
+
+                  <PremiumButton
                     label={slide.btn2.label}
-                    style={{ background: slide.btn2.color, fontWeight: 600 }}
+                    variant={slide.btn2.color as 'blue' | 'gold'}
                     href={slide.btn2.href}
-                    bgColor="warning"
                     className="btn-lg"
                   />
-                  {/* <Link
-                    className="hero-btn btn-amber"
-                    style={{ background: slide.btn2.color }}
-                    to={slide.btn2.href}
-                  >
-                    {slide.btn2.label}
-                  </Link> */}
                 </div>
 
                 {/* Dots */}

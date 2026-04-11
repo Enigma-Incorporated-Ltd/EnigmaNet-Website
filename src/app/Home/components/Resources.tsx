@@ -7,7 +7,7 @@ import avatar05 from '@/assets/img/avatar/05.jpg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { CardBody, Container } from 'react-bootstrap';
 import { Link } from 'react-router';
-import CustomButton from '@/components/ui/CustomButton';
+import PremiumButton from '@/components/ui/PremiumButton';
 
 type NewsItem = {
   id: number;
@@ -170,22 +170,6 @@ const Resources = () => {
                       </h3>
                       <p className="mt-2 text-muted">{item.des}</p>
                     </CardBody>
-
-                    {/* <CardFooter className="py-4">
-                      <Link to="#" className="d-flex align-items-center text-decoration-none">
-                        <img
-                          src={item.author.avatar}
-                          alt={item.author.name}
-                          width={48}
-                          height={48}
-                          className="rounded-circle"
-                        />
-                        <div className="ps-3">
-                          <h6 className="fs-base fw-semibold mb-0">{item.author.name}</h6>
-                          <span className="fs-sm text-muted">{item.author.role}</span>
-                        </div>
-                      </Link>
-                    </CardFooter> */}
                   </article>
                 </SwiperSlide>
               ))}
@@ -194,7 +178,7 @@ const Resources = () => {
           </div>
         </div>
         <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-          <CustomButton label="Resources" bgColor="warning" href="/" className="btn-lg" />
+          <PremiumButton label="Resources" variant="gold" className="btn-lg" href="/" />
         </div>
       </Container>
     </section>

@@ -3,7 +3,7 @@ import Footer from '@/components/footer/Footer';
 import PageMeta from '@/components/PageMeta';
 import Navbar from '@/components/navbar/Navbar';
 import { BASE_URL } from '@/utils';
-import CommingSoon from '@/components/comming-soon';
+import ProductContent from './components';
 
 const Product2 = () => {
   const structuredData = {
@@ -24,7 +24,8 @@ const Product2 = () => {
       />
 
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
-      <CommingSoon />
+     <ProductContent />
+     
       <Footer />
     </>
   );
