@@ -1,187 +1,178 @@
-import Landings from '@/assets/img/landings.jpg';
 import Logo from '@/assets/img/EnigmaNet-logo.png';
 
 import { Link, useLocation } from 'react-router';
-import { useEffect, useState } from 'react';
-import { Collapse, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'react-bootstrap';
+import { useEffect, useState, useRef } from 'react';
+import { Offcanvas, OffcanvasBody, OffcanvasHeader, Nav, Container, Button } from 'react-bootstrap';
 import IconifyIcon from '../IconifyIcon';
 import ThemeToggle from '../ThemeToggle';
-import { fetchHeader, type HeaderConfig, type NavItem, type NavLink, type NavSection } from '@/services/cmsApi';
+import { FALLBACK_CONFIG, type MegaMenuItem, type NavClass, type NavItem, type NavLink } from '@/utils/nav';
 
-type NavClass = {
-  Headerclass?: string;
-  headerSticky?: string;
-  isNavDark?: boolean;
-};
 
-// ── Fallback hard-coded config (used while CMS loads or if fetch fails) ────────
-const FALLBACK_CONFIG: HeaderConfig = {
-  logo: { text: 'enigmanet', href: '/' },
-  nav_items: [
-    // {
-    //   label: 'Landings',
-    //   type: 'mega-columns',
-    //   columns: [
-    //     [
-    //       { label: 'Template Intro Page', href: '/index' },
-    //       { label: 'Mobile App Showcase v.1', href: '/app-showcase-v1' },
-    //       { label: 'Mobile App Showcase v.2', href: '/app-showcase-v2' },
-    //       { label: 'Mobile App Showcase v.3', href: '/app-showcase-v3', badge: 'New' },
-    //       { label: 'Product Landing', href: '/product' },
-    //       { label: 'SaaS v.1', href: '/saas-v1' },
-    //       { label: 'SaaS v.2', href: '/saas-v2' },
-    //       { label: 'SaaS v.3', href: '/saas-v3' },
-    //       { label: 'SaaS v.4', href: '/saas-v4' },
-    //       { label: 'SaaS v.5', href: '/saas-v5', badge: 'New' },
-    //     ],
-    //     [
-    //       { label: 'Startup', href: '/startup' },
-    //       { label: 'Financial Consulting', href: '/financial' },
-    //       { label: 'Online Courses', href: '/online-courses' },
-    //       { label: 'Medical', href: '/medical' },
-    //       { label: 'Software Dev Agency v.1', href: '/software-dev-agency-v1' },
-    //       { label: 'Software Dev Agency v.2', href: '/software-dev-agency-v2' },
-    //       { label: 'Software Dev Agency v.3', href: '/software-dev-agency-v3' },
-    //       { label: 'Conference', href: '/conference' },
-    //       { label: 'Digital Agency', href: '/digital-agency' },
-    //       { label: 'Blog Homepage', href: '/blog' },
-    //     ],
-    //   ],
-    // },
-    {
-      href: '/',
-      type: 'link',
-      label: 'Home',
-    },
-    {
-      type: 'dropdown',
-      label: 'Products',
-      links: [
-        {
-          href: '/product-1',
-          label: 'Product #1',
-        },
-        {
-          href: '/product-2',
-          label: 'Product #2',
-        },
-      ],
-    },
-    {
-      href: '/legal',
-      type: 'link',
-      label: 'Legal',
-    },
-    {
-      href: '/blog',
-      type: 'link',
-      label: 'Blogs',
-    },
-    // {
-    //   label: 'Pages',
-    //   type: 'mega-sections',
-    //   sectioned_columns: [
-    //     [
-    //       {
-    //         title: 'About',
-    //         links: [
-    //           { label: 'About v.1', href: '/about-v1' },
-    //           { label: 'About v.2', href: '/about-v2' },
-    //           { label: 'About v.3', href: '/about-v3' },
-    //         ],
-    //       },
-    //       {
-    //         title: 'Blog',
-    //         links: [
-    //           { label: 'List View with Sidebar', href: '/blog-list-with-sidebar' },
-    //           { label: 'Grid View with Sidebar', href: '/blog-grid-with-sidebar' },
-    //           { label: 'List View no Sidebar', href: '/blog-list-no-sidebar' },
-    //           { label: 'Grid View no Sidebar', href: '/blog-grid-no-sidebar' },
-    //           { label: 'Simple Feed', href: '/blog-simple-feed' },
-    //           { label: 'Single Post', href: '/blog-single' },
-    //           { label: 'Podcast', href: '/blog-podcast' },
-    //         ],
-    //       },
-    //     ],
-    //     [
-    //       {
-    //         title: 'Portfolio',
-    //         links: [
-    //           { label: 'Grid View', href: '/portfolio-grid' },
-    //           { label: 'List View', href: '/portfolio-list' },
-    //           { label: 'Slider View', href: '/portfolio-slider' },
-    //           { label: 'Courses', href: '/portfolio-courses' },
-    //           { label: 'Single Project', href: '/portfolio-single-project' },
-    //           { label: 'Single Course', href: '/portfolio-single-course' },
-    //         ],
-    //       },
-    //       {
-    //         title: 'Services',
-    //         links: [
-    //           { label: 'Services v.1', href: '/services-v1' },
-    //           { label: 'Services v.2', href: '/services-v2' },
-    //           { label: 'Service Details v.1', href: '/services-single-v1' },
-    //           { label: 'Service Details v.2', href: '/services-single-v2' },
-    //         ],
-    //       },
-    //     ],
-    //     [
-    //       {
-    //         title: 'Pricing',
-    //         links: [{ label: 'Pricing Page', href: '/pricing' }],
-    //       },
-    //       {
-    //         title: 'Contacts',
-    //         links: [
-    //           { label: 'Contacts v.1', href: '/contacts-v1' },
-    //           { label: 'Contacts v.2', href: '/contacts-v2' },
-    //           { label: 'Contacts v.3', href: '/contacts-v3' },
-    //         ],
-    //       },
-    //       {
-    //         title: 'Specialty',
-    //         links: [
-    //           { label: '404 Error v.1', href: '/404-v1' },
-    //           { label: '404 Error v.2', href: '/404-v2' },
-    //         ],
-    //       },
-    //     ],
-    //   ],
-    // },
-    // {
-    //   label: 'Account',
-    //   type: 'dropdown',
-    //   links: [
-    //     { label: 'Account Details', href: '/account-details' },
-    //     { label: 'Security', href: '/account-security' },
-    //     { label: 'Notifications', href: '/account-notifications' },
-    //     { label: 'Messages', href: '/account-messages' },
-    //     { label: 'Saved Items', href: '/account-saved-items' },
-    //     { label: 'My Collections', href: '/account-collections' },
-    //     { label: 'Payment Details', href: '/account-payment' },
-    //     { label: 'Sign In', href: '/account-signin' },
-    //     { label: 'Sign Up', href: '/account-signup' },
-    //   ],
-    // },
-    { label: 'Get in Touch', type: 'link', href: '/get-in-touch' },
-  ],
-  cta_button: { label: 'Buy now', href: '#', icon: 'bx:cart', variant: 'primary', size: 'sm' },
-};
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-const isParentActive = (links: { href: string }[], pathname: string) =>
-  links.some(link => pathname === link.href || pathname.startsWith(link.href + '/'));
-
-const flatLinks = (item: NavItem): NavLink[] => {
-  if (item.type === 'mega-columns') return (item.columns ?? []).flat();
-  if (item.type === 'mega-sections')
-    return (item.sectioned_columns ?? []).flat().flatMap((s: NavSection) => s.links);
-  if (item.type === 'dropdown') return item.links ?? [];
+// ── Helper functions ─────────────────────────────────────────
+const getItemLinks = (item: NavItem): NavLink[] => {
   if (item.type === 'link' && item.href) return [{ label: item.label, href: item.href }];
+  if (item.type === 'dropdown') return item.links;
+  if (item.type === 'mega') {
+    const links: NavLink[] = [];
+    Object.values(item.data.panels).forEach(sections => {
+      sections.forEach(section => {
+        links.push(...section.links);
+      });
+    });
+    if (item.data.footerLink)
+      links.push({ label: item.data.footerLink.label, href: item.data.footerLink.href });
+    return links;
+  }
   return [];
 };
 
-// ── Component ─────────────────────────────────────────────────────────────────
+const isParentActive = (links: NavLink[], pathname: string) =>
+  links.some(link => pathname === link.href || pathname.startsWith(link.href + '/'));
+
+
+const MegaMenuDesktop = ({
+  item,
+  onLinkClick,
+}: {
+  item: MegaMenuItem;
+  onLinkClick: () => void;
+}) => {
+  const [activeRail, setActiveRail] = useState(item.leftRail[0].id);
+  const location = useLocation();
+  const pathname = location.pathname;
+  const currentSections = item.panels[activeRail] ?? [];
+
+  return (
+    <div className="position-absolute top-100 start-0 end-0 p-3 shadow-lg bg-body rounded-3">
+      <Container className="px-3">
+        <div className="d-flex" style={{ minHeight: '400px' }}>
+          {/* Left Rail */}
+          <div
+            className="border-end"
+            style={{ width: '260px', flexShrink: 0, borderColor: 'var(--bs-border-color)' }}
+          >
+            <div className="py-3">
+              {item.leftRail.map(rail => (
+                <button
+                  key={rail.id}
+                  className={`w-100 text-start d-flex align-items-center justify-content-between border-0 px-3 py-2`}
+                  onMouseEnter={() => setActiveRail(rail.id)}
+                  style={{
+                    fontSize: '0.875rem',
+                    fontWeight: 500,
+                    transition: 'all 0.2s ease',
+                    backgroundColor: activeRail === rail.id ? 'var(--bs-gray-100)' : 'transparent',
+                    color: activeRail === rail.id ? 'var(--bs-primary)' : 'var(--bs-body-color)',
+                  }}
+                >
+                  {rail.label}
+                  <IconifyIcon icon="bx:chevron-right" fontSize="0.875rem" className="opacity-50" />
+                </button>
+              ))}
+              {item.footerLink && (
+                <Link
+                  to={item.footerLink.href}
+                  className="d-block mt-3 pt-2 border-top px-3 py-2 small fw-semibold text-primary text-decoration-none"
+                  style={{ borderColor: 'var(--bs-border-color)' }}
+                  onClick={onLinkClick}
+                >
+                  {item.footerLink.label}
+                </Link>
+              )}
+            </div>
+          </div>
+
+          {/* Content Columns */}
+          <div className="flex-grow-1 p-4 d-flex gap-4 flex-wrap align-content-start">
+            {currentSections.map((section, idx) => (
+              <div key={idx} style={{ minWidth: '200px' }}>
+                <h6
+                  className="text-uppercase small fw-bold mb-2 pb-1 border-bottom"
+                  style={{ color: 'var(--bs-primary)', borderColor: 'var(--bs-border-color)' }}
+                >
+                  {section.title}
+                </h6>
+                <ul className="list-unstyled mb-0">
+                  {section.links.map((link, linkIdx) => (
+                    <li key={linkIdx} className="mb-1">
+                      <Link
+                        to={link.href}
+                        className={`d-inline-flex align-items-center gap-1 small text-decoration-none py-1`}
+                        style={{
+                          transition: 'color 0.2s ease',
+                          color:
+                            pathname === link.href ? 'var(--bs-primary)' : 'var(--bs-body-color)',
+                          fontWeight: pathname === link.href ? 600 : 400,
+                        }}
+                        onClick={onLinkClick}
+                      >
+                        {link.label}
+                        {link.badge && (
+                          <span className="badge bg-success ms-1" style={{ fontSize: '0.65rem' }}>
+                            {link.badge}
+                          </span>
+                        )}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Promo Panel */}
+          {item.promo && (
+            <div
+              className="border-start"
+              style={{
+                width: '300px',
+                flexShrink: 0,
+                borderColor: 'var(--bs-border-color)',
+                backgroundColor: 'var(--bs-gray-100)',
+              }}
+            >
+              <div className="p-3">
+                <div
+                  className="small fw-bold text-uppercase mb-2"
+                  style={{ color: 'var(--bs-gray-600)' }}
+                >
+                  {item.promo.label}
+                </div>
+                <div
+                  className="card border-0 shadow-sm overflow-hidden"
+                  style={{ backgroundColor: 'var(--bs-body-bg)' }}
+                >
+                  <div
+                    className="bg-primary"
+                    style={{
+                      height: '100px',
+                      background:
+                        'linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-info) 100%)',
+                    }}
+                  ></div>
+                  <div className="card-body p-3">
+                    <p className="small mb-2" style={{ color: 'var(--bs-gray-700)' }}>
+                      {item.promo.description}
+                    </p>
+                    <Link
+                      to={item.promo.ctaHref}
+                      className="small fw-semibold text-primary text-decoration-none"
+                      onClick={onLinkClick}
+                    >
+                      {item.promo.cta}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+// ── Main Navbar Component ─────────────────────────────────────
 const Navbar = ({
   Headerclass = 'header navbar navbar-expand-lg bg-light shadow-sm',
   headerSticky,
@@ -189,24 +180,15 @@ const Navbar = ({
 }: NavClass) => {
   const [isSticky, setIsSticky] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
-  const [config, setConfig] = useState<HeaderConfig>(FALLBACK_CONFIG);
-
+  const [activeMega, setActiveMega] = useState<string | null>(null);
+  const [openMobileMega, setOpenMobileMega] = useState<string | null>(null);
+  const [openMobileRail, setOpenMobileRail] = useState<string | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const pathname = location.pathname;
 
-  // Fetch header config from CMS once on mount
-  useEffect(() => {
-    fetchHeader()
-      .then((headerConfig) => {
-        console.log('✅ Header config loaded from CMS:', headerConfig);
-        setConfig(headerConfig);
-      })
-      .catch((error) => {
-        console.warn('⚠️ Failed to load header from CMS, using fallback:', error);
-        // Silently use fallback
-      });
-  }, []);
+  const config = FALLBACK_CONFIG;
+  const { logo, nav_items, utility_nav } = config;
 
   useEffect(() => {
     if (!headerSticky) return;
@@ -215,235 +197,249 @@ const Navbar = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [headerSticky]);
 
-  const toggleMobileDropdown = (menu: string) =>
-    setOpenMobileDropdown(openMobileDropdown === menu ? null : menu);
+  useEffect(() => {
+    setShowMenu(false);
+    setActiveMega(null);
+    setOpenMobileMega(null);
+    setOpenMobileRail(null);
+  }, [pathname]);
 
-  const { logo, nav_items, cta_button } = config;
+  const handleMouseEnter = (label: string) => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    setActiveMega(label);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimerRef.current = setTimeout(() => setActiveMega(null), 150);
+  };
+
+  const toggleMobileMega = (label: string) => {
+    setOpenMobileMega(openMobileMega === label ? null : label);
+  };
+
+  const toggleMobileRail = (key: string) => {
+    setOpenMobileRail(openMobileRail === key ? null : key);
+  };
 
   return (
-    <header className={`${Headerclass} ${isSticky && headerSticky ? headerSticky : ''}`}>
-      <div className="container px-3 d-flex align-items-center flex-nowrap">
+    <header
+      className={`${Headerclass} d-flex d-lg-block ${
+        (isSticky || activeMega) && headerSticky ? headerSticky : ''
+      }`}
+    >
+      <div
+        className="bg-dark d-none d-lg-block"
+        style={{
+          marginTop: '-12px',
+          padding: '10px',
+        }}
+      >
+        <div className="container ">
+          <div className="d-flex justify-content-end gap-4  align-items-end py-2">
+            {utility_nav?.map(link => (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-decoration-none  fs-lg small text-white-50 "
+              >
+                {link.label}
+              </Link>
+            ))}
+            <ThemeToggle themeToggle={isNavDark ?? false} />
+          </div>
+        </div>
+      </div>
+      <Container className="container px-3 d-flex align-items-center flex-nowrap">
         {/* Logo */}
         <Link to={logo.href} className="navbar-brand pe-3">
-          <img src={Logo} width={250} height={150} alt={logo.text} style={{
-            objectFit:"cover"
-          }} />
-          {/* {logo.text} */}
+          <img
+            src={Logo}
+            width={250}
+            height={150}
+            alt={logo.text}
+            style={{
+              objectFit: 'cover',
+            }}
+          />{' '}
         </Link>
 
-        <Offcanvas
-          id="navbarNav"
-          placement="end"
-          responsive="xl"
-          show={showMenu}
-          onHide={() => {
-            setShowMenu(false);
-            setOpenMobileDropdown(null);
-          }}
+        {/* Desktop Navigation */}
+        <Nav className="navbar-nav me-auto mb-2 mb-lg-0 d-none d-xl-flex">
+          {nav_items.map(item => {
+            if (item.type === 'link') {
+              return (
+                <Link
+                  key={item.label}
+                  to={item.href!}
+                  className={`nav-link nav-item dropdown ${pathname === item.href ? 'active' : ''}`}
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+            if (item.type === 'mega') {
+              const isOpen = activeMega === item.label;
+              const allLinks = getItemLinks(item);
+              const isActive = isParentActive(allLinks, pathname);
+              return (
+                <div
+                  key={item.label}
+                  className="position-static"
+                  onMouseEnter={() => handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button
+                    className={`nav-link nav-item dropdown  btn btn-link ${isActive ? 'active' : ''}`}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    {item.label}
+                  </button>
+                  {isOpen && (
+                    <MegaMenuDesktop item={item.data} onLinkClick={() => setActiveMega(null)} />
+                  )}
+                </div>
+              );
+            }
+            return null;
+          })}
+        </Nav>
+
+        <Button
+          variant="primary"
+          size="sm"
+          href={config.cta_button.label}
+          className="d-none d-lg-block"
+          style={{ marginLeft: 'auto' }}
         >
-          <OffcanvasHeader closeButton className="border-bottom">
-            <h5 className="offcanvas-title">Menu</h5>
-          </OffcanvasHeader>
-
-          <OffcanvasBody className="offcanvas-body">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              {nav_items.map(item => {
-                const allLinks = flatLinks(item);
-                const isActive = isParentActive(allLinks, pathname);
-                const key = item.label;
-
-                // ── Plain link ──────────────────────────────────────────────
-                if (item.type === 'link') {
-                  return (
-                    <li
-                      key={key}
-                      className={`nav-item dropdown ${pathname === item.href ? 'active' : ''}`}
-                    >
-                      <Link to={item.href!} className="nav-link">
-                        {item.label}
-                      </Link>
-                    </li>
-                  );
-                }
-
-                // ── Mega-columns (e.g. Landings) ────────────────────────────
-                if (item.type === 'mega-columns') {
-                  return (
-                    <li key={key} className={`nav-item dropdown ${isActive ? 'active' : ''}`}>
-                      <button
-                        type="button"
-                        className="nav-link"
-                        onClick={() => toggleMobileDropdown(key)}
-                        aria-expanded={openMobileDropdown === key}
-                      >
-                        <span className="d-flex gap-1 align-items-center">
-                          {item.label}
-                          <IconifyIcon icon="bx:chevron-down" fontSize={18} />
-                        </span>
-                      </button>
-                      <Collapse in={openMobileDropdown === key}>
-                        <div className="dropdown-menu p-0">
-                          <div className="d-lg-flex">
-                            <div
-                              className="mega-dropdown-column d-flex justify-content-center align-items-center rounded-3 rounded-end-0 px-0"
-                              style={{ margin: '-1px', backgroundColor: '#f3f6ff' }}
-                            >
-                              <img src={Landings} alt="Landings" />
-                            </div>
-                            {(item.columns ?? []).map((column, colIndex) => (
-                              <div
-                                key={colIndex}
-                                className="mega-dropdown-column pt-lg-3 pb-lg-4"
-                                style={
-                                  colIndex === 0
-                                    ? { ['--si-mega-dropdown-column-width' as string]: '15rem' }
-                                    : {}
-                                }
-                              >
-                                <ul className="list-unstyled mb-0">
-                                  {column.map((link, idx) => (
-                                    <li key={idx}>
-                                      <Link
-                                        to={link.href}
-                                        className={`dropdown-item d-flex align-items-center ${pathname === link.href ? 'active' : ''}`}
-                                        onClick={() => setShowMenu(false)}
-                                      >
-                                        {link.label}
-                                        {link.badge && (
-                                          <span className="badge bg-success ms-2">
-                                            {link.badge}
-                                          </span>
-                                        )}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </Collapse>
-                    </li>
-                  );
-                }
-
-                // ── Mega-sections (e.g. Pages) ──────────────────────────────
-                if (item.type === 'mega-sections') {
-                  return (
-                    <li key={key} className={`nav-item dropdown ${isActive ? 'active' : ''}`}>
-                      <button
-                        type="button"
-                        className="nav-link"
-                        onClick={() => toggleMobileDropdown(key)}
-                        aria-expanded={openMobileDropdown === key}
-                      >
-                        <span className="d-flex gap-1 align-items-center">
-                          {item.label}
-                          <IconifyIcon icon="bx:chevron-down" fontSize={18} />
-                        </span>
-                      </button>
-                      <Collapse in={openMobileDropdown === key}>
-                        <div className="dropdown-menu">
-                          <div className="d-lg-flex pt-lg-3">
-                            {(item.sectioned_columns ?? []).map((column, colIndex) => (
-                              <div key={colIndex} className="mega-dropdown-column">
-                                {column.map((section, secIndex) => (
-                                  <div key={secIndex}>
-                                    <h6 className="px-3 mb-2">{section.title}</h6>
-                                    <ul className="list-unstyled mb-3">
-                                      {section.links.map((link, linkIndex) => (
-                                        <li key={linkIndex}>
-                                          <Link
-                                            to={link.href}
-                                            className={`dropdown-item py-1 ${pathname === link.href ? 'active' : ''}`}
-                                            onClick={() => setShowMenu(false)}
-                                          >
-                                            {link.label}
-                                          </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </Collapse>
-                    </li>
-                  );
-                }
-
-                // ── Simple dropdown (e.g. Account) ──────────────────────────
-                return (
-                  <li key={key} className={`nav-item dropdown ${isActive ? 'active' : ''}`}>
-                    <button
-                      type="button"
-                      className="nav-link"
-                      onClick={() => toggleMobileDropdown(key)}
-                      aria-expanded={openMobileDropdown === key}
-                    >
-                      <span className="d-flex gap-1 align-items-center">
-                        {item.label}
-                        <IconifyIcon icon="bx:chevron-down" fontSize={18} />
-                      </span>
-                    </button>
-                    <Collapse in={openMobileDropdown === key}>
-                      <ul className="dropdown-menu">
-                        {(item.links ?? []).map((link, index) => (
-                          <li key={index}>
-                            <Link
-                              to={link.href}
-                              className={`dropdown-item ${pathname === link.href ? 'active' : ''}`}
-                              onClick={() => setShowMenu(false)}
-                            >
-                              {link.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </Collapse>
-                  </li>
-                );
-              })}
-            </ul>
-          </OffcanvasBody>
-
-          {/* Mobile CTA */}
-          <div className="offcanvas-header border-top">
-            <a
-              href={cta_button.href}
-              className={`btn btn-${cta_button.variant} w-100`}
-              rel="noopener"
-              onClick={() => setShowMenu(false)}
-            >
-              {cta_button.icon && <IconifyIcon icon={cta_button.icon} className="fs-4 lh-1 me-1" />}
-              &nbsp;{cta_button.label}
-            </a>
-          </div>
-        </Offcanvas>
-
-        <ThemeToggle themeToggle={isNavDark ?? false} />
+          {config.cta_button.label}
+        </Button>
+        {/* <PremiumButton
+          label={config.cta_button.label}
+          variant="blue"
+          href={config.cta_button.label}
+          className="d-none d-lg-block"
+          style={{ marginLeft: 'auto',
+            backgroundColor: 'var(--bs-primary)',
+            color: 'var(--bs-white)'
+           }}
+        /> */}
+        {/* Mobile Toggle */}
         <button
           type="button"
-          className="navbar-toggler"
+          className="navbar-toggler d-lg-none border-0"
           aria-label="Toggle navigation"
           onClick={() => setShowMenu(true)}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+      </Container>
 
-        {/* Desktop CTA */}
-        {/* <Button
-          as="a"
-          href={cta_button.href}
-          className={`btn btn-${cta_button.variant} ${cta_button.size ? `btn-${cta_button.size}` : ''} fs-sm rounded d-none d-lg-inline-flex`}
-          rel="noopener"
-        >
-          {cta_button.icon && <IconifyIcon icon={cta_button.icon} className="fs-5 lh-1 me-1" />}
-          &nbsp;{cta_button.label}
-        </Button> */}
-      </div>
+      {/* Mobile Offcanvas Menu */}
+      <Offcanvas show={showMenu} onHide={() => setShowMenu(false)} placement="end">
+        <OffcanvasHeader closeButton className="border-bottom">
+          <h5 className="offcanvas-title">Menu</h5>
+        </OffcanvasHeader>
+        <OffcanvasBody className="offcanvas-body">
+          <div className="d-flex flex-column h-100">
+            {nav_items.map(item => {
+              if (item.type === 'link') {
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.href!}
+                    className="d-block px-4 py-3 text-decoration-none border-bottom"
+                    style={{ color: 'var(--bs-body-color)' }}
+                    onClick={() => setShowMenu(false)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+              if (item.type === 'mega') {
+                const isMegaOpen = openMobileMega === item.label;
+                return (
+                  <div key={item.label} className="border-bottom">
+                    <button
+                      className="d-flex justify-content-between align-items-center w-100 px-4 py-3 bg-body border-0"
+                      onClick={() => toggleMobileMega(item.label)}
+                      style={{ fontWeight: 500, color: 'var(--bs-body-color)' }}
+                    >
+                      <span>{item.label}</span>
+                      <IconifyIcon
+                        icon={isMegaOpen ? 'bx:chevron-up' : 'bx:chevron-down'}
+                        fontSize="1.25rem"
+                      />
+                    </button>
+                    {isMegaOpen && (
+                      <div
+                        className="px-4 py-2 bg-body"
+                        style={{ backgroundColor: 'var(--bs-gray-100)' }}
+                      >
+                        {item.data.leftRail.map(rail => {
+                          const railKey = `${item.label}-${rail.id}`;
+                          const isRailOpen = openMobileRail === railKey;
+                          const sections = item.data.panels[rail.id] ?? [];
+                          return (
+                            <div key={rail.id} className="mb-2">
+                              <button
+                                className="d-flex justify-content-between align-items-center w-100 py-2 bg-transparent border-0 small fw-semibold"
+                                onClick={() => toggleMobileRail(railKey)}
+                                style={{ color: 'var(--bs-body-color)' }}
+                              >
+                                {rail.label}
+                                <IconifyIcon
+                                  icon={isRailOpen ? 'bx:chevron-up' : 'bx:chevron-down'}
+                                />
+                              </button>
+                              {isRailOpen && (
+                                <div className="ps-3 pb-2">
+                                  {sections.map((section, si) => (
+                                    <div key={si} className="mb-2">
+                                      <div className="small text-uppercase fw-bold text-primary mt-2">
+                                        {section.title}
+                                      </div>
+                                      {section.links.map(link => (
+                                        <Link
+                                          key={link.href}
+                                          to={link.href}
+                                          className="d-block py-1 small text-decoration-none"
+                                          style={{ color: 'var(--bs-body-color)' }}
+                                          onClick={() => setShowMenu(false)}
+                                        >
+                                          {link.label}
+                                          {link.badge && (
+                                            <span className="badge bg-success ms-1">
+                                              {link.badge}
+                                            </span>
+                                          )}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                        {item.data.footerLink && (
+                          <Link
+                            to={item.data.footerLink.href}
+                            className="d-block mt-2 pt-2 border-top text-primary fw-semibold text-decoration-none py-2"
+                            onClick={() => setShowMenu(false)}
+                          >
+                            {item.data.footerLink.label}
+                          </Link>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </div>
+        </OffcanvasBody>
+      </Offcanvas>
     </header>
   );
 };

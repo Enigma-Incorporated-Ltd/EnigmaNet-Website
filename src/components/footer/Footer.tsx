@@ -86,7 +86,7 @@ const FALLBACK: FooterConfig = {
         // { title: 'Features', url: '#' },
         // { title: 'Integrations', url: '#' },
         // { title: 'Our Clients', url: '#' },
-        { title: 'Blog', url: '/blog-list-with-sidebar' },
+        { title: 'Blog', url: '/blog' },
         { title: 'Legal', url: '/legal' },
         // { title: 'Privacy Policy', url: '#' },
       ],

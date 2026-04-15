@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import hero1 from '@/assets/img/heroSlider/data-transmit-supper-fast-in-dark-tunnel-abstract.jpg';
 import hero2 from '@/assets/img/heroSlider/motion-blur-of-train-moving-inside-tunnel-in-tokyo.jpg';
-import hero3 from '@/assets/img/heroSlider/server-room-data-center-networking-database-co.jpg';
+import hero3 from '@/assets/img/heroSlider/1.png';
 import './slider.css';
 import PremiumButton from '../ui/PremiumButton';
 
@@ -12,6 +12,7 @@ const slides = [
     subtitle:
       'Move large datasets faster and more predictably across distributed compute environment without replacing what you already have',
     img: hero1,
+    margin: '0',
     gradient:
       'linear-gradient(164deg, rgb(11, 14, 24) 18%, rgb(8 11 20) 27%, rgb(9 10 13 / 85%) 41%, rgba(11, 14, 24, -15.6) 62%, rgb(199 201 206 / -36%) 9% 67%)',
     btn1: { label: 'Our Solutions', color: 'blue', href: '/' },
@@ -23,6 +24,7 @@ const slides = [
     subtitle:
       'On-demand compute, GPU and storage infrastructure that efficiently scales with your workloads',
     img: hero2,
+    margin: '0',
     gradient: 'linear-gradient(104deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0))',
     btn1: { label: 'Our Solutions', color: 'blue', href: '/' },
     btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
@@ -32,7 +34,7 @@ const slides = [
     title: 'Complete AI Infrastructure Designed around your Needs',
     subtitle:
       'Data movement, compute and storage working as one controlled, high-performance system.',
-
+    margin: 'img-leftmargin',
     gradient: 'linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0))',
     img: hero3,
     btn1: { label: 'Our Solutions', color: 'blue', href: '/' },
@@ -101,11 +103,12 @@ export default function HeroSlider() {
     <>
       <section className="hero-section">
         <div className="hero-background">
-          <img src={bgImage} alt="Hero background" className="hero-bg-image" />
+          <img src={bgImage} alt="Hero background" className={`hero-bg-image ${slide.margin}`} />
           <div
             className="hero-overlay"
             style={{
               background: bgGradient,
+              
             }}
           />
         </div>

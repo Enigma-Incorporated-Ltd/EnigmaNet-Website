@@ -145,7 +145,7 @@ const LegalPage = () => {
         structuredData={finalStructuredData}
       />
       <Breadcrumb
-        items={[{ label: 'Legal' }]}
+        items={[{ href: '/company', label: 'Company' }, { label: 'Legal' }]}
       
         style={{
           paddingTop: '6rem ',

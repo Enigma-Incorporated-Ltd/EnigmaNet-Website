@@ -18,7 +18,9 @@
      z-index: 0;
 
  }
-
+.img-leftmargin{
+    margin-left: 304px;
+}
  .hero-background::before {
      content: '';
      position: absolute;
@@ -223,7 +225,9 @@
      .hero-subtitle {
          max-width: 100%;
      }
-
+.img-leftmargin {
+    margin-left: 140px;
+}
      .hero-section {
          min-height: 80vh;
          /* reduce height */

@@ -282,7 +282,7 @@
   left: 0;
   z-index: $zindex-fixed + 1;
   width: 100%;
-  animation: navbar-show 0.25s ease-in-out;
+  // animation: navbar-show 0.25s ease-in-out;
   @include box-shadow($box-shadow);
 }
 
