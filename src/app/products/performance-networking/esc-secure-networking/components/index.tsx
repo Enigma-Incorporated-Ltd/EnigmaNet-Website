@@ -14,7 +14,7 @@ const SecureNetworking = () => {
         style={{
           paddingTop: '12rem',
         }}
-      />``
+      />
       <Header
         title="ESC Secure Networking"
         style={{

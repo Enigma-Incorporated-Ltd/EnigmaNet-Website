@@ -39,13 +39,13 @@ const ThemeToggle = ({ themeToggle }: HeaderToggleClass) => {
       <div className="form-check form-switch mode-switch pe-lg-1 ms-auto me-4">
         <input type="checkbox" className="form-check-input" id="theme-mode" />
         <label
-          className="form-check-label fs-lg text-white-50 d-none d-sm-block"
+          className="form-check-label fs-sm text-white-50 d-none d-sm-block"
           htmlFor="theme-mode"
         >
           Light
         </label>
         <label
-          className="form-check-label text-white-50 fs-lg d-none d-sm-block"
+          className="form-check-label text-white-50 fs-sm d-none d-sm-block"
           htmlFor="theme-mode"
         >
           Dark

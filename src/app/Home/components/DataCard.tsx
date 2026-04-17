@@ -2,6 +2,12 @@ import PremiumButton from '@/components/ui/PremiumButton';
 import { Card } from 'react-bootstrap';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import network from '@/assets/svgs/networking hosting.svg';
+import latency from '@/assets/svgs/lowlatency.svg';
+import data from '@/assets/svgs/redundant nodes.svg';
+import connect from '@/assets/svgs/bucket-folder-file in cloud.svg';
+import IconifyIcon from '@/components/IconifyIcon';
+import HeaderTitle from '@/components/ui/HeaderTitle';
 type FeatureItem = {
   id: number;
   icon: string;
@@ -12,26 +18,26 @@ type FeatureItem = {
 const features: FeatureItem[] = [
   {
     id: 1,
-    icon: 'bx:rocket',
+    icon: network,
     title: 'Unpredictable network performance',
     description: `Bandwidth exists but throughput changes hour to hour. Planning around infrastructure that won't behave predictably is expensive and slow.`,
   },
   {
     id: 2,
-    icon: 'bx:like',
+    icon: latency,
     title: 'Latency spikes and packet loss',
     description: `Dropped packets, broken transfers, and performance that collapses under load. Teams spend more time firefighting than building.`,
   },
   {
     id: 3,
-    icon: 'bx:time-five',
+    icon: data,
     title: 'Slow transfer of large datasets',
     description:
       'Files that should move in minutes take hours. GPUs sit idle waiting for data. Training windows get missed.',
   },
   {
     id: 4,
-    icon: 'bx:group',
+    icon: connect,
     title: 'Unreliable connectivity across distributed environments',
     description:
       'Multi-cloud, hybrid, and remote sites held together by patchwork setups. One link fails and everything downstream breaks.',
@@ -57,7 +63,16 @@ const DataCard = () => {
         {features.map(feature => (
           <SwiperSlide key={feature.id} className="h-auto py-3">
             <Card className="h-100 card-body card-hover mx-2">
-              <h3 className="h5 text-warning pt-3 pb-1 mb-2">{feature.title}</h3>
+              {typeof feature.icon === 'string' && feature.icon.startsWith('solar:') ? (
+                <IconifyIcon
+                  icon={feature.icon}
+                  className="display-5 text-warning fw-normal card-icon"
+                  style={{ color: '#b4b7c9' }}
+                />
+              ) : (
+                <img src={feature.icon} width={100} height={100} alt={feature.title} className="" />
+              )}
+              <HeaderTitle title={feature.title} className="h5 text-warning pt-3 pb-1 mb-2" />
               <p className="mb-0">{feature.description}</p>
             </Card>
           </SwiperSlide>

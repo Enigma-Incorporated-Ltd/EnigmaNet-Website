@@ -9,6 +9,7 @@ import certificate6 from '@/assets/img/certificates/c6.jpg';
 import { useEffect, useState } from 'react';
 import { Col, Collapse, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
+import './footer.css';
 import { fetchFooter, type FooterConfig } from '@/services/cmsApi';
 const brands = [
   { src: certificate1, pending: false },
@@ -238,7 +239,7 @@ const Footer = () => {
                   ...(col.titleStyle?.fontWeight && { fontWeight: col.titleStyle.fontWeight }),
                 };
                 return (
-                  <Col key={i} lg={4}>
+                  <Col key={i} xl={3} lg={4}>
                     <h6 className="mb-2" style={titleStyle}>
                       <Link
                         to={`#col-${i}`}
@@ -279,48 +280,50 @@ const Footer = () => {
                 );
               })}
               {contact && (
-                <Col xl={4} lg={5} className="pt-2 pt-lg-0">
-                  <h6 className="mb-2">{emailLabel || 'Contact Us'}</h6>
-
-                  {/* Phone */}
-                  {contact.phone && (
-                    <p className="mb-1">
-                      <a
-                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
-                        style={{
-                          textDecoration: 'none',
-                          fontWeight: 700,
-                        }}
-                      >
-                        {contact.phone}
+                <Col xl={5} lg={5} className="pt-2 pt-lg-0">
+                  <h6 className="mb-3">{emailLabel || 'Contact Us'}</h6>
+                  <div className="d-flex gap-2 ">
+                    <div className="info-item-footer">
+                      <a href="tel:+442080504632" className="info-link">
+                        <div className="info-icon  mt-1">
+                          <IconifyIcon icon="bx:phone" style={{ fontSize: '20px' }} />
+                        </div>
                       </a>
-                    </p>
-                  )}
-
-                  {/* Email */}
-                  {contact.email && (
-                    <p className="mb-1">
-                      <a
-                        href={`mailto:${contact.email}`}
-                        style={{
-                          textDecoration: 'none',
-                          fontWeight: 700,
-                        }}
-                      >
-                        {contact.email}
+                    </div>
+                    <div className="info-item-footer">
+                      <a href="mailto:info@enigmainc.co.uk" className="info-link ">
+                        <div className="info-icon mt-1">
+                          <IconifyIcon icon="bx:envelope" style={{ fontSize: '20px' }} />
+                        </div>
                       </a>
-                    </p>
-                  )}
+                    </div>
+                    {/* Email */}
+                  </div>
+                  {/* Phone Button */}
+                  {/* {contact.phone && (
+                    <a
+                      href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                      className="contact-btn d-inline-block mb-2"
+                    >
+                      {contact.phone}
+                    </a>
+                  )} */}
+
+                  {/* Email Button */}
+                  {/* {contact.email && (
+                    <a href={`mailto:${contact.email}`} className="contact-btn d-inline-block mb-2">
+                      {contact.email}
+                    </a>
+                  )} */}
 
                   {/* Address */}
                   {contact.address && (
                     <address
-                      className="mb-0 text-warning opacity-70"
+                      className="mb-0 text-warning opacity-70 mt-2"
                       style={{
                         fontStyle: 'normal',
                         fontSize: 14,
                         fontWeight: 400,
-                        // lineHeight: 1.6,
                       }}
                     >
                       {contact.address.split(/,\s*/).map((line, idx) => (

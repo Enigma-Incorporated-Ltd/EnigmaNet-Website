@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 
 import Brand from './components/Brand';
 import Feature from './components/Feature';
@@ -25,28 +24,12 @@ import Resources from './components/Resources';
 import Faqs from './components/faq/Faqs';
 import GetInTouch from './components/getinTouch/GetInTouch';
 import { BASE_URL } from '@/utils';
+import { useTheme } from '@/utils/useTheme';
 
 
 const Index = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-
- useEffect(() => {
-   const getTheme = () => {
-     const currentTheme = localStorage.getItem('theme') || 'light';
-     setTheme(currentTheme as 'light' | 'dark');
-   };
-
-   // Initial load
-   getTheme();
-
-   // ✅ Listen to custom event (same tab)
-   window.addEventListener('themeChange', getTheme);
-
-    return () => {
-      window.removeEventListener('themeChange', getTheme);
-    };
-  }, []);
-  
+ 
+  const { theme } = useTheme();
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

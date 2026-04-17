@@ -4,7 +4,10 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './workcard.css';
 import PremiumButton from '@/components/ui/PremiumButton';
-
+import router from '@/assets/svgs/router.svg';
+import pvtNet from '@/assets/svgs/susceptibility.svg';
+import laptop from '@/assets/svgs/project creation.svg';
+import GPu from '@/assets/svgs/gpu storage ai.svg';
 type FeatureItem = {
   id: number | string;
   icon: string;
@@ -16,28 +19,28 @@ type FeatureItem = {
 const features: FeatureItem[] = [
   {
     id: '01',
-    icon: 'solar:plug-circle-broken',
+    icon: router,
     title: 'Plugin',
     description: `A physical appliance connects to your existing broadband, fibre, 5G, satellite, whatever you have. No new circuits, no provider changes.`,
     bg: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa',
   },
   {
     id: '02',
-    icon: 'solar:wireless-charge-outline',
+    icon: pvtNet,
     title: 'Private network activates',
     description: `An encrypted overlay builds automatically across your links. Traffic is optimised, bonded, and failover-protected from the start.`,
     bg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31',
   },
   {
     id: '03',
-    icon: 'solar:monitor-broken',
+    icon: laptop,
     title: 'AI monitors and adapts',
     description: `Machine learning continuously monitors traffic conditions and adjusts routing, prioritisation, and redundancy in real time.`,
     bg: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
   },
   {
     id: '04',
-    icon: 'solar:cloud-storage-broken',
+    icon: GPu,
     title: 'Extend into infrastructure',
     description: `Add compute, GPU, and storage when you’re ready. Same secure layer, same predictable performance. No separate platform to manage.`,
     bg: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
@@ -78,7 +81,15 @@ const WorkCard = () => {
             >
               <div className="overlay"></div>
 
-              <IconifyIcon icon={feature.icon} className="display-5 text-warning mb-3" />
+              {typeof feature.icon === 'string' && feature.icon.startsWith('solar:') ? (
+                <IconifyIcon
+                  icon={feature.icon}
+                  className="display-5 text-warning fw-normal card-icon"
+                  style={{ color: '#b4b7c9' }}
+                />
+              ) : (
+                <img src={feature.icon} width={100} height={100} alt={feature.title} className="" />
+              )}
               <h2 className="h2 text-secondary">{feature.title}</h2>
               <p
                 className="h5 text-secondary"

@@ -30,12 +30,12 @@ const AboutV1 = lazy(() => import('@/app/(pages)/about-v1'));
 const AboutV2 = lazy(() => import('@/app/(pages)/about-v2'));
 const AboutV3 = lazy(() => import('@/app/(pages)/about-v3'));
 const GridNoSidebar = lazy(() => import('@/app/(pages)/blog-grid-no-sidebar'));
-const GridWithSidebar = lazy(() => import('@/app/blog/grid'));
+const GridWithSidebar = lazy(() => import('@/app/company/blog/grid'));
 const ListNoSidebar = lazy(() => import('@/app/(pages)/blog-list-no-sidebar'));
-const ListWithSidebar = lazy(() => import('@/app/blog'));
+const ListWithSidebar = lazy(() => import('@/app/company/blog'));
 const Podcast = lazy(() => import('@/app/(pages)/blog-podcast'));
 const SimpleFeed = lazy(() => import('@/app/(pages)/blog-simple-feed'));
-const BlogSingle = lazy(() => import('@/app/blog/components/blog-single'));
+const BlogSingle = lazy(() => import('@/app/company/blog/components/blog-single'));
 const ContactV1 = lazy(() => import('@/app/(pages)/contacts-v1'));
 const ContactV2 = lazy(() => import('@/app/get-in-touch'));
 const ContactV3 = lazy(() => import('@/app/(pages)/contacts-v3'));
@@ -240,17 +240,23 @@ export const AllRoutes = [
   { path: '/company/about-enigma', element: <AboutEnigma /> },
   { path: '/company/trust-centre', element: <TrustCentre /> },
   { path: '/company/leadership', element: <Leadership /> },
+  { path: '/company/legal', name: 'legal', element: <Legal /> },
+  { path: 'company/legal/:slug', name: 'legal', element: <Legal /> },
+  { path: '/company/blog', name: 'blog', element: <ListWithSidebar /> },
+  { path: '/company/blog/grid', name: 'blog-grid', element: <GridWithSidebar /> },
+  { path: '/company/blog/:id', name: 'blog-id', element: <BlogSingle /> },
 
+
+  
   //contact-us
   { path: '/contact-us', element: <ContactUs /> },
   { path: '/contact-us/request-a-quote', element: <RequestAQuote /> },
 
   //utility
-  { path: '/developer-portal', element: <DeveloperPortal /> }, 
+  { path: '/developer-portal', element: <DeveloperPortal /> },
   { path: '/customer-portal', element: <CustomerPortal /> },
   { path: '/status', element: <Status /> },
   { path: '/docs', element: <Docs /> },
-
 
   // Pages Routes
   { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
@@ -259,8 +265,7 @@ export const AllRoutes = [
   { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },
   { path: '/app-showcase-v3', name: 'case3', element: <ShowCase3 /> },
   { path: '/blog-list', name: 'blog', element: <Blog /> },
-  { path: '/legal', name: 'legal', element: <Legal /> },
-  { path: '/legal/:slug', name: 'legal', element: <Legal /> },
+
   { path: '/conference', name: 'conercence', element: <Conference /> },
   { path: '/digital-agency', name: 'DigitalAgency', element: <DigitalAgency /> },
   { path: '/financial', name: 'finacial', element: <Finacial /> },
@@ -283,13 +288,13 @@ export const AllRoutes = [
   { path: '/about-v2', name: 'AboutV2', element: <AboutV2 /> },
   { path: '/about-v3', name: 'AboutV3', element: <AboutV3 /> },
   { path: '/blog-grid-no-sidebar', name: 'blog-grid-no-sidebar', element: <GridNoSidebar /> },
-  { path: '/blog/grid', name: 'blog-grid', element: <GridWithSidebar /> },
+
   { path: '/blog-list-no-sidebar', name: 'blog-list-no-sidebar', element: <ListNoSidebar /> },
-  { path: '/blog', name: 'blog', element: <ListWithSidebar /> },
+
   { path: '/blog-podcast', name: 'blog-podcast', element: <Podcast /> },
   { path: '/blog-simple-feed', name: 'blog-simple-feed', element: <SimpleFeed /> },
   // { path: '/blog-single', name: 'blog-single', element: <BlogSingle /> },
-  { path: '/blog/:id', name: 'blog-id', element: <BlogSingle /> },
+
   { path: '/contacts-v1', name: 'contacts-v1', element: <ContactV1 /> },
   { path: '/get-in-touch', name: 'get-in-touch', element: <ContactV2 /> },
   { path: '/contacts-v3', name: 'contacts-v3', element: <ContactV3 /> },

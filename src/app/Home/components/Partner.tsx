@@ -25,9 +25,9 @@ const features = [
 const Partner = () => {
   return (
     <Container className="py-5  mt-md-4">
-      <h5 className="h1 text-center text-warning mx-auto text-uppercase mt-n2 mt-sm-0 pt-md-2">
+       <h2 className="h3 text-center text-warning mx-auto text-uppercase mt-n2 mt-sm-0 pt-md-2">
         For Partners
-      </h5>
+      </h2>
       <Row className="align-items-center mt-5">
         {/* LEFT CONTENT */}
         <Col lg={6} className="mb-4 mb-lg-0">

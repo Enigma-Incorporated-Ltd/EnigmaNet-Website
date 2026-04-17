@@ -434,7 +434,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
             { label: 'About Enigma', href: '/company/about-enigma' },
             { label: 'Leadership', href: '/company/leadership' },
             { label: 'Trust Centre', href: '/company/trust-centre' },
-            { label: 'Blogs', href: '/blog' },
+            { label: 'Blog', href: '/company/blog' },
           ],
         },
       ],
@@ -442,7 +442,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         {
           title: 'TRUST & SECURITY',
           links: [
-            { label: 'Legal', href: '/legal' },
+            { label: 'Legal', href: '/company/legal' },
             // { label: 'Security posture', href: '/trust/security' },
             // { label: 'Compliance / certifications', href: '/trust/compliance' },
             // { label: 'Policies', href: '/trust/policies' },

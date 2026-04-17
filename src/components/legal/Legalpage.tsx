@@ -74,7 +74,7 @@ const LegalPage = () => {
   }, []);
 
   const handleSelect = (itemSlug: string) => {
-    navigate(`/legal/${itemSlug}`);
+    navigate(`/company/legal/${itemSlug}`);
   };
 
 

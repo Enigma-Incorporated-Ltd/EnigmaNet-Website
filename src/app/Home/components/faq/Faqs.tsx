@@ -7,6 +7,7 @@ import {
   Container,
 } from 'react-bootstrap';
  import "./faq.css"
+import { useTheme } from '@/utils/useTheme';
 type FaqType = {
   question: string;
   answer: React.ReactNode;
@@ -83,7 +84,7 @@ const faqs: FaqType[] = [
 
 const Faqs = () => {
   const [activeKey, setActiveKey] = useState<string | null>('0');
-
+const {theme} = useTheme();
   return (
     <Container className="pt-5  mb-lg-2">
       <div
@@ -94,15 +95,21 @@ const Faqs = () => {
       >
         {' '}
         <h2 className="h2 text-center text-warning mb-4">Frequently Asked Questions</h2>
-        <h1 className="text-center h1  mb-5">
-          What you need to know before getting started
-        </h1>
+        <h1 className="text-center h1  mb-5">What you need to know before getting started</h1>
         <Accordion activeKey={activeKey} onSelect={k => setActiveKey(k as string)}>
           {faqs.map((faq, idx) => (
             <AccordionItem
               eventKey={idx.toString()}
               key={idx}
               className="faq-item border-0 mb-3 overflow-hidden"
+              style={{
+                borderRadius: '10px',
+                background: theme === 'dark' ? '' : 'rgb(242 242 242 / 67%)',
+                boxShadow:
+                  theme === 'dark'
+                    ? ''
+                    : 'rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px',
+              }}
             >
               <AccordionHeader className="fs-lg">{faq.question}</AccordionHeader>
               <AccordionBody className="fs-md pt-0 pb-3 border-0 shadow">

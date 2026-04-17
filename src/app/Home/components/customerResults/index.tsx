@@ -87,10 +87,8 @@ const CustomerResults = () => {
                     {item.Tags?.map((tag, i) => (
                       <span
                         key={i}
-                        className="badge p-3 bg-warning text-black me-1"
+                        className="badge p-2 text-uppercase  border border-warning bg-warning text-black  me-1"
                         style={{
-                          
-
                           fontWeight: '800',
                           letterSpacing: '0.08em',
                           textTransform: 'uppercase',

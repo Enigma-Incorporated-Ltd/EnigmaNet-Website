@@ -108,7 +108,7 @@
 .legal-shell {
     display: flex;
     gap: 1.75rem;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     align-items: flex-start;
 }

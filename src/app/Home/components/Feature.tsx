@@ -1,7 +1,8 @@
-import mainImg from '@/assets/img/landing/saas-3/feature-1/main.png';
-import popup01 from '@/assets/img/landing/saas-3/feature-1/popup01.png';
-import popup02 from '@/assets/img/landing/saas-3/feature-1/popup02.png';
-import popup03 from '@/assets/img/landing/saas-3/feature-1/popup03.png';
+
+import features01 from '@/assets/img/features/features.jpg';
+import lock from '@/assets/img/features/lock.jpg';
+// import security from '@/assets/img/features/ai.jpg';
+import HeaderTitle from '@/components/ui/HeaderTitle';
 import { Container } from 'react-bootstrap';
 
 const Feature = () => {
@@ -10,6 +11,7 @@ const Feature = () => {
       <h5 className="h3 text-center text-warning mx-auto text-uppercase mt-n2 mt-sm-0 pt-md-2">
         AI infrastructure and data movement challenges
       </h5>
+
       <h2 className="h1 text-center mx-auto mt-n2 mt-sm-0 pt-md-2">
         The bottleneck isn't compute. It's moving the data.
       </h2>
@@ -25,15 +27,16 @@ const Feature = () => {
           </span>
         </li>
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
-          <span>
+          <HeaderTitle title="Common problems we encounter" className="h1 ms-1" />
+          {/* <span>
             <strong className="text-info h1 ms-1"> Common problems we encounter</strong>
-          </span>
+          </span> */}
         </li>
       </ul>
 
       <div className="position-relative px-4 px-sm-5 mb-3 mb-md-4">
         <img
-          src={mainImg}
+          src={features01}
           width={1079}
           alt="Dashboard"
           className="d-block mx-auto"
@@ -48,7 +51,7 @@ const Feature = () => {
           style={{ left: 0, bottom: '13%', paddingRight: '74.33%' }}
         >
           <img
-            src={popup01}
+            src={lock}
             width={308}
             alt="Popup"
             className="rellax d-block"
@@ -62,12 +65,12 @@ const Feature = () => {
           />
         </div>
 
-        <div
+        {/* <div
           className="position-absolute w-100"
           style={{ right: 0, top: '12%', paddingLeft: '74.16%' }}
         >
           <img
-            src={popup02}
+            src={security}
             width={310}
             alt="Popup"
             className="rellax d-block"
@@ -79,9 +82,9 @@ const Feature = () => {
             data-rellax-speed="1"
             data-disable-parallax-down="lg"
           />
-        </div>
+        </div> */}
 
-        <div
+        {/* <div
           className="position-absolute w-100"
           style={{
             right: 0,
@@ -103,7 +106,7 @@ const Feature = () => {
             data-rellax-speed=".5"
             data-disable-parallax-down="lg"
           />
-        </div>
+        </div> */}
       </div>
     </Container>
   );

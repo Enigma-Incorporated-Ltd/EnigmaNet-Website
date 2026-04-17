@@ -5,8 +5,14 @@ import { useEffect, useState, useRef } from 'react';
 import { Offcanvas, OffcanvasBody, OffcanvasHeader, Nav, Container, Button } from 'react-bootstrap';
 import IconifyIcon from '../IconifyIcon';
 import ThemeToggle from '../ThemeToggle';
-import { FALLBACK_CONFIG, type MegaMenuItem, type NavClass, type NavItem, type NavLink } from '@/utils/nav';
-
+import {
+  FALLBACK_CONFIG,
+  type MegaMenuItem,
+  type NavClass,
+  type NavItem,
+  type NavLink,
+} from '@/utils/nav';
+import { useTheme } from '@/utils/useTheme';
 
 // ── Helper functions ─────────────────────────────────────────
 const getItemLinks = (item: NavItem): NavLink[] => {
@@ -29,7 +35,6 @@ const getItemLinks = (item: NavItem): NavLink[] => {
 const isParentActive = (links: NavLink[], pathname: string) =>
   links.some(link => pathname === link.href || pathname.startsWith(link.href + '/'));
 
-
 const MegaMenuDesktop = ({
   item,
   onLinkClick,
@@ -41,9 +46,17 @@ const MegaMenuDesktop = ({
   const location = useLocation();
   const pathname = location.pathname;
   const currentSections = item.panels[activeRail] ?? [];
-
+  const { theme } = useTheme();
   return (
-    <div className="position-absolute top-100 start-0 end-0 p-3 shadow-lg bg-body rounded-3">
+    <div
+      className="position-absolute top-100 start-0 end-0 p-3 shadow-lg rounded-3"
+      style={{
+        background: theme === 'dark' ? 'rgba(22, 27, 38, 0.75)' : 'white',
+        backdropFilter: theme === 'dark' ? 'blur(12px)' : 'none',
+        WebkitBackdropFilter: theme === 'dark' ? 'blur(12px)' : 'none',
+        border: theme === 'dark' ? '1px solid rgba(255,255,255,0.08)' : '1px solid #eee',
+      }}
+    >
       <Container className="px-3">
         <div className="d-flex" style={{ minHeight: '400px' }}>
           {/* Left Rail */}
@@ -240,7 +253,7 @@ const Navbar = ({
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-decoration-none  fs-lg small text-white-50 "
+                className="text-decoration-none  fs-sm small text-white-50 "
               >
                 {link.label}
               </Link>
@@ -294,6 +307,7 @@ const Navbar = ({
                   >
                     {item.label}
                   </button>
+
                   {isOpen && (
                     <MegaMenuDesktop item={item.data} onLinkClick={() => setActiveMega(null)} />
                   )}

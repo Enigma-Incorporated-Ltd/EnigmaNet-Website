@@ -155,9 +155,11 @@ const Resources = () => {
                             <Link
                               key={index}
                               to="#"
-                              className="badge fs-base  shadow p-2 fs-sm text-nav bg-warning text-decoration-none"
+                              className="badge p-2 text-uppercase  border border-warning bg-warning text-black  me-1"
                               style={{
-                                fontWeight: '700',
+                                fontWeight: '800',
+                                letterSpacing: '0.08em',
+                                textTransform: 'uppercase',
                               }}
                             >
                               {cat}
