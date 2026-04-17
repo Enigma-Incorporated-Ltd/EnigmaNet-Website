@@ -68,14 +68,14 @@ const MegaMenuDesktop = ({
               {item.leftRail.map(rail => (
                 <button
                   key={rail.id}
-                  className={`w-100 text-start d-flex align-items-center justify-content-between border-0 px-3 py-2`}
+                  className={`w-100 text-start d-flex align-items-center  justify-content-between border-0 px-3 py-2`}
                   onMouseEnter={() => setActiveRail(rail.id)}
                   style={{
                     fontSize: '0.875rem',
                     fontWeight: 500,
                     transition: 'all 0.2s ease',
                     backgroundColor: activeRail === rail.id ? 'var(--bs-gray-100)' : 'transparent',
-                    color: activeRail === rail.id ? 'var(--bs-primary)' : 'var(--bs-body-color)',
+                    color: activeRail === rail.id ? '#3d5a9e' : 'var(--bs-body-color)',
                   }}
                 >
                   {rail.label}
@@ -99,10 +99,7 @@ const MegaMenuDesktop = ({
           <div className="flex-grow-1 p-4 d-flex gap-4 flex-wrap align-content-start">
             {currentSections.map((section, idx) => (
               <div key={idx} style={{ minWidth: '200px' }}>
-                <h6
-                  className="text-uppercase small fw-bold mb-2 pb-1 border-bottom"
-                  style={{ color: 'var(--bs-primary)', borderColor: 'var(--bs-border-color)' }}
-                >
+                <h6 className="text-uppercase small text-primary fw-bold mb-2 pb-1 border-bottom">
                   {section.title}
                 </h6>
                 <ul className="list-unstyled mb-0">
