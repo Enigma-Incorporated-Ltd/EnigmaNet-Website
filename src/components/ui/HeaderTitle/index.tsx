@@ -10,7 +10,7 @@ const HeaderTitle = ({ title, style, textAlign, className, variant = 'blue' }: H
  
   const gradients = {
     blue: 'linear-gradient(135deg, #3d5a9e 0%, #157bc9 55%, #2adeff 100%)',
-    gold: 'linear-gradient(135deg, #caa75e 0%, #f5d27a 50%, #fff2b0 100%)',
+    gold: 'linear-gradient(135deg, #c8862a 0%, #e5ae51 50%, #b8741a 100%)',
   };
 
   return (

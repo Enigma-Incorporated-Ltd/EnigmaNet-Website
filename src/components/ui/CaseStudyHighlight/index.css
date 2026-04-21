@@ -1,0 +1,37 @@
+.premium-list-item {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(6px);
+}
+
+/* Hover effect */
+.premium-list-item:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Icon styling */
+.icon-wrapper {
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(25, 135, 84, 0.15);
+    /* Bootstrap success tint */
+    color: #198754;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+/* Icon hover pop */
+.premium-list-item:hover .icon-wrapper {
+    background: #198754;
+    color: #fff;
+    transform: scale(1.1);
+}

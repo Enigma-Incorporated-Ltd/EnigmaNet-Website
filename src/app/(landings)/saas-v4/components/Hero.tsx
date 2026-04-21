@@ -11,10 +11,7 @@ const Hero = () => {
 
       <span
         className="position-absolute top-0 start-0 d-dark-mode-block d-none w-100 h-100"
-        style={{
-          background:
-            'radial-gradient(84.79% 172.9% at 73.31% 31.4%, rgba(99, 135, 241, .1) 0%, rgba(218, 70, 239, .05) 52.47%, rgba(99, 135, 241, .1) 100%)',
-        }}
+       
       >
         <span
           className="d-block w-100 h-100 bg-position-center bg-size-cover bg-repeat-0"

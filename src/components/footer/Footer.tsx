@@ -83,14 +83,60 @@ const FALLBACK: FooterConfig = {
     {
       title: 'Useful Links',
       links: [
-        { title: 'Home', url: '#' },
-        // { title: 'Features', url: '#' },
-        // { title: 'Integrations', url: '#' },
-        // { title: 'Our Clients', url: '#' },
-        { title: 'Blog', url: '/blog' },
-        { title: 'Legal', url: '/legal' },
-        // { title: 'Privacy Policy', url: '#' },
+        {
+          url: '/solutions',
+          title: 'Solutions',
+        },
+        {
+          url: '/company/blog',
+          title: 'Blog',
+        },
+        {
+          url: '/partners',
+          title: 'Partners',
+        },
+        {
+          url: '/company',
+          title: 'Company',
+        },
+        {
+          url: '/company/legal',
+          title: 'Legal',
+        },
+        {
+          url: '/support',
+          title: 'Support',
+        },
       ],
+    },
+    {
+      links: [
+        {
+          url: '/products/the-enigma-platform',
+          title: 'Enigma Platform',
+        },
+        {
+          url: '/products/performance-networking',
+          title: 'Performance Networking',
+        },
+        {
+          url: '/products/connectivity-products',
+          title: 'Connectivity Products',
+        },
+        {
+          url: '/products/data-&-file-services',
+          title: 'Data & File Services',
+        },
+        {
+          url: '/products/ai-&-automation',
+          title: 'Ai & Automation',
+        },
+        {
+          url: '/products/integration-&-oem',
+          title: 'Integration & OEM',
+        },
+      ],
+      title: 'Products',
     },
   ],
   socials: [
@@ -179,7 +225,7 @@ const Footer = () => {
       <Container className="pt-lg-4">
         <Row className="pb-5">
           {/* Brand + Newsletter */}
-          <Col lg={4} md={6}>
+          <Col lg={4} xl={4} md={6}>
             <Link
               to={brand.href || '/index'}
               className="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4 d-flex align-items-center gap-2"
@@ -229,7 +275,7 @@ const Footer = () => {
           </Col>
 
           {/* Link columns + socials + email */}
-          <Col xl={6} lg={6} md={5} className="offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+          <Col xl={7} lg={6} md={4} className="offset-xl-1 offset-md-1 pt-4 pt-md-1 pt-lg-0">
             <Row id="footer-links">
               {/* Columns */}
               {(columns ?? []).map((col, i) => {
@@ -239,7 +285,7 @@ const Footer = () => {
                   ...(col.titleStyle?.fontWeight && { fontWeight: col.titleStyle.fontWeight }),
                 };
                 return (
-                  <Col key={i} xl={3} lg={4}>
+                  <Col key={i} xl={4} lg={4}>
                     <h6 className="mb-2" style={titleStyle}>
                       <Link
                         to={`#col-${i}`}
@@ -280,7 +326,7 @@ const Footer = () => {
                 );
               })}
               {contact && (
-                <Col xl={5} lg={5} className="pt-2 pt-lg-0">
+                <Col xl={3} lg={3} className="pt-2 pt-lg-0">
                   <h6 className="mb-3">{emailLabel || 'Contact Us'}</h6>
                   <div className="d-flex gap-2 ">
                     <div className="info-item-footer">
@@ -312,7 +358,8 @@ const Footer = () => {
                   {/* Email Button */}
                   {/* {contact.email && (
                     <a href={`mailto:${contact.email}`} className="contact-btn d-inline-block mb-2">
-                      {contact.email}
+                      {contact.email} r5 \
+
                     </a>
                   )} */}
 

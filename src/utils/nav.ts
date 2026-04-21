@@ -181,7 +181,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       description:
         'Enigma Named a Leader in the 2025 Gartner Magic Quadrant™ for Hybrid Mesh Firewall',
       cta: 'Get the Report »',
-      ctaHref: '/report/gartner-2025',
+      ctaHref: '/products',
     },
     label: '',
   },
@@ -193,6 +193,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       { label: 'Operational Technology & Remote Assets', id: 'ot' },
       { label: 'Industries', id: 'industries' },
       { label: 'Service Providers & Partners', id: 'providers' },
+      { label: 'Defense Dualtechnology', id: 'defense' },
     ],
     panels: {
       enterprise: [
@@ -273,12 +274,18 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
           ],
         },
       ],
+      defense: [
+        {
+          title: 'DEFENSE DUALTECHNOLOGY',
+          links: [{ label: 'Defense Dualtechnology', href: '/solutions/defense-dualtechnology' }],
+        },
+      ],
     },
     promo: {
       label: 'WHY ENIGMA',
       description: 'For AI and large data movement',
       cta: 'Find the Right Solution »',
-      ctaHref: '/solutions/finder',
+      ctaHref: '/solutions',
     },
     label: '',
   },
@@ -359,7 +366,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       label: 'DEPLOY IN 15 MINUTES',
       description: 'Quick start guide for Enigma Connect',
       cta: 'Get Started »',
-      ctaHref: '/quick-start',
+      ctaHref: '/support',
     },
     label: '',
   },
@@ -415,7 +422,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       label: 'FEATURED PARTNER',
       description: 'See how TechPartner Inc. delivers Enigma solutions',
       cta: 'Read Case Study »',
-      ctaHref: '/partners/case-study',
+      ctaHref: '/partners',
     },
     label: '',
   },
@@ -484,14 +491,14 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       label: 'FEATURED CONTENT',
       description: "How Enigma powers the world's largest data movements",
       cta: 'Read Case Study »',
-      ctaHref: '/resources/case-studies/global-media',
+      ctaHref: '/company',
     },
     label: '',
   },
   ContactUs: {
     leftRail: [
       { label: 'Contact Us', id: 'sales' },
-    //   { label: 'Partner Enquiry', id: 'partner' },
+      //   { label: 'Partner Enquiry', id: 'partner' },
       // { label: 'Support', id: 'support' },
     ],
     panels: {
@@ -531,7 +538,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       label: 'TALK TO ENIGMA',
       description: 'Get in touch with our team',
       cta: 'Contact Us »',
-      ctaHref: '/contact',
+      ctaHref: '/contact-us',
     },
     label: '',
   },
@@ -562,7 +569,7 @@ export const FALLBACK_CONFIG: HeaderConfig = {
   ],
   cta_button: {
     label: 'Start Free',
-    href: '/free-trial',
+    href: '/',
     icon: 'bx:rocket',
     variant: 'primary',
     size: 'sm',

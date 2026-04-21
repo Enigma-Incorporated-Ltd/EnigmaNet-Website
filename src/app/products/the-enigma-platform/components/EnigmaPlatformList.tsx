@@ -6,7 +6,7 @@ const EnigmaPlatformList = () => {
   return (
     <div className="container">
       <Breadcrumb
-        items={[{ label: 'Products', href: '/products' } , { label: 'The Enigma Platform' }]}
+        items={[{ label: 'Products', href: '/products' } , { label: 'The Enigma Platform' , href: '/products/the-enigma-platform' }]}
         style={{
           paddingTop: '12rem',
         }}

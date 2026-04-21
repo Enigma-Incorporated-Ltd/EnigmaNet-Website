@@ -1,4 +1,3 @@
-
 import Brand from './components/Brand';
 import Feature from './components/Feature';
 import FeatureApp from './components/FeatureApp';
@@ -17,18 +16,15 @@ import WorkCard from './components/workCard';
 import UseCase from './components/UseCase';
 import Brands from './components/brands';
 import CustomerResults from './components/customerResults';
-import GetStarted from './components/GetStarted';
-import CTA2 from './components/CTA2';
 import Partner from './components/Partner';
 import Resources from './components/Resources';
 import Faqs from './components/faq/Faqs';
 import GetInTouch from './components/getinTouch/GetInTouch';
 import { BASE_URL } from '@/utils';
 import { useTheme } from '@/utils/useTheme';
-
+import CTA from '@/components/ui/CtaBand';
 
 const Index = () => {
- 
   const { theme } = useTheme();
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -60,47 +56,47 @@ const Index = () => {
       },
     ],
   };
-const structuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Enigma Net',
-    url: BASE_URL,
-    logo: {
-      '@type': 'ImageObject',
-      url: `${BASE_URL}/logo.png`,
+  const structuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Enigma Net',
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/logo.png`,
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+44 (0) 20 8050 4632',
+        contactType: 'customer support',
+        email: 'info@enigmainc.co.uk',
+        areaServed: 'GB',
+        availableLanguage: 'en',
+      },
+      sameAs: ['hhttps://www.linkedin.com/company/enigmanet-ai/'],
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+44 (0) 20 8050 4632',
-      contactType: 'customer support',
-      email: 'info@enigmainc.co.uk',
-      areaServed: 'GB',
-      availableLanguage: 'en',
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Enigma Net',
+      url: BASE_URL,
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${BASE_URL}/search?q={search_term_string}`,
+        'query-input': 'required name=search_term_string',
+      },
     },
-    sameAs: ['hhttps://www.linkedin.com/company/enigmanet-ai/'],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Enigma Net',
-    url: BASE_URL,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${BASE_URL}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Enigma Net - Home',
+      url: BASE_URL,
+      description:
+        'Enigma Net advanced networking services optimise your current internet connection. Our solutions deliver greater speed, reliability, and measurable superior performance.',
     },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Enigma Net - Home',
-    url: BASE_URL,
-    description:
-      'Enigma Net advanced networking services optimise your current internet connection. Our solutions deliver greater speed, reliability, and measurable superior performance.',
-  },
-  faqSchema,
-];
+    faqSchema,
+  ];
 
   return (
     <>
@@ -121,7 +117,7 @@ const structuredData = [
 
       <HeroSlider />
       <Brands />
-      
+
       <Feature />
       <DataCard />
       <NetworkingCard />
@@ -129,7 +125,20 @@ const structuredData = [
       <UseCase />
       <CustomerResults />
 
-      {theme === 'dark' ? <CTA2 /> : <GetStarted />}
+      <CTA
+        theme={theme}
+        showButtons
+        subHeadline="Get Started"
+        headline="Make your data movement"
+        headline2=" predictable"
+        description=" Faster transfers, stable throughput, zero-trust security — deployed without
+                replacing your existing infrastructure."
+        primaryButton={{
+          label: 'TALK TO OUR TEAM',
+          href: '/get-in-touch',
+          variant: 'gold',
+        }}
+      />
 
       <Partner />
       <Resources />

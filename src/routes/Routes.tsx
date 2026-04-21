@@ -135,7 +135,7 @@ const OperationalTechnology = lazy(
 const Industries = lazy(() => import('@/app/solutions/industries'));
 const ServiceProviders = lazy(() => import('@/app/solutions/service-providers-&-partners'));
 const Enterprise = lazy(() => import('@/app/solutions/enterprise'));
-
+const DefenseDualtechnology = lazy(() => import('@/app/solutions/defense-dualtechnology'));
 //support
 const Support = lazy(() => import('@/app/support'));
 
@@ -167,7 +167,7 @@ export const AllRoutes = [
 
   // Enigma Platform Routes
   { path: '/products', element: <Products /> },
-  { path: '/products/enigma-platform', element: <EnigmaPlatform /> },
+  { path: '/products/the-enigma-platform', element: <EnigmaPlatform /> },
   { path: '/products/enigma-platform/enigma-grid', element: <EnigmaGrid /> },
   { path: '/products/enigma-platform/enigma-ledger', element: <EnigmaLedger /> },
   { path: '/products/enigma-platform/enigma-nexus', element: <EnigmaNexus /> },
@@ -228,6 +228,7 @@ export const AllRoutes = [
   { path: '/solutions/remote-work-&-branch', element: <RemoteWork /> },
   { path: '/solutions/service-providers-&-partners', element: <ServiceProviders /> },
   { path: '/solutions/enterprise', element: <Enterprise /> },
+  { path: '/solutions/defense-dualtechnology', element: <DefenseDualtechnology /> },
 
   //support
   { path: '/support', element: <Support /> },
@@ -246,8 +247,6 @@ export const AllRoutes = [
   { path: '/company/blog/grid', name: 'blog-grid', element: <GridWithSidebar /> },
   { path: '/company/blog/:id', name: 'blog-id', element: <BlogSingle /> },
 
-
-  
   //contact-us
   { path: '/contact-us', element: <ContactUs /> },
   { path: '/contact-us/request-a-quote', element: <RequestAQuote /> },
