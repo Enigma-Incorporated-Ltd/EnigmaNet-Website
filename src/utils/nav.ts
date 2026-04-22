@@ -194,6 +194,8 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       { label: 'Industries', id: 'industries' },
       { label: 'Service Providers & Partners', id: 'providers' },
       { label: 'Defense Dualtechnology', id: 'defense' },
+      { label: 'Technology Partner', id: 'techpartner' },
+      { label: 'Channel Partner ', id: 'channel' },
     ],
     panels: {
       enterprise: [
@@ -278,6 +280,18 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         {
           title: 'DEFENSE DUALTECHNOLOGY',
           links: [{ label: 'Defense Dualtechnology', href: '/solutions/defense-dualtechnology' }],
+        },
+      ],
+      techpartner: [
+        {
+          title: 'TECH PARTNER',
+          links: [{ label: 'Technology Partner', href: '/solutions/technology-partner' }],
+        },
+      ],
+      channel: [
+        {
+          title: 'CHANNEL PARTNER',
+          links: [{ label: 'Channel Partner', href: '/solutions/channel-partner' }],
         },
       ],
     },

@@ -8,15 +8,16 @@ const AiAndDataInfrastructure = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'AI & Data Infrastructure',
     url: `${BASE_URL}/solutions/ai-&-data-infrastructure`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. ',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="AI & Data Infrastructure"
+        description="From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. "
         url={`${BASE_URL}/solutions/ai-&-data-infrastructure`}
         structuredData={structuredData}
       />

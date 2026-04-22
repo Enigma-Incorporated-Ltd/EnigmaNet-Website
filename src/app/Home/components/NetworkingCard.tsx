@@ -46,7 +46,7 @@ const pillars: PillarItem[] = [
       },
     ],
     buttonLabel: 'Explore Enigma Connect',
-    buttonHref: '/',
+    buttonHref: '/secure-networking',
     buttonColor: 'blue',
   },
   {
@@ -74,7 +74,7 @@ const pillars: PillarItem[] = [
       },
     ],
     buttonLabel: 'Explore Secure Cloud',
-    buttonHref: '/',
+    buttonHref: '/secure-cloud',
     buttonColor: 'gold',
   },
 ];
@@ -131,7 +131,7 @@ const NetworkingPillars = () => {
                   {pillar.bulletPoints.map((point, idx) => (
                     <div
                       key={idx}
-                      className={`rounded-3 p-3 py-4 border-${pillar.dark ? 'text-white-50' : 'text-muted'} border`}
+                      className={`rounded-3 bg-secondary p-3 py-4 border-${pillar.dark ? 'text-white-50' : 'text-muted'} border`}
                       style={{
                         border: '1px solid rgba(255,255,255,0.1)',
                       }}

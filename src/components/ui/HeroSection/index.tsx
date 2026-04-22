@@ -9,26 +9,35 @@ type HeroButton = {
 };
 
 type HeroProps = {
-  title: string ;
-  description: string;
-  image: string;
+  title: string;
+  description: string | React.ReactNode;
+  image?: string;
   buttons?: HeroButton[];
   features?: string[];
 };
 
 const HeroSection = ({ title, description, image, buttons = [], features = [] }: HeroProps) => {
+  const isFullWidth = !image;
+
   return (
     <section className="position-relative overflow-hidden py-5">
       <Container className="position-relative zindex-5">
-        <Row className="align-items-center gy-4">
-          {/* LEFT CONTENT */}
-          <Col lg={6} className="text-lg-start text-center">
+        <Row
+          className={`align-items-center gy-4 ${
+            isFullWidth ? 'justify-content-center text-center' : ''
+          }`}
+        >
+          {/* TEXT CONTENT */}
+          <Col
+            lg={isFullWidth ? 10 : 6}
+            className={!isFullWidth ? 'text-lg-start text-center' : ''}
+          >
             <h1 className="display-6 fw-semibold mb-3">{title}</h1>
 
             <p
-              className="text-muted mb-4 mx-lg-0 mx-auto"
+              className={`text-muted mb-4 ${isFullWidth ? 'mx-auto' : 'mx-lg-0 mx-auto'}`}
               style={{
-                maxWidth: '520px',
+                maxWidth: isFullWidth ? '720px' : '520px',
                 // display: '-webkit-box',
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: 'vertical',
@@ -40,7 +49,13 @@ const HeroSection = ({ title, description, image, buttons = [], features = [] }:
 
             {/* BUTTONS */}
             {buttons.length > 0 && (
-              <div className="d-flex flex-column flex-lg-row gap-3 justify-content-lg-start justify-content-center mb-4">
+              <div
+                className={`d-flex flex-column flex-lg-row gap-3 mb-4 ${
+                  isFullWidth
+                    ? 'justify-content-center'
+                    : 'justify-content-lg-start justify-content-center'
+                }`}
+              >
                 {buttons.map((btn, index) => (
                   <PremiumButton
                     key={index}
@@ -48,13 +63,17 @@ const HeroSection = ({ title, description, image, buttons = [], features = [] }:
                     variant={btn.variant}
                     className="btn-lg"
                     href={btn.href}
-                    style={{
-                      letterSpacing: '1px',
-                      width: '100%',
-                      height: '60px',
-                      padding: '0 6px',
-                      fontSize: '0.9rem',
-                    }}
+                    style={
+                      image
+                        ? {
+                            letterSpacing: '1px',
+                            width: '100%',
+                            height: '60px',
+                            padding: '0 6px',
+                            fontSize: '0.9rem',
+                          }
+                        : undefined
+                    }
                   />
                 ))}
               </div>
@@ -62,7 +81,13 @@ const HeroSection = ({ title, description, image, buttons = [], features = [] }:
 
             {/* FEATURES */}
             {features.length > 0 && (
-              <ul className="list-unstyled d-flex flex-wrap gap-3 justify-content-lg-start justify-content-center">
+              <ul
+                className={`list-unstyled d-flex flex-wrap gap-3 ${
+                  isFullWidth
+                    ? 'justify-content-center'
+                    : 'justify-content-lg-start justify-content-center'
+                }`}
+              >
                 {features.map((item, i) => (
                   <li key={i} className="d-flex align-items-center small">
                     <IconifyIcon icon="bx:check-circle" className="me-2 text-success fs-5" />
@@ -72,20 +97,21 @@ const HeroSection = ({ title, description, image, buttons = [], features = [] }:
               </ul>
             )}
           </Col>
-
-          {/* RIGHT IMAGE */}
-          <Col lg={6}>
-            <div className="position-relative">
-              <img
-                src={image}
-                alt={title}
-                className="w-100 rounded-4"
-                style={{
-                  boxShadow: '0 20px 80px rgba(0,0,0,0.15)',
-                }}
-              />
-            </div>
-          </Col>
+          {image && (
+            <Col lg={6}>
+              <div className="position-relative">
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-100 rounded-4"
+                  style={{
+                    boxShadow: '0 20px 80px rgba(0,0,0,0.15)',
+                  }}
+                />
+              </div>
+            </Col>
+          )}
+         
         </Row>
       </Container>
     </section>

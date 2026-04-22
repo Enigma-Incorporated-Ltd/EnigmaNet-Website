@@ -8,15 +8,16 @@ const Enterprise = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Enterprise',
     url: `${BASE_URL}/solutions/enterprise`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma helps enterprises improve resilience, protect critical traffic and gain visibility across the network without replacing existing infrastructure.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Enterprise"
+        description="Enigma helps enterprises improve resilience, protect critical traffic and gain visibility across the network without replacing existing infrastructure."
         url={`${BASE_URL}/solutions/enterprise`}
         structuredData={structuredData}
       />

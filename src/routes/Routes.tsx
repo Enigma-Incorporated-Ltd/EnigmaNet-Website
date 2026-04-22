@@ -65,6 +65,14 @@ const SignUp = lazy(() => import('@/app/(account)/account-signup'));
 const TCOCalculator = lazy(() => import('@/app/product-tco-calculator/index'));
 const Product2 = lazy(() => import('@/app/product-2/index'));
 
+//home
+
+const SmartInfrastructure = lazy(() => import('@/app/Home/smarter-infrastructure'));
+const CompleteAi = lazy(() => import('@/app/Home/complete-ai-infrastructure'));
+const HostingSecureCloud = lazy(() => import('@/app/Home/hosting-secure-cloud'));
+const SecureCloud = lazy(() => import('@/app/Home/secure-cloud'));
+const SecureNetworking = lazy(() => import('@/app/Home/secure-networking'));
+
 //Products
 const Products = lazy(() => import('@/app/products'));
 // Enigma Platform
@@ -136,6 +144,8 @@ const Industries = lazy(() => import('@/app/solutions/industries'));
 const ServiceProviders = lazy(() => import('@/app/solutions/service-providers-&-partners'));
 const Enterprise = lazy(() => import('@/app/solutions/enterprise'));
 const DefenseDualtechnology = lazy(() => import('@/app/solutions/defense-dualtechnology'));
+const TechnologiesPartner = lazy(() => import('@/app/solutions/technology-partner'));
+const ChannelPartner = lazy(() => import('@/app/solutions/channel-partner'));
 //support
 const Support = lazy(() => import('@/app/support'));
 
@@ -161,6 +171,11 @@ export const AllRoutes = [
   // Home
   { path: '/', name: 'index1', element: <Home /> },
   { path: '*', name: 'not-found', element: <Error1 /> },
+  { path: '/smarter-infrastructure', element: <SmartInfrastructure /> },
+  { path: '/hosting-secure-cloud', element: <HostingSecureCloud /> },
+  { path: '/complete-ai-infrastructure', element: <CompleteAi /> },
+  { path: '/secure-cloud', element: <SecureCloud /> },
+  { path: '/secure-networking', element: <SecureNetworking /> },
 
   // Products Routes
   { path: '/products', name: 'Products', element: <Products /> },
@@ -229,6 +244,8 @@ export const AllRoutes = [
   { path: '/solutions/service-providers-&-partners', element: <ServiceProviders /> },
   { path: '/solutions/enterprise', element: <Enterprise /> },
   { path: '/solutions/defense-dualtechnology', element: <DefenseDualtechnology /> },
+  { path: '/solutions/technology-partner', element: <TechnologiesPartner /> },
+  { path: '/solutions/channel-partner', element: <ChannelPartner /> },
 
   //support
   { path: '/support', element: <Support /> },

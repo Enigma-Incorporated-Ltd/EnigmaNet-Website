@@ -8,15 +8,15 @@ const OperationalTechnology = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Operational Technology & Remote Assets',
     url: `${BASE_URL}/solutions/operational-technology-and-remote-assets`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: 'Enigma helps organisations keep remote sites, industrial systems and operational assets connected with resilient, policy-controlled networking across difficult environments.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Operational Technology & Remote Assets"
+        description="Enigma helps organisations keep remote sites, industrial systems and operational assets connected with resilient, policy-controlled networking across difficult environments."
         url={`${BASE_URL}/solutions/operational-technology-and-remote-assets`}
         structuredData={structuredData}
       />

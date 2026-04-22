@@ -110,6 +110,7 @@ const CTA = ({
                   fontWeight: 600,
                   letterSpacing: '-0.02em',
                   lineHeight: 1.25,
+                  maxWidth: '70rem',
                 }}
               >
                 {headline}
@@ -310,6 +311,7 @@ const CTA = ({
               lineHeight: 1.25,
               color: '#0A0F19',
               marginBottom: '0.75rem',
+              maxWidth: '70rem',
             }}
           >
             {headline}

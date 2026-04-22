@@ -8,16 +8,17 @@ const Defense = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
-    url: `${BASE_URL}/solutions/ai-&-data-infrastructure`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    name: 'Defense Dualtechnology',
+    url: `${BASE_URL}/solutions/defense-dualtechnology`,
+    description:
+      'Enigma provides a secure, high-performance network layer for defence-adjacent and dual-use environments where failure, delay or loss of control is not acceptable. ',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
-        url={`${BASE_URL}/solutions/ai-&-data-infrastructure`}
+        title="Defense Dualtechnology"
+        description="Enigma provides a secure, high-performance network layer for defence-adjacent and dual-use environments where failure, delay or loss of control is not acceptable. "
+        url={`${BASE_URL}/solutions/defense-dualtechnology`}
         structuredData={structuredData}
       />
 
@@ -29,4 +30,4 @@ const Defense = () => {
   );
 };
 
-export default  Defense;
+export default Defense;

@@ -15,7 +15,7 @@ const slides = [
     margin: '0',
     gradient:
       'linear-gradient(164deg, rgb(11, 14, 24) 18%, rgb(8 11 20) 27%, rgb(9 10 13 / 85%) 41%, rgba(11, 14, 24, -15.6) 62%, rgb(199 201 206 / -36%) 9% 67%)',
-    btn1: { label: 'Our Solutions', color: 'blue', href: '/' },
+    btn1: { label: 'Smarter Infrastructure', color: 'blue', href: '/smarter-infrastructure' },
     btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
   },
   {
@@ -26,7 +26,11 @@ const slides = [
     img: hero2,
     margin: '0',
     gradient: 'linear-gradient(104deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0))',
-    btn1: { label: 'Our Solutions', color: 'blue', href: '/' },
+    btn1: {
+      label: 'Hosting/Secure Cloud',
+      color: 'blue',
+      href: '/hosting-secure-cloud',
+    },
     btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
   },
   {
@@ -37,7 +41,11 @@ const slides = [
     margin: 'img-leftmargin',
     gradient: 'linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0))',
     img: hero3,
-    btn1: { label: 'Our Solutions', color: 'blue', href: '/' },
+    btn1: {
+      label: 'Complete AI Infrastructure  ',
+      color: 'blue',
+      href: '/complete-ai-infrastructure',
+    },
     btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
   },
 ];
@@ -116,7 +124,7 @@ export default function HeroSlider() {
         {/* Main content */}
         <div className="container px-4 px-md-5" style={{ position: 'relative', zIndex: 2 }}>
           <div className="row align-items-center">
-            <div className="col-12 col-md-7 col-lg-6">
+            <div className="col-12 col-md-7 col-lg-8">
               <div
                 className={`slide-content ${
                   animating

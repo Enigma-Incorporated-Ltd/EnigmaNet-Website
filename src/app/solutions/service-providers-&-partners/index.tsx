@@ -8,15 +8,16 @@ const ServicesProvidersAndPartners = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Service Providers & Partners',
     url: `${BASE_URL}/solutions/service-providers-and-partners`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma enables service providers and partners to deliver stronger performance, built-in resilience and better visibility across customer connectivity environments without adding unnecessary complexity.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Service Providers & Partners"
+        description="Enigma enables service providers and partners to deliver stronger performance, built-in resilience and better visibility across customer connectivity environments without adding unnecessary complexity."
         url={`${BASE_URL}/solutions/service-providers-and-partners`}
         structuredData={structuredData}
       />

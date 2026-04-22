@@ -10,8 +10,9 @@ type FeatureCardProps = {
   data?: featureType[];
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
+  transitionLine?: string | React.ReactNode;
 };
-const PainCard = ({ data, title, description }: FeatureCardProps) => {
+const PainCard = ({ data, title, description, transitionLine }: FeatureCardProps) => {
   return (
     <section className="py-5 my-2 my-md-4 my-lg-5">
       <Container>
@@ -40,6 +41,16 @@ const PainCard = ({ data, title, description }: FeatureCardProps) => {
               </Col>
             ))}
           </Row>
+        )}
+
+        {/* Transition Line */}
+        {transitionLine && (
+          <div
+            className="position-relative text-center mt-4 text-muted fst-italic fs-3  d-flex flex-wrap text-center justify-content-center mx-auto fw-semibold zindex-5"
+            style={{ maxWidth: '45rem' }}
+          >
+            {transitionLine}
+          </div>
         )}
       </Container>
     </section>

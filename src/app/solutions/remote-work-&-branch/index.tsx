@@ -8,15 +8,16 @@ const RemoteWork = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Remote Work & Branch',
     url: `${BASE_URL}/solutions/remote-work-&-branch`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma helps businesses improve performance across branches, remote teams and distributed operations with centralised visibility, built-in resilience and better control over critical traffic.  ',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Remote Work & Branch"
+        description="Enigma helps businesses improve performance across branches, remote teams and distributed operations with centralised visibility, built-in resilience and better control over critical traffic.  "
         url={`${BASE_URL}/solutions/remote-work-&-branch`}
         structuredData={structuredData}
       />
