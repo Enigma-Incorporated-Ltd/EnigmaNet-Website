@@ -1,6 +1,6 @@
 import IconifyIcon from '@/components/IconifyIcon';
 import { Container } from 'react-bootstrap';
-import "./index.css"
+import './index.css';
 type CaseStudyHighlightProps = {
   data?: string[];
   title?: string | React.ReactNode;
@@ -34,11 +34,14 @@ const CaseStudyHighlight = ({ data, title, description, quote }: CaseStudyHighli
           <ul className="list-unstyled row offset-xl-2 pb-2 g-3">
             {data.map((item, idx) => (
               <li key={idx} className="col-12 col-md-6">
-                <div className="premium-list-item bg-secondary d-flex align-items-start p-3 h-100">
+                <div className="premium-list-item bg-secondary d-flex align-items-center p-3 h-100">
                   <div className="icon-wrapper me-3">
                     <IconifyIcon icon="bx:check-circle" />
                   </div>
-                  <span className="text-muted-50">{item}</span>
+
+                  <div className="d-flex align-items-center h-100">
+                    <span className="text-muted-50">{item}</span>
+                  </div>
                 </div>
               </li>
             ))}
