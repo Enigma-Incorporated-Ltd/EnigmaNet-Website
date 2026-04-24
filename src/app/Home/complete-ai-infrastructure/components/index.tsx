@@ -1,17 +1,20 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/ai-infrastructure/pain cards - Compute, storage and data.svg';
+import features2 from '@/assets/svgs/ai-infrastructure/pain cards - AI performance suffers.svg';
+import features3 from '@/assets/svgs/ai-infrastructure/pain cards - team.svg';
+import block1 from '@/assets/svgs/ai-infrastructure/section 5 - block 1.svg';
+import block2 from '@/assets/svgs/ai-infrastructure/section 5 - block 2.svg';
+import block3 from '@/assets/svgs/ai-infrastructure/section 5 - block 3.svg';
+import block4 from '@/assets/svgs/ai-infrastructure/section 5 - block 4.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
 import PainCard from '@/components/ui/PainCard';
+import HeroImage from '@/components/ui/HeroImage';
+import heroImg from '@/assets/img/home/Landing Page_Complete_AI_Infrastructure_wireframe diagram.png';
 const features = [
   {
     id: 1,
@@ -33,25 +36,25 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: ' Controlled data movement',
     description: `Move training data, models, files and outputs more predictably across distributed infrastructure. `,
   },
   {
     id: 2,
-    icon: network,
+    icon: block2,
     title: ' Compute aligned to workload needs',
     description: `Support GPU and compute environments as part of a wider performance system, not as isolated capacity. `,
   },
   {
     id: 3,
-    icon: latency,
+    icon: block3,
     title: ' Storage that fits the operational flow',
     description: `Connect storage into the environment in a way that supports speed, accessibility and control.  `,
   },
   {
     id: 4,
-    icon: data,
+    icon: block4,
     title: ' System-wide performance thinking',
     description:
       'Treat AI infrastructure as an integrated environment where movement, resilience and visibility all matter. ',
@@ -95,10 +98,16 @@ const CompleteAi = () => {
       />
 
       <HeroSection
-        title="Complete AI Infrastructure Designed around your Needs"
+        title={
+          <>
+            Complete AI Infrastructure <br />
+            Designed around your Needs
+          </>
+        }
         description={
           <div className="fs-5">
-            Data movement, compute and storage working as one controlled, high-performance system.
+            Data movement, compute and storage working as one controlled, <br />
+            high-performance system.
           </div>
         }
         // image={heroImg}
@@ -127,7 +136,11 @@ const CompleteAi = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="AI infrastructure breaks down when the system is treated in pieces."
+              title={
+                <>
+                  AI infrastructure breaks down when the system <br /> is treated in pieces
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -182,7 +195,7 @@ const CompleteAi = () => {
           </>
         }
       />
-
+<HeroImage img={heroImg} alt="Hero Image" />
       <CardSlider
         title={
           <>
@@ -237,7 +250,13 @@ const CompleteAi = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Designed for AI environments where performance depends on the whole system"
+              title={
+                <>
+                  {' '}
+                  Designed for AI environments where performance <br /> depends on the whole
+                  system{' '}
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -272,7 +291,7 @@ const CompleteAi = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline="Build AI infrastructure as one controlled system,"
+        headline={<>Build AI infrastructure as one controlled system, <br/></>}
         headline2=" not a collection of separate parts."
         // description="Get a free network performance assessment "
         primaryButton={{

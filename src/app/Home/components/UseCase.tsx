@@ -147,7 +147,7 @@ const UseCase = () => {
                 >
                   {feature.title}
                 </h3>
-                <p className="mb-0 ">{feature.description}</p>
+                <p className="mb-0 fs-sm text-muted ">{feature.description}</p>
                 <div className="py-4 gap-1 d-flex flex-wrap">
                   {feature.Tags?.map(tag => (
                     <p

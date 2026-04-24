@@ -58,7 +58,7 @@ const MegaMenuDesktop = ({
       }}
     >
       <Container className="px-3">
-        <div className="d-flex" style={{ minHeight: '400px' }}>
+        <div className="d-flex" >
           {/* Left Rail */}
           <div
             className="border-end"
@@ -99,7 +99,7 @@ const MegaMenuDesktop = ({
           <div className="flex-grow-1 p-4 d-flex gap-4 flex-wrap align-content-start">
             {currentSections.map((section, idx) => (
               <div key={idx} style={{ minWidth: '200px' }}>
-                <h6 className="text-uppercase small text-primary fw-bold mb-2 pb-1 border-bottom">
+                <h6 className=" small text-primary fw-bold mb-2 pb-1 border-bottom">
                   {section.title}
                 </h6>
                 <ul className="list-unstyled mb-0">
@@ -138,29 +138,30 @@ const MegaMenuDesktop = ({
                 width: '300px',
                 flexShrink: 0,
                 borderColor: 'var(--bs-border-color)',
-                backgroundColor: 'var(--bs-gray-100)',
+                // backgroundColor: 'var(--bs-gray-100)',
               }}
             >
               <div className="p-3">
                 <div
-                  className="small fw-bold text-uppercase mb-2"
+                  className="small fw-bold  mb-2"
                   style={{ color: 'var(--bs-gray-600)' }}
                 >
                   {item.promo.label}
                 </div>
                 <div
                   className="card border-0 shadow-sm overflow-hidden"
-                  style={{ backgroundColor: 'var(--bs-body-bg)' }}
+                  // style={{ backgroundColor: 'var(--bs-body-bg)' }}
                 >
                   <div
-                    className="bg-primary"
+                    className=" bg-body"
                     style={{
                       height: '100px',
-                      background:
-                        'linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-info) 100%)',
+                      backgroundImage: `url(${item.promo.image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
                     }}
                   ></div>
-                  <div className="card-body p-3">
+                  <div className="card-body bg-body p-3">
                     <p className="small mb-2" style={{ color: 'var(--bs-gray-700)' }}>
                       {item.promo.description}
                     </p>
@@ -198,7 +199,7 @@ const Navbar = ({
   const pathname = location.pathname;
 
   const config = FALLBACK_CONFIG;
-  const { logo, nav_items, utility_nav } = config;
+  const { logo, nav_items } = config;
 
   useEffect(() => {
     if (!headerSticky) return;
@@ -246,7 +247,7 @@ const Navbar = ({
       >
         <div className="container ">
           <div className="d-flex justify-content-end gap-4  align-items-end py-2">
-            {utility_nav?.map(link => (
+            {/* {utility_nav?.map(link => (
               <Link
                 key={link.label}
                 to={link.href}
@@ -254,8 +255,8 @@ const Navbar = ({
               >
                 {link.label}
               </Link>
-            ))}
-            <ThemeToggle themeToggle={isNavDark ?? false} />
+            ))} */}
+            <ThemeToggle themeToggle={isNavDark ?? false} id="theme-mode-desktop" />
           </div>
         </div>
       </div>
@@ -335,14 +336,18 @@ const Navbar = ({
            }}
         /> */}
         {/* Mobile Toggle */}
-        <button
-          type="button"
-          className="navbar-toggler d-lg-none border-0"
-          aria-label="Toggle navigation"
-          onClick={() => setShowMenu(true)}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        <div className="d-lg-none d-flex align-items-center gap-2 ms-auto">
+          <ThemeToggle themeToggle={isNavDark ?? false} id="theme-mode-mobile" />
+
+          <button
+            type="button"
+            className="navbar-toggler border-0"
+            aria-label="Toggle navigation"
+            onClick={() => setShowMenu(true)}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
       </Container>
 
       {/* Mobile Offcanvas Menu */}
@@ -406,7 +411,7 @@ const Navbar = ({
                                 <div className="ps-3 pb-2">
                                   {sections.map((section, si) => (
                                     <div key={si} className="mb-2">
-                                      <div className="small text-uppercase fw-bold text-primary mt-2">
+                                      <div className="small  fw-bold text-primary mt-2">
                                         {section.title}
                                       </div>
                                       {section.links.map(link => (

@@ -9,7 +9,7 @@ type ButtonConfig = {
 type CTAProps = {
   theme?: 'light' | 'dark';
   subHeadline?: string;
-  headline?: string;
+  headline?: string | React.ReactNode;
   headline2?: string;
   description?: string;
   showButtons?: boolean;

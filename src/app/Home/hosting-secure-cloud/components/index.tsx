@@ -172,8 +172,8 @@ const HostingCloud = () => {
             <br />
             <br />
             <strong className="fst-italic">
-              Infrastructure should adapt to the workload, not force the workload to adapt to the
-              infrastructure.
+              Infrastructure should adapt to the workload, not force the <br /> workload to adapt to
+              the infrastructure.
             </strong>
           </>
         }
@@ -196,7 +196,7 @@ const HostingCloud = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Why scalable hosting needs to be commercially and operationally usable"
+              title={<>Why scalable hosting needs to be commercially <br /> and operationally usable</>}
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>

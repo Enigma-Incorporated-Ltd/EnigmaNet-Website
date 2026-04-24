@@ -1,12 +1,14 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/secure-networking/Pain card - Single links create avoidable points of failure.svg';
+import features2 from '@/assets/svgs/secure-networking/Pain card - Performance changes across shared and long-distance paths.svg';
+import features3 from '@/assets/svgs/secure-networking/Pain point - Security and access control become fragmented across environments.svg';
+import block1 from '@/assets/svgs/secure-networking/Core capabilities - block 1.svg';
+import block2 from '@/assets/svgs/secure-networking/Core capabilities - block 2.svg';
+import block3 from '@/assets/svgs/secure-networking/Core capabilities - block 3.svg';
+import block4 from '@/assets/svgs/secure-networking/Core capabilities - block 4.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -33,30 +35,29 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'Multi-link bonding',
     description: ` Combine fibre, broadband, 5G and satellite into a single logical path so traffic can use the best available route at any moment. `,
   },
   {
     id: 2,
-    icon: network,
+    icon: block2,
     title: 'Predictive failover',
     description: `Detect degradation early and move traffic before users experience service interruption. `,
   },
   {
     id: 3,
-    icon: latency,
+    icon: block3,
     title: ' Zero-trust encrypted overlay',
     description: ` Protect traffic in transit with encrypted tunnels and identity-aware access controls across the overlay. `,
   },
   {
     id: 3,
-    icon: latency,
+    icon: block4,
     title: 'Real-time traffic contro',
     description: ` Prioritise critical applications and maintain more stable service behaviour across mixed network conditions. `,
   },
 ];
-
 
 const fits = [
   'Fewer user-visible disruptions during link issues ',
@@ -82,7 +83,11 @@ const NetworkPage = () => {
       />
 
       <HeroSection
-        title="Secure networking over the internet you already have "
+        title={
+          <>
+            Secure networking over the <br /> internet you already have
+          </>
+        }
         description={
           <div className="fs-5">
             A private, resilient overlay across existing links that improves traffic control,
@@ -92,12 +97,12 @@ const NetworkPage = () => {
         // image={heroImg}
         buttons={[
           {
-            label: 'Talk to a Secure Networking specialist',
+            label: 'Talk to a specialist',
             href: '/',
             variant: 'blue',
           },
           {
-            label: 'Request a network assessment ',
+            label: 'Request a assessment ',
             href: '/',
             variant: 'gold',
           },
@@ -111,7 +116,12 @@ const NetworkPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Most organisations still rely on internet access that behaves like best effort. "
+              title={
+                <>
+                  Most organisations still rely on internet <br />
+                  access that behaves like best effort.{' '}
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -133,7 +143,9 @@ const NetworkPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="A private, resilient transport layer across the connectivity you already use."
+              title={
+                <>A private, resilient transport layer across <br /> the connectivity you already use. </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -188,16 +200,17 @@ const NetworkPage = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline=" Turn existing connectivity into a private,"
+        headline={<>
+        Turn existing connectivity into a private, <br/></>}
         headline2=" resilient network layer."
         // description="Get a free network performance assessment "
         primaryButton={{
-          label: 'Talk to a Secure Networking specialist ',
+          label: 'Talk to a specialist ',
           href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Request a network assessment ',
+          label: 'Request a assessment ',
           href: '/',
           variant: 'blue',
         }}

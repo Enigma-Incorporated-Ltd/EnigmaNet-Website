@@ -1,12 +1,13 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/secure-cloud/Pain point - GPU and compute access is difficult to plan and scale.svg';
+import features2 from '@/assets/svgs/secure-cloud/Pain points - Large datasets are hard to move efficiently across environments.svg';
+import features3 from '@/assets/svgs/secure-cloud/pain poit - Storage pricing and egress charges create cost uncertainty.svg';
+import block1 from '@/assets/svgs/secure-cloud/Solution capabilities - Unified controls across environments.svg';
+import block2 from '@/assets/svgs/secure-cloud/Solution capabilities - Visibility into sensitive flows.svg';
+import block3 from '@/assets/svgs/secure-cloud/Solution capabilities - Predictable pipeline performance.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -33,19 +34,19 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'Unified controls across environments',
     description: `Apply consistent security intent across dev, training, and production without reinventing policies per cloud. `,
   },
   {
     id: 2,
-    icon: network,
+    icon: block2,
     title: 'Visibility into sensitive flows ',
     description: `Understand how datasets and services connect, and where sensitive movement creates risk. `,
   },
   {
     id: 3,
-    icon: latency,
+    icon: block3,
     title: 'Predictable pipeline performance ',
     description: `Reduce the “it worked yesterday” problem by making critical flows and dependencies clearer and more stable.  `,
   },
@@ -76,7 +77,11 @@ const CloudPage = () => {
       />
 
       <HeroSection
-        title=" Secure cloud infrastructure for AI and data-heavy workloads "
+        title={
+          <>
+            Secure cloud infrastructure for AI <br /> and data-heavy workloads
+          </>
+        }
         description={
           <div className="fs-5">
             Dedicated compute, GPU, storage and transfer services designed for teams that need
@@ -110,7 +115,9 @@ const CloudPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Standard cloud models become expensive and awkward under data-heavy demand. "
+              title={
+                <>Standard cloud models become expensive and <br /> awkward under data-heavy demand.</>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>

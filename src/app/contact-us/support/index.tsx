@@ -10,7 +10,7 @@ const Support = () => {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Coming Soon',
-    url: `${BASE_URL}/solutions/service-providers-and-partners`,
+    url: `${BASE_URL}/contact-us/support`,
     description: 'We are working hard to launch something amazing. Stay tuned!',
   };
   return (
@@ -18,7 +18,7 @@ const Support = () => {
       <PageMeta
         title="Coming Soon"
         description="We are working hard to launch something amazing. Stay tuned!"
-        url={`${BASE_URL}/solutions/service-providers-and-partners`}
+        url={`${BASE_URL}/contact-us/support`}
         structuredData={structuredData}
       />
 

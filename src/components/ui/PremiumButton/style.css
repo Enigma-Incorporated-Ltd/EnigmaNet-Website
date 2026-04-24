@@ -74,10 +74,10 @@
     inset: 0;
     border-radius: 100px;
     background: linear-gradient(180deg, #1e1e22 0%, #111114 100%);
-    box-shadow:
+    /* box-shadow:
         inset 3px 3px 1px -3px rgba(255, 255, 255, 0.55),
         inset 0 0 0 1px rgba(160, 160, 160, 0.45),
-        inset 0 0 10px rgba(242, 242, 242, 0.1);
+        inset 0 0 10px rgba(242, 242, 242, 0.1); */
     opacity: 0;
     transition: opacity 0.35s ease;
 }
@@ -91,9 +91,9 @@
    ============================================= */
 .custom-btn:hover {
     transform: translateY(-5px) scale(1.03);
-    box-shadow:
+    /* box-shadow:
         0 12px 35px rgba(0, 0, 0, 0.5),
-        0 0 12px rgba(255, 255, 255, 0.15);
+        0 0 12px rgba(255, 255, 255, 0.15); */
 }
 
 .custom-btn:active {
@@ -129,11 +129,11 @@
    ============================================= */
 .blue-filled {
     background: linear-gradient(90deg, #2a4099 0%, #18c8e8 100%);
-    box-shadow:
+    /* box-shadow:
         inset 2px 2px 5px rgba(255, 255, 255, 0.38),
         inset -2px -2px 5px rgba(0, 0, 0, 0.38),
         inset 0 -2px 8px rgba(0, 0, 0, 0.25),
-        0 8px 28px rgba(0, 0, 0, 0.4);
+        0 8px 28px rgba(0, 0, 0, 0.4); */
 }
 
 .blue-filled span {
@@ -152,11 +152,11 @@
    ============================================= */
 .gold-filled {
     background: linear-gradient(90deg, #A96A00 0%, #F1BA5F 100%);
-    box-shadow:
+    /* box-shadow:
         inset 2px 2px 5px rgba(255, 255, 255, 0.38),
         inset -2px -2px 5px rgba(0, 0, 0, 0.38),
         inset 0 -2px 8px rgba(0, 0, 0, 0.25),
-        0 8px 28px rgba(0, 0, 0, 0.4);
+        0 8px 28px rgba(0, 0, 0, 0.4); */
 }
 
 .gold-filled span {

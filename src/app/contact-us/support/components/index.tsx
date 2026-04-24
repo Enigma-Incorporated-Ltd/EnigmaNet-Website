@@ -6,8 +6,8 @@ const SupportData = () => {
   return (
     <div className="container">
       <Breadcrumb
-        items={[
-          { label: 'Support', href: '/support' },
+        items={[{ label: 'Contact Us', href: '/contact-us' }
+         , { label: 'Support', href: '/support' },
         
         ]}
         style={{

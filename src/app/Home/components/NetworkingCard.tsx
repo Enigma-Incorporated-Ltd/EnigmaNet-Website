@@ -1,5 +1,4 @@
 import PremiumButton from '@/components/ui/PremiumButton';
-import { useTheme } from '@/utils/useTheme';
 
 type SubFeature = {
   title: string;
@@ -55,7 +54,7 @@ const pillars: PillarItem[] = [
     title: 'Secure Cloud',
     description:
       'On-demand compute, GPU, and storage infrastructure with predictable pricing, integrated into the same secure networking layer.',
-    dark: true,
+    dark: false,
     subFeatures: [
       {
         title: 'Compute & GPU Hosting',
@@ -80,7 +79,7 @@ const pillars: PillarItem[] = [
 ];
 
 const NetworkingPillars = () => {
-   const { theme } = useTheme();
+
   return (
     <section className="container pt-5 my-2 my-md-4 my-lg-5">
       <h5 className="h3 text-center text-warning mx-auto text-uppercase mt-n2 mt-sm-0 pt-md-2">
@@ -131,17 +130,14 @@ const NetworkingPillars = () => {
                   {pillar.bulletPoints.map((point, idx) => (
                     <div
                       key={idx}
-                      className={`rounded-3 bg-secondary p-3 py-4 border-${pillar.dark ? 'text-white-50' : 'text-muted'} border`}
+                      className={`rounded-3 bg-secondary  p-3 py-4 border-${pillar.dark ? 'text-white-50' : 'text-muted'} `}
                       style={{
+                        backgroundColor: 'rgba(255,255,255,0.07)',
                         border: '1px solid rgba(255,255,255,0.1)',
                       }}
                     >
-                      
-                      <h6 className={`${theme === 'dark' ? 'text-light-blue' : 'text-dark'} fw-semibold mb-2`}>{point.title}</h6>
-                      <p
-                        className={` mb-0 ${pillar.dark ? 'text-white-50' : 'text-muted'}`}
-                        style={{ fontSize: '0.875rem' }}
-                      >
+                      <h6 className={`text-light-blue fw-semibold mb-2`}>{point.title}</h6>
+                      <p className=" mb-0" style={{ fontSize: '0.875rem' }}>
                         {point.description}
                       </p>
                     </div>
@@ -155,7 +151,7 @@ const NetworkingPillars = () => {
                   {pillar.subFeatures.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="rounded-3 p-3"
+                      className="rounded-3 bg-secondary p-3"
                       style={{
                         backgroundColor: 'rgba(255,255,255,0.07)',
                         border: '1px solid rgba(255,255,255,0.1)',

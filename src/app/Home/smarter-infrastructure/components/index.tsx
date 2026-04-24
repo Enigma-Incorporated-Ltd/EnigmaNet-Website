@@ -118,7 +118,7 @@ const SmarterInfrastructurePage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Modern infrastructure is often powerful, but not predictable."
+              title={<>Modern infrastructure is often powerful,<br /> but not predictable.</>}
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -131,7 +131,11 @@ const SmarterInfrastructurePage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Enigma improves how data moves across the environments you already have."
+              title={
+                <>
+                  Enigma improves how data moves across <br /> the environments you already have.
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -145,7 +149,7 @@ const SmarterInfrastructurePage = () => {
             <br />
             <br />
             <strong className="fst-italic">
-              This means better outcomes without forcing a full replacement of the underlying
+              This means better outcomes without forcing a full replacement <br /> of the underlying
               environment.
             </strong>
           </>
@@ -156,7 +160,12 @@ const SmarterInfrastructurePage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" A performance and resilience layer across existing infrastructure."
+              title={
+                <>
+                  {' '}
+                  A performance and resilience layer <br /> across existing infrastructure.
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -208,7 +217,11 @@ const SmarterInfrastructurePage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Built for environments where performance and resilience matter"
+              title={
+                <>
+                  Built for environments where performance <br /> and resilience matter
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -238,7 +251,7 @@ const SmarterInfrastructurePage = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline="Improve performance, resilience and visibility without"
+        headline={<>Improve performance, resilience and visibility <br/> without</>}
         headline2=" rebuilding everything."
         // description="Get a free network performance assessment "
         primaryButton={{

@@ -147,7 +147,7 @@ const DefenseDualtechnology = lazy(() => import('@/app/solutions/defense-dualtec
 const TechnologiesPartner = lazy(() => import('@/app/solutions/technology-partner'));
 const ChannelPartner = lazy(() => import('@/app/solutions/channel-partner'));
 //support
-const Support = lazy(() => import('@/app/support'));
+const Support = lazy(() => import('@/app/contact-us/support'));
 
 //partner
 const Partners = lazy(() => import('@/app/partners'));
@@ -248,7 +248,6 @@ export const AllRoutes = [
   { path: '/solutions/channel-partner', element: <ChannelPartner /> },
 
   //support
-  { path: '/support', element: <Support /> },
 
   //partner
   { path: '/partners', element: <Partners /> },
@@ -267,7 +266,7 @@ export const AllRoutes = [
   //contact-us
   { path: '/contact-us', element: <ContactUs /> },
   { path: '/contact-us/request-a-quote', element: <RequestAQuote /> },
-
+  { path: '/contact-us/support', element: <Support /> },
   //utility
   { path: '/developer-portal', element: <DeveloperPortal /> },
   { path: '/customer-portal', element: <CustomerPortal /> },

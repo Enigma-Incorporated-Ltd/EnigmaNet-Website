@@ -1,14 +1,15 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/remote-work/remote.jpg';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/solutions/remote-work-&-branch/Pain point - Calls and apps fail when connectivity dips.svg';
+import features2 from '@/assets/svgs/solutions/remote-work-&-branch/Pain point - Branches are hard to manage consistently.svg';
+import features3 from '@/assets/svgs/solutions/remote-work-&-branch/Pain point - IT teams spend time reacting instead of improving.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
+import block1 from '@/assets/svgs/solutions/remote-work-&-branch/Core capabilities - block 1.svg';
+import block2 from '@/assets/svgs/solutions/remote-work-&-branch/Core capabilities - block 2.svg';
+import block3 from '@/assets/svgs/solutions/remote-work-&-branch/Core capabilities - block 3.svg';
+
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -33,19 +34,19 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'SD-WAN for multi-site and remote environments',
     description: `Manage multiple paths intelligently, prioritise key applications and improve consistency across branches and remote workers. `,
   },
   {
     id: 2,
-    icon: latency,
+    icon: block2,
     title: 'Intelligent failover',
     description: ` Keep services running by automatically shifting traffic to backup links when primary circuits degrade or fail.`,
   },
   {
     id: 3,
-    icon: data,
+    icon: block3,
     title: ' Visibility and security',
     description:
       ' Use encrypted, policy-controlled connectivity with real-time performance insight across the whole estate.',

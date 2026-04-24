@@ -1,3 +1,4 @@
+import Logo from '@/assets/img/EnigmaNet-logo.png';
 export type NavLink = {
   label: string;
   href: string;
@@ -16,6 +17,7 @@ export type MegaMenuItem = {
   footerLink?: { label: string; href: string };
   promo?: {
     label: string;
+    image?: string;
     description?: string;
     cta: string;
     ctaHref: string;
@@ -58,7 +60,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     panels: {
       platform: [
         {
-          title: 'THE ENIGMA PLATFORM',
+          title: 'The Enigma Platform',
           links: [
             { label: 'Enigma Nexus', href: '/products/enigma-platform/enigma-nexus' },
             { label: 'Enigma Command', href: '/products/enigma-platform/enigma-command' },
@@ -71,7 +73,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       networking: [
         {
-          title: 'PERFORMANCE NETWORKING',
+          title: 'Performance Networking',
           links: [
             { label: 'Enigma APN Core', href: '/products/performance-networking/enigma-apn-core' },
             {
@@ -96,7 +98,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       connectivity: [
         {
-          title: 'CONNECTIVITY PRODUCTS',
+          title: 'Connectivity Products',
           links: [
             {
               label: 'Enigma Connect ',
@@ -114,7 +116,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       data: [
         {
-          title: 'DATA & FILE SERVICES',
+          title: 'Data & File Services',
           links: [
             { label: 'SyncSphere ', href: '/products/data-&-file-services/syncsphere' },
             { label: 'Hot Storage', href: '/products/data-&-file-services/hot-storage' },
@@ -135,7 +137,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       ai: [
         {
-          title: 'AI & AUTOMATION',
+          title: 'Ai & Automation',
           links: [
             { label: 'Enigma Sentinel', href: '/products/ai-&-automation/enigma-sentinel' },
             // { label: 'Autonomous monitoring', href: '/ai/autonomous-monitoring' },
@@ -147,7 +149,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       integration: [
         {
-          title: 'INTEGRATION & OEM',
+          title: 'Integration & OEM',
           links: [
             {
               label: 'Powered by APN Core',
@@ -165,21 +167,22 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       all: [
         {
-          title: 'SELF-SERVE OPTIONS',
+          title: 'Self-service Options',
           links: [
             { label: 'Compare Plans', href: '/products/compare' },
-            { label: 'View Pricing', href: '/pricing' },
+            { label: 'View Pricing', href: '/products/pricing' },
             { label: 'Start Free', href: '/free-trial' },
             { label: 'Build Your Deployment', href: '/deployment' },
           ],
         },
       ],
     },
-    footerLink: { label: 'VIEW ALL PRODUCTS »', href: '/products' },
+    footerLink: { label: 'View All Products »', href: '/products' },
     promo: {
       label: 'GARTNER.',
       description:
         'Enigma Named a Leader in the 2025 Gartner Magic Quadrant™ for Hybrid Mesh Firewall',
+      image: Logo,
       cta: 'Get the Report »',
       ctaHref: '/products',
     },
@@ -200,7 +203,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     panels: {
       enterprise: [
         {
-          title: 'ENTERPRISE',
+          title: 'Enterprise',
           links: [
             {
               label: 'Enterprise ',
@@ -214,7 +217,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       'ai-data': [
         {
-          title: 'AI & DATA INFRASTRUCTURE',
+          title: 'AI & Data Infrastructure',
           links: [
             { label: 'AI & Data Infrastructure', href: '/solutions/ai-&-data-infrastructure' },
             // { label: 'Model movement and synchronisation', href: '/solutions/ai/model-sync' },
@@ -226,7 +229,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       remote: [
         {
-          title: 'REMOTE WORK & BRANCH',
+          title: 'Remote Work & Branch',
           links: [
             { label: 'Remote Work & Branch', href: '/solutions/remote-work-&-branch' },
             // { label: 'Remote device connectivity', href: '/solutions/remote/connectivity' },
@@ -237,7 +240,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       ot: [
         {
-          title: 'OPERATIONAL TECHNOLOGY & REMOTE ASSETS',
+          title: 'Operational Technology & Remote Assets',
           links: [
             {
               label: 'Operational Technology & Remote Assets',
@@ -251,7 +254,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       industries: [
         {
-          title: 'INDUSTRIES',
+          title: 'Industries',
           links: [
             { label: 'Industries', href: '/solutions/industries' },
             // { label: 'Healthcare', href: '/industries/healthcare' },
@@ -264,7 +267,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       providers: [
         {
-          title: 'SERVICE PROVIDERS & PARTNERS',
+          title: 'Service Providers & Partners',
           links: [
             {
               label: 'Service Providers & Partners',
@@ -278,25 +281,26 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       defense: [
         {
-          title: 'DEFENSE DUALTECHNOLOGY',
+          title: 'Defense Dualtechnology',
           links: [{ label: 'Defense Dualtechnology', href: '/solutions/defense-dualtechnology' }],
         },
       ],
       techpartner: [
         {
-          title: 'TECH PARTNER',
+          title: 'Technology Partner',
           links: [{ label: 'Technology Partner', href: '/solutions/technology-partner' }],
         },
       ],
       channel: [
         {
-          title: 'CHANNEL PARTNER',
+          title: 'Channel Partner',
           links: [{ label: 'Channel Partner', href: '/solutions/channel-partner' }],
         },
       ],
     },
     promo: {
-      label: 'WHY ENIGMA',
+      label: 'Why Enigma?',
+      image: Logo,
       description: 'For AI and large data movement',
       cta: 'Find the Right Solution »',
       ctaHref: '/solutions',
@@ -305,7 +309,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
   },
   Support: {
     leftRail: [
-      { label: 'Customer Support', id: 'customer' },
+      { label: 'Customer Portal', id: 'customer' },
       // { label: 'Professional Services', id: 'professional' },
       // { label: 'Documentation & Downloads', id: 'docs' },
       // { label: 'Developer / Integration Portal', id: 'developer' },
@@ -314,12 +318,14 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     panels: {
       customer: [
         {
-          title: 'CUSTOMER SUPPORT',
+          title: 'Utility',
           links: [
-            { label: 'Contact support', href: '/support' },
-            // { label: 'Raise a ticket', href: '/support/ticket' },
-            // { label: 'Customer portal', href: '/portal' },
-            // { label: 'SLA / severity guide', href: '/support/sla' },
+            // { label: 'Contact support', href: '/support' },
+            { label: 'Customer Portal', href: '/customer-portal' },
+            { label: 'Developer Portal', href: '/developer-portal' },
+            { label: 'Docs', href: '/docs' },
+            { label: 'Pricing', href: '/pricing' },
+            { label: 'Status', href: '/status' },
           ],
         },
       ],
@@ -378,9 +384,10 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     },
     promo: {
       label: 'DEPLOY IN 15 MINUTES',
+      image: Logo,
       description: 'Quick start guide for Enigma Connect',
       cta: 'Get Started »',
-      ctaHref: '/support',
+      ctaHref: '/get-in-touch',
     },
     label: '',
   },
@@ -393,7 +400,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     panels: {
       'for-partners': [
         {
-          title: 'PARTNER PORTAL',
+          title: 'Partners Portal',
           links: [
             { label: 'Partners', href: '/partners' },
             // { label: 'Deal registration', href: '/partners/deal-reg' },
@@ -434,6 +441,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     },
     promo: {
       label: 'FEATURED PARTNER',
+      image: Logo,
       description: 'See how TechPartner Inc. delivers Enigma solutions',
       cta: 'Read Case Study »',
       ctaHref: '/partners',
@@ -450,7 +458,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     panels: {
       company: [
         {
-          title: 'COMPANY',
+          title: 'Company',
           links: [
             { label: 'About Enigma', href: '/company/about-enigma' },
             { label: 'Leadership', href: '/company/leadership' },
@@ -461,7 +469,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       trust: [
         {
-          title: 'TRUST & SECURITY',
+          title: 'Trust & Security',
           links: [
             { label: 'Legal', href: '/company/legal' },
             // { label: 'Security posture', href: '/trust/security' },
@@ -503,6 +511,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     },
     promo: {
       label: 'FEATURED CONTENT',
+      image: Logo,
       description: "How Enigma powers the world's largest data movements",
       cta: 'Read Case Study »',
       ctaHref: '/company',
@@ -513,17 +522,22 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     leftRail: [
       { label: 'Contact Us', id: 'sales' },
       //   { label: 'Partner Enquiry', id: 'partner' },
-      // { label: 'Support', id: 'support' },
+      { label: 'Support', id: 'support' },
     ],
     panels: {
       sales: [
         {
-          title: 'CONTACT US',
+          title: 'Contact Us',
           links: [
             { label: 'Contact Us', href: '/contact-us' },
-            { label: 'Request a quote', href: '/contact-us/request-a-quote' },
-            // { label: 'Book a demo', href: '/contact/demo' },
+            { label: 'Request A Quote', href: '/contact-us/request-a-quote' },
           ],
+        },
+      ],
+      support: [
+        {
+          title: 'Support',
+          links: [{ label: 'Support', href: '/contact-us/support' }],
         },
       ],
       // partner: [
@@ -549,7 +563,8 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       // ],
     },
     promo: {
-      label: 'TALK TO ENIGMA',
+      label: 'Talk to Enigma',
+      image: Logo,
       description: 'Get in touch with our team',
       cta: 'Contact Us »',
       ctaHref: '/contact-us',
@@ -569,10 +584,16 @@ export const FALLBACK_CONFIG: HeaderConfig = {
     },
     { type: 'mega', label: 'Products', data: MEGA_MENU_DATA.Products },
     { type: 'mega', label: 'Solutions', data: MEGA_MENU_DATA.Solutions },
-    { type: 'mega', label: 'Support', data: MEGA_MENU_DATA.Support },
+
     { type: 'mega', label: 'Partners', data: MEGA_MENU_DATA.Partners },
     { type: 'mega', label: 'Company', data: MEGA_MENU_DATA.Company },
     { type: 'mega', label: 'Contact Us', data: MEGA_MENU_DATA.ContactUs },
+    {
+      href: '/login',
+      type: 'link',
+      label: 'Log in',
+    },
+    { type: 'mega', label: '☰', data: MEGA_MENU_DATA.Support },
   ],
   utility_nav: [
     { label: 'Customer Portal', href: '/customer-portal' },

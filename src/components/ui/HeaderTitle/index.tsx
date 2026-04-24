@@ -1,5 +1,5 @@
 type HeaderProps = {
-  title: string;
+  title: string | React.ReactNode;
   style?: React.CSSProperties;
   textAlign?: 'left' | 'center' | 'right';
   className?: string;
@@ -18,7 +18,7 @@ const HeaderTitle = ({ title, style, textAlign, className, variant = 'blue' }: H
       className={`${textAlign ? `text-${textAlign}` : ''} ${className || ''}`}
       style={{
         letterSpacing: '-0.03em',
-        lineHeight: 1.15,
+        // lineHeight: 1.15,
         marginBottom: '0.4rem',
         ...style,
       }}

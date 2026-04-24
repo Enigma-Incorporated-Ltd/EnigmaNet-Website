@@ -1,11 +1,5 @@
-import Brand from './components/Brand';
 import Feature from './components/Feature';
-import FeatureApp from './components/FeatureApp';
-import FeatureCrypto from './components/FeatureCrypto';
-import Work from './components/Work';
-import Cta from './components/Cta';
 import Footer from './components/Footer';
-import Testimonials from './components/Testimonials';
 import PageMeta from '@/components/PageMeta';
 import Navbar from '@/components/navbar/Navbar';
 import HeroSlider from '@/components/landing/HeroSlider';
@@ -144,12 +138,12 @@ const Index = () => {
       <Resources />
       <Faqs />
       <GetInTouch />
-      <FeatureApp />
-      <Brand />
-      <FeatureCrypto />
-      <Work />
-      <Testimonials />
-      <Cta />
+      {/* <FeatureApp /> */}
+      {/* <Brand /> */}
+      {/* <FeatureCrypto /> */}
+      {/* <Work /> */}
+      {/* <Testimonials /> */}
+      {/* <Cta /> */}
       <Footer />
     </>
   );

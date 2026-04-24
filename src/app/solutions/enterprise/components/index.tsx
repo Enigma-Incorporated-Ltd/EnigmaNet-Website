@@ -1,14 +1,14 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/enterprise/enterprise.jpg';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/solutions/enterprise/pain card - Peak demand exposes weak points.svg';
+import features2 from '@/assets/svgs/solutions/enterprise/pain card - Critical systems compete with non-critical traffic.svg';
+import features3 from '@/assets/svgs/solutions/enterprise/pain card - IT teams spend too much time firefighting.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
+import block1 from '@/assets/svgs/solutions/enterprise/Core capabilities - block 1.svg';
+import block2 from '@/assets/svgs/solutions/enterprise/Core capabilities - block 2.svg';
+import block3 from '@/assets/svgs/solutions/enterprise/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -33,19 +33,19 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'Traffic prioritisation',
     description: `Protect payment systems, operational platforms and other business-critical services from congestion and match-day or peak-time demand.`,
   },
   {
     id: 2,
-    icon: latency,
+    icon: block2,
     title: 'Resilience and failover',
     description: `Maintain service continuity by intelligently steering traffic and reducing the impact of degraded or failed connections.`,
   },
   {
     id: 3,
-    icon: data,
+    icon: block3,
     title: ' Real-time visibility',
     description:
       'Give IT and operations teams a live view of network performance so issues can be identified and managed faster.',

@@ -35,7 +35,7 @@ const PainCard = ({ data, title, description, transitionLine }: FeatureCardProps
                 className={`text-center ${index !== data.length - 1 ? 'border-end' : ''}`}
               >
                 <Card className="d-table border-0 rounded-circle shadow-secondroy bg-secondary shadow-sm p-3 mx-auto mb-4">
-                  <img src={feature.icon} width={42} height={42} alt={feature.title} />
+                  <img src={feature.icon} width={72} height={62} alt={feature.title} />
                 </Card>
                 <h3 className="h5 mb-2 mb-lg-0">{feature.title}</h3>
               </Col>

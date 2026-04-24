@@ -1,14 +1,14 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/ai-infra/ai-infra.jpg';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Pain point -GPU costs.svg';
+import features2 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Pain point - Storage costs creep up quietly.svg';
+import features3 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Pain point - Engineering time gets pulled away.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
+import block1 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Core capabilities - block 1.svg';
+import block2 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Core capabilities - block 2.svg';
+import block3 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -33,19 +33,19 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'Dedicated GPU hosting',
     description: `Run training and inference on high-performance dedicated GPU infrastructure with stronger cost visibility and more control over how workloads scale.`,
   },
   {
     id: 2,
-    icon: latency,
+    icon: block2,
     title: 'Scalable cloud storage',
     description: `Store growing datasets and outputs in API-ready infrastructure built for pipeline integration, without surprise ingress or egress charges.`,
   },
   {
     id: 3,
-    icon: data,
+    icon: block3,
     title: ' Secure Cloud APN',
     description:
       ' Improve movement between users, storage and compute with an encrypted network performance layer that handles packet loss, jitter and unstable conditions in the background.',

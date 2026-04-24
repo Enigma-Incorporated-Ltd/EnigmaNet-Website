@@ -31,7 +31,7 @@ const CaseStudyHighlight = ({ data, title, description, quote }: CaseStudyHighli
         data-disable-parallax-down="lg"
       >
         {data && (
-          <ul className="list-unstyled row offset-xl-2 pb-2 g-3">
+          <ul className="list-unstyled row   pb-2 g-3">
             {data.map((item, idx) => (
               <li key={idx} className="col-12 col-md-6">
                 <div className="premium-list-item bg-secondary d-flex align-items-center p-3 h-100">

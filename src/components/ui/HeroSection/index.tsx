@@ -9,7 +9,7 @@ type HeroButton = {
 };
 
 type HeroProps = {
-  title: string;
+  title: string | React.ReactNode;
   description: string | React.ReactNode;
   image?: string;
   buttons?: HeroButton[];
@@ -102,7 +102,7 @@ const HeroSection = ({ title, description, image, buttons = [], features = [] }:
               <div className="position-relative">
                 <img
                   src={image}
-                  alt={title}
+                  alt={title as string}
                   className="w-100 rounded-4"
                   style={{
                     boxShadow: '0 20px 80px rgba(0,0,0,0.15)',
