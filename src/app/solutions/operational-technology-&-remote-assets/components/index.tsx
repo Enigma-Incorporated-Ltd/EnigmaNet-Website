@@ -1,9 +1,9 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/operation/operation.jpg';
-import features1 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Pain point - Link instability threatens safety and uptime.svg';
-import features2 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Pain point - Critical OT traffic competes with lower-priority traffic.svg';
-import features3 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Pain point - Public internet conditions undermine consistency.svg';
+import features1 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/pain point - Link instability threatens safety and uptime.svg';
+import features2 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/pain point - Critical OT traffic competes with lower-priority traffic.svg';
+import features3 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/pain point - Public internet conditions undermine consistency.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import block1 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Core capabilities - block 1.svg';
