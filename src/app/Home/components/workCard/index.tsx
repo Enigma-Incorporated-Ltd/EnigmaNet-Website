@@ -52,7 +52,7 @@ const WorkCard = () => {
     <section className="container pt-5 my-5">
       <h5 className="h3 text-center text-uppercase text-warning">How Enigma Net works</h5>
 
-      <h2 className="h1 text-center mb-4">Deploys in minutes. Works on what you already have.</h2>
+      <h2 className="h1 text-center mb-4">Deploys in minutes. Works on what you already have</h2>
       <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
           <span>

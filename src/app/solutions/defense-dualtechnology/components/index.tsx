@@ -75,7 +75,7 @@ const DefenseTechnology = () => {
       />
 
       <HeroSection
-        title=" Resilient, controlled connectivity for mission-critical operations."
+        title=" Resilient, controlled connectivity for mission-critical operations"
         description="Enigma provides a secure, high-performance network layer for defence-adjacent and dual-use environments where failure, delay or loss of control is not acceptable. "
         image={heroImg}
         buttons={[
@@ -99,7 +99,7 @@ const DefenseTechnology = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Modern operations depend on connectivity that conventional networks were not built to deliver."
+              title="Modern operations depend on connectivity that conventional networks were not built to deliver"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -112,7 +112,7 @@ const DefenseTechnology = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="A commercial-scale technology layer ready for operational demands."
+              title="A commercial-scale technology layer ready for operational demands"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -134,7 +134,7 @@ const DefenseTechnology = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Applicable to a wide range of dual-use environments."
+              title=" Applicable to a wide range of dual-use environments"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -162,7 +162,8 @@ const DefenseTechnology = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline=" Built for commercial scale. Ready for operational demand."
+        headline=" Built for commercial scale. "
+        headline2="Ready for operational demand"
         // description="Get a free network performance assessment "
         primaryButton={{
           label: 'Talk about your programme ',

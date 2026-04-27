@@ -75,7 +75,7 @@ const EnterpriseData = () => {
       />
 
       <HeroSection
-        title="Make enterprise connectivity perform the way the business needs it to."
+        title="Make enterprise connectivity perform the way the business needs it to"
         description="Enigma helps enterprises improve resilience, protect critical traffic and gain visibility across the network without replacing existing infrastructure."
         image={heroImg}
         buttons={[
@@ -112,7 +112,7 @@ const EnterpriseData = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="A better performing network, built on what you already have."
+              title="A better performing network, built on what you already have"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -135,7 +135,7 @@ const EnterpriseData = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Proven in high-demand environments."
+              title=" Proven in high-demand environments"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -165,10 +165,11 @@ const EnterpriseData = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline=" More revenue. Lower risk. Better control."
+        headline=" More revenue. Lower risk. "
+        headline2="Better control"
         description="Get a free network performance assessment "
         primaryButton={{
-          label: 'Get A Assessment',
+          label: 'Get An Assessment',
           href: '/',
           variant: 'gold',
         }}

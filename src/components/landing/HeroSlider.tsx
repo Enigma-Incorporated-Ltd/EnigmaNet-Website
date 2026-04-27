@@ -36,7 +36,7 @@ const slides = [
     id: 3,
     title: 'Complete AI Infrastructure Designed around your Needs',
     subtitle:
-      'Data movement, compute and storage working as one controlled, high-performance system.',
+      'Data movement, compute and storage working as one controlled, high-performance system',
     img: hero3,
     margin: 'img-leftmargin',
     gradientDesktop: 'linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0))',
@@ -119,7 +119,7 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <section className="hero-section">
+    <section className="hero-section" >
       {/* Background */}
       <div className="hero-background">
         <img src={bgImage} alt="Hero background" className={`hero-bg-image ${slide.margin}`} />

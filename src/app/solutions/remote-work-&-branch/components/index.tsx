@@ -76,7 +76,7 @@ const WorkBranch = () => {
       />
 
       <HeroSection
-        title="Give every site and every user a more reliable connection to work from."
+        title="Give every site and every user a more reliable connection to work from"
         description="Enigma helps businesses improve performance across branches, remote teams and distributed operations with centralised visibility, built-in resilience and better control over critical traffic.  "
         image={heroImg}
         buttons={[
@@ -100,7 +100,7 @@ const WorkBranch = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Most business networks were not designed for how work happens now."
+              title=" Most business networks were not designed for how work happens now"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -115,7 +115,7 @@ const WorkBranch = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Designed for distributed operations."
+              title="Designed for distributed operations"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -140,7 +140,8 @@ const WorkBranch = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline="Distributed workforce. Centralised control. Less complexity. "
+        headline="Distributed workforce. Centralised control.  "
+        headline2="Less complexity"
         description="   "
         primaryButton={{
           label: 'Request an assessment ',

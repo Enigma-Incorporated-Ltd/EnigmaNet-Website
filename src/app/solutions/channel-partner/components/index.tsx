@@ -75,7 +75,7 @@ const ChannelPage = () => {
       />
 
       <HeroSection
-        title="Add a sharper edge to what you already sell."
+        title="Add a sharper edge to what you already sell"
         description=" Enigma helps channel partners strengthen customer environments with better performance, built-in resilience and clearer visibility creating a more distinctive offer without a heavy delivery burden. "
         image={heroImg}
         buttons={[
@@ -99,7 +99,7 @@ const ChannelPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Standing out is harder when everyone sells similar things."
+              title="Standing out is harder when everyone sells similar things"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -112,7 +112,7 @@ const ChannelPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="A more valuable offer on top of what customers already have."
+              title="A more valuable offer on top of what customers already have"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -132,7 +132,7 @@ const ChannelPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" A more distinctive offer on top of what customers already have."
+              title=" A more distinctive offer on top of what customers already have"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -154,7 +154,7 @@ const ChannelPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Built to support stronger partner propositions."
+              title="Built to support stronger partner propositions"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -184,7 +184,8 @@ const ChannelPage = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline="Add more value without adding more complexity."
+        headline="Add more value without adding "
+        headline2="more complexity"
         // description="Get a free network performance assessment "
         primaryButton={{
           label: ' Talk to Enigma ',

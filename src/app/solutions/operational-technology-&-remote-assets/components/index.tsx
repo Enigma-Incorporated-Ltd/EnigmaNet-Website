@@ -73,7 +73,7 @@ const RemoteAssets = () => {
       />
 
       <HeroSection
-        title="Reliable connectivity for remote assets and operational technology."
+        title="Reliable connectivity for remote assets and operational technology"
         description="Enigma helps organisations keep remote sites, industrial systems and operational assets connected with resilient, policy-controlled networking across difficult environments. "
         image={heroImg}
         buttons={[
@@ -97,7 +97,7 @@ const RemoteAssets = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Remote environments expose every weakness in the network."
+              title=" Remote environments expose every weakness in the network"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -110,7 +110,7 @@ const RemoteAssets = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" A more controlled network for remote operations."
+              title=" A more controlled network for remote operations"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -132,7 +132,7 @@ const RemoteAssets = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Relevant to high-consequence remote environments."
+              title=" Relevant to high-consequence remote environments"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -160,7 +160,8 @@ const RemoteAssets = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline=" Connectivity that works where failure has consequences."
+        headline=" Connectivity that works where "
+        headline2="failure has consequences"
         // description="Get a free network performance assessment "
         primaryButton={{
           label: 'Start a conversation ',

@@ -75,7 +75,7 @@ const DataInfrastructure = () => {
       />
 
       <HeroSection
-        title="AI infrastructure that stays fast, flexible and under your control."
+        title="AI infrastructure that stays fast, flexible and under your control"
         description="From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. "
         image={heroImg}
         buttons={[
@@ -134,7 +134,7 @@ const DataInfrastructure = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Built for data-heavy AI platforms."
+              title=" Built for data-heavy AI platforms"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -172,7 +172,8 @@ const DataInfrastructure = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline="Build faster. Scale smarter. Stay in control."
+        headline="Build faster. Scale smarter."
+        headline2=" Stay in control"
         // description="Get a free network performance assessment "
         primaryButton={{
           label: 'Talk about your AI stack ',

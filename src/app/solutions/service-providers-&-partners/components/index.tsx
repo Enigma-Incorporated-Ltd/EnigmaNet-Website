@@ -78,7 +78,7 @@ const ProvidersPartners = () => {
       />
 
       <HeroSection
-        title="Help your customers get more from the networks they already have."
+        title="Help your customers get more from the networks they already have"
         description="Enigma enables service providers and partners to deliver stronger performance, built-in resilience and better visibility across customer connectivity environments without adding unnecessary complexity."
         image={heroImg}
         buttons={[
@@ -102,7 +102,7 @@ const ProvidersPartners = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Customers expect more than basic connectivity."
+              title="Customers expect more than basic connectivity"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -115,7 +115,7 @@ const ProvidersPartners = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" A stronger service layer on top of existing connectivity."
+              title=" A stronger service layer on top of existing connectivity"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -137,7 +137,7 @@ const ProvidersPartners = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Built to support higher-value connectivity services."
+              title="Built to support higher-value connectivity services"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -166,7 +166,8 @@ const ProvidersPartners = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline=" Deliver more than connectivity alone."
+        headline=" Deliver more than "
+        headline2="connectivity alone"
         // description="Get a free network performance assessment "
         primaryButton={{
           label: 'Talk to Enigma ',

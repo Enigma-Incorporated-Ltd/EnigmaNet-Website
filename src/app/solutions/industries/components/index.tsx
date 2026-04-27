@@ -108,7 +108,7 @@ const IndustriesData = () => {
       />
 
       <HeroSection
-        title="Connectivity and infrastructure for demanding industry environments."
+        title="Connectivity and infrastructure for demanding industry environments"
         description="Enigma helps organisations improve resilience, protect critical systems and gain visibility across the infrastructure their operations depend on."
         image={heroImg}
         buttons={[
@@ -132,7 +132,7 @@ const IndustriesData = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Why connectivity matters differently in this environment."
+              title=" Why connectivity matters differently in this environment"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -145,7 +145,7 @@ const IndustriesData = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="A more controlled foundation for operational performance."
+              title="A more controlled foundation for operational performance"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -169,7 +169,7 @@ const IndustriesData = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Proven in relevant environments."
+              title="Proven in relevant environments"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -199,7 +199,8 @@ const IndustriesData = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline="A stronger infrastructure foundation for demanding environments."
+        headline="A stronger infrastructure foundation for "
+        headline2="demanding environments"
         // description="Get a free network performance assessment "
         primaryButton={{
           label: 'Talk to Enigma ',

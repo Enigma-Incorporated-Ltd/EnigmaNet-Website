@@ -75,7 +75,7 @@ const TechnologiesPage = () => {
       />
 
       <HeroSection
-        title="Make your technology perform better in the real world."
+        title="Make your technology perform better in the real world"
         description=" Enigma helps technology partners improve resilience, protect critical traffic and gain better visibility across the infrastructure their platforms depend on. "
         image={heroImg}
         buttons={[
@@ -99,7 +99,7 @@ const TechnologiesPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Great technology can still be limited by the environment it runs in."
+              title="Great technology can still be limited by the environment it runs in"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -112,7 +112,7 @@ const TechnologiesPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" A stronger performance layer around your platform."
+              title=" A stronger performance layer around your platform"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -136,7 +136,7 @@ const TechnologiesPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Built to strengthen technology delivery in live environments."
+              title="Built to strengthen technology delivery in live environments"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -166,7 +166,8 @@ const TechnologiesPage = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline="Strengthen the environment your technology depends on."
+        headline="Strengthen the environment your "
+        headline2="technology depends on"
         // description="Get a free network performance assessment "
         primaryButton={{
           label: 'Talk to Enigma ',
