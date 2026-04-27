@@ -1,13 +1,15 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/hosting-secure-cloud/pain card - Capacity is often harder to scale than expected.svg';
+import features2 from '@/assets/svgs/hosting-secure-cloud/pain point - Costs become difficult to predict as usage grows.svg';
+import features3 from '@/assets/svgs/hosting-secure-cloud/pain point - Compute, GPU and storage are too often treated separately.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
+import block1 from '@/assets/svgs/hosting-secure-cloud/Core capabilities - block 1.svg';
+import block2 from '@/assets/svgs/hosting-secure-cloud/Core capabilities - block 2.svg';
+import block3 from '@/assets/svgs/hosting-secure-cloud/Core capabilities - block 3.png';
+import block4 from '@/assets/svgs/hosting-secure-cloud/Core capabilities - block 4.svg';
+
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -32,25 +34,25 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'On-demand compute',
     description: `Access flexible compute capacity that can support application, platform and operational workloads without unnecessary overhead. `,
   },
   {
     id: 2,
-    icon: network,
+    icon: block2,
     title: 'GPU hosting',
     description: `Provide GPU-backed infrastructure for AI, model processing, inference and other performance-intensive workloads.`,
   },
   {
     id: 3,
-    icon: latency,
+    icon: block3,
     title: ' Scalable storage',
     description: `Support growing data volumes with storage designed for accessibility, operational fit and clearer cost behaviour. `,
   },
   {
     id: 4,
-    icon: data,
+    icon: block4,
     title: ' Commercial accessibility',
     description:
       'Make infrastructure easier to adopt with a more approachable model for teams that need performance and scale without hyperscaler-style friction.  ',

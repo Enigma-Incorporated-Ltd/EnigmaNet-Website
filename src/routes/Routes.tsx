@@ -63,7 +63,7 @@ const Security = lazy(() => import('@/app/(account)/account-security'));
 const SignIn = lazy(() => import('@/app/(account)/account-signin'));
 const SignUp = lazy(() => import('@/app/(account)/account-signup'));
 const TCOCalculator = lazy(() => import('@/app/product-tco-calculator/index'));
-const MigrationCalculator = lazy(() => import('@/app/migration-calculator/index'));
+const MigrationCalculator = lazy(() => import('@/app/trueCost/index'));
 const Product2 = lazy(() => import('@/app/product-2/index'));
 
 //home
@@ -177,7 +177,7 @@ export const AllRoutes = [
   { path: '/complete-ai-infrastructure', element: <CompleteAi /> },
   { path: '/secure-cloud', element: <SecureCloud /> },
   { path: '/secure-networking', element: <SecureNetworking /> },
-
+  { path: '/trueCost', name: 'MigrationCalculator', element: <MigrationCalculator /> },
   // Products Routes
   { path: '/products', name: 'Products', element: <Products /> },
 
@@ -277,7 +277,7 @@ export const AllRoutes = [
   // Pages Routes
   { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
   { path: '/product-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
-  { path: '/migration-calculator', name: 'MigrationCalculator', element: <MigrationCalculator /> },
+
   { path: '/product-2', name: 'CommingSoon', element: <Product2 /> },
   { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },
   { path: '/app-showcase-v3', name: 'case3', element: <ShowCase3 /> },

@@ -1,14 +1,14 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/Technology/tech.jpg';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/solutions/technology-partner/pain card - Customer environments introduce unpredictable performance.svg';
+import features2 from '@/assets/svgs/solutions/technology-partner/pain point - Connectivity issues reduce platform value.svg';
+import features3 from '@/assets/svgs/solutions/technology-partner/pain point - Limited visibility makes problems harder to diagnose.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
+import block1 from '@/assets/svgs/solutions/technology-partner/Core capabilities - block 1.svg';
+import block2 from '@/assets/svgs/solutions/technology-partner/Core capabilities - block 2.svg';
+import block3 from '@/assets/svgs/solutions/technology-partner/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -33,19 +33,19 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'Performance support',
     description: `Improve how applications, platforms and services behave across customer environments with better traffic handling and more consistent connectivity.`,
   },
   {
     id: 2,
-    icon: latency,
+    icon: block2,
     title: 'Resilience and continuity',
     description: `Reduce service disruption by improving failover behaviour and protecting critical traffic when underlying connections degrade.`,
   },
   {
     id: 3,
-    icon: data,
+    icon: block3,
     title: 'Visibility and insight',
     description:
       'Give teams clearer visibility into network conditions affecting platform performance, making issues easier to identify and explain.',

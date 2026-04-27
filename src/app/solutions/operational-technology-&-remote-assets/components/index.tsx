@@ -1,14 +1,14 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/operation/operation.jpg';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Pain point - Link instability threatens safety and uptime.svg';
+import features2 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Pain point - Critical OT traffic competes with lower-priority traffic.svg';
+import features3 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Pain point - Public internet conditions undermine consistency.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
+import block1 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Core capabilities - block 1.svg';
+import block2 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Core capabilities - block 2.svg';
+import block3 from '@/assets/svgs/solutions/operational-technology-&-remote-assets/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -33,19 +33,19 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'Resilient connectivity across link types ',
     description: ` Aggregate and manage fixed wireless, cellular, satellite or other available paths to reduce single points of failure.`,
   },
   {
     id: 2,
-    icon: latency,
+    icon: block2,
     title: 'OT traffic prioritisation',
     description: `Apply policy-based prioritisation so safety-critical and latency-sensitive operational traffic is protected. `,
   },
   {
     id: 3,
-    icon: data,
+    icon: block3,
     title: 'Secure Cloud APN ',
     description:
       ' Use an encrypted private network layer to improve throughput consistency and reduce the effects of public internet instability.',

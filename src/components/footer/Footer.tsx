@@ -1,4 +1,5 @@
 import Logo from '@/assets/img/EnigmaNet-logo.png';
+import LogoDark from '@/assets/img/EnigmaNet-dark.png';
 import IconifyIcon from '@/components/IconifyIcon';
 import certificate1 from '@/assets/img/certificates/c1.png';
 import certificate2 from '@/assets/img/certificates/c2.png';
@@ -11,6 +12,7 @@ import { Col, Collapse, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
 import './footer.css';
 import { fetchFooter, type FooterConfig } from '@/services/cmsApi';
+import { useTheme } from '@/utils/useTheme';
 const brands = [
   { src: certificate1, pending: false },
   { src: certificate2, pending: false },
@@ -100,12 +102,12 @@ const FALLBACK: FooterConfig = {
           title: 'Company',
         },
         {
-          url: '/company/legal',
-          title: 'Legal',
+          url: '/trueCost',
+          title: 'TrueCost',
         },
         {
-          url: '/support',
-          title: 'Support',
+          url: '/company/legal',
+          title: 'Legal',
         },
       ],
     },
@@ -154,6 +156,7 @@ const FALLBACK: FooterConfig = {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 const Footer = () => {
+  const { theme } = useTheme();
   const [data, setData] = useState<FooterConfig>(FALLBACK);
   const [openColumns, setOpenColumns] = useState<Record<number, boolean>>({});
   const [openSocials, setOpenSocials] = useState(false);
@@ -201,7 +204,7 @@ const Footer = () => {
         return 'bx:link'; // fallback icon
     }
   };
-  const logoSrc = brand.logoUrl || Logo;
+
   // const logoWidth = brand.logoWidth || 47;
 
   const brandTextStyle: React.CSSProperties = {
@@ -231,7 +234,7 @@ const Footer = () => {
               className="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4 d-flex align-items-center gap-2"
               style={brandTextStyle}
             >
-              <img src={logoSrc} alt={brand.name} />
+              <img src={theme === 'dark' ? LogoDark : Logo} alt={brand.name} />
               {/* {brand.name} */}
             </Link>
 

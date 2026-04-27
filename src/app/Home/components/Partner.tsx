@@ -71,7 +71,7 @@ const Partner = () => {
         </Col>
       </Row>
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <PremiumButton label="Our  Partners" variant="gold" className="btn-lg" href="/" />
+        <PremiumButton label="Our  Partners" variant="gold" className="btn-lg" href="/partners" />
       </div>
     </Container>
   );

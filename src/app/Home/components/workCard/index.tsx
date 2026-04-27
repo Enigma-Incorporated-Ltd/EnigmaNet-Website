@@ -133,7 +133,7 @@ const WorkCard = () => {
       </div>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <PremiumButton label="Explore More" variant="gold" className="btn-lg" href="/" />
+        <PremiumButton label="Explore More" variant="gold" className="btn-lg" href="/solutions" />
       </div>
     </section>
   );

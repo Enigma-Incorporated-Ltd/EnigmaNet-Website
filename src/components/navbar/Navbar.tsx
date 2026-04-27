@@ -1,5 +1,5 @@
 import Logo from '@/assets/img/EnigmaNet-logo.png';
-
+import LogoDark from '@/assets/img/EnigmaNet-dark.png';
 import { Link, useLocation } from 'react-router';
 import { useEffect, useState, useRef } from 'react';
 import { Offcanvas, OffcanvasBody, OffcanvasHeader, Nav, Container, Button } from 'react-bootstrap';
@@ -189,6 +189,7 @@ const Navbar = ({
   headerSticky,
   isNavDark,
 }: NavClass) => {
+  const { theme } = useTheme();
   const [isSticky, setIsSticky] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
@@ -264,7 +265,7 @@ const Navbar = ({
         {/* Logo */}
         <Link to={logo.href} className="navbar-brand pe-3">
           <img
-            src={Logo}
+            src={theme === 'dark' ? LogoDark : Logo}
             width={250}
             height={150}
             alt={logo.text}

@@ -588,6 +588,12 @@ export const FALLBACK_CONFIG: HeaderConfig = {
     { type: 'mega', label: 'Partners', data: MEGA_MENU_DATA.Partners },
     { type: 'mega', label: 'Company', data: MEGA_MENU_DATA.Company },
     { type: 'mega', label: 'Contact Us', data: MEGA_MENU_DATA.ContactUs },
+
+    {
+      href: '/trueCost',
+      type: 'link',
+      label: 'TrueCost',
+    },
     {
       href: '/login',
       type: 'link',

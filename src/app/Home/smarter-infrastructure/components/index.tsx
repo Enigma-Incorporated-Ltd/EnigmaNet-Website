@@ -1,17 +1,20 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs//smarter-infrastructure/pain card - Performance varies across distributed environments.svg';
+import features2 from '@/assets/svgs/smarter-infrastructure/pain card - Critical traffic is exposed to disruption and contention.svg';
+import features3 from '@/assets/svgs/smarter-infrastructure/pain card - Visibility is often too limited to see what is really happening.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
+import heroImg from '@/assets/svgs/smarter-infrastructure/Smarter Infrastructure diagram.png';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
+import block1 from '@/assets/svgs/smarter-infrastructure/Core capabilities - block 1.svg';
+import block2 from '@/assets/svgs/smarter-infrastructure/Core capabilities - block 2.svg';
+import block3 from '@/assets/svgs/smarter-infrastructure/Core capabilities - block 3.svg';
+import block4 from '@/assets/svgs/smarter-infrastructure/Core capabilities - block 4.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
 import PainCard from '@/components/ui/PainCard';
+import HeroImage from '@/components/ui/HeroImage';
 const features = [
   {
     id: 1,
@@ -32,25 +35,25 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'More predictable performance',
     description: `Help critical traffic move more consistently across mixed and distributed environments.`,
   },
   {
     id: 2,
-    icon: network,
+    icon: block2,
     title: 'Stronger resilience',
     description: `Reduce the impact of unstable links, interruptions and changing network conditions. `,
   },
   {
     id: 3,
-    icon: latency,
+    icon: block3,
     title: 'Clearer visibility',
     description: `Give teams better insight into network behaviour, bottlenecks and service conditions. `,
   },
   {
     id: 4,
-    icon: data,
+    icon: block4,
     title: ' Overlay without replacement',
     description:
       'Improve outcomes across current infrastructure without a major rip-and-replace project. ',
@@ -155,6 +158,7 @@ const SmarterInfrastructurePage = () => {
           </>
         }
       />
+      <HeroImage img={heroImg} />
       <CardSlider
         title={
           <>

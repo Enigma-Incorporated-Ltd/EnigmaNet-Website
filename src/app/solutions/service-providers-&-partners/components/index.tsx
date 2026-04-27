@@ -1,14 +1,14 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/ProvidersPartners/ProvidersPartners.jpg';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/solutions/service-providers-&-partners/pain point - Basic connectivity is harder to differentiate.svg';
+import features2 from '@/assets/svgs/solutions/service-providers-&-partners/pain point -  Performance issues damage customer confidence.svg';
+import features3 from '@/assets/svgs/solutions/service-providers-&-partners/pain point - Basic connectivity is harder to differentiate.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
+import block1 from '@/assets/svgs/solutions/service-providers-&-partners/Core capabilities - block 1.svg';
+import block2 from '@/assets/svgs/solutions/service-providers-&-partners/Core capabilities - block 2.svg';
+import block3 from '@/assets/svgs/solutions/service-providers-&-partners/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -33,19 +33,19 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: ' Service enhancement ',
     description: ` Add resilience, prioritisation and better real-world performance on top of existing access services.`,
   },
   {
     id: 2,
-    icon: latency,
+    icon: block2,
     title: 'Customer visibility',
     description: `Give customers and internal teams clearer insight into how the network is performing across sites and services.`,
   },
   {
     id: 3,
-    icon: data,
+    icon: block3,
     title: 'Operational resilience',
     description:
       'Reduce disruption by improving failover behaviour and protecting critical traffic when conditions change.',

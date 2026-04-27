@@ -107,7 +107,7 @@ const MigrationCalculator = () => {
       <PageMeta
         title="Migration Calculator"
         description="Calculate the optimal time to migrate your data and use your remaining cloud credits."
-        url={`${BASE_URL}/migration-calculator`}
+        url={`${BASE_URL}/trueCost`}
         image={`${BASE_URL}/logo.png`}
         keywords="Migration Calculator, Cloud Migration, Free Data Migration, Cloud Credits"
       />
@@ -119,7 +119,7 @@ const MigrationCalculator = () => {
       <section className="bg-dark py-4" data-bs-theme="dark">
         <Container className="pb-2 ">
           <Breadcrumb
-            items={[{ label: ' Migration Calculator' }]}
+            items={[{ label: ' TrueCost' }]}
             style={{
               paddingBottom: '10px',
             }}
@@ -130,9 +130,12 @@ const MigrationCalculator = () => {
               padding: '21px 0px ',
             }}
           />
-          <h5 className="text-center text-light opacity-70 " style={{
-            fontSize:"28px"
-          }}>
+          <h5
+            className="text-center text-light opacity-70 "
+            style={{
+              fontSize: '28px',
+            }}
+          >
             {' '}
             Calculate the optimal time to switch and use your remaining cloud credits.
           </h5>
@@ -145,7 +148,11 @@ const MigrationCalculator = () => {
             <Card className="shadow-lg border-0">
               <CardBody className="p-4">
                 <div className="d-flex align-items-center mb-4">
-                  <IconifyIcon icon="bx:cloud" className="me-2 text-primary" style={{ fontSize: '1.5rem' }} />
+                  <IconifyIcon
+                    icon="bx:cloud"
+                    className="me-2 text-primary"
+                    style={{ fontSize: '1.5rem' }}
+                  />
                   <h4 className="mb-0">
                     <IconifyIcon icon="bx:calculator" className="me-2 text-primary" />
                     Configure Your Migration
@@ -175,7 +182,7 @@ const MigrationCalculator = () => {
                   <Form.Control
                     type="number"
                     value={remainingCredits || ''}
-                    onChange={(e) => setRemainingCredits(Number(e.target.value))}
+                    onChange={e => setRemainingCredits(Number(e.target.value))}
                     placeholder="e.g., 25000"
                     min="0"
                     className="form-control-lg"
@@ -188,7 +195,7 @@ const MigrationCalculator = () => {
                   <Form.Control
                     type="number"
                     value={currentStorage || ''}
-                    onChange={(e) => setCurrentStorage(Number(e.target.value))}
+                    onChange={e => setCurrentStorage(Number(e.target.value))}
                     placeholder="e.g., 500"
                     min="0"
                     className="form-control-lg"
@@ -200,7 +207,7 @@ const MigrationCalculator = () => {
                   <Form.Control
                     type="number"
                     value={growthRate || ''}
-                    onChange={(e) => setGrowthRate(Number(e.target.value))}
+                    onChange={e => setGrowthRate(Number(e.target.value))}
                     placeholder="e.g., 10"
                     min="0"
                     step="0.5"
@@ -213,32 +220,46 @@ const MigrationCalculator = () => {
             <Card className="shadow-lg border-0 mt-4">
               <CardBody className="p-4">
                 <div className="d-flex align-items-center mb-4">
-                  <IconifyIcon icon="bx:detail" className="me-2 text-primary" style={{ fontSize: '1.5rem' }} />
+                  <IconifyIcon
+                    icon="bx:detail"
+                    className="me-2 text-primary"
+                    style={{ fontSize: '1.5rem' }}
+                  />
                   <h4 className="mb-0">Calculated Migration Costs</h4>
                 </div>
 
                 <Form.Group className="mb-4">
                   <Form.Label className="fw-semibold">Monthly Storage Cost (calculated)</Form.Label>
                   <div className="input-group">
-                    <span className="input-group-text">{formatCurrency(Math.round(storageCost))}</span>
+                    <span className="input-group-text">
+                      {formatCurrency(Math.round(storageCost))}
+                    </span>
                     <Form.Control
                       type="number"
                       value={additionalComputeCost || ''}
-                      onChange={(e) => setAdditionalComputeCost(Number(e.target.value))}
+                      onChange={e => setAdditionalComputeCost(Number(e.target.value))}
                       placeholder="Additional compute costs/mo"
                       min="0"
                       className="form-control-lg"
                     />
                   </div>
-                  <small className="text-muted">Storage: ${provider.storagePerGB}/GB/mo x Current Storage</small>
+                  <small className="text-muted">
+                    Storage: ${provider.storagePerGB}/GB/mo x Current Storage
+                  </small>
                 </Form.Group>
 
                 <Form.Group className="mb-4">
-                  <Form.Label className="fw-semibold">Egress Cost for Full Migration (calculated)</Form.Label>
+                  <Form.Label className="fw-semibold">
+                    Egress Cost for Full Migration (calculated)
+                  </Form.Label>
                   <div className="input-group">
-                    <span className="input-group-text">{formatCurrency(Math.round(egressCost))}</span>
+                    <span className="input-group-text">
+                      {formatCurrency(Math.round(egressCost))}
+                    </span>
                   </div>
-                  <small className="text-muted">Egress: ${provider.egressPerGB}/GB x Current Storage</small>
+                  <small className="text-muted">
+                    Egress: ${provider.egressPerGB}/GB x Current Storage
+                  </small>
                 </Form.Group>
 
                 <div className="d-grid gap-2">
@@ -265,23 +286,37 @@ const MigrationCalculator = () => {
                   <Col md={4}>
                     <Card className="shadow-lg border-0 h-100">
                       <CardBody className="text-center p-4">
-                        <div className="result-label text-muted text-uppercase mb-2" style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em' }}>
+                        <div
+                          className="result-label text-muted text-uppercase mb-2"
+                          style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em' }}
+                        >
                           Credits Expire In
                         </div>
-                        <div className={`result-value ${daysUntilExpire < 30 ? 'text-danger' : daysUntilExpire < 90 ? 'text-warning' : 'text-success'}`} style={{ fontSize: '32px', fontWeight: 700 }}>
+                        <div
+                          className={`result-value ${daysUntilExpire < 30 ? 'text-danger' : daysUntilExpire < 90 ? 'text-warning' : 'text-success'}`}
+                          style={{ fontSize: '32px', fontWeight: 700 }}
+                        >
                           {daysUntilExpire} days
                         </div>
-                        <small className="text-muted">Expires on {formatDate(creditExpiryDate)}</small>
+                        <small className="text-muted">
+                          Expires on {formatDate(creditExpiryDate)}
+                        </small>
                       </CardBody>
                     </Card>
                   </Col>
                   <Col md={4}>
                     <Card className="shadow-lg border-0 h-100">
                       <CardBody className="text-center p-4">
-                        <div className="result-label text-muted text-uppercase mb-2" style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em' }}>
+                        <div
+                          className="result-label text-muted text-uppercase mb-2"
+                          style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em' }}
+                        >
                           Estimated Migration Cost
                         </div>
-                        <div className="result-value text-dark" style={{ fontSize: '32px', fontWeight: 700 }}>
+                        <div
+                          className="result-value text-dark"
+                          style={{ fontSize: '32px', fontWeight: 700 }}
+                        >
                           {formatCurrency(Math.round(migrationCostNow))}
                         </div>
                         <small className="text-muted">Based on current data size</small>
@@ -291,11 +326,21 @@ const MigrationCalculator = () => {
                   <Col md={4}>
                     <Card className="shadow-lg border-0 h-100">
                       <CardBody className="text-center p-4">
-                        <div className="result-label text-muted text-uppercase mb-2" style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em' }}>
+                        <div
+                          className="result-label text-muted text-uppercase mb-2"
+                          style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em' }}
+                        >
                           Optimal Migration Date
                         </div>
-                        <div className={`result-value ${optimalMigrationMonths === 0 ? 'text-danger' : optimalMigrationMonths >= monthsUntilExpire - 1 ? 'text-success' : 'text-warning'}`} style={{ fontSize: '32px', fontWeight: 700 }}>
-                          {optimalMigrationMonths === 0 ? 'Now' : optimalMigrationMonths >= monthsUntilExpire - 1 ? 'Before expiry' : formatDate(optimalMigrationDate)}
+                        <div
+                          className={`result-value ${optimalMigrationMonths === 0 ? 'text-danger' : optimalMigrationMonths >= monthsUntilExpire - 1 ? 'text-success' : 'text-warning'}`}
+                          style={{ fontSize: '32px', fontWeight: 700 }}
+                        >
+                          {optimalMigrationMonths === 0
+                            ? 'Now'
+                            : optimalMigrationMonths >= monthsUntilExpire - 1
+                              ? 'Before expiry'
+                              : formatDate(optimalMigrationDate)}
                         </div>
                         <small className="text-muted">Migrate before credits expire</small>
                       </CardBody>
@@ -310,37 +355,98 @@ const MigrationCalculator = () => {
                         <h5 className="mb-4">Your Migration Timeline</h5>
                         <div className="border-bottom pb-3">
                           <div className="d-flex gap-3">
-                            <div className="timeline-marker" style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#001A94', marginTop: '4px', flexShrink: 0 }}></div>
+                            <div
+                              className="timeline-marker"
+                              style={{
+                                width: '12px',
+                                height: '12px',
+                                borderRadius: '50%',
+                                background: '#001A94',
+                                marginTop: '4px',
+                                flexShrink: 0,
+                              }}
+                            ></div>
                             <div>
                               <div className="fw-bold">Today</div>
-                              <small className="text-muted">Start planning your migration. Your data is currently {currentStorage.toLocaleString()} GB.</small>
+                              <small className="text-muted">
+                                Start planning your migration. Your data is currently{' '}
+                                {currentStorage.toLocaleString()} GB.
+                              </small>
                             </div>
                           </div>
                         </div>
                         <div className="border-bottom py-3">
                           <div className="d-flex gap-3">
-                            <div className="timeline-marker" style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#e8ecf1', marginTop: '4px', flexShrink: 0 }}></div>
+                            <div
+                              className="timeline-marker"
+                              style={{
+                                width: '12px',
+                                height: '12px',
+                                borderRadius: '50%',
+                                background: '#e8ecf1',
+                                marginTop: '4px',
+                                flexShrink: 0,
+                              }}
+                            ></div>
                             <div>
-                              <div className="fw-bold">1 Month ({formatDate(new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000))})</div>
-                              <small className="text-muted">Your data will grow to {Math.round(currentStorage * growthMultiplier).toLocaleString()} GB. Migration cost increases proportionally.</small>
+                              <div className="fw-bold">
+                                1 Month (
+                                {formatDate(new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000))})
+                              </div>
+                              <small className="text-muted">
+                                Your data will grow to{' '}
+                                {Math.round(currentStorage * growthMultiplier).toLocaleString()} GB.
+                                Migration cost increases proportionally.
+                              </small>
                             </div>
                           </div>
                         </div>
                         <div className="border-bottom py-3">
                           <div className="d-flex gap-3">
-                            <div className="timeline-marker" style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#e8ecf1', marginTop: '4px', flexShrink: 0 }}></div>
+                            <div
+                              className="timeline-marker"
+                              style={{
+                                width: '12px',
+                                height: '12px',
+                                borderRadius: '50%',
+                                background: '#e8ecf1',
+                                marginTop: '4px',
+                                flexShrink: 0,
+                              }}
+                            ></div>
                             <div>
-                              <div className="fw-bold">2 Months ({formatDate(new Date(today.getTime() + 60 * 24 * 60 * 60 * 1000))})</div>
-                              <small className="text-muted">Data size: {Math.round(currentStorage * Math.pow(growthMultiplier, 2)).toLocaleString()} GB. Migration cost increases.</small>
+                              <div className="fw-bold">
+                                2 Months (
+                                {formatDate(new Date(today.getTime() + 60 * 24 * 60 * 60 * 1000))})
+                              </div>
+                              <small className="text-muted">
+                                Data size:{' '}
+                                {Math.round(
+                                  currentStorage * Math.pow(growthMultiplier, 2)
+                                ).toLocaleString()}{' '}
+                                GB. Migration cost increases.
+                              </small>
                             </div>
                           </div>
                         </div>
                         <div className="pt-3">
                           <div className="d-flex gap-3">
-                            <div className="timeline-marker" style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#e8ecf1', marginTop: '4px', flexShrink: 0 }}></div>
+                            <div
+                              className="timeline-marker"
+                              style={{
+                                width: '12px',
+                                height: '12px',
+                                borderRadius: '50%',
+                                background: '#e8ecf1',
+                                marginTop: '4px',
+                                flexShrink: 0,
+                              }}
+                            ></div>
                             <div>
                               <div className="fw-bold">Credit Expiry</div>
-                              <small className="text-muted">Your credits expire. Full migration cost applies after this date.</small>
+                              <small className="text-muted">
+                                Your credits expire. Full migration cost applies after this date.
+                              </small>
                             </div>
                           </div>
                         </div>
@@ -348,20 +454,41 @@ const MigrationCalculator = () => {
                     </Card>
                   </Col>
                   <Col lg={4}>
-                    <Card style={{ background: 'linear-gradient(135deg, #001A94 0%, #0033cc 100%)', border: 'none' }} className="shadow-lg border-0 h-100">
+                    <Card
+                      style={{
+                        background: 'linear-gradient(135deg, #001A94 0%, #0033cc 100%)',
+                        border: 'none',
+                      }}
+                      className="shadow-lg border-0 h-100"
+                    >
                       <CardBody className="p-4 text-white">
-                        <div className="result-label text-uppercase mb-2" style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.8)' }}>
+                        <div
+                          className="result-label text-uppercase mb-2"
+                          style={{
+                            fontSize: '13px',
+                            fontWeight: 500,
+                            letterSpacing: '0.05em',
+                            color: 'rgba(255,255,255,0.8)',
+                          }}
+                        >
                           Recommended Action
                         </div>
-                        <div className="result-value mb-2" style={{ fontSize: '28px', fontWeight: 700 }}>
-                          {optimalMigrationMonths === 0 ? 'Migrate Immediately' : optimalMigrationMonths >= 1 ? `Migrate in ${optimalMigrationMonths} Month${optimalMigrationMonths > 1 ? 's' : ''}` : 'Migrate Now'}
+                        <div
+                          className="result-value mb-2"
+                          style={{ fontSize: '28px', fontWeight: 700 }}
+                        >
+                          {optimalMigrationMonths === 0
+                            ? 'Migrate Immediately'
+                            : optimalMigrationMonths >= 1
+                              ? `Migrate in ${optimalMigrationMonths} Month${optimalMigrationMonths > 1 ? 's' : ''}`
+                              : 'Migrate Now'}
                         </div>
                         <small style={{ color: 'rgba(255,255,255,0.7)' }}>
                           {optimalMigrationMonths === 0
                             ? "Your migration costs are already covered by your credits. Don't wait - migration costs will grow as your data expands."
                             : optimalMigrationMonths >= 1
-                            ? `You can save up to ${savingsPercentage}% by migrating before your data grows. Migration cost: ${formatCurrency(Math.round(optimalMigrationCost))} (covered by credits).`
-                            : 'Immediate migration recommended to maximize credit utilization.'}
+                              ? `You can save up to ${savingsPercentage}% by migrating before your data grows. Migration cost: ${formatCurrency(Math.round(optimalMigrationCost))} (covered by credits).`
+                              : 'Immediate migration recommended to maximize credit utilization.'}
                         </small>
                       </CardBody>
                     </Card>
@@ -371,10 +498,15 @@ const MigrationCalculator = () => {
             ) : (
               <Card className="shadow-lg border-0">
                 <CardBody className="p-5 text-center">
-                  <IconifyIcon icon="bx:info-circle" className="text-primary mb-3" style={{ fontSize: '3rem' }} />
+                  <IconifyIcon
+                    icon="bx:info-circle"
+                    className="text-primary mb-3"
+                    style={{ fontSize: '3rem' }}
+                  />
                   <h4>Enter Your Cloud Details</h4>
                   <p className="text-muted mb-0">
-                    Fill in your current cloud usage information to see when you should migrate to take advantage of your remaining credits.
+                    Fill in your current cloud usage information to see when you should migrate to
+                    take advantage of your remaining credits.
                   </p>
                 </CardBody>
               </Card>

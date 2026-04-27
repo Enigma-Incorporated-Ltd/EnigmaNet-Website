@@ -99,7 +99,10 @@ const handleCategoryClick = (cat: string) => {
             <Card className="mb-4">
               <CardBody>
                 <h3 className="h5">Categories</h3>
-                <Nav className="flex-column fs-sm">
+                <Nav
+                  className="flex-column fs-sm "
+                  
+                >
                   {categories.map(cat => (
                     <NavItem key={cat}>
                       <NavLink

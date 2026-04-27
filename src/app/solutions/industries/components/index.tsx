@@ -1,14 +1,18 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/industries/Organisational_operation.png';
-import features1 from '@/assets/svgs/storage durability.svg';
-import features2 from '@/assets/svgs/laptop.svg';
-import features3 from '@/assets/svgs/team.svg';
+import features1 from '@/assets/svgs/solutions/industries/pain card - Critical systems cannot tolerate disruption.svg';
+import features2 from '@/assets/svgs/solutions/industries/pain card - Limited visibility slows response.svg';
+import features3 from '@/assets/svgs/solutions/industries/pain card - Legacy or fragmented infrastructure creates risk.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import network from '@/assets/svgs/icon payment.svg';
-import latency from '@/assets/svgs/playbook.svg';
-import data from '@/assets/svgs/Analyze long-form video content.svg';
+import block1 from '@/assets/svgs/solutions/industries/Key use cases - block 1.svg';
+import block2 from '@/assets/svgs/solutions/industries/Key use cases - block 2.svg';
+import block3 from '@/assets/svgs/solutions/industries/Key use cases - block 3.svg';
+import last from '@/assets/svgs/solutions/industries/Key use cases - block 4.svg';
+import block4 from '@/assets/svgs/solutions/industries/Relevant capabilities - block 1.svg';
+import block5 from '@/assets/svgs/solutions/industries/Relevant capabilities - block 2.svg';
+import block6 from '@/assets/svgs/solutions/industries/Relevant capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -33,26 +37,26 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: network,
+    icon: block1,
     title: 'Protecting critical systems',
     description: `Ensure the most important services and operational traffic continue to perform when demand rises or conditions become unstable.`,
   },
   {
     id: 2,
-    icon: latency,
+    icon: block2,
     title: 'Connecting distributed sites or assets',
     description: ` Improve consistency and resilience across remote sites, field locations, branches or operational environments.`,
   },
   {
     id: 3,
-    icon: data,
+    icon: block3,
     title: '  Improving visibility and control',
     description:
       'Give operational and IT teams a clearer live view of performance so issues can be identified and managed faster.',
   },
   {
     id: 4,
-    icon: data,
+    icon: last,
     title: 'Maintaining continuity during failure',
     description:
       'Reduce disruption by automatically handling degraded or failed connections more effectively.',
@@ -61,19 +65,19 @@ const Core = [
 const relevent = [
   {
     id: 1,
-    icon: network,
+    icon: block4,
     title: 'Traffic prioritisation',
     description: ` Protect critical services by ensuring the most important traffic gets the treatment it needs.`,
   },
   {
     id: 2,
-    icon: latency,
+    icon: block5,
     title: ' Resilience and failover',
     description: ` Maintain service continuity by intelligently steering traffic and reducing the impact of degraded or failed links.`,
   },
   {
     id: 3,
-    icon: data,
+    icon: block6,
     title: ' Real-time visibility',
     description:
       'Give teams live performance insight across the environment so they can respond faster and manage with confidence.',
