@@ -1,13 +1,13 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/operation/operation.jpg';
-import features1 from '@/assets/svgs/solutions/operational-technology/pain point - Link instability threatens safety and uptime.svg';
-import features2 from '@/assets/svgs/solutions/operational-technology/pain point - Critical OT traffic competes with lower-priority traffic.svg';
-import features3 from '@/assets/svgs/solutions/operational-technology/pain point - Public internet conditions undermine consistency.svg';
+import features1 from '@/assets/svgs/solutions/operational-technology/pain-point-link-instability.svg';
+import features2 from '@/assets/svgs/solutions/operational-technology/pain-point-critical-ot-traffic.svg';
+import features3 from '@/assets/svgs/solutions/operational-technology/pain-point-public-internet.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import block1 from '@/assets/svgs/solutions/operational-technology/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/operational-technology/pain point - Public internet conditions undermine consistency.svg';
+import block2 from '@/assets/svgs/solutions/operational-technology/Core capabilities - block 2.svg';
 import block3 from '@/assets/svgs/solutions/operational-technology/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
