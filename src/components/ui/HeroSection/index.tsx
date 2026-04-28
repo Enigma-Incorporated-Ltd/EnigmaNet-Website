@@ -1,3 +1,4 @@
+import { memo, useEffect } from 'react';
 import IconifyIcon from '@/components/IconifyIcon';
 import { Col, Container, Row } from 'react-bootstrap';
 import PremiumButton from '../PremiumButton';
@@ -27,6 +28,13 @@ const HeroSection = ({
 }: HeroProps) => {
   const isFullWidth = !image;
 
+ 
+  useEffect(() => {
+    if (!image) return;
+    const img = new Image();
+    img.src = image;
+  }, [image]);
+
   return (
     <section className="position-relative overflow-hidden py-5">
       <Container className="position-relative zindex-5">
@@ -41,10 +49,9 @@ const HeroSection = ({
             className={!isFullWidth ? 'text-lg-start text-center' : ''}
           >
             <h1 className="display-6 fw-semibold mb-3">{title}</h1>
+
             {subtitle && (
-              <h3 className="h3 text-center  mx-auto  mt-n2 mt-sm-0 pt-md-2">
-                {subtitle}
-              </h3>
+              <h3 className="h3 text-center mx-auto mt-n2 mt-sm-0 pt-md-2">{subtitle}</h3>
             )}
 
             {description && (
@@ -52,7 +59,6 @@ const HeroSection = ({
                 className={`text-muted mb-4 ${isFullWidth ? 'mx-auto' : 'mx-lg-0 mx-auto'}`}
                 style={{
                   maxWidth: isFullWidth ? '720px' : '520px',
-                  // display: '-webkit-box',
                   WebkitLineClamp: 2,
                   WebkitBoxOrient: 'vertical',
                   overflow: 'hidden',
@@ -112,17 +118,22 @@ const HeroSection = ({
               </ul>
             )}
           </Col>
+
+          {/* IMAGE */}
           {image && (
             <Col lg={6}>
               <div className="position-relative">
                 <img
                   src={image}
                   alt={title as string}
-                  className="w-100 rounded-4 "
+                  className="w-100 rounded-4"
                   style={{
                     boxShadow: '0 20px 80px rgba(0,0,0,0.15)',
                     maxHeight: '600px',
                   }}
+                  loading="lazy" 
+                  decoding="async" 
+                  fetchPriority="high"
                 />
               </div>
             </Col>
@@ -133,4 +144,4 @@ const HeroSection = ({
   );
 };
 
-export default HeroSection;
+export default memo(HeroSection);
