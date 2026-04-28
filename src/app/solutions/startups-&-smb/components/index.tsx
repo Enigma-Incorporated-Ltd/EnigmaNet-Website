@@ -1,13 +1,13 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import heroImg from '@/assets/img/solutions/startups/Outreach_Topic3_Cloud bill 1.png';
-import features1 from '@/assets/svgs/solutions/service-providers-&-partners/pain point - Basic connectivity is harder to differentiate.svg';
-import features2 from '@/assets/svgs/solutions/service-providers-&-partners/pain point -  Performance issues damage customer confidence.svg';
-import features3 from '@/assets/svgs/solutions/service-providers-&-partners/pain point - Basic connectivity is harder to differentiate.svg';
+import features1 from '@/assets/svgs/solutions/startups/pain card - Free credits end, but the waste stays.svg';
+import features2 from '@/assets/svgs/solutions/startups/pain card - Hidden cloud and transfer costs start eating into runway.svg';
+import features3 from '@/assets/svgs/solutions/startups/pain card - One weak connection can slow the whole team down.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/service-providers-&-partners/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/service-providers-&-partners/Core capabilities - block 2.svg';
+import block1 from '@/assets/svgs/solutions/startups/Two clear choices - Enigma Connect.svg';
+import block2 from '@/assets/svgs/solutions/startups/Two clear choices - secure cloud.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
