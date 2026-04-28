@@ -8,6 +8,10 @@ import router from '@/assets/svgs/router.svg';
 import pvtNet from '@/assets/svgs/susceptibility.svg';
 import laptop from '@/assets/svgs/project creation.svg';
 import GPu from '@/assets/svgs/gpu storage ai.svg';
+import bg1 from '@/assets/img/home/How Enigma Net works - Plugin.png';
+import bg2 from '@/assets/img/home/How Enigma Net works - Private network activates.png';
+import bg3 from '@/assets/img/home/How Enigma Net works - AI monitors and adapts.png';
+import bg4 from '@/assets/img/home/How Enigma Net works - Extend into infrastructure.png';
 type FeatureItem = {
   id: number | string;
   icon: string;
@@ -22,28 +26,28 @@ const features: FeatureItem[] = [
     icon: router,
     title: 'Plugin',
     description: `A physical appliance connects to your existing broadband, fibre, 5G, satellite, whatever you have. No new circuits, no provider changes.`,
-    bg: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa',
+    bg: bg1,
   },
   {
     id: '02',
     icon: pvtNet,
     title: 'Private network activates',
     description: `An encrypted overlay builds automatically across your links. Traffic is optimised, bonded, and failover-protected from the start.`,
-    bg: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31',
+    bg: bg2,
   },
   {
     id: '03',
     icon: laptop,
     title: 'AI monitors and adapts',
     description: `Machine learning continuously monitors traffic conditions and adjusts routing, prioritisation, and redundancy in real time.`,
-    bg: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
+    bg: bg3,
   },
   {
     id: '04',
     icon: GPu,
     title: 'Extend into infrastructure',
     description: `Add compute, GPU, and storage when you’re ready. Same secure layer, same predictable performance. No separate platform to manage.`,
-    bg: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+    bg: bg4,
   },
 ];
 

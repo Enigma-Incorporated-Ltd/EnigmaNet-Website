@@ -6,8 +6,9 @@ type CaseStudyHighlightProps = {
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
   quote?: string | React.ReactNode;
+  transitionLine?: string | React.ReactNode;
 };
-const CaseStudyHighlight = ({ data, title, description, quote }: CaseStudyHighlightProps) => {
+const CaseStudyHighlight = ({ data, title, description, quote , transitionLine }: CaseStudyHighlightProps) => {
   return (
     <Container className="pt-3 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
       {title && (
@@ -56,6 +57,14 @@ const CaseStudyHighlight = ({ data, title, description, quote }: CaseStudyHighli
             <blockquote className="blockquote fst-italic ">
               <p className="mb-0 h4">{quote}</p>
             </blockquote>
+          </div>
+        )}
+        {transitionLine && (
+          <div
+            className="position-relative text-center mt-4 text-muted fst-italic fs-4  d-flex flex-wrap text-center justify-content-center mx-auto  zindex-5"
+            style={{ maxWidth: '55rem' }}
+          >
+            {transitionLine}
           </div>
         )}
       </div>

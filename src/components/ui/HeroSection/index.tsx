@@ -10,13 +10,21 @@ type HeroButton = {
 
 type HeroProps = {
   title: string | React.ReactNode;
-  description: string | React.ReactNode;
+  description?: string | React.ReactNode;
   image?: string;
   buttons?: HeroButton[];
   features?: string[];
+  subtitle?: string | React.ReactNode;
 };
 
-const HeroSection = ({ title, description, image, buttons = [], features = [] }: HeroProps) => {
+const HeroSection = ({
+  title,
+  description,
+  image,
+  buttons = [],
+  features = [],
+  subtitle,
+}: HeroProps) => {
   const isFullWidth = !image;
 
   return (
@@ -33,19 +41,26 @@ const HeroSection = ({ title, description, image, buttons = [], features = [] }:
             className={!isFullWidth ? 'text-lg-start text-center' : ''}
           >
             <h1 className="display-6 fw-semibold mb-3">{title}</h1>
+            {subtitle && (
+              <h3 className="h3 text-center  mx-auto  mt-n2 mt-sm-0 pt-md-2">
+                {subtitle}
+              </h3>
+            )}
 
-            <p
-              className={`text-muted mb-4 ${isFullWidth ? 'mx-auto' : 'mx-lg-0 mx-auto'}`}
-              style={{
-                maxWidth: isFullWidth ? '720px' : '520px',
-                // display: '-webkit-box',
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden',
-              }}
-            >
-              {description}
-            </p>
+            {description && (
+              <p
+                className={`text-muted mb-4 ${isFullWidth ? 'mx-auto' : 'mx-lg-0 mx-auto'}`}
+                style={{
+                  maxWidth: isFullWidth ? '720px' : '520px',
+                  // display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
+              >
+                {description}
+              </p>
+            )}
 
             {/* BUTTONS */}
             {buttons.length > 0 && (
@@ -103,15 +118,15 @@ const HeroSection = ({ title, description, image, buttons = [], features = [] }:
                 <img
                   src={image}
                   alt={title as string}
-                  className="w-100 rounded-4"
+                  className="w-100 rounded-4 "
                   style={{
                     boxShadow: '0 20px 80px rgba(0,0,0,0.15)',
+                    maxHeight: '600px',
                   }}
                 />
               </div>
             </Col>
           )}
-         
         </Row>
       </Container>
     </section>
