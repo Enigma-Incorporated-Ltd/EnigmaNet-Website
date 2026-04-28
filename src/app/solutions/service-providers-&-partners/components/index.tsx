@@ -84,12 +84,12 @@ const ProvidersPartners = () => {
         buttons={[
           {
             label: ' Talk to Enigma ',
-            href: '/',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: ' Explore partner opportunities ',
-            href: '/',
+            label: ' Explore Partner Opportunities ',
+            href: '/get-in-touch',
             variant: 'gold',
           },
         ]}
@@ -171,11 +171,11 @@ const ProvidersPartners = () => {
         // description="Get a free network performance assessment "
         primaryButton={{
           label: 'Talk to Enigma ',
-          href: '/',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Explore partner opportunities ',
+          label: 'Explore Partner Opportunities ',
           href: '/get-in-touch',
           variant: 'blue',
         }}

@@ -80,13 +80,13 @@ const DataInfrastructure = () => {
         image={heroImg}
         buttons={[
           {
-            label: 'Talk about your AI stack ',
-            href: '/',
+            label: 'Talk About Your AI Stack ',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Book an infrastructure call',
-            href: '/',
+            label: 'Book an Infrastructure Call',
+            href: '/get-in-touch',
             variant: 'gold',
           },
         ]}
@@ -176,12 +176,12 @@ const DataInfrastructure = () => {
         headline2=" Stay in control"
         // description="Get a free network performance assessment "
         primaryButton={{
-          label: 'Talk about your AI stack ',
-          href: '/',
+          label: 'Talk About Your AI Stack ',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Book an infrastructure call ',
+          label: 'Book an Infrastructure Call',
           href: '/get-in-touch',
           variant: 'blue',
         }}

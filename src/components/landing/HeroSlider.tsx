@@ -17,7 +17,7 @@ const slides = [
     gradientTablet: 'linear-gradient(100deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.2))',
     gradientMobile: 'linear-gradient(110deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.4))',
     btn1: { label: 'Smarter Infrastructure', color: 'blue', href: '/smarter-infrastructure' },
-    btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
+    btn2: { label: 'Book a Call', color: 'gold', href: '/get-in-touch' },
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const slides = [
     gradientTablet: 'linear-gradient(100deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.2))',
     gradientMobile: 'linear-gradient(110deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.4))',
     btn1: { label: 'Hosting/Secure Cloud', color: 'blue', href: '/hosting-secure-cloud' },
-    btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
+    btn2: { label: 'Book a Call', color: 'gold', href: '/get-in-touch' },
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const slides = [
     gradientTablet: 'linear-gradient(100deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.2))',
     gradientMobile: 'linear-gradient(110deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.4))',
     btn1: { label: 'AI Infrastructure', color: 'blue', href: '/complete-ai-infrastructure' },
-    btn2: { label: 'Book A Call', color: 'gold', href: '/get-in-touch' },
+    btn2: { label: 'Book a Call', color: 'gold', href: '/get-in-touch' },
   },
 ];
 

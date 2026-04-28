@@ -81,7 +81,7 @@ const DataCard = () => {
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
         <PremiumButton label="Our Solutions" variant="blue" href="/solutions" className="btn-lg" />
-        <PremiumButton label="Book A Call" variant="gold" className="btn-lg" href="/get-in-touch" />
+        <PremiumButton label="Book a Call" variant="gold" className="btn-lg" href="/get-in-touch" />
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 type HeaderProps = {
   title: string;
-    style?: React.CSSProperties;
+  style?: React.CSSProperties;
   textAlign?: 'left' | 'center' | 'right';
 };
 const Header = (props: HeaderProps) => {
@@ -11,7 +11,6 @@ const Header = (props: HeaderProps) => {
         fontSize: 'clamp(2rem, 5vw, 3rem)',
         fontWeight: 800,
         letterSpacing: '-0.03em',
-        lineHeight: 1.15,
         marginBottom: '0.4rem',
         ...props.style,
       }}

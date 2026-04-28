@@ -55,7 +55,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       { label: 'Data & File Services', id: 'data' },
       { label: 'AI & Automation', id: 'ai' },
       { label: 'Integration & OEM', id: 'integration' },
-      { label: 'View All Products', id: 'all' },
+      // { label: 'View All Products', id: 'all' },
     ],
     panels: {
       platform: [
@@ -165,17 +165,17 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
           ],
         },
       ],
-      all: [
-        {
-          title: 'Self-service Options',
-          links: [
-            { label: 'Compare Plans', href: '/products/compare' },
-            { label: 'View Pricing', href: '/products/pricing' },
-            { label: 'Start Free', href: '/free-trial' },
-            { label: 'Build Your Deployment', href: '/deployment' },
-          ],
-        },
-      ],
+      // all: [
+      //   {
+      //     title: 'Self-service Options',
+      //     links: [
+      //       { label: 'Compare Plans', href: '/products/compare' },
+      //       { label: 'View Pricing', href: '/pricing' },
+      //       { label: 'Start Free', href: '/free-trial' },
+      //       { label: 'Build Your Deployment', href: '/deployment' },
+      //     ],
+      //   },
+      // ],
     },
     footerLink: { label: 'View All Products »', href: '/products' },
     promo: {

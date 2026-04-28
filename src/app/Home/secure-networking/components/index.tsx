@@ -97,13 +97,13 @@ const NetworkPage = () => {
         // image={heroImg}
         buttons={[
           {
-            label: 'Talk to a specialist',
-            href: '/',
+            label: 'Talk to a Specialist',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Request a assessment ',
-            href: '/',
+            label: 'Request an Assessment ',
+            href: '/get-in-touch',
             variant: 'gold',
           },
         ]}
@@ -144,7 +144,10 @@ const NetworkPage = () => {
             <HeaderTitle
               key={theme}
               title={
-                <>A private, resilient transport layer across <br /> the connectivity you already use. </>
+                <>
+                  A private, resilient transport layer across <br /> the connectivity you already
+                  use.{' '}
+                </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
@@ -200,8 +203,11 @@ const NetworkPage = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline={<>
-        Turn existing connectivity into a private, <br/></>}
+        headline={
+          <>
+            Turn existing connectivity into a private, <br />
+          </>
+        }
         headline2=" resilient network layer."
         // description="Get a free network performance assessment "
         primaryButton={{
@@ -210,8 +216,8 @@ const NetworkPage = () => {
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Request a assessment ',
-          href: '/',
+          label: 'Request an Assessment ',
+          href: '/get-in-touch',
           variant: 'blue',
         }}
       />

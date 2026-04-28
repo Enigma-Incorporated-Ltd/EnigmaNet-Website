@@ -78,13 +78,13 @@ const RemoteAssets = () => {
         image={heroImg}
         buttons={[
           {
-            label: 'Talk about remote assets ',
-            href: '/',
+            label: 'Talk About Remote Assets ',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Request a consultation ',
-            href: '/',
+            label: 'Request a Consultation ',
+            href: '/get-in-touch',
             variant: 'gold',
           },
         ]}
@@ -164,8 +164,8 @@ const RemoteAssets = () => {
         headline2="failure has consequences"
         // description="Get a free network performance assessment "
         primaryButton={{
-          label: 'Start a conversation ',
-          href: '/',
+          label: 'Start a Conversation ',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{

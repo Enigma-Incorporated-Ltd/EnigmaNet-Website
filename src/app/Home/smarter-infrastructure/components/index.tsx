@@ -103,12 +103,12 @@ const SmarterInfrastructurePage = () => {
         buttons={[
           {
             label: 'Talk to Enigma ',
-            href: '/',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Book a network assessment ',
-            href: '/',
+            label: 'Book a Network Assessment ',
+            href: '/get-in-touch',
             variant: 'gold',
           },
         ]}
@@ -121,7 +121,12 @@ const SmarterInfrastructurePage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Modern infrastructure is often powerful,<br /> but not predictable.</>}
+              title={
+                <>
+                  Modern infrastructure is often powerful,
+                  <br /> but not predictable.
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -255,16 +260,20 @@ const SmarterInfrastructurePage = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline={<>Improve performance, resilience and visibility <br/> without</>}
+        headline={
+          <>
+            Improve performance, resilience and visibility <br /> without
+          </>
+        }
         headline2=" rebuilding everything."
         // description="Get a free network performance assessment "
         primaryButton={{
           label: ' Talk to Enigma ',
-          href: '/',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Book a network assessment ',
+          label: 'Book a Network Assessment ',
           href: '/get-in-touch',
           variant: 'blue',
         }}

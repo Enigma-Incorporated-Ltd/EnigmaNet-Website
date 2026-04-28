@@ -115,12 +115,12 @@ const Startups = () => {
         image={heroImg}
         buttons={[
           {
-            label: ' Check your savings',
+            label: ' Check Your Savings',
             href: '/trueCost',
             variant: 'blue',
           },
           {
-            label: '  Book a cost review ',
+            label: '  Book a Cost Review ',
             href: '/get-in-touch',
             variant: 'gold',
           },
@@ -341,7 +341,7 @@ const Startups = () => {
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Check your savings ',
+          label: 'Check Your Savings ',
           href: '/trueCost',
           variant: 'blue',
         }}

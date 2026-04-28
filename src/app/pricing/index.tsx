@@ -1,42 +1,33 @@
-import Navbar from '@/components/navbar/Navbar';
-import { Container } from 'react-bootstrap';
-import Comparison from './components/Comparison';
-
-import Plan from './components/Plan';
-import PageMeta from '@/components/PageMeta';
 import Footer from '@/components/footer/Footer';
-import Breadcrumb from '@/components/ui/Breadcrumb';
-import Header from '@/components/ui/Header';
+import Navbar from '@/components/navbar/Navbar';
+import PageMeta from '@/components/PageMeta';
+import { BASE_URL } from '@/utils';
+import PricingPage from './components/PricingPage';
 
 
-const Index = () => {
+const Partners = () => {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Coming Soon',
+    url: `${BASE_URL}/pricing`,
+    description: 'We are working hard to launch something amazing. Stay tuned!',
+  };
   return (
     <>
-      <PageMeta title="Pricing" />
-      <Navbar
-        Headerclass="header navbar navbar-expand-lg navbar-dark bg-dark navbar-sticky"
-        headerSticky="navbar-stuck"
-        isNavDark={true}
+      <PageMeta
+        title="Coming Soon"
+        description="We are working hard to launch something amazing. Stay tuned!"
+        url={`${BASE_URL}/pricing`}
+        structuredData={structuredData}
       />
-      <section className="bg-dark py-4" data-bs-theme="dark">
-        <Container className="pb-2 py-lg-3">
-          <Breadcrumb items={[{ label: 'Pricing', href: '/pricing' }]} />
-          <Header
-            title="Pricing"
-            style={{
-              padding: '21px 0px ',
-            }}
-          />
-          <h1 className="text-center mb-0">Transparent Pricing for You</h1>
-        </Container>
-        <div style={{ height: '300px' }}></div>
-      </section>
-      <Plan />
-      <Comparison />
+
+      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
+      <PricingPage />
 
       <Footer />
     </>
   );
 };
 
-export default Index;
+export default Partners;

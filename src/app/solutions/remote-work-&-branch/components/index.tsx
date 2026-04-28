@@ -81,13 +81,13 @@ const WorkBranch = () => {
         image={heroImg}
         buttons={[
           {
-            label: 'Assess your branch network ',
-            href: '/',
+            label: 'Assess Your Branch Network ',
+            href: '#',
             variant: 'blue',
           },
           {
             label: 'Talk to Enigma ',
-            href: '/',
+            href: '/get-in-touch',
             variant: 'gold',
           },
         ]}
@@ -144,8 +144,8 @@ const WorkBranch = () => {
         headline2="Less complexity"
         description="   "
         primaryButton={{
-          label: 'Request an assessment ',
-          href: '/',
+          label: 'Request an Assessment ',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{

@@ -245,7 +245,7 @@ const Contact = () => {
                         <PremiumButton
                           variant="blue"
                           type="submit"
-                          label="Send a request"
+                          label="Send a Request"
                           isLoading={sending}
                           disabled={sending}
                           loadingLabel="Sending…"

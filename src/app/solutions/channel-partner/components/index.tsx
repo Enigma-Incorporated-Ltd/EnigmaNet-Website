@@ -81,12 +81,12 @@ const ChannelPage = () => {
         buttons={[
           {
             label: 'Talk to Enigma ',
-            href: '/',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Explore channel partnerships ',
-            href: '/',
+            label: 'Explore Channel Partnerships',
+            href: '#',
             variant: 'gold',
           },
         ]}
@@ -132,7 +132,11 @@ const ChannelPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" A more distinctive offer on top of what customers already have"
+              title={
+                <>
+                  A more distinctive offer on top of <br /> what customers already have
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -189,12 +193,12 @@ const ChannelPage = () => {
         // description="Get a free network performance assessment "
         primaryButton={{
           label: ' Talk to Enigma ',
-          href: '/',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: ' Explore channel partnerships ',
-          href: '/get-in-touch',
+          label: 'Explore Channel Partnerships ',
+          href: '#',
           variant: 'blue',
         }}
       />

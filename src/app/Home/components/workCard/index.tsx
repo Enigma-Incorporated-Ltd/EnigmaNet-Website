@@ -56,14 +56,14 @@ const WorkCard = () => {
     <section className="container pt-5 my-5">
       <h5 className="h3 text-center text-uppercase text-warning">How Enigma Net works</h5>
 
-      <h2 className="h1 text-center mb-4">Deploys in minutes. Works on what you already have</h2>
+      <h2 className="h1 text-center mb-4">Deploys in minutes. Works <br/> on what you already have</h2>
       <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
           <span>
-            Enigma Net sits on top of your existing internet infrastructure. No rip-and- <br />
-            replace. No re-architecting. A physical appliance or software client that <br /> creates
-            a private, accelerated network layer,and extends it into compute, <br /> storage, and
-            GPU.
+            Enigma Net sits on top of your existing internet infrastructure. <br /> No rip-and
+            replace. No re-architecting. A physical appliance or software <br /> client that creates
+            a private, accelerated network layer, <br />
+            and extends it into compute, storage, and GPU.
           </span>
         </li>
       </ul>
@@ -120,7 +120,7 @@ const WorkCard = () => {
           {features.map(feature => (
             <SwiperSlide key={feature.id}>
               <Card
-                className="feature-card"
+                className="feature-card "
                 style={{
                   backgroundImage: `url(${feature.bg})`,
                 }}

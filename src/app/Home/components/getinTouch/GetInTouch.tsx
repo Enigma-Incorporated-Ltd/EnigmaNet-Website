@@ -96,7 +96,7 @@ const GetInTouch = () => {
         <Container>
           {/* Heading */}
           <div className={`text-center fade-in ${visible ? 'visible' : ''}`}>
-            <h1 className=" text-warning mb-5">Get in touch</h1>
+            <h1 className=" text-warning text-uppercase mb-5">Get in touch</h1>
           </div>
 
           <Row className="justify-content-center align-items-start g-4">
@@ -234,7 +234,7 @@ const GetInTouch = () => {
                         <PremiumButton
                           variant="blue"
                           type="submit"
-                          label="Call me Back"
+                          label="Call Me Back"
                           isLoading={sending}
                           disabled={sending}
                           loadingLabel="Sending…"

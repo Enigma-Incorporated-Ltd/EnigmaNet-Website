@@ -80,13 +80,13 @@ const EnterpriseData = () => {
         image={heroImg}
         buttons={[
           {
-            label: 'Get A Network Assessment',
-            href: '/',
+            label: 'Get a Network Assessment',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
             label: 'See Enterprise Use Cases',
-            href: '/',
+            href: '#',
             variant: 'gold',
           },
         ]}
@@ -169,8 +169,8 @@ const EnterpriseData = () => {
         headline2="Better control"
         description="Get a free network performance assessment "
         primaryButton={{
-          label: 'Get An Assessment',
-          href: '/',
+          label: 'Get an Assessment',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{

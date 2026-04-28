@@ -81,12 +81,12 @@ const TechnologiesPage = () => {
         buttons={[
           {
             label: 'Talk to Enigma ',
-            href: '/',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Explore technology partnerships',
-            href: '/',
+            label: 'Explore Technology Partnerships',
+            href: '/get-in-touch',
             variant: 'gold',
           },
         ]}
@@ -171,11 +171,11 @@ const TechnologiesPage = () => {
         // description="Get a free network performance assessment "
         primaryButton={{
           label: 'Talk to Enigma ',
-          href: '/',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Explore technology partnerships ',
+          label: 'Explore Technology Partnerships ',
           href: '/get-in-touch',
           variant: 'blue',
         }}

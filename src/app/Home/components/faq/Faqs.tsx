@@ -94,7 +94,7 @@ const {theme} = useTheme();
         }}
       >
         {' '}
-        <h2 className="h2 text-center text-warning mb-4">Frequently Asked Questions</h2>
+        <h2 className="h2 text-center text-uppercase text-warning mb-4">Frequently Asked Questions</h2>
         <h1 className="text-center h1  mb-5">What you need to know before getting started</h1>
         <Accordion activeKey={activeKey} onSelect={k => setActiveKey(k as string)}>
           {faqs.map((faq, idx) => (

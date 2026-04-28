@@ -114,12 +114,12 @@ const IndustriesData = () => {
         buttons={[
           {
             label: 'Talk to Enigma ',
-            href: '/',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Book a consultation',
-            href: '/',
+            label: 'Book a Consultation',
+            href: '/get-in-touch',
             variant: 'gold',
           },
         ]}
@@ -204,11 +204,11 @@ const IndustriesData = () => {
         // description="Get a free network performance assessment "
         primaryButton={{
           label: 'Talk to Enigma ',
-          href: '/',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Book a consultation ',
+          label: 'Book a Consultation ',
           href: '/get-in-touch',
           variant: 'blue',
         }}

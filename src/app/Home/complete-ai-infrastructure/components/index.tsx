@@ -114,12 +114,12 @@ const CompleteAi = () => {
         buttons={[
           {
             label: 'Talk to Enigma ',
-            href: '/',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Explore AI infrastructure ',
-            href: '/',
+            label: 'Explore AI Infrastructure ',
+            href: '#',
             variant: 'gold',
           },
         ]}
@@ -195,7 +195,7 @@ const CompleteAi = () => {
           </>
         }
       />
-<HeroImage img={heroImg} alt="Hero Image" />
+      <HeroImage img={heroImg} alt="Hero Image" />
       <CardSlider
         title={
           <>
@@ -291,16 +291,20 @@ const CompleteAi = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline={<>Build AI infrastructure as one controlled system, <br/></>}
+        headline={
+          <>
+            Build AI infrastructure as one controlled system, <br />
+          </>
+        }
         headline2=" not a collection of separate parts."
         // description="Get a free network performance assessment "
         primaryButton={{
           label: ' Talk to Enigma ',
-          href: '/',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Explore AI infrastructure ',
+          label: 'Explore AI Infrastructure ',
           href: '/get-in-touch',
           variant: 'blue',
         }}

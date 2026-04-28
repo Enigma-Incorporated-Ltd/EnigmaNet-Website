@@ -80,13 +80,13 @@ const DefenseTechnology = () => {
         image={heroImg}
         buttons={[
           {
-            label: 'Discuss a dual-use programme ',
-            href: '/',
+            label: 'Discuss a Dual-Use Programme',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
             label: 'Speak to Enigma',
-            href: '/',
+            href: '/get-in-touch',
             variant: 'gold',
           },
         ]}
@@ -166,8 +166,8 @@ const DefenseTechnology = () => {
         headline2="Ready for operational demand"
         // description="Get a free network performance assessment "
         primaryButton={{
-          label: 'Talk about your programme ',
-          href: '/',
+          label: 'Talk About Your Programme ',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{

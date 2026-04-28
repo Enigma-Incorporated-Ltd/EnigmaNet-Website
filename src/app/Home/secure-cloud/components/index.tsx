@@ -92,13 +92,13 @@ const CloudPage = () => {
         // image={heroImg}
         buttons={[
           {
-            label: 'Talk about your workload ',
-            href: '/',
+            label: 'Talk About Your Workload ',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Explore hosting options ',
-            href: '/',
+            label: 'Explore Hosting Options ',
+            href: '#',
             variant: 'gold',
           },
         ]}
@@ -199,13 +199,13 @@ const CloudPage = () => {
         headline2=" less cloud friction."
         // description="Get a free network performance assessment "
         primaryButton={{
-          label: 'Talk about your workload ',
+          label: 'Talk About Your Workload ',
           href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: ' Explore hosting options',
-          href: '/',
+          label: ' Explore Hosting Options',
+          href: '#',
           variant: 'blue',
         }}
       />

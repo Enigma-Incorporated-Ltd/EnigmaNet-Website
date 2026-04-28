@@ -107,12 +107,12 @@ const HostingCloud = () => {
         buttons={[
           {
             label: 'Talk to Enigma ',
-            href: '/',
+            href: '/get-in-touch',
             variant: 'blue',
           },
           {
-            label: 'Explore hosting options',
-            href: '/',
+            label: 'Explore Hosting Options',
+            href: '#',
             variant: 'gold',
           },
         ]}
@@ -198,7 +198,11 @@ const HostingCloud = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Why scalable hosting needs to be commercially <br /> and operationally usable</>}
+              title={
+                <>
+                  Why scalable hosting needs to be commercially <br /> and operationally usable
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -272,11 +276,11 @@ const HostingCloud = () => {
         // description="Get a free network performance assessment "
         primaryButton={{
           label: ' Talk to Enigma ',
-          href: '/',
+          href: '/get-in-touch',
           variant: 'gold',
         }}
         secondaryButton={{
-          label: 'Explore hosting options ',
+          label: 'Explore Hosting Options ',
           href: '/get-in-touch',
           variant: 'blue',
         }}

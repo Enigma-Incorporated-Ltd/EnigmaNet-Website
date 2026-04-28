@@ -103,10 +103,7 @@ const Index = () => {
         structuredData={structuredData}
       />
 
-      <Navbar
-        Headerclass="header navbar navbar-expand-lg bg-light fixed-top"
-       
-      />
+      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
 
       <HeroSlider />
       <Brands />
@@ -127,7 +124,7 @@ const Index = () => {
         description=" Faster transfers, stable throughput, zero-trust security — deployed without
                 replacing your existing infrastructure."
         primaryButton={{
-          label: 'TALK TO OUR TEAM',
+          label: 'Talk to Our Team',
           href: '/get-in-touch',
           variant: 'gold',
         }}

@@ -15,7 +15,7 @@ const RequestAQuotePage = () => {
         }}
       />
       <Header
-        title="Request a quote"
+        title="Request a Quote"
         style={{
           marginBottom: '-2.6rem',
           padding: '21px 0px ',
