@@ -150,7 +150,7 @@ const ChannelPartner = lazy(() => import('@/app/solutions/channel-partner'));
 const Startups = lazy(() => import('@/app/solutions/startups-&-smb'));
 //support
 const Support = lazy(() => import('@/app/contact-us/support'));
-
+const Login = lazy(() => import('@/app/login'));
 //partner
 const Partners = lazy(() => import('@/app/partners'));
 
@@ -179,6 +179,7 @@ export const AllRoutes = [
   { path: '/secure-cloud', element: <SecureCloud /> },
   { path: '/secure-networking', element: <SecureNetworking /> },
   { path: '/trueCost', name: 'MigrationCalculator', element: <MigrationCalculator /> },
+  { path: '/login', name: 'login', element: <Login /> },
   // Products Routes
   { path: '/products', name: 'Products', element: <Products /> },
 

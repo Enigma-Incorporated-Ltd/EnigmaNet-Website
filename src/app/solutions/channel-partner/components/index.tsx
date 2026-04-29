@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/Channel/E10HKINT.jpg.avif';
+import heroImg from '@/assets/img/solutions/Channel/E10HKINT.jpg';
 import features1 from '@/assets/svgs/solutions/channel-partner/pain card - Standard infrastructure offers blur together.svg';
 import features2 from '@/assets/svgs/solutions/channel-partner/pain point - Customers expect more outcome-led value.svg';
 import features3 from '@/assets/svgs/solutions/channel-partner/pain card -  Differentiation must not create delivery drag.svg';
