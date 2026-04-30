@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import hero1 from '@/assets/img/heroSlider/Deterministic infrastructure for data-intensive environments.png';
-import hero2 from '@/assets/img/heroSlider/Affordable, Accessible, Scalable Hosting for Compute, GPU and Storage.png';
+
 import hero3 from '@/assets/img/heroSlider/Complete AI Infrastructure Designed around your Needs.png';
+import hero1 from '@/assets/img/heroSlider/data-transmit-supper-fast-in-dark-tunnel-abstract.jpg';
+import hero2 from '@/assets/img/heroSlider/motion-blur-of-train-moving-inside-tunnel-in-tokyo.jpg';
+
 import './slider.css';
 import PremiumButton from '../ui/PremiumButton';
 
@@ -10,8 +12,12 @@ const slides = [
     id: 1,
     title: 'Deterministic infrastructure for data-intensive environments',
     subtitle:
-      'Move large datasets faster and more predictably across distributed compute environments without replacing what you already have',
+      'Move large datasets faster and more predictably across distributed compute environment without replacing what you already have',
     img: hero1,
+  
+    gradientDesktop: 'linear-gradient(92deg, rgb(11 15 25) 30%, rgba(13, 27, 41, 0))',
+    gradientTablet: 'linear-gradient(100deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0.2))',
+    gradientMobile: 'linear-gradient(110deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0.4))',
     btn1: { label: 'Smarter Infrastructure', color: 'blue', href: '/smarter-infrastructure' },
     btn2: { label: 'Book a Call', color: 'gold', href: '/get-in-touch' },
   },
@@ -21,6 +27,10 @@ const slides = [
     subtitle:
       'On-demand compute, GPU and storage infrastructure that efficiently scales with your workloads',
     img: hero2,
+  
+    gradientDesktop: 'linear-gradient(92deg, rgb(11 15 25) 30%, rgba(13, 27, 41, 0))',
+    gradientTablet: 'linear-gradient(100deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0.2))',
+    gradientMobile: 'linear-gradient(110deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0.4))',
     btn1: { label: 'Hosting/Secure Cloud', color: 'blue', href: '/hosting-secure-cloud' },
     btn2: { label: 'Book a Call', color: 'gold', href: '/get-in-touch' },
   },
@@ -30,6 +40,10 @@ const slides = [
     subtitle:
       'Data movement, compute and storage working as one controlled, high-performance system',
     img: hero3,
+   
+    // gradientDesktop: 'linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0))',
+    // gradientTablet: 'linear-gradient(100deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.2))',
+    // gradientMobile: 'linear-gradient(110deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.4))',
     btn1: { label: 'AI Infrastructure', color: 'blue', href: '/complete-ai-infrastructure' },
     btn2: { label: 'Book a Call', color: 'gold', href: '/get-in-touch' },
   },
@@ -51,8 +65,17 @@ export default function HeroSlider() {
   const [screenSize, setScreenSize] = useState<'desktop' | 'tablet' | 'mobile'>(getInitialScreen());
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
   const slide = slides[current];
 
+  // ✅ Get gradient dynamically (no state bug)
+  const getGradient = (slide: (typeof slides)[0]) => {
+    if (screenSize === 'desktop') return slide.gradientDesktop;
+    if (screenSize === 'tablet') return slide.gradientTablet;
+    return slide.gradientMobile;
+  };
+
+  // ✅ Resize listener
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -60,34 +83,41 @@ export default function HeroSlider() {
       else if (width >= 768) setScreenSize('tablet');
       else setScreenSize('mobile');
     };
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // ✅ Slide change logic
   const goTo = (index: number, dir: 'left' | 'right' = 'right') => {
     if (animating) return;
+
     setDirection(dir);
     setAnimating(true);
+
     const img = new Image();
     img.src = slides[index].img;
+
     img.onload = () => {
       setBgImage(slides[index].img);
-      setTimeout(() => setAnimating(false), 550);
+      setTimeout(() => setAnimating(false), 500);
     };
   };
 
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setCurrent(prev => {
-        const nextIndex = (prev + 1) % slides.length;
-        goTo(nextIndex, 'right');
-        return nextIndex;
-      });
-    }, 5000);
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
+  // ✅ Auto scroll (ONLY ONE interval)
+  // useEffect(() => {
+  //   intervalRef.current = setInterval(() => {
+  //     setCurrent(prev => {
+  //       const nextIndex = (prev + 1) % slides.length;
+  //       goTo(nextIndex, 'right');
+  //       return nextIndex;
+  //     });
+  //   }, 5000);
+
+  //   return () => {
+  //     if (intervalRef.current) clearInterval(intervalRef.current);
+  //   };
+  // }, []);
 
   const handleDotClick = (i: number) => {
     if (i === current) return;
@@ -95,26 +125,30 @@ export default function HeroSlider() {
     setCurrent(i);
     goTo(i, dir);
     // Reset auto-interval on manual click
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setCurrent(prev => {
-        const nextIndex = (prev + 1) % slides.length;
-        goTo(nextIndex, 'right');
-        return nextIndex;
-      });
-    }, 5000);
+    // if (intervalRef.current) clearInterval(intervalRef.current);
+    // intervalRef.current = setInterval(() => {
+    //   setCurrent(prev => {
+    //     const nextIndex = (prev + 1) % slides.length;
+    //     goTo(nextIndex, 'right');
+    //     return nextIndex;
+    //   });
+    // }, 5000);
   };
 
   return (
     <section className="hero-section">
-      {/* Full-width background image */}
+      {/* Background */}
       <div className="hero-background">
-        <img src={bgImage} alt="Hero background" className="hero-bg-image" />
-        {/* Left-side gradient overlay so image stays visible on right */}
-        <div className={`hero-overlay hero-overlay-${screenSize}`} />
+        <img src={bgImage} alt="Hero background" className={`hero-bg-image `} />
+        <div
+          className={`hero-overlay hero-overlay-${screenSize}`}
+          style={{
+            background: getGradient(slide),
+          }}
+        />
       </div>
 
-      {/* Content — only left half on desktop */}
+      {/* Content */}
       <div className="hero-content-wrapper">
         <div
           className={`slide-content ${
