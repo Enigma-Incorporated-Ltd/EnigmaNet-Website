@@ -40,4 +40,4 @@ export const toSentenceCase = (text: string) => {
 
 // export const BASE_URL = import.meta.env.VITE_PRODUCTION_URL as string | undefined;
 
- export const BASE_URL = 'https://enigmawebsitedev.azurewebsites.net'
+ export const BASE_URL = 'https://enigmanet.ai';

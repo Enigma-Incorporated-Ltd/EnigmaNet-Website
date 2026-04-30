@@ -101,7 +101,7 @@ const GetInTouch = () => {
 
           <Row className="justify-content-center align-items-start g-4">
             {/* ── Left column: info ── */}
-            <Col xl={6} lg={5} className={`fade-in delay-1 ${visible ? 'visible' : ''}`}>
+            <Col xl={6} lg={5}   className={`fade-in delay-1 ${visible ? 'visible' : ''}`}>
               <h2 className="mb-3">See how EnigmaNet fits your infrastructure</h2>
               <StraightLine />
               <p className="mb-4">
@@ -140,7 +140,7 @@ const GetInTouch = () => {
             </Col>
 
             {/* ── Right column: form ── */}
-            <Col xl={6} lg={7} md={10} className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
+            <Col xl={6} lg={7}  className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
               <Card className="contact-card">
                 <Card.Body>
                   {submitted ? (

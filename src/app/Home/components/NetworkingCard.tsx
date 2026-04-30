@@ -172,7 +172,7 @@ const NetworkingPillars = () => {
                   label={pillar.buttonLabel}
                   variant={pillar.buttonColor as 'blue' | 'gold'}
                   href={pillar.buttonHref}
-                  className="btn-lg"
+                  className="btn-lg btn-responsive"
                 />
               </div>
             </div>

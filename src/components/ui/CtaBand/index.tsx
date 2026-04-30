@@ -158,7 +158,7 @@ const CTA = ({
                         label={primaryButton.label}
                         href={primaryButton.href}
                         variant={primaryButton.variant || 'blue'}
-                        className="btn-lg shadow-lg"
+                        className="btn-lg shadow-lg btn-responsive "
                       />
                     )}
 
@@ -167,7 +167,7 @@ const CTA = ({
                         label={secondaryButton.label}
                         href={secondaryButton.href}
                         variant={secondaryButton.variant || 'gold'}
-                        className="btn-lg shadow-lg"
+                        className="btn-lg shadow-lg btn-responsive"
                       />
                     )}
                   </div>
@@ -357,7 +357,7 @@ const CTA = ({
                     label={primaryButton.label}
                     href={primaryButton.href}
                     variant={primaryButton.variant || 'blue'}
-                    className="btn-lg shadow-lg"
+                    className="btn-lg shadow-lg btn-responsive"
                   />
                 )}
 
@@ -366,7 +366,7 @@ const CTA = ({
                     label={secondaryButton.label}
                     href={secondaryButton.href}
                     variant={secondaryButton.variant || 'gold'}
-                    className="btn-lg shadow-lg"
+                    className="btn-lg shadow-lg btn-responsive "
                   />
                 )}
               </div>

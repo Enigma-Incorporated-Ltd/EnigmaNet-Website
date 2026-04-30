@@ -212,3 +212,15 @@
         transform: rotate(360deg);
     }
 }
+
+/* Mobile + Tablet → full width */
+.btn-responsive {
+    width: 100%;
+}
+
+/* Desktop (≥992px) → fit content */
+@media (min-width: 992px) {
+    .btn-responsive {
+        width: auto;
+    }
+}

@@ -1,74 +1,95 @@
+/* ============================================================
+   HERO SLIDER — Complete Responsive CSS
+   Breakpoints: mobile (≤767px) | tablet (768–1024px) |
+                desktop (1025–1399px) | large (1400–2559px) |
+                ultra-wide (≥2560px)
+   ============================================================ */
+
+/* ============================================================
+   BASE / DESKTOP (1025px – 1399px)
+   ============================================================ */
+
 .hero-section {
     position: relative;
     width: 100%;
     min-height: calc(100vh - 80px);
-    padding-top: 140px;
     display: flex;
     align-items: center;
-    margin-top: 162px;
+    margin: 80px auto 0;
+    justify-content: center;
     overflow: hidden;
     font-family: 'Sora', sans-serif;
 }
 
-/* Background image container */
 .hero-background {
     position: absolute;
     inset: 0;
-    overflow: hidden;
     z-index: 0;
-}
-
-.img-leftmargin {
-    position: absolute;
-    right: 0;
-    width: 61% !important;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    transition: background 0.6s ease-in-out;
-}
-
-/* Desktop-specific overlay enhancements */
-.hero-overlay-desktop {
-    background: linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0));
-}
-
-/* Tablet-specific overlay enhancements */
-.hero-overlay-tablet {
-    background: linear-gradient(100deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.2));
-}
-
-/* Mobile-specific overlay enhancements */
-.hero-overlay-mobile {
-    background: linear-gradient(110deg, rgb(11 15 25) 70%, rgba(13, 27, 41, 0.4));
 }
 
 .hero-bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    min-height: 100%;
+    object-position: center center;
+    display: block;
 }
 
-/* Content styles */
-.slide-content {
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: background 0.5s ease;
+}
+
+/* DESKTOP: left-heavy gradient, image visible on right */
+.hero-overlay-desktop {
+    background: linear-gradient(90deg,
+            rgb(6 10 20 / 0.97) 0%,
+            rgb(6 10 20 / 0.90) 30%,
+            rgb(6 10 20 / 0.55) 50%,
+            rgb(6 10 20 / 0.08) 70%,
+            transparent 100%);
+}
+
+/* TABLET: image right-anchored, gradient protects left text area */
+.hero-overlay-tablet {
+    background: linear-gradient(90deg,
+            rgb(6 10 20 / 0.97) 0%,
+            rgb(6 10 20 / 0.92) 30%,
+            rgb(6 10 20 / 0.55) 52%,
+            rgb(6 10 20 / 0.12) 72%,
+            transparent 100%);
+}
+
+/* MOBILE: soft overall overlay so image shows as background */
+.hero-overlay-mobile {
+    background: linear-gradient(180deg,
+            rgb(6 10 20 / 0.80) 0%,
+            rgb(6 10 20 / 0.75) 60%,
+            rgb(6 10 20 / 0.65) 100%);
+}
+
+/* ---------- Content wrapper ---------- */
+.hero-content-wrapper {
     position: relative;
-    margin-top: 30px;
-    padding-bottom: 50px;
-    text-align: left;
     z-index: 2;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4vw;
+    display: flex;
+    align-items: center;
 }
 
+.slide-content {
+    width: 100%;
+    max-width: 600px;
+    padding: 60px 0;
+}
+
+/* ---------- Animations ---------- */
 .slide-content.slide-enter-right {
     animation: enterRight 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -80,7 +101,7 @@
 @keyframes enterRight {
     from {
         opacity: 0;
-        transform: translateX(60px);
+        transform: translateX(50px);
     }
 
     to {
@@ -92,7 +113,7 @@
 @keyframes enterLeft {
     from {
         opacity: 0;
-        transform: translateX(-60px);
+        transform: translateX(-50px);
     }
 
     to {
@@ -101,32 +122,43 @@
     }
 }
 
+/* ---------- Typography ---------- */
 .hero-title {
-    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    font-size: clamp(1.75rem, 3.2vw, 2.8rem);
     font-weight: 700;
     color: #ffffff;
-    line-height: 1.2;
-    max-width: 650px;
-    text-wrap: balance;
-    word-break: break-word;
+    line-height: 1.18;
     letter-spacing: -0.5px;
     margin-bottom: 1.2rem;
+    text-wrap: balance;
 }
 
 .hero-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(1.2rem, 1.5vw, 1.05rem);
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.65;
-    max-width: 480px;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.7;
     margin-bottom: 2.2rem;
+    max-width: 520px;
 }
 
-/* Dots */
+/* ---------- Buttons ---------- */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+.btn-hero {
+    min-width: 160px;
+}
+
+/* ---------- Dots ---------- */
 .slide-dots {
     display: flex;
-    gap: 0.6rem;
-    margin-top: 2rem;
+    gap: 10px;
+    margin-top: 2.2rem;
     align-items: center;
 }
 
@@ -134,185 +166,309 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.35);
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
     border: none;
     padding: 0;
+    transition: background 0.3s, transform 0.3s;
+    flex-shrink: 0;
 }
 
 .dot.active {
     background: #00d4e8;
-    transform: scale(1.3);
+    transform: scale(1.35);
 }
 
 .dot:hover {
-    background: rgba(0, 212, 232, 0.8);
+    background: rgba(0, 212, 232, 0.7);
 }
 
-/* ==================== */
-/* TABLET OPTIMIZATIONS */
-/* ==================== */
 
+/* ============================================================
+   TABLET (768px – 1024px)
+   Image right-anchored so subject is never cropped;
+   gradient covers the left text area
+   ============================================================ */
 @media (min-width: 768px) and (max-width: 1024px) {
     .hero-section {
-        min-height: calc(100vh - 80px);
-        padding-top: 120px;
-        padding-bottom: 80px;
         margin-top: 62px;
+        min-height: calc(100vh - 62px);
+        align-items: center;
+    }
+
+    /* Image subject (laptop/circuit) is on the RIGHT side of the image,
+       so anchor to right so it never gets cropped on tablet */
+    .hero-bg-image {
+        object-position: right center;
+    }
+
+    .hero-content-wrapper {
+        padding: 0 5vw;
     }
 
     .slide-content {
-        margin-top: 30px;
-        padding-bottom: 50px;
-        max-height: none;
-        overflow-y: visible;
+        max-width: 460px;
+        padding: 50px 0;
     }
 
     .hero-title {
-        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-        line-height: 1.2;
-        margin-bottom: 1.2rem;
-        max-width: 550px;
+        font-size: clamp(1.55rem, 2.8vw, 2.1rem);
+        margin-bottom: 1rem;
     }
 
     .hero-subtitle {
-        font-size: clamp(1rem, 1.3vw, 1.05rem);
-        line-height: 1.65;
-        margin-bottom: 2rem;
-        max-width: 450px;
-    }
-
-    .d-flex {
-        gap: 16px !important;
-        margin-bottom: 0;
-    }
-
-    .slide-dots {
-        margin-top: 2rem;
-        gap: 0.6rem;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-    }
-
-    .col-md-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-
-    .img-leftmargin {
-        position: absolute;
-        right: 0;
-        width: 61% !important;
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .hero-bg-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-}
-
-/* Tablet Landscape */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .hero-section {
-        min-height: calc(100vh - 80px);
-        padding-top: 100px;
-        padding-bottom: 60px;
-        margin-top: 62px;
-    }
-
-    .hero-title {
-        font-size: 1.8rem;
-        max-width: 500px;
-    }
-
-    .hero-subtitle {
-        font-size: 0.95rem;
-        max-width: 450px;
-    }
-
-    .img-leftmargin {
-        width: 55% !important;
-    }
-}
-
-/* iPad Pro 12.9" Specific */
-@media (min-width: 1024px) and (max-width: 1366px) and (min-height: 800px) {
-    .hero-section {
-        min-height: calc(100vh - 80px);
-        padding-top: 130px;
-        padding-bottom: 80px;
-        margin-top: 72px;
-    }
-
-    .hero-title {
-        font-size: 2.2rem;
-        max-width: 600px;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-        max-width: 500px;
-    }
-
-    .img-leftmargin {
-        width: 58% !important;
-    }
-}
-
-/* Mobile Responsive */
-@media (max-width: 767px) {
-    .hero-subtitle {
+        font-size: clamp(0.9rem, 1.4vw, 1rem);
+        margin-bottom: 1.8rem;
         max-width: 100%;
     }
 
-    .img-leftmargin {
-        position: relative;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover;
-        object-position: center;
+    .hero-buttons {
+        gap: 12px;
     }
 
-    .hero-section {
-        min-height: calc(100vh - 80px);
-        padding-top: 80px;
-        margin-top: 82px;
+    .btn-hero {
+        min-width: 140px;
     }
+}
 
-    .hero-bg-image {
-        object-position: 65% center;
+/* Tablet landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .slide-content {
+        max-width: 350px;
+        padding: 30px 0;
     }
 
     .hero-title {
-        font-size: 1.5rem;
-        line-height: 1.3;
-        margin-bottom: 0.8rem;
+        font-size: 1.6rem;
     }
 
     .hero-subtitle {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+        margin-bottom: 1.4rem;
+    }
+}
+
+
+/* ============================================================
+   MOBILE (up to 767px)
+   Content truly vertically centered; image focal point shifted
+   ============================================================ */
+@media (max-width: 767px) {
+    .hero-section {
+        margin-top: 62px;
+        min-height: calc(100vh - 62px);
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
-    .d-flex {
-        gap: 10px !important;
+    /* Shift focal point so image subject stays visible */
+    .hero-bg-image {
+        object-position: 60% center;
+    }
+
+    .hero-content-wrapper {
+        padding: 0 5vw;
+    }
+
+    .slide-content {
+        max-width: 100%;
+        padding: 40px 0;
+    }
+
+    .hero-title {
+        font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+        line-height: 1.25;
+        margin-bottom: 0.85rem;
+        letter-spacing: -0.3px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.93rem;
+        line-height: 1.62;
+        margin-bottom: 1.5rem;
+        max-width: 100%;
+        color: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .btn-hero {
+        width: 100%;
+        min-width: unset;
+        text-align: center;
     }
 
     .slide-dots {
-        margin-top: 1rem;
+        margin-top: 1.6rem;
+        gap: 8px;
     }
 
     .dot {
         width: 8px;
         height: 8px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+    .hero-title {
+        font-size: 1.25rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.87rem;
+    }
+}
+
+/* Landscape phones */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 100vh;
+        align-items: center;
+    }
+
+    .slide-content {
+        max-width: 58%;
+        padding: 20px 0;
+    }
+
+    .hero-title {
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.83rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .slide-dots {
+        margin-top: 0.8rem;
+    }
+}
+
+
+/* ============================================================
+   LARGE DESKTOP (1400px – 2559px)
+   ============================================================ */
+@media (min-width: 1400px) {
+    .hero-content-wrapper {
+        padding: 0 6vw ;
+    }
+
+    .slide-content {
+        max-width: 650px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+
+/* ============================================================
+   ULTRA-WIDE (≥ 2560px)
+   Wider content block, larger type, gradient shifted left
+   so it still covers the text zone on a 32″/4K canvas
+   ============================================================ */
+@media (min-width: 2560px) {
+
+    /* Section */
+    .hero-section {
+        margin-top: 80px;
+        min-height: calc(100vh - 80px);
+    }
+
+    /* Override desktop overlay — taper earlier so the
+       text zone stays dark on an extra-wide canvas          */
+    .hero-overlay-desktop {
+        background: linear-gradient(90deg,
+                rgb(6 10 20 / 0.97) 0%,
+                rgb(6 10 20 / 0.92) 20%,
+                rgb(6 10 20 / 0.75) 32%,
+                rgb(6 10 20 / 0.40) 46%,
+                rgb(6 10 20 / 0.08) 62%,
+                transparent 100%);
+    }
+
+    /* Wrapper — allow content to breathe across the wide canvas */
+    .hero-content-wrapper {
+        max-width: 2400px;
+        padding: 0 8vw;
+    }
+
+    /* Slide block */
+    .slide-content {
+        max-width: 860px;
+        padding: 80px 0;
+    }
+
+    /* Animation travel distance scales up */
+    @keyframes enterRight {
+        from {
+            opacity: 0;
+            transform: translateX(80px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes enterLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-80px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Typography */
+    .hero-title {
+        font-size: clamp(3rem, 2.6vw, 4rem);
+        letter-spacing: -1px;
+        margin-bottom: 1.6rem;
+        line-height: 1.14;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.1rem, 1vw, 1.35rem);
+        line-height: 1.72;
+        margin-bottom: 2.8rem;
+        max-width: 720px;
+    }
+
+    /* Buttons */
+    .hero-buttons {
+        gap: 20px;
+    }
+
+    .btn-hero {
+        min-width: 210px;
+    }
+
+    /* Dots */
+    .slide-dots {
+        margin-top: 3rem;
+        gap: 14px;
+    }
+
+    .dot {
+        width: 13px;
+        height: 13px;
+    }
+
+    .dot.active {
+        transform: scale(1.4);
     }
 }
