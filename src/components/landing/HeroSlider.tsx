@@ -105,19 +105,19 @@ export default function HeroSlider() {
   };
 
   // ✅ Auto scroll (ONLY ONE interval)
-  // useEffect(() => {
-  //   intervalRef.current = setInterval(() => {
-  //     setCurrent(prev => {
-  //       const nextIndex = (prev + 1) % slides.length;
-  //       goTo(nextIndex, 'right');
-  //       return nextIndex;
-  //     });
-  //   }, 5000);
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setCurrent(prev => {
+        const nextIndex = (prev + 1) % slides.length;
+        goTo(nextIndex, 'right');
+        return nextIndex;
+      });
+    }, 5000);
 
-  //   return () => {
-  //     if (intervalRef.current) clearInterval(intervalRef.current);
-  //   };
-  // }, []);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
 
   const handleDotClick = (i: number) => {
     if (i === current) return;
@@ -125,14 +125,14 @@ export default function HeroSlider() {
     setCurrent(i);
     goTo(i, dir);
     // Reset auto-interval on manual click
-    // if (intervalRef.current) clearInterval(intervalRef.current);
-    // intervalRef.current = setInterval(() => {
-    //   setCurrent(prev => {
-    //     const nextIndex = (prev + 1) % slides.length;
-    //     goTo(nextIndex, 'right');
-    //     return nextIndex;
-    //   });
-    // }, 5000);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrent(prev => {
+        const nextIndex = (prev + 1) % slides.length;
+        goTo(nextIndex, 'right');
+        return nextIndex;
+      });
+    }, 5000);
   };
 
   return (
