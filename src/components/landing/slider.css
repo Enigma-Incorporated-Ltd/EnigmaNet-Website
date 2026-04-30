@@ -357,9 +357,9 @@
    LARGE DESKTOP (1400px – 2559px)
    ============================================================ */
 @media (min-width: 1400px) {
-    .hero-content-wrapper {
+    /* .hero-content-wrapper {
         padding: 0 6vw ;
-    }
+    } */
 
     .slide-content {
         max-width: 650px;
