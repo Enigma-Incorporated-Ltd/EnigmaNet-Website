@@ -162,10 +162,14 @@ const MigrationCalculator = () => {
                   <IconifyIcon
                     icon="bx:cloud"
                     className="me-2 text-primary"
-                    style={{ fontSize: '1.5rem' }}
+                    style={{ fontSize: '2.5rem' }}
                   />
-                  <h4 className="mb-0">
-                    <IconifyIcon icon="bx:calculator" className="me-2 text-primary" />
+                  <h4 className="mb-0 d-flex align-items-center justify-content-center gap-2">
+                    <IconifyIcon
+                      icon="bx:calculator"
+                      className=" text-primary"
+                      style={{ fontSize: '2.0rem' }}
+                    />
                     Configure Your Migration
                   </h4>
                 </div>
@@ -269,7 +273,9 @@ const MigrationCalculator = () => {
                     </span>
                   </div>
                   <small className="text-muted">
-                    {optimalMigrationMonths === 0 ? 'Egress: $' + provider.egressPerGB + '/GB x Current Storage' : 'Projected egress cost at recommended migration time.'}
+                    {optimalMigrationMonths === 0
+                      ? 'Egress: $' + provider.egressPerGB + '/GB x Current Storage'
+                      : 'Projected egress cost at recommended migration time.'}
                   </small>
                 </Form.Group>
 

@@ -13,6 +13,9 @@ import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
 import PainCard from '@/components/ui/PainCard';
 import PremiumButton from '@/components/ui/PremiumButton';
+import NextPageSlider from '@/components/ui/NextPageSlider';
+import { solutions } from '@/utils/solutions';
+import { useSlug } from '@/utils/useSlug';
 const features = [
   {
     id: 1,
@@ -79,6 +82,7 @@ const outcomes = [
   'More controlled migration planning before costs or performance issues force the decision ',
 ];
 const Startups = () => {
+ const slug = useSlug();
   const { theme } = useTheme();
   return (
     <div>
@@ -350,6 +354,14 @@ const Startups = () => {
           href: '/trueCost',
           variant: 'blue',
         }}
+      />
+      <NextPageSlider
+        buttonText="All Solutions"
+        buttonLink="/solutions"
+        title="Related Solutions"
+        basePath="/solutions"
+        data={solutions}
+        currentSlug={slug as string}
       />
     </div>
   );

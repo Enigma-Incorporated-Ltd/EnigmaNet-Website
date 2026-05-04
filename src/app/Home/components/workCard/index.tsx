@@ -129,7 +129,21 @@ const WorkCard = () => {
               >
                 <div className="overlay"></div>
 
-                <IconifyIcon icon={feature.icon} className="display-5 text-warning mb-3" />
+                {typeof feature.icon === 'string' && feature.icon.startsWith('solar:') ? (
+                  <IconifyIcon
+                    icon={feature.icon}
+                    className="display-5 text-warning fw-normal card-icon"
+                    style={{ color: '#b4b7c9' }}
+                  />
+                ) : (
+                  <img
+                    src={feature.icon}
+                    width={100}
+                    height={100}
+                    alt={feature.title}
+                    className=""
+                  />
+                )}
                 <h3 className="h5 text-secondary">{feature.title}</h3>
                 <p className="text-secondary">{feature.description}</p>
               </Card>

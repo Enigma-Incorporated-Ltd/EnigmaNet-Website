@@ -167,7 +167,8 @@ const CTA = ({
                         label={secondaryButton.label}
                         href={secondaryButton.href}
                         variant={secondaryButton.variant || 'gold'}
-                        className="btn-lg shadow-lg btn-responsive"
+                        className="btn-lg shadow-lg btn-responsive "
+                       
                       />
                     )}
                   </div>
@@ -351,7 +352,7 @@ const CTA = ({
                     'linear-gradient(90deg, transparent, rgba(229,174,81,0.4), transparent)',
                 }}
               />
-              <div className="pb-md-2 d-flex flex-column flex-lg-row align-items-center  justify-content-center gap-4">
+              <div className="pb-md-2 d-flex flex-column flex-lg-row align-items-center   justify-content-center gap-4">
                 {primaryButton && (
                   <PremiumButton
                     label={primaryButton.label}
