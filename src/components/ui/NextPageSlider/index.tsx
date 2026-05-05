@@ -5,7 +5,7 @@ import IconifyIcon from '@/components/IconifyIcon';
 import { CardBody } from 'react-bootstrap';
 
 const PLACEHOLDER_IMAGE = 'https://placehold.co/800x500/e2e8f0/94a3b8?text=No+Image';
-import '../card/style.css'; // Import card styles for consistent styling
+import '../card/style.css'; 
 export interface SliderItem {
   id: string;
   slug?: string;
@@ -21,13 +21,13 @@ export interface SliderItem {
 }
 
 interface ReusableSliderProps {
-  data: SliderItem[] | any[]; // array of items to show
-  currentSlug: string; // 👈 important
+  data: SliderItem[] | any[]; 
+  currentSlug: string; 
   title?: string;
   buttonText?: string;
   buttonLink?: string;
   basePath?: string;
-  count?: number; // how many items to show (default 3)
+  count?: number; 
 }
 
 const NextPageSlider = ({
@@ -41,20 +41,20 @@ const NextPageSlider = ({
 }: ReusableSliderProps) => {
   if (!data || data.length === 0) return null;
 
-  // ✅ CORE LOGIC: Always get next N items
+
   const getNextItems = () => {
     if (data.length <= count) return data;
 
     const currentIndex = data.findIndex(item => item.slug === currentSlug);
 
-    // if slug not found → fallback first items
+    
     if (currentIndex === -1) {
       return data.slice(0, count);
     }
 
     let nextItems = data.slice(currentIndex + 1, currentIndex + 1 + count);
 
-    // wrap from beginning if needed
+
     if (nextItems.length < count) {
       const remaining = count - nextItems.length;
       nextItems = [...nextItems, ...data.slice(0, remaining)];
