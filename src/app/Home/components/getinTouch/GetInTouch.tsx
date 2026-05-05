@@ -102,7 +102,7 @@ const GetInTouch = () => {
           <Row className="justify-content-center align-items-start g-4">
             {/* ── Left column: info ── */}
             <Col xl={6} lg={5}   className={`fade-in delay-1 ${visible ? 'visible' : ''}`}>
-              <h2 className="mb-3">See how EnigmaNet fits your infrastructure</h2>
+              <h2 className="mb-3">See how Enigma Net fits your infrastructure</h2>
               <StraightLine />
               <p className="mb-4">
                 Whether you’re scaling AI workloads, improving connectivity across distributed

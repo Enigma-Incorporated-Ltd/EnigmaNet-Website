@@ -320,7 +320,7 @@ const Navbar = ({
         <Button
           variant="primary"
           size="sm"
-          href={config.cta_button.label}
+          href={config.cta_button.href}
           className="d-none d-lg-block"
           style={{ marginLeft: 'auto' }}
         >

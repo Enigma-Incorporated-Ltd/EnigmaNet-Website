@@ -185,7 +185,14 @@ const NetworkPage = () => {
           </>
         }
         data={fits}
-        quote={<> " Reserved for approved customer quote "</>}
+        quote={
+          <>
+            {' '}
+            " Secure networking should not mean starting <br /> again. Enigma helps businesses
+            strengthen
+            <br /> the connections they already rely on. "
+          </>
+        }
       />
       <CaseStudyHighlight
         title={

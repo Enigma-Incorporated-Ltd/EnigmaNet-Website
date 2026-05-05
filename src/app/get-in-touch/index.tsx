@@ -5,13 +5,12 @@ import Footer from './components/Footer';
 import { BASE_URL } from '@/utils';
 
 const Index = () => {
- 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
     name: 'Contact Us - Enigma Net',
     url: `${BASE_URL}/get-in-touch`,
-    description: 'Get in touch with Enigma Net for inquiries, support, or Book a Demo.',
+    description: 'Get in touch with Enigma Net for enquiries, support, or Book a Demo.',
     mainEntity: {
       '@type': 'Organization',
       name: 'Enigma Net',
@@ -36,11 +35,11 @@ const Index = () => {
       {/* ✅ META */}
       <PageMeta
         title="Contact Us"
-        description="Get in touch with Enigma Net for inquiries, support, or business opportunities."
+        description="Get in touch with Enigma Net for enquiries, support, or business opportunities."
         url={`${BASE_URL}/get-in-touch`}
         image={`${BASE_URL}/logo.png`}
         keywords={
-          'contact, Get In Touch, Support, Inquiries, Business opportunities, , Contact information, Customer service, Reach out,  Email, Phone'
+          'contact, Get In Touch, Support, enquiries, Business opportunities, , Contact information, Customer service, Reach out,  Email, Phone'
         }
         structuredData={structuredData}
       />
