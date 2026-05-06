@@ -1,4 +1,3 @@
-import Logo from '@/assets/img/EnigmaNet-logo.png';
 import LogoDark from '@/assets/img/EnigmaNet-dark.png';
 import IconifyIcon from '@/components/IconifyIcon';
 import certificate1 from '@/assets/img/certificates/c1.png';
@@ -12,7 +11,7 @@ import { Col, Collapse, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
 import './footer.css';
 import { fetchFooter, type FooterConfig } from '@/services/cmsApi';
-import { useTheme } from '@/utils/useTheme';
+import PremiumButton from '../ui/PremiumButton';
 const brands = [
   { src: certificate1, pending: false },
   { src: certificate2, pending: false },
@@ -156,7 +155,7 @@ const FALLBACK: FooterConfig = {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 const Footer = () => {
-  const { theme } = useTheme();
+ 
   const [data, setData] = useState<FooterConfig>(FALLBACK);
   const [openColumns, setOpenColumns] = useState<Record<number, boolean>>({});
   const [openSocials, setOpenSocials] = useState(false);
@@ -234,7 +233,7 @@ const Footer = () => {
               className="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4 d-flex align-items-center gap-2"
               style={brandTextStyle}
             >
-              <img src={theme === 'dark' ? LogoDark : Logo} alt={brand.name} />
+              <img src={LogoDark} alt={brand.name} />
               {/* {brand.name} */}
             </Link>
 
@@ -243,7 +242,15 @@ const Footer = () => {
                 {description}
               </p>
             )}
-
+            <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
+              <PremiumButton
+                label="Get in Touch"
+                variant="blue"
+                className="btn-lg btn-responsive"
+                href="/get-in-touch"
+                fullWidth
+              />
+            </div>
             {/* {newsletter?.enabled && (
               <form className="needs-validation" noValidate>
                 {newsletter.label && (
@@ -428,12 +435,13 @@ const Footer = () => {
           </Col>
         </Row>
         <BrandStrip />
+
         {/* Copyright */}
         <p
-          className="nav d-block fs-xs mb-3 text-center text-md-start pb-2 pb-lg-0 mb-0"
+          className="nav d-block fs-xs mb-3  text-white  text-center text-md-start pb-2 pb-lg-0 mb-0"
           style={
             copyright.style
-              ? { color: copyright.style.color, fontSize: copyright.style.fontSize }
+              ? { ...copyright.style, fontSize: copyright.style.fontSize }
               : {}
           }
         >

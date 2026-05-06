@@ -25,14 +25,12 @@ const features = [
 const Partner = () => {
   return (
     <Container className="py-5  mt-md-4">
-       <h2 className="h3 text-center text-warning mx-auto text-uppercase mt-n2 mt-sm-0 pt-md-2">
+      <h2 className="h3 text-center text-warning mx-auto text-uppercase mt-n2 mt-sm-0 pt-md-2">
         For Partners
       </h2>
       <Row className="align-items-center mt-5">
         {/* LEFT CONTENT */}
         <Col lg={6} className="mb-4 mb-lg-0">
-         
-
           <h1 className="fw-bold pb-5" style={{ lineHeight: '1.3' }}>
             Help your customers get more reliable connectivity and data movement, without building
             it all yourself
@@ -71,7 +69,12 @@ const Partner = () => {
         </Col>
       </Row>
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <PremiumButton label="Our  Partners" variant="gold" className="btn-lg" href="/partners" />
+        <PremiumButton
+          label="Our  Partners"
+          variant="gold"
+          className="btn-lg btn-responsive"
+          href="/partners"
+        />
       </div>
     </Container>
   );

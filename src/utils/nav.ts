@@ -617,7 +617,7 @@ export const FALLBACK_CONFIG: HeaderConfig = {
   ],
   cta_button: {
     label: 'Start Free',
-    href: '/',
+    href: '#',
     icon: 'bx:rocket',
     variant: 'primary',
     size: 'sm',

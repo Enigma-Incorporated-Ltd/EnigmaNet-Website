@@ -13,6 +13,9 @@ import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
 import PainCard from '@/components/ui/PainCard';
+import NextPageSlider from '@/components/ui/NextPageSlider';
+import { solutions } from '@/utils/solutions';
+import { useSlug } from '@/utils/useSlug';
 const features = [
   {
     id: 1,
@@ -65,6 +68,7 @@ const outcomes = [
 ];
 const EnterpriseData = () => {
   const { theme } = useTheme();
+ const slug = useSlug();
   return (
     <div>
       <Breadcrumb
@@ -178,6 +182,14 @@ const EnterpriseData = () => {
           href: '/get-in-touch',
           variant: 'blue',
         }}
+      />
+      <NextPageSlider
+        buttonText="All Solutions"
+        buttonLink="/solutions"
+        title="Related Solutions"
+        basePath="/solutions"
+        data={solutions}
+        currentSlug={slug as string}
       />
     </div>
   );

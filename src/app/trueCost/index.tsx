@@ -68,39 +68,50 @@ const MigrationCalculator = () => {
   };
 
   const storageCost = currentStorage * provider.storagePerGB;
-  const egressCost = currentStorage * provider.egressPerGB;
-  const monthlyBurn = storageCost + additionalComputeCost;
-  const daysUntilExpire = monthlyBurn > 0 ? Math.floor((remainingCredits / monthlyBurn) * 30) : 0;
-  const monthsUntilExpire = daysUntilExpire / 30;
   const migrationCostNow = currentStorage * provider.egressPerGB;
 
   const growthMultiplier = 1 + (growthRate / 100);
   let optimalMigrationMonths = 0;
   let optimalMigrationCost = migrationCostNow;
+  let affordableMigrationCost = migrationCostNow;
+  let remainingCreditsAfterBurn = remainingCredits;
+  let fullyCoveredMonths = 0;
+  let daysIntoNextMonth = 0;
+  const MAX_MONTHS = 120;
 
-  if (migrationCostNow > remainingCredits) {
-    for (let m = 1; m <= monthsUntilExpire; m++) {
-      const dataAtMonth = currentStorage * Math.pow(growthMultiplier, m);
-      const costAtMonth = dataAtMonth * provider.egressPerGB;
-      if (costAtMonth <= remainingCredits) {
-        optimalMigrationMonths = m;
-        optimalMigrationCost = costAtMonth;
-      } else {
-        break;
-      }
+  for (let m = 0; m <= MAX_MONTHS; m++) {
+    const dataAtMonth = currentStorage * Math.pow(growthMultiplier, m);
+    const monthlyBurn = dataAtMonth * provider.storagePerGB + additionalComputeCost;
+    const migrationCostAtMonth = dataAtMonth * provider.egressPerGB;
+
+    if (migrationCostAtMonth <= remainingCreditsAfterBurn) {
+      optimalMigrationMonths = m;
+      affordableMigrationCost = migrationCostAtMonth;
     }
-  } else {
-    optimalMigrationMonths = Math.floor(monthsUntilExpire - 1);
-    if (optimalMigrationMonths < 0) optimalMigrationMonths = 0;
-    const dataAtOptimal = currentStorage * Math.pow(growthMultiplier, optimalMigrationMonths);
-    optimalMigrationCost = dataAtOptimal * provider.egressPerGB;
+
+    if (remainingCreditsAfterBurn >= monthlyBurn) {
+      remainingCreditsAfterBurn -= monthlyBurn;
+      fullyCoveredMonths += 1;
+    } else {
+      daysIntoNextMonth = monthlyBurn > 0 ? (remainingCreditsAfterBurn / monthlyBurn) * 30 : 0;
+      remainingCreditsAfterBurn = 0;
+      break;
+    }
   }
+
+  if (fullyCoveredMonths === MAX_MONTHS && remainingCreditsAfterBurn > 0) {
+    daysIntoNextMonth = 30;
+  }
+
+  const daysUntilExpire = fullyCoveredMonths * 30 + daysIntoNextMonth;
+  const monthsUntilExpire = daysUntilExpire / 30;
+  optimalMigrationCost = affordableMigrationCost;
+  const projectedMigrationCost = optimalMigrationMonths === 0 ? migrationCostNow : optimalMigrationCost;
 
   const today = new Date();
   const creditExpiryDate = new Date(today.getTime() + daysUntilExpire * 24 * 60 * 60 * 1000);
   const optimalMigrationDate = new Date(today.getTime() + optimalMigrationMonths * 30 * 24 * 60 * 60 * 1000);
 
-  const savingsPercentage = migrationCostNow > 0 ? Math.round((1 - optimalMigrationCost / (currentStorage * Math.pow(growthMultiplier, monthsUntilExpire) * provider.egressPerGB)) * 100) : 0;
 
   return (
     <>
@@ -151,10 +162,14 @@ const MigrationCalculator = () => {
                   <IconifyIcon
                     icon="bx:cloud"
                     className="me-2 text-primary"
-                    style={{ fontSize: '1.5rem' }}
+                    style={{ fontSize: '2.5rem' }}
                   />
-                  <h4 className="mb-0">
-                    <IconifyIcon icon="bx:calculator" className="me-2 text-primary" />
+                  <h4 className="mb-0 d-flex align-items-center justify-content-center gap-2">
+                    <IconifyIcon
+                      icon="bx:calculator"
+                      className=" text-primary"
+                      style={{ fontSize: '2.0rem' }}
+                    />
                     Configure Your Migration
                   </h4>
                 </div>
@@ -254,11 +269,13 @@ const MigrationCalculator = () => {
                   </Form.Label>
                   <div className="input-group">
                     <span className="input-group-text">
-                      {formatCurrency(Math.round(egressCost))}
+                      {formatCurrency(Math.round(projectedMigrationCost))}
                     </span>
                   </div>
                   <small className="text-muted">
-                    Egress: ${provider.egressPerGB}/GB x Current Storage
+                    {optimalMigrationMonths === 0
+                      ? 'Egress: $' + provider.egressPerGB + '/GB x Current Storage'
+                      : 'Projected egress cost at recommended migration time.'}
                   </small>
                 </Form.Group>
 
@@ -296,7 +313,7 @@ const MigrationCalculator = () => {
                           className={`result-value ${daysUntilExpire < 30 ? 'text-danger' : daysUntilExpire < 90 ? 'text-warning' : 'text-success'}`}
                           style={{ fontSize: '32px', fontWeight: 700 }}
                         >
-                          {daysUntilExpire} days
+                          {daysUntilExpire.toFixed(1)} days
                         </div>
                         <small className="text-muted">
                           Expires on {formatDate(creditExpiryDate)}
@@ -317,9 +334,11 @@ const MigrationCalculator = () => {
                           className="result-value text-dark"
                           style={{ fontSize: '32px', fontWeight: 700 }}
                         >
-                          {formatCurrency(Math.round(migrationCostNow))}
+                          {formatCurrency(Math.round(projectedMigrationCost))}
                         </div>
-                        <small className="text-muted">Based on current data size</small>
+                        <small className="text-muted">
+                          Based on projected data at the recommended migration time
+                        </small>
                       </CardBody>
                     </Card>
                   </Col>
@@ -487,7 +506,7 @@ const MigrationCalculator = () => {
                           {optimalMigrationMonths === 0
                             ? "Your migration costs are already covered by your credits. Don't wait - migration costs will grow as your data expands."
                             : optimalMigrationMonths >= 1
-                              ? `You can save up to ${savingsPercentage}% by migrating before your data grows. Migration cost: ${formatCurrency(Math.round(optimalMigrationCost))} (covered by credits).`
+                              ? `Migration cost at the recommended migration time: ${formatCurrency(Math.round(optimalMigrationCost))}. Your remaining credits still cover this amount.`
                               : 'Immediate migration recommended to maximize credit utilization.'}
                         </small>
                       </CardBody>

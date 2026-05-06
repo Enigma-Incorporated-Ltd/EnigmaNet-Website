@@ -28,7 +28,7 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
   className = '',
   style,
   type = 'button',
-  fontSize = '18px',
+  fontSize ,
   fullWidth = false,
   isLoading = false,
   disabled = false,

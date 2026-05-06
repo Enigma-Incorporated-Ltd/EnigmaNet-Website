@@ -13,6 +13,9 @@ import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
 import PainCard from '@/components/ui/PainCard';
 import PremiumButton from '@/components/ui/PremiumButton';
+import NextPageSlider from '@/components/ui/NextPageSlider';
+import { solutions } from '@/utils/solutions';
+import { useSlug } from '@/utils/useSlug';
 const features = [
   {
     id: 1,
@@ -79,6 +82,7 @@ const outcomes = [
   'More controlled migration planning before costs or performance issues force the decision ',
 ];
 const Startups = () => {
+ const slug = useSlug();
   const { theme } = useTheme();
   return (
     <div>
@@ -110,7 +114,11 @@ const Startups = () => {
         }
       />
       <HeroSection
-        title={<>See what your current setup <br /> may really be costing you</>}
+        title={
+          <>
+            See what your current setup <br /> may really be costing you
+          </>
+        }
         description="Use the calculator to estimate where cloud or connectivity spend may be leaking value  then talk to Enigma Net about a setup that wastes less cash and causes fewer problems. "
         image={heroImg}
         buttons={[
@@ -132,14 +140,15 @@ const Startups = () => {
           ' Scale without cloud drag',
         ]}
       />
-      <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
+      <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 px-3 pt-sm-4">
         <PremiumButton
-          label="Talk to Enigma Net "
+          label="Talk to Enigma Net"
           variant="gold"
-          className="btn-lg"
+          className="btn-lg  btn-responsive"
           href="/get-in-touch"
         />
       </div>
+
       <PainCard
         data={features}
         title={
@@ -345,6 +354,14 @@ const Startups = () => {
           href: '/trueCost',
           variant: 'blue',
         }}
+      />
+      <NextPageSlider
+        buttonText="All Solutions"
+        buttonLink="/solutions"
+        title="Related Solutions"
+        basePath="/solutions"
+        data={solutions}
+        currentSlug={slug as string}
       />
     </div>
   );

@@ -320,7 +320,7 @@ const Navbar = ({
         <Button
           variant="primary"
           size="sm"
-          href={config.cta_button.label}
+          href={config.cta_button.href}
           className="d-none d-lg-block"
           style={{ marginLeft: 'auto' }}
         >
@@ -338,7 +338,7 @@ const Navbar = ({
         /> */}
         {/* Mobile Toggle */}
         <div className="d-lg-none d-flex align-items-center gap-2 ms-auto">
-          <ThemeToggle themeToggle={isNavDark ?? false} id="theme-mode-mobile" />
+          <ThemeToggle themeToggle={isNavDark ?? false} isColor={true} id="theme-mode-mobile" />
 
           <button
             type="button"

@@ -165,7 +165,12 @@ const UseCase = () => {
       </div>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        <PremiumButton label="Industries" variant="gold" className="btn-lg" href="/solutions/industries" />
+        <PremiumButton
+          label="Industries"
+          variant="gold"
+          className="btn-lg btn-responsive"
+          href="/solutions/industries"
+        />
       </div>
     </section>
   );

@@ -74,18 +74,7 @@ const BlogPosts = ({ posts, loading }: { posts: BlogPost[]; loading: boolean }) 
                       className="position-absolute top-0 start-0 w-100 h-100"
                       aria-label="Read more"
                     />
-                    <OverlayTrigger
-                      placement="left"
-                      overlay={<Tooltip id={`tip-r-${post.id}`}>Read later</Tooltip>}
-                    >
-                      <Link
-                        to="#"
-                        className="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3"
-                        aria-label="Read later"
-                      >
-                        <IconifyIcon icon="bx:bookmark" fontSize={18} />
-                      </Link>
-                    </OverlayTrigger>
+                   
                   </Col>
                 )}
               </Row>

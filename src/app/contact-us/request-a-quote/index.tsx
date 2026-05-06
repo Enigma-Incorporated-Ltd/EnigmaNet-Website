@@ -8,14 +8,31 @@ const RequestAQuote = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Request a Quote',
     url: `${BASE_URL}/contact-us/request-a-quote`,
     description: 'We are working hard to launch something amazing. Stay tuned!',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'Enigma Net',
+      url: { BASE_URL },
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/logo.png`,
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+44 (0) 20 8050 4632',
+        contactType: 'customer support',
+        email: 'info@enigmainc.co.uk',
+        areaServed: 'GB',
+        availableLanguage: 'en',
+      },
+    },
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
+        title="Request a Quote "
         description="We are working hard to launch something amazing. Stay tuned!"
         url={`${BASE_URL}/contact-us/request-a-quote`}
         structuredData={structuredData}
