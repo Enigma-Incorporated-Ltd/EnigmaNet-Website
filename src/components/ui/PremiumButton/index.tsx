@@ -5,7 +5,7 @@ import './style.css';
 type Variant = 'blue' | 'gold';
 
 type CustomButtonProps = {
-  label: string;
+  label: string | React.ReactNode;
   loadingLabel?: string;
   variant?: Variant;
   href?: string;
@@ -42,7 +42,6 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
   const commonStyle: React.CSSProperties = {
     fontSize,
     fontWeight: 800,
-    letterSpacing: '3px',
     pointerEvents: isDisabled ? 'none' : 'auto',
     opacity: isDisabled ? 0.8 : 1,
     ...style,

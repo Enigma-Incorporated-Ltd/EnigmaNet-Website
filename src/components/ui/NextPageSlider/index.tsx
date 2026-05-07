@@ -5,7 +5,9 @@ import IconifyIcon from '@/components/IconifyIcon';
 import { CardBody } from 'react-bootstrap';
 
 const PLACEHOLDER_IMAGE = 'https://placehold.co/800x500/e2e8f0/94a3b8?text=No+Image';
-import '../card/style.css'; 
+import '../card/style.css';
+import HeaderTitle from '../HeaderTitle';
+import PremiumButton from '../PremiumButton';
 export interface SliderItem {
   id: string;
   slug?: string;
@@ -21,39 +23,38 @@ export interface SliderItem {
 }
 
 interface ReusableSliderProps {
-  data: SliderItem[] | any[]; 
-  currentSlug: string; 
+  data: SliderItem[] | any[];
+  currentSlug?: string;
   title?: string;
   buttonText?: string;
   buttonLink?: string;
   basePath?: string;
-  count?: number; 
+  count?: number;
 }
 
 const NextPageSlider = ({
   data,
   currentSlug,
-  title = 'Related Articles',
-  buttonText = 'All posts',
-  buttonLink = '/',
-  basePath = '/',
+  title = '',
+  buttonText = '',
+  buttonLink = '',
+  basePath = '',
   count = 3,
 }: ReusableSliderProps) => {
   if (!data || data.length === 0) return null;
 
-
   const getNextItems = () => {
-    if (data.length <= count) return data;
+    if (!currentSlug) {
+      return data;
+    }
 
     const currentIndex = data.findIndex(item => item.slug === currentSlug);
 
-    
     if (currentIndex === -1) {
-      return data.slice(0, count);
+      return data;
     }
 
     let nextItems = data.slice(currentIndex + 1, currentIndex + 1 + count);
-
 
     if (nextItems.length < count) {
       const remaining = count - nextItems.length;
@@ -69,16 +70,20 @@ const NextPageSlider = ({
     <section className="container mb-5 pt-md-4">
       {/* Header */}
       <div className="d-flex flex-sm-row  flex-column align-items-center justify-content-between mb-4 pb-1 pb-md-3">
-        <h2 className="h1 mb-sm-0">{title}</h2>
-
+       
+        <HeaderTitle title={title} className="h1 mb-sm-0" />
         {buttonLink && (
-          <Link
-            to={buttonLink}
-            className="btn btn-md w-100 w-sm-auto btn-outline-primary d-flex align-items-center justify-content-center mt-3 mt-sm-0"
-          >
-            {buttonText}
-            <IconifyIcon icon="bx:right-arrow-alt" className="ms-1 me-n1 lh-1 lead" />
-          </Link>
+          <PremiumButton
+            label={
+              <>
+                {buttonText}{' '}
+                <IconifyIcon icon="bx:right-arrow-alt" className="ms-1 me-n1 lh-1 lead" />
+              </>
+            }
+            href={buttonLink}
+            variant="blue"
+            className="d-flex align-items-center justify-content-center mt-3 mt-sm-0"
+          />
         )}
       </div>
 

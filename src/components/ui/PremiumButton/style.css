@@ -3,7 +3,7 @@
    ============================================= */
 .custom-btn {
     position: relative;
-    padding: 16px 50px;
+    padding: 18px 50px;
     border-radius: 100px;
     border: none;
     text-decoration: none;
@@ -12,7 +12,7 @@
     cursor: pointer;
     overflow: hidden;
     min-width: 200px;
-    letter-spacing: 0.01em;
+    letter-spacing: 3px;
     font-family: inherit;
 
     display: inline-flex;
@@ -174,19 +174,21 @@
    📱 RESPONSIVE
    ============================================= */
 @media (max-width: 768px) {
-    .custom-btn {
-        padding: 12px 28px;
+    .custom-btn {      
         font-size: 16px;
         min-width: 160px;
+        letter-spacing: 1.9px;
+        padding: 16px 28px;
     }
 }
 
 @media (max-width: 480px) {
     .custom-btn {
-        padding: 12px 20px;
+        padding: 14px 20px;
         font-size: 15px;
         min-width: 140px;
         width: 100%;
+        letter-spacing: 3px;
     }
 }
 .btn-spinner {

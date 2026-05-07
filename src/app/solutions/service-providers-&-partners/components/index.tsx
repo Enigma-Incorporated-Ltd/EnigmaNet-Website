@@ -152,7 +152,12 @@ const ProvidersPartners = () => {
             showing how Enigma helped improve customer experience, resilience or visibility.
           </>
         }
-        quote={<>" Reserved for approved partner or customer quote"</>}
+        quote={
+          <>
+            " Enigma Net helps partners strengthen what they already offer adding performance,
+            resilience and secure data movement to the customer environments they support."
+          </>
+        }
       />
       <CaseStudyHighlight
         data={outcomes}

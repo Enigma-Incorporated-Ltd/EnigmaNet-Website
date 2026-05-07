@@ -153,7 +153,12 @@ const TechnologiesPage = () => {
             deployment.
           </>
         }
-        quote={<>"Reserved for approved partner or customer quote"</>}
+        quote={
+          <>
+            "When platforms, infrastructure and data movement work together, customers get more than
+            separate tools they get a better operating environment."
+          </>
+        }
       />
       <CaseStudyHighlight
         data={outcomes}

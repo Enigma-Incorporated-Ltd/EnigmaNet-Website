@@ -68,7 +68,7 @@ const outcomes = [
 ];
 const EnterpriseData = () => {
   const { theme } = useTheme();
- const slug = useSlug();
+  const slug = useSlug();
   return (
     <div>
       <Breadcrumb
@@ -151,7 +151,12 @@ const EnterpriseData = () => {
             systems, supporting high user volumes and improving operational visibility.
           </>
         }
-        quote={<>"Reserved for implementation quote"</>}
+        quote={
+          <div >
+            "When teams, sites and systems are distributed, network performance  becomes a
+            business issue not just an IT one."
+          </div>
+        }
       />
       <CaseStudyHighlight
         data={outcomes}
