@@ -8,16 +8,17 @@ const EnigmaNexus = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
-    url: `${BASE_URL}/products/the-enigma-platform/enigma-nexus`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    name: 'Enigma Nexus - The control layer for Enigma Net',
+    url: `${BASE_URL}/products/enigma-platform/enigma-nexus`,
+    description:
+      'Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform. ',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
-        url={`${BASE_URL}/products/the-enigma-platform/enigma-nexus`}
+        title="Enigma Nexus - The control layer for Enigma Net"
+        description=" Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform.  "
+        url={`${BASE_URL}/solutions/channel-partner`}
         structuredData={structuredData}
       />
 

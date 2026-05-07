@@ -21,7 +21,7 @@ const Error = () => {
             <IconifyIcon icon="bx:home-alt" className="me-2 ms-n1 lead" />
             Go to homepage
           </Link> */}
-          <PremiumButton label="Go to homepage" variant="blue" className="btn-lg" href="/" />
+          <PremiumButton label="Go to Homepage" variant="blue" className="btn-lg" href="/" />
         </div>
       </section>
     </>

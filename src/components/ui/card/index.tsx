@@ -27,7 +27,7 @@ const CardGrid: React.FC<CardGridProps> = ({
   const { theme } = useTheme();
 
   return (
-    <div className="row g-4">
+    <div className="row g-4 container mx-auto">
       {data.map((item, index) => (
         <div key={item.id ?? index} className={columns}>
           <div className="card solution-card h-100 shadow-sm border-0">

@@ -7,8 +7,16 @@ type CaseStudyHighlightProps = {
   description?: string | React.ReactNode;
   quote?: string | React.ReactNode;
   transitionLine?: string | React.ReactNode;
+  image?: string;
 };
-const CaseStudyHighlight = ({ data, title, description, quote , transitionLine }: CaseStudyHighlightProps) => {
+const CaseStudyHighlight = ({
+  data,
+  title,
+  description,
+  quote,
+  transitionLine,
+  image,
+}: CaseStudyHighlightProps) => {
   return (
     <Container className="pt-3 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
       {title && (
@@ -48,7 +56,19 @@ const CaseStudyHighlight = ({ data, title, description, quote , transitionLine }
             ))}
           </ul>
         )}
-
+        {image && (
+          <div className="text-center mb-5">
+            <img
+              src={image}
+              alt="Case Study Highlight"
+              className="img-fluid rounded-4 shadow-lg"
+              style={{
+                borderRadius: '1.5rem',
+                boxShadow: '0 1.875rem 7.5rem -.625rem rgba(124,125,152, .2)',
+              }}
+            />
+          </div>
+        )}
         {quote && (
           <div
             className="text-center d-flex flex-wrap text-center justify-content-center mx-auto pt-5 mb-5"

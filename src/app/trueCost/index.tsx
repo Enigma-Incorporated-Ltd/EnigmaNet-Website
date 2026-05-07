@@ -7,6 +7,8 @@ import PageMeta from '@/components/PageMeta';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/footer/Footer';
 import { BASE_URL } from '@/utils';
+import PremiumButton from '@/components/ui/PremiumButton';
+
 
 const PRICING = {
   aws: {
@@ -154,7 +156,7 @@ const MigrationCalculator = () => {
         <div style={{ height: '100px' }}></div>
       </section>
       <section className="container position-relative zindex-2" style={{ marginTop: '-100px' }}>
-        <Row className="g-4">
+        <Row className="g-3">
           <Col lg={5}>
             <Card className="shadow-lg border-0">
               <CardBody className="p-4">
@@ -232,7 +234,7 @@ const MigrationCalculator = () => {
               </CardBody>
             </Card>
 
-            <Card className="shadow-lg border-0 mt-4">
+            <Card className="shadow-lg border-0 my-4">
               <CardBody className="p-4">
                 <div className="d-flex align-items-center mb-4">
                   <IconifyIcon
@@ -299,10 +301,10 @@ const MigrationCalculator = () => {
           <Col lg={7}>
             {calculated ? (
               <>
-                <Row className="g-4 mb-4">
+                <Row className="g-3 mb-4 ">
                   <Col md={4}>
                     <Card className="shadow-lg border-0 h-100">
-                      <CardBody className="text-center p-4">
+                      <CardBody className="text-center p-3">
                         <div
                           className="result-label text-muted text-uppercase mb-2"
                           style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em' }}
@@ -311,7 +313,7 @@ const MigrationCalculator = () => {
                         </div>
                         <div
                           className={`result-value ${daysUntilExpire < 30 ? 'text-danger' : daysUntilExpire < 90 ? 'text-warning' : 'text-success'}`}
-                          style={{ fontSize: '32px', fontWeight: 700 }}
+                          style={{ fontSize: '28px', fontWeight: 700 }}
                         >
                           {daysUntilExpire.toFixed(1)} days
                         </div>
@@ -323,7 +325,7 @@ const MigrationCalculator = () => {
                   </Col>
                   <Col md={4}>
                     <Card className="shadow-lg border-0 h-100">
-                      <CardBody className="text-center p-4">
+                      <CardBody className="text-center p-3">
                         <div
                           className="result-label text-muted text-uppercase mb-2"
                           style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em' }}
@@ -332,7 +334,7 @@ const MigrationCalculator = () => {
                         </div>
                         <div
                           className="result-value text-dark"
-                          style={{ fontSize: '32px', fontWeight: 700 }}
+                          style={{ fontSize: '28px', fontWeight: 700 }}
                         >
                           {formatCurrency(Math.round(projectedMigrationCost))}
                         </div>
@@ -344,7 +346,7 @@ const MigrationCalculator = () => {
                   </Col>
                   <Col md={4}>
                     <Card className="shadow-lg border-0 h-100">
-                      <CardBody className="text-center p-4">
+                      <CardBody className="text-center p-3">
                         <div
                           className="result-label text-muted text-uppercase mb-2"
                           style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.05em' }}
@@ -352,8 +354,8 @@ const MigrationCalculator = () => {
                           Optimal Migration Date
                         </div>
                         <div
-                          className={`result-value ${optimalMigrationMonths === 0 ? 'text-danger' : optimalMigrationMonths >= monthsUntilExpire - 1 ? 'text-success' : 'text-warning'}`}
-                          style={{ fontSize: '32px', fontWeight: 700 }}
+                          className={`result-value flex-grow-1 ${optimalMigrationMonths === 0 ? 'text-danger' : optimalMigrationMonths >= monthsUntilExpire - 1 ? 'text-success' : 'text-warning'}`}
+                          style={{ fontSize: '28px', fontWeight: 700 }}
                         >
                           {optimalMigrationMonths === 0
                             ? 'Now'
@@ -462,7 +464,9 @@ const MigrationCalculator = () => {
                               }}
                             ></div>
                             <div>
-                              <div className="fw-bold">Credit Expiry</div>
+                              <div className="fw-bold">
+                                Credit Expiry ({formatDate(creditExpiryDate)})
+                              </div>
                               <small className="text-muted">
                                 Your credits expire. Full migration cost applies after this date.
                               </small>
@@ -472,13 +476,13 @@ const MigrationCalculator = () => {
                       </CardBody>
                     </Card>
                   </Col>
-                  <Col lg={4}>
+                  <Col lg={4} className="mb-3">
                     <Card
                       style={{
                         background: 'linear-gradient(135deg, #001A94 0%, #0033cc 100%)',
                         border: 'none',
                       }}
-                      className="shadow-lg border-0 h-100"
+                      className="shadow-lg border-0 h-100 "
                     >
                       <CardBody className="p-4 text-white">
                         <div
@@ -512,6 +516,28 @@ const MigrationCalculator = () => {
                       </CardBody>
                     </Card>
                   </Col>
+                  <div className="col-12 text-center pb-5" style={{ marginTop: '100px' }}>
+                    <h5 className="h4 pb-4">
+                      Want help interpreting your results? Speak to us and <br />
+                      we’ll show you what they mean.
+                    </h5>
+                    {/* <HeaderTitle
+                      className="h4 pb-4"
+                      title={
+                        <>
+                          Want help interpreting your results? Speak to us and <br />
+                          we’ll show you what they mean.
+                        </>
+                      }
+                    /> */}
+
+                    <PremiumButton
+                      label="Discuss My Diagnostic Summary"
+                      variant="blue"
+                      className="btn-lg btn-responsive"
+                      href="/get-in-touch"
+                    />
+                  </div>
                 </Row>
               </>
             ) : (

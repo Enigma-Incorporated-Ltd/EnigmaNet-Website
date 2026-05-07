@@ -67,7 +67,7 @@ const outcomes = [
   ' Greater confidence in solution fit ',
 ];
 const ChannelPage = () => {
- const slug = useSlug();
+  const slug = useSlug();
   const { theme } = useTheme();
   return (
     <div>
@@ -174,7 +174,12 @@ const ChannelPage = () => {
             the overall offer.
           </>
         }
-        quote={<>" Reserved for approved partner or customer quote"</>}
+        quote={
+          <>
+            " The right partner offer should help you differentiate faster, create more customer
+            value and keep delivery simple."
+          </>
+        }
       />
       <CaseStudyHighlight
         data={outcomes}

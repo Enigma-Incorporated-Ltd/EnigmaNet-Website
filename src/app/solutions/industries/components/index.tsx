@@ -185,7 +185,12 @@ const IndustriesData = () => {
             settings.
           </>
         }
-        quote={<>" Reserved for approved client quote"</>}
+        quote={
+          <>
+            " Every sector has its own pressures. Enigma Net gives teams the infrastructure control
+            to keep operating through them."
+          </>
+        }
       />
       <CaseStudyHighlight
         data={outcomes}
