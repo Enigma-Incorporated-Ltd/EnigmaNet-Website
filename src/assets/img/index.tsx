@@ -1,4 +1,4 @@
-import aiInfra from './solutions/ai-infra/ai-data-infrastructure.png';
+import aiInfra from './solutions/ai/ai-data-infrastructure.png';
 import channel from './solutions/channels/channels-partners.png';
 import defense from './solutions/defense/defence-dual-thechnology.png';
 import enterprise from './solutions/enterprise/enterprisenew.png';
