@@ -2,7 +2,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import HeroSection from '@/components/ui/HeroSection';
 import PainCard from '@/components/ui/PainCard';
-
+ import kinnamiImage from '@/assets/img/partners/Kinnami_logo_full.png';
 import features1 from '@/assets/svgs/solutions/channel-partner/pain card - Standard infrastructure offers blur together.svg';
 import features2 from '@/assets/svgs/solutions/channel-partner/pain point - Customers expect more outcome-led value.svg';
 import features3 from '@/assets/svgs/solutions/channel-partner/pain card -  Differentiation must not create delivery drag.svg';
@@ -23,6 +23,7 @@ import maritime from '@/assets/svgs/icon storage stack.svg';
 import edge from '@/assets/svgs/router.svg';
 import satellite from '@/assets/svgs/speed gauge performance.svg';
 import { useTheme } from '@/utils/useTheme';
+import HeroImage from '@/components/ui/HeroImage';
 const kinnami = [
   {
     title: 'KINNAMI',
@@ -191,13 +192,19 @@ const KinnamiPartnershipPage = () => {
         ]}
         features={['Persistent data ', 'Predictable connectivity ', 'Operational continuity  ']}
       />
+      <HeroImage img={kinnamiImage} isbg />
       <PainCard
         data={features}
         title={
           <>
             <HeaderTitle
               key={theme}
-              title={<>Distributed operational data synchronization  <br/>for omplex environments.</>}
+              title={
+                <>
+                  Distributed operational data synchronization <br />
+                  for omplex environments.
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
