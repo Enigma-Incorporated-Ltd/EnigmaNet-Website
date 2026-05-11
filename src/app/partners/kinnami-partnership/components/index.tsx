@@ -2,7 +2,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import HeroSection from '@/components/ui/HeroSection';
 import PainCard from '@/components/ui/PainCard';
- import kinnamiImage from '@/assets/img/partners/Kinnami_logo_full.png';
+import kinnamiImage from '@/assets/img/partners/Kinnami_logo_full.png';
 import features1 from '@/assets/svgs/solutions/channel-partner/pain card - Standard infrastructure offers blur together.svg';
 import features2 from '@/assets/svgs/solutions/channel-partner/pain point - Customers expect more outcome-led value.svg';
 import features3 from '@/assets/svgs/solutions/channel-partner/pain card -  Differentiation must not create delivery drag.svg';
@@ -202,7 +202,7 @@ const KinnamiPartnershipPage = () => {
               title={
                 <>
                   Distributed operational data synchronization <br />
-                  for omplex environments.
+                  for complex environments.
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}

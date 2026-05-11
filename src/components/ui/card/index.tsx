@@ -16,6 +16,7 @@ interface CardGridProps {
   buttonLabel?: string;
   columns?: string;
   showButton?: boolean;
+  isBg?: boolean;
 }
 
 const CardGrid: React.FC<CardGridProps> = ({
@@ -23,6 +24,7 @@ const CardGrid: React.FC<CardGridProps> = ({
   buttonLabel = 'Explore',
   columns = 'col-12 col-sm-12 col-lg-6',
   showButton = true,
+  isBg = false,
 }) => {
   const { theme } = useTheme();
 
@@ -38,7 +40,10 @@ const CardGrid: React.FC<CardGridProps> = ({
                   src={item.image}
                   alt={item.title || 'card-image'}
                   className="w-100 h-100 rounded-top"
-                  style={{ objectFit: 'cover' }}
+                  style={{
+                    // objectFit: 'cover',
+                    backgroundColor: isBg ? '#fff' : '',
+                   }}
                 />
               </div>
             )}
