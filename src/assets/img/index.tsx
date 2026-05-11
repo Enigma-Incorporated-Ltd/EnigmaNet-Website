@@ -9,9 +9,11 @@ import remoteWork from './solutions/remote-work/remote-work-and-branch.png';
 import startups from './solutions/startups/Outreach_Topic3_Cloud.png';
 import technology from './solutions/Technology/technology-partners.png';
 
+
 export {
   aiInfra,
   channel,
+  
   defense,
   enterprise,
   industries,
