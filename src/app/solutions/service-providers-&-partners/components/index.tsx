@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/ProvidersPartners/ProvidersPartners.jpg';
+import { providersPartners } from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/service-providers-&-partners/pain point - Basic connectivity is harder to differentiate.svg';
 import features2 from '@/assets/svgs/solutions/service-providers-&-partners/pain point -  Performance issues damage customer confidence.svg';
 import features3 from '@/assets/svgs/solutions/service-providers-&-partners/pain point - Basic connectivity is harder to differentiate.svg';
@@ -84,7 +84,7 @@ const ProvidersPartners = () => {
       <HeroSection
         title="Help your customers get more from the networks they already have"
         description="Enigma enables service providers and partners to deliver stronger performance, built-in resilience and better visibility across customer connectivity environments without adding unnecessary complexity."
-        image={heroImg}
+        image={providersPartners}
         buttons={[
           {
             label: ' Talk to Enigma ',

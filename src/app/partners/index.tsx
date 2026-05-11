@@ -3,20 +3,29 @@ import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import PartnersData from './components';
-
+import { Partners as listPartners } from '@/utils/partners';
 const Partners = () => {
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Coming Soon',
+    '@type': 'CollectionPage',
+    name: 'Enigma Partners',
     url: `${BASE_URL}/partners`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: 'Enigma Partners',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: listPartners.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.title,
+        url: `${BASE_URL}${item.href}`,
+      })),
+    },
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Partners"
+        description="Partners"
         url={`${BASE_URL}/partners`}
         structuredData={structuredData}
       />

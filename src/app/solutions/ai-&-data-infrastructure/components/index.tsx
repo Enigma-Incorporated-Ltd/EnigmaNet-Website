@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/ai-infra/ai-infra.jpg';
+import { aiInfra } from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Pain point -GPU costs.svg';
 import features2 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Pain point - Storage costs creep up quietly.svg';
 import features3 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Pain point - Engineering time gets pulled away.svg';
@@ -81,7 +81,7 @@ const DataInfrastructure = () => {
       <HeroSection
         title="AI infrastructure that stays fast, flexible and under your control"
         description="From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. "
-        image={heroImg}
+        image={aiInfra}
         buttons={[
           {
             label: 'Talk About Your AI Stack ',

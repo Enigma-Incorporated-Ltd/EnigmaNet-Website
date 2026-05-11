@@ -129,17 +129,10 @@ const Index = () => {
           variant: 'gold',
         }}
       />
-
       <Partner />
       <Resources />
       <Faqs />
       <GetInTouch />
-      {/* <FeatureApp /> */}
-      {/* <Brand /> */}
-      {/* <FeatureCrypto /> */}
-      {/* <Work /> */}
-      {/* <Testimonials /> */}
-      {/* <Cta /> */}
       <Footer />
     </>
   );

@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/remote-work/remote.jpg';
+import {remoteWork} from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/remote-work-&-branch/Pain point - Calls and apps fail when connectivity dips.svg';
 import features2 from '@/assets/svgs/solutions/remote-work-&-branch/Pain point - Branches are hard to manage consistently.svg';
 import features3 from '@/assets/svgs/solutions/remote-work-&-branch/Pain point - IT teams spend time reacting instead of improving.svg';
@@ -82,7 +82,7 @@ const WorkBranch = () => {
       <HeroSection
         title="Give every site and every user a more reliable connection to work from"
         description="Enigma helps businesses improve performance across branches, remote teams and distributed operations with centralised visibility, built-in resilience and better control over critical traffic.  "
-        image={heroImg}
+        image={remoteWork}
         buttons={[
           {
             label: 'Assess Your Branch Network ',

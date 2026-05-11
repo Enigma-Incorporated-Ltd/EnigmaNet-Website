@@ -38,9 +38,9 @@ const HeroSection = ({
           {/* TEXT CONTENT */}
           <Col
             lg={isFullWidth ? 10 : 6}
-            className={!isFullWidth ? 'text-lg-start text-center' : ''}
+            className={!isFullWidth ? 'text-lg-start text-center ' : ''}
           >
-            <h1 className="display-6 fw-semibold mb-3">{title}</h1>
+            <h1 className="display-6 fw-semibold py-4 mb-3">{title}</h1>
             {subtitle && (
               <h3 className="h3 text-center  mx-auto  mt-n2 mt-sm-0 pt-md-2">{subtitle}</h3>
             )}

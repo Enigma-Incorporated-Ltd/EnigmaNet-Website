@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/enterprise/enterprise.jpg';
+import {enterprise} from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/enterprise/pain card - Peak demand exposes weak points.svg';
 import features2 from '@/assets/svgs/solutions/enterprise/pain card - Critical systems compete with non-critical traffic.svg';
 import features3 from '@/assets/svgs/solutions/enterprise/pain card - IT teams spend too much time firefighting.svg';
@@ -81,7 +81,7 @@ const EnterpriseData = () => {
       <HeroSection
         title="Make enterprise connectivity perform the way the business needs it to"
         description="Enigma helps enterprises improve resilience, protect critical traffic and gain visibility across the network without replacing existing infrastructure."
-        image={heroImg}
+        image={enterprise}
         buttons={[
           {
             label: 'Get a Network Assessment',
@@ -152,9 +152,9 @@ const EnterpriseData = () => {
           </>
         }
         quote={
-          <div >
-            "When teams, sites and systems are distributed, network performance  becomes a
-            business issue not just an IT one."
+          <div>
+            "When teams, sites and systems are distributed, network performance becomes a business
+            issue not just an IT one."
           </div>
         }
       />

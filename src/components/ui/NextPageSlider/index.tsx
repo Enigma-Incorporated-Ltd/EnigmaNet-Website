@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { Link } from 'react-router';
 import IconifyIcon from '@/components/IconifyIcon';
 import { CardBody } from 'react-bootstrap';
@@ -89,7 +89,7 @@ const NextPageSlider = ({
 
       {/* Slider */}
       <Swiper
-        modules={[Pagination, Autoplay]}
+        modules={[Pagination]}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         spaceBetween={8}
         slidesPerView={1}

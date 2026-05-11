@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/operation/operation.jpg';
+import {operations} from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/operational-technology/pain-point-link-instability.svg';
 import features2 from '@/assets/svgs/solutions/operational-technology/pain-point-critical-ot-traffic.svg';
 import features3 from '@/assets/svgs/solutions/operational-technology/pain-point-public-internet.svg';
@@ -79,7 +79,7 @@ const RemoteAssets = () => {
       <HeroSection
         title="Reliable connectivity for remote assets and operational technology"
         description="Enigma helps organisations keep remote sites, industrial systems and operational assets connected with resilient, policy-controlled networking across difficult environments. "
-        image={heroImg}
+        image={operations}
         buttons={[
           {
             label: 'Talk About Remote Assets ',

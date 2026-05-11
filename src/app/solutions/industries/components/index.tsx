@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/industries/Organisational_operation.png';
+import {industries} from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/industries/pain card - Critical systems cannot tolerate disruption.svg';
 import features2 from '@/assets/svgs/solutions/industries/pain card - Limited visibility slows response.svg';
 import features3 from '@/assets/svgs/solutions/industries/pain card - Legacy or fragmented infrastructure creates risk.svg';
@@ -114,7 +114,7 @@ const IndustriesData = () => {
       <HeroSection
         title="Connectivity and infrastructure for demanding industry environments"
         description="Enigma helps organisations improve resilience, protect critical systems and gain visibility across the infrastructure their operations depend on."
-        image={heroImg}
+        image={industries}
         buttons={[
           {
             label: 'Talk to Enigma ',
