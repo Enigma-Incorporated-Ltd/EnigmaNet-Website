@@ -1,13 +1,13 @@
 import aiInfra from './solutions/ai/ai-data-infrastructure.png';
 import channel from './solutions/channels/channels-partners.png';
 import defense from './solutions/dualtechnology/defence-dual-thechnology.png';
-import enterprise from './solutions/enterprise/enterprisenew.png';
-import industries from './solutions/industries/inustries.png';
+import enterprise from './solutions/enterprise-solution/enterprisenew.png';
+import industries from './solutions/industries-solution/inustries.png';
 import operations from './solutions/remote-assets/operational-technology.png';
-import providersPartners from './solutions/providersPartners/service-providers.png';
-import remoteWork from './solutions/remote-work/remote-work-and-branch.png';
-import startups from './solutions/startups/outreach-topic3-cloud.png';
-import technology from './solutions/technology/technology-partners.png';
+import providersPartners from './solutions/providersPartners-solution/service-providers.png';
+import remoteWork from './solutions/remote-work-solution/remote-work-and-branch.png';
+import startups from './solutions/startups-solution/outreach-topic3-cloud.png';
+import technology from './solutions/technology-solution/technology-partners.png';
 
 
 export {
