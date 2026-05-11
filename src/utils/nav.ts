@@ -400,16 +400,16 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
   },
   Partners: {
     leftRail: [
-      { label: 'Partners', id: 'for-partners' },
+      { label: 'Kinnami Partnership  ', id: 'for-partners' },
       // { label: 'Become a Partner', id: 'become' },
       // { label: 'Find a Partner', id: 'find' },
     ],
     panels: {
       'for-partners': [
         {
-          title: 'Partners Portal',
+          title: 'Partners ',
           links: [
-            { label: 'Partners', href: '/partners' },
+            { label: 'Kinnami Partnership  ', href: '/partners/kinnami-partnership' },
             // { label: 'Deal registration', href: '/partners/deal-reg' },
             // { label: 'Shared resources', href: '/partners/resources' },
           ],
@@ -616,7 +616,7 @@ export const FALLBACK_CONFIG: HeaderConfig = {
     { label: 'Status', href: '/status' },
   ],
   cta_button: {
-    label: 'Start Free',
+    label: 'Start free',
     href: '#',
     icon: 'bx:rocket',
     variant: 'primary',

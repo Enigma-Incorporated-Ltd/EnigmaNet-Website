@@ -1,6 +1,6 @@
 import PremiumButton from '@/components/ui/PremiumButton';
 import { Card } from 'react-bootstrap';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import IconifyIcon from '@/components/IconifyIcon';
 import HeaderTitle from '@/components/ui/HeaderTitle';
@@ -21,6 +21,7 @@ type CardSliderProps = {
   cardShow?: number;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
+  description2?: string | React.ReactNode;
   showButtons?: boolean;
   primaryButton?: ButtonConfig;
   transitionLine?: string | React.ReactNode;
@@ -34,6 +35,7 @@ const CardSlider = ({
   showButtons = false,
   primaryButton,
   secondaryButton,
+  description2,
   transitionLine,
 }: CardSliderProps) => {
   return (
@@ -52,8 +54,8 @@ const CardSlider = ({
       )}
       {data && (
         <Swiper
-          modules={[Pagination, Autoplay]}
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          modules={[Pagination]}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
           spaceBetween={8}
           slidesPerView={1}
           pagination={{ clickable: true }}
@@ -84,6 +86,13 @@ const CardSlider = ({
             </SwiperSlide>
           ))}
         </Swiper>
+      )}
+      {description2 && (
+        <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
+          <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3" style={{ maxWidth: '55rem' }}>
+            <span>{description2}</span>
+          </li>
+        </ul>
       )}
       {/* Transition Line */}
       {transitionLine && (

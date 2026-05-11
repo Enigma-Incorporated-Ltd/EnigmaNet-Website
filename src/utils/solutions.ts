@@ -1,13 +1,5 @@
-import heroImg1 from '@/assets/img/solutions/enterprise/enterprise.jpg';
-import heroImg2 from '@/assets/img/solutions/ai-infra/ai-infra.jpg';
-import heroImg3 from '@/assets/img/solutions/remote-work/remote.jpg';
-import heroImg4 from '@/assets/img/solutions/operation/operation.jpg';
-import heroImg5 from '@/assets/img/solutions/industries/Organisational_operation.png';
-import heroImg6 from '@/assets/img/solutions/ProvidersPartners/ProvidersPartners.jpg';
-import heroImg7 from '@/assets/img/solutions/defense/defense.jpg';
-import heroImg8 from '@/assets/img/solutions/Technology/tech.jpg';
-import heroImg9 from '@/assets/img/solutions/Channel/E10HKINT.jpg';
-import heroImg10 from '@/assets/img/solutions/startups/Outreach_Topic3_Cloud bill 1.png';
+import {aiInfra, channel, defense, enterprise, industries, operations, providersPartners, remoteWork, startups, technology} from '@/assets/img/index';
+
 export const solutions = [
   {
     id: 1,
@@ -22,7 +14,7 @@ export const solutions = [
       description:
         'Enigma helps enterprises improve resilience, protect critical traffic and gain visibility across the network without replacing existing infrastructure.',
     },
-    image: heroImg1,
+    image: enterprise,
   },
   {
     id: 2,
@@ -37,7 +29,7 @@ export const solutions = [
       description:
         'From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks.',
     },
-    image: heroImg2,
+    image: aiInfra,
   },
   {
     id: 3,
@@ -52,7 +44,7 @@ export const solutions = [
       description:
         'Enigma helps businesses improve performance across branches, remote teams and distributed operations with centralised visibility, built-in resilience and better control over critical traffic.',
     },
-    image: heroImg3,
+    image: remoteWork,
   },
   {
     id: 4,
@@ -67,7 +59,7 @@ export const solutions = [
       description:
         'Enigma helps organisations keep remote sites, industrial systems and operational assets connected with resilient, policy-controlled networking across difficult environments.',
     },
-    image: heroImg4,
+    image: operations,
   },
   {
     id: 5,
@@ -82,7 +74,7 @@ export const solutions = [
       description:
         'Enigma helps organisations improve resilience, protect critical systems and gain visibility across the infrastructure their operations depend on.',
     },
-    image: heroImg5,
+    image: industries,
   },
   {
     id: 6,
@@ -97,7 +89,7 @@ export const solutions = [
       description:
         'Enigma enables service providers and partners to deliver stronger performance, built-in resilience and better visibility across customer connectivity environments without adding unnecessary complexity.',
     },
-    image: heroImg6,
+    image: providersPartners,
   },
   {
     id: 7,
@@ -112,7 +104,7 @@ export const solutions = [
       description:
         'Enigma provides a secure, high-performance network layer for defence-adjacent and dual-use environments where failure, delay or loss of control is not acceptable.',
     },
-    image: heroImg7,
+    image: defense,
   },
   {
     id: 8,
@@ -127,7 +119,7 @@ export const solutions = [
       description:
         'Enigma helps technology partners improve resilience, protect critical traffic and gain better visibility across the infrastructure their platforms depend on.',
     },
-    image: heroImg8,
+    image: technology,
   },
   {
     id: 9,
@@ -142,7 +134,7 @@ export const solutions = [
       description:
         'Enigma helps channel partners strengthen customer environments with better performance, built-in resilience and clearer visibility creating a more distinctive offer without a heavy delivery burden.',
     },
-    image: heroImg9,
+    image: channel,
   },
   {
     id: 10,
@@ -157,6 +149,6 @@ export const solutions = [
       description:
         'Enigma helps startups and small businesses avoid post-credit bill shock, reduce fragile connectivity problems and build infrastructure that fits how they actually operate.',
     },
-    image: heroImg10,
+    image: startups,
   },
 ];

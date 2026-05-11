@@ -153,7 +153,7 @@ const Support = lazy(() => import('@/app/contact-us/support'));
 const Login = lazy(() => import('@/app/login'));
 //partner
 const Partners = lazy(() => import('@/app/partners'));
-
+const KinnamiPartnership = lazy(() => import('@/app/partners/kinnami-partnership'));
 //company
 const Company = lazy(() => import('@/app/company'));
 const AboutEnigma = lazy(() => import('@/app/company/about-enigma'));
@@ -255,6 +255,7 @@ export const AllRoutes = [
 
   //partner
   { path: '/partners', element: <Partners /> },
+  { path: '/partners/kinnami-partnership', element: <KinnamiPartnership /> },
 
   //company
   { path: '/company', element: <Company /> },

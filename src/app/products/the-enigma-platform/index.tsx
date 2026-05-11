@@ -3,20 +3,31 @@ import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import EnigmaPlatformList from './components/EnigmaPlatformList';
+import { theEnigmaPlatform } from '@/utils/products';
 
 const EnigmaPlatform = () => {
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Coming Soon',
+    '@type': 'CollectionPage',
+    name: 'The Enigma Platform -Products',
     url: `${BASE_URL}/products/the-enigma-platform`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform.',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: theEnigmaPlatform.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.title,
+        url: `${BASE_URL}${item.href}`,
+      })),
+    },
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="The Enigma Platform -Products"
+        description="Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform."
         url={`${BASE_URL}/products/the-enigma-platform`}
         structuredData={structuredData}
       />

@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/defense/defense.jpg';
+import {defense} from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/defense-dualtechnology/pain point - Single points of failure create operational risk.svg';
 import features2 from '@/assets/svgs/solutions/defense-dualtechnology/pain point - Mixed connectivity types behave inconsistently.svg';
 import features3 from '@/assets/svgs/solutions/defense-dualtechnology/pain point - Critical traffic needs guaranteed priority and control.svg';
@@ -81,7 +81,7 @@ const DefenseTechnology = () => {
       <HeroSection
         title=" Resilient, controlled connectivity for mission-critical operations"
         description="Enigma provides a secure, high-performance network layer for defence-adjacent and dual-use environments where failure, delay or loss of control is not acceptable. "
-        image={heroImg}
+        image={defense}
         buttons={[
           {
             label: 'Discuss a Dual-Use Programme',

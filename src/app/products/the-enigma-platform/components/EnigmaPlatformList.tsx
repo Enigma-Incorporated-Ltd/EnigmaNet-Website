@@ -1,25 +1,41 @@
-import CommingSoon from '@/components/comming-soon';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import Header from '@/components/ui/Header';
+import { type CardItem } from '@/components/ui/card';
+import CardGrid from '@/components/ui/card';
+import HeaderTitle from '@/components/ui/HeaderTitle';
+import { theEnigmaPlatform } from '@/utils/products';
 
 const EnigmaPlatformList = () => {
   return (
-    <div className="container">
+    <section className="container pb-5 ">
       <Breadcrumb
-        items={[{ label: 'Products', href: '/products' } , { label: 'The Enigma Platform' , href: '/products/the-enigma-platform' }]}
+        items={[
+          { label: 'Products', href: '/products' },
+          { label: 'The Enigma Platform', href: '/products/the-enigma-platform' },
+        ]}
         style={{
           paddingTop: '12rem',
         }}
       />
-      <Header
-        title="The Enigma Platform "
+      <HeaderTitle
+        title={
+          <>
+            <span className="text-primary">The Enigma Platform</span>
+          </>
+        }
         style={{
-          padding: '21px 0px ',
+          padding: '31px 0px ',
         }}
+        className="h1"
+        textAlign="center"
       />
-      <CommingSoon />
-    </div>
-  );
-}
 
-export default EnigmaPlatformList
+      <CardGrid
+        data={theEnigmaPlatform as CardItem[]}
+        columns="col-12 col-md-12 col-lg-6"
+        buttonLabel="Explore"
+      />
+    </section>
+  );
+};
+
+export default EnigmaPlatformList;

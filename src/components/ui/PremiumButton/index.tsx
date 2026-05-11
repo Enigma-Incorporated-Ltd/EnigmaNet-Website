@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
+import { toSentenceCase } from '@/utils/sentenceCase';
 
 type Variant = 'blue' | 'gold';
 
@@ -50,14 +51,20 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
  const content = (
    <div className="d-flex align-items-center justify-content-center">
      {isLoading && <span className="btn-spinner" />}
-     <span>{isLoading ? loadingLabel : label}</span>
+     <span>
+       {isLoading
+         ? loadingLabel
+         : typeof label === 'string'
+         ? toSentenceCase(label)
+         : label}
+     </span>
    </div>
  );
 
   if (href) {
     return (
       <Link to={href} className={baseClass} style={{ textDecoration: 'none', ...commonStyle }}>
-        {content}
+        { content}
       </Link>
     );
   }

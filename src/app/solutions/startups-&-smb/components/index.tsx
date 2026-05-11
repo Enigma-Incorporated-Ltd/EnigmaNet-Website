@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/startups/Outreach_Topic3_Cloud bill 1.png';
+import {startups} from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/startups/pain card - Free credits end, but the waste stays.svg';
 import features2 from '@/assets/svgs/solutions/startups/pain card - Hidden cloud and transfer costs start eating into runway.svg';
 import features3 from '@/assets/svgs/solutions/startups/pain card - One weak connection can slow the whole team down.svg';
@@ -120,7 +120,7 @@ const Startups = () => {
           </>
         }
         description="Use the calculator to estimate where cloud or connectivity spend may be leaking value  then talk to Enigma Net about a setup that wastes less cash and causes fewer problems. "
-        image={heroImg}
+        image={startups}
         buttons={[
           {
             label: ' Check Your Savings',

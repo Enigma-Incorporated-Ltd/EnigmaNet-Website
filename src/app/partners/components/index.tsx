@@ -1,24 +1,37 @@
-import CommingSoon from '@/components/comming-soon';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import Header from '@/components/ui/Header';
+import { type CardItem } from '@/components/ui/card';
+import CardGrid from '@/components/ui/card';
+import HeaderTitle from '@/components/ui/HeaderTitle';
+import { Partners } from '@/utils/partners';
 
 const PartnersData = () => {
   return (
-    <div className="container">
+    <section className="container pb-5 ">
       <Breadcrumb
         items={[{ label: 'Partners', href: '/partners' }]}
         style={{
           paddingTop: '12rem',
         }}
       />
-      <Header
-        title="Partners"
+      <HeaderTitle
+        title={
+          <>
+            <span className="text-primary">Partners</span>
+          </>
+        }
         style={{
-          padding: '21px 0px ',
+          padding: '31px 0px ',
         }}
+        className="h1"
+        textAlign="center"
       />
-      <CommingSoon />
-    </div>
+
+      <CardGrid
+        data={Partners as CardItem[]}
+        columns="col-12 col-md-12 col-lg-6"
+        buttonLabel="Explore"
+      />
+    </section>
   );
 };
 

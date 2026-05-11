@@ -46,7 +46,7 @@ const PainCard = ({ data, title, description, transitionLine }: FeatureCardProps
         {/* Transition Line */}
         {transitionLine && (
           <div
-            className="position-relative text-center mt-4 text-muted fst-italic fs-3  d-flex flex-wrap text-center justify-content-center mx-auto fw-semibold zindex-5"
+            className="position-relative text-center mt-4 pt-5 text-muted fst-italic fs-3  d-flex flex-wrap text-center justify-content-center mx-auto fw-semibold zindex-5"
             style={{ maxWidth: '45rem' }}
           >
             {transitionLine}

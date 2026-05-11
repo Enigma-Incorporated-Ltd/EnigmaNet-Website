@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/Technology/tech.jpg';
+import {technology} from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/technology-partner/pain card - Customer environments introduce unpredictable performance.svg';
 import features2 from '@/assets/svgs/solutions/technology-partner/pain point - Connectivity issues reduce platform value.svg';
 import features3 from '@/assets/svgs/solutions/technology-partner/pain point - Limited visibility makes problems harder to diagnose.svg';
@@ -82,7 +82,7 @@ const TechnologiesPage = () => {
       <HeroSection
         title="Make your technology perform better in the real world"
         description=" Enigma helps technology partners improve resilience, protect critical traffic and gain better visibility across the infrastructure their platforms depend on. "
-        image={heroImg}
+        image={technology}
         buttons={[
           {
             label: 'Talk to Enigma ',

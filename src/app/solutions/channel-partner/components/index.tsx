@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import heroImg from '@/assets/img/solutions/Channel/E10HKINT.jpg';
+import {channel} from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/channel-partner/pain card - Standard infrastructure offers blur together.svg';
 import features2 from '@/assets/svgs/solutions/channel-partner/pain point - Customers expect more outcome-led value.svg';
 import features3 from '@/assets/svgs/solutions/channel-partner/pain card -  Differentiation must not create delivery drag.svg';
@@ -81,7 +81,7 @@ const ChannelPage = () => {
       <HeroSection
         title="Add a sharper edge to what you already sell"
         description=" Enigma helps channel partners strengthen customer environments with better performance, built-in resilience and clearer visibility creating a more distinctive offer without a heavy delivery burden. "
-        image={heroImg}
+        image={channel}
         buttons={[
           {
             label: 'Talk to Enigma ',
