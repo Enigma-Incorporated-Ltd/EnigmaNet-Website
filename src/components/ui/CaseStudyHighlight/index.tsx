@@ -71,8 +71,10 @@ const CaseStudyHighlight = ({
         )}
         {quote && (
           <div
-            className="text-center d-flex flex-wrap text-center justify-content-center mx-auto pt-5 mb-5"
-            style={{ maxWidth: '45rem' }}
+            className="text-center quote-top d-flex flex-wrap text-center justify-content-center mx-auto pt-5 mb-5"
+            style={{
+              maxWidth: '45rem',
+            }}
           >
             <blockquote className="blockquote fst-italic ">
               <p className="mb-0 h4">{quote}</p>

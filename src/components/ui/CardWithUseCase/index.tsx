@@ -17,6 +17,7 @@ export interface CardItem {
 interface CardGridProps {
   data: CardItem[];
   headerTitle?: string | React.ReactNode;
+  description?: string | React.ReactNode;
   columns?: string;
   showButton?: boolean;
 }
@@ -26,17 +27,25 @@ const CardWithUseCase: React.FC<CardGridProps> = ({
   headerTitle,
   columns = 'col-12 col-md-12 col-lg-6',
   showButton = true,
+  description,
 }) => {
   const { theme } = useTheme();
 
   return (
-    <div className="container">
+    <div className="container pt-3 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
       <HeaderTitle
         key={theme}
         title={headerTitle}
         variant={theme === 'dark' ? 'gold' : 'blue'}
         className="text-center pb-5 my-4"
       />
+      {description && (
+        <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
+          <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3" style={{ maxWidth: '55rem' }}>
+            <span>{description}</span>
+          </li>
+        </ul>
+      )}
       <div className="row g-4">
         {data.map((item, index) => (
           <div key={item.id ?? index} className={columns}>

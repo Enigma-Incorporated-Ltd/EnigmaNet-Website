@@ -20,7 +20,7 @@ const CompareCard = ({ features, title }: Props) => {
   return (
     <div className="container py-5">
       {title && (
-        <h2 className="h1 text-center  mx-auto mt-n2 mt-sm-0 pb-3 pt-md-2" style={{ maxWidth: '70rem' }}>
+        <h2 className="h1 text-center  mx-auto mt-n2 mt-sm-0 pb-5 pt-md-2" style={{ maxWidth: '70rem' }}>
           {title}
         </h2>
       )}
