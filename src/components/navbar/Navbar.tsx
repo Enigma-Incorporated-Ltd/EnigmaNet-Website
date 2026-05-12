@@ -58,7 +58,7 @@ const MegaMenuDesktop = ({
       }}
     >
       <Container className="px-3">
-        <div className="d-flex" >
+        <div className="d-flex">
           {/* Left Rail */}
           <div
             className="border-end"
@@ -110,8 +110,7 @@ const MegaMenuDesktop = ({
                         className={`d-inline-flex align-items-center gap-1 small text-decoration-none py-1`}
                         style={{
                           transition: 'color 0.2s ease',
-                          color:
-                            pathname === link.href ? 'var(--bs-primary)' : 'var(--bs-body-color)',
+                          color: pathname === link.href ? '#2adeff' : 'var(--bs-body-color)',
                           fontWeight: pathname === link.href ? 600 : 400,
                         }}
                         onClick={onLinkClick}
@@ -142,10 +141,7 @@ const MegaMenuDesktop = ({
               }}
             >
               <div className="p-3">
-                <div
-                  className="small fw-bold  mb-2"
-                  style={{ color: 'var(--bs-gray-600)' }}
-                >
+                <div className="small fw-bold  mb-2" style={{ color: 'var(--bs-gray-600)' }}>
                   {item.promo.label}
                 </div>
                 <div

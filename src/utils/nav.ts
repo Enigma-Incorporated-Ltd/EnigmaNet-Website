@@ -181,7 +181,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     promo: {
       label: 'GARTNER.',
       description:
-        'Enigma Named a Leader in the 2025 Gartner Magic Quadrant™ for Hybrid Mesh Firewall',
+        'Enigma Named a Leader in the 2025 Gartner Magic Quadrant™ for Hybrid Layer Firewall',
       image: Logo,
       cta: 'Get the Report »',
       ctaHref: '/products',

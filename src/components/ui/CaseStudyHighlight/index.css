@@ -22,16 +22,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(25, 135, 84, 0.15);
-    /* Bootstrap success tint */
-    color: #198754;
+/* color: #3d5a9e;
+    background: rgba(61, 90, 158, 0.14); */
+    /* color: #157bc9;
+        background: rgba(21, 123, 201, 0.14); */
+        color: #2adeff;
+            background: rgba(42, 222, 255, 0.14);
+/* 4-color: #666666;
+    background: rgba(102, 102, 102, 0.14); */
     font-size: 18px;
     transition: all 0.3s ease;
 }
 
 /* Icon hover pop */
 .premium-list-item:hover .icon-wrapper {
-    background: #198754;
+    background: #2adeff;
     color: #fff;
     transform: scale(1.1);
 }
