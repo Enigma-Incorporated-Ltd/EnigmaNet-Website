@@ -207,22 +207,22 @@ const KinnamiPartnershipPage = () => {
       <HeroSection
         title="Maintaining operational continuity when communications become unpredictable."
         description={
-         <HeaderTitle
-              key={theme}
-              title={
-                 <div className='fw-semibold text-black fs-4'>
-            Together, Kinnami and Enigma help mission teams maintain trusted data, predictable
-            connectivity, and operational continuity across complex, degraded, and distributed
-            environments.
-          </div>
-              }
-              variant={theme === 'dark' ? 'gold' : 'blue'}
-            />
+          <HeaderTitle
+            key={theme}
+            title={
+              <div className="fw-semibold text-black fs-4">
+                Together, Kinnami and Enigma help mission teams maintain trusted data, predictable
+                connectivity, and operational continuity across complex, degraded, and distributed
+                environments.
+              </div>
+            }
+            variant={theme === 'dark' ? 'gold' : 'blue'}
+          />
         }
         buttons={[
           {
             label: 'Explore the joint solution  ',
-            href: '#',
+            href: '/partners/kinnami-partnership/joint-solution',
             variant: 'blue',
           },
         ]}
@@ -314,7 +314,8 @@ const KinnamiPartnershipPage = () => {
           </>
         }
       />
-      <PainCard
+
+      <CardSlider
         title={
           <>
             <HeaderTitle
@@ -338,8 +339,8 @@ const KinnamiPartnershipPage = () => {
             command.
           </>
         }
+        data={Core2}
       />
-      <CardSlider data={Core2} />
       <CaseStudyHighlight
         data={quote}
         title={
@@ -354,7 +355,7 @@ const KinnamiPartnershipPage = () => {
         quote={
           <>
             " Maintaining operational continuity across distributed environments depends on trusted
-            data synchronization and resilient connectivity working together."
+            data synchronization <br /> and resilient connectivity working together."
           </>
         }
       />
@@ -382,7 +383,7 @@ const KinnamiPartnershipPage = () => {
         headline2=" complex environments. "
         primaryButton={{
           label: 'Explore the joint solution  ',
-          href: '#',
+          href: '/partners/kinnami-partnership/joint-solution',
           variant: 'gold',
         }}
         secondaryButton={{
