@@ -3,25 +3,27 @@ import HeaderTitle from '@/components/ui/HeaderTitle';
 import HeroSection from '@/components/ui/HeroSection';
 import PainCard from '@/components/ui/PainCard';
 import kinnamiImage from '@/assets/img/partners/Kinnami_logo_full.png';
-import features1 from '@/assets/svgs/solutions/channel-partner/pain card - Standard infrastructure offers blur together.svg';
-import features2 from '@/assets/svgs/solutions/channel-partner/pain point - Customers expect more outcome-led value.svg';
-import features3 from '@/assets/svgs/solutions/channel-partner/pain card -  Differentiation must not create delivery drag.svg';
+import features1 from '@/assets/svgs/partner/pain-card-distributed-systems-struggle-to-maintain-synchronized-operational-data.svg';
+import features2 from '@/assets/svgs/partner/pain-card-communications-instability-creates-operational-disruption.svg';
+import features3 from '@/assets/svgs/partner/pain-point-traditional-infrastructure-depends-too-heavily-on-persistent-centralized-connectivity.svg';
 import CardSlider from '@/components/ui/CardSlider';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
+import block1 from '@/assets/svgs/partner/core-capabilities-block1.svg';
+import block2 from '@/assets/svgs/partner/core-capabilities-block2.svg';
+import block3 from '@/assets/svgs/partner/core-capabilities-block3.svg';
 import CompareCard from '@/components/ui/CompareCard';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
 import mobileBg from '@/assets/svgs/mobile.svg';
-import space from '@/assets/svgs/susceptibility.svg';
-
+import space from '@/assets/svgs/partner/space.svg';
+import core1 from '@/assets/svgs/partner/persistent-operational-data.svg';
+import core2 from '@/assets/svgs/partner/secure-distributed-synchronization.svg';
+import core3 from '@/assets/svgs/partner/operational-continuity.svg';
 import land from '@/assets/svgs/globe.svg';
-import air from '@/assets/svgs/playbook.svg';
+import air from '@/assets/svgs/partner/air.svg';
 import cloud from '@/assets/svgs/cloud storage.svg';
-import maritime from '@/assets/svgs/icon storage stack.svg';
-import edge from '@/assets/svgs/router.svg';
-import satellite from '@/assets/svgs/speed gauge performance.svg';
+import maritime from '@/assets/svgs/partner/maritime.svg';
+import edge from '@/assets/svgs/partner/edge.svg';
+import satellite from '@/assets/svgs/partner/satellite.svg';
 import { useTheme } from '@/utils/useTheme';
 import HeroImage from '@/components/ui/HeroImage';
 const kinnami = [
@@ -45,7 +47,7 @@ const kinnami = [
         name: 'SPACE',
       },
     ],
-    description: 'Distributed mission data mesh across operational environments.',
+    description: 'Distributed mission data layer across operational environments.',
   },
   {
     title: 'ENIGMA',
@@ -73,22 +75,22 @@ const kinnami = [
 const features = [
   {
     id: 1,
-    icon: features1,
+    icon: air,
     title: 'AIR  ',
   },
   {
     id: 2,
-    icon: features2,
+    icon: maritime,
     title: ' MARITIME',
   },
   {
     id: 3,
-    icon: features3,
+    icon: land,
     title: 'LAND ',
   },
   {
     id: 4,
-    icon: features3,
+    icon: space,
     title: ' SPACE  ',
   },
 ];
@@ -113,19 +115,19 @@ const paindata = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: core1,
     title: 'Persistent operational data  ',
     description: `Maintain synchronized operational awareness across distributed systems.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: core2,
     title: 'Secure distributed synchronization  ',
     description: `Trusted synchronization across heterogeneous operational environments.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: core3,
     title: 'Operational continuity  ',
     description:
       'Support resilient mission operations across unstable communications conditions.  ',
@@ -141,7 +143,7 @@ const Core2 = [
   {
     id: 2,
     icon: block2,
-    title: 'Predictable networking and connectivity  ',
+    title: 'Predictable Networking & Connectivity',
     description: `Support resilient communications continuity across unstable or degraded infrastructure   
 environments.  `,
   },
@@ -178,11 +180,45 @@ const KinnamiPartnershipPage = () => {
           paddingTop: '12rem',
         }}
       />
+      <br />
+      <br />
+      <CTA
+        theme={theme}
+        showButtons
+        subHeadline="Joint Capability Brief"
+        headline={
+          <>
+            Resilient operational infrastructure for <br />
+          </>
+        }
+        headline2=" complex environments. "
+        primaryButton={{
+          label: 'Book a meeting at SOF Week',
+          href: '/get-in-touch',
+          variant: 'gold',
+          disableSentenceCase: true,
+        }}
+        secondaryButton={{
+          label: 'Talk to Enigma',
+          href: '/get-in-touch',
+          variant: 'blue',
+        }}
+      />
       <HeroSection
         title="Maintaining operational continuity when communications become unpredictable."
-        description="Kinnami and Enigma combine distributed operational data synchronization with resilient   
-       networking and connectivity infrastructure to support resilient mission-critical operations   
-       across complex environments.  "
+        description={
+         <HeaderTitle
+              key={theme}
+              title={
+                 <div className='fw-semibold text-black fs-4'>
+            Together, Kinnami and Enigma help mission teams maintain trusted data, predictable
+            connectivity, and operational continuity across complex, degraded, and distributed
+            environments.
+          </div>
+              }
+              variant={theme === 'dark' ? 'gold' : 'blue'}
+            />
+        }
         buttons={[
           {
             label: 'Explore the joint solution  ',
@@ -190,7 +226,12 @@ const KinnamiPartnershipPage = () => {
             variant: 'blue',
           },
         ]}
-        features={['Persistent data ', 'Predictable connectivity ', 'Operational continuity  ']}
+        features={[
+          'Trusted Data',
+          'Predictable Connectivity',
+          'Operational Continuity',
+          'Faster Mission Outcomes',
+        ]}
       />
       <HeroImage img={kinnamiImage} isbg />
       <PainCard
@@ -220,7 +261,7 @@ const KinnamiPartnershipPage = () => {
             when connectivity conditions become unstable or unpredictable.
           </>
         }
-        transitionLine={<>Operational domains. Mission environments. </>}
+        transitionLine={<>Operational domains. mission environments. </>}
       />
       <CardSlider
         data={Core}
@@ -241,7 +282,18 @@ const KinnamiPartnershipPage = () => {
           </>
         }
       />
-      <CompareCard features={kinnami} />
+      <CompareCard
+        features={kinnami}
+        title={
+          <>
+            <HeaderTitle
+              key={theme}
+              title={<>Joint Capability Brief</>}
+              variant={theme === 'dark' ? 'gold' : 'blue'}
+            />
+          </>
+        }
+      />
       <PainCard
         data={paindata}
         title={
@@ -299,7 +351,12 @@ const KinnamiPartnershipPage = () => {
             />
           </>
         }
-        quote={<>" Reserved for approved operational or partner quote"</>}
+        quote={
+          <>
+            " Maintaining operational continuity across distributed environments depends on trusted
+            data synchronization and resilient connectivity working together."
+          </>
+        }
       />
       <CaseStudyHighlight
         data={quote2}

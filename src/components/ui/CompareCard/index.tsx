@@ -9,11 +9,22 @@ type Feature = {
   }[];
   description: string;
 };
+type Props = {
+  features: Feature[];
+  title?: string | React.ReactNode;
+ 
+};
 
-const CompareCard = ({ features }: { features: Feature[] }) => {
+const CompareCard = ({ features, title }: Props) => {
   const { theme } = useTheme();
   return (
     <div className="container py-5">
+      {title && (
+        <h2 className="h1 text-center  mx-auto mt-n2 mt-sm-0 pb-3 pt-md-2" style={{ maxWidth: '70rem' }}>
+          {title}
+        </h2>
+      )}
+     
       <div className="row g-4   ">
         {features.map((feature, index) => (
           <div className="col-md-6 col-lg-6 col-12 " key={index}>

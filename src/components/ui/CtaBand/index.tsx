@@ -5,6 +5,7 @@ type ButtonConfig = {
   label: string;
   href: string;
   variant?: 'blue' | 'gold';
+  disableSentenceCase?: boolean;
 };
 type CTAProps = {
   theme?: 'light' | 'dark';
@@ -15,6 +16,7 @@ type CTAProps = {
   showButtons?: boolean;
   primaryButton?: ButtonConfig;
   secondaryButton?: ButtonConfig;
+ 
 };
 
 const CTA = ({
@@ -26,6 +28,7 @@ const CTA = ({
   showButtons = false,
   primaryButton,
   secondaryButton,
+
 }: CTAProps) => {
   const isDark = theme === 'dark';
 
@@ -159,6 +162,7 @@ const CTA = ({
                         href={primaryButton.href}
                         variant={primaryButton.variant || 'blue'}
                         className="btn-lg shadow-lg btn-responsive "
+                        disableSentenceCase={primaryButton.disableSentenceCase}
                       />
                     )}
 
@@ -168,7 +172,7 @@ const CTA = ({
                         href={secondaryButton.href}
                         variant={secondaryButton.variant || 'gold'}
                         className="btn-lg shadow-lg btn-responsive "
-                       
+                        disableSentenceCase={secondaryButton.disableSentenceCase}
                       />
                     )}
                   </div>
@@ -359,6 +363,7 @@ const CTA = ({
                     href={primaryButton.href}
                     variant={primaryButton.variant || 'blue'}
                     className="btn-lg shadow-lg btn-responsive"
+                    disableSentenceCase={primaryButton.disableSentenceCase}
                   />
                 )}
 
@@ -368,6 +373,7 @@ const CTA = ({
                     href={secondaryButton.href}
                     variant={secondaryButton.variant || 'gold'}
                     className="btn-lg shadow-lg btn-responsive "
+                    disableSentenceCase={secondaryButton.disableSentenceCase}
                   />
                 )}
               </div>

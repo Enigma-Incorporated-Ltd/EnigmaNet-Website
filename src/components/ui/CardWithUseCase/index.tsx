@@ -76,7 +76,7 @@ const CardWithUseCase: React.FC<CardGridProps> = ({
                       <li key={idx} className="d-flex align-items-start mb-2">
                         <IconifyIcon
                           icon="bx:check-circle"
-                          className="text-success me-2 mt-1 fs-5"
+                          className="text-light-blue me-2 mt-1 fs-5"
                         />
 
                         <span className="text-start">{use}</span>

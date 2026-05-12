@@ -18,6 +18,7 @@ type CustomButtonProps = {
   fullWidth?: boolean;
   isLoading?: boolean;
   disabled?: boolean;
+  disableSentenceCase?: boolean;
 };
 
 const PremiumButton: React.FC<CustomButtonProps> = ({
@@ -29,10 +30,11 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
   className = '',
   style,
   type = 'button',
-  fontSize ,
+  fontSize,
   fullWidth = false,
   isLoading = false,
   disabled = false,
+  disableSentenceCase = false,
 }) => {
   const isDisabled = isLoading || disabled;
 
@@ -47,24 +49,20 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
     opacity: isDisabled ? 0.8 : 1,
     ...style,
   };
+  const buttonText =
+    typeof label === 'string' && !disableSentenceCase ? toSentenceCase(label) : label;
 
- const content = (
-   <div className="d-flex align-items-center justify-content-center">
-     {isLoading && <span className="btn-spinner" />}
-     <span>
-       {isLoading
-         ? loadingLabel
-         : typeof label === 'string'
-         ? toSentenceCase(label)
-         : label}
-     </span>
-   </div>
- );
+  const content = (
+    <div className="d-flex align-items-center justify-content-center">
+      {isLoading && <span className="btn-spinner" />}
+      <span>{isLoading ? loadingLabel : buttonText}</span>
+    </div>
+  );
 
   if (href) {
     return (
       <Link to={href} className={baseClass} style={{ textDecoration: 'none', ...commonStyle }}>
-        { content}
+        {content}
       </Link>
     );
   }

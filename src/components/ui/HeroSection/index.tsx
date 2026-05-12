@@ -103,7 +103,7 @@ const HeroSection = ({
               >
                 {features.map((item, i) => (
                   <li key={i} className="d-flex align-items-center small">
-                    <IconifyIcon icon="bx:check-circle" className="me-2 text-success fs-5" />
+                    <IconifyIcon icon="bx:check-circle" className="me-2 text-light-blue fs-5" />
                     {item}
                   </li>
                 ))}
