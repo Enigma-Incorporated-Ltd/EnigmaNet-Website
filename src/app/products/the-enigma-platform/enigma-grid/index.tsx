@@ -9,15 +9,19 @@ const EnigmaGrid = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Enigma Grid',
     url: `${BASE_URL}/products/the-enigma-platform/enigma-grid`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: `Enigma Grid gives operations, support, engineering and commercial teams a single   
+        authoritative view of devices, links, tunnels, sites, tenants, licences and services across Enigma   
+        Net deployments. `,
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Enigma Grid"
+        description="Enigma Grid gives operations, support, engineering and commercial teams a single   
+        authoritative view of devices, links, tunnels, sites, tenants, licences and services across Enigma   
+        Net deployments. "
         url={`${BASE_URL}/products/the-enigma-platform/enigma-grid`}
         structuredData={structuredData}
       />

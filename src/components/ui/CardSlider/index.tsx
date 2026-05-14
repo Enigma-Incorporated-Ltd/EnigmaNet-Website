@@ -39,7 +39,7 @@ const CardSlider = ({
   transitionLine,
 }: CardSliderProps) => {
   return (
-    <section className="container  my-2 my-md-4 my-lg-5">
+    <section className="container pb-5 pt-3 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
       {title && (
         <h2 className="h1 text-center  mx-auto mt-n2 mt-sm-0 pt-md-2" style={{ maxWidth: '70rem' }}>
           {title}
@@ -81,7 +81,7 @@ const CardSlider = ({
                   ))}
 
                 <HeaderTitle title={feature.title} className="h5 text-warning pt-3 pb-1 mb-2" />
-                <p className="mb-0">{feature.description}</p>
+                <p className="mb-0" dangerouslySetInnerHTML={{ __html: feature.description }} />
               </Card>
             </SwiperSlide>
           ))}
@@ -97,7 +97,7 @@ const CardSlider = ({
       {/* Transition Line */}
       {transitionLine && (
         <div
-          className="position-relative text-center mt-4 text-muted fst-italic fs-3  d-flex flex-wrap text-center justify-content-center mx-auto fw-semibold zindex-5"
+          className="position-relative text-center mt-5 pt-4 text-muted fst-italic fs-3  d-flex flex-wrap text-center justify-content-center mx-auto fw-semibold zindex-5"
           style={{ maxWidth: '45rem' }}
         >
           {transitionLine}

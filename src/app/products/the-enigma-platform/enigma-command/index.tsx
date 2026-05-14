@@ -9,15 +9,17 @@ const EnigmaCommand = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Enigma Command',
     url: `${BASE_URL}/products/the-enigma-platform/enigma-command`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: 'Enigma Command gives NOC and platform teams a single operational view of incidents, alerts, LLM-agent actions, automation status and performance events across Enigma Net services.  ',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Enigma Command"
+        description="Enigma Command gives NOC and platform teams a single operational view of incidents, alerts,   
+        LLM-agent actions, automation status and performance events across Enigma Net services.  
+        "
         url={`${BASE_URL}/products/the-enigma-platform/enigma-command`}
         structuredData={structuredData}
       />

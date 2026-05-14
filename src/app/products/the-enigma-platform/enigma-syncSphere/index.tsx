@@ -8,15 +8,17 @@ const EnigmaSyncSphere = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Enigma SyncSphere',
     url: `${BASE_URL}/products/the-enigma-platform/enigma-syncSphere`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: 'Enigma SyncSphere brings Hot Storage, Large File Transfer, Managed File Transfer, third-party cloud storage and local NAS into one secure, accelerated workspace built on Enigma’s APN performance layer.  ',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Enigma SyncSphere"
+        description="Enigma SyncSphere brings Hot Storage, Large File Transfer, Managed File Transfer, third-party   
+        cloud storage and local NAS into one secure, accelerated workspace built on Enigma’s APN   
+        performance layer.  "
         url={`${BASE_URL}/products/the-enigma-platform/enigma-syncSphere`}
         structuredData={structuredData}
       />
