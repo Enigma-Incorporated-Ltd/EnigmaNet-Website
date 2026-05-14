@@ -14,12 +14,13 @@ import NextPageSlider from '@/components/ui/NextPageSlider';
 import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
+import Br from '@/components/ui/NewLine';
 const features = [
   {
     id: 1,
     title: 'APN Core ',
-    href: '#',
-    slug: '#',
+    href: '/products/performance-networking/enigma-apn-core',
+    slug: 'enigma-apn-core',
     description:
       'The underlying acceleration and optimisation engine that powers Enigma’s network performance.',
 
@@ -33,8 +34,8 @@ const features = [
   {
     id: 2,
     title: 'ESC – Secure Networking',
-    href: '#',
-    slug: '#',
+    href: '/products/performance-networking/esc-secure-networking',
+    slug: 'esc-secure-networking',
     description: 'Secure overlay networking deployments monitored and controlled through Nexus. ',
 
     meta: {
@@ -46,8 +47,8 @@ const features = [
   {
     id: 3,
     title: 'Enigma Connect ',
-    href: '#',
-    slug: '#',
+    href: '/products/connectivity-products/enigma-connect',
+    slug: 'enigma-connect',
     description:
       'Self-serve connectivity services managed through Nexus for individuals and small teams.',
 
@@ -61,8 +62,8 @@ const features = [
   {
     id: 4,
     title: 'Enigma EDGE ',
-    href: '#',
-    slug: '#',
+    href: '/products/connectivity-products/enigma-edge',
+    slug: 'enigma-edge',
     description:
       'Edge devices and site-based services visible through Grid and controlled through Nexus workflows. ',
 
@@ -76,8 +77,8 @@ const features = [
   {
     id: 5,
     title: 'Hot Storage ',
-    href: '#',
-    slug: '#',
+    href: '/products/data-&-file-services/hot-storage',
+    slug: 'hot-storage',
     description: 'Performance storage surfaced through SyncSphere for file and object workflows. ',
     image: heroImg,
     meta: {
@@ -89,8 +90,8 @@ const features = [
   {
     id: 6,
     title: 'Large File Transfer / MFT ',
-    href: '#',
-    slug: '#',
+    href: '/products/data-&-file-services/large-file-transfer',
+    slug: '/products/data-&-file-services/large-file-transfer',
     description:
       'Accelerated transfer workflows connected into SyncSphere and monitored through Nexus.',
     image: heroImg,
@@ -292,7 +293,7 @@ const Command = [
       'Pause, approve or override automated actions ',
       'Export operational logs for compliance and audit ',
     ],
-    href: '#',
+    href: '/products/enigma-platform/enigma-command',
     buttonLabel: 'View Command',
   },
   {
@@ -308,7 +309,7 @@ const Command = [
       'Run diagnostics at asset level ',
       'Initiate controlled configuration actions ',
     ],
-    href: '#',
+    href: '/products/enigma-platform/enigma-grid',
     buttonLabel: 'View Grid ',
   },
   {
@@ -324,7 +325,7 @@ const Command = [
       'Review performance and health per source ',
       'Connect Large File Transfer and Managed File Transfer workflows ',
     ],
-    href: '#',
+    href: '/products/data-&-file-services/syncsphere',
     buttonLabel: 'View SyncSphere ',
   },
   {
@@ -340,7 +341,7 @@ const Command = [
       'Support onboarding, MFA and audit logging ',
       'Provide identity context for safe AI-agent actions ',
     ],
-    href: '#',
+    href: '/products/enigma-platform/enigma-hub',
     buttonLabel: 'View Hub ',
   },
   {
@@ -356,7 +357,7 @@ const Command = [
       'Support compliance reviews and operational reporting',
       'Provide evidence of controlled, accountable service management ',
     ],
-    href: '#',
+    href: '/products/enigma-platform/enigma-ledger',
     buttonLabel: 'View Ledger ',
     isFullWidth: true,
   },
@@ -379,7 +380,12 @@ const Nexus = () => {
       />
 
       <HeroSection
-        title="One interface for every Enigma Net operation. "
+        title={
+          <>
+            One interface for every <Br isDesktop isTablet />
+            Enigma Net operation
+          </>
+        }
         description=" Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform. "
         // image={heroImg}
         buttons={[
@@ -397,32 +403,6 @@ const Nexus = () => {
         features={[' Unified control  ', 'Role-aware access', ' AI-assisted operations']}
       />
 
-      {/* <PainCard
-        data={features}
-        title={
-          <>
-            <HeaderTitle
-              key={theme}
-              title="Infrastructure gets harder to control when every service has its own interface."
-              variant={theme === 'dark' ? 'gold' : 'blue'}
-            />
-          </>
-        }
-        description={
-          <>
-            As networks, edge devices, storage platforms, users and support workflows grow, teams
-            can quickly lose visibility. Performance data sits in one place. Asset information sits
-            somewhere else. File workflows, tickets, users, permissions and billing become
-            fragmented.
-            <br />
-            <br />
-            Nexus reduces that complexity by giving customers and operators one controlled place to
-            understand what is deployed, how it is performing, who can access it and what needs
-            action.
-          </>
-        }
-      /> */}
-
       <CardSlider
         title={
           <>
@@ -430,8 +410,8 @@ const Nexus = () => {
               key={theme}
               title={
                 <>
-                  Infrastructure gets harder to control when <br /> every service has its own
-                  interface.{' '}
+                  Infrastructure gets harder to control when <Br isDesktop isTablet /> every service
+                  has its own interface{' '}
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
@@ -460,7 +440,8 @@ const Nexus = () => {
               key={theme}
               title={
                 <>
-                  Nexus turns separate infrastructure services <br /> into connected workflows.
+                  Nexus turns separate infrastructure services <Br isDesktop isTablet /> into
+                  connected workflows
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
@@ -479,7 +460,8 @@ const Nexus = () => {
 
       <CardWithUseCase
         data={Command as CardItem[]}
-        headerTitle="Four modules. One operational view."
+        headerTitle="Four modules. One operational view"
+        disableSentenceCase
       />
       <CardSlider
         title={
@@ -488,7 +470,8 @@ const Nexus = () => {
               key={theme}
               title={
                 <>
-                  Built for every role that needs controlled <br /> access to Enigma services.
+                  Built for every role that needs controlled <Br isDesktop isTablet /> access to
+                  Enigma services
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
@@ -510,7 +493,8 @@ const Nexus = () => {
               key={theme}
               title={
                 <>
-                  From onboarding to operations, <br /> Nexus keeps the workflow connected.
+                  From onboarding to operations,
+                  <Br isDesktop isTablet /> Nexus keeps the workflow connected
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
@@ -527,7 +511,8 @@ const Nexus = () => {
               key={theme}
               title={
                 <>
-                  A secure interface over Enigma’s networking, <br /> storage and automation layers.
+                  A secure interface over Enigma’s networking, <Br isDesktop isTablet /> storage and
+                  automation layers
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
@@ -557,7 +542,12 @@ const Nexus = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>AI-assisted operations with human control built in.</>}
+              title={
+                <>
+                  AI-assisted operations with <Br isDesktop isTablet />
+                  human control built in
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -578,7 +568,12 @@ const Nexus = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Designed for controlled, auditable infrastructure operations."
+              title={
+                <>
+                  Designed for controlled, auditable <Br isDesktop isTablet />
+                  infrastructure operations
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -597,7 +592,12 @@ const Nexus = () => {
           <>
             <HeaderTitle
               key={theme}
-              title="Nexus is the control layer, not the transport engine. "
+              title={
+                <>
+                  Nexus is the control layer, <Br isDesktop isTablet />
+                  not the transport engine{' '}
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>

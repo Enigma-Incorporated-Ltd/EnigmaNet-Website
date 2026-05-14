@@ -34,7 +34,7 @@ const CTA = ({
 
   if (isDark) {
     return (
-      <section className="container pt-3 pb-4 pb-md-5">
+      <section className="container pt-5 pb-4 pb-md-5">
         <div
           className="position-relative rounded-4 overflow-hidden"
           style={{
@@ -197,7 +197,7 @@ const CTA = ({
   // ☀️ LIGHT MODE — Premium redesign
   return (
     <Container
-      className="pt-3 pb-4 pb-md-5"
+      className="pt-5 pb-4 pb-md-5"
       style={{
         marginTop: '-156px',
         marginBottom: '150px',

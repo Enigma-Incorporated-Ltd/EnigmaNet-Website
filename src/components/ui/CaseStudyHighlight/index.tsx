@@ -18,7 +18,7 @@ const CaseStudyHighlight = ({
   image,
 }: CaseStudyHighlightProps) => {
   return (
-    <Container className="pt-3 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
+    <Container className="pt-3 pb-5 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
       {title && (
         <h2
           className={`h1 text-center  mx-auto mt-n2 mt-sm-0 ${!description ? 'pb-4' : ''} pt-md-2`}
@@ -60,11 +60,15 @@ const CaseStudyHighlight = ({
           <div className="text-center mb-5">
             <img
               src={image}
+              width="100%"
+             
               alt="Case Study Highlight"
               className="img-fluid rounded-4 shadow-lg"
               style={{
                 borderRadius: '1.5rem',
                 boxShadow: '0 1.875rem 7.5rem -.625rem rgba(124,125,152, .2)',
+               
+               
               }}
             />
           </div>
@@ -83,8 +87,8 @@ const CaseStudyHighlight = ({
         )}
         {transitionLine && (
           <div
-            className="position-relative text-center mt-4 text-muted fst-italic fs-4  d-flex flex-wrap text-center justify-content-center mx-auto  zindex-5"
-            style={{ maxWidth: '55rem' }}
+            className="position-relative text-center mt-4 text-muted fst-italic fs-3  d-flex flex-wrap text-center justify-content-center mx-auto fw-semibold zindex-5"
+            style={{ maxWidth: '45rem' }}
           >
             {transitionLine}
           </div>

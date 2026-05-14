@@ -11,6 +11,7 @@ import PremiumButton from '../PremiumButton';
 export interface SliderItem {
   id: string;
   slug?: string;
+  href?: string;
   title?: string;
   image?: string;
   category?: string;
@@ -25,7 +26,7 @@ export interface SliderItem {
 interface ReusableSliderProps {
   data: SliderItem[] | any[];
   currentSlug?: string;
-  title?: string;
+  title?: string ;
   buttonText?: string;
   buttonLink?: string;
   basePath?: string;
@@ -39,7 +40,7 @@ const NextPageSlider = ({
   buttonText = '',
   buttonLink = '',
   basePath = '',
-  count = 3,
+  count = 6,
 }: ReusableSliderProps) => {
   if (!data || data.length === 0) return null;
 
@@ -67,11 +68,10 @@ const NextPageSlider = ({
   const itemsToShow = getNextItems();
 
   return (
-    <section className="container mb-5 pt-md-4">
+    <section className="container t-3 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
       {/* Header */}
       <div className="d-flex flex-sm-row  flex-column align-items-center justify-content-between mb-4 pb-1 pb-md-3">
-       
-        <HeaderTitle title={title} className="h1 mb-sm-0" />
+        <HeaderTitle title={title} className="h1 mb-sm-0 pb-3" />
         {buttonLink && (
           <PremiumButton
             label={
@@ -103,7 +103,7 @@ const NextPageSlider = ({
         {itemsToShow.map(item => (
           <SwiperSlide key={item.id} className="h-auto pb-3">
             <Link
-              to={`${basePath}/${item.slug}`}
+              to={basePath ? `${basePath}/${item.slug}` : item.href}
               className="text-decoration-none text-dark d-block h-100"
             >
               <article className="card border-0 shadow-sm solution-card h-100 mx-2">
