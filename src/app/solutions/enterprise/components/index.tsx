@@ -186,6 +186,7 @@ const EnterpriseData = () => {
           label: 'Talk to Enigma  ',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
       <NextPageSlider

@@ -85,6 +85,22 @@ const EnigmaNexus = lazy(() => import('@/app/products/the-enigma-platform/enigma
 const EnigmaSyncSphere = lazy(() => import('@/app/products/the-enigma-platform/enigma-syncSphere'));
 const EnigmaCommand = lazy(() => import('@/app/products/the-enigma-platform/enigma-command'));
 
+// ENIGMA LEDGER
+const LedgerDataModel = lazy(
+  () => import('@/app/products/the-enigma-platform/enigma-ledger/ledger-data-model')
+);
+const LedgerPspConnectors = lazy(
+  () => import('@/app/products/the-enigma-platform/enigma-ledger/ledger-psp-connectors')
+);
+const LedgerPaymentDeviceIntegrations = lazy(
+  () =>
+    import('@/app/products/the-enigma-platform/enigma-ledger/ledger-payment-device-integrations')
+);
+const LedgerTenantBillingInvoicingFlows = lazy(
+  () =>
+    import('@/app/products/the-enigma-platform/enigma-ledger/ledger-tenant-billing-invoicing-flows')
+);
+
 // Performance Networking
 const PerformanceNetworking = lazy(() => import('@/app/products/performance-networking'));
 const ApnCore = lazy(() => import('@/app/products/performance-networking/enigma-apn-core'));
@@ -100,6 +116,29 @@ const MultiLinkBonding = lazy(
 );
 const IntelligentTrafficManagement = lazy(
   () => import('@/app/products/performance-networking/intelligent-traffic-management')
+);
+
+//ESC-SECURE-NETWORKING-Children
+
+const EscAwsIntegrationGuide = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-aws-implementation-guide')
+);
+const EscConfigurationGuide = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-configuration-guide')
+);
+const EscDeploymentProfiles = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-deployment-profiles')
+);
+const EscObservabilityAndNocIntegration = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-observability-and-noc-integration')
+);
+const EscSecurityComplianceNotes = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-security-compliance-notes')
 );
 
 //ai-&-automation
@@ -194,6 +233,24 @@ export const AllRoutes = [
   { path: '/products/enigma-platform/enigma-command', element: <EnigmaCommand /> },
   { path: '/products/enigma-platform/enigma-hub', element: <EnigmaHub /> },
 
+  //Engima Ledger Routes
+  {
+    path: '/products/enigma-platform/enigma-ledger/ledger-tenant-billing-invoicing-flows',
+    element: <LedgerTenantBillingInvoicingFlows />,
+  },
+  {
+    path: '/products/enigma-platform/enigma-ledger/ledger-data-model',
+    element: <LedgerDataModel />,
+  },
+  {
+    path: '/products/enigma-platform/enigma-ledger/ledger-payment-device-integrations',
+    element: <LedgerPaymentDeviceIntegrations />,
+  },
+  {
+    path: '/products/enigma-platform/enigma-ledger/ledger-psp-connectors',
+    element: <LedgerPspConnectors />,
+  },
+
   // Performance Networking Routes
   { path: '/products/performance-networking', element: <PerformanceNetworking /> },
   { path: '/products/performance-networking/enigma-apn-core', element: <ApnCore /> },
@@ -207,6 +264,29 @@ export const AllRoutes = [
   {
     path: '/products/performance-networking/intelligent-traffic-management',
     element: <IntelligentTrafficManagement />,
+  },
+
+  //ESC-SECURE-NETWORKING-Children
+
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-aws-implementation-guide',
+    element: <EscAwsIntegrationGuide />,
+  },
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-configuration-guide',
+    element: <EscConfigurationGuide />,
+  },
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-deployment-profiles',
+    element: <EscDeploymentProfiles />,
+  },
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-observability-and-noc-integration',
+    element: <EscObservabilityAndNocIntegration />,
+  },
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-security-compliance-notes',
+    element: <EscSecurityComplianceNotes />,
   },
 
   //ai-&-automation

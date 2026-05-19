@@ -76,7 +76,7 @@ const CardWithUseCase: React.FC<CardGridProps> = ({
                 {/* Description */}
                 {item.description && (
                   <p
-                    className="h6 mb-4 text-start"
+                    className="card-text mb-4 text-start"
                     style={{
                       display: '-webkit-box',
                       WebkitBoxOrient: 'vertical',

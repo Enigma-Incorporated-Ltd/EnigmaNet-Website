@@ -90,6 +90,7 @@ const ProvidersPartners = () => {
             label: ' Talk to Enigma ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
           {
             label: ' Explore Partner Opportunities ',
@@ -182,6 +183,7 @@ const ProvidersPartners = () => {
           label: 'Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
         secondaryButton={{
           label: 'Explore Partner Opportunities ',

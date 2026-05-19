@@ -6,6 +6,7 @@ type HeroButton = {
   label: string;
   href: string;
   variant: 'blue' | 'gold';
+  disableSentenceCase?: boolean;
 };
 
 type HeroProps = {
@@ -15,6 +16,7 @@ type HeroProps = {
   buttons?: HeroButton[];
   features?: string[];
   subtitle?: string | React.ReactNode;
+
 };
 
 const HeroSection = ({
@@ -24,6 +26,7 @@ const HeroSection = ({
   buttons = [],
   features = [],
   subtitle,
+
 }: HeroProps) => {
   const isFullWidth = !image;
 
@@ -76,6 +79,7 @@ const HeroSection = ({
                     variant={btn.variant}
                     className="btn-lg"
                     href={btn.href}
+                    disableSentenceCase = {btn.disableSentenceCase}
                     style={
                       image
                         ? {

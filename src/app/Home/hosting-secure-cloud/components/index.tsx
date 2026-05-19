@@ -109,6 +109,7 @@ const HostingCloud = () => {
             label: 'Talk to Enigma ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
           {
             label: 'Explore Hosting Options',
@@ -278,6 +279,7 @@ const HostingCloud = () => {
           label: ' Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
         secondaryButton={{
           label: 'Explore Hosting Options ',

@@ -88,6 +88,7 @@ const TechnologiesPage = () => {
             label: 'Talk to Enigma ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
           {
             label: 'Explore Technology Partnerships',
@@ -183,6 +184,7 @@ const TechnologiesPage = () => {
           label: 'Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
         secondaryButton={{
           label: 'Explore Technology Partnerships ',

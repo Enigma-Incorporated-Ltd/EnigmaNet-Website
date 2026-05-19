@@ -146,6 +146,7 @@ const Startups = () => {
           variant="gold"
           className="btn-lg  btn-responsive"
           href="/get-in-touch"
+          disableSentenceCase
         />
       </div>
 
@@ -348,6 +349,7 @@ const Startups = () => {
           label: 'Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
         secondaryButton={{
           label: 'Check Your Savings ',

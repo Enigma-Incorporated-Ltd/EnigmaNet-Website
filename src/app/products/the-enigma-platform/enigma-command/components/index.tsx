@@ -424,6 +424,7 @@ const Command = () => {
             label: ' Talk to Enigma  ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
         ]}
         features={[
@@ -656,7 +657,7 @@ const Command = () => {
       />
 
       <NextPageSlider
-        title="Command works with the wider Nexus platform.  "
+        title="Command works with the wider Nexus platform  "
         data={features}
         currentSlug={slug as string}
       />
@@ -671,16 +672,12 @@ const Command = () => {
         }
         headline2=" audit live infrastructure.  "
         description="Enigma Command brings incidents, alerts, agent activity, automation controls and operational   
-history into one command centre for Enigma Net services.   "
+        history into one command centre for Enigma Net services.   "
         primaryButton={{
           label: 'Talk to Enigma  ',
           href: '/get-in-touch',
           variant: 'gold',
-        }}
-        secondaryButton={{
-          label: 'See Grid in action',
-          href: '#',
-          variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
     </div>

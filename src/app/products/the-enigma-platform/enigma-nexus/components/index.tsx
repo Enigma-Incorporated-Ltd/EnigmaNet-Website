@@ -398,6 +398,7 @@ const Nexus = () => {
             label: 'Talk to Enigma',
             href: '/get-in-touch',
             variant: 'gold',
+            disableSentenceCase: true,
           },
         ]}
         features={[' Unified control  ', 'Role-aware access', ' AI-assisted operations']}
@@ -644,6 +645,7 @@ const Nexus = () => {
           label: 'Talk to Enigma',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
     </div>

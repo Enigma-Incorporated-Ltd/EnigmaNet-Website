@@ -202,6 +202,7 @@ const KinnamiPartnershipPage = () => {
           label: 'Talk to Enigma',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
       <HeroSection
@@ -390,6 +391,7 @@ const KinnamiPartnershipPage = () => {
           label: 'Talk to Enigma',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
     </div>

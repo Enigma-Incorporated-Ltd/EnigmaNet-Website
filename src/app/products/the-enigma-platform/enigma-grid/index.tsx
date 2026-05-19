@@ -18,7 +18,7 @@ const EnigmaGrid = () => {
   return (
     <>
       <PageMeta
-        title="Enigma Grid"
+        title="Enigma Grid | The Enigma Platform -Products"
         description="Enigma Grid gives operations, support, engineering and commercial teams a single   
         authoritative view of devices, links, tunnels, sites, tenants, licences and services across Enigma   
         Net deployments. "

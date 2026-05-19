@@ -120,6 +120,7 @@ const IndustriesData = () => {
             label: 'Talk to Enigma ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
           {
             label: 'Book a Consultation',
@@ -215,6 +216,7 @@ const IndustriesData = () => {
           label: 'Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
         secondaryButton={{
           label: 'Book a Consultation ',

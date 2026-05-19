@@ -92,6 +92,7 @@ const DefenseTechnology = () => {
             label: 'Speak to Enigma',
             href: '/get-in-touch',
             variant: 'gold',
+            disableSentenceCase: true,
           },
         ]}
         features={['Secure by design', 'Multi-link resilience', 'Operational contro']}
@@ -178,6 +179,7 @@ const DefenseTechnology = () => {
           label: 'Speak to Enigma ',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
       <NextPageSlider

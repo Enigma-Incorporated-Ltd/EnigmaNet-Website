@@ -116,6 +116,7 @@ const CompleteAi = () => {
             label: 'Talk to Enigma ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
           {
             label: 'Explore AI Infrastructure ',
@@ -302,6 +303,7 @@ const CompleteAi = () => {
           label: ' Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
         secondaryButton={{
           label: 'Explore AI Infrastructure ',

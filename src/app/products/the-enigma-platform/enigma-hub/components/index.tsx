@@ -416,7 +416,7 @@ const workflows = [
       'Create or invite the initial admin user  ',
       'Link Connect, EDGE, ESC and storage subscriptions  ',
       'Tenant admin invites additional users  ',
-      'assword and 2FA policies are applied  ',
+      'Password and 2FA policies are applied  ',
     ],
     stepList: true,
     stepTitle: 'Steps',
@@ -491,6 +491,7 @@ const Hub = () => {
             label: 'Talk to Enigma',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
         ]}
         features={['Identity control', 'Role-based access ', 'Audit-ready activity']}
@@ -740,6 +741,7 @@ const Hub = () => {
           label: 'Talk to Enigma  ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
       />
     </div>

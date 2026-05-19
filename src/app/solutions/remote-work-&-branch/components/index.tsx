@@ -93,6 +93,7 @@ const WorkBranch = () => {
             label: 'Talk to Enigma ',
             href: '/get-in-touch',
             variant: 'gold',
+            disableSentenceCase: true,
           },
         ]}
         features={['Distributed workforce ', 'Centralised control', 'Built-in resilience']}
@@ -156,6 +157,7 @@ const WorkBranch = () => {
           label: 'Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
       <NextPageSlider

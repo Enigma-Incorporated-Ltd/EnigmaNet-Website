@@ -502,6 +502,7 @@ const SyncSphere = () => {
             label: 'Talk to Enigma  ',
             href: '/get-in-touch',
             variant: 'gold',
+            disableSentenceCase: true,
           },
         ]}
         features={['Accelerated transfers', 'Unified storage view', 'IAM-aware sharing  ']}
@@ -771,6 +772,7 @@ const SyncSphere = () => {
           label: 'Talk to Enigma  ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
       />
     </div>

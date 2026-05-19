@@ -484,6 +484,7 @@ const Grid = () => {
             label: ' Talk to Enigma  ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
         ]}
         features={[' Authoritative inventory ', 'Topology visibility', ' Service ownership  ']}
@@ -679,8 +680,8 @@ const Grid = () => {
               key={theme}
               title={
                 <>
-                  Grid is the asset and topology layer, <Br isTablet isDesktop /> not the live monitoring
-                  engine{' '}
+                  Grid is the asset and topology layer, <Br isTablet isDesktop /> not the live
+                  monitoring engine{' '}
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
@@ -729,6 +730,7 @@ const Grid = () => {
           label: 'Talk to Enigma  ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
         secondaryButton={{
           label: 'See Grid in action',
