@@ -103,7 +103,7 @@ const FeatureComparison = ({
         )}
         {transitionLine && (
           <div
-            className="position-relative text-center mt-4 text-muted fst-italic fs-4  d-flex flex-wrap text-center justify-content-center mx-auto  zindex-5"
+            className="position-relative text-center display-1 mt-4 text-muted fst-italic fs-4  d-flex flex-wrap text-center justify-content-center mx-auto  zindex-5"
             style={{ maxWidth: '55rem' }}
           >
             {transitionLine}

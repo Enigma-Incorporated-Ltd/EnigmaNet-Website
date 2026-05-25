@@ -10,7 +10,6 @@ import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 
-import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
@@ -462,7 +461,7 @@ const workflows = [
   },
 ];
 const Hub = () => {
-  const slug = useSlug();
+
   const { theme } = useTheme();
   return (
     <div>
@@ -723,7 +722,7 @@ const Hub = () => {
       <NextPageSlider
         title="Hub connects identity and access across Nexus "
         data={features}
-        currentSlug={slug as string}
+       
       />
       <CTA
         theme={theme}

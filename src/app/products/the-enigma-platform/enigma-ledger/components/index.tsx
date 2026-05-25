@@ -13,6 +13,7 @@ import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
+import Br from '@/components/ui/NewLine';
 const features = [
   {
     id: 1,
@@ -587,7 +588,10 @@ const Ledger = () => {
             <HeaderTitle
               key={theme}
               title={
-                <>Billing, services and payment infrastructure often live in separate places</>
+                <>
+                  Billing, services and payment infrastructure <Br isDesktop /> often live in
+                  separate places
+                </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
@@ -619,7 +623,8 @@ const Ledger = () => {
               key={theme}
               title={
                 <>
-                  Ledger connects what the customer runs with who pays for it and how payments flow
+                  Ledger connects what the customer runs with <Br isDesktop />
+                  who pays for it and how payments flow
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
@@ -646,7 +651,12 @@ const Ledger = () => {
       />
       <CardWithUseCase
         data={DataModel as CardItem[]}
-        headerTitle="One commercial model for accounts, subscriptions, providers, devices and invoices "
+        headerTitle={
+          <>
+            One commercial model for accounts, subscriptions, <Br isDesktop /> providers, devices
+            and invoices{' '}
+          </>
+        }
         description={
           <>
             Ledger manages the core finance and payment entities that connect Enigma services to
@@ -656,7 +666,11 @@ const Ledger = () => {
       />
       <CardWithUseCase
         data={Capability as CardItem[]}
-        headerTitle="From invoice management to PSP and device control"
+        headerTitle={
+          <>
+            From invoice management to <Br isTablet /> PSP and device control
+          </>
+        }
       />
 
       <CardSlider
@@ -664,7 +678,12 @@ const Ledger = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Built for finance, operations, partners and payment infrastructure teams</>}
+              title={
+                <>
+                  Built for finance, operations, partners <Br isDesktop />
+                  and payment infrastructure teams
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -680,14 +699,24 @@ const Ledger = () => {
 
       <CardWithUseCase
         data={workflows as CardItem[]}
-        headerTitle={<>Ledger connects payment activity to the services and sites behind it</>}
+        headerTitle={
+          <>
+            Ledger connects payment activity <Br isDesktop />
+            to the services and sites behind it
+          </>
+        }
       />
       <CardSlider
         title={
           <>
             <HeaderTitle
               key={theme}
-              title={<>Ledger connects finance, services, identity, assets and operations</>}
+              title={
+                <>
+                  Ledger connects finance, services, <Br isDesktop /> identity, assets and
+                  operations
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -702,7 +731,8 @@ const Ledger = () => {
         data={data4}
         transitionLine={
           <>
-            Hub says who owns it. Grid says where it is. Command says what is happening. Ledger says
+            Hub says who owns it. Grid says where it is. Command says what is happening. Ledger says{' '}
+            <Br isDesktop isTablet />
             what it means commercially.{' '}
           </>
         }
@@ -713,7 +743,12 @@ const Ledger = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Finance-grade control without becoming the card-data system of record </>}
+              title={
+                <>
+                  Finance-grade control without becoming <Br isDesktop />
+                  the card-data system of record{' '}
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -735,7 +770,8 @@ const Ledger = () => {
               key={theme}
               title={
                 <>
-                  Ledger manages finance and payment context, but it is not an ERP or PSP dashboard
+                  Ledger manages finance and payment context, <Br isDesktop /> but it is not an ERP
+                  or PSP dashboard
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}

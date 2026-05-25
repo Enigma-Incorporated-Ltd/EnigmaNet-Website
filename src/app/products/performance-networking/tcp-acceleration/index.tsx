@@ -8,15 +8,15 @@ const TcpAcceleration = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'TCP Acceleration',
     url: `${BASE_URL}/products/performance-networking/tcp-acceleration`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: `TCP Acceleration is a core APN capability that improves single-flow throughput by replacing legacy TCP congestion behaviour inside Enigma’s encrypted tunnel, helping traffic run closer to line rate even when latency, packet loss or distance would normally slow it down.`,
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="TCP Acceleration | Performance Networking -Products"
+        description="TCP Acceleration is a core APN capability that improves single-flow throughput by replacing legacy TCP congestion behaviour inside Enigma’s encrypted tunnel, helping traffic run closer to line rate even when latency, packet loss or distance would normally slow it down."
         url={`${BASE_URL}/products/performance-networking/tcp-acceleration`}
         structuredData={structuredData}
       />

@@ -13,6 +13,7 @@ import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
+import Br from '@/components/ui/NewLine';
 const features = [
   {
     id: 1,
@@ -503,7 +504,12 @@ const ApnCore = () => {
         }}
       />
       <HeroSection
-        title={<>Fix the transport layer across any connection</>}
+        title={
+          <>
+            Fix the transport layer <Br isTablet />
+            across any connection
+          </>
+        }
         description="APN Core is Enigma Net’s software-defined performance overlay, combining byte-level routing,   
         TCP acceleration, multi-link bonding, RAIN redundancy, telemetry and encryption across fibre,   
         broadband, 5G, LTE, satellite and mixed networks.  "
@@ -528,7 +534,12 @@ const ApnCore = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Most connectivity problems are not solved by adding more bandwidth</>}
+              title={
+                <>
+                  Most connectivity problems are not <Br isDesktop isTablet />
+                  solved by adding more bandwidth
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -554,7 +565,12 @@ const ApnCore = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>APN Core improves how traffic behaves across the links you already have</>}
+              title={
+                <>
+                  APN Core improves how traffic behaves
+                  <Br isDesktop isTablet /> across the links you already have
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -574,11 +590,21 @@ const ApnCore = () => {
       />
       <CardWithUseCase
         data={Command as CardItem[]}
-        headerTitle="Visibility, performance, stability and security in one transport fabric"
+        headerTitle={
+          <>
+            Visibility, performance, stability and <Br isDesktop isTablet /> security in one
+            transport fabric
+          </>
+        }
       />
       <CardWithUseCase
         data={DataModel as CardItem[]}
-        headerTitle="A performance overlay that optimises traffic inside the tunnel"
+        headerTitle={
+          <>
+            A performance overlay that optimises <Br isDesktop isTablet />
+            traffic inside the tunnel
+          </>
+        }
         description={
           <>
             APN Core sits above the underlying ISP circuits. It does not rely on the access link
@@ -592,7 +618,12 @@ const ApnCore = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Designed for high-loss, high-latency and real-time environments</>}
+              title={
+                <>
+                  Designed for high-loss, high-latency
+                  <Br isDesktop isTablet /> and real-time environments
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -642,7 +673,12 @@ const ApnCore = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>A consistent management surface across every APN deployment </>}
+              title={
+                <>
+                  A consistent management surface
+                  <Br isDesktop isTablet /> across every APN deployment{' '}
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -680,7 +716,10 @@ const ApnCore = () => {
             <HeaderTitle
               key={theme}
               title={
-                <>Use APN Core when performance has to survive real-world network conditions</>
+                <>
+                  Use APN Core when performance has to
+                  <Br isDesktop isTablet /> survive real-world network conditions
+                </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
@@ -699,7 +738,12 @@ const ApnCore = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>APN Core is the transport engine, not the product wrapper</>}
+              title={
+                <>
+                  APN Core is the transport engine,
+                  <Br  isTablet /> not the product wrapper
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>

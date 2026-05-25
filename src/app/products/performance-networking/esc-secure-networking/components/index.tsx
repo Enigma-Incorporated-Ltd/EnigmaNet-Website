@@ -13,6 +13,7 @@ import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
+import Br from '@/components/ui/NewLine';
 const features = [
   {
     id: 1,
@@ -630,10 +631,15 @@ const SecureNetworking = () => {
         }}
       />
       <HeroSection
-        title={<>Secure overlay networking powered by APN Core</>}
+        title={
+          <>
+            Secure overlay networking
+            <Br isTablet /> powered by APN Core
+          </>
+        }
         description="ESC – Secure Networking delivers Enigma’s APN Core as a multi-tenant software and SaaS   
-platform, enabling private overlay networking, SD-WAN-style control, traffic acceleration,   
-bonding, RAIN resilience and secure connectivity across any IP network.   "
+        platform, enabling private overlay networking, SD-WAN-style control, traffic acceleration,   
+        bonding, RAIN resilience and secure connectivity across any IP network.   "
         // image={heroImg}
         buttons={[
           {
@@ -656,8 +662,8 @@ bonding, RAIN resilience and secure connectivity across any IP network.   "
               key={theme}
               title={
                 <>
-                  Modern networks need more than connectivity. They need controlled performance over
-                  any underlay
+                  Modern networks need more than connectivity. <Br isDesktop  />
+                  They need controlled performance over any underlay
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
@@ -686,7 +692,12 @@ bonding, RAIN resilience and secure connectivity across any IP network.   "
           <>
             <HeaderTitle
               key={theme}
-              title={<>ESC turns APN Core into a deployable secure networking platform</>}
+              title={
+                <>
+                  ESC turns APN Core into a deployable <Br isDesktop isTablet /> secure networking
+                  platform
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -709,7 +720,11 @@ bonding, RAIN resilience and secure connectivity across any IP network.   "
           <>
             <HeaderTitle
               key={theme}
-              title={<>ESC is the fabric that Connect and EDGE connect into</>}
+              title={
+                <>
+                  ESC is the fabric that Connect <Br isTablet /> and EDGE connect into
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -730,11 +745,19 @@ bonding, RAIN resilience and secure connectivity across any IP network.   "
       />
       <CardWithUseCase
         data={Command as CardItem[]}
-        headerTitle="APN performance and resilience delivered as a service"
+        headerTitle={
+          <>
+            APN performance and resilience <Br isTablet /> delivered as a service
+          </>
+        }
       />
       <CardWithUseCase
         data={Models as CardItem[]}
-        headerTitle="Deploy ESC as SaaS, cloud VM or on-prem networking fabric"
+        headerTitle={
+          <>
+            Deploy ESC as SaaS, cloud VM <Br isTablet isDesktop /> or on-prem networking fabric
+          </>
+        }
         description={
           <>
             ESC uses the same APN engine and configuration model across deployment patterns. The
@@ -791,7 +814,12 @@ bonding, RAIN resilience and secure connectivity across any IP network.   "
           <>
             <HeaderTitle
               key={theme}
-              title={<>Designed for private overlay networking across real-world environments</>}
+              title={
+                <>
+                  Designed for private overlay networking <Br isTablet isDesktop />
+                  across real-world environments
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -827,7 +855,12 @@ bonding, RAIN resilience and secure connectivity across any IP network.   "
           <>
             <HeaderTitle
               key={theme}
-              title={<>Private overlay networking with tenant separation and encrypted tunnels</>}
+              title={
+                <>
+                  Private overlay networking with <Br isDesktop />
+                  tenant separation and encrypted tunnels
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -846,7 +879,12 @@ bonding, RAIN resilience and secure connectivity across any IP network.   "
           <>
             <HeaderTitle
               key={theme}
-              title={<>ESC is the secure networking fabric, not every product interface.</>}
+              title={
+                <>
+                  ESC is the secure networking fabric,
+                  <Br isDesktop isTablet /> not every product interface.
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
