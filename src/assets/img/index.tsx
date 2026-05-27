@@ -8,12 +8,13 @@ import providersPartners from './solutions/providersPartners-solution/service-pr
 import remoteWork from './solutions/remote-work-solution/remote-work-and-branch.png';
 import startups from './solutions/startups-solution/outreach-topic3-cloud.png';
 import technology from './solutions/technology-solution/technology-partners.png';
-
+import enigmaSecure from './products/nexus/enigma-secure-networking-infographic.png';
 
 export {
+
+  //solutions
   aiInfra,
   channel,
-
   defense,
   enterprise,
   industries,
@@ -22,4 +23,7 @@ export {
   remoteWork,
   startups,
   technology,
+
+  //products-nexsus
+  enigmaSecure
 };

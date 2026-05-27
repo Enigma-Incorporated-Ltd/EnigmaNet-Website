@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enterprise as heroImg } from '@/assets/img';
+import { enigmaSecure, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import Fragmented from '@/assets/svgs/products/enigma-platform/nexus/Pain-card-Fragmented-visibility.svg'
@@ -33,6 +33,7 @@ import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import Br from '@/components/ui/NewLine';
+import HeroImage from '@/components/ui/HeroImage';
 const features = [
   {
     id: 1,
@@ -420,7 +421,9 @@ const Nexus = () => {
         ]}
         features={[' Unified control  ', 'Role-aware access', ' AI-assisted operations']}
       />
-
+      <HeroImage img={enigmaSecure} />
+      
+   
       <CardSlider
         title={
           <>
@@ -522,7 +525,7 @@ const Nexus = () => {
         data={data4}
       />
       <CaseStudyHighlight
-        image={heroImg}
+        image={enigmaSecure}
         title={
           <>
             <HeaderTitle

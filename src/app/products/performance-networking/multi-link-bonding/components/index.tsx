@@ -599,7 +599,12 @@ const LinkBonding = () => {
       />
 
       <HeroSection
-        title={<>Combine multiple links into one resilient performance path</>}
+        title={
+          <>
+            Combine multiple links into
+            <Br isDesktop isTablet /> one resilient performance path
+          </>
+        }
         description="Multi-Link Bonding combines up to eight circuits per site into a single APN overlay, allowing   
 applications to use one logical path while Enigma manages bandwidth aggregation, path   
 scheduling, packet ordering and failover underneath.  "
@@ -619,7 +624,12 @@ scheduling, packet ordering and failover underneath.  "
           <>
             <HeaderTitle
               key={theme}
-              title={<>One connection is rarely enough for modern operations</>}
+              title={
+                <>
+                  One connection is rarely enough
+                  <Br isTablet /> for modern operations
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -647,7 +657,12 @@ scheduling, packet ordering and failover underneath.  "
           <>
             <HeaderTitle
               key={theme}
-              title={<>Bonding turns separate access links into one managed APN overlay</>}
+              title={
+                <>
+                  Bonding turns separate access links
+                  <Br isDesktop isTablet /> into one managed APN overlay
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -673,7 +688,12 @@ scheduling, packet ordering and failover underneath.  "
           <>
             <HeaderTitle
               key={theme}
-              title={<>APN manages the complexity underneath the application</>}
+              title={
+                <>
+                  APN manages the complexity <Br isTablet />
+                  underneath the application
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -696,7 +716,12 @@ scheduling, packet ordering and failover underneath.  "
           <>
             <HeaderTitle
               key={theme}
-              title={<>Designed for mixed links with different speeds and latency</>}
+              title={
+                <>
+                  Designed for mixed links with
+                  <Br isTablet /> different speeds and latency
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -718,7 +743,12 @@ scheduling, packet ordering and failover underneath.  "
           <>
             <HeaderTitle
               key={theme}
-              title={<>Bonding improves both bandwidth and continuity</>}
+              title={
+                <>
+                  Bonding improves both bandwidth
+                  <Br isTablet /> and continuity
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -757,7 +787,12 @@ scheduling, packet ordering and failover underneath.  "
           <>
             <HeaderTitle
               key={theme}
-              title={<>Bonding is strongest when combined with TCP-A, RAIN and ITM</>}
+              title={
+                <>
+                  Bonding is strongest when combined
+                  <Br isTablet /> with TCP-A, RAIN and ITM
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -796,7 +831,12 @@ scheduling, packet ordering and failover underneath.  "
           <>
             <HeaderTitle
               key={theme}
-              title={<>Bonding powers resilience and performance across Enigma products</>}
+              title={
+                <>
+                  Bonding powers resilience and
+                  <Br isDesktop isTablet /> performance across Enigma products
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -815,7 +855,12 @@ scheduling, packet ordering and failover underneath.  "
           <>
             <HeaderTitle
               key={theme}
-              title={<>Use bonding where one link cannot carry the operational risk alone</>}
+              title={
+                <>
+                  Use bonding where one link cannot
+                  <Br isDesktop isTablet /> carry the operational risk alone
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -833,7 +878,12 @@ scheduling, packet ordering and failover underneath.  "
           <>
             <HeaderTitle
               key={theme}
-              title={<>Bonding works across hardware, software, cloud and hybrid deployments</>}
+              title={
+                <>
+                  Bonding works across hardware, software,
+                  <Br isDesktop isTablet /> cloud and hybrid deployments
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -935,7 +985,7 @@ scheduling, packet ordering and failover underneath.  "
         headline={
           <>
             Use every link you have without exposing
-            <Br isTablet  isDesktop/>
+            <Br isTablet isDesktop />
           </>
         }
         headline2=" complexity to the application. "

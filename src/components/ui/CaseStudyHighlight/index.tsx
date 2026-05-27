@@ -63,7 +63,7 @@ const CaseStudyHighlight = ({
               width="100%"
              
               alt="Case Study Highlight"
-              className="img-fluid rounded-4 shadow-lg"
+              className="img-fluid bg-dark rounded-4 shadow-lg"
               style={{
                 borderRadius: '1.5rem',
                 boxShadow: '0 1.875rem 7.5rem -.625rem rgba(124,125,152, .2)',

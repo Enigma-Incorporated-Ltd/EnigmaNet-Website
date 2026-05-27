@@ -10,6 +10,7 @@ import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 import FeatureComparison from '@/components/ui/FeatureComparison';
+import Br from '@/components/ui/NewLine';
 
 const features = [
   {
@@ -578,7 +579,11 @@ const Resilience = () => {
       />
 
       <HeroSection
-        title={<>Protect critical traffic before failure becomes visible</>}
+        title={
+          <>
+            Protect critical traffic before <Br isDesktop isTablet /> failure becomes visible
+          </>
+        }
         description="RAIN duplicates priority traffic across independent paths inside the encrypted APN tunnel,helping Enigma Net maintain session continuity, reduce effective packet loss and protect real-time services when underlying links degrade. "
         // image={heroImg}
         buttons={[
@@ -606,7 +611,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>A connection does not need to fail completely to damage performance</>}
+              title={
+                <>
+                  A connection does not need to fail
+                  <Br isDesktop isTablet /> completely to damage performance
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -630,7 +640,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>RAIN protects traffic before disruption becomes visible</>}
+              title={
+                <>
+                  RAIN protects traffic before
+                  <Br isTablet /> disruption becomes visible
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -656,7 +671,10 @@ const Resilience = () => {
             <HeaderTitle
               key={theme}
               title={
-                <>Failover reacts to failure. RAIN prevents the failure from becoming visible</>
+                <>
+                  Failover reacts to failure. RAIN prevents
+                  <Br isDesktop isTablet /> the failure from becoming visible
+                </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
@@ -702,7 +720,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Duplicated delivery across independent paths</>}
+              title={
+                <>
+                  Duplicated delivery across
+                  <Br isTablet /> independent paths
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -726,7 +749,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Built to reduce effective loss and protect real-time services</>}
+              title={
+                <>
+                  Built to reduce effective loss <Br isTablet />
+                  and protect real-time services
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -746,7 +774,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Configurable resilience by traffic direction and deployment need</>}
+              title={
+                <>
+                  Configurable resilience by traffic
+                  <Br isDesktop isTablet /> direction and deployment need
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -772,7 +805,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>RAIN works with the wider APN performance stack</>}
+              title={
+                <>
+                  RAIN works with the wider <Br isTablet />
+                  APN performance stack
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -792,7 +830,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>RAIN protects services across the Enigma portfolio</>}
+              title={
+                <>
+                  RAIN protects services across <Br isTablet />
+                  the Enigma portfolio
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -811,7 +854,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>For environments where packet loss cannot become operational disruption</>}
+              title={
+                <>
+                  For environments where packet loss cannot
+                  <Br isDesktop isTablet /> become operational disruption
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -830,7 +878,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Different from standard FEC or basic SD-WAN failover</>}
+              title={
+                <>
+                  Different from standard FEC
+                  <Br isDesktop isTablet /> or basic SD-WAN failover
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -849,7 +902,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>RAIN is visible, measurable and operationally controlled</>}
+              title={
+                <>
+                  RAIN is visible, measurable and
+                  <Br isTablet /> operationally controlled
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -868,7 +926,12 @@ const Resilience = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>RAIN can be packaged as resilience where customers need it most</>}
+              title={
+                <>
+                  RAIN can be packaged as resilience <Br isDesktop isTablet />
+                  where customers need it most
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -889,7 +952,10 @@ const Resilience = () => {
             <HeaderTitle
               key={theme}
               title={
-                <>RAIN protects priority traffic, but it is not a magic bandwidth multiplier</>
+                <>
+                  RAIN protects priority traffic, but it is <Br isDesktop isTablet />
+                  not a magic bandwidth multiplier
+                </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
@@ -932,7 +998,7 @@ const Resilience = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline={<>Make packet loss invisible  </>}
+        headline={<>Make packet loss invisible </>}
         headline2="before users feel it"
         description="RAIN Resilience helps Enigma Net protect critical traffic by duplicating packets across   
 independent paths, reducing effective loss and maintaining service continuity across degraded   

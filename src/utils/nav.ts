@@ -401,6 +401,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
   Partners: {
     leftRail: [
       { label: 'Kinnami Partnership  ', id: 'for-partners' },
+      { label: 'Start Up Agency ', id: 'startup' },
       // { label: 'Become a Partner', id: 'become' },
       // { label: 'Find a Partner', id: 'find' },
     ],
@@ -425,6 +426,12 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         //     { label: 'Telco / carrier partners', href: '/partners/telco' },
         //   ],
         // },
+      ],
+      startup: [
+        {
+          title: 'Partners ',
+          links: [{ label: 'Start Up Agency ', href: '/partners/start-up-agency' }],
+        },
       ],
       // become: [
       //   {

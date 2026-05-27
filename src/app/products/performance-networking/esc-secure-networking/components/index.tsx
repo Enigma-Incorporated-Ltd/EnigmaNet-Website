@@ -944,6 +944,7 @@ enterprise and service provider environments.   "
           label: 'Explore ESC',
           href: '#',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
       />
     </div>

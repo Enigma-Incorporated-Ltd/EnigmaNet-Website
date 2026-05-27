@@ -398,6 +398,7 @@ line rate even when latency, packet loss or distance would normally slow it down
             label: 'Explore TCP Acceleration  ',
             href: '/products/performance-networking/tcp-acceleration/explore-tcp-acceleration',
             variant: 'blue',
+            disableSentenceCase: true,
           },
           {
             label: 'Talk to Enigma',
@@ -628,7 +629,7 @@ line rate even when latency, packet loss or distance would normally slow it down
         data={data7}
       />
       <HeaderTitle
-        className='text-center py-4'
+        className="text-center py-4"
         key={theme}
         title={<div>Raw TCP vs Enigma TCP-A</div>}
         variant={theme === 'dark' ? 'gold' : 'blue'}
@@ -698,6 +699,7 @@ line rate even when latency, packet loss or distance would normally slow it down
           label: 'Explore TCP Acceleration',
           href: '#',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
       />
     </div>
