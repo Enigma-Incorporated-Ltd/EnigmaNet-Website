@@ -419,6 +419,9 @@ const StartUpAgencyPage = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
+        description={`Whether supporting smart venues, public infrastructure, AI ecosystems, or distributed   
+operations, the Enigma Net × Start-Up Agency partnership helps organisations create resilient   
+digital environments designed for long-term operational control and scalability.  `}
         headline={<>Build a More Connected </>}
         headline2="Operational Environment"
         primaryButton={{
