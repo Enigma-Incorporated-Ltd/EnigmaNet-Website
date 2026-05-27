@@ -471,14 +471,14 @@ const Grid = () => {
       <HeroSection
         title={
           <>
-            See what’s deployed, how it connects <Br isDesktop isTablet /> and what depends on
+            See what’s deployed, how it connects <Br  isTablet /> and what depends on
             it{' '}
           </>
         }
         description="Enigma Grid gives operations, support, engineering and commercial teams a single   
         authoritative view of devices, links, tunnels, sites, tenants, licences and services across Enigma   
         Net deployments.  "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: ' Talk to Enigma  ',

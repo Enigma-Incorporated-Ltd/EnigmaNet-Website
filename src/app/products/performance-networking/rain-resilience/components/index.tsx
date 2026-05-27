@@ -585,7 +585,7 @@ const Resilience = () => {
           </>
         }
         description="RAIN duplicates priority traffic across independent paths inside the encrypted APN tunnel,helping Enigma Net maintain session continuity, reduce effective packet loss and protect real-time services when underlying links degrade. "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: ' Explore RAIN Resilience   ',

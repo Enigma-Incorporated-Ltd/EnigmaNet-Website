@@ -602,13 +602,13 @@ const LinkBonding = () => {
         title={
           <>
             Combine multiple links into
-            <Br isDesktop isTablet /> one resilient performance path
+            <Br  isTablet /> one resilient performance path
           </>
         }
         description="Multi-Link Bonding combines up to eight circuits per site into a single APN overlay, allowing   
 applications to use one logical path while Enigma manages bandwidth aggregation, path   
 scheduling, packet ordering and failover underneath.  "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: ' Explore Multi-Link Bonding  ',

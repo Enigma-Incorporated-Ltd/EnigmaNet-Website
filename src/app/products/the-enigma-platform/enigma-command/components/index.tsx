@@ -440,10 +440,10 @@ const Command = () => {
       />
 
       <HeroSection
-        title={<>Operational control for AI-assisted network management</>}
+        title={<>Operational control for <Br isDesktop  /> AI-assisted network management</>}
         description="Enigma Command gives NOC and platform teams a single operational view of incidents, alerts,   
         LLM-agent actions, automation status and performance events across Enigma Net services.  "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: ' Talk to Enigma  ',

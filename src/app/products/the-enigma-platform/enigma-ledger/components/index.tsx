@@ -565,7 +565,7 @@ const Ledger = () => {
         description=" Enigma Ledger centralises subscriptions, invoices, payment methods, tax details, PSP   
         connections, payment devices, reporting and reconciliation across Enigma Connect, Enigma   
         EDGE, ESC, Hot Storage, LFT and MFT.  "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: 'Talk to Enigma',

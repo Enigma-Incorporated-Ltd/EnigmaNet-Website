@@ -513,7 +513,7 @@ const ApnCore = () => {
         description="APN Core is Enigma Net’s software-defined performance overlay, combining byte-level routing,   
         TCP acceleration, multi-link bonding, RAIN redundancy, telemetry and encryption across fibre,   
         broadband, 5G, LTE, satellite and mixed networks.  "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: 'Explore APN Core  ',

@@ -33,7 +33,6 @@ import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import Br from '@/components/ui/NewLine';
-import HeroImage from '@/components/ui/HeroImage';
 const features = [
   {
     id: 1,
@@ -405,7 +404,7 @@ const Nexus = () => {
           </>
         }
         description=" Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform. "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: 'Explore Nexus ',
@@ -421,7 +420,7 @@ const Nexus = () => {
         ]}
         features={[' Unified control  ', 'Role-aware access', ' AI-assisted operations']}
       />
-      <HeroImage img={enigmaSecure} />
+     
       
    
       <CardSlider

@@ -484,14 +484,14 @@ const SyncSphere = () => {
       <HeroSection
         title={
           <>
-            Move, sync and manage large files <Br isTablet={true} isDesktop={true} /> from one
+            Move, sync and manage large files <Br isTablet={true}  /> from one
             controlled workspace.
           </>
         }
         description="Enigma SyncSphere brings Hot Storage, Large File Transfer, Managed File Transfer, third-party   
         cloud storage and local NAS into one secure, accelerated workspace built on Enigma’s APN   
         performance layer.  "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: 'Explore SyncSphere ',

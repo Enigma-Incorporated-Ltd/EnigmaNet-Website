@@ -392,7 +392,7 @@ const Acceleration = () => {
         description="TCP Acceleration is a core APN capability that improves single-flow throughput by replacing   
 legacy TCP congestion behaviour inside Enigma’s encrypted tunnel, helping traffic run closer to   
 line rate even when latency, packet loss or distance would normally slow it down.  "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: 'Explore TCP Acceleration  ',

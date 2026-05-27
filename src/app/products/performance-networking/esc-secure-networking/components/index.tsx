@@ -640,13 +640,14 @@ const SecureNetworking = () => {
         description="ESC – Secure Networking delivers Enigma’s APN Core as a multi-tenant software and SaaS   
         platform, enabling private overlay networking, SD-WAN-style control, traffic acceleration,   
         bonding, RAIN resilience and secure connectivity across any IP network.   "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: 'Talk to Enigma',
             href: '/get-in-touch',
             variant: 'blue',
             disableSentenceCase: true,
+            
           },
         ]}
         features={[
