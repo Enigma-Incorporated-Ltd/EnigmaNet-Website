@@ -1,6 +1,8 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enigmaSecure, enterprise as heroImg } from '@/assets/img';
+import {  enigmaSecureDesktop,
+  enigmaSecureMobile,
+  enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import Fragmented from '@/assets/svgs/products/enigma-platform/nexus/Pain-card-Fragmented-visibility.svg'
@@ -33,6 +35,7 @@ import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import Br from '@/components/ui/NewLine';
+import { useEffect, useState } from 'react';
 const features = [
   {
     id: 1,
@@ -383,6 +386,28 @@ const Command = [
 const Nexus = () => {
   const slug = useSlug();
   const { theme } = useTheme();
+  const [caseStudyImage, setCaseStudyImage] = useState(enigmaSecureDesktop);
+  const [heroImage, setHeroImage] = useState(enigmaSecureTablet);
+
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setCaseStudyImage(enigmaSecureMobile); 
+        setHeroImage(enigmaSecureMobile);
+      } else if (window.innerWidth < 992) {
+        setCaseStudyImage(enigmaSecureTablet); 
+        setHeroImage(enigmaSecureTablet);
+      } else {
+        setCaseStudyImage(enigmaSecureDesktop); 
+        setHeroImage(enigmaSecureTablet);
+      }
+    };
+
+    updateImage();
+    window.addEventListener('resize', updateImage);
+
+    return () => window.removeEventListener('resize', updateImage);
+  }, []);
   return (
     <div>
       <Breadcrumb
@@ -404,7 +429,8 @@ const Nexus = () => {
           </>
         }
         description=" Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform. "
-        image={heroImg}
+        image={heroImage}
+        isbg
         buttons={[
           {
             label: 'Explore Nexus ',
@@ -420,9 +446,7 @@ const Nexus = () => {
         ]}
         features={[' Unified control  ', 'Role-aware access', ' AI-assisted operations']}
       />
-     
-      
-   
+
       <CardSlider
         title={
           <>
@@ -524,7 +548,7 @@ const Nexus = () => {
         data={data4}
       />
       <CaseStudyHighlight
-        image={enigmaSecure}
+        image={caseStudyImage}
         title={
           <>
             <HeaderTitle

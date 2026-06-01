@@ -24,7 +24,51 @@
         box-shadow 0.4s ease,
         background 0.4s ease;
 }
+/* =============================================
+   OUTLINE BUTTONS
+   ============================================= */
 
+.blue-outline {
+    background: transparent;
+    border: 2px solid #18c8e8;
+    color: #18c8e8;
+}
+
+.blue-outline span {
+    color: #18c8e8;
+}
+
+.blue-outline:hover {
+    background: linear-gradient(90deg, #2a4099 0%, #18c8e8 100%);
+    border-color: transparent;
+}
+
+.blue-outline:hover span {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+}
+
+/* ============================================= */
+
+.gold-outline {
+    background: transparent;
+    border: 2px solid #F1BA5F;
+    color: #F1BA5F;
+}
+
+.gold-outline span {
+    color: #F1BA5F;
+}
+
+.gold-outline:hover {
+    background: linear-gradient(90deg, #A96A00 0%, #F1BA5F 100%);
+    border-color: transparent;
+}
+
+.gold-outline:hover span {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+}
 /* Full width */
 .w-100 {
     width: 100%;

@@ -177,11 +177,14 @@ const VirtualAppliance = lazy(() => import('@/app/products/integration-&-oem/vir
 const Solutions = lazy(() => import('@/app/solutions'));
 const AiAndDataInfrastructure = lazy(() => import('@/app/solutions/ai-&-data-infrastructure'));
 const RemoteWork = lazy(() => import('@/app/solutions/remote-work-&-branch'));
+const RemoteWorkUseCase = lazy(() => import('@/app/solutions/remote-work-&-branch/use-case/'));
 const OperationalTechnology = lazy(
   () => import('@/app/solutions/operational-technology-&-remote-assets')
 );
 const Industries = lazy(() => import('@/app/solutions/industries'));
+const IndustriesUseCase = lazy(() => import('@/app/solutions/industries/use-case'));
 const ServiceProviders = lazy(() => import('@/app/solutions/service-providers-&-partners'));
+const ServiceProvidersUseCase = lazy(() => import('@/app/solutions/service-providers-&-partners/use-case'));
 const Enterprise = lazy(() => import('@/app/solutions/enterprise'));
 const DefenseDualtechnology = lazy(() => import('@/app/solutions/defense-dualtechnology'));
 const TechnologiesPartner = lazy(() => import('@/app/solutions/technology-partner'));
@@ -205,6 +208,11 @@ const TrustCentre = lazy(() => import('@/app/company/trust-centre'));
 const ContactUs = lazy(() => import('@/app/contact-us'));
 const RequestAQuote = lazy(() => import('@/app/contact-us/request-a-quote'));
 
+
+
+//linkedin-post
+
+const LinkdinPost = lazy(() => import('@/app/linkdin-post'));
 //utility
 const Docs = lazy(() => import('@/app/docs'));
 const DeveloperPortal = lazy(() => import('@/app/developer-portal'));
@@ -221,6 +229,9 @@ export const AllRoutes = [
   { path: '/secure-networking', element: <SecureNetworking /> },
   { path: '/trueCost', name: 'MigrationCalculator', element: <MigrationCalculator /> },
   { path: '/login', name: 'login', element: <Login /> },
+
+  //linkedin-post
+  { path: '/linkdin-post', name: 'linkdin-post', element: <LinkdinPost /> },
   // Products Routes
   { path: '/products', name: 'Products', element: <Products /> },
 
@@ -325,8 +336,11 @@ export const AllRoutes = [
   { path: '/solutions/ai-&-data-infrastructure', element: <AiAndDataInfrastructure /> },
   { path: '/solutions/operational-technology-&-remote-assets', element: <OperationalTechnology /> },
   { path: '/solutions/industries', element: <Industries /> },
+  { path: '/solutions/industries/use-case', element: <IndustriesUseCase /> },
   { path: '/solutions/remote-work-&-branch', element: <RemoteWork /> },
+  { path: '/solutions/remote-work-&-branch/use-case', element: <RemoteWorkUseCase /> },
   { path: '/solutions/service-providers-&-partners', element: <ServiceProviders /> },
+  {path: '/solutions/service-providers-&-partners/use-case', element: <ServiceProvidersUseCase /> },
   { path: '/solutions/enterprise', element: <Enterprise /> },
   { path: '/solutions/defense-dualtechnology', element: <DefenseDualtechnology /> },
   { path: '/solutions/technology-partner', element: <TechnologiesPartner /> },
