@@ -1,6 +1,6 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import { OilGasUsecase } from '@/assets/img';
-import UseCaseButton from '@/components/ui/useCaseButton';
+import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 
 const OperationalImpact = () => {
@@ -69,9 +69,8 @@ const OperationalImpact = () => {
               </ul>
             </div>
             <div className="d-flex justify-content-lg-start justify-content-center">
-                <UseCaseButton text="Book a Pilot" variant="blue" href="/get-in-touch" />
-</div>
-          
+              <UseCaseButton text="Book a Pilot" variant="blue" href="/get-in-touch" />
+            </div>
           </Col>
         </Row>
       </Container>

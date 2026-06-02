@@ -1,8 +1,7 @@
-
 import { ENIGMA_USE_CASES } from '@/assets/svgs/solutions/service-providers-&-partners/usecase';
-import './style.css'
-import UseCaseButton from '@/components/ui/useCaseButton';
-import { StatCard } from './PilotOutcomes';
+import './style.css';
+import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
+import UseCaseStatCard from '@/components/ui/useCase/UseCaseStatCard';
 
 const HeroBanner = () => {
   return (
@@ -16,7 +15,6 @@ const HeroBanner = () => {
       <div
         className="container hero-padding "
         style={{
-         
           position: 'relative',
           zIndex: 1,
           marginBottom: '4rem',
@@ -85,7 +83,7 @@ const HeroBanner = () => {
               <ENIGMA_USE_CASES />
             </div>
             <div className="d-flex hero-stats  gap-5 flex-wrap">
-              <StatCard
+              <UseCaseStatCard
                 value="20-60%"
                 label={
                   <>
@@ -93,9 +91,9 @@ const HeroBanner = () => {
                   </>
                 }
               />
-              <StatCard value="<0,1%" label="PACKET LOSS" />{' '}
-              <StatCard value="<500ms" label="FAILOVER" />
-              <StatCard
+              <UseCaseStatCard value="<0,1%" label="PACKET LOSS" />{' '}
+              <UseCaseStatCard value="<500ms" label="FAILOVER" />
+              <UseCaseStatCard
                 label={
                   <>
                     OVERLAY <br /> DEPLOYMENT

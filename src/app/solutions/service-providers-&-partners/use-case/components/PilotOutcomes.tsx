@@ -1,50 +1,11 @@
-import UseCaseButton from '@/components/ui/useCaseButton';
+import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
+import { handleCardMouseEnter, handleCardMouseLeave } from '@/utils/cardHover';
 
 interface StatCardProps {
   value?: string;
   label: string | React.ReactNode;
 }
 
-export const StatCard = ({ value, label }: StatCardProps) => (
-  <div
-    style={{
-      borderRadius: '12px',
-      border: '1px solid #FFF',
-      background: 'linear-gradient(180deg, rgba(64, 113, 163, 0.20) 0%, #182B3D 99.99%)',
-      boxShadow:
-        '0 21px 6px 0 rgba(0, 0, 0, 0), 0 13px 5px 0 rgba(0, 0, 0, 0.01), 0 8px 5px 0 rgba(0, 0, 0, 0.05), 0 3px 3px 0 rgba(0, 0, 0, 0.09), 0 1px 2px 0 rgba(0, 0, 0, 0.10)',
-      padding: '20px 24px',
-      minWidth: '120px',
-      textAlign: 'center',
-    }}
-  >
-    {value && (
-      <div
-        style={{
-          color: '#2ADEFF',
-          fontSize: '22px',
-          fontWeight: 500,
-          marginBottom: '6px',
-          letterSpacing: '-0.02em',
-        }}
-      >
-        {value}
-      </div>
-    )}
-
-    <div
-      style={{
-        color: '#FFF',
-        fontSize: '11px',
-        fontWeight: 700,
-        letterSpacing: '0.08em',
-        textTransform: 'uppercase',
-      }}
-    >
-      {label}
-    </div>
-  </div>
-);
 export const RevenueStatCard = ({ label }: StatCardProps) => (
   <div
     style={{
@@ -61,7 +22,10 @@ export const RevenueStatCard = ({ label }: StatCardProps) => (
       fontWeight: 700,
       letterSpacing: '0.08em',
       width: '100%',
+      transition: 'all 0.3s ease',
     }}
+    onMouseEnter={handleCardMouseEnter}
+    onMouseLeave={handleCardMouseLeave}
   >
     {label}
   </div>
@@ -117,7 +81,7 @@ const PilotOutcomes = () => {
             fontSize: 'clamp(16px, 2vw, 20px)',
             lineHeight: 1.8,
             fontWeight: 700,
-            
+
             paddingInline: '12px',
           }}
         >

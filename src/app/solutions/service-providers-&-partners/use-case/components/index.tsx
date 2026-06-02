@@ -1,6 +1,6 @@
 import HeroBanner from './HeroBanner';
 import PerformanceMetrics from './PerformanceMetrics';
-import ConnectivityPromo from '@/components/ui/ConnectivityPromo';
+import ConnectivityPromo from '@/components/ui/useCase/ConnectivityPromo';
 import Connectivity from './Connectivity';
 import PilotOutcomes from './PilotOutcomes';
 import TurningNetworkUsecase from './TurningNetworkUsecase';
@@ -8,7 +8,7 @@ import HigherValue from './HigherValue';
 
 const ServiceProvidersUseCasePage = () => {
   return (
-    <div className="bg-white" >
+    <div className="bg-white">
       <HeroBanner />
       <PilotOutcomes />
       <TurningNetworkUsecase />

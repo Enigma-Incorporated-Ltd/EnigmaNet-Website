@@ -1,14 +1,10 @@
-
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { serviceProvidersUsecase } from '@/assets/img';
-import UseCaseButton from '@/components/ui/useCaseButton';
-
+import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
 
 const TurningNetworkUsecase: React.FC = () => {
- 
-
   return (
     <div className="bg-white">
       <Container className="py-5">
@@ -16,7 +12,7 @@ const TurningNetworkUsecase: React.FC = () => {
           {/* LEFT CONTENT - HEADER & FEATURES */}
           <Col lg={7}>
             <HeaderTitle title="EDGE Max" variant="gold" />
-            
+
             <p className=" mb-4 fw-semibold fs-xl" style={{ color: '#263777' }}>
               Turning Network Performance Into Catalogue Products
             </p>

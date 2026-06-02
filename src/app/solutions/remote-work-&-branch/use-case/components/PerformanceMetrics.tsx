@@ -5,8 +5,8 @@ import {
   Vector,
 } from '@/assets/svgs/solutions/remote-work-&-branch/usecase';
 import HeaderTitle from '@/components/ui/HeaderTitle';
-import UseCaseButton from '@/components/ui/useCaseButton';
-import UseCaseCard from '@/components/ui/useCaseCard';
+import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
+import UseCaseCard from '@/components/ui/useCase/UseCaseCard';
 
 const PerformanceMetrics = () => {
   const metrics = [
@@ -50,9 +50,9 @@ const PerformanceMetrics = () => {
           variant="gold"
           className="text-center mb-5 fw-bold"
         />
-        <UseCaseCard metrics={metrics}  />
+        <UseCaseCard metrics={metrics} />
 
-        <div className="d-flex justify-content-center mt-5">
+        <div className="d-flex justify-content-center flex-column flex-sm-row mt-5 w-100 w-lg-auto">
           <UseCaseButton text="FREE TRIAL 7 DAYS" variant="blue" />
         </div>
       </div>

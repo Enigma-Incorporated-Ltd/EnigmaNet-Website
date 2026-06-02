@@ -1,7 +1,12 @@
-import { BASELINE_ICON, Lock_ICON, ROLLOUT_ICON, SECURITY_ICON } from '@/assets/svgs/solutions/service-providers-&-partners/usecase';
+import {
+  BASELINE_ICON,
+  Lock_ICON,
+  ROLLOUT_ICON,
+  SECURITY_ICON,
+} from '@/assets/svgs/solutions/service-providers-&-partners/usecase';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import HeaderTitle from '@/components/ui/HeaderTitle';
-import UseCaseCard from '@/components/ui/useCaseCard';
+import UseCaseCard from '@/components/ui/useCase/UseCaseCard';
 const metrics = [
   {
     icon: BASELINE_ICON,
@@ -46,8 +51,6 @@ const Connectivity = () => {
           isbg
         />
         <div className="row g-4 align-items-center">
-       
-
           {/* Right Content */}
           <div className="col-12 ">
             <div className="d-flex justify-content-center mt-3 mt-md-5 px-3 px-md-0  px-lg-0">

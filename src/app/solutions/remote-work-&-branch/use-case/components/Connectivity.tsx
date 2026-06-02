@@ -1,5 +1,5 @@
 import HeaderTitle from '@/components/ui/HeaderTitle';
-import UseCaseCard from '@/components/ui/useCaseCard';
+import UseCaseCard from '@/components/ui/useCase/UseCaseCard';
 const metrics = [
   {
     label: 'APN Overlay',

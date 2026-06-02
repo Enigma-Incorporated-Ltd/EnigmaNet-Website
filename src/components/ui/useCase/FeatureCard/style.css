@@ -1,0 +1,48 @@
+.metric-card {
+    border-radius: 12px;
+    border: 1px solid #fff;
+    background: #fff;
+    box-shadow:
+        0 21px 6px 0 rgba(0, 0, 0, 0),
+        0 13px 5px 0 rgba(0, 0, 0, 0.01),
+        0 8px 5px 0 rgba(0, 0, 0, 0.05),
+        0 3px 3px 0 rgba(0, 0, 0, 0.09),
+        0 1px 2px 0 rgba(0, 0, 0, 0.1);
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-8px);
+    /* border-bottom-color: #2adeff; */
+
+}
+
+.metric-card svg {
+    transition: transform 0.3s ease;
+}
+
+.metric-card:hover svg {
+    transform: scale(1.1);
+}
+
+.metric-card p,
+.metric-card span {
+    transition: color 0.3s ease;
+}
+
+.metric-card:hover p,
+.metric-card:hover span {
+    color: #2adeff;
+}

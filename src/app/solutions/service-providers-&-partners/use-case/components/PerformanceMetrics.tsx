@@ -1,4 +1,4 @@
-import UseCaseCard from '@/components/ui/useCaseCard';
+import UseCaseCard from '@/components/ui/useCase/UseCaseCard';
 
 const PerformanceMetrics = () => {
   const metrics = [

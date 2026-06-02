@@ -1,5 +1,5 @@
 import React from 'react';
-import UseCaseButton from '../useCaseButton';
+import UseCaseButton from '../UseCaseButton';
 type ButtonConfig = {
   label: string;
   href?: string;
@@ -13,7 +13,7 @@ type PromoCard = {
 const ConnectivityPromo: React.FC<PromoCard> = ({ title, description, buttons = [] }) => {
   return (
     <div
-      className="py-5 "
+      className="pb-5 "
       style={{
         background: '#fff',
       }}
@@ -54,7 +54,13 @@ const ConnectivityPromo: React.FC<PromoCard> = ({ title, description, buttons = 
           {/* Buttons */}
           <div className="d-flex flex-column justify-content-center flex-sm-row gap-3 w-100 w-lg-auto">
             {buttons.map((btn, index) => (
-              <UseCaseButton key={index} text={btn.label} variant={btn.variant} href={btn.href} className="px-4" />
+              <UseCaseButton
+                key={index}
+                text={btn.label}
+                variant={btn.variant}
+                href={btn.href}
+                className="px-4"
+              />
             ))}
           </div>
         </div>

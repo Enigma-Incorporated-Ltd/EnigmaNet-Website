@@ -1,5 +1,5 @@
 import HeaderTitle from '@/components/ui/HeaderTitle';
-import UseCaseCard from '@/components/ui/useCaseCard';
+import UseCaseCard from '@/components/ui/useCase/UseCaseCard';
 const metrics = [
   {
     value: 'Week 1',
@@ -28,6 +28,7 @@ const HigherValue = () => {
       style={{
         background: '#FFFFFF',
         position: 'relative',
+        padding: '80px 0',
       }}
     >
       <div className="container">

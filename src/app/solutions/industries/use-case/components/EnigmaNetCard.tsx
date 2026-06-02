@@ -10,12 +10,49 @@ import {
 } from '@/assets/svgs/solutions/industries/usecase';
 import React from 'react';
 import LogoCircle from '@/assets/img/logo-c.png';
+import FeatureCard from '@/components/ui/useCase/FeatureCard';
+import { handleCardMouseEnter, handleCardMouseLeave } from '@/utils/cardHover';
 const EnigmaNetCard: React.FC = () => {
+  const metrics = [
+    {
+      icon: TCP_ICON,
+      value: (
+        <>
+          7 <span style={{ color: '#2ADEFF' }}>x</span>–65
+          <span style={{ color: '#2ADEFF' }}>x</span>
+        </>
+      ),
+      label: 'TPC THROUGHPUT UPLIFT',
+    },
+    {
+      icon: TRIFFIC_ICON,
+      value: (
+        <>
+          {'<5'} <span style={{ color: '#2ADEFF' }}>ms</span>
+        </>
+      ),
+      label: 'PROTECTED TRAFFIC JITTER',
+    },
+    {
+      icon: PROTECT_ICON,
+      value: (
+        <>
+          {'<0.1'} <span style={{ color: '#2ADEFF' }}>%</span>
+        </>
+      ),
+      label: 'EFFECTIVE PACKET LOSS',
+    },
+    {
+      icon: ZERO_TRUST_ICON,
+      value: 'Zero-Gap',
+      label: 'FAILOVER VIA RAIN',
+    },
+  ];
   return (
     <section
       style={{
         background: '#FFFFFF',
-
+        padding: '80px 0',
         position: 'relative',
       }}
     >
@@ -47,7 +84,7 @@ const EnigmaNetCard: React.FC = () => {
             </p>
 
             <div
-              className="d-flex align-items-center justify-content-center gap-4 px-5 flex-wrap"
+              className="d-flex align-items-center flex-column flex-md-row justify-content-center gap-4"
               style={{ marginBottom: '4rem' }}
             >
               {/* Left Side */}
@@ -66,9 +103,12 @@ const EnigmaNetCard: React.FC = () => {
                       color: '#000',
                       minWidth: '180px',
                       fontWeight: 500,
+                      transition: 'all 0.3s ease',
                       boxShadow:
                         '0 21px 6px rgba(0,0,0,0), 0 13px 5px rgba(0,0,0,0.01), 0 8px 5px rgba(0,0,0,0.05), 0 3px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.1)',
                     }}
+                    onMouseEnter={handleCardMouseEnter}
+                    onMouseLeave={handleCardMouseLeave}
                   >
                     <Icon />
                     {label}
@@ -87,157 +127,51 @@ const EnigmaNetCard: React.FC = () => {
                   height: '165px',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  transition: 'all 0.3s ease',
+                  boxShadow:
+                    '0 21px 6px rgba(0,0,0,0), 0 13px 5px rgba(0,0,0,0.01), 0 8px 5px rgba(0,0,0,0.05), 0 3px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.1)',
                 }}
+                onMouseEnter={handleCardMouseEnter}
+                onMouseLeave={handleCardMouseLeave}
               >
                 <img
                   src={LogoCircle}
                   alt="Enigma Net Icon"
-                  style={{ width: '141px', height: '141px' }}
+                  style={{
+                    width: '141px',
+                    height: '141px',
+                    transform: 'scale(1)',
+                    transition: 'transform 0.3s ease',
+                  }}
                 />
               </div>
 
               {/* Right Side */}
-              <div
-                style={{
-                  borderRadius: '12px',
-                  background: '#FFF',
-                  padding: '20px',
-                  minWidth: '180px',
-                  textAlign: 'center',
-                  boxShadow:
-                    '0 21px 6px rgba(0,0,0,0), 0 13px 5px rgba(0,0,0,0.01), 0 8px 5px rgba(0,0,0,0.05), 0 3px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.1)',
-                }}
-              >
-                <Lock_ICON />
 
-                <br />
-
-                <span
-                  style={{
-                    color: '#000',
-                    fontSize: '14px',
-                    fontWeight: 500,
-                  }}
-                >
-                  ON-PREM /<br /> AIR-GAPPED NETWORK
-                </span>
-              </div>
+              <FeatureCard
+                icon={Lock_ICON}
+                label={
+                  <>
+                    {' '}
+                    ON-PREM /<br /> AIR-GAPPED NETWORK
+                  </>
+                }
+                fontWeight={500}
+              />
             </div>
           </div>
           <div className="col-lg-4">
             <div className="row g-4">
-              {/* First row - two cards */}
-              <div className="col-6">
-                <div
-                  style={{
-                    borderRadius: '12px',
-                    border: '1px solid #FFF',
-                    background: '#FFF',
-                    boxShadow:
-                      '0 21px 6px 0 rgba(0, 0, 0, 0.00), 0 13px 5px 0 rgba(0, 0, 0, 0.01), 0 8px 5px 0 rgba(0, 0, 0, 0.05), 0 3px 3px 0 rgba(0, 0, 0, 0.09), 0 1px 2px 0 rgba(0, 0, 0, 0.10)',
-                    padding: '20px',
-                    alignItems: 'center',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                  }}
-                >
-                  <TCP_ICON />
-                  <p style={{ color: '#000' }}>
-                    7 <span style={{ color: '#2ADEFF' }}>x</span>–65
-                    <span style={{ color: '#2ADEFF' }}>x</span>
-                  </p>
-                  <span
-                    className="text-center"
-                    style={{ color: '#000', fontWeight: 600, fontSize: '16px' }}
-                  >
-                    TPC THROUGHPUT <br /> UPLIFT
-                  </span>
+              {metrics.map((metric, index) => (
+                <div key={index} className="col-6">
+                  <FeatureCard
+                    icon={metric.icon}
+                    value={metric.value}
+                    label={metric.label}
+                    index={index}
+                  />
                 </div>
-              </div>
-
-              <div className="col-6">
-                <div
-                  style={{
-                    borderRadius: '12px',
-                    border: '1px solid #FFF',
-                    background: '#FFF',
-                    boxShadow:
-                      '0 21px 6px 0 rgba(0, 0, 0, 0.00), 0 13px 5px 0 rgba(0, 0, 0, 0.01), 0 8px 5px 0 rgba(0, 0, 0, 0.05), 0 3px 3px 0 rgba(0, 0, 0, 0.09), 0 1px 2px 0 rgba(0, 0, 0, 0.10)',
-                    padding: '20px',
-                    alignItems: 'center',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                  }}
-                >
-                  <TRIFFIC_ICON />
-                  <p style={{ color: '#000' }}>
-                    {'<5'} <span style={{ color: '#2ADEFF' }}>ms</span>
-                  </p>
-                  <span
-                    className="text-center"
-                    style={{ color: '#000', fontWeight: 600, fontSize: '16px' }}
-                  >
-                    PROTECTED TRIFFIC <br /> JITTER
-                  </span>
-                </div>
-              </div>
-
-              {/* Second row - two cards */}
-              <div className="col-6">
-                <div
-                  style={{
-                    borderRadius: '12px',
-                    border: '1px solid #FFF',
-                    background: '#FFF',
-                    boxShadow:
-                      '0 21px 6px 0 rgba(0, 0, 0, 0.00), 0 13px 5px 0 rgba(0, 0, 0, 0.01), 0 8px 5px 0 rgba(0, 0, 0, 0.05), 0 3px 3px 0 rgba(0, 0, 0, 0.09), 0 1px 2px 0 rgba(0, 0, 0, 0.10)',
-                    padding: '20px',
-                    alignItems: 'center',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                  }}
-                >
-                  <PROTECT_ICON />
-                  <p className="pt-2" style={{ color: '#000' }}>
-                    {'<0.1'} <span style={{ color: '#2ADEFF' }}>%</span>
-                  </p>
-                  <span
-                    className="text-center"
-                    style={{ color: '#000', fontWeight: 600, fontSize: '16px' }}
-                  >
-                    EFFECTIVE PACKET LOSS
-                  </span>
-                </div>
-              </div>
-
-              <div className="col-6">
-                <div
-                  style={{
-                    borderRadius: '12px',
-                    border: '1px solid #FFF',
-                    background: '#FFF',
-                    boxShadow:
-                      '0 21px 6px 0 rgba(0, 0, 0, 0.00), 0 13px 5px 0 rgba(0, 0, 0, 0.01), 0 8px 5px 0 rgba(0, 0, 0, 0.05), 0 3px 3px 0 rgba(0, 0, 0, 0.09), 0 1px 2px 0 rgba(0, 0, 0, 0.10)',
-                    padding: '20px',
-                    alignItems: 'center',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                  }}
-                >
-                  <ZERO_TRUST_ICON />
-                  <p style={{ color: '#000' }}>Zero-Gap</p>
-                  <span
-                    className="text-center"
-                    style={{ color: '#000', fontWeight: 600, fontSize: '16px' }}
-                  >
-                    FAILOVER VIA RAIN{' '}
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
