@@ -1,10 +1,9 @@
-
 import PerformanceMetrics from './PerformanceMetrics';
-import ConnectivityPromo from '@/components/ui/useCase/ConnectivityPromo';
+import ConnectivityPromo from '@/components/ui/Use-Case/ConnectivityPromo';
 import PilotOutcomes from './PilotOutcomes';
 import OperationalImpact from './OperationalImpact';
 import EnigmaNetCard from './EnigmaNetCard';
-import HeroBanner from '@/components/ui/useCase/HeroBanner';
+import HeroBanner from '@/components/ui/Use-Case/HeroBanner';
 import { industriesUsecase } from '@/assets/img';
 
 const IndustriesCasePage = () => {

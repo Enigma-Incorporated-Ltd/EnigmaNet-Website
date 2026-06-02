@@ -1,5 +1,5 @@
-import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
-import UseCaseStatCard from '@/components/ui/useCase/UseCaseStatCard';
+import UseCaseButton from '@/components/ui/Use-Case/UseCaseButton';
+import UseCaseStatCard from '@/components/ui/Use-Case/UseCaseStatCard';
 
 const PilotOutcomes = () => {
   return (

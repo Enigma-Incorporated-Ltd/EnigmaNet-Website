@@ -5,8 +5,8 @@ import {
   Vector,
 } from '@/assets/svgs/solutions/remote-work-&-branch/usecase';
 import HeaderTitle from '@/components/ui/HeaderTitle';
-import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
-import UseCaseCard from '@/components/ui/useCase/UseCaseCard';
+import UseCaseButton from '@/components/ui/Use-Case/UseCaseButton';
+import UseCaseCard from '@/components/ui/Use-Case/UseCaseCard';
 
 const PerformanceMetrics = () => {
   const metrics = [

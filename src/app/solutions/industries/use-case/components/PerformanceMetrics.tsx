@@ -1,5 +1,5 @@
 import HeaderTitle from '@/components/ui/HeaderTitle';
-import UseCaseCard from '@/components/ui/useCase/UseCaseCard';
+import UseCaseCard from '@/components/ui/Use-Case/UseCaseCard';
 
 const PerformanceMetrics = () => {
   const metrics = [

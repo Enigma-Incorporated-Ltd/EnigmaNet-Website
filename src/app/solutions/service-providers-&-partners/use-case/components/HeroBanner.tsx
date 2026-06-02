@@ -1,7 +1,7 @@
 import { ENIGMA_USE_CASES } from '@/assets/svgs/solutions/service-providers-&-partners/usecase';
 import './style.css';
-import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
-import UseCaseStatCard from '@/components/ui/useCase/UseCaseStatCard';
+import UseCaseButton from '@/components/ui/Use-Case/UseCaseButton';
+import UseCaseStatCard from '@/components/ui/Use-Case/UseCaseStatCard';
 
 const HeroBanner = () => {
   return (

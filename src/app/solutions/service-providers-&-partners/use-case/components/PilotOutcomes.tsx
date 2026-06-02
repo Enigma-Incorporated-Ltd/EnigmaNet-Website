@@ -1,4 +1,4 @@
-import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
+import UseCaseButton from '@/components/ui/Use-Case/UseCaseButton';
 import { handleCardMouseEnter, handleCardMouseLeave } from '@/utils/cardHover';
 
 interface StatCardProps {

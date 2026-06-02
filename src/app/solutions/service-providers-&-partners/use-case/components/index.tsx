@@ -1,6 +1,6 @@
 import HeroBanner from './HeroBanner';
 import PerformanceMetrics from './PerformanceMetrics';
-import ConnectivityPromo from '@/components/ui/useCase/ConnectivityPromo';
+import ConnectivityPromo from '@/components/ui/Use-Case/ConnectivityPromo';
 import Connectivity from './Connectivity';
 import PilotOutcomes from './PilotOutcomes';
 import TurningNetworkUsecase from './TurningNetworkUsecase';

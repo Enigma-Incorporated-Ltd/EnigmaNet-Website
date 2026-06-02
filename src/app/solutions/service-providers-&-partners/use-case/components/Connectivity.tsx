@@ -6,7 +6,7 @@ import {
 } from '@/assets/svgs/solutions/service-providers-&-partners/usecase';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import HeaderTitle from '@/components/ui/HeaderTitle';
-import UseCaseCard from '@/components/ui/useCase/UseCaseCard';
+import UseCaseCard from '@/components/ui/Use-Case/UseCaseCard';
 const metrics = [
   {
     icon: BASELINE_ICON,

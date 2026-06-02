@@ -10,7 +10,7 @@ import {
 } from '@/assets/svgs/solutions/industries/usecase';
 import React from 'react';
 import LogoCircle from '@/assets/img/logo-c.png';
-import FeatureCard from '@/components/ui/useCase/FeatureCard';
+import FeatureCard from '@/components/ui/Use-Case/FeatureCard';
 import { handleCardMouseEnter, handleCardMouseLeave } from '@/utils/cardHover';
 const EnigmaNetCard: React.FC = () => {
   const metrics = [

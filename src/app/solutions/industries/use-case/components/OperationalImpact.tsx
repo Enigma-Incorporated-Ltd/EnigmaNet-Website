@@ -1,6 +1,6 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import { OilGasUsecase } from '@/assets/img';
-import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
+import UseCaseButton from '@/components/ui/Use-Case/UseCaseButton';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 
 const OperationalImpact = () => {

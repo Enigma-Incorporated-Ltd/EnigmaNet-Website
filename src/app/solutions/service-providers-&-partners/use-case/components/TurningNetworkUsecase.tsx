@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { serviceProvidersUsecase } from '@/assets/img';
-import UseCaseButton from '@/components/ui/useCase/UseCaseButton';
+import UseCaseButton from '@/components/ui/Use-Case/UseCaseButton';
 
 const TurningNetworkUsecase: React.FC = () => {
   return (

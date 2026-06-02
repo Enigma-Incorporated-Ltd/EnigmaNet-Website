@@ -1,9 +1,9 @@
 // import HeroBanner from './HeroBanner';
 import PerformanceMetrics from './PerformanceMetrics';
 import HealthcareSolutionShowcase from './HealthcareSolutionShowcase';
-import ConnectivityPromo from '@/components/ui/useCase/ConnectivityPromo';
+import ConnectivityPromo from '@/components/ui/Use-Case/ConnectivityPromo';
 import Connectivity from './Connectivity';
-import HeroBanner from '@/components/ui/useCase/HeroBanner';
+import HeroBanner from '@/components/ui/Use-Case/HeroBanner';
 import { UsecaseRemoteWork1 } from '@/assets/img';
 
 const RemoteWorkUseCasePage = () => {
