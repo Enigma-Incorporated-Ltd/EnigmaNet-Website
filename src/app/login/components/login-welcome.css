@@ -1,0 +1,122 @@
+/* Figma: starting point dark mode (78:3794) */
+
+.login-card--welcome {
+  gap: 48px;
+}
+
+.login-welcome-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-card__subtitle--welcome {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  color: #fff;
+}
+
+.login-card__interactive--welcome {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.login-welcome-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Figma 78:3799 — both buttons 184.5×52px, 65px gap, row 434×52 */
+.login-welcome-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 65px;
+  width: 100%;
+  max-width: 434px;
+  height: 52px;
+}
+
+.login-welcome-buttons .login-primary-btn,
+.login-welcome-buttons .login-secondary-btn {
+  width: 100%;
+  height: 52px;
+  min-height: 52px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+  align-self: stretch;
+  text-decoration: none;
+}
+
+/* Figma 78:3800 — Primary: px 32 */
+.login-welcome-buttons .login-primary-btn {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* Figma 78:3801 — Secondary: px 24, same outer 184.5×52 */
+.login-welcome-buttons .login-secondary-btn {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.login-welcome-buttons .login-secondary-btn__label {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
+}
+
+/* Figma 78:3802 — Google + Apple side by side (406×40, 12px gap) */
+.login-account-buttons--welcome {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 406px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-account-buttons--welcome .login-account-buttons__btn {
+  flex: 1 1 0;
+  min-width: 0;
+  justify-content: center;
+}
+
+@media (max-width: 520px) {
+  .login-welcome-buttons {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    column-gap: 0;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .login-welcome-buttons .login-primary-btn,
+  .login-welcome-buttons .login-secondary-btn {
+    width: 100%;
+    height: 52px;
+  }
+
+  .login-account-buttons--welcome {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .login-account-buttons--welcome .login-account-buttons__btn {
+    flex: 0 0 auto;
+    width: 100%;
+    justify-content: center;
+  }
+}

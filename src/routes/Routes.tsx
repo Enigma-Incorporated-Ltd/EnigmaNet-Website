@@ -193,6 +193,11 @@ const Startups = lazy(() => import('@/app/solutions/startups-&-smb'));
 //support
 const Support = lazy(() => import('@/app/contact-us/support'));
 const Login = lazy(() => import('@/app/login'));
+const Dashboard = lazy(() => import('@/app/dashboard'));
+const Register = lazy(() => import('@/app/register'));
+const LoginGoogle = lazy(() => import('@/app/login-google'));
+const LoginApple = lazy(() => import('@/app/login-apple'));
+const ForgotPassword = lazy(() => import('@/app/forgot-password'));
 //partner
 const Partners = lazy(() => import('@/app/partners'));
 const KinnamiPartnership = lazy(() => import('@/app/partners/kinnami-partnership'));
@@ -228,7 +233,12 @@ export const AllRoutes = [
   { path: '/secure-cloud', element: <SecureCloud /> },
   { path: '/secure-networking', element: <SecureNetworking /> },
   { path: '/trueCost', name: 'MigrationCalculator', element: <MigrationCalculator /> },
-  { path: '/login', name: 'login', element: <Login /> },
+  { path: '/login/*', name: 'login', element: <Login /> },
+  { path: '/dashboard', name: 'dashboard', element: <Dashboard /> },
+  { path: '/register', name: 'register', element: <Register /> },
+  { path: '/login/google', name: 'login-google', element: <LoginGoogle /> },
+  { path: '/login/apple', name: 'login-apple', element: <LoginApple /> },
+  { path: '/forgot-password/*', name: 'forgot-password', element: <ForgotPassword /> },
 
   //linkedin-post
   { path: '/linkdin-post', name: 'linkdin-post', element: <LinkdinPost /> },

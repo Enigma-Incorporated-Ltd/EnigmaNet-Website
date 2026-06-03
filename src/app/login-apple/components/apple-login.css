@@ -1,0 +1,64 @@
+/* Figma: signin with apple dark (59:911), error field (60:1395 / 60:1352) */
+
+.login-card--apple {
+  position: relative;
+}
+
+.login-apple-headline {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  width: 100%;
+}
+
+.login-apple-headline__mark {
+  display: block;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.login-apple-headline__text {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  color: #fff;
+  line-height: normal;
+}
+
+.login-apple-headline__text strong {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.login-apple-headline__rest {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login-fields--apple {
+  gap: 8px;
+}
+
+.login-field.login-field--error.login-gradient-stroke::before {
+  background: #ff9b9b;
+}
+
+.login-field__error {
+  width: 100%;
+  margin: 0;
+  padding: 4px 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: #ff9b9b;
+}
+
+.login-account-buttons--google-only {
+  justify-content: center;
+}
+
+.login-account-buttons--google-only .login-account-buttons__btn {
+  flex: 0 0 auto;
+}
