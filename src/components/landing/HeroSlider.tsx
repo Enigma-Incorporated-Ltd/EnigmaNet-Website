@@ -1,109 +1,115 @@
 import { useEffect, useRef, useState } from 'react';
+
+import hero3 from '@/assets/img/heroSlider/Complete AI Infrastructure Designed around your Needs.png';
 import hero1 from '@/assets/img/heroSlider/data-transmit-supper-fast-in-dark-tunnel-abstract.jpg';
 import hero2 from '@/assets/img/heroSlider/motion-blur-of-train-moving-inside-tunnel-in-tokyo.jpg';
-import hero3 from '@/assets/img/heroSlider/server-room-data-center-networking-database-co.jpg';
+
 import './slider.css';
-import CustomButton from '../ui/CustomButton';
+import PremiumButton from '../ui/PremiumButton';
 
 const slides = [
   {
     id: 1,
-    title: 'More reliable, secure connectivity across sites, clouds and internet links.',
-    subtitle: 'More reliable, secure connectivity across sites, clouds and internet links.',
+    title: 'Deterministic infrastructure for data-intensive environments',
+    subtitle:
+      'Move large datasets faster and more predictably across distributed compute environment without replacing what you already have',
     img: hero1,
-    gradient:
-      'linear-gradient(164deg, rgb(11, 14, 24) 18%, rgb(8 11 20) 27%, rgb(9 10 13 / 85%) 41%, rgba(11, 14, 24, -15.6) 62%, rgb(199 201 206 / -36%) 9% 67%)',
-    btn1: { label: 'OUR PRODUCTS', color: '#00D4E8', href: '/' },
-    btn2: { label: 'BOOK DEMO', color: '#E8A020', href: '/get-in-touch' },
+  
+    gradientDesktop: 'linear-gradient(92deg, rgb(11 15 25) 30%, rgba(13, 27, 41, 0))',
+    gradientTablet: 'linear-gradient(100deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0.2))',
+    gradientMobile: 'linear-gradient(110deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0.4))',
+    btn1: { label: 'Smarter Infrastructure', color: 'blue', href: '/smarter-infrastructure' },
+    btn2: { label: 'Book a Call', color: 'gold', href: '/get-in-touch' },
   },
   {
     id: 2,
-    title: `Reliable connectivity and data movement for mission-critical environments.`,
-    subtitle: 'Reliable connectivity and data movement for mission-critical environments.',
-    btn1: { label: 'OUR SOLUTION', color: '#00D4E8', href: '/' },
+    title: 'Affordable, Accessible, Scalable Hosting for Compute, GPU and Storage',
+    subtitle:
+      'On-demand compute, GPU and storage infrastructure that efficiently scales with your workloads',
     img: hero2,
-    gradient: 'linear-gradient(104deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0))',
-    btn2: { label: 'CONTACT US', color: '#E8A020', href: '/get-in-touch' },
+  
+    gradientDesktop: 'linear-gradient(92deg, rgb(11 15 25) 30%, rgba(13, 27, 41, 0))',
+    gradientTablet: 'linear-gradient(100deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0.2))',
+    gradientMobile: 'linear-gradient(110deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0.4))',
+    btn1: { label: 'Hosting/Secure Cloud', color: 'blue', href: '/hosting-secure-cloud' },
+    btn2: { label: 'Book a Call', color: 'gold', href: '/get-in-touch' },
   },
   {
     id: 3,
-    title: 'Deterministic networking for data‑intensive infrastructure',
+    title: 'Complete AI Infrastructure Designed around your Needs',
     subtitle:
-      'Move large datasets faster and more predictably across distributed compute environments — without replacing what you already have',
-    btn1: { label: 'OUR PRODUCTS', color: '#00D4E8', href: '/' },
-    gradient: 'linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0))',
+      'Data movement, compute and storage working as one controlled, high-performance system',
     img: hero3,
-    btn2: { label: 'CONTACT US', color: '#E8A020', href: '/get-in-touch' },
+   
+    // gradientDesktop: 'linear-gradient(92deg, rgb(11 15 25) 40%, rgba(13, 27, 41, 0))',
+    // gradientTablet: 'linear-gradient(100deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.2))',
+    // gradientMobile: 'linear-gradient(110deg, rgb(11 15 25) 50%, rgba(13, 27, 41, 0.4))',
+    btn1: { label: 'AI Infrastructure', color: 'blue', href: '/complete-ai-infrastructure' },
+    btn2: { label: 'Book a Call', color: 'gold', href: '/get-in-touch' },
   },
 ];
+
+const getInitialScreen = (): 'desktop' | 'tablet' | 'mobile' => {
+  if (typeof window === 'undefined') return 'desktop';
+  const width = window.innerWidth;
+  if (width >= 1025) return 'desktop';
+  if (width >= 768) return 'tablet';
+  return 'mobile';
+};
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [bgImage, setBgImage] = useState(slides[0].img);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const [bgGradient, setBgGradient] = useState(slides[0].gradient);
+  const [screenSize, setScreenSize] = useState<'desktop' | 'tablet' | 'mobile'>(getInitialScreen());
 
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const slide = slides[current];
+
+  // ✅ Get gradient dynamically (no state bug)
+  const getGradient = (slide: (typeof slides)[0]) => {
+    if (screenSize === 'desktop') return slide.gradientDesktop;
+    if (screenSize === 'tablet') return slide.gradientTablet;
+    return slide.gradientMobile;
+  };
+
+  // ✅ Resize listener
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 1025) setScreenSize('desktop');
+      else if (width >= 768) setScreenSize('tablet');
+      else setScreenSize('mobile');
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // ✅ Slide change logic
   const goTo = (index: number, dir: 'left' | 'right' = 'right') => {
     if (animating) return;
 
     setDirection(dir);
     setAnimating(true);
-    setCurrent(index);
 
     const img = new Image();
     img.src = slides[index].img;
+
     img.onload = () => {
       setBgImage(slides[index].img);
-      setBgGradient(slides[index].gradient);
       setTimeout(() => setAnimating(false), 500);
     };
   };
-  // const prev = () => {
-  //   // Clear auto-slide interval when user interacts
-  //   if (intervalRef.current) {
-  //     clearInterval(intervalRef.current);
-  //     intervalRef.current = null;
-  //   }
-  //   const idx = (current - 1 + slides.length) % slides.length;
-  //   goTo(idx, 'left');
-  // };
 
-  // const next = () => {
-  //   if (intervalRef.current) {
-  //     clearInterval(intervalRef.current);
-  //     intervalRef.current = null;
-  //   }
-  //   const idx = (current + 1) % slides.length;
-  //   goTo(idx, 'right');
-  // };
-
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
-
-  const slide = slides[current];
+  // ✅ Auto scroll (ONLY ONE interval)
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCurrent(prev => {
         const nextIndex = (prev + 1) % slides.length;
-
-        // preload image before switching (like your goTo logic)
-        const img = new Image();
-        img.src = slides[nextIndex].img;
-
-        img.onload = () => {
-          setDirection('right');
-          setAnimating(true);
-          setBgImage(slides[nextIndex].img);
-          setBgGradient(slides[nextIndex].gradient);
-
-          setTimeout(() => setAnimating(false), 500);
-        };
-
+        goTo(nextIndex, 'right');
         return nextIndex;
       });
     }, 5000);
@@ -112,104 +118,75 @@ export default function HeroSlider() {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, []);
+
+  const handleDotClick = (i: number) => {
+    if (i === current) return;
+    const dir = i > current ? 'right' : 'left';
+    setCurrent(i);
+    goTo(i, dir);
+    // Reset auto-interval on manual click
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrent(prev => {
+        const nextIndex = (prev + 1) % slides.length;
+        goTo(nextIndex, 'right');
+        return nextIndex;
+      });
+    }, 5000);
+  };
+
   return (
-    <>
-      <section className="hero-section">
-        <div className="hero-background">
-          <img src={bgImage} alt="Hero background" className="hero-bg-image" />
-          <div
-            className="hero-overlay"
-            style={{
-              background: bgGradient,
-            }}
-          />
-        </div>
+    <section className="hero-section">
+      {/* Background */}
+      <div className="hero-background">
+        <img src={bgImage} alt="Hero background" className={`hero-bg-image `} />
+        <div
+          className={`hero-overlay hero-overlay-${screenSize}`}
+          style={{
+            background: getGradient(slide),
+          }}
+        />
+      </div>
 
-        {/* Main content */}
-        <div className="container px-4 px-md-5" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="row align-items-center">
-            <div className="col-12 col-md-7 col-lg-6">
-              <div
-                className={`slide-content ${
-                  animating
-                    ? direction === 'right'
-                      ? 'slide-enter-right'
-                      : 'slide-enter-left'
-                    : ''
-                }`}
-                key={current}
-              >
-                {/* Nav arrows */}
-                {/* <div className="nav-arrows">
-                  <button className="arrow-btn" onClick={prev} aria-label="Previous slide">
-                    <svg viewBox="0 0 24 24">
-                      <polyline points="15 18 9 12 15 6" />
-                    </svg>
-                  </button>
-                  <button className="arrow-btn" onClick={next} aria-label="Next slide">
-                    <svg viewBox="0 0 24 24">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                </div> */}
+      {/* Content */}
+      <div className="hero-content-wrapper">
+        <div
+          className={`slide-content ${
+            animating ? (direction === 'right' ? 'slide-enter-right' : 'slide-enter-left') : ''
+          }`}
+          key={current}
+        >
+          <h1 className="hero-title">{slide.title}</h1>
+          <p className="hero-subtitle">{slide.subtitle}</p>
 
-                {/* Title */}
-                <h1 className="hero-title">{slide.title}</h1>
+          <div className="hero-buttons">
+            <PremiumButton
+              label={slide.btn1.label}
+              variant={slide.btn1.color as 'blue' | 'gold'}
+              href={slide.btn1.href}
+              className="btn-lg btn-responsive"
+            />
+            <PremiumButton
+              label={slide.btn2.label}
+              variant={slide.btn2.color as 'blue' | 'gold'}
+              href={slide.btn2.href}
+              className="btn-lg btn-responsive"
+            />
+          </div>
 
-                {/* Subtitle */}
-                <p className="hero-subtitle">{slide.subtitle}</p>
-
-                {/* Buttons */}
-                <div className="d-flex  flex-wrap gap-3">
-                  {/* <Link
-                    className="hero-btn btn-cyan"
-                    style={{ background: slide.btn1.color }}
-                    to={slide.btn1.href}
-                  >
-                    {slide.btn1.label}
-                  </Link> */}
-                  <CustomButton
-                    label={slide.btn1.label}
-                    style={{
-                      background: slide.btn1.color,
-                      fontWeight: 600,
-                    }}
-                    href={slide.btn1.href}
-                    bgColor="light-blue"
-                    className="btn-lg"
-                  />
-                  <CustomButton
-                    label={slide.btn2.label}
-                    style={{ background: slide.btn2.color, fontWeight: 600 }}
-                    href={slide.btn2.href}
-                    bgColor="warning"
-                    className="btn-lg"
-                  />
-                  {/* <Link
-                    className="hero-btn btn-amber"
-                    style={{ background: slide.btn2.color }}
-                    to={slide.btn2.href}
-                  >
-                    {slide.btn2.label}
-                  </Link> */}
-                </div>
-
-                {/* Dots */}
-                <div className="slide-dots">
-                  {slides.map((_, i) => (
-                    <button
-                      key={i}
-                      className={`dot ${i === current ? 'active' : ''}`}
-                      onClick={() => goTo(i, i > current ? 'right' : 'left')}
-                      aria-label={`Go to slide ${i + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+          {/* Dots */}
+          <div className="slide-dots">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                className={`dot ${i === current ? 'active' : ''}`}
+                onClick={() => handleDotClick(i)}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

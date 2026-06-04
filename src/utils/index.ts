@@ -36,3 +36,8 @@ export const toSentenceCase = (text: string) => {
   if (!text) return '';
   return text.toLowerCase().replace(/^./, c => c.toUpperCase());
 };
+
+
+// export const BASE_URL = import.meta.env.VITE_PRODUCTION_URL as string | undefined;
+
+ export const BASE_URL = 'https://enigmanet.ai';

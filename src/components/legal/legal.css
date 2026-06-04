@@ -61,9 +61,7 @@
 
 /* ── Page header ── */
 .legal-header {
-    max-width: 1200px;
     margin: 0 auto 2.75rem;
-    padding-top: 1rem;
     animation: legalFadeDown 0.55s ease both;
 }
 
@@ -83,7 +81,9 @@
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.15;
-    background: linear-gradient(130deg, var(--legal-accent) 0%, var(--legal-accent-mid) 50%, var(--legal-accent-bright) 100%);
+    background:
+            linear-gradient(135deg, var(--legal-accent) 0%, var(--legal-accent-mid) 55%, var(--legal-accent-bright) 100%);
+    /* linear-gradient(135deg, #3d5a9e 0%, #157bc9 55%, #2adeff 100%) */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -108,7 +108,7 @@
 .legal-shell {
     display: flex;
     gap: 1.75rem;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     align-items: flex-start;
 }

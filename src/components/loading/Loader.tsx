@@ -19,6 +19,7 @@ const brand = {
   gray900: '#0b0f19',
 } as const;
 import Logo from '@/assets/img/logo.png';
+import { useTheme } from '@/utils/useTheme';
 // ─── Types ─────────────────────────────────────────────────────────────────
 type Theme = 'light' | 'dark';
 
@@ -88,18 +89,15 @@ interface OverlayLoaderProps {
 export const OverlayLoader: React.FC<OverlayLoaderProps> = ({
   visible,
   message = 'Loading',
-  theme,
+  
 }) => {
   useEffect(() => {
     injectKeyframes();
   }, []);
-
+const {theme} =useTheme();
   if (!visible) return null;
 
-  const currentTheme =
-    typeof document !== 'undefined'
-      ? (document.body.getAttribute('data-bs-theme') as Theme) || 'dark'
-      : 'dark';
+  const currentTheme = theme;
 
   const t = tokens[currentTheme];
 

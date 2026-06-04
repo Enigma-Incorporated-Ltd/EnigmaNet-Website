@@ -1,8 +1,9 @@
 import IconifyIcon from '@/components/IconifyIcon';
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 import './contact.css';
 import StraightLine from '../StraightLine';
+import PremiumButton from '@/components/ui/PremiumButton';
 const GetInTouch = () => {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -92,25 +93,21 @@ const GetInTouch = () => {
   return (
     <>
       <section className="contact-section" ref={sectionRef}>
-        {/* Decorative dots */}
-        <div className="dot-grid dot-grid-tl" />
-        <div className="dot-grid dot-grid-br" />
-
         <Container>
           {/* Heading */}
-          <div className={`text-center mb-2 pb-5 fade-in ${visible ? 'visible' : ''}`}>
-            <h1 className=" text-warning mb-5">Get in touch</h1>
+          <div className={`text-center fade-in ${visible ? 'visible' : ''}`}>
+            <h1 className=" text-warning text-uppercase mb-5">Get in touch</h1>
           </div>
 
           <Row className="justify-content-center align-items-start g-4">
             {/* ── Left column: info ── */}
-            <Col xl={6} lg={5} className={`fade-in delay-1 ${visible ? 'visible' : ''}`}>
-              <h2 className="mb-3">See how EnigmaNet fits your infrastructure</h2>
+            <Col xl={6} lg={5}   className={`fade-in delay-1 ${visible ? 'visible' : ''}`}>
+              <h2 className="mb-3">See how Enigma Net fits your infrastructure</h2>
               <StraightLine />
               <p className="mb-4">
-                Whether you're scaling AI workloads, improving connectivity across distributed
-                sites, or looking for a differentiated partner offering — book a short call and
-                we'll show you what's possible.
+                Whether you’re scaling AI workloads, improving connectivity across distributed
+                sites, or looking for a differentiated partner offering, book a short call and we’ll
+                show you what’s possible.
               </p>
               <div className="d-flex flex-column gap-3">
                 <div className="info-item">
@@ -143,7 +140,7 @@ const GetInTouch = () => {
             </Col>
 
             {/* ── Right column: form ── */}
-            <Col xl={6} lg={7} md={10} className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
+            <Col xl={6} lg={7}  className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
               <Card className="contact-card">
                 <Card.Body>
                   {submitted ? (
@@ -230,10 +227,20 @@ const GetInTouch = () => {
 
                       {/* Submit */}
                       <Col xs={12} className={`mt-1 fade-in delay-4 ${visible ? 'visible' : ''}`}>
-                        <Button type="submit" className="submit-btn" disabled={sending}>
+                        {/* <Button type="submit" className="submit-btn" disabled={sending}>
                           {sending && <span className="btn-spinner" />}
-                          {sending ? 'Sending…' : 'Send Message'}
-                        </Button>
+                          {sending ? 'Sending…' : 'Call me Back'}
+                        </Button> */}
+                        <PremiumButton
+                          variant="blue"
+                          type="submit"
+                          label="Call Me Back"
+                          isLoading={sending}
+                          disabled={sending}
+                          loadingLabel="Sending…"
+                          className="my-3"
+                          fullWidth
+                        />
                       </Col>
                     </Form>
                   )}

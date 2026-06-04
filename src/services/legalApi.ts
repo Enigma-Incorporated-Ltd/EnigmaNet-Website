@@ -18,7 +18,15 @@ export const fetchLegalPages = async (): Promise<LegalItem[]> => {
       id: item.uuid,
       slug: item.fields?.['legal-slug'] || '',
       title: item.fields?.['legal-title'] || 'Untitled',
-      content: item.fields?.['legal-content']?.trim() || '<p>No content available</p>',
+      content:
+        [
+          item.fields?.['legal-content'],
+          item.fields?.['content2-1'],
+          item.fields?.['legal-content33'],
+        ]
+          .filter(Boolean)
+          .join('')
+          .trim() || '<p>No content available</p>',
     }));
   } catch (error) {
     console.error('Error fetching legal pages:', error);

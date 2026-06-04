@@ -1,4 +1,4 @@
-import Logo from '@/assets/img/EnigmaNet-logo.png';
+import LogoDark from '@/assets/img/EnigmaNet-dark.png';
 import IconifyIcon from '@/components/IconifyIcon';
 import certificate1 from '@/assets/img/certificates/c1.png';
 import certificate2 from '@/assets/img/certificates/c2.png';
@@ -9,7 +9,9 @@ import certificate6 from '@/assets/img/certificates/c6.jpg';
 import { useEffect, useState } from 'react';
 import { Col, Collapse, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router';
+import './footer.css';
 import { fetchFooter, type FooterConfig } from '@/services/cmsApi';
+import PremiumButton from '../ui/PremiumButton';
 const brands = [
   { src: certificate1, pending: false },
   { src: certificate2, pending: false },
@@ -82,14 +84,60 @@ const FALLBACK: FooterConfig = {
     {
       title: 'Useful Links',
       links: [
-        { title: 'Home', url: '#' },
-        // { title: 'Features', url: '#' },
-        // { title: 'Integrations', url: '#' },
-        // { title: 'Our Clients', url: '#' },
-        { title: 'Blog', url: '/blog-list-with-sidebar' },
-        { title: 'Legal', url: '/legal' },
-        // { title: 'Privacy Policy', url: '#' },
+        {
+          url: '/solutions',
+          title: 'Solutions',
+        },
+        {
+          url: '/company/blog',
+          title: 'Blog',
+        },
+        {
+          url: '/partners',
+          title: 'Partners',
+        },
+        {
+          url: '/company',
+          title: 'Company',
+        },
+        {
+          url: '/trueCost',
+          title: 'TrueCost',
+        },
+        {
+          url: '/company/legal',
+          title: 'Legal',
+        },
       ],
+    },
+    {
+      links: [
+        {
+          url: '/products/the-enigma-platform',
+          title: 'Enigma Platform',
+        },
+        {
+          url: '/products/performance-networking',
+          title: 'Performance Networking',
+        },
+        {
+          url: '/products/connectivity-products',
+          title: 'Connectivity Products',
+        },
+        {
+          url: '/products/data-&-file-services',
+          title: 'Data & File Services',
+        },
+        {
+          url: '/products/ai-&-automation',
+          title: 'Ai & Automation',
+        },
+        {
+          url: '/products/integration-&-oem',
+          title: 'Integration & OEM',
+        },
+      ],
+      title: 'Products',
     },
   ],
   socials: [
@@ -107,6 +155,7 @@ const FALLBACK: FooterConfig = {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 const Footer = () => {
+ 
   const [data, setData] = useState<FooterConfig>(FALLBACK);
   const [openColumns, setOpenColumns] = useState<Record<number, boolean>>({});
   const [openSocials, setOpenSocials] = useState(false);
@@ -154,7 +203,7 @@ const Footer = () => {
         return 'bx:link'; // fallback icon
     }
   };
-  const logoSrc = brand.logoUrl || Logo;
+
   // const logoWidth = brand.logoWidth || 47;
 
   const brandTextStyle: React.CSSProperties = {
@@ -178,13 +227,13 @@ const Footer = () => {
       <Container className="pt-lg-4">
         <Row className="pb-5">
           {/* Brand + Newsletter */}
-          <Col lg={4} md={6}>
+          <Col lg={4} xl={4} md={6}>
             <Link
               to={brand.href || '/index'}
               className="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4 d-flex align-items-center gap-2"
               style={brandTextStyle}
             >
-              <img src={logoSrc} alt={brand.name} />
+              <img src={LogoDark} alt={brand.name} />
               {/* {brand.name} */}
             </Link>
 
@@ -193,7 +242,15 @@ const Footer = () => {
                 {description}
               </p>
             )}
-
+            <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
+              <PremiumButton
+                label="Get in Touch"
+                variant="blue"
+                className="btn-lg btn-responsive"
+                href="/get-in-touch"
+                fullWidth
+              />
+            </div>
             {/* {newsletter?.enabled && (
               <form className="needs-validation" noValidate>
                 {newsletter.label && (
@@ -228,7 +285,7 @@ const Footer = () => {
           </Col>
 
           {/* Link columns + socials + email */}
-          <Col xl={6} lg={6} md={5} className="offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+          <Col xl={7} lg={6} md={4} className="offset-xl-1 offset-md-1 pt-4 pt-md-1 pt-lg-0">
             <Row id="footer-links">
               {/* Columns */}
               {(columns ?? []).map((col, i) => {
@@ -238,7 +295,7 @@ const Footer = () => {
                   ...(col.titleStyle?.fontWeight && { fontWeight: col.titleStyle.fontWeight }),
                 };
                 return (
-                  <Col key={i} lg={4}>
+                  <Col key={i} xl={4} lg={4}>
                     <h6 className="mb-2" style={titleStyle}>
                       <Link
                         to={`#col-${i}`}
@@ -279,48 +336,51 @@ const Footer = () => {
                 );
               })}
               {contact && (
-                <Col xl={4} lg={5} className="pt-2 pt-lg-0">
-                  <h6 className="mb-2">{emailLabel || 'Contact Us'}</h6>
-
-                  {/* Phone */}
-                  {contact.phone && (
-                    <p className="mb-1">
-                      <a
-                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
-                        style={{
-                          textDecoration: 'none',
-                          fontWeight: 700,
-                        }}
-                      >
-                        {contact.phone}
+                <Col xl={3} lg={3} className="pt-2 pt-lg-0">
+                  <h6 className="mb-3">{emailLabel || 'Contact Us'}</h6>
+                  <div className="d-flex gap-2 ">
+                    <div className="info-item-footer">
+                      <a href="tel:+442080504632" className="info-link">
+                        <div className="info-icon  mt-1">
+                          <IconifyIcon icon="bx:phone" style={{ fontSize: '20px' }} />
+                        </div>
                       </a>
-                    </p>
-                  )}
-
-                  {/* Email */}
-                  {contact.email && (
-                    <p className="mb-1">
-                      <a
-                        href={`mailto:${contact.email}`}
-                        style={{
-                          textDecoration: 'none',
-                          fontWeight: 700,
-                        }}
-                      >
-                        {contact.email}
+                    </div>
+                    <div className="info-item-footer">
+                      <a href="mailto:info@enigmainc.co.uk" className="info-link ">
+                        <div className="info-icon mt-1">
+                          <IconifyIcon icon="bx:envelope" style={{ fontSize: '20px' }} />
+                        </div>
                       </a>
-                    </p>
-                  )}
+                    </div>
+                    {/* Email */}
+                  </div>
+                  {/* Phone Button */}
+                  {/* {contact.phone && (
+                    <a
+                      href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                      className="contact-btn d-inline-block mb-2"
+                    >
+                      {contact.phone}
+                    </a>
+                  )} */}
+
+                  {/* Email Button */}
+                  {/* {contact.email && (
+                    <a href={`mailto:${contact.email}`} className="contact-btn d-inline-block mb-2">
+                      {contact.email} r5 \
+
+                    </a>
+                  )} */}
 
                   {/* Address */}
                   {contact.address && (
                     <address
-                      className="mb-0 text-warning opacity-70"
+                      className="mb-0 text-warning opacity-70 mt-2"
                       style={{
                         fontStyle: 'normal',
                         fontSize: 14,
                         fontWeight: 400,
-                        // lineHeight: 1.6,
                       }}
                     >
                       {contact.address.split(/,\s*/).map((line, idx) => (
@@ -375,12 +435,13 @@ const Footer = () => {
           </Col>
         </Row>
         <BrandStrip />
+
         {/* Copyright */}
         <p
-          className="nav d-block fs-xs mb-3 text-center text-md-start pb-2 pb-lg-0 mb-0"
+          className="nav d-block fs-xs mb-3  text-white  text-center text-md-start pb-2 pb-lg-0 mb-0"
           style={
             copyright.style
-              ? { color: copyright.style.color, fontSize: copyright.style.fontSize }
+              ? { ...copyright.style, fontSize: copyright.style.fontSize }
               : {}
           }
         >

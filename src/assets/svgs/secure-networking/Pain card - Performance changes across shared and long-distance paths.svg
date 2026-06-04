@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-4);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="17.44" y1="36.42" x2="26.38" y2="36.42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2adeff"/>
+      <stop offset="1" stop-color="#002398"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="20.93" y1="16.9" x2="37.05" y2="16.9" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="30.15" y1="36.43" x2="46.56" y2="36.43" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="22.03" y1="51.44" x2="44.51" y2="51.44" xlink:href="#linear-gradient"/>
+  </defs>
+  <path class="cls-4" d="M21.92,40.89c-.11,0-.23,0-.34-.01-1.19-.09-2.28-.64-3.05-1.55-.78-.91-1.16-2.06-1.07-3.25.09-1.19.64-2.27,1.54-3.05.91-.78,2.06-1.16,3.25-1.07,2.46.19,4.31,2.34,4.12,4.8h0c-.09,1.19-.64,2.28-1.54,3.05-.82.7-1.84,1.08-2.91,1.08ZM21.91,34.24c-.52,0-1.02.18-1.42.53-.44.38-.71.91-.75,1.49-.09,1.2.81,2.25,2.01,2.34,1.21.1,2.25-.81,2.34-2.01.09-1.2-.81-2.25-2.01-2.34-.06,0-.11,0-.17,0Z"/>
+  <g>
+    <path class="cls-1" d="M22.9,19.37h11.86v-9.43l.68.99,1.62-1.11-3.17-4.63-3.38,4.6,1.59,1.17.7-.95v7.39h-11.86v11.22h1.97v-9.25ZM33.83,8.59l.03.04h-.06l.03-.04Z"/>
+    <path class="cls-3" d="M30.15,35.42v1.97h11.68l-1.01.69,1.11,1.62,4.63-3.17-4.6-3.38-1.17,1.59.92.68h-11.56ZM43.11,36.5v-.06l.04.03-.04.03Z"/>
+    <path class="cls-2" d="M38.74,53.84l.77.56c-2.25.3-6.34.33-10.15-2.37-3.74-2.65-5.04-6.45-5.42-7.97l-1.91.49c.55,2.14,2.08,6.17,6.19,9.09,3.24,2.3,6.65,2.87,9.24,2.87,1,0,1.88-.09,2.58-.19l-1.26.87,1.11,1.62,4.62-3.17-4.6-3.38-1.17,1.59Z"/>
+  </g>
+</svg>

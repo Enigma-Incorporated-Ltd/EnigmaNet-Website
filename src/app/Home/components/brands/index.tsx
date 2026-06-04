@@ -34,7 +34,7 @@ const Brands = () => {
           900: { slidesPerView: 5, spaceBetween: 8 },
           1100: { slidesPerView: 6, spaceBetween: 8 },
         }}
-        className="pt-2 mx-n2"
+        className="pt-2 mx-n2 px-1"
       >
         {brands.map((brand, idx) => (
           <SwiperSlide key={idx} className="py-3">

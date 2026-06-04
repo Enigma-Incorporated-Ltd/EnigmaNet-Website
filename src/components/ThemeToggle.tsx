@@ -1,47 +1,66 @@
+import { useTheme } from '@/utils/useTheme';
 import { useEffect } from 'react';
 
 type HeaderToggleClass = {
   themeToggle: boolean;
+  id?: string;
+  isColor?: boolean;
 };
 
-const ThemeToggle = ({ themeToggle }: HeaderToggleClass) => {
+const ThemeToggle = ({ themeToggle, id = 'theme-mode', isColor = false }: HeaderToggleClass) => {
+const {theme} = useTheme();
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    document.documentElement.setAttribute('data-theme-loading', 'true');
+    const checkbox = document.getElementById(id) as HTMLInputElement | null;
 
-    const checkbox = document.getElementById('theme-mode') as HTMLInputElement | null;
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+ 
+    let savedTheme = localStorage.getItem('theme');
 
+    if (!savedTheme) {
+      savedTheme = 'dark'; 
+      localStorage.setItem('theme', savedTheme); 
+    }
+
+    // Apply theme
     document.documentElement.setAttribute('data-bs-theme', savedTheme);
-
     if (checkbox) checkbox.checked = savedTheme === 'dark';
-
-    document.documentElement.removeAttribute('data-theme-loading');
 
     const handleToggle = () => {
       const newTheme = checkbox?.checked ? 'dark' : 'light';
-
       document.documentElement.setAttribute('data-bs-theme', newTheme);
       localStorage.setItem('theme', newTheme);
-
-      // 🔥 Trigger update everywhere
       window.dispatchEvent(new Event('themeChange'));
     };
 
-    checkbox?.addEventListener('change', handleToggle);
+    const handleExternalChange = () => {
+      const current = localStorage.getItem('theme') || 'dark';
+      if (checkbox) checkbox.checked = current === 'dark';
+    };
 
-    return () => checkbox?.removeEventListener('change', handleToggle);
-  }, []);
+    checkbox?.addEventListener('change', handleToggle);
+    window.addEventListener('themeChange', handleExternalChange);
+
+    return () => {
+      checkbox?.removeEventListener('change', handleToggle);
+      window.removeEventListener('themeChange', handleExternalChange);
+    };
+  }, [id]);
+
+  // ✅ dynamic text color
+  const textClass = isColor ? (theme === 'dark' ? 'text-white' : 'text-dark') : 'text-white-50';
 
   return (
     <div className="pe-lg-1 ms-auto me-4" data-bs-theme={themeToggle ? 'dark' : 'light'}>
       <div className="form-check form-switch mode-switch pe-lg-1 ms-auto me-4">
-        <input type="checkbox" className="form-check-input" id="theme-mode" />
-        <label className="form-check-label fs-lg d-none d-sm-block" htmlFor="theme-mode">
+        <input type="checkbox" className="form-check-input" id={id} />
+
+        <label className={`form-check-label fs-sm d-none d-sm-block ${textClass}`} htmlFor={id}>
           Light
         </label>
-        <label className="form-check-label fs-lg d-none d-sm-block" htmlFor="theme-mode">
+
+        <label className={`form-check-label fs-sm d-none d-sm-block ${textClass}`} htmlFor={id}>
           Dark
         </label>
       </div>

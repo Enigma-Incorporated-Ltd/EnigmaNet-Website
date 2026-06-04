@@ -1,7 +1,13 @@
-import CustomButton from '@/components/ui/CustomButton';
+import PremiumButton from '@/components/ui/PremiumButton';
 import { Card } from 'react-bootstrap';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import network from '@/assets/svgs/networking hosting.svg';
+import latency from '@/assets/svgs/lowlatency.svg';
+import data from '@/assets/svgs/redundant nodes.svg';
+import connect from '@/assets/svgs/bucket-folder-file in cloud.svg';
+import IconifyIcon from '@/components/IconifyIcon';
+import HeaderTitle from '@/components/ui/HeaderTitle';
 type FeatureItem = {
   id: number;
   icon: string;
@@ -12,26 +18,26 @@ type FeatureItem = {
 const features: FeatureItem[] = [
   {
     id: 1,
-    icon: 'bx:rocket',
+    icon: network,
     title: 'Unpredictable network performance',
     description: `Bandwidth exists but throughput changes hour to hour. Planning around infrastructure that won't behave predictably is expensive and slow.`,
   },
   {
     id: 2,
-    icon: 'bx:like',
+    icon: latency,
     title: 'Latency spikes and packet loss',
     description: `Dropped packets, broken transfers, and performance that collapses under load. Teams spend more time firefighting than building.`,
   },
   {
     id: 3,
-    icon: 'bx:time-five',
+    icon: data,
     title: 'Slow transfer of large datasets',
     description:
       'Files that should move in minutes take hours. GPUs sit idle waiting for data. Training windows get missed.',
   },
   {
     id: 4,
-    icon: 'bx:group',
+    icon: connect,
     title: 'Unreliable connectivity across distributed environments',
     description:
       'Multi-cloud, hybrid, and remote sites held together by patchwork setups. One link fails and everything downstream breaks.',
@@ -42,7 +48,8 @@ const DataCard = () => {
   return (
     <section className="container  my-2 my-md-4 my-lg-5">
       <Swiper
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         spaceBetween={8}
         slidesPerView={1}
         pagination={{ clickable: true }}
@@ -56,12 +63,16 @@ const DataCard = () => {
         {features.map(feature => (
           <SwiperSlide key={feature.id} className="h-auto py-3">
             <Card className="h-100 card-body card-hover mx-2">
-              {/* <IconifyIcon
-                icon={`${feature.icon}`}
-                className="display-5 fw-normal card-icon"
-                style={{ color: '#b4b7c9' }}
-              /> */}
-              <h3 className="h5 text-warning pt-3 pb-1 mb-2">{feature.title}</h3>
+              {typeof feature.icon === 'string' && feature.icon.startsWith('solar:') ? (
+                <IconifyIcon
+                  icon={feature.icon}
+                  className="display-5 text-warning fw-normal card-icon"
+                  style={{ color: '#b4b7c9' }}
+                />
+              ) : (
+                <img src={feature.icon} width={100} height={100} alt={feature.title} className="" />
+              )}
+              <HeaderTitle title={feature.title} className="h5 text-warning pt-3 pb-1 mb-2" />
               <p className="mb-0">{feature.description}</p>
             </Card>
           </SwiperSlide>
@@ -69,28 +80,18 @@ const DataCard = () => {
       </Swiper>
 
       <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
-        {/* <Link
-          to="#"
-          className="btn btn-light-blue text-black btn-lg shadow-primary btn-lg rounded-pill px-5"
-          style={{
-            fontWeight: '800',
-            letterSpacing: '3px',
-          }}
-        >
-          OUR SOLUTION
-        </Link>
-        <Link
-          to="#"
-          className="btn btn-warning shadow-primary text-black btn-lg rounded-pill px-5"
-          style={{
-            fontWeight: '800',
-            letterSpacing: '3px',
-          }}
-        >
-          BOOK A CALL
-        </Link> */}
-        <CustomButton label=" OUR SOLUTION " bgColor="light-blue" href="/" className="btn-lg" />
-        <CustomButton label="BOOK A CALL " bgColor="warning" href="/" className="btn-lg" />
+        <PremiumButton
+          label="Our Solutions"
+          variant="blue"
+          href="/solutions"
+          className="btn-lg btn-responsive"
+        />
+        <PremiumButton
+          label="Book a Call"
+          variant="gold"
+          className="btn-lg btn-responsive"
+          href="/get-in-touch"
+        />
       </div>
     </section>
   );

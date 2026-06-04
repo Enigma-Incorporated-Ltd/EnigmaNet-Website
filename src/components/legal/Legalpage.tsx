@@ -6,6 +6,10 @@ import './legal.css';
 import { OverlayLoader } from '../loading/Loader';
 import he from 'he';
 import { toSentenceCase } from '@/utils';
+import PageMeta from '@/components/PageMeta';
+import { BASE_URL } from '@/utils';
+import Breadcrumb from '../ui/Breadcrumb';
+import Header from '../ui/Header';
 const normalizeContent = (html: string) => {
   if (!html) return '';
 
@@ -37,14 +41,14 @@ const LegalPage = () => {
       .then(data => setLegalData(data))
       .finally(() => setLoading(false));
   }, []);
-const ORDER = [
-  'standard-terms',
-  'fair-use-policy',
-  'end-user-policy',
-  'privacy-policy',
-  'dmca-policy',
-  'software-license-agreement',
-  'addendum-cloud-storage',
+  const ORDER = [
+    'standard-terms',
+    'fair-use-policy',
+    'end-user-policy',
+    'privacy-policy',
+    'dmca-policy',
+    'software-license-agreement',
+    'addendum-cloud-storage',
   ];
   const sortedLegalData = [...legalData].sort((a, b) => {
     const indexA = ORDER.indexOf(a.slug);
@@ -70,12 +74,55 @@ const ORDER = [
   }, []);
 
   const handleSelect = (itemSlug: string) => {
-    navigate(`/legal/${itemSlug}`);
+    navigate(`/company/legal/${itemSlug}`);
   };
 
 
+
+  const structuredData = active
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: toSentenceCase(active.title),
+        url: `${BASE_URL}/legal/${active.slug}`,
+        description: `Read ${toSentenceCase(active.title)} of Enigma Net.`,
+        publisher: {
+          '@type': 'Organization',
+          name: 'Enigma Net',
+          url: BASE_URL,
+        },
+      }
+    : undefined;
+  const breadcrumbSchema = active
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: BASE_URL,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Legal',
+            item: `${BASE_URL}/legal/${active.slug}`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: toSentenceCase(active.title),
+            item: `${BASE_URL}/legal/${active.slug}`,
+          },
+        ],
+      }
+    : undefined;
+  const finalStructuredData =
+    active && structuredData && breadcrumbSchema ? [structuredData, breadcrumbSchema] : undefined;
   if (loading) {
-    return <OverlayLoader visible  message="Loading" />;
+    return <OverlayLoader visible message="Loading" />;
   }
 
   // ✅ Empty state
@@ -88,12 +135,29 @@ const ORDER = [
   }
 
   return (
-    <div className="legal-page">
+    <div className="legal-page container">
+      <PageMeta
+        title={toSentenceCase(active?.title || 'Legal')}
+        description={`Read ${toSentenceCase(active?.title || '')} of Enigma Net.`}
+        url={`${BASE_URL}/legal/${active?.slug}`}
+        image={`${BASE_URL}/logo.png`}
+        keywords={'Enigma Net, Legal, Policies, Agreements, Terms of Service'}
+        structuredData={finalStructuredData}
+      />
+      <Breadcrumb
+        items={[{ href: '/company', label: 'Company' }, { label: 'Legal' }]}
+      
+        style={{
+          paddingTop: '6rem ',
+        }}
+      />{' '}
+      <Header
+        title="Policies & Agreements"
+        style={{
+          padding: '21px 0px ',
+        }}
+      />
       {/* Header */}
-      <div className="legal-header">
-        <h1 className="legal-header-title mt-5 text-center">Policies &amp; Agreements</h1>
-      </div>
-
       <div className="legal-shell">
         {/* ── Sidebar ── */}
         <nav className={`legal-sidebar ${sidebarVisible ? 'legal-sidebar--visible' : ''}`}>

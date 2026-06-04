@@ -1,0 +1,18 @@
+
+.usecase-title {
+    padding-top:12rem ! important;
+}
+
+
+@media (max-width: 768px) {
+    .usecase-title {
+        padding-top: 7rem ! important;
+    }
+}
+
+@media (max-width: 480px) {
+    .usecase-title {
+        padding-top: 7rem ! important;
+    }
+}
+

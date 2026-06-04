@@ -1,0 +1,44 @@
+.hero-stats {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-padding {
+  padding-top: 3rem;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .hero-stats {
+    position: absolute;
+    right: 0;
+    left: 0;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    bottom: 0px;
+  }
+    .hero-padding {
+      padding-top: 6rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .hero-stats {
+  position: absolute;
+    bottom: -50px;
+    right: 0;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+    .hero-padding {
+      padding-top: 6rem;
+    }
+}

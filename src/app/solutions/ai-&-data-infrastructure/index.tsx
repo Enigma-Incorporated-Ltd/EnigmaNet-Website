@@ -1,0 +1,33 @@
+import Footer from '@/components/footer/Footer';
+import Navbar from '@/components/navbar/Navbar';
+import PageMeta from '@/components/PageMeta';
+import { BASE_URL } from '@/utils';
+import DataInfrastructure from './components';
+
+const AiAndDataInfrastructure = () => {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'AI & Data Infrastructure',
+    url: `${BASE_URL}/solutions/ai-&-data-infrastructure`,
+    description:
+      'From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. ',
+  };
+  return (
+    <>
+      <PageMeta
+        title="AI & Data Infrastructure"
+        description="From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. "
+        url={`${BASE_URL}/solutions/ai-&-data-infrastructure`}
+        structuredData={structuredData}
+      />
+
+      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
+      <DataInfrastructure />
+
+      <Footer />
+    </>
+  );
+};
+
+export default  AiAndDataInfrastructure;

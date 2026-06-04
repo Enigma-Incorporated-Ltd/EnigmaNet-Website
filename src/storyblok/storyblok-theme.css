@@ -1,0 +1,73 @@
+/*
+ * Storyblok Brand New Day — Design System
+ * Mirrors the CSS variables used in storyblok-demo-default-v2
+ * Default values are the same as in the demo's site-config story.
+ * These get overridden at runtime via useCssVars() from the live site-config.
+ */
+
+:root {
+  /* Typography — matches demo: ABCMarfa (display) / Roboto (body) */
+  --font-family-display: 'Montserrat', sans-serif;
+  --font-family-body: 'Montserrat', sans-serif;
+
+  /* Colors — exact values from the Brand New Day site-config */
+  --primary-dark: #1F1F1F;
+  --primary-highlight: #6251B8;
+  --primary-background: #F5F5F7;
+  --highlight-1: #80efac;
+  --highlight-2: #786b2b;
+  --highlight-3: #d4ff92;
+  --background-1: #F4F2E9;
+  --background-2: #e4ddb9;
+  --background-3: #D9EEFF;
+  --background-4: #D7E4F2;
+  --background-5: #D9D4FC;
+  --background-6: #F2F1D7;
+  --background-7: #E0F0D2;
+  --background-8: #FFE7D3;
+  --background-9: #FFD5D3;
+  --background-10: #D2FEC9;
+
+  /* Border radius — same as demo defaults */
+  --rounded_sm: 0.25rem;
+  --rounded_default: 0.5rem;
+  --rounded_md: 0.75rem;
+  --rounded_lg: 1rem;
+  --rounded_xl: 1.25rem;
+  --rounded_2xl: 1.5rem;
+  --rounded_3xl: 2rem;
+  --rounded_full: 9999px;
+}
+
+/* Apply the demo's font globally to Storyblok-rendered pages */
+.sb-page {
+  font-family: var(--font-family-body);
+  color: var(--primary-dark);
+}
+
+.sb-page h1,
+.sb-page h2,
+.sb-page h3,
+.sb-page h4,
+.sb-page h5,
+.sb-page h6 {
+  font-family: var(--font-family-display);
+  color: var(--primary-dark);
+}
+
+/* Prose list items — matches demo's tailwind.css custom bullets */
+.sb-prose ul {
+  list-style: none;
+  padding-left: 0;
+}
+.sb-prose ul li {
+  padding-left: 1.75rem;
+  position: relative;
+}
+.sb-prose ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary-highlight);
+  font-weight: 700;
+}
