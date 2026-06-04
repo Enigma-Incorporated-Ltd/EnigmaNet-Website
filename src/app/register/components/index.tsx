@@ -53,6 +53,14 @@ const RegisterPage = () => {
           data-node-id="76:3209"
           data-name="registration dark mode"
         >
+          <Link
+            to="/login"
+            className="login-card__back"
+            aria-label="Back to login"
+          >
+            <IconifyIcon icon="lucide:chevron-left" width={24} height={24} aria-hidden="true" />
+          </Link>
+
           <div className="login-card__text-block" data-node-id="76:3210">
             <div className="login-card__hero" data-node-id="76:3211">
               <h2 className="login-card__heading" data-node-id="76:3212">
@@ -142,8 +150,12 @@ const RegisterPage = () => {
                   </div>
                 </div>
 
-                <button type="submit" className="login-primary-btn" data-node-id="76:3222">
-                  <span className="login-primary-btn__label">Create account</span>
+                <button
+                  type="submit"
+                  className="login-auth-btn login-auth-btn--primary"
+                  data-node-id="76:3222"
+                >
+                  Create account
                 </button>
               </div>
 

@@ -118,8 +118,8 @@ const GoogleLoginPage = () => {
                   </div>
                 </div>
 
-                <button type="submit" className="login-primary-btn" data-node-id="59:767">
-                  <span className="login-primary-btn__label">Sign In</span>
+                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id="59:767">
+                  Sign In
                 </button>
               </div>
 

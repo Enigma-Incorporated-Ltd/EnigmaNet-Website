@@ -43,69 +43,7 @@
   box-sizing: border-box;
 }
 
-.login-welcome-btn {
-  width: 100%;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 16px 12px;
-  border: none;
-  border-radius: 100px;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 20px;
-  letter-spacing: -0.1px;
-  text-decoration: none;
-  white-space: nowrap;
-  cursor: pointer;
-  box-shadow:
-    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.9),
-    inset 0 0 8px 0 rgba(242, 242, 242, 0.45),
-    0 0 2px 0 rgba(0, 0, 0, 0.1),
-    0 1px 8px 0 rgba(0, 0, 0, 0.1);
-  transition:
-    filter 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.login-welcome-btn--sign-in {
-  color: #f4f4f6;
-  background: linear-gradient(90deg, rgba(38, 55, 119, 0.88) 0%, rgba(0, 163, 218, 0.88) 100%);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.login-welcome-btn--create {
-  color: #fff;
-  background: linear-gradient(90deg, rgba(169, 106, 0, 0.88) 0%, rgba(241, 186, 95, 0.88) 100%);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.login-welcome-btn--sign-in:hover {
-  background: linear-gradient(90deg, rgba(38, 55, 119, 0.96) 0%, rgba(0, 163, 218, 0.96) 100%);
-  filter: brightness(1.05);
-  box-shadow:
-    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.95),
-    inset 0 0 10px 0 rgba(242, 242, 242, 0.55),
-    0 0 2px 0 rgba(0, 0, 0, 0.1),
-    0 2px 12px 0 rgba(0, 163, 218, 0.35);
-}
-
-.login-welcome-btn--create:hover {
-  background: linear-gradient(90deg, rgba(169, 106, 0, 0.96) 0%, rgba(241, 186, 95, 0.96) 100%);
-  filter: brightness(1.05);
-  box-shadow:
-    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.95),
-    inset 0 0 10px 0 rgba(242, 242, 242, 0.55),
-    0 0 2px 0 rgba(0, 0, 0, 0.1),
-    0 2px 12px 0 rgba(241, 186, 95, 0.35);
-}
+/* Button colors: login.css (.login-auth-btn / .login-welcome-btn) */
 
 /* Divider — full row width, spaced from buttons / social */
 .login-welcome-divider {

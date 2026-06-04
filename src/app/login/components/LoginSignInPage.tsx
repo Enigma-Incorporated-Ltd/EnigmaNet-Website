@@ -5,7 +5,6 @@ import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
-import LoginGradientButton from './LoginGradientButton';
 import './login.css';
 
 const LoginSignInPage = () => {
@@ -129,9 +128,9 @@ const LoginSignInPage = () => {
                   </div>
                 </div>
 
-                <LoginGradientButton type="submit" variant="primary" nodeId="5:273">
+                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id="5:273">
                   Sign In
-                </LoginGradientButton>
+                </button>
               </div>
 
               <div className="login-account-buttons" data-node-id="77:3600">

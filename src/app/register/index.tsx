@@ -47,11 +47,7 @@ const Register = () => {
         structuredData={structuredData}
       />
 
-      <Navbar
-        Headerclass="header navbar navbar-expand-lg position-absolute navbar-sticky"
-        headerSticky="navbar-stuck"
-        isNavDark
-      />
+      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" isNavDark />
       <RegisterPage />
     </div>
   );

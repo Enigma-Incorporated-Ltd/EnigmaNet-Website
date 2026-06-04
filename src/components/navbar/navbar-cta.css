@@ -1,0 +1,32 @@
+/* Header only — “Start free” (btn-sm size, vibrant blue; no .btn-primary) */
+
+a.navbar-cta-start-free {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: var(--si-btn-padding-y, 0.475rem) var(--si-btn-padding-x, 1.25rem);
+  border: none;
+  border-radius: var(--si-border-radius-sm, var(--bs-border-radius-sm, 0.25rem));
+  background: #3d5a9e;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--si-btn-font-size, 0.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background-color 0.2s ease, filter 0.2s ease;
+}
+
+a.navbar-cta-start-free:hover,
+a.navbar-cta-start-free:focus-visible {
+  color: #fff;
+  background: #344d86;
+  filter: none;
+  text-decoration: none;
+  box-shadow: none;
+}

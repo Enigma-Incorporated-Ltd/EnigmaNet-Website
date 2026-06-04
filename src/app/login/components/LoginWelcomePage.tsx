@@ -37,10 +37,10 @@ const LoginWelcomePage = () => {
           <div className="login-card__interactive login-card__interactive--welcome">
             <div className="login-welcome-actions">
               <div className="login-welcome-row login-welcome-buttons">
-                <Link to="/login/sign-in" className="login-welcome-btn login-welcome-btn--sign-in">
+                <Link to="/login/sign-in" className="login-auth-btn login-auth-btn--primary login-welcome-btn login-welcome-btn--sign-in">
                   Sign In
                 </Link>
-                <Link to="/register" className="login-welcome-btn login-welcome-btn--create">
+                <Link to="/register" className="login-auth-btn login-auth-btn--secondary login-welcome-btn login-welcome-btn--create">
                   Create Account
                 </Link>
               </div>

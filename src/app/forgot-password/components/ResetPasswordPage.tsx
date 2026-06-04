@@ -108,11 +108,11 @@ const ResetPasswordPage = () => {
 
                 <button
                   type="submit"
-                  className="login-primary-btn"
+                  className="login-auth-btn login-auth-btn--primary"
                   data-node-id="37:4928"
                   disabled={!strength.isGood || !passwordsMatch}
                 >
-                  <span className="login-primary-btn__label">Confirm Password</span>
+                  Confirm Password
                 </button>
               </div>
             </form>

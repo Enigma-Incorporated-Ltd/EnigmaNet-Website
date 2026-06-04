@@ -1,7 +1,38 @@
 /* Figma: registration dark mode (76:3209) — overrides on shared login auth styles */
 
 .login-card--register {
+  position: relative;
   gap: 32px;
+}
+
+.login-card--register .login-card__back {
+  position: absolute;
+  left: 24px;
+  top: 28px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.login-card--register .login-card__back:hover {
+  color: #fff;
+  opacity: 0.75;
+}
+
+.login-card--register .login-card__back svg {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
 .login-card__text-block {

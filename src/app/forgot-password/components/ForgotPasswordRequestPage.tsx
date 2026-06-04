@@ -52,6 +52,14 @@ const ForgotPasswordRequestPage = () => {
           data-node-id="76:2433"
           data-name="reseting password dark mode"
         >
+          <Link
+            to="/login/sign-in"
+            className="login-card__back"
+            aria-label="Back to sign in"
+          >
+            <IconifyIcon icon="lucide:chevron-left" width={24} height={24} aria-hidden="true" />
+          </Link>
+
           <div className="login-card__hero-block" data-node-id="76:2434">
             <div className="login-card__hero" data-node-id="76:2435">
               <h2 className="login-card__heading" data-node-id="76:2436">
@@ -84,8 +92,8 @@ const ForgotPasswordRequestPage = () => {
                   </span>
                 </div>
 
-                <button type="submit" className="login-primary-btn" data-node-id="76:2441">
-                  <span className="login-primary-btn__label">Send Reset Link</span>
+                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id="76:2441">
+                  Send Reset Link
                 </button>
               </div>
 

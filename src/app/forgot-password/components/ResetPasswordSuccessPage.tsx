@@ -54,8 +54,12 @@ const ResetPasswordSuccessPage = () => {
           </div>
 
           <div className="login-card__interactive" data-node-id="37:5229">
-            <Link to="/login/sign-in" className="login-primary-btn" data-node-id="37:5236">
-              <span className="login-primary-btn__label">Sign In</span>
+            <Link
+              to="/login/sign-in"
+              className="login-auth-btn login-auth-btn--primary"
+              data-node-id="37:5236"
+            >
+              Sign In
             </Link>
           </div>
 
