@@ -1,9 +1,3 @@
-import {
-  AIRGAPPED,
-  Encrypted,
-  MultiPath,
-  ResilientSession,
-} from '@/assets/svgs/solutions/defense-dualtechnology/usecase';
 import { PROTECT_ICON } from '@/assets/svgs/solutions/industries/usecase';
 import { Globe, Path, Visibiliy, ZeroTOuch } from '@/assets/svgs/solutions/technology-partner/usecase';
 import HeaderTitle from '@/components/ui/HeaderTitle';
