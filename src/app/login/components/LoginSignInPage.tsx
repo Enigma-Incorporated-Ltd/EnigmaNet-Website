@@ -1,14 +1,18 @@
 import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
+import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
 import { EmailIcon, EyeClosedIcon, EyeOpenIcon } from './LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
+import { useTheme } from '@/utils/useTheme';
 import './login.css';
 
 const LoginSignInPage = () => {
   const navigate = useNavigate();
+  const { theme } = useTheme();
+  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -147,7 +151,7 @@ const LoginSignInPage = () => {
                   <span>Google Account</span>
                 </Link>
                 <Link to="/login/apple" className="login-account-buttons__btn" data-node-id="5:259">
-                  <img src={loginAppleIcon} alt="" width={24} height={24} aria-hidden="true" />
+                  <img src={loginAppleImage} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Apple Account</span>
                 </Link>
               </div>

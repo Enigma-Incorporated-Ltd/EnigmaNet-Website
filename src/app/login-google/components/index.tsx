@@ -1,14 +1,21 @@
 import loginBg from '@/assets/img/login-bg.png';
+import lightLoginBg from '@/assets/img/lightmode_background.png-1.png';
 import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
+import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
 import { EmailIcon } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { Link } from 'react-router';
+import { useTheme } from '@/utils/useTheme';
 import '@/app/login/components/login.css';
 import './google-login.css';
 
 const GoogleLoginPage = () => {
+  const { theme } = useTheme();
+  const loginBgImage = theme === 'light' ? lightLoginBg : loginBg;
+  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -16,7 +23,7 @@ const GoogleLoginPage = () => {
   return (
     <section
       className="login-page"
-      style={{ ['--login-bg-image' as string]: `url(${loginBg})` }}
+      style={{ ['--login-bg-image' as string]: `url(${loginBgImage})` }}
       data-node-id="62:1833"
     >
       <div className="login-page__bg login-page__bg-image" aria-hidden="true" />
@@ -136,7 +143,7 @@ const GoogleLoginPage = () => {
                 </div>
 
                 <Link to="/login/apple" className="login-account-buttons__btn" data-node-id="59:775">
-                  <img src={loginAppleIcon} alt="" width={24} height={24} aria-hidden="true" />
+                  <img src={loginAppleImage} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Apple Account</span>
                 </Link>
               </div>

@@ -1,9 +1,11 @@
 import loginBg from '@/assets/img/login-bg.png';
+import lightLoginBg from '@/assets/img/lightmode_background.png-1.png';
 import '@/app/login/components/login.css';
 import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import { useEffect, useRef } from 'react';
+import { useTheme } from '@/utils/useTheme';
 import { Route, Routes } from 'react-router';
 import ForgotPasswordRequestPage from './components/ForgotPasswordRequestPage';
 import ForgotPasswordSentPage from './components/ForgotPasswordSentPage';
@@ -36,6 +38,9 @@ const ForgotPasswordLayout = () => {
     };
   }, []);
 
+  const { theme } = useTheme();
+  const loginBgImage = theme === 'light' ? lightLoginBg : loginBg;
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -46,9 +51,9 @@ const ForgotPasswordLayout = () => {
 
   return (
     <div
-      className="login-layout login-layout--auth"
+      className={`login-layout login-layout--auth ${theme === 'light' ? 'login-layout--light' : ''}`}
       ref={layoutRef}
-      style={{ ['--login-bg-image' as string]: `url(${loginBg})` }}
+      style={{ ['--login-bg-image' as string]: `url(${loginBgImage})` }}
       data-node-id="62:1833"
     >
       <div className="login-page__bg login-page__bg-image" aria-hidden="true" />

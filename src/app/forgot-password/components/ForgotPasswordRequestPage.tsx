@@ -1,10 +1,12 @@
 import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
+import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
 import { EmailIcon } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
+import { useTheme } from '@/utils/useTheme';
 import '@/app/login/components/login.css';
 import './forgot-password.css';
 
@@ -16,6 +18,8 @@ type RequestLocationState = {
 
 const ForgotPasswordRequestPage = () => {
   const navigate = useNavigate();
+  const { theme } = useTheme();
+  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
   const location = useLocation();
   const initialEmail = (location.state as RequestLocationState | null)?.email ?? '';
   const [email, setEmail] = useState(initialEmail);
@@ -111,7 +115,7 @@ const ForgotPasswordRequestPage = () => {
                   <span>Google Account</span>
                 </Link>
                 <Link to="/login/apple" className="login-account-buttons__btn" data-node-id="76:2449">
-                  <img src={loginAppleIcon} alt="" width={24} height={24} aria-hidden="true" />
+                  <img src={loginAppleImage} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Apple Account</span>
                 </Link>
               </div>

@@ -2,6 +2,7 @@ import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import { useEffect, useRef } from 'react';
+import { useTheme } from '@/utils/useTheme';
 import AppleLoginPage from './components';
 
 const LoginApple = () => {
@@ -30,6 +31,8 @@ const LoginApple = () => {
     };
   }, []);
 
+  const { theme } = useTheme();
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -39,7 +42,10 @@ const LoginApple = () => {
   };
 
   return (
-    <div className="login-layout" ref={layoutRef}>
+    <div
+      className={`login-layout login-layout--auth ${theme === 'light' ? 'login-layout--light' : ''}`}
+      ref={layoutRef}
+    >
       <PageMeta
         title="Apple Login"
         description="Sign in to Enigma Net with your Apple account."

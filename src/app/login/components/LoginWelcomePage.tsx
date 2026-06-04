@@ -1,12 +1,17 @@
 import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
+import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
+import { useTheme } from '@/utils/useTheme';
 import { Link } from 'react-router';
 import './login.css';
 import './login-welcome.css';
 
 const LoginWelcomePage = () => {
+  const { theme } = useTheme();
+  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
+
   return (
     <section className="login-page">
       <div className="login-page__header-wrap">
@@ -57,7 +62,7 @@ const LoginWelcomePage = () => {
                   <span>Google Account</span>
                 </Link>
                 <Link to="/login/apple" className="login-account-buttons__btn">
-                  <img src={loginAppleIcon} alt="" width={24} height={24} aria-hidden="true" />
+                  <img src={loginAppleImage} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Apple Account</span>
                 </Link>
               </div>
