@@ -71,7 +71,7 @@ const HeroBanner = () => {
               enterprise-grade offerings.
             </p>
 
-            <div className="d-flex flex-column justify-content-start flex-sm-row gap-3 w-100 w-lg-auto">
+            <div className="d-flex flex-column justify-content-lg-start justify-content-center flex-sm-row gap-3 w-100 w-lg-auto">
               <UseCaseButton text="Book a Pilot" variant="blue" href="/get-in-touch" />
               <UseCaseButton text="Talk to an Expert" variant="white" href="/get-in-touch" />
             </div>
@@ -82,7 +82,7 @@ const HeroBanner = () => {
             <div className="d-flex justify-content-center pt-5 justify-content-lg-end">
               <ENIGMA_USE_CASES />
             </div>
-            <div className="d-flex hero-stats  gap-5 flex-wrap">
+            <div className="d-flex hero-stats justify-content-center  gap-3 ">
               <UseCaseStatCard
                 value="20-60%"
                 label={
@@ -90,9 +90,11 @@ const HeroBanner = () => {
                     LATENCY <br /> IMPROVEMENT
                   </>
                 }
+                fontSize="14px"
+                width={'160px'}
               />
-              <UseCaseStatCard value="<0,1%" label="PACKET LOSS" />{' '}
-              <UseCaseStatCard value="<500ms" label="FAILOVER" />
+              <UseCaseStatCard value="<0,1%" label="PACKET LOSS" fontSize="14px" width={'160px'} />{' '}
+              <UseCaseStatCard value="<500ms" label="FAILOVER" fontSize="14px" width={'160px'} />
               <UseCaseStatCard
                 label={
                   <>
@@ -100,6 +102,8 @@ const HeroBanner = () => {
                     <br /> ARCHITECTURE
                   </>
                 }
+                fontSize="14px"
+                width={'160px'}
               />
             </div>
           </div>

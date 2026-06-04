@@ -184,10 +184,16 @@ const OperationalTechnology = lazy(
 const Industries = lazy(() => import('@/app/solutions/industries'));
 const IndustriesUseCase = lazy(() => import('@/app/solutions/industries/use-case'));
 const ServiceProviders = lazy(() => import('@/app/solutions/service-providers-&-partners'));
-const ServiceProvidersUseCase = lazy(() => import('@/app/solutions/service-providers-&-partners/use-case'));
+const ServiceProvidersUseCase = lazy(
+  () => import('@/app/solutions/service-providers-&-partners/use-case')
+);
 const Enterprise = lazy(() => import('@/app/solutions/enterprise'));
 const DefenseDualtechnology = lazy(() => import('@/app/solutions/defense-dualtechnology'));
+const DefenseDualTechnologyUseCase = lazy(
+  () => import('@/app/solutions/defense-dualtechnology/use-case')
+);
 const TechnologiesPartner = lazy(() => import('@/app/solutions/technology-partner'));
+const TechnologyCase = lazy(() => import('@/app/solutions/technology-partner/use-case'));
 const ChannelPartner = lazy(() => import('@/app/solutions/channel-partner'));
 const Startups = lazy(() => import('@/app/solutions/startups-&-smb'));
 //support
@@ -212,8 +218,6 @@ const TrustCentre = lazy(() => import('@/app/company/trust-centre'));
 //contact-us
 const ContactUs = lazy(() => import('@/app/contact-us'));
 const RequestAQuote = lazy(() => import('@/app/contact-us/request-a-quote'));
-
-
 
 //linkedin-post
 
@@ -350,10 +354,15 @@ export const AllRoutes = [
   { path: '/solutions/remote-work-&-branch', element: <RemoteWork /> },
   { path: '/solutions/remote-work-&-branch/use-case', element: <RemoteWorkUseCase /> },
   { path: '/solutions/service-providers-&-partners', element: <ServiceProviders /> },
-  {path: '/solutions/service-providers-&-partners/use-case', element: <ServiceProvidersUseCase /> },
+  {
+    path: '/solutions/service-providers-&-partners/use-case',
+    element: <ServiceProvidersUseCase />,
+  },
   { path: '/solutions/enterprise', element: <Enterprise /> },
   { path: '/solutions/defense-dualtechnology', element: <DefenseDualtechnology /> },
+  { path: '/solutions/defense-dualtechnology/use-case', element: <DefenseDualTechnologyUseCase /> },
   { path: '/solutions/technology-partner', element: <TechnologiesPartner /> },
+  { path: '/solutions/technology-partner/use-case', element: <TechnologyCase /> },
   { path: '/solutions/channel-partner', element: <ChannelPartner /> },
   { path: '/solutions/startups-&-smb', element: <Startups /> },
 
