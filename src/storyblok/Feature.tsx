@@ -1,5 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
-
+import { blokEditable } from './blokEditable';
 interface FeatureBlok {
   _uid: string;
   component: 'feature';
@@ -9,7 +8,7 @@ interface FeatureBlok {
 export default function Feature({ blok }: { blok: FeatureBlok }) {
   return (
     <div
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{
         background: '#ffffff',
         borderRadius: '16px',

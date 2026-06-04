@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
 import { useEffect, useState } from 'react';
 import { getStoryblokApi } from '@storyblok/react';
 import { Link } from 'react-router-dom';
@@ -44,7 +44,7 @@ export default function ArticleOverviewPage({ blok }: ArticleOverviewPageProps) 
   }, []);
 
   return (
-    <main {...storyblokEditable(blok)} style={{ minHeight: '80vh' }}>
+    <main {...blokEditable(blok)} style={{ minHeight: '80vh' }}>
       {/* Hero */}
       <section style={{ background: '#f5f5f7', padding: '64px 0 48px' }}>
         <div className="container text-center">

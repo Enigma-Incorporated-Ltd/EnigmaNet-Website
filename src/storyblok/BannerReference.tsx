@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
 import { useEffect, useState } from 'react';
 import { getStoryblokApi } from '@storyblok/react';
 import Banner, { type BannerBlokContent } from './Banner';
@@ -91,7 +91,7 @@ export default function BannerReference({ blok }: { blok: BannerReferenceBlok })
   if (items.length === 0) return null;
 
   return (
-    <div {...storyblokEditable(blok)}>
+    <div {...blokEditable(blok)}>
       {items.map((content, i) => (
         <Banner key={content._uid || `banner-${i}`} blok={content} />
       ))}

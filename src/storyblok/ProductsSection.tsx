@@ -1,5 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
-
+import { blokEditable } from './blokEditable';
 interface HeadlineSegment {
   _uid: string;
   text: string;
@@ -23,7 +22,7 @@ function headlineText(h: HeadlineSegment | HeadlineSegment[] | undefined) {
 
 export default function ProductsSection({ blok }: ProductsSectionProps) {
   return (
-    <section {...storyblokEditable(blok)} style={{ background: '#f5f5f7', padding: '80px 0' }}>
+    <section {...blokEditable(blok)} style={{ background: '#f5f5f7', padding: '80px 0' }}>
       <div className="container text-center">
         <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, marginBottom: '16px' }}>
           {headlineText(blok.headline)}

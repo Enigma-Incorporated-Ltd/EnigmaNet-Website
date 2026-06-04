@@ -1,4 +1,5 @@
-import { renderRichText, storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
+import { renderRichText } from '@storyblok/react';
 
 interface PriceCardButton {
   label?: string;
@@ -40,7 +41,7 @@ export default function PriceCard({ blok }: { blok: PriceCardBlok }) {
 
   return (
     <div
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{
         background: '#ffffff',
         borderRadius: 'var(--rounded_3xl)',

@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
 import { useState } from 'react';
 
 interface HeadlineSegment {
@@ -42,7 +42,7 @@ export default function ContactFormSection({ blok }: ContactFormSectionProps) {
   };
 
   return (
-    <section {...storyblokEditable(blok)} style={{ background: '#ffffff', padding: '80px 0' }}>
+    <section {...blokEditable(blok)} style={{ background: '#ffffff', padding: '80px 0' }}>
       <div className="container">
         <div className="row align-items-center gy-5">
           {/* Left: image + quote */}

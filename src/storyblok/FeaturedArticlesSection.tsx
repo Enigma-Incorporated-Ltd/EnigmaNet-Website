@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
 import { useEffect, useState } from 'react';
 import { getStoryblokApi } from '@storyblok/react';
 
@@ -64,7 +64,7 @@ export default function FeaturedArticlesSection({ blok }: FeaturedArticlesSectio
   const colClass = cols <= 2 ? 'col-sm-6' : cols === 3 ? 'col-sm-6 col-lg-4' : 'col-sm-6 col-lg-3';
 
   return (
-    <section {...storyblokEditable(blok)} style={{ background: bg, padding: '80px 0' }}>
+    <section {...blokEditable(blok)} style={{ background: bg, padding: '80px 0' }}>
       <div className="container">
         <div className="text-center mb-5">
           <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, marginBottom: '16px' }}>

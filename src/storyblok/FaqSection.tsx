@@ -1,4 +1,5 @@
-import { renderRichText, storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
+import { renderRichText } from '@storyblok/react';
 import { useState } from 'react';
 
 interface FaqItem {
@@ -55,7 +56,7 @@ export default function FaqSection({ blok }: FaqSectionProps) {
   }>;
 
   return (
-    <section {...storyblokEditable(blok)} style={{ background: '#ffffff', padding: '80px 0', fontFamily: 'var(--font-family-body)' }}>
+    <section {...blokEditable(blok)} style={{ background: '#ffffff', padding: '80px 0', fontFamily: 'var(--font-family-body)' }}>
       <div className="container">
         <div className="text-center mb-5">
           <h2 style={{ fontFamily: 'var(--font-family-display)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 900, marginBottom: '16px', color: 'var(--primary-dark)', letterSpacing: '-0.02em' }}>
@@ -123,7 +124,7 @@ export default function FaqSection({ blok }: FaqSectionProps) {
                     ) : (
                       <div
                         style={{ margin: 0 }}
-                        dangerouslySetInnerHTML={{ __html: renderRichText(item.answer as never) }}
+                        dangerouslySetInnerHTML={{ __html: renderRichText(item.answer as never) ?? '' }}
                       />
                     )}
                   </div>

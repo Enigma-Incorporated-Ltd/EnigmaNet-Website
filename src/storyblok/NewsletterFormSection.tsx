@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
 import { useState, type FormEvent } from 'react';
 import StoryblokButton from './StoryblokButton';
 import type { StoryblokButtonBlok } from './StoryblokButton';
@@ -65,7 +65,7 @@ export default function NewsletterFormSection({ blok }: { blok: NewsletterBlok }
     'enjoy@storyblok.com';
 
   return (
-    <section {...storyblokEditable(blok)} style={{ background: '#ffffff', padding: '48px 0' }}>
+    <section {...blokEditable(blok)} style={{ background: '#ffffff', padding: '48px 0' }}>
       <div className="container">
         <div
           style={{

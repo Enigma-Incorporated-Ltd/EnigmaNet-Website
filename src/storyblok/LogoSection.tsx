@@ -1,5 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
-
+import { blokEditable } from './blokEditable';
 interface LogoAsset {
   id: number;
   filename: string;
@@ -20,7 +19,7 @@ interface LogoSectionProps {
 export default function LogoSection({ blok }: LogoSectionProps) {
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{ background: '#ffffff', padding: '48px 0' }}
     >
       <div className="container">

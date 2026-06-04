@@ -1,4 +1,5 @@
-import { StoryblokComponent, storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
+import { StoryblokComponent } from '@storyblok/react';
 
 interface GridBlok {
   _uid: string;
@@ -12,7 +13,7 @@ export default function Grid({ blok }: { blok: GridBlok }) {
 
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{ padding: '64px 0', background: '#ffffff' }}
     >
       <div className="container">

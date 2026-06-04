@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
 import { renderRichText } from '@storyblok/react';
 
 interface ArticleBlok {
@@ -15,10 +15,10 @@ interface ArticlePageProps {
 }
 
 export default function ArticlePage({ blok }: ArticlePageProps) {
-  const bodyHtml = blok.text ? renderRichText(blok.text) : '';
+  const bodyHtml = blok.text ? renderRichText(blok.text as never) : '';
 
   return (
-    <article {...storyblokEditable(blok)} style={{ minHeight: '80vh' }}>
+    <article {...blokEditable(blok)} style={{ minHeight: '80vh' }}>
       {/* Hero image */}
       {blok.image?.filename && (
         <div style={{ width: '100%', height: 'clamp(240px, 40vw, 480px)', overflow: 'hidden' }}>
