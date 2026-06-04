@@ -48,7 +48,7 @@ const PilotOutcomes = () => {
         </p>
         <div className="row align-items-center">
           <div className="col-lg-5">
-            <div className="d-flex gap-5 flex-wrap">
+            <div className="d-flex gap-4 flex-wrap justify-content-md-center justify-content-lg-start">
               <UseCaseStatCard
                 value="20-60%"
                 label={
@@ -56,9 +56,11 @@ const PilotOutcomes = () => {
                     Latency <br /> Improvement
                   </>
                 }
+                fontSize="14px"
+                width={'150px'}
               />
-              <UseCaseStatCard value="<0.1%" label="Packet Loss" />
-              <UseCaseStatCard value="<500ms" label="Failover" />
+              <UseCaseStatCard value="<0.1%" label="Packet Loss" fontSize="14px" width={'150px'} />
+              <UseCaseStatCard value="<500ms" label="Failover" fontSize="14px" width={'150px'} />
             </div>
           </div>
 

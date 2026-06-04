@@ -12,6 +12,9 @@ type Props = {
   usecase?: string;
   rightCol?: React.ReactNode;
   leftCol?: React.ReactNode;
+  children?: React.ReactNode;
+  className?: string;
+  subtitleColor?: string;
 };
 const HeroBanner = ({
   title,
@@ -22,12 +25,15 @@ const HeroBanner = ({
   imgBackground,
   subtitle,
   usecase,
+  children,
+  className = 'py-5',
   rightCol = 'col-lg-5',
   leftCol = 'col-lg-7',
+  subtitleColor = '#0091FF',
 }: Props) => {
   return (
     <section
-      className="py-5"
+      className={`${className}`}
       style={{
         background: sectionBackground
           ? sectionBackground
@@ -67,7 +73,7 @@ const HeroBanner = ({
             <h3
               className="mb-4"
               style={{
-                color: '#0091FF',
+                color: subtitleColor,
                 fontWeight: 500,
                 fontSize: 'clamp(1.4rem, 2vw, 2.2rem)',
               }}
@@ -81,7 +87,7 @@ const HeroBanner = ({
                 color: '#FFF',
                 fontSize: '18px',
                 lineHeight: '1.8',
-                maxWidth: '720px',
+                maxWidth: '920px',
               }}
             >
               {description}
@@ -100,11 +106,14 @@ const HeroBanner = ({
           </div>
 
           {/* Right Image */}
-          <div className={`${rightCol} text-center`} style={imgBackground ? imgBackground : {}}>
-            <img src={heroImage} alt={title} width={650} height={550} className="img-fluid" />
-          </div>
+          {heroImage && (
+            <div className={`${rightCol} text-center`} style={imgBackground ? imgBackground : {}}>
+              <img src={heroImage} alt={title} width={650} height={550} className="img-fluid" />
+            </div>
+          )}
         </div>
       </div>
+      {children}
     </section>
   );
 };

@@ -1,6 +1,8 @@
 import aiInfra from './solutions/ai/ai-data-infrastructure.png';
 import channel from './solutions/channels/channels-partners.png';
 import defense from './solutions/dualtechnology/defence-dual-thechnology.png';
+import DefenseCase from './solutions/dualtechnology/usecase/usebase.png';
+import DefenseCase1 from './solutions/dualtechnology/usecase/defance-usecase.png';
 import enterprise from './solutions/enterprise-solution/enterprisenew.png';
 import industries from './solutions/industries-solution/inustries.png';
 import industriesUsecase from './solutions/industries-solution/industriesUse.png';
@@ -10,6 +12,8 @@ import serviceProvidersUsecase from './solutions/providersPartners-solution/use-
 import remoteWork from './solutions/remote-work-solution/remote-work-and-branch.png';
 import startups from './solutions/startups-solution/outreach-topic3-cloud.png';
 import technology from './solutions/technology-solution/technology-partners.png';
+import technologyCase from './solutions/technology-solution/usecase/technology-case.png';
+import technologyUsecase from './solutions/technology-solution/usecase/tech-usecase.png';
 import enigmaSecureDesktop from './products/nexus/enigma-secure-networking-infographic.png';
 import enigmaSecureMobile from './products/nexus/NEXUS-mobile.png';
 import enigmaSecureTablet from './products/nexus/NEXUS-tablet.png';
@@ -45,6 +49,10 @@ export {
   industriesUsecase,
   OilGasUsecase,
   serviceProvidersUsecase,
+  DefenseCase,
+  DefenseCase1,
+  technologyCase,
+  technologyUsecase,
   //products-nexsus
   enigmaSecureDesktop,
   enigmaSecureMobile,
