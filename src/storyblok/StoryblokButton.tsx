@@ -1,6 +1,5 @@
+import { blokEditable } from './blokEditable';
 import type { CSSProperties } from 'react';
-import { storyblokEditable } from '@storyblok/react';
-
 interface Multilink {
   cached_url?: string;
   url?: string;
@@ -98,14 +97,14 @@ export default function StoryblokButton({
 
   if (nativeType === 'submit') {
     return (
-      <button type="submit" {...storyblokEditable(blok)} style={styles}>
+      <button type="submit" {...blokEditable(blok)} style={styles}>
         {blok.label}
       </button>
     );
   }
 
   return (
-    <a {...storyblokEditable(blok)} href={href} style={styles}>
+    <a {...blokEditable(blok)} href={href} style={styles}>
       {blok.label}
     </a>
   );

@@ -1,4 +1,5 @@
-import { renderRichText, storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
+import { renderRichText } from '@storyblok/react';
 import StoryblokButton from './StoryblokButton';
 import type { StoryblokButtonBlok } from './StoryblokButton';
 
@@ -84,7 +85,7 @@ export default function ImageTextSection({ blok }: { blok: ImageTextBlok }) {
 
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{ background: bg, padding: '80px 0', fontFamily: 'var(--font-family-body)' }}
     >
       <div className="container">

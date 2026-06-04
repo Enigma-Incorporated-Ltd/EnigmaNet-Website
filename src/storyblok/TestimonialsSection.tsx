@@ -1,5 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
-
+import { blokEditable } from './blokEditable';
 interface Testimonial {
   _uid: string;
   author: string;
@@ -36,7 +35,7 @@ export default function TestimonialsSection({ blok }: TestimonialsSectionProps) 
 
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{ background: '#f5f5f7', padding: '80px 0' }}
     >
       <div className="container">

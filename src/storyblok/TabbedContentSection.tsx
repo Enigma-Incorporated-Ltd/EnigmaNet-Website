@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
 import { useState } from 'react';
 import TabbedContentEntry from './TabbedContentEntry';
 import type { StoryblokButtonBlok } from './StoryblokButton';
@@ -55,7 +55,7 @@ export default function TabbedContentSection({ blok }: { blok: TabbedContentBlok
 
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{ background: '#ffffff', padding: '80px 0', fontFamily: 'var(--font-family-body)' }}
     >
       <div className="container">

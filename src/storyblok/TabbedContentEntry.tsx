@@ -1,10 +1,11 @@
-import { renderRichText, storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
+import { renderRichText } from '@storyblok/react';
 import StoryblokButton from './StoryblokButton';
 import type { StoryblokButtonBlok } from './StoryblokButton';
 
 interface TabbedContentEntryBlok {
   _uid: string;
-  component: string;
+  component?: string;
   headline: string;
   image?: { filename: string; alt?: string };
   description?: { type: string; content?: unknown[] };
@@ -22,7 +23,7 @@ export default function TabbedContentEntry({ blok }: { blok: TabbedContentEntryB
 
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{
         borderRadius: 'var(--rounded_lg)',
         background: 'var(--primary-background)',

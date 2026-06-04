@@ -1,5 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
-
+import { blokEditable } from './blokEditable';
 import PriceCard from './PriceCard';
 
 interface GridCardIcon {
@@ -85,7 +84,7 @@ export default function GridSection({ blok }: GridSectionProps) {
   const endCta = Array.isArray(blok.button) ? blok.button[0] : blok.button;
 
   return (
-    <section {...storyblokEditable(blok)} style={{ background: bg, padding: '80px 0' }}>
+    <section {...blokEditable(blok)} style={{ background: bg, padding: '80px 0' }}>
       <div className="container">
         <div className="text-center mb-5">
           <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, marginBottom: '16px' }}>

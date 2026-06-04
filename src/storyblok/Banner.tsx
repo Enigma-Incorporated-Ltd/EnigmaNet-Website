@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
 import StoryblokButton from './StoryblokButton';
 import type { StoryblokButtonBlok } from './StoryblokButton';
 
@@ -117,7 +117,7 @@ export default function Banner({ blok }: { blok: BannerBlokContent }) {
 
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{
         position: 'relative',
         minHeight: 'min(600px, 85vh)',

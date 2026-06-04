@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
 import StoryblokButton from './StoryblokButton';
 import type { StoryblokButtonBlok } from './StoryblokButton';
 
@@ -114,7 +114,7 @@ export default function HeroSection({ blok }: { blok: HeroBlok }) {
 
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{
         position: 'relative',
         overflow: 'hidden',

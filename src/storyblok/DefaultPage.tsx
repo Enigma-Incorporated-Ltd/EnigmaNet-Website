@@ -1,4 +1,5 @@
-import { StoryblokComponent, storyblokEditable } from '@storyblok/react';
+import { blokEditable } from './blokEditable';
+import { StoryblokComponent } from '@storyblok/react';
 
 interface DefaultPageBlok {
   _uid: string;
@@ -13,7 +14,7 @@ interface DefaultPageProps {
 
 export default function DefaultPage({ blok }: DefaultPageProps) {
   return (
-    <main {...storyblokEditable(blok)}>
+    <main {...blokEditable(blok)}>
       {blok.body?.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}

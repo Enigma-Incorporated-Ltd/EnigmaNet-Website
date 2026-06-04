@@ -1,5 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
-
+import { blokEditable } from './blokEditable';
 interface FallbackBlok {
   _uid: string;
   component: string;
@@ -14,7 +13,7 @@ export default function FallbackBlock({ blok }: FallbackBlockProps) {
   if (import.meta.env.DEV) {
     return (
       <div
-        {...storyblokEditable(blok)}
+        {...blokEditable(blok)}
         style={{
           border: '2px dashed #e87722',
           padding: '1rem',

@@ -1,5 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
-
+import { blokEditable } from './blokEditable';
 interface TeaserBlok {
   _uid: string;
   component: 'teaser';
@@ -9,7 +8,7 @@ interface TeaserBlok {
 export default function Teaser({ blok }: { blok: TeaserBlok }) {
   return (
     <section
-      {...storyblokEditable(blok)}
+      {...blokEditable(blok)}
       style={{
         padding: '80px 0',
         background: '#f5f5f7',
