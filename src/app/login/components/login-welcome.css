@@ -1,4 +1,4 @@
-/* Figma: starting point dark mode (78:3794) */
+/* Welcome card — aligned rows, 17px column gap */
 
 .login-card--welcome {
   gap: 48px;
@@ -29,94 +29,138 @@
 .login-welcome-actions {
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  align-items: stretch;
+  gap: 0;
   width: 100%;
-  align-items: center;
 }
 
-/* Figma 78:3799 — both buttons 184.5×52px, 65px gap, row 434×52 */
-.login-welcome-buttons {
+/* Shared 2-column row: equal cells, 17px gap, full content width */
+.login-welcome-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 65px;
+  column-gap: 17px;
   width: 100%;
-  max-width: 434px;
-  height: 52px;
-}
-
-.login-welcome-buttons .login-primary-btn,
-.login-welcome-buttons .login-secondary-btn {
-  width: 100%;
-  height: 52px;
-  min-height: 52px;
-  padding-top: 16px;
-  padding-bottom: 16px;
   box-sizing: border-box;
-  align-self: stretch;
-  text-decoration: none;
 }
 
-/* Figma 78:3800 — Primary: px 32 */
-.login-welcome-buttons .login-primary-btn {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
-/* Figma 78:3801 — Secondary: px 24, same outer 184.5×52 */
-.login-welcome-buttons .login-secondary-btn {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-.login-welcome-buttons .login-secondary-btn__label {
-  flex: 1 1 0;
+.login-welcome-btn {
+  width: 100%;
   min-width: 0;
-  text-align: center;
-}
-
-/* Figma 78:3802 — Google + Apple side by side (406×40, 12px gap) */
-.login-account-buttons--welcome {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  width: 100%;
-  max-width: 406px;
-  margin-left: auto;
-  margin-right: auto;
+  min-height: 52px;
+  padding: 16px 12px;
+  border: none;
+  border-radius: 100px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.1px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow:
+    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.9),
+    inset 0 0 8px 0 rgba(242, 242, 242, 0.45),
+    0 0 2px 0 rgba(0, 0, 0, 0.1),
+    0 1px 8px 0 rgba(0, 0, 0, 0.1);
+  transition:
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.login-account-buttons--welcome .login-account-buttons__btn {
+.login-welcome-btn--sign-in {
+  color: #f4f4f6;
+  background: linear-gradient(90deg, rgba(38, 55, 119, 0.88) 0%, rgba(0, 163, 218, 0.88) 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.login-welcome-btn--create {
+  color: #fff;
+  background: linear-gradient(90deg, rgba(169, 106, 0, 0.88) 0%, rgba(241, 186, 95, 0.88) 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.login-welcome-btn--sign-in:hover {
+  background: linear-gradient(90deg, rgba(38, 55, 119, 0.96) 0%, rgba(0, 163, 218, 0.96) 100%);
+  filter: brightness(1.05);
+  box-shadow:
+    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.95),
+    inset 0 0 10px 0 rgba(242, 242, 242, 0.55),
+    0 0 2px 0 rgba(0, 0, 0, 0.1),
+    0 2px 12px 0 rgba(0, 163, 218, 0.35);
+}
+
+.login-welcome-btn--create:hover {
+  background: linear-gradient(90deg, rgba(169, 106, 0, 0.96) 0%, rgba(241, 186, 95, 0.96) 100%);
+  filter: brightness(1.05);
+  box-shadow:
+    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.95),
+    inset 0 0 10px 0 rgba(242, 242, 242, 0.55),
+    0 0 2px 0 rgba(0, 0, 0, 0.1),
+    0 2px 12px 0 rgba(241, 186, 95, 0.35);
+}
+
+/* Divider — full row width, spaced from buttons / social */
+.login-welcome-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: 100%;
+  margin-top: 72px;
+  margin-bottom: 46px;
+  pointer-events: none;
+}
+
+.login-welcome-divider__line {
+  display: block;
   flex: 1 1 0;
   min-width: 0;
+  height: 1px;
+  opacity: 0.5;
+  background: linear-gradient(90deg, transparent 0%, #ffffff 100%);
+}
+
+.login-welcome-divider__line--right {
+  background: linear-gradient(90deg, transparent 0%, #e6e7e7 50%, #eaecec 100%);
+  transform: scaleX(-1);
+}
+
+.login-welcome-divider__text {
+  flex-shrink: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Social row — same grid as primary buttons */
+.login-welcome-social .login-account-buttons__btn {
+  width: 100%;
+  min-width: 0;
+  flex: none;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 @media (max-width: 520px) {
-  .login-welcome-buttons {
+  .login-welcome-row {
     grid-template-columns: 1fr;
     row-gap: 16px;
     column-gap: 0;
-    height: auto;
-    max-width: 100%;
   }
 
-  .login-welcome-buttons .login-primary-btn,
-  .login-welcome-buttons .login-secondary-btn {
-    width: 100%;
-    height: 52px;
-  }
-
-  .login-account-buttons--welcome {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .login-account-buttons--welcome .login-account-buttons__btn {
-    flex: 0 0 auto;
-    width: 100%;
-    justify-content: center;
+  .login-welcome-divider {
+    margin-top: 48px;
+    margin-bottom: 32px;
   }
 }

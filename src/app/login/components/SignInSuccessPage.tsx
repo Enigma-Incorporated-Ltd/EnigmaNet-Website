@@ -8,7 +8,7 @@ import './login-success.css';
 type SignInSuccessLocationState = {
   email?: string;
 };
-
+  
 const formatUserLabel = (email: string) => {
   const local = (email.split('@')[0] ?? email).trim();
   return local ? local.toUpperCase() : 'USER NAME';

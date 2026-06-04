@@ -383,44 +383,113 @@
   width: 100%;
 }
 
-/* Figma: Primary Button (77:3599 / 5:273) */
-.login-primary-btn {
-  --button-color: #171717;
-  display: flex;
+/* Figma: Primary Button (5:273) + Secondary button (77:3683 / 77:3679) */
+.login-figma-btn,
+.login-primary-btn,
+.login-secondary-btn {
+  position: relative;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   align-self: stretch;
   width: 100%;
-  padding: 16px 32px;
+  min-height: 52px;
   border: none;
   border-radius: 100px;
   font-family: inherit;
   cursor: pointer;
-  position: relative;
+  box-sizing: border-box;
+  text-decoration: none;
   overflow: hidden;
   isolation: isolate;
-  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  background: transparent;
   box-shadow:
     0 0 2px 0 rgba(0, 0, 0, 0.1),
     0 1px 8px 0 rgba(0, 0, 0, 0.1);
-  transition: filter 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.22s ease;
 }
 
-.login-primary-btn::before {
+.login-figma-btn--primary,
+.login-primary-btn {
+  padding: 16px 32px;
+}
+
+.login-figma-btn--secondary,
+.login-secondary-btn {
+  padding: 16px 24px;
+  flex-shrink: 0;
+}
+
+/* Figma layer stack: gradient → #171717 plus-lighter glass → inset rim */
+.login-figma-btn__fx {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.login-figma-btn__gradient {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.login-figma-btn--primary .login-figma-btn__gradient,
+.login-primary-btn:not(:has(.login-figma-btn__fx)) {
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+}
+
+.login-figma-btn--secondary .login-figma-btn__gradient {
+  background: linear-gradient(90deg, #a96a00 0%, #f1ba5f 100%);
+}
+
+.login-figma-btn__glass {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #171717;
+  mix-blend-mode: plus-lighter;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: opacity 0.22s ease;
+}
+
+.login-figma-btn__rim {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 3px 3px 0.5px -3.5px #fff,
+    inset 2px 2px 0.5px -2px #262626,
+    inset -2px -2px 0.5px -2px #262626,
+    inset 0 0 0 1px #a6a6a6,
+    inset 0 0 8px 0 #f2f2f2;
+}
+
+/* Legacy markup (no .login-figma-btn__fx) */
+.login-primary-btn:not(:has(.login-figma-btn__fx))::before,
+.login-secondary-btn:not(:has(.login-figma-btn__fx))::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: var(--button-color, #171717);
+  background: #171717;
   mix-blend-mode: plus-lighter;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   pointer-events: none;
+  transition: opacity 0.22s ease;
 }
 
-.login-primary-btn::after {
+.login-secondary-btn:not(:has(.login-figma-btn__fx)) {
+  background: linear-gradient(90deg, #a96a00 0%, #f1ba5f 100%);
+}
+
+.login-primary-btn:not(:has(.login-figma-btn__fx))::after,
+.login-secondary-btn:not(:has(.login-figma-btn__fx))::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -435,101 +504,86 @@
     inset 0 0 8px 0 #f2f2f2;
 }
 
+/* Figma 5:272 — Sign In label */
+.login-figma-btn__label,
 .login-primary-btn__label {
   position: relative;
   z-index: 1;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.1px;
-  line-height: 20px;
+  flex-shrink: 0;
   color: #f4f4f6;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.1px;
   white-space: nowrap;
 }
 
-.login-primary-btn:hover {
-  filter: brightness(1.06);
-  transform: translateY(-1px);
+/* Figma 77:3679 — Create Account label */
+.login-figma-btn--secondary .login-figma-btn__label,
+.login-secondary-btn__label {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
+  color: #fff;
 }
 
-@supports not (mix-blend-mode: plus-lighter) {
-  .login-primary-btn::before {
-    background: rgba(23, 23, 23, 0.15);
-    mix-blend-mode: normal;
-  }
-}
-
-/* Figma: Secondary button / Create Account (78:3801) */
-.login-secondary-btn {
-  --button-color: #171717;
+.login-figma-btn-shell {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  align-self: stretch;
-  width: 100%;
-  padding: 16px 24px;
-  border: none;
-  border-radius: 100px;
-  font-family: inherit;
-  cursor: pointer;
+  align-items: flex-start;
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background: linear-gradient(90deg, #a96a00 0%, #f1ba5f 100%);
+  width: 100%;
+}
+
+.login-figma-btn-shell .login-figma-btn--secondary {
+  width: 100%;
+}
+
+.login-figma-btn--primary:hover,
+.login-primary-btn:hover {
   box-shadow:
     0 0 2px 0 rgba(0, 0, 0, 0.1),
-    0 1px 8px 0 rgba(0, 0, 0, 0.1);
-  transition: filter 0.2s ease, transform 0.2s ease;
+    0 2px 12px 0 rgba(0, 163, 218, 0.35);
 }
 
-.login-secondary-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border-radius: inherit;
-  background: var(--button-color, #171717);
-  mix-blend-mode: plus-lighter;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  pointer-events: none;
+.login-figma-btn--primary:hover .login-figma-btn__gradient {
+  background: linear-gradient(90deg, #2f4f95 0%, #14c8ff 100%);
 }
 
-.login-secondary-btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow:
-    inset 3px 3px 0.5px -3.5px #fff,
-    inset 2px 2px 0.5px -2px #262626,
-    inset -2px -2px 0.5px -2px #262626,
-    inset 0 0 0 1px #a6a6a6,
-    inset 0 0 8px 0 #f2f2f2;
+.login-figma-btn--primary:hover .login-figma-btn__glass,
+.login-primary-btn:hover:not(:has(.login-figma-btn__fx))::before {
+  opacity: 0.55;
 }
 
-.login-secondary-btn__label {
-  position: relative;
-  z-index: 1;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.1px;
-  line-height: 20px;
-  color: #fff;
-  white-space: nowrap;
-}
-
+.login-figma-btn--secondary:hover,
 .login-secondary-btn:hover {
-  filter: brightness(1.06);
-  transform: translateY(-1px);
+  box-shadow:
+    0 0 2px 0 rgba(0, 0, 0, 0.1),
+    0 2px 12px 0 rgba(241, 186, 95, 0.35);
+}
+
+.login-figma-btn--secondary:hover .login-figma-btn__gradient {
+  background: linear-gradient(90deg, #c47a00 0%, #ffd47a 100%);
+}
+
+.login-figma-btn--secondary:hover .login-figma-btn__glass,
+.login-secondary-btn:hover:not(:has(.login-figma-btn__fx))::before {
+  opacity: 0.55;
 }
 
 @supports not (mix-blend-mode: plus-lighter) {
-  .login-secondary-btn::before {
-    background: rgba(23, 23, 23, 0.15);
+  .login-figma-btn__glass,
+  .login-primary-btn:not(:has(.login-figma-btn__fx))::before,
+  .login-secondary-btn:not(:has(.login-figma-btn__fx))::before {
+    background: rgba(23, 23, 23, 0.14);
     mix-blend-mode: normal;
+  }
+
+  .login-figma-btn:hover .login-figma-btn__glass,
+  .login-primary-btn:hover:not(:has(.login-figma-btn__fx))::before,
+  .login-secondary-btn:hover:not(:has(.login-figma-btn__fx))::before {
+    background: rgba(23, 23, 23, 0.06);
   }
 }
 
