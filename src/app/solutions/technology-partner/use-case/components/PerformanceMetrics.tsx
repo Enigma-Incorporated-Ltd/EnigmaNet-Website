@@ -53,7 +53,13 @@ const PerformanceMetrics = () => {
             <div className="row  g-4">
               <div className="col-12 pt-5">
                 {data.map((item, index) => (
-                  <ListCard key={index} text={item} fontWeight={500} fontSize="20px" />
+                  <ListCard
+                    key={index}
+                    text={item}
+                    fontWeight={500}
+                    fontSize="20px"
+                    isListItem={false}
+                  />
                 ))}
               </div>
             </div>

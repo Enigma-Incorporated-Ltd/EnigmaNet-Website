@@ -109,7 +109,13 @@ const NetworkConditions = () => {
             <div className="row g-4">
               <div className="col-12">
                 {data.map((item, index) => (
-                  <ListCard key={index} text={item} fontSize="20px" fontWeight={500} />
+                  <ListCard
+                    key={index}
+                    text={item}
+                    fontSize="20px"
+                    fontWeight={500}
+                    isListItem={false}
+                  />
                 ))}
               </div>
             </div>

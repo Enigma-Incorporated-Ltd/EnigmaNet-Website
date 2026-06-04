@@ -4,12 +4,23 @@ interface StatCardProps {
   label?: string | React.ReactNode;
   width?: string;
   fontSize?: string
+  className?: string
 }
 
-const UseCaseStatCard = ({ value, label , width='auto' , fontSize='11px'}: StatCardProps) => (
-  <div className="stat-card" style={{ width: width }} >
+const UseCaseStatCard = ({
+  value,
+  label,
+  width = 'auto',
+  fontSize = '11px',
+  className,
+}: StatCardProps) => (
+  <div className={`stat-card ${className}`} style={{ width: width }}>
     {value && <div className="stat-card-value">{value}</div>}
-    {label && <div className="stat-card-label" style={{fontSize: fontSize}}>{label}</div>}
+    {label && (
+      <div className="stat-card-label" style={{ fontSize: fontSize }}>
+        {label}
+      </div>
+    )}
   </div>
 );
 

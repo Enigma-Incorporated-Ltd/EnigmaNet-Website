@@ -195,6 +195,7 @@ const DefenseDualTechnologyUseCase = lazy(
 const TechnologiesPartner = lazy(() => import('@/app/solutions/technology-partner'));
 const TechnologyCase = lazy(() => import('@/app/solutions/technology-partner/use-case'));
 const ChannelPartner = lazy(() => import('@/app/solutions/channel-partner'));
+const ChannelPartnerUseCase = lazy(() => import('@/app/solutions/channel-partner/use-case'));
 const Startups = lazy(() => import('@/app/solutions/startups-&-smb'));
 //support
 const Support = lazy(() => import('@/app/contact-us/support'));
@@ -364,6 +365,7 @@ export const AllRoutes = [
   { path: '/solutions/technology-partner', element: <TechnologiesPartner /> },
   { path: '/solutions/technology-partner/use-case', element: <TechnologyCase /> },
   { path: '/solutions/channel-partner', element: <ChannelPartner /> },
+  { path: '/solutions/channel-partner/use-case', element: <ChannelPartnerUseCase /> },
   { path: '/solutions/startups-&-smb', element: <Startups /> },
 
   //support

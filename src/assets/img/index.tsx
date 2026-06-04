@@ -1,5 +1,6 @@
 import aiInfra from './solutions/ai/ai-data-infrastructure.png';
 import channel from './solutions/channels/channels-partners.png';
+import channelUseCase from './solutions/channels/usecase/channel.png';
 import defense from './solutions/dualtechnology/defence-dual-thechnology.png';
 import DefenseCase from './solutions/dualtechnology/usecase/usebase.png';
 import DefenseCase1 from './solutions/dualtechnology/usecase/defance-usecase.png';
@@ -53,6 +54,7 @@ export {
   DefenseCase1,
   technologyCase,
   technologyUsecase,
+  channelUseCase,
   //products-nexsus
   enigmaSecureDesktop,
   enigmaSecureMobile,

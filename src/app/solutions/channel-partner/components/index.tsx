@@ -16,6 +16,7 @@ import PainCard from '@/components/ui/PainCard';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 import { solutions } from '@/utils/solutions';
 import { useSlug } from '@/utils/useSlug';
+import PremiumButton from '@/components/ui/PremiumButton';
 const features = [
   {
     id: 1,
@@ -111,7 +112,16 @@ const ChannelPage = () => {
         }
         description="For channel partners, the challenge is often commercial as much as technical. Customers want more value, more resilience and better outcomes but many partner offers still look too similar, making differentiation and margin growth harder to achieve.  "
       />
-
+      <div className="d-flex justify-content-center px-5">
+        {' '}
+        <PremiumButton
+          key={theme}
+          label="View  Use Case"
+          variant={theme === 'dark' ? 'gold' : 'blue'}
+          className="btn-lg btn-responsive"
+          href="/solutions/channel-partner/use-case"
+        />
+      </div>
       <CardSlider
         title={
           <>

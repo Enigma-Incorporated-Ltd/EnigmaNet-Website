@@ -12,10 +12,12 @@ const UseCaseCard = ({
   metrics,
   cardShow = 4,
   isbg,
+  minHeight = '200px',
 }: {
   metrics: Metric[];
   cardShow?: number;
   isbg?: boolean;
+  minHeight?: string;
 }) => {
   // Bootstrap grid column based on cardShow
   const getColClass = () => {
@@ -76,10 +78,10 @@ const UseCaseCard = ({
                   0px 1px 2px rgba(0, 0, 0, 0.10)
                 `,
                 transition: 'all 0.3s ease',
-                minHeight: '200px',
+                minHeight: minHeight,
               }}
-             onMouseEnter={handleCardMouseEnter}
-                onMouseLeave={handleCardMouseLeave}
+              onMouseEnter={handleCardMouseEnter}
+              onMouseLeave={handleCardMouseLeave}
             >
               <div
                 className="fw-bold mb-3 d-flex align-items-center justify-content-center gap-2"
@@ -115,7 +117,7 @@ const UseCaseCard = ({
                   className="mb-2 fw-semibold"
                   style={{
                     fontSize: 'clamp(1.1rem, 1.5vw, 1.3rem)',
-                    color: '#171717',
+                    color: '#000',
                   }}
                   dangerouslySetInnerHTML={{ __html: metric.label }}
                 />
@@ -125,9 +127,10 @@ const UseCaseCard = ({
                 <p
                   style={{
                     fontSize: '14px',
-                    color: '#6B7280',
+                    color: '#000',
                     lineHeight: '1.5',
                     marginBottom: 0,
+                    fontWeight: 500,
                   }}
                   dangerouslySetInnerHTML={{ __html: metric?.description }}
                 />
