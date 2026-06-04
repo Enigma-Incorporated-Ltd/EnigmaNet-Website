@@ -1,10 +1,10 @@
+import AppleLoginPage from '@/app/login-apple/components';
 import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import { useEffect, useRef } from 'react';
-import GoogleLoginPage from './components';
 
-const LoginGoogle = () => {
+const RegisterApple = () => {
   const layoutRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,24 +33,24 @@ const LoginGoogle = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Google Login - Enigma Net',
-    url: `${BASE_URL}/login/google`,
-    description: 'Sign in to Enigma Net with your Google account.',
+    name: 'Apple Registration - Enigma Net',
+    url: `${BASE_URL}/register/apple`,
+    description: 'Create your Enigma Net account with your Apple account.',
   };
 
   return (
     <div className="login-layout" ref={layoutRef}>
       <PageMeta
-        title="Google Login"
-        description="Sign in to Enigma Net with your Google account."
-        url={`${BASE_URL}/login/google`}
+        title="Apple Registration"
+        description="Create your Enigma Net account with your Apple account."
+        url={`${BASE_URL}/register/apple`}
         structuredData={structuredData}
       />
 
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" isNavDark />
-      <GoogleLoginPage mode="login" />
+      <AppleLoginPage mode="register" />
     </div>
   );
 };
 
-export default LoginGoogle;
+export default RegisterApple;

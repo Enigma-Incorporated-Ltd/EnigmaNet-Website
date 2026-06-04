@@ -1,10 +1,10 @@
+import GoogleLoginPage from '@/app/login-google/components';
 import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import { useEffect, useRef } from 'react';
-import GoogleLoginPage from './components';
 
-const LoginGoogle = () => {
+const RegisterGoogle = () => {
   const layoutRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,24 +33,24 @@ const LoginGoogle = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Google Login - Enigma Net',
-    url: `${BASE_URL}/login/google`,
-    description: 'Sign in to Enigma Net with your Google account.',
+    name: 'Google Registration - Enigma Net',
+    url: `${BASE_URL}/register/google`,
+    description: 'Create your Enigma Net account with your Google account.',
   };
 
   return (
     <div className="login-layout" ref={layoutRef}>
       <PageMeta
-        title="Google Login"
-        description="Sign in to Enigma Net with your Google account."
-        url={`${BASE_URL}/login/google`}
+        title="Google Registration"
+        description="Create your Enigma Net account with your Google account."
+        url={`${BASE_URL}/register/google`}
         structuredData={structuredData}
       />
 
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" isNavDark />
-      <GoogleLoginPage mode="login" />
+      <GoogleLoginPage mode="register" />
     </div>
   );
 };
 
-export default LoginGoogle;
+export default RegisterGoogle;

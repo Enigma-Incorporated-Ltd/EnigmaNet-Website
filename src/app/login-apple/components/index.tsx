@@ -6,13 +6,22 @@ import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useState } from 'react';
 import { Link } from 'react-router';
+import type { OAuthPageMode } from '@/app/login-google/components';
 import '@/app/login/components/login.css';
 import '@/app/login-google/components/google-login.css';
 import './apple-login.css';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const AppleLoginPage = () => {
+type AppleLoginPageProps = {
+  mode?: OAuthPageMode;
+};
+
+const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
+  const isRegister = mode === 'register';
+  const backHref = isRegister ? '/register' : '/login';
+  const otherProviderHref = isRegister ? '/register/google' : '/login/google';
+  const dividerText = isRegister ? 'Or create account with your' : 'Or sign in with your';
   const [email, setEmail] = useState('');
   const [showError, setShowError] = useState(false);
 
@@ -33,7 +42,9 @@ const AppleLoginPage = () => {
 
       <div className="login-page__header-wrap">
         <div className="login-page__header" data-name="Text">
-          <h1 className="login-page__title">Apple Login Page</h1>
+          <h1 className="login-page__title">
+            {isRegister ? 'Apple Registration Page' : 'Apple Login Page'}
+          </h1>
           <nav className="login-page__breadcrumb" aria-label="breadcrumb">
             <Link to="/">
               <IconifyIcon icon="lucide:home" width={12} height={12} aria-hidden="true" />
@@ -42,7 +53,17 @@ const AppleLoginPage = () => {
             <span className="login-page__breadcrumb-sep" aria-hidden="true">
               <IconifyIcon icon="lucide:chevron-right" width={12} height={12} />
             </span>
-            <span className="login-page__breadcrumb-current">Apple Login</span>
+            {isRegister ? (
+              <>
+                <Link to="/register">Register</Link>
+                <span className="login-page__breadcrumb-sep" aria-hidden="true">
+                  <IconifyIcon icon="lucide:chevron-right" width={12} height={12} />
+                </span>
+              </>
+            ) : null}
+            <span className="login-page__breadcrumb-current">
+              {isRegister ? 'Apple' : 'Apple Login'}
+            </span>
           </nav>
         </div>
       </div>
@@ -54,17 +75,17 @@ const AppleLoginPage = () => {
           data-name="signin with apple account dark mode"
         >
           <Link
-            to="/login"
+            to={backHref}
             className="login-card__back"
             data-node-id="78:4021"
-            aria-label="Back to login"
+            aria-label={isRegister ? 'Back to registration' : 'Back to login'}
           >
             <IconifyIcon icon="lucide:chevron-left" width={24} height={24} aria-hidden="true" />
           </Link>
 
           <div className="login-card__hero" data-node-id="59:912">
             <h2 className="login-card__heading" data-node-id="59:913">
-              Welcome Back!
+              {isRegister ? 'Welcome!' : 'Welcome Back!'}
             </h2>
             <p className="login-card__subtitle" data-node-id="59:914">
               Secure access to <strong>Enigma</strong> Work infrastructure.
@@ -85,7 +106,7 @@ const AppleLoginPage = () => {
                     data-node-id="60:1402"
                   />
                   <p className="login-apple-headline__text" data-node-id="59:919">
-                    <strong>Sign in</strong>{' '}
+                    <strong>{isRegister ? 'Create account' : 'Sign in'}</strong>{' '}
                     <span className="login-apple-headline__rest">with your Apple Account</span>
                   </p>
                 </div>
@@ -129,26 +150,43 @@ const AppleLoginPage = () => {
                   </div>
 
                   <div className="login-help-text" data-node-id="59:924">
-                    <Link to="/forgot-password" className="login-help-text__link" data-node-id="59:925">
-                      Forgot your password?
-                    </Link>
-                    <div className="login-help-text__register" data-node-id="59:926">
-                      <p className="login-help-text__secondary" data-node-id="59:927">
-                        Don&apos;t have an account yet?
-                      </p>
-                      <Link
-                        to="/register"
-                        className="login-help-text__link login-help-text__link--register"
-                        data-node-id="59:928"
-                      >
-                        Register now
-                      </Link>
-                    </div>
+                    {isRegister ? (
+                      <div className="login-help-text__register" data-node-id="59:926">
+                        <p className="login-help-text__secondary" data-node-id="59:927">
+                          Already have an account?
+                        </p>
+                        <Link
+                          to="/login/sign-in"
+                          className="login-help-text__link login-help-text__link--register"
+                          data-node-id="59:928"
+                        >
+                          Sign in
+                        </Link>
+                      </div>
+                    ) : (
+                      <>
+                        <Link to="/forgot-password" className="login-help-text__link" data-node-id="59:925">
+                          Forgot your password?
+                        </Link>
+                        <div className="login-help-text__register" data-node-id="59:926">
+                          <p className="login-help-text__secondary" data-node-id="59:927">
+                            Don&apos;t have an account yet?
+                          </p>
+                          <Link
+                            to="/register"
+                            className="login-help-text__link login-help-text__link--register"
+                            data-node-id="59:928"
+                          >
+                            Register now
+                          </Link>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
 
                 <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id="59:929">
-                  Sign In
+                  {isRegister ? 'Create account' : 'Sign In'}
                 </button>
               </div>
 
@@ -159,12 +197,12 @@ const AppleLoginPage = () => {
                 <div className="login-divider" data-node-id="59:931">
                   <span className="login-divider__line" aria-hidden="true" />
                   <span className="login-divider__text" data-node-id="59:934">
-                    Or sign in with your
+                    {dividerText}
                   </span>
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>
 
-                <Link to="/login/google" className="login-account-buttons__btn" data-node-id="59:937">
+                <Link to={otherProviderHref} className="login-account-buttons__btn" data-node-id="59:937">
                   <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Google Account</span>
                 </Link>

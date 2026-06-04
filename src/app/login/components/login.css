@@ -171,6 +171,7 @@
 
 /* Figma: signin dark mode (77:3583) */
 .login-card {
+  position: relative;
   width: min(100%, 550px);
   margin: 0 auto;
   padding: 48px 32px;
@@ -185,6 +186,38 @@
   overflow: hidden;
   box-sizing: border-box;
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.32);
+}
+
+.login-card__back {
+  position: absolute;
+  left: 24px;
+  top: 28px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.login-card__back:hover,
+.login-card__back:focus-visible {
+  color: #fff;
+  opacity: 0.75;
+  text-decoration: none;
+}
+
+.login-card__back svg {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
 .login-card__hero {

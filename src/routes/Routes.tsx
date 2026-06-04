@@ -204,6 +204,8 @@ const Dashboard = lazy(() => import('@/app/dashboard'));
 const Register = lazy(() => import('@/app/register'));
 const LoginGoogle = lazy(() => import('@/app/login-google'));
 const LoginApple = lazy(() => import('@/app/login-apple'));
+const RegisterGoogle = lazy(() => import('@/app/register-google'));
+const RegisterApple = lazy(() => import('@/app/register-apple'));
 const ForgotPassword = lazy(() => import('@/app/forgot-password'));
 //partner
 const Partners = lazy(() => import('@/app/partners'));
@@ -241,6 +243,8 @@ export const AllRoutes = [
   { path: '/login/*', name: 'login', element: <Login /> },
   { path: '/dashboard', name: 'dashboard', element: <Dashboard /> },
   { path: '/register', name: 'register', element: <Register /> },
+  { path: '/register/google', name: 'register-google', element: <RegisterGoogle /> },
+  { path: '/register/apple', name: 'register-apple', element: <RegisterApple /> },
   { path: '/login/google', name: 'login-google', element: <LoginGoogle /> },
   { path: '/login/apple', name: 'login-apple', element: <LoginApple /> },
   { path: '/forgot-password/*', name: 'forgot-password', element: <ForgotPassword /> },

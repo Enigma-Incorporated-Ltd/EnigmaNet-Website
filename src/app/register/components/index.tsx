@@ -163,16 +163,16 @@ const RegisterPage = () => {
                 <div className="login-divider" data-node-id="76:3224">
                   <span className="login-divider__line" aria-hidden="true" />
                   <span className="login-divider__text" data-node-id="76:3227">
-                    Or sign in with your
+                    Or create account with your
                   </span>
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>
 
-                <Link to="/login/google" className="login-account-buttons__btn" data-node-id="76:3229">
+                <Link to="/register/google" className="login-account-buttons__btn" data-node-id="76:3229">
                   <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Google Account</span>
                 </Link>
-                <Link to="/login/apple" className="login-account-buttons__btn" data-node-id="76:3230">
+                <Link to="/register/apple" className="login-account-buttons__btn" data-node-id="76:3230">
                   <img src={loginAppleIcon} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Apple Account</span>
                 </Link>

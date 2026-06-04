@@ -8,7 +8,17 @@ import { Link } from 'react-router';
 import '@/app/login/components/login.css';
 import './google-login.css';
 
-const GoogleLoginPage = () => {
+export type OAuthPageMode = 'login' | 'register';
+
+type GoogleLoginPageProps = {
+  mode?: OAuthPageMode;
+};
+
+const GoogleLoginPage = ({ mode = 'login' }: GoogleLoginPageProps) => {
+  const isRegister = mode === 'register';
+  const backHref = isRegister ? '/register' : '/login';
+  const otherProviderHref = isRegister ? '/register/apple' : '/login/apple';
+  const dividerText = isRegister ? 'Or create account with your' : 'Or sign in with your';
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -24,7 +34,9 @@ const GoogleLoginPage = () => {
 
       <div className="login-page__header-wrap">
         <div className="login-page__header" data-name="Text">
-          <h1 className="login-page__title">Google Login Page</h1>
+          <h1 className="login-page__title">
+            {isRegister ? 'Google Registration Page' : 'Google Login Page'}
+          </h1>
           <nav className="login-page__breadcrumb" aria-label="breadcrumb">
             <Link to="/">
               <IconifyIcon icon="lucide:home" width={12} height={12} aria-hidden="true" />
@@ -33,7 +45,17 @@ const GoogleLoginPage = () => {
             <span className="login-page__breadcrumb-sep" aria-hidden="true">
               <IconifyIcon icon="lucide:chevron-right" width={12} height={12} />
             </span>
-            <span className="login-page__breadcrumb-current">Google Login</span>
+            {isRegister ? (
+              <>
+                <Link to="/register">Register</Link>
+                <span className="login-page__breadcrumb-sep" aria-hidden="true">
+                  <IconifyIcon icon="lucide:chevron-right" width={12} height={12} />
+                </span>
+              </>
+            ) : null}
+            <span className="login-page__breadcrumb-current">
+              {isRegister ? 'Google' : 'Google Login'}
+            </span>
           </nav>
         </div>
       </div>
@@ -45,17 +67,17 @@ const GoogleLoginPage = () => {
           data-name="signin with google dark mode"
         >
           <Link
-            to="/login"
+            to={backHref}
             className="login-card__back"
             data-node-id="78:4018"
-            aria-label="Back to login"
+            aria-label={isRegister ? 'Back to registration' : 'Back to login'}
           >
             <IconifyIcon icon="lucide:chevron-left" width={24} height={24} aria-hidden="true" />
           </Link>
 
           <div className="login-card__hero" data-node-id="59:752">
             <h2 className="login-card__heading" data-node-id="59:753">
-              Welcome Back!
+              {isRegister ? 'Welcome!' : 'Welcome Back!'}
             </h2>
             <p className="login-card__subtitle" data-node-id="59:754">
               Secure access to <strong>Enigma</strong> Work infrastructure.
@@ -76,7 +98,7 @@ const GoogleLoginPage = () => {
                     data-node-id="59:806"
                   />
                   <p className="login-google-headline__text" data-node-id="59:807">
-                    <strong>Sign in</strong>{' '}
+                    <strong>{isRegister ? 'Create account' : 'Sign in'}</strong>{' '}
                     <span className="login-google-headline__rest">with your Google Account</span>
                   </p>
                 </div>
@@ -100,26 +122,43 @@ const GoogleLoginPage = () => {
                   </div>
 
                   <div className="login-help-text" data-node-id="59:762">
-                    <Link to="/forgot-password" className="login-help-text__link" data-node-id="59:763">
-                      Forgot your password?
-                    </Link>
-                    <div className="login-help-text__register" data-node-id="59:764">
-                      <p className="login-help-text__secondary" data-node-id="59:765">
-                        Don&apos;t have an account yet?
-                      </p>
-                      <Link
-                        to="/register"
-                        className="login-help-text__link login-help-text__link--register"
-                        data-node-id="59:766"
-                      >
-                        Register now
-                      </Link>
-                    </div>
+                    {isRegister ? (
+                      <div className="login-help-text__register" data-node-id="59:764">
+                        <p className="login-help-text__secondary" data-node-id="59:765">
+                          Already have an account?
+                        </p>
+                        <Link
+                          to="/login/sign-in"
+                          className="login-help-text__link login-help-text__link--register"
+                          data-node-id="59:766"
+                        >
+                          Sign in
+                        </Link>
+                      </div>
+                    ) : (
+                      <>
+                        <Link to="/forgot-password" className="login-help-text__link" data-node-id="59:763">
+                          Forgot your password?
+                        </Link>
+                        <div className="login-help-text__register" data-node-id="59:764">
+                          <p className="login-help-text__secondary" data-node-id="59:765">
+                            Don&apos;t have an account yet?
+                          </p>
+                          <Link
+                            to="/register"
+                            className="login-help-text__link login-help-text__link--register"
+                            data-node-id="59:766"
+                          >
+                            Register now
+                          </Link>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
 
                 <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id="59:767">
-                  Sign In
+                  {isRegister ? 'Create account' : 'Sign In'}
                 </button>
               </div>
 
@@ -130,12 +169,12 @@ const GoogleLoginPage = () => {
                 <div className="login-divider" data-node-id="59:769">
                   <span className="login-divider__line" aria-hidden="true" />
                   <span className="login-divider__text" data-node-id="59:772">
-                    Or sign in with your
+                    {dividerText}
                   </span>
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>
 
-                <Link to="/login/apple" className="login-account-buttons__btn" data-node-id="59:775">
+                <Link to={otherProviderHref} className="login-account-buttons__btn" data-node-id="59:775">
                   <img src={loginAppleIcon} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Apple Account</span>
                 </Link>
