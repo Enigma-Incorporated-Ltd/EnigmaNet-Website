@@ -70,3 +70,7 @@
   color: #fff;
   letter-spacing: 0.02em;
 }
+
+.login-layout--light .login-card__signin-success-user {
+  color: #000000;
+}

@@ -360,7 +360,7 @@
   color: rgba(255, 255, 255, 0.55);
 }
 
-..login-layout--light .login-field__input {
+.login-layout--light .login-field__input {
   color: #0d1b29;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
