@@ -142,7 +142,7 @@ const GoogleLoginPage = () => {
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>
 
-                <Link to="/login/apple" className="login-account-buttons__btn" data-node-id="59:775">
+                <Link to="/login/apple" className="login-account-buttons__btn login-account-buttons__btn--apple" data-node-id="59:775">
                   <img src={loginAppleImage} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Apple Account</span>
                 </Link>

@@ -229,6 +229,41 @@
   color: #666666;
 }
 
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple {
+  background: #ffffff;
+  border-color: #e6e7e7;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple::before,
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple::after {
+  background: transparent;
+  box-shadow: none;
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple:hover {
+  background: #f7f8fb;
+  color: #000000;
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google {
+  background: #ffffff;
+  border-color: #e6e7e7;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  color: #000000;
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google::before,
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google::after {
+  background: transparent;
+  box-shadow: none;
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google:hover {
+  background: #f7f8fb;
+  color: #000000;
+}
+
 .login-layout--light .login-card__back svg {
   color: inherit;
 }
