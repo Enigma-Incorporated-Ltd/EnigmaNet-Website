@@ -188,6 +188,7 @@
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.32);
 }
 
+
 .login-card__back {
   position: absolute;
   left: 24px;
@@ -218,6 +219,86 @@
   display: block;
   width: 24px;
   height: 24px;
+}
+
+.login-layout--light .login-card {
+  background-color: #ffffff;
+}
+
+.login-layout--light .login-card__heading {
+  color: #000000;
+}
+.login-layout--light .login-card__subtitle {
+  color: #000000;
+}
+
+.login-layout--light .login-card__subtitle strong {
+  color: #2adeff;
+}
+
+.login-layout--light .login-page__title,
+.login-layout--light .login-divider__text,
+.login-layout--light .login-welcome-divider__text,
+.login-layout--light .login-page__breadcrumb a,
+.login-layout--light .login-page__breadcrumb-current,
+.login-layout--light .login-page__breadcrumb-sep,
+.login-layout--light .login-account-buttons__btn,
+.login-layout--light .login-account-buttons__btn span,
+.login-layout--light .login-account-buttons__btn img,
+.login-layout--light .login-google-headline__text,
+.login-layout--light .login-google-headline__text strong,
+.login-layout--light .login-google-headline__rest,
+.login-layout--light .login-apple-headline__text,
+.login-layout--light .login-apple-headline__text strong,
+.login-layout--light .login-apple-headline__rest {
+  color: #000000;
+}
+
+.login-layout--light .login-card__back {
+  color: #666666;
+}
+
+.login-layout--light .login-card__back:hover {
+  color: #666666;
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple {
+  background: #ffffff;
+  border-color: #e6e7e7;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple::before,
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple::after {
+  background: transparent;
+  box-shadow: none;
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple:hover {
+  background: #f7f8fb;
+  color: #000000;
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google {
+  background: #ffffff;
+  border-color: #e6e7e7;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  color: #000000;
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google::before,
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google::after {
+  background: transparent;
+  box-shadow: none;
+}
+
+.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google:hover {
+  background: #f7f8fb;
+  color: #000000;
+}
+
+.login-layout--light .login-card__back svg {
+  color: inherit;
 }
 
 .login-card__hero {
@@ -310,6 +391,28 @@
 
 .login-field__input::placeholder {
   color: rgba(255, 255, 255, 0.55);
+}
+
+.login-layout--light .login-field__input {
+  color: #0d1b29;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.login-layout--light .login-field__input::placeholder {
+  color: #0d1b29;
+  opacity: 1;
+}
+
+.login-layout--light .login-field__icon-wrap,
+.login-layout--light .login-field__toggle {
+  color: #666666;
+}
+
+.login-layout--light .login-help-text__secondary {
+  color: #000000;
 }
 
 .login-field__input:focus {

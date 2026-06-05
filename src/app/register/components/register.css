@@ -35,6 +35,22 @@
   height: 24px;
 }
 
+.login-layout--light .login-card--register .login-card__back {
+  color: #666666;
+}
+
+.login-layout--light .login-card--register .login-card__back:hover {
+  color: #666666;
+}
+
+.login-layout--light .login-card--register .login-card__back svg {
+  color: inherit;
+}
+
+.login-layout--light .login-card__lead {
+  color: #000000;
+}
+
 .login-card__text-block {
   display: flex;
   flex-direction: column;

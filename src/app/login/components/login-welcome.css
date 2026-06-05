@@ -81,6 +81,10 @@
   white-space: nowrap;
 }
 
+.login-layout--light .login-welcome-divider__text {
+  color: #000000;
+}
+
 /* Social row — same grid as primary buttons */
 .login-welcome-social .login-account-buttons__btn {
   width: 100%;

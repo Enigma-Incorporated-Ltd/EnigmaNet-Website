@@ -1,12 +1,15 @@
 import loginBg from '@/assets/img/login-bg.png';
+import lightLoginBg from '@/assets/img/lightmode_background.png-1.png';
 import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
+import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
 import { EmailIcon } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useState } from 'react';
 import { Link } from 'react-router';
 import type { OAuthPageMode } from '@/app/login-google/components';
+import { useTheme } from '@/utils/useTheme';
 import '@/app/login/components/login.css';
 import '@/app/login-google/components/google-login.css';
 import './apple-login.css';
@@ -18,6 +21,9 @@ type AppleLoginPageProps = {
 };
 
 const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
+  const { theme } = useTheme();
+  const loginBgImage = theme === 'light' ? lightLoginBg : loginBg;
+  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
   const isRegister = mode === 'register';
   const backHref = isRegister ? '/register' : '/login';
   const otherProviderHref = isRegister ? '/register/google' : '/login/google';
@@ -34,7 +40,7 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
   return (
     <section
       className="login-page"
-      style={{ ['--login-bg-image' as string]: `url(${loginBg})` }}
+      style={{ ['--login-bg-image' as string]: `url(${loginBgImage})` }}
       data-node-id="62:1833"
     >
       <div className="login-page__bg login-page__bg-image" aria-hidden="true" />
@@ -97,7 +103,7 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
               <div className="login-card__upperside" data-node-id="59:916">
                 <div className="login-apple-headline" data-node-id="59:917">
                   <img
-                    src={loginAppleIcon}
+                    src={loginAppleImage}
                     alt=""
                     width={50}
                     height={50}
@@ -202,7 +208,7 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>
 
-                <Link to={otherProviderHref} className="login-account-buttons__btn" data-node-id="59:937">
+                <Link to={otherProviderHref} className="login-account-buttons__btn login-account-buttons__btn--google" data-node-id="59:937">
                   <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Google Account</span>
                 </Link>

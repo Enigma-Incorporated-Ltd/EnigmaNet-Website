@@ -2,6 +2,7 @@ import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import { useEffect, useRef } from 'react';
+import { useTheme } from '@/utils/useTheme';
 import RegisterPage from './components';
 
 const Register = () => {
@@ -30,6 +31,8 @@ const Register = () => {
     };
   }, []);
 
+  const { theme } = useTheme();
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -39,7 +42,10 @@ const Register = () => {
   };
 
   return (
-    <div className="login-layout" ref={layoutRef}>
+    <div
+      className={`login-layout login-layout--auth ${theme === 'light' ? 'login-layout--light' : ''}`}
+      ref={layoutRef}
+    >
       <PageMeta
         title="Register"
         description="Create your Enigma Net account for secure access to Enigma Work infrastructure."
