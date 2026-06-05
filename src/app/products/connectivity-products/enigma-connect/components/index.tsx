@@ -12,7 +12,6 @@ import NextPageSlider from '@/components/ui/NextPageSlider';
 import { useSlug } from '@/utils/useSlug';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import { type CardItem } from '@/components/ui/card';
-import Br from '@/components/ui/NewLine';
 import WorkStep from './WorkStep';
 import PricingCard from '@/components/ui/PricingCard';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
