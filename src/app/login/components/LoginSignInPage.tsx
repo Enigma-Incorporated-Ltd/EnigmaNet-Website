@@ -59,6 +59,9 @@ const LoginSignInPage = () => {
 
       <div className="login-page__content">
         <div className="login-card login-gradient-stroke" data-node-id="77:3583" data-name="signin dark mode">
+          <Link to="/login" className="login-card__back" aria-label="Back to login">
+            <IconifyIcon icon="lucide:chevron-left" width={24} height={24} aria-hidden="true" />
+          </Link>
           <div className="login-card__hero" data-node-id="77:3584">
             <h2 className="login-card__heading" data-node-id="77:3585">
               Welcome Back!
