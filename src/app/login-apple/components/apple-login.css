@@ -27,6 +27,12 @@
   line-height: normal;
 }
 
+.login-layout--light .login-apple-headline__text,
+.login-layout--light .login-apple-headline__text strong,
+.login-layout--light .login-apple-headline__rest {
+  color: #000000;
+}
+
 .login-apple-headline__text strong {
   font-size: 20px;
   font-weight: 600;

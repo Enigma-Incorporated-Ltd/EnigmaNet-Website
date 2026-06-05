@@ -57,6 +57,12 @@
   line-height: normal;
 }
 
+.login-layout--light .login-google-headline__text,
+.login-layout--light .login-google-headline__text strong,
+.login-layout--light .login-google-headline__rest {
+  color: #000000;
+}
+
 .login-google-headline__text strong {
   font-size: 20px;
   font-weight: 600;
