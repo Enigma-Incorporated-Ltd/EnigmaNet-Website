@@ -5,7 +5,7 @@ type Props = {
 };
 const HeroImage = ({ img, alt , isbg = false }: Props) => {
   return (
-    <div className=" px-4 px-sm-5 mb-3 mb-md-4">
+    <div className=" px-4 px-sm-5 mb-3 pt-3 mb-md-4">
       <img
         src={img}
         width={1079}

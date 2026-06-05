@@ -171,8 +171,6 @@ const WorkBranch = () => {
         }}
       />
       <NextPageSlider
-        buttonText="All Solutions"
-        buttonLink="/solutions"
         title="Related Solutions"
         basePath="/solutions"
         data={solutions}

@@ -5,10 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import { Card } from 'react-bootstrap';
-import IconifyIcon from '@/components/IconifyIcon';
 import PremiumButton from '@/components/ui/PremiumButton';
 import HeaderTitle from '@/components/ui/HeaderTitle';
-import './style.css'
+import '../CardSlider/style.css';
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 type FeatureItem = {
@@ -16,8 +15,8 @@ type FeatureItem = {
   icon?: string;
   title: string;
   description: string;
+  PriceValue?: string | React.ReactNode;
 };
-
 type ButtonConfig = {
   label: string;
   href: string;
@@ -42,13 +41,13 @@ type CardSliderProps = {
 
 // ─── Arrow Button ────────────────────────────────────────────────────────────
 
-export interface ArrowButtonProps {
+interface ArrowButtonProps {
   direction: 'prev' | 'next';
   onClick: () => void;
   disabled?: boolean;
 }
 
-export const ArrowButton: React.FC<ArrowButtonProps> = ({ direction, onClick, disabled }) => {
+const ArrowButton: React.FC<ArrowButtonProps> = ({ direction, onClick, disabled }) => {
   const isPrev = direction === 'prev';
   return (
     <button
@@ -71,11 +70,7 @@ export const ArrowButton: React.FC<ArrowButtonProps> = ({ direction, onClick, di
         strokeLinejoin="round"
         aria-hidden="true"
       >
-        {isPrev ? (
-          <polyline points="15 18 9 12 15 6" />
-        ) : (
-          <polyline points="9 18 15 12 9 6" />
-        )}
+        {isPrev ? <polyline points="15 18 9 12 15 6" /> : <polyline points="9 18 15 12 9 6" />}
       </svg>
     </button>
   );
@@ -83,9 +78,9 @@ export const ArrowButton: React.FC<ArrowButtonProps> = ({ direction, onClick, di
 
 // ─── Component ───────────────────────────────────────────────────────────────
 
-const CardSlider: React.FC<CardSliderProps> = ({
+const AddOnCard: React.FC<CardSliderProps> = ({
   data,
-  cardShow = 3,
+  cardShow = 4,
   title,
   description,
   description2,
@@ -173,27 +168,15 @@ const CardSlider: React.FC<CardSliderProps> = ({
               {data.map(feature => (
                 <SwiperSlide key={feature.id} className="h-auto py-3">
                   <Card className="h-100 card-body card-hover mx-2">
-                    {/* Icon — supports Iconify solar: strings or plain image URLs */}
-                    {feature.icon &&
-                      (feature.icon.startsWith('solar:') ? (
-                        <IconifyIcon
-                          icon={feature.icon}
-                          className="display-5 fw-normal card-icon"
-                          style={{ color: '#b4b7c9' }}
-                        />
-                      ) : (
-                        <img
-                          src={feature.icon}
-                          width={100}
-                          height={100}
-                          alt={feature.title}
-                          loading="lazy"
-                        />
-                      ))}
-
                     <HeaderTitle title={feature.title} className="h5 text-warning pt-3 pb-1 mb-2" />
-
-                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: feature.description }} />
+                    <p
+                      className="mb-0"
+                      dangerouslySetInnerHTML={{ __html: feature.description }}
+                      style={{ minHeight: '4rem' }}
+                    />
+                    {feature.PriceValue && (
+                      <h2 className="h4 text-start mt-5 text-dark">{feature.PriceValue}</h2>
+                    )}{' '}
                   </Card>
                 </SwiperSlide>
               ))}
@@ -246,4 +229,4 @@ const CardSlider: React.FC<CardSliderProps> = ({
   );
 };
 
-export default CardSlider;
+export default AddOnCard;
