@@ -31,7 +31,11 @@ const LoginWelcomePage = () => {
       </div>
 
       <div className="login-page__content">
-        <div className="login-card login-card--welcome login-gradient-stroke">
+        <div
+          className="login-card login-card--welcome login-gradient-stroke"
+          data-node-id={theme === 'light' ? '77:3735' : '77:3686'}
+          data-name={theme === 'light' ? 'starting point light mode' : 'starting point dark mode'}
+        >
           <div className="login-welcome-hero">
             <h2 className="login-card__heading">Welcome to Enigma!</h2>
             <p className="login-card__subtitle login-card__subtitle--welcome">

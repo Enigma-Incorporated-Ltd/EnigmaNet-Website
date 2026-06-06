@@ -1,5 +1,3 @@
-import loginBg from '@/assets/img/login-bg.png';
-import lightLoginBg from '@/assets/img/lightmode_background.png-1.png';
 import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
 import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
@@ -19,8 +17,8 @@ import './register.css';
 
 const RegisterPage = () => {
   const { theme } = useTheme();
-  const loginBgImage = theme === 'light' ? lightLoginBg : loginBg;
-  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
+  const isLight = theme === 'light';
+  const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
 
@@ -29,14 +27,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <section
-      className="login-page"
-      style={{ ['--login-bg-image' as string]: `url(${loginBgImage})` }}
-      data-node-id="62:1833"
-    >
-      <div className="login-page__bg login-page__bg-image" aria-hidden="true" />
-      <div className="login-page__bg login-page__bg-overlay" aria-hidden="true" />
-
+    <section className="login-page" data-node-id="62:1833">
       <div className="login-page__header-wrap">
         <div className="login-page__header" data-name="Text">
           <h1 className="login-page__title">Register Page</h1>
@@ -56,8 +47,8 @@ const RegisterPage = () => {
       <div className="login-page__content">
         <div
           className="login-card login-card--register login-gradient-stroke"
-          data-node-id="76:3209"
-          data-name="registration dark mode"
+          data-node-id={isLight ? '21:2477' : '76:3209'}
+          data-name={isLight ? 'registration light mode' : 'registration dark mode'}
         >
           <Link
             to="/login"
@@ -168,8 +159,8 @@ const RegisterPage = () => {
               <div className="login-account-buttons" data-node-id="76:3223">
                 <div className="login-divider" data-node-id="76:3224">
                   <span className="login-divider__line" aria-hidden="true" />
-                  <span className="login-divider__text" data-node-id="76:3227">
-                    Or create account with your
+                  <span className="login-divider__text" data-node-id={isLight ? '21:2496' : '76:3227'}>
+                    {isLight ? 'Or sign in with your' : 'Or create account with your'}
                   </span>
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>

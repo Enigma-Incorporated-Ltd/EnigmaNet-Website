@@ -71,3 +71,28 @@
 .login-fields--register {
   gap: 12px;
 }
+
+/* Figma 21:2477 — registration light mode */
+.login-layout--light .login-card--register .login-card__lead {
+  font-weight: 600;
+  color: #000000;
+}
+
+.login-layout--light .login-card--register .login-field.login-gradient-stroke::before {
+  background: linear-gradient(90deg, #000000 0%, #3900e3 100%);
+}
+
+.login-layout--light .login-card--register .login-field__input {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+
+.login-layout--light .login-card--register .login-divider__line {
+  opacity: 0.5;
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+}
+
+.login-layout--light .login-card--register .login-divider__line--right {
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+  transform: scaleX(-1);
+}

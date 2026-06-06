@@ -81,8 +81,29 @@
   white-space: nowrap;
 }
 
+/* Figma 77:3735 — welcome light mode */
+.login-layout--light .login-card__subtitle--welcome {
+  color: #000000;
+}
+
+.login-layout--light .login-welcome-row {
+  column-gap: 28px;
+}
+
 .login-layout--light .login-welcome-divider__text {
   color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.login-layout--light .login-welcome-divider__line {
+  opacity: 0.5;
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+}
+
+.login-layout--light .login-welcome-divider__line--right {
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+  transform: scaleX(-1);
 }
 
 /* Social row — same grid as primary buttons */

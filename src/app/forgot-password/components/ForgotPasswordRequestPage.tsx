@@ -19,7 +19,8 @@ type RequestLocationState = {
 const ForgotPasswordRequestPage = () => {
   const navigate = useNavigate();
   const { theme } = useTheme();
-  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
+  const isLight = theme === 'light';
+  const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const location = useLocation();
   const initialEmail = (location.state as RequestLocationState | null)?.email ?? '';
   const [email, setEmail] = useState(initialEmail);
@@ -53,8 +54,8 @@ const ForgotPasswordRequestPage = () => {
       <div className="login-page__content">
         <div
           className="login-card login-card--forgot login-gradient-stroke"
-          data-node-id="76:2433"
-          data-name="reseting password dark mode"
+          data-node-id={isLight ? '37:4789' : '37:4920'}
+          data-name={isLight ? 'reseting password light mode' : 'reseting password dark mode'}
         >
           <Link
             to="/login/sign-in"
@@ -64,13 +65,13 @@ const ForgotPasswordRequestPage = () => {
             <IconifyIcon icon="lucide:chevron-left" width={24} height={24} aria-hidden="true" />
           </Link>
 
-          <div className="login-card__hero-block" data-node-id="76:2434">
-            <div className="login-card__hero" data-node-id="76:2435">
-              <h2 className="login-card__heading" data-node-id="76:2436">
+          <div className="login-card__hero-block" data-node-id={isLight ? '37:4790' : '76:2434'}>
+            <div className="login-card__hero" data-node-id={isLight ? '37:4791' : '76:2435'}>
+              <h2 className="login-card__heading" data-node-id={isLight ? '37:4792' : '76:2436'}>
                 Reset you password
               </h2>
             </div>
-            <p className="login-card__subtitle-lg" data-node-id="76:2437">
+            <p className="login-card__subtitle-lg" data-node-id={isLight ? '37:4793' : '76:2437'}>
               Enter the email used for your account and we&apos;ll send you a link to reset your
               password
             </p>
@@ -79,7 +80,7 @@ const ForgotPasswordRequestPage = () => {
           <div className="login-card__interactive" data-node-id="76:2438">
             <form className="login-form" noValidate onSubmit={handleSubmit}>
               <div className="login-card__upperside" data-node-id="76:2439">
-                <div className="login-field login-field--dark login-gradient-stroke" data-node-id="76:2440">
+                <div className="login-field login-field--dark login-gradient-stroke" data-node-id={isLight ? '37:4796' : '76:2440'}>
                   <input
                     type="email"
                     id="forgot-email"
@@ -96,7 +97,7 @@ const ForgotPasswordRequestPage = () => {
                   </span>
                 </div>
 
-                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id="76:2441">
+                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id={isLight ? '37:4797' : '76:2441'}>
                   Send Reset Link
                 </button>
               </div>
@@ -104,7 +105,7 @@ const ForgotPasswordRequestPage = () => {
               <div className="login-account-buttons" data-node-id="76:2442">
                 <div className="login-divider" data-node-id="76:2443">
                   <span className="login-divider__line" aria-hidden="true" />
-                  <span className="login-divider__text" data-node-id="76:2446">
+                  <span className="login-divider__text" data-node-id={isLight ? '37:4802' : '76:2446'}>
                     Or sign in with your
                   </span>
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />

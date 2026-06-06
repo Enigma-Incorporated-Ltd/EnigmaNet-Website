@@ -1,5 +1,3 @@
-import loginBg from '@/assets/img/login-bg.png';
-import lightLoginBg from '@/assets/img/lightmode_background.png-1.png';
 import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
 import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
@@ -11,7 +9,6 @@ import { Link } from 'react-router';
 import type { OAuthPageMode } from '@/app/login-google/components';
 import { useTheme } from '@/utils/useTheme';
 import '@/app/login/components/login.css';
-import '@/app/login-google/components/google-login.css';
 import './apple-login.css';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,14 +17,27 @@ type AppleLoginPageProps = {
   mode?: OAuthPageMode;
 };
 
+const appleCardNodeIds = {
+  login: { dark: '59:911', light: '59:953' },
+  register: { dark: '59:1039', light: '59:1092' },
+} as const;
+
 const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
   const { theme } = useTheme();
-  const loginBgImage = theme === 'light' ? lightLoginBg : loginBg;
-  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
+  const isLight = theme === 'light';
+  const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const isRegister = mode === 'register';
   const backHref = isRegister ? '/register' : '/login';
   const otherProviderHref = isRegister ? '/register/google' : '/login/google';
-  const dividerText = isRegister ? 'Or create account with your' : 'Or sign in with your';
+  const cardNodeId = appleCardNodeIds[mode][isLight ? 'light' : 'dark'];
+  const cardName = isRegister
+    ? isLight
+      ? 'registration with apple account light mode'
+      : 'registration with apple account dark mode'
+    : isLight
+      ? 'signin with apple account light mode'
+      : 'signin with apple account dark mode';
+  const dividerText = 'Or sign in with your';
   const [email, setEmail] = useState('');
   const [showError, setShowError] = useState(false);
 
@@ -38,14 +48,7 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
   };
 
   return (
-    <section
-      className="login-page"
-      style={{ ['--login-bg-image' as string]: `url(${loginBgImage})` }}
-      data-node-id="62:1833"
-    >
-      <div className="login-page__bg login-page__bg-image" aria-hidden="true" />
-      <div className="login-page__bg login-page__bg-overlay" aria-hidden="true" />
-
+    <section className="login-page" data-node-id="62:1833">
       <div className="login-page__header-wrap">
         <div className="login-page__header" data-name="Text">
           <h1 className="login-page__title">
@@ -77,8 +80,8 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
       <div className="login-page__content">
         <div
           className="login-card login-card--apple login-gradient-stroke"
-          data-node-id="59:911"
-          data-name="signin with apple account dark mode"
+          data-node-id={cardNodeId}
+          data-name={cardName}
         >
           <Link
             to={backHref}
@@ -93,8 +96,14 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
             <h2 className="login-card__heading" data-node-id="59:913">
               {isRegister ? 'Welcome!' : 'Welcome Back!'}
             </h2>
-            <p className="login-card__subtitle" data-node-id="59:914">
-              Secure access to <strong>Enigma</strong> Work infrastructure.
+            <p className="login-card__subtitle" data-node-id={isRegister ? '59:1095' : '59:914'}>
+              {isLight
+                ? 'Secure access to Enigma Work infrastructure.'
+                : (
+                  <>
+                    Secure access to <strong>Enigma</strong> Work infrastructure.
+                  </>
+                )}
             </p>
           </div>
 
@@ -111,9 +120,18 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
                     aria-hidden="true"
                     data-node-id="60:1402"
                   />
-                  <p className="login-apple-headline__text" data-node-id="59:919">
-                    <strong>{isRegister ? 'Create account' : 'Sign in'}</strong>{' '}
-                    <span className="login-apple-headline__rest">with your Apple Account</span>
+                  <p className="login-apple-headline__text" data-node-id={isRegister ? '59:1100' : '59:919'}>
+                    {isRegister ? (
+                      <>
+                        <strong>Create Account</strong>{' '}
+                        <span className="login-apple-headline__rest">with your Apple Account</span>
+                      </>
+                    ) : (
+                      <>
+                        <strong>Sign in</strong>{' '}
+                        <span className="login-apple-headline__rest">with your Apple Account</span>
+                      </>
+                    )}
                   </p>
                 </div>
 
@@ -121,7 +139,7 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
                   <div className="login-fields login-fields--apple" data-node-id="60:1405">
                     <div
                       className={`login-field login-field--dark login-gradient-stroke${showError ? ' login-field--error' : ''}`}
-                      data-node-id={showError ? '60:1364' : '59:923'}
+                      data-node-id={showError ? '60:1364' : isRegister && isLight ? '59:1103' : '59:923'}
                     >
                       <input
                         type="email"
@@ -156,43 +174,34 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
                   </div>
 
                   <div className="login-help-text" data-node-id="59:924">
-                    {isRegister ? (
-                      <div className="login-help-text__register" data-node-id="59:926">
-                        <p className="login-help-text__secondary" data-node-id="59:927">
-                          Already have an account?
-                        </p>
-                        <Link
-                          to="/login/sign-in"
-                          className="login-help-text__link login-help-text__link--register"
-                          data-node-id="59:928"
-                        >
-                          Sign in
-                        </Link>
-                      </div>
-                    ) : (
-                      <>
-                        <Link to="/forgot-password" className="login-help-text__link" data-node-id="59:925">
-                          Forgot your password?
-                        </Link>
-                        <div className="login-help-text__register" data-node-id="59:926">
-                          <p className="login-help-text__secondary" data-node-id="59:927">
-                            Don&apos;t have an account yet?
-                          </p>
-                          <Link
-                            to="/register"
-                            className="login-help-text__link login-help-text__link--register"
-                            data-node-id="59:928"
-                          >
-                            Register now
-                          </Link>
-                        </div>
-                      </>
-                    )}
+                    <Link
+                      to="/forgot-password"
+                      className="login-help-text__link"
+                      data-node-id={isRegister && isLight ? '59:1105' : '59:925'}
+                    >
+                      Forgot your password?
+                    </Link>
+                    <div className="login-help-text__register" data-node-id="59:926">
+                      <p className="login-help-text__secondary" data-node-id={isRegister && isLight ? '59:1107' : '59:927'}>
+                        Don&apos;t have an account yet?
+                      </p>
+                      <Link
+                        to="/register"
+                        className="login-help-text__link login-help-text__link--register"
+                        data-node-id={isRegister && isLight ? '59:1108' : '59:928'}
+                      >
+                        Register now
+                      </Link>
+                    </div>
                   </div>
                 </div>
 
-                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id="59:929">
-                  {isRegister ? 'Create account' : 'Sign In'}
+                <button
+                  type="submit"
+                  className="login-auth-btn login-auth-btn--primary"
+                  data-node-id={isRegister && isLight ? '59:1109' : '59:929'}
+                >
+                  Sign In
                 </button>
               </div>
 
@@ -202,7 +211,7 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
               >
                 <div className="login-divider" data-node-id="59:931">
                   <span className="login-divider__line" aria-hidden="true" />
-                  <span className="login-divider__text" data-node-id="59:934">
+                  <span className="login-divider__text" data-node-id={isRegister && isLight ? '59:1114' : '59:934'}>
                     {dividerText}
                   </span>
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />

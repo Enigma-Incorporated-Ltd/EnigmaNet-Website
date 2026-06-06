@@ -1,3 +1,5 @@
+import loginBg from '@/assets/img/login-bg.png';
+import lightLoginBg from '@/assets/img/lightmode_background.png-1.png';
 import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
@@ -32,6 +34,7 @@ const LoginGoogle = () => {
   }, []);
 
   const { theme } = useTheme();
+  const loginBgImage = theme === 'light' ? lightLoginBg : loginBg;
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -45,7 +48,11 @@ const LoginGoogle = () => {
     <div
       className={`login-layout login-layout--auth ${theme === 'light' ? 'login-layout--light' : ''}`}
       ref={layoutRef}
+      style={{ ['--login-bg-image' as string]: `url(${loginBgImage})` }}
     >
+      <div className="login-page__bg login-page__bg-image" aria-hidden="true" />
+      <div className="login-page__bg login-page__bg-overlay" aria-hidden="true" />
+
       <PageMeta
         title="Google Login"
         description="Sign in to Enigma Net with your Google account."

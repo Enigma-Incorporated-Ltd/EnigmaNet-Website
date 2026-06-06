@@ -169,7 +169,30 @@
   z-index: 1;
 }
 
-/* Figma: signin dark mode (77:3583) */
+/* Figma: signin dark mode (21:2719) / light mode (21:2744) */
+.login-fields--sign-in {
+  gap: 12px;
+}
+
+.login-layout--light .login-card--sign-in .login-field.login-gradient-stroke::before {
+  background: linear-gradient(90deg, #000000 0%, #3900e3 100%);
+}
+
+.login-layout--light .login-card--sign-in .login-field__input {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+
+.login-layout--light .login-card--sign-in .login-divider__line {
+  opacity: 0.5;
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+}
+
+.login-layout--light .login-card--sign-in .login-divider__line--right {
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+  transform: scaleX(-1);
+}
+
 .login-card {
   position: relative;
   width: min(100%, 550px);
@@ -221,13 +244,50 @@
   height: 24px;
 }
 
+/* Figma 78:4261 / 77:3735 — starting point light mode */
+.login-layout--light {
+  background: #ffffff;
+}
+
+.login-layout--light .login-page {
+  color: #000000;
+  --login-stroke-gradient: linear-gradient(90deg, #ffffff 18.75%, #187bc9 100%);
+}
+
+.login-layout--light .login-page__bg-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 31.73%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.login-layout--light .login-page__title {
+  color: #000000;
+}
+
+.login-layout--light .login-page__breadcrumb {
+  background: rgba(255, 255, 255, 0.12);
+  color: #000000;
+}
+
+.login-layout--light .login-page__breadcrumb a,
+.login-layout--light .login-page__breadcrumb-current,
+.login-layout--light .login-page__breadcrumb-sep {
+  color: #000000;
+}
+
 .login-layout--light .login-card {
   background-color: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
 }
 
 .login-layout--light .login-card__heading {
   color: #000000;
 }
+
 .login-layout--light .login-card__subtitle {
   color: #000000;
 }
@@ -236,15 +296,8 @@
   color: #2adeff;
 }
 
-.login-layout--light .login-page__title,
 .login-layout--light .login-divider__text,
 .login-layout--light .login-welcome-divider__text,
-.login-layout--light .login-page__breadcrumb a,
-.login-layout--light .login-page__breadcrumb-current,
-.login-layout--light .login-page__breadcrumb-sep,
-.login-layout--light .login-account-buttons__btn,
-.login-layout--light .login-account-buttons__btn span,
-.login-layout--light .login-account-buttons__btn img,
 .login-layout--light .login-google-headline__text,
 .login-layout--light .login-google-headline__text strong,
 .login-layout--light .login-google-headline__rest,
@@ -262,43 +315,34 @@
   color: #666666;
 }
 
-.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple {
-  background: #ffffff;
-  border-color: #e6e7e7;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple::before,
-.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple::after {
-  background: transparent;
-  box-shadow: none;
-}
-
-.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--apple:hover {
-  background: #f7f8fb;
-  color: #000000;
-}
-
-.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google {
-  background: #ffffff;
-  border-color: #e6e7e7;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  color: #000000;
-}
-
-.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google::before,
-.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google::after {
-  background: transparent;
-  box-shadow: none;
-}
-
-.login-layout--light .login-account-buttons__btn.login-account-buttons__btn--google:hover {
-  background: #f7f8fb;
-  color: #000000;
-}
-
 .login-layout--light .login-card__back svg {
   color: inherit;
+}
+
+/* Figma 77:3757 / 77:3758 — googleacclight / appleacclight */
+.login-layout--light .login-account-buttons__btn,
+.login-layout--light .login-account-buttons__btn span {
+  color: #000000;
+}
+
+.login-layout--light .login-account-buttons__btn {
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.33);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.login-layout--light .login-account-buttons__btn::before {
+  background: transparent;
+}
+
+.login-layout--light .login-account-buttons__btn::after {
+  box-shadow: inset 0 4px 5.7px rgba(197, 219, 255, 0.25);
+}
+
+.login-layout--light .login-account-buttons__btn:hover {
+  color: #000000;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
 }
 
 .login-card__hero {

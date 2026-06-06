@@ -1,5 +1,3 @@
-import loginBg from '@/assets/img/login-bg.png';
-import lightLoginBg from '@/assets/img/lightmode_background.png-1.png';
 import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
 import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
@@ -17,28 +15,34 @@ type GoogleLoginPageProps = {
   mode?: OAuthPageMode;
 };
 
+const googleCardNodeIds = {
+  login: { dark: '59:751', light: '59:857' },
+  register: { dark: '59:1012', light: '59:1066' },
+} as const;
+
 const GoogleLoginPage = ({ mode = 'login' }: GoogleLoginPageProps) => {
   const { theme } = useTheme();
-  const loginBgImage = theme === 'light' ? lightLoginBg : loginBg;
-  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
+  const isLight = theme === 'light';
+  const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const isRegister = mode === 'register';
   const backHref = isRegister ? '/register' : '/login';
   const otherProviderHref = isRegister ? '/register/apple' : '/login/apple';
-  const dividerText = isRegister ? 'Or create account with your' : 'Or sign in with your';
+  const cardNodeId = googleCardNodeIds[mode][isLight ? 'light' : 'dark'];
+  const cardName = isRegister
+    ? isLight
+      ? 'registration with google light mode'
+      : 'registration with google dark mode'
+    : isLight
+      ? 'signin with google light mode'
+      : 'signin with google dark mode';
+  const dividerText = 'Or sign in with your';
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
   return (
-    <section
-      className="login-page"
-      style={{ ['--login-bg-image' as string]: `url(${loginBgImage})` }}
-      data-node-id="62:1833"
-    >
-      <div className="login-page__bg login-page__bg-image" aria-hidden="true" />
-      <div className="login-page__bg login-page__bg-overlay" aria-hidden="true" />
-
+    <section className="login-page" data-node-id="62:1833">
       <div className="login-page__header-wrap">
         <div className="login-page__header" data-name="Text">
           <h1 className="login-page__title">
@@ -70,8 +74,8 @@ const GoogleLoginPage = ({ mode = 'login' }: GoogleLoginPageProps) => {
       <div className="login-page__content">
         <div
           className="login-card login-card--google login-gradient-stroke"
-          data-node-id="59:751"
-          data-name="signin with google dark mode"
+          data-node-id={cardNodeId}
+          data-name={cardName}
         >
           <Link
             to={backHref}
@@ -104,9 +108,18 @@ const GoogleLoginPage = ({ mode = 'login' }: GoogleLoginPageProps) => {
                     aria-hidden="true"
                     data-node-id="59:806"
                   />
-                  <p className="login-google-headline__text" data-node-id="59:807">
-                    <strong>{isRegister ? 'Create account' : 'Sign in'}</strong>{' '}
-                    <span className="login-google-headline__rest">with your Google Account</span>
+                  <p className="login-google-headline__text" data-node-id={isRegister ? '59:1074' : '59:807'}>
+                    {isRegister ? (
+                      <>
+                        <strong>Create Account</strong>{' '}
+                        <span className="login-google-headline__rest">with your Google Account</span>
+                      </>
+                    ) : (
+                      <>
+                        <strong>Sign in</strong>{' '}
+                        <span className="login-google-headline__rest">with your Google Account</span>
+                      </>
+                    )}
                   </p>
                 </div>
 

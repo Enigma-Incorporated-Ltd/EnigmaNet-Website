@@ -12,7 +12,8 @@ import './login.css';
 const LoginSignInPage = () => {
   const navigate = useNavigate();
   const { theme } = useTheme();
-  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
+  const isLight = theme === 'light';
+  const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -58,25 +59,35 @@ const LoginSignInPage = () => {
       </div>
 
       <div className="login-page__content">
-        <div className="login-card login-gradient-stroke" data-node-id="77:3583" data-name="signin dark mode">
+        <div
+          className="login-card login-card--sign-in login-gradient-stroke"
+          data-node-id={isLight ? '21:2744' : '21:2719'}
+          data-name={isLight ? 'signin light mode' : 'signin dark mode'}
+        >
           <Link to="/login" className="login-card__back" aria-label="Back to login">
             <IconifyIcon icon="lucide:chevron-left" width={24} height={24} aria-hidden="true" />
           </Link>
-          <div className="login-card__hero" data-node-id="77:3584">
-            <h2 className="login-card__heading" data-node-id="77:3585">
+          <div className="login-card__hero" data-node-id={isLight ? '21:2745' : '77:3584'}>
+            <h2 className="login-card__heading" data-node-id={isLight ? '21:2746' : '77:3585'}>
               Welcome Back!
             </h2>
-            <p className="login-card__subtitle" data-node-id="77:3586">
-              Secure access to <strong>Enigma</strong> Work infrastructure.
+            <p className="login-card__subtitle" data-node-id={isLight ? '21:2747' : '77:3586'}>
+              {isLight
+                ? 'Secure access to Enigma Work infrastructure.'
+                : (
+                  <>
+                    Secure access to <strong>Enigma</strong> Work infrastructure.
+                  </>
+                )}
             </p>
           </div>
 
-          <div className="login-card__interactive" data-node-id="77:3587">
+          <div className="login-card__interactive" data-node-id={isLight ? '21:2748' : '77:3587'}>
             <form className="login-form" noValidate onSubmit={handleSubmit}>
-              <div className="login-card__upperside" data-node-id="77:3588">
-                <div className="login-input-block" data-node-id="77:3589">
-                  <div className="login-fields" data-node-id="77:3591">
-                    <div className="login-field login-field--dark login-gradient-stroke" data-node-id="77:3592">
+              <div className="login-card__upperside" data-node-id={isLight ? '21:2749' : '77:3588'}>
+                <div className="login-input-block" data-node-id={isLight ? '21:2750' : '77:3589'}>
+                  <div className="login-fields login-fields--sign-in" data-node-id={isLight ? '21:2751' : '77:3591'}>
+                    <div className="login-field login-field--dark login-gradient-stroke" data-node-id={isLight ? '29:4579' : '77:3592'}>
                       <input
                         type="email"
                         id="login-email"
@@ -93,7 +104,7 @@ const LoginSignInPage = () => {
                       </span>
                     </div>
 
-                    <div className="login-field login-field--dark login-gradient-stroke" data-node-id="77:3593">
+                    <div className="login-field login-field--dark login-gradient-stroke" data-node-id={isLight ? '29:4584' : '77:3593'}>
                       <input
                         type={showPassword ? 'text' : 'password'}
                         id="login-password"
@@ -116,18 +127,18 @@ const LoginSignInPage = () => {
                     </div>
                   </div>
 
-                  <div className="login-help-text" data-node-id="77:3594">
-                    <Link to="/forgot-password" className="login-help-text__link" data-node-id="77:3595">
+                  <div className="login-help-text" data-node-id={isLight ? '21:2754' : '77:3594'}>
+                    <Link to="/forgot-password" className="login-help-text__link" data-node-id={isLight ? '21:2755' : '77:3595'}>
                       Forgot your password?
                     </Link>
-                    <div className="login-help-text__register" data-node-id="77:3596">
-                      <p className="login-help-text__secondary" data-node-id="77:3597">
+                    <div className="login-help-text__register" data-node-id={isLight ? '21:2756' : '77:3596'}>
+                      <p className="login-help-text__secondary" data-node-id={isLight ? '21:2757' : '77:3597'}>
                         Don&apos;t have an account yet?
                       </p>
                       <Link
                         to="/register"
                         className="login-help-text__link login-help-text__link--register"
-                        data-node-id="77:3598"
+                        data-node-id={isLight ? '21:2758' : '77:3598'}
                       >
                         Register now
                       </Link>
@@ -135,25 +146,25 @@ const LoginSignInPage = () => {
                   </div>
                 </div>
 
-                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id="5:273">
+                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id={isLight ? '21:2759' : '5:273'}>
                   Sign In
                 </button>
               </div>
 
-              <div className="login-account-buttons" data-node-id="77:3600">
-                <div className="login-divider" data-node-id="77:3601">
+              <div className="login-account-buttons" data-node-id={isLight ? '21:2760' : '77:3600'}>
+                <div className="login-divider" data-node-id={isLight ? '21:2761' : '77:3601'}>
                   <span className="login-divider__line" aria-hidden="true" />
-                  <span className="login-divider__text" data-node-id="77:3604">
+                  <span className="login-divider__text" data-node-id={isLight ? '21:2764' : '77:3604'}>
                     Or sign in with your
                   </span>
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>
 
-                <Link to="/login/google" className="login-account-buttons__btn login-account-buttons__btn--google" data-node-id="5:257">
+                <Link to="/login/google" className="login-account-buttons__btn login-account-buttons__btn--google" data-node-id={isLight ? '21:2766' : '5:257'}>
                   <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Google Account</span>
                 </Link>
-                <Link to="/login/apple" className="login-account-buttons__btn login-account-buttons__btn--apple" data-node-id="5:259">
+                <Link to="/login/apple" className="login-account-buttons__btn login-account-buttons__btn--apple" data-node-id={isLight ? '21:2767' : '5:259'}>
                   <img src={loginAppleImage} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Apple Account</span>
                 </Link>

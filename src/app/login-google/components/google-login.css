@@ -4,7 +4,7 @@
   position: relative;
 }
 
-.login-card__back {
+.login-card--google .login-card__back {
   position: absolute;
   left: 24px;
   top: 28px;
@@ -23,12 +23,12 @@
   transition: opacity 0.2s ease;
 }
 
-.login-card__back:hover {
+.login-card--google .login-card__back:hover {
   color: #fff;
   opacity: 0.75;
 }
 
-.login-card__back svg {
+.login-card--google .login-card__back svg {
   display: block;
   width: 24px;
   height: 24px;
@@ -79,4 +79,32 @@
 
 .login-account-buttons--apple-only .login-account-buttons__btn {
   flex: 0 0 auto;
+}
+
+/* Figma 59:1066 / 59:857 — google account light mode */
+.login-layout--light .login-card--google .login-field.login-gradient-stroke::before {
+  background: linear-gradient(90deg, #000000 0%, #3900e3 100%);
+}
+
+.login-layout--light .login-card--google .login-field__input {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+
+.login-layout--light .login-card--google .login-divider__line {
+  opacity: 0.5;
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+}
+
+.login-layout--light .login-card--google .login-divider__line--right {
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+  transform: scaleX(-1);
+}
+
+.login-layout--light .login-card--google .login-card__back {
+  color: #666666;
+}
+
+.login-layout--light .login-card--google .login-card__back:hover {
+  color: #666666;
 }
