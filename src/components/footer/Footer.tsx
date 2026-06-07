@@ -105,8 +105,8 @@ const FALLBACK: FooterConfig = {
           title: 'TrueCost',
         },
         {
-          url: '/company/legal',
-          title: 'Legal',
+          url: '/company/trust-&-security/policies',
+          title: 'Policies',
         },
       ],
     },

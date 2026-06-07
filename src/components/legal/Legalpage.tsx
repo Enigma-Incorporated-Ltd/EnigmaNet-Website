@@ -73,52 +73,53 @@ const LegalPage = () => {
     return () => clearTimeout(t);
   }, []);
 
-  const handleSelect = (itemSlug: string) => {
-    navigate(`/company/legal/${itemSlug}`);
-  };
+const handleSelect = (itemSlug: string) => {
+  navigate(`/company/trust-&-security/policies/${itemSlug}`);
+};
 
+const pageUrl = `${BASE_URL}/company/trust-&-security/policies/${active?.slug}`;
 
+const structuredData = active
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: toSentenceCase(active.title),
+      url: pageUrl,
+      description: `Read ${toSentenceCase(active.title)} of Enigma Net.`,
+      publisher: {
+        '@type': 'Organization',
+        name: 'Enigma Net',
+        url: BASE_URL,
+      },
+    }
+  : undefined;
 
-  const structuredData = active
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: toSentenceCase(active.title),
-        url: `${BASE_URL}/legal/${active.slug}`,
-        description: `Read ${toSentenceCase(active.title)} of Enigma Net.`,
-        publisher: {
-          '@type': 'Organization',
-          name: 'Enigma Net',
-          url: BASE_URL,
+const breadcrumbSchema = active
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: BASE_URL,
         },
-      }
-    : undefined;
-  const breadcrumbSchema = active
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: BASE_URL,
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Legal',
-            item: `${BASE_URL}/legal/${active.slug}`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: toSentenceCase(active.title),
-            item: `${BASE_URL}/legal/${active.slug}`,
-          },
-        ],
-      }
-    : undefined;
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Trust & Security Policies',
+          item: `${BASE_URL}/company/trust-&-security/policies`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: toSentenceCase(active.title),
+          item: pageUrl,
+        },
+      ],
+    }
+  : undefined;
   const finalStructuredData =
     active && structuredData && breadcrumbSchema ? [structuredData, breadcrumbSchema] : undefined;
   if (loading) {
@@ -139,14 +140,17 @@ const LegalPage = () => {
       <PageMeta
         title={toSentenceCase(active?.title || 'Legal')}
         description={`Read ${toSentenceCase(active?.title || '')} of Enigma Net.`}
-        url={`${BASE_URL}/legal/${active?.slug}`}
+        url={`${BASE_URL}/company/trust-&-security/policies/${active?.slug}`}
         image={`${BASE_URL}/logo.png`}
-        keywords={'Enigma Net, Legal, Policies, Agreements, Terms of Service'}
+        keywords="Enigma Net, Legal, Policies, Agreements, Terms of Service"
         structuredData={finalStructuredData}
       />
       <Breadcrumb
-        items={[{ href: '/company', label: 'Company' }, { label: 'Legal' }]}
-      
+        items={[
+          { href: '/company', label: 'Company' },
+          { label: 'Trust & Security ', href: '/company/trust-&-security' },
+          { label: 'Policies ', href: '/company/trust-&-security/policies' },
+        ]}
         style={{
           paddingTop: '6rem ',
         }}

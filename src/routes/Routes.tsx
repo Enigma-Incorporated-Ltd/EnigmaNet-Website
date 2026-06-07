@@ -21,7 +21,7 @@ const Agency1 = lazy(() => import('@/app/(landings)/software-dev-agency-v1'));
 const Agency2 = lazy(() => import('@/app/(landings)/software-dev-agency-v2'));
 const Agency3 = lazy(() => import('@/app/(landings)/software-dev-agency-v3'));
 const Startup = lazy(() => import('@/app/(landings)/startup'));
-const Legal = lazy(() => import('@/app/company/legal'));
+
 //pages
 
 const Error1 = lazy(() => import('@/app/404-v1'));
@@ -216,12 +216,33 @@ const StartUpAgency = lazy(() => import('@/app/partners/start-up-agency'));
 const Company = lazy(() => import('@/app/company'));
 const AboutEnigma = lazy(() => import('@/app/company/about-enigma'));
 const Leadership = lazy(() => import('@/app/company/leadership'));
-const TrustCentre = lazy(() => import('@/app/company/trust-centre'));
+const NewsRoom = lazy(() => import('@/app/company/newsroom'));
 
-//contact-us
+//company/trust-&-security
+const Trust = lazy(() => import('@/app/company/trust-&-security'));
+const TrustCentre = lazy(() => import('@/app/company/trust-&-security/trust-centre'));
+const Legal = lazy(() => import('@/app/company/trust-&-security/policies'));
+const SecurityPosture = lazy(() => import('@/app/company/trust-&-security/security-posture'));
+const ComplianceCertifications = lazy(() => import('@/app/company/trust-&-security/compliance-certifications'));
+
+
+//company/resources/
+const Resources = lazy(() => import('@/app/company/resources'));
+const CaseStudies = lazy(() => import('@/app/company/resources/case-studies'));
+const WhitePapers = lazy(() => import('@/app/company/resources/white-papers'));
+const FAQ = lazy(() => import('@/app/company/resources/faq'));
+const Architecture = lazy(() => import('@/app/company/resources/architecture'));
+const Glossary = lazy(() => import('@/app/company/resources/glossary'));
+
 const ContactUs = lazy(() => import('@/app/contact-us'));
 const RequestAQuote = lazy(() => import('@/app/contact-us/request-a-quote'));
 
+
+//company/careers
+const Careers = lazy(() => import('@/app/company/careers'));
+const Culture = lazy(() => import('@/app/company/careers/culture'));
+const Openings = lazy(() => import('@/app/company/careers/openings'));
+const WhyENIGMAPAGE = lazy(() => import('@/app/company/careers/why-enigma'));
 //linkedin-post
 
 const LinkdinPost = lazy(() => import('@/app/linkdin-post'));
@@ -388,11 +409,74 @@ export const AllRoutes = [
   { path: '/company/about-enigma', element: <AboutEnigma /> },
   { path: '/company/trust-centre', element: <TrustCentre /> },
   { path: '/company/leadership', element: <Leadership /> },
-  { path: '/company/legal', name: 'legal', element: <Legal /> },
-  { path: 'company/legal/:slug', name: 'legal', element: <Legal /> },
   { path: '/company/blog', name: 'blog', element: <ListWithSidebar /> },
   { path: '/company/blog/grid', name: 'blog-grid', element: <GridWithSidebar /> },
   { path: '/company/blog/:id', name: 'blog-id', element: <BlogSingle /> },
+  { path: '/company/newsroom', name: 'newsroom', element: <NewsRoom /> },
+
+  //company/trust-centre
+  { path: '/company/trust-&-security', element: <Trust /> },
+  { path: '/company/trust-&-security/trust-centre', element: <TrustCentre /> },
+  {
+    path: '/company/trust-&-security/policies',
+    element: <Legal />,
+  },
+  {
+    path: '/company/trust-&-security/policies/:slug',
+    element: <Legal />,
+  },
+  {
+    path: '/company/trust-&-security/security-posture',
+    element: <SecurityPosture />,
+  },
+  {
+    path: '/company/trust-&-security/compliance-&-certifications',
+    element: <ComplianceCertifications />,
+  },
+
+  // company/resources/
+  {
+    path: '/company/resources',
+    element: <Resources />,
+  },
+  {
+    path: '/company/resources/case-studies',
+    element: <CaseStudies />,
+  },
+  {
+    path: '/company/resources/white-papers',
+    element: <WhitePapers />,
+  },
+  {
+    path: '/company/resources/faq',
+    element: <FAQ />,
+  },
+  {
+    path: '/company/resources/architecture',
+    element: <Architecture />,
+  },
+  {
+    path: '/company/resources/glossary',
+    element: <Glossary />,
+  },
+
+  //company/careers
+  {
+    path: '/company/careers',
+    element: <Careers />,
+  },
+  {
+    path: '/company/careers/culture',
+    element: <Culture />,
+  },
+  {
+    path: '/company/careers/opening-roles',
+    element: <Openings />,
+  },
+  {
+    path: '/company/careers/why-enigma',
+    element: <WhyENIGMAPAGE />,
+  },
 
   //contact-us
   { path: '/contact-us', element: <ContactUs /> },
