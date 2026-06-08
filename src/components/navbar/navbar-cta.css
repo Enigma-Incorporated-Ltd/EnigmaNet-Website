@@ -5,49 +5,28 @@ a.navbar-cta-start-free {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 0.75rem 1.5rem;
+  padding: var(--si-btn-padding-y, 0.475rem) var(--si-btn-padding-x, 1.25rem);
   border: none;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #1f70c8 0%, #187bc9 45%, #0f5a96 100%);
+  border-radius: var(--si-border-radius-sm, var(--bs-border-radius-sm, 0.25rem));
+  background: #3d5a9e;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: var(--si-btn-font-size, 0.75rem);
+  font-weight: 600;
   line-height: 1.25;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 14px 28px rgba(9, 44, 84, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-}
-
-a.navbar-cta-start-free::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.22), transparent 35%);
-  opacity: 0.55;
-  pointer-events: none;
-  mix-blend-mode: screen;
+  box-shadow: none;
+  transition: background-color 0.2s ease, filter 0.2s ease;
 }
 
 a.navbar-cta-start-free:hover,
 a.navbar-cta-start-free:focus-visible {
   color: #fff;
-  background: linear-gradient(90deg, #2d8de4 0%, #1f70c8 55%, #1461a1 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 18px 36px rgba(9, 44, 84, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.2);
-}
-
-a.navbar-cta-start-free:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(24, 123, 201, 0.35), 0 18px 36px rgba(9, 44, 84, 0.3);
-}
-
-a.navbar-cta-start-free:active {
-  transform: translateY(0);
-  box-shadow: 0 10px 20px rgba(9, 44, 84, 0.25);
+  background: #344d86;
+  filter: none;
+  text-decoration: none;
+  box-shadow: none;
 }
