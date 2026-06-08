@@ -4,6 +4,7 @@ import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
 import { EmailIcon } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
+import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { useTheme } from '@/utils/useTheme';
@@ -18,19 +19,32 @@ type RequestLocationState = {
 
 const ForgotPasswordRequestPage = () => {
   const navigate = useNavigate();
+  const { requestPasswordReset } = useAuth();
   const { theme } = useTheme();
   const isLight = theme === 'light';
   const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const location = useLocation();
   const initialEmail = (location.state as RequestLocationState | null)?.email ?? '';
   const [email, setEmail] = useState(initialEmail);
+  const [fieldError, setFieldError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setFieldError('');
+
     const trimmed = email.trim();
     if (!trimmed || !emailPattern.test(trimmed)) return;
 
-    navigate('/forgot-password/sent', { state: { email: trimmed } });
+    setIsSubmitting(true);
+    try {
+      await requestPasswordReset(trimmed);
+      navigate('/forgot-password/sent', { state: { email: trimmed } });
+    } catch (submitError) {
+      setFieldError(getAuthErrorMessage(submitError));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,25 +94,45 @@ const ForgotPasswordRequestPage = () => {
           <div className="login-card__interactive" data-node-id="76:2438">
             <form className="login-form" noValidate onSubmit={handleSubmit}>
               <div className="login-card__upperside" data-node-id="76:2439">
-                <div className="login-field login-field--dark login-gradient-stroke" data-node-id={isLight ? '37:4796' : '76:2440'}>
-                  <input
-                    type="email"
-                    id="forgot-email"
-                    name="email"
-                    className="login-field__input"
-                    placeholder="Enter Email"
-                    autoComplete="email"
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                    required
-                  />
-                  <span className="login-field__icon-wrap">
-                    <EmailIcon />
-                  </span>
+                <div className="login-field-group">
+                  <div
+                    className={`login-field login-field--dark login-gradient-stroke${fieldError ? ' login-field--error' : ''}`}
+                    data-node-id={isLight ? '37:4796' : '76:2440'}
+                  >
+                    <input
+                      type="email"
+                      id="forgot-email"
+                      name="email"
+                      className="login-field__input"
+                      placeholder="Enter Email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={event => {
+                        setEmail(event.target.value);
+                        if (fieldError) setFieldError('');
+                      }}
+                      aria-invalid={Boolean(fieldError)}
+                      aria-describedby={fieldError ? 'forgot-email-error' : undefined}
+                      required
+                    />
+                    <span className="login-field__icon-wrap">
+                      <EmailIcon />
+                    </span>
+                  </div>
+                  {fieldError ? (
+                    <p id="forgot-email-error" className="login-field__error" role="alert">
+                      {fieldError}
+                    </p>
+                  ) : null}
                 </div>
 
-                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id={isLight ? '37:4797' : '76:2441'}>
-                  Send Reset Link
+                <button
+                  type="submit"
+                  className="login-auth-btn login-auth-btn--primary"
+                  data-node-id={isLight ? '37:4797' : '76:2441'}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending…' : 'Send Reset Link'}
                 </button>
               </div>
 

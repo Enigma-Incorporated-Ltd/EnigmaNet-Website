@@ -77,20 +77,6 @@
   gap: 8px;
 }
 
-.login-field.login-field--error.login-gradient-stroke::before {
-  background: #ff9b9b;
-}
-
-.login-field__error {
-  width: 100%;
-  margin: 0;
-  padding: 4px 0 0;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: normal;
-  color: #ff9b9b;
-}
-
 .login-account-buttons--google-only {
   justify-content: center;
 }
@@ -100,8 +86,16 @@
 }
 
 /* Figma 59:1092 / 59:953 — apple account light mode */
-.login-layout--light .login-card--apple .login-field.login-gradient-stroke::before {
+.login-layout--light
+  .login-card--apple
+  .login-field.login-gradient-stroke:not(.login-field--error)::before {
   background: linear-gradient(90deg, #000000 0%, #3900e3 100%);
+}
+
+.login-layout--light
+  .login-card--apple
+  .login-field.login-field--error.login-gradient-stroke::before {
+  background: #ff9b9b;
 }
 
 .login-layout--light .login-card--apple .login-field__input {

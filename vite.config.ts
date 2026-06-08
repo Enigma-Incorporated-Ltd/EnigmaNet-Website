@@ -10,4 +10,13 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://enigmaincenterpriseapp.azurewebsites.net',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
 });

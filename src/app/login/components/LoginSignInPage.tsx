@@ -4,6 +4,12 @@ import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
 import { EmailIcon, EyeClosedIcon, EyeOpenIcon } from './LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
+import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
+import {
+  mapLoginError,
+  type AuthFieldError,
+  type AuthFieldKey,
+} from '@/utils/authFieldErrors';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { useTheme } from '@/utils/useTheme';
@@ -11,15 +17,23 @@ import './login.css';
 
 const LoginSignInPage = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const { theme } = useTheme();
   const isLight = theme === 'light';
   const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [fieldError, setFieldError] = useState<AuthFieldError | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const clearFieldError = (field: AuthFieldKey) => {
+    setFieldError(current => (current?.field === field ? null : current));
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setFieldError(null);
 
     const form = event.currentTarget;
     if (!form.checkValidity()) {
@@ -33,7 +47,15 @@ const LoginSignInPage = () => {
       return;
     }
 
-    navigate('/login/success', { state: { email: trimmedEmail } });
+    setIsSubmitting(true);
+    try {
+      await login(trimmedEmail, trimmedPassword);
+      navigate('/login/success', { state: { email: trimmedEmail } });
+    } catch (submitError) {
+      setFieldError(mapLoginError(getAuthErrorMessage(submitError)));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -87,43 +109,73 @@ const LoginSignInPage = () => {
               <div className="login-card__upperside" data-node-id={isLight ? '21:2749' : '77:3588'}>
                 <div className="login-input-block" data-node-id={isLight ? '21:2750' : '77:3589'}>
                   <div className="login-fields login-fields--sign-in" data-node-id={isLight ? '21:2751' : '77:3591'}>
-                    <div className="login-field login-field--dark login-gradient-stroke" data-node-id={isLight ? '29:4579' : '77:3592'}>
-                      <input
-                        type="email"
-                        id="login-email"
-                        name="email"
-                        className="login-field__input"
-                        placeholder="Enter Email"
-                        autoComplete="email"
-                        value={email}
-                        onChange={event => setEmail(event.target.value)}
-                        required
-                      />
-                      <span className="login-field__icon-wrap">
-                        <EmailIcon />
-                      </span>
+                    <div className="login-field-group">
+                      <div
+                        className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'email' ? ' login-field--error' : ''}`}
+                        data-node-id={isLight ? '29:4579' : '77:3592'}
+                      >
+                        <input
+                          type="email"
+                          id="login-email"
+                          name="email"
+                          className="login-field__input"
+                          placeholder="Enter Email"
+                          autoComplete="email"
+                          value={email}
+                          onChange={event => {
+                            setEmail(event.target.value);
+                            clearFieldError('email');
+                          }}
+                          aria-invalid={fieldError?.field === 'email'}
+                          aria-describedby={fieldError?.field === 'email' ? 'login-email-error' : undefined}
+                          required
+                        />
+                        <span className="login-field__icon-wrap">
+                          <EmailIcon />
+                        </span>
+                      </div>
+                      {fieldError?.field === 'email' ? (
+                        <p id="login-email-error" className="login-field__error" role="alert">
+                          {fieldError.message}
+                        </p>
+                      ) : null}
                     </div>
 
-                    <div className="login-field login-field--dark login-gradient-stroke" data-node-id={isLight ? '29:4584' : '77:3593'}>
-                      <input
-                        type={showPassword ? 'text' : 'password'}
-                        id="login-password"
-                        name="password"
-                        className="login-field__input"
-                        placeholder="Password"
-                        autoComplete="current-password"
-                        value={password}
-                        onChange={event => setPassword(event.target.value)}
-                        required
-                      />
-                      <button
-                        type="button"
-                        className="login-field__toggle"
-                        aria-label={showPassword ? 'Hide password' : 'Show password'}
-                        onClick={() => setShowPassword(current => !current)}
+                    <div className="login-field-group">
+                      <div
+                        className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'password' ? ' login-field--error' : ''}`}
+                        data-node-id={isLight ? '29:4584' : '77:3593'}
                       >
-                        {showPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
-                      </button>
+                        <input
+                          type={showPassword ? 'text' : 'password'}
+                          id="login-password"
+                          name="password"
+                          className="login-field__input"
+                          placeholder="Password"
+                          autoComplete="current-password"
+                          value={password}
+                          onChange={event => {
+                            setPassword(event.target.value);
+                            clearFieldError('password');
+                          }}
+                          aria-invalid={fieldError?.field === 'password'}
+                          aria-describedby={fieldError?.field === 'password' ? 'login-password-error' : undefined}
+                          required
+                        />
+                        <button
+                          type="button"
+                          className="login-field__toggle"
+                          aria-label={showPassword ? 'Hide password' : 'Show password'}
+                          onClick={() => setShowPassword(current => !current)}
+                        >
+                          {showPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
+                        </button>
+                      </div>
+                      {fieldError?.field === 'password' ? (
+                        <p id="login-password-error" className="login-field__error" role="alert">
+                          {fieldError.message}
+                        </p>
+                      ) : null}
                     </div>
                   </div>
 
@@ -146,8 +198,13 @@ const LoginSignInPage = () => {
                   </div>
                 </div>
 
-                <button type="submit" className="login-auth-btn login-auth-btn--primary" data-node-id={isLight ? '21:2759' : '5:273'}>
-                  Sign In
+                <button
+                  type="submit"
+                  className="login-auth-btn login-auth-btn--primary"
+                  data-node-id={isLight ? '21:2759' : '5:273'}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Signing in…' : 'Sign In'}
                 </button>
               </div>
 

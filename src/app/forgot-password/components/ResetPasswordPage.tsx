@@ -4,8 +4,9 @@ import PasswordStrengthIndicator, {
 } from '@/app/login/components/PasswordStrengthIndicator';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
+import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
 import { useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import '@/app/login/components/login.css';
 import '@/app/login-google/components/google-login.css';
 import './forgot-password.css';
@@ -13,20 +14,49 @@ import './forgot-password.css';
 const passwordRulesText =
   'Password must contain at least 1 uppercase letter, 1 number, and 1 special character.';
 
+type ResetLocationState = {
+  email?: string;
+};
+
 const ResetPasswordPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { verifyPasswordResetCode, completePasswordReset } = useAuth();
+  const [verificationCode, setVerificationCode] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const email = (location.state as ResetLocationState | null)?.email ?? '';
 
   const strength = useMemo(() => getPasswordStrength(password), [password]);
   const passwordsMatch = password.length > 0 && password === confirmPassword;
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setError('');
+
+    const code = verificationCode.trim();
+    if (!code) {
+      setError('Enter the verification code from your email.');
+      return;
+    }
+
     if (!strength.isGood || !passwordsMatch) return;
-    navigate('/forgot-password/success');
+
+    setIsSubmitting(true);
+    try {
+      await verifyPasswordResetCode(code);
+      await completePasswordReset(code, password);
+      navigate('/forgot-password/success', { state: { email } });
+    } catch (submitError) {
+      setError(getAuthErrorMessage(submitError));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -77,6 +107,21 @@ const ResetPasswordPage = () => {
             <form className="login-form login-form--reset" noValidate onSubmit={handleSubmit}>
               <div className="login-card__upperside" data-node-id="37:4926">
                 <div className="login-fields login-fields--reset" data-node-id="37:4996">
+                  <div className="login-field login-field--dark login-gradient-stroke">
+                    <input
+                      type="text"
+                      id="reset-verification-code"
+                      name="verificationcode"
+                      className="login-field__input"
+                      placeholder="Verification code"
+                      value={verificationCode}
+                      onChange={event => setVerificationCode(event.target.value)}
+                      autoComplete="one-time-code"
+                      inputMode="numeric"
+                      required
+                    />
+                  </div>
+
                   <p className="login-card__rules" data-node-id="37:5065">
                     {passwordRulesText}
                   </p>
@@ -106,13 +151,19 @@ const ResetPasswordPage = () => {
                   {password.length > 0 && <PasswordStrengthIndicator strength={strength} />}
                 </div>
 
+                {error ? (
+                  <p className="login-form__error login-form__error--block" role="alert">
+                    {error}
+                  </p>
+                ) : null}
+
                 <button
                   type="submit"
                   className="login-auth-btn login-auth-btn--primary"
                   data-node-id="37:4928"
-                  disabled={!strength.isGood || !passwordsMatch}
+                  disabled={!strength.isGood || !passwordsMatch || isSubmitting}
                 >
-                  Confirm Password
+                  {isSubmitting ? 'Updating…' : 'Confirm Password'}
                 </button>
               </div>
             </form>

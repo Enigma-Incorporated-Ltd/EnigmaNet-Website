@@ -82,8 +82,16 @@
 }
 
 /* Figma 59:1066 / 59:857 — google account light mode */
-.login-layout--light .login-card--google .login-field.login-gradient-stroke::before {
+.login-layout--light
+  .login-card--google
+  .login-field.login-gradient-stroke:not(.login-field--error)::before {
   background: linear-gradient(90deg, #000000 0%, #3900e3 100%);
+}
+
+.login-layout--light
+  .login-card--google
+  .login-field.login-field--error.login-gradient-stroke::before {
+  background: #ff9b9b;
 }
 
 .login-layout--light .login-card--google .login-field__input {

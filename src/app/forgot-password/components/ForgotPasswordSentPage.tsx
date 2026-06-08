@@ -1,5 +1,7 @@
 import loginCardBgLogo from '@/assets/img/login/vectorlogo.png';
 import IconifyIcon from '@/components/IconifyIcon';
+import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
+import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import '@/app/login/components/login.css';
 import './forgot-password.css';
@@ -15,12 +17,28 @@ const formatUserLabel = (email: string) => {
 
 const ForgotPasswordSentPage = () => {
   const navigate = useNavigate();
+  const { requestPasswordReset } = useAuth();
   const location = useLocation();
   const state = (location.state as SentLocationState | null) ?? {};
   const email = state.email ?? '';
+  const [resendError, setResendError] = useState('');
+  const [isResending, setIsResending] = useState(false);
 
-  const handleResend = () => {
-    navigate('/forgot-password', { state: { email } });
+  const handleResend = async () => {
+    if (!email) {
+      navigate('/forgot-password');
+      return;
+    }
+
+    setResendError('');
+    setIsResending(true);
+    try {
+      await requestPasswordReset(email);
+    } catch (resendErr) {
+      setResendError(getAuthErrorMessage(resendErr));
+    } finally {
+      setIsResending(false);
+    }
   };
 
   return (
@@ -69,10 +87,29 @@ const ForgotPasswordSentPage = () => {
 
             <p className="login-card__confirmation-footer" data-node-id="62:1831">
               Didn&apos;t receive the email?{' '}
-              <button type="button" className="login-card__confirmation-resend" onClick={handleResend}>
-                Resend link.
+              <button
+                type="button"
+                className="login-card__confirmation-resend"
+                onClick={handleResend}
+                disabled={isResending}
+              >
+                {isResending ? 'Resending…' : 'Resend link.'}
               </button>
             </p>
+
+            {resendError ? (
+              <p className="login-form__error login-form__error--block" role="alert">
+                {resendError}
+              </p>
+            ) : null}
+
+            <Link
+              to="/forgot-password/reset"
+              state={{ email }}
+              className="login-help-text__link"
+            >
+              Enter verification code
+            </Link>
           </div>
         </div>
       </div>

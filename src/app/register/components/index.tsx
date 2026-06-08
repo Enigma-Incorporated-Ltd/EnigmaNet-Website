@@ -9,21 +9,83 @@ import {
 } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
+import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
+import {
+  mapRegisterError,
+  type AuthFieldError,
+  type AuthFieldKey,
+} from '@/utils/authFieldErrors';
 import { useState } from 'react';
 import { useTheme } from '@/utils/useTheme';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import '@/app/login/components/login.css';
 import './register.css';
 
+const splitName = (username: string) => {
+  const parts = username.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return { firstname: '', lastname: '' };
+  if (parts.length === 1) return { firstname: parts[0], lastname: '' };
+  return { firstname: parts[0], lastname: parts.slice(1).join(' ') };
+};
+
 const RegisterPage = () => {
+  const navigate = useNavigate();
+  const { register } = useAuth();
   const { theme } = useTheme();
   const isLight = theme === 'light';
   const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+  const [fieldError, setFieldError] = useState<AuthFieldError | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const clearFieldError = (field: AuthFieldKey) => {
+    setFieldError(current => (current?.field === field ? null : current));
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setFieldError(null);
+
+    const form = event.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const formData = new FormData(form);
+    const username = String(formData.get('username') ?? '').trim();
+    const email = String(formData.get('email') ?? '').trim();
+    const password = String(formData.get('password') ?? '');
+    const passwordRepeat = String(formData.get('passwordRepeat') ?? '');
+
+    if (password !== passwordRepeat) {
+      setFieldError({
+        field: 'passwordRepeat',
+        message: 'Passwords are not the same, check them.',
+      });
+      return;
+    }
+
+    if (password.length < 6) {
+      setFieldError({
+        field: 'password',
+        message: 'Password must be at least 6 characters.',
+      });
+      return;
+    }
+
+    const { firstname, lastname } = splitName(username);
+
+    setIsSubmitting(true);
+    try {
+      await register({ email, password, firstname, lastname });
+      navigate('/login/sign-in', { state: { email, registered: true } });
+    } catch (submitError) {
+      setFieldError(mapRegisterError(getAuthErrorMessage(submitError)));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -76,74 +138,121 @@ const RegisterPage = () => {
             <form className="login-form" noValidate onSubmit={handleSubmit}>
               <div className="login-card__upperside" data-node-id="76:3216">
                 <div className="login-fields login-fields--register" data-node-id="76:3217">
-                  <div className="login-field login-field--dark login-gradient-stroke" data-node-id="76:3218">
-                    <input
-                      type="text"
-                      id="register-username"
-                      name="username"
-                      className="login-field__input"
-                      placeholder="User Name"
-                      autoComplete="username"
-                      required
-                    />
-                    <span className="login-field__icon-wrap">
-                      <UserIcon />
-                    </span>
-                  </div>
-
-                  <div className="login-field login-field--dark login-gradient-stroke" data-node-id="76:3219">
-                    <input
-                      type="email"
-                      id="register-email"
-                      name="email"
-                      className="login-field__input"
-                      placeholder="Enter Email"
-                      autoComplete="email"
-                      required
-                    />
-                    <span className="login-field__icon-wrap">
-                      <EmailIcon />
-                    </span>
-                  </div>
-
-                  <div className="login-field login-field--dark login-gradient-stroke" data-node-id="76:3220">
-                    <input
-                      type={showPassword ? 'text' : 'password'}
-                      id="register-password"
-                      name="password"
-                      className="login-field__input"
-                      placeholder="Password"
-                      autoComplete="new-password"
-                      required
-                    />
-                    <button
-                      type="button"
-                      className="login-field__toggle"
-                      aria-label={showPassword ? 'Hide password' : 'Show password'}
-                      onClick={() => setShowPassword(current => !current)}
+                  <div className="login-field-group">
+                    <div
+                      className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'username' ? ' login-field--error' : ''}`}
+                      data-node-id="76:3218"
                     >
-                      {showPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
-                    </button>
+                      <input
+                        type="text"
+                        id="register-username"
+                        name="username"
+                        className="login-field__input"
+                        placeholder="User Name"
+                        autoComplete="username"
+                        onChange={() => clearFieldError('username')}
+                        required
+                      />
+                      <span className="login-field__icon-wrap">
+                        <UserIcon />
+                      </span>
+                    </div>
+                    {fieldError?.field === 'username' ? (
+                      <p className="login-field__error" role="alert">
+                        {fieldError.message}
+                      </p>
+                    ) : null}
                   </div>
 
-                  <div className="login-field login-field--dark login-gradient-stroke" data-node-id="76:3221">
-                    <input
-                      type={showRepeatPassword ? 'text' : 'password'}
-                      id="register-password-repeat"
-                      name="passwordRepeat"
-                      className="login-field__input"
-                      placeholder="Repeat Password"
-                      autoComplete="new-password"
-                      required
-                    />
-                    <button
-                      type="button"
-                      className="login-field__toggle"
-                      aria-label={showRepeatPassword ? 'Hide password' : 'Show password'}
-                      onClick={() => setShowRepeatPassword(current => !current)}
+                  <div className="login-field-group">
+                    <div
+                      className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'email' ? ' login-field--error' : ''}`}
+                      data-node-id="76:3219"
                     >
-                      {showRepeatPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
-                    </button>
+                      <input
+                        type="email"
+                        id="register-email"
+                        name="email"
+                        className="login-field__input"
+                        placeholder="Enter Email"
+                        autoComplete="email"
+                        onChange={() => clearFieldError('email')}
+                        aria-invalid={fieldError?.field === 'email'}
+                        required
+                      />
+                      <span className="login-field__icon-wrap">
+                        <EmailIcon />
+                      </span>
+                    </div>
+                    {fieldError?.field === 'email' ? (
+                      <p className="login-field__error" role="alert">
+                        {fieldError.message}
+                      </p>
+                    ) : null}
+                  </div>
+
+                  <div className="login-field-group">
+                    <div
+                      className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'password' ? ' login-field--error' : ''}`}
+                      data-node-id="76:3220"
+                    >
+                      <input
+                        type={showPassword ? 'text' : 'password'}
+                        id="register-password"
+                        name="password"
+                        className="login-field__input"
+                        placeholder="Password"
+                        autoComplete="new-password"
+                        onChange={() => clearFieldError('password')}
+                        aria-invalid={fieldError?.field === 'password'}
+                        required
+                      />
+                      <button
+                        type="button"
+                        className="login-field__toggle"
+                        aria-label={showPassword ? 'Hide password' : 'Show password'}
+                        onClick={() => setShowPassword(current => !current)}
+                      >
+                        {showPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
+                      </button>
+                    </div>
+                    {fieldError?.field === 'password' ? (
+                      <p className="login-field__error" role="alert">
+                        {fieldError.message}
+                      </p>
+                    ) : null}
+                  </div>
+
+                  <div className="login-field-group">
+                    <div
+                      className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'passwordRepeat' ? ' login-field--error' : ''}`}
+                      data-node-id="76:3221"
+                    >
+                      <input
+                        type={showRepeatPassword ? 'text' : 'password'}
+                        id="register-password-repeat"
+                        name="passwordRepeat"
+                        className="login-field__input"
+                        placeholder="Repeat Password"
+                        autoComplete="new-password"
+                        onChange={() => clearFieldError('passwordRepeat')}
+                        aria-invalid={fieldError?.field === 'passwordRepeat'}
+                        required
+                      />
+                      <button
+                        type="button"
+                        className="login-field__toggle"
+                        aria-label={showRepeatPassword ? 'Hide password' : 'Show password'}
+                        onClick={() => setShowRepeatPassword(current => !current)}
+                      >
+                        {showRepeatPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
+                      </button>
+                    </div>
+                    {fieldError?.field === 'passwordRepeat' ? (
+                      <p className="login-field__error" role="alert">
+                        {fieldError.message}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
 
@@ -151,8 +260,9 @@ const RegisterPage = () => {
                   type="submit"
                   className="login-auth-btn login-auth-btn--primary"
                   data-node-id="76:3222"
+                  disabled={isSubmitting}
                 >
-                  Create account
+                  {isSubmitting ? 'Creating account…' : 'Create account'}
                 </button>
               </div>
 
