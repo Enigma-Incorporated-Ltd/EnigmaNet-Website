@@ -3,11 +3,15 @@ import {
   AdemHeaps,
   ANdyRodger,
   BrunaLopes,
+  Gino,
   Glenn,
   Hamna,
   JaneOsborne,
   JosephHoward,
+  Kaspar,
+  Ketherine,
   Mae,
+  Mohammed,
   NashimAhmed,
   Santosh,
   TracyHaynes,
@@ -100,16 +104,35 @@ consulting and M&A, with experience across more than 25 investment deals and 18 
 exits.   `,
     tags: ['Co-Founder', 'Investment', 'Strategy', 'Partnerships', 'Finance'],
     avatarColor: '#1e4060',
-    bio: `Katherine works with Enigma Net’s senior leadership team on growth strategy, strategic   
-partnerships and finance strategy. She brings 35 years of global experience in finance,   
-consulting and M&A, with experience across more than 25 investment deals and 18 successful   
-exits.   `,
-    //   experience: [
-    //   '35+ years in finance, consulting and M&A',
-    //   '25+ investment deals and 18 successful exits',
-    //   'Global experience across APAC, EMEA and North America',
-    // ],
-    // qualifications: ['BCom (Hons), University of Sydney', 'MBA, London Business School'],
+    bio: (
+      <>
+        Katherine joined Enigma Inc in 2022 and works with the SLT on the company's growth strategy,
+        strategic partnerships and finance strategy. Katherine is an entrepreneur and active
+        investor, director in certain specialist technology areas. Katherine has 35 years' global
+        experience in finance, consulting, & M&A and has been an active investors in over 25 deals.
+        She has extensive experience leading, funding, and growing businesses at various levels of
+        technology development with 18 successful exits to date
+        <br />
+        <br />
+        Certain investment deals include: Radius Health, Orna Therapeutics, ReNAgade Therapeutics,
+        Dearman, Natural Motion, Ixxus, Orivium, Somos and Enigma Inc.
+      </>
+    ),
+    experience: [
+      'Founding Partner - Park Vale Capital, an FCA regulated investment firm',
+      'Founding Partner - Lincoln Vale Group & Nantucket Partners, FCA regulated investment firms ',
+      'Investment Advisor -Icenic Limited, Seganti Limited',
+      'Finance Director - Bodfari Quarries Ltd (8 year growth plan then Industry exit)',
+      'Chuo Coopers & Lybrand (M&A structuring, Tokyo, Japan)',
+      'NatWest International Bank (Japan desk, associate)',
+      'Advisory Board to the President of the Royal Society (2010-2025)',
+    ],
+    qualifications: [
+      'MBA - Columbia Business School',
+      'NY USA (Student Prize) ',
+      'BA (Hons) Politics and East Asian Studies',
+      'UK and Japan IMC (Investment Management Certificate) ',
+    ],
     // expertise: [
     //   'Investment Strategy',
     //   'Corporate Finance',
@@ -118,7 +141,7 @@ exits.   `,
     //   'Company Development',
     // ],
     // linkedin: 'https://linkedin.com',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=800',
+    avatar: Ketherine,
   },
   {
     id: 'jane',
@@ -639,6 +662,7 @@ const specialistTeams: SpecialistTeam[] = [
             date with emerging technologies to build innovative and impactful web solutions.
           </>
         ),
+
         expertise: [
           'Front-End Architecture',
           'Reusable Component Libraries',
@@ -763,7 +787,7 @@ const specialistTeams: SpecialistTeam[] = [
   {
     id: 'tech-ops',
     icon: '🔧',
-    name: 'Technical Operations & Infrastructure',
+    name: 'Engineering Support',
     description:
       "Supporting Enigma Net's infrastructure, IT, platform environments and technical delivery across internal systems, customer deployments and operational support.",
     areas: [
@@ -780,42 +804,103 @@ const specialistTeams: SpecialistTeam[] = [
         name: 'Kaspar Pitblado',
         role: 'Technical Associate',
         tagline: 'Supporting engineering execution and technical operations.',
-        tags: ['Infrastructure', 'Technical Support'],
+        // tags: ['Infrastructure', 'Technical Support'],
         avatarColor: '#1a3a5c',
-        bio: "Kaspar supports technical operations and hands-on engineering execution across Enigma Net's infrastructure and customer environments.",
+        bio: (
+          <>
+            Kaspar is a Technical Associate at Enigma, where he accelerates CTO-led delivery across
+            core technical priorities. He provides hands-on engineering execution, reproducible
+            evidence, high-quality technical documentation, and also supports technical sales
+            activities. A recent graduate of Brown University with dual degrees in Applied
+            Mathematics & Computer Science and Economics, Kaspar is passionate about problem-solving
+            and applying rigorous analytical thinking to real-world technical challenges.{' '}
+          </>
+        ),
         expertise: ['Infrastructure Support', 'Technical Operations', 'Engineering Execution'],
-        linkedin: 'https://linkedin.com',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=800',
+        // linkedin: 'https://linkedin.com',
+        avatar: Kaspar,
       },
       {
         id: 'tec2',
         name: 'Gino Mathew',
         role: 'IT Engineer',
         tagline: 'Managing IT operations and internal systems across Enigma Net.',
-        tags: ['IT', 'Networking', 'Operations'],
+        // tags: ['IT', 'Networking', 'Operations'],
         avatarColor: '#163550',
-        bio: 'Gino manages IT operations, networking and internal systems at Enigma Net, ensuring reliable and secure infrastructure across the business.',
-        expertise: ['IT Operations', 'Networking', 'Systems Administration', 'Security'],
-        linkedin: 'https://linkedin.com',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=800',
+        bio: (
+          <>
+            I am a Computer Engineer with 15+ years of IT Support experience working with multiple
+            companies in India and Canada. I am skilled in analyzing complex problems, identifying
+            potential challenges, and delivering strategic, actionable recommendations to optimize
+            IT operations and ensure seamless resolution.{' '}
+          </>
+        ),
+        expertise: [
+          'Azure AD',
+          'Intune',
+          'Microsoft 365',
+          'Google Workspace',
+          'Technical problem-solving',
+          'VOIP',
+          'Print Server',
+        ],
+        linkedin: 'https://www.linkedin.com/in/gino-mathew-25974568/',
+        avatar: Gino,
       },
       {
         id: 'tec3',
         name: 'Mohammed Abul Azad Faisal',
         role: 'Senior Infrastructure & DevOps Engineer',
         tagline: 'Leading cloud infrastructure, DevOps and platform reliability.',
-        tags: ['DevOps', 'Cloud', 'Infrastructure'],
+        // tags: ['DevOps', 'Cloud', 'Infrastructure'],
         avatarColor: '#0f2e4a',
-        bio: 'Faisal leads cloud infrastructure, DevOps automation, observability and data protection at Enigma Net, ensuring resilient and scalable platform environments.',
-        expertise: [
-          'Cloud Infrastructure',
-          'DevOps',
-          'Automation',
-          'Observability',
-          'Data Protection',
+        bio: (
+          <>
+            Mohammed Abul Azad Faisal is a Senior Infrastructure and DevOps Engineer at Enigma Net,
+            specializing in cloud infrastructure, virtualization, automation, networking, and
+            enterprise systems architecture. With over 10 years of experience supporting
+            organizations across multiple industries, he has designed, deployed, and managed highly
+            available environments utilizing Proxmox, VMware, AWS, Azure, Linux, Windows Server, and
+            containerized platforms.
+            <br />
+            <br />
+            Throughout his career, Faisal has successfully delivered large-scale cloud migrations,
+            disaster recovery solutions, virtualization platforms, backup infrastructures, and
+            DevOps automation frameworks for clients ranging from startups to global enterprises.
+            His expertise includes network architecture, cybersecurity, infrastructure monitoring,
+            business continuity planning, and performance optimization.
+            <br />
+            <br />
+            At Enigma Net, Faisal contributes technical leadership, infrastructure strategy, cloud
+            transformation initiatives, and operational excellence, helping clients build secure,
+            scalable, and resilient technology environments.
+          </>
+        ),
+        experience: [
+          'Designed and deployed high-availability virtualization and cloud platforms for international clients. ',
+          'Delivered enterprise-grade disaster recovery and backup solutions protecting production workloads. ',
+          'Led cloud migration and infrastructure modernization projects across AWS, Azure, and private datacenters. ',
+          'Extensive experience supporting mission-critical environments for organizations ranging from SMBs to global enterprises. ',
+          'Top-rated infrastructure consultant with a proven record of successful project delivery and client satisfaction. ',
         ],
-        linkedin: 'https://linkedin.com',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=800',
+        expertise: [
+          'Cloud Infrastructure (AWS, Azure, Hybrid Cloud) ',
+          'DevOps & Automation',
+          'Proxmox Virtualization',
+          'VMware vSphere',
+          'Linux & Windows Server Administration',
+          'Disaster Recovery & Business Continuity',
+          'Network Architecture & Security',
+          'High Availability Infrastructure ',
+          'Monitoring & Observability',
+          'Backup & Data Protection',
+          'Containerization (Docker, Kubernetes)',
+          'Infrastructure as Code (Terraform, Ansible)',
+          'Database Administration (SQL Server, PostgreSQL, MySQL)',
+          'Enterprise Systems Architecture',
+        ],
+        linkedin: 'https://www.linkedin.com/in/mohammed-abul-azad-faisal/',
+        avatar: Mohammed,
       },
     ],
   },
@@ -878,28 +963,41 @@ function Avatar({ person, size = 80 }: { person: Person; size?: number }) {
     .join('')
     .slice(0, 2);
 
+  const borderRadius = size > 60 ? 12 : 8;
+
   return (
     <div
       style={{
         width: size,
         height: size,
-        borderRadius: size > 60 ? '12px' : '8px',
+        minWidth: size,
+        minHeight: size,
+        borderRadius,
         overflow: 'hidden',
-        border: '1px solid rgba(56, 139, 253, 0.25)',
         flexShrink: 0,
-        background: `linear-gradient(135deg, ${person.avatarColor ?? '#1a3a5c'} 0%, #0a1628 100%)`,
+        position: 'relative',
+        border: '1px solid rgba(56, 139, 253, 0.25)',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.04)',
+        background: `linear-gradient(
+          135deg,
+          ${person.avatarColor ?? '#1a3a5c'} 0%,
+          #0a1628 100%
+        )`,
       }}
     >
       {person.avatar ? (
         <img
           src={person.avatar}
           alt={person.name}
+          loading="lazy"
           style={{
             width: '100%',
             height: '100%',
+            display: 'block',
             objectFit: 'cover',
             objectPosition: 'center',
-            borderRadius: size > 60 ? '12px' : '8px',
+            imageRendering: 'auto',
+            WebkitFontSmoothing: 'antialiased',
           }}
         />
       ) : (
@@ -914,7 +1012,7 @@ function Avatar({ person, size = 80 }: { person: Person; size?: number }) {
             fontWeight: 700,
             color: '#88bbee',
             letterSpacing: 1,
-            fontFamily: "'DM Mono', monospace",
+            
           }}
         >
           {initials}
@@ -923,7 +1021,6 @@ function Avatar({ person, size = 80 }: { person: Person; size?: number }) {
     </div>
   );
 }
-
 // ─── Bio Modal ───────────────────────────────────────────────────────────────
 
 function BioModal({ person, onClose }: { person: Person | null; onClose: () => void }) {
@@ -1001,7 +1098,7 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                 border: '1px solid #2adeff',
                 padding: '3px 9px',
                 borderRadius: 4,
-                fontFamily: "'DM Mono', monospace",
+                
               }}
             >
               {person.badge}
@@ -1057,7 +1154,7 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                 color: '#2adeff',
                 fontSize: '0.78rem',
                 margin: '0 0 10px',
-                fontFamily: "'DM Mono', monospace",
+                
                 letterSpacing: 0.5,
               }}
             >
@@ -1084,7 +1181,7 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
 
           {person.experience && (
             <section className="mb-4">
-              <SectionLabel>Previous Experience</SectionLabel>
+              <SectionLabel>Achievements</SectionLabel>
               <ul style={{ paddingLeft: 0, listStyle: 'none', margin: 0 }}>
                 {person.experience.map((e, i) => (
                   <li
@@ -1146,7 +1243,7 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                       fontSize: '0.9rem',
                       padding: '4px 12px',
                       borderRadius: 20,
-                      fontFamily: "'DM Mono', monospace",
+                      
                     }}
                   >
                     {ex}
@@ -1169,7 +1266,7 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                       fontSize: '0.9rem',
                       padding: '4px 12px',
                       borderRadius: 20,
-                      fontFamily: "'DM Mono', monospace",
+                      
                     }}
                   >
                     {ex}
@@ -1194,7 +1291,7 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                 padding: '10px 20px',
                 borderRadius: 8,
                 textDecoration: 'none',
-                fontFamily: "'DM Mono', monospace",
+                
                 letterSpacing: 0.5,
                 transition: 'all .15s',
                 marginTop: 8,
@@ -1226,7 +1323,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
         fontWeight: 700,
         letterSpacing: 2,
         color: '#388bfd',
-        fontFamily: "'DM Mono', monospace",
+        
         textTransform: 'uppercase',
         margin: '0 0 10px',
       }}
@@ -1307,7 +1404,7 @@ function FounderCard({ person, onRead }: { person: Person; onRead: (p: Person) =
               border: '1px solid #2adeff',
               padding: '3px 9px',
               borderRadius: 4,
-              fontFamily: "'DM Mono', monospace",
+              
               lineHeight: 1.4,
             }}
           >
@@ -1344,7 +1441,6 @@ function FounderCard({ person, onRead }: { person: Person; onRead: (p: Person) =
             color: '#2adeff',
             fontSize: '0.9rem',
             margin: '0 0 10px',
-            fontFamily: "'DM Mono', monospace",
           }}
         >
           {person.role}
@@ -1386,7 +1482,6 @@ function FounderCard({ person, onRead }: { person: Person; onRead: (p: Person) =
                 fontSize: '0.7rem',
                 padding: '3px 10px',
                 borderRadius: 20,
-                fontFamily: "'DM Mono', monospace",
               }}
             >
               {t}
@@ -1404,7 +1499,7 @@ function FounderCard({ person, onRead }: { person: Person; onRead: (p: Person) =
             fontSize: '1rem',
             padding: 0,
             cursor: 'pointer',
-            fontFamily: "'DM Mono', monospace",
+
             letterSpacing: 0.5,
             display: 'inline-flex',
             alignItems: 'center',
@@ -1502,7 +1597,6 @@ function LeaderCard({ person, onRead }: { person: Person; onRead: (p: Person) =>
               color: '#2adeff',
               fontSize: '0.9rem',
               margin: '0 0 6px',
-              fontFamily: "'DM Mono', monospace",
             }}
           >
             {person.role}
@@ -1540,7 +1634,6 @@ function LeaderCard({ person, onRead }: { person: Person; onRead: (p: Person) =>
                 fontSize: '0.7rem',
                 padding: '3px 10px',
                 borderRadius: 20,
-                fontFamily: "'DM Mono', monospace",
               }}
             >
               {t}
@@ -1556,7 +1649,7 @@ function LeaderCard({ person, onRead }: { person: Person; onRead: (p: Person) =>
             fontSize: '1rem',
             padding: 0,
             cursor: 'pointer',
-            fontFamily: "'DM Mono', monospace",
+
             letterSpacing: 0.5,
             display: 'inline-flex',
             alignItems: 'center',
@@ -1632,7 +1725,7 @@ function SpecialistTeamCard({
         {team.members.map(m => (
           <div key={m.id} className="d-flex align-items-center justify-content-between">
             <div className="d-flex align-items-center gap-2">
-              <Avatar person={m} size={62} />
+              <Avatar person={m} size={72} />
               <div>
                 <p style={{ color: '#c8daf5', fontSize: '0.9rem', fontWeight: 600, margin: 0 }}>
                   {m.name}
@@ -1642,7 +1735,7 @@ function SpecialistTeamCard({
                     color: '#4a7ab0',
                     fontSize: '0.8rem',
                     margin: 0,
-                    fontFamily: "'DM Mono', monospace",
+                    
                   }}
                 >
                   {m.role}
@@ -1658,7 +1751,7 @@ function SpecialistTeamCard({
                 fontSize: '0.9rem',
                 padding: 0,
                 cursor: 'pointer',
-                fontFamily: "'DM Mono', monospace",
+                
                 letterSpacing: 0.5,
                 display: 'flex',
                 alignItems: 'center',
@@ -1710,7 +1803,7 @@ function SectionHeader({
       <div className="d-flex align-items-center gap-3">
         <span
           style={{
-            fontFamily: "'DM Mono', monospace",
+            
             fontSize: '1rem',
             color: '#2adeff',
             letterSpacing: 2,
@@ -1738,7 +1831,7 @@ function SectionHeader({
             color: '#4a7ab0',
             fontSize: '1rem',
             margin: '6px 0 0 68px',
-            fontFamily: "'DM Mono', monospace",
+            
           }}
         >
           {subtitle}
@@ -1769,7 +1862,7 @@ export function CredibilityBand() {
               fontWeight: 700,
               letterSpacing: 3,
               color: '#388bfd',
-              fontFamily: "'DM Mono', monospace",
+
               textTransform: 'uppercase',
               marginBottom: 12,
             }}
@@ -1811,7 +1904,15 @@ export function CredibilityBand() {
                 >
                   {tile.title}
                 </h6>
-                <p style={{ color: '#7a9cbf', fontSize: '0.78rem', lineHeight: 1.65, margin: 0 }}>
+
+                <p
+                  style={{
+                    color: '#7a9cbf',
+                    fontSize: '0.78rem',
+                    lineHeight: 1.65,
+                    margin: 0,
+                  }}
+                >
                   {tile.body}
                 </p>
               </div>
@@ -1825,7 +1926,7 @@ export function CredibilityBand() {
 
 // ─── Leadership Statement ─────────────────────────────────────────────────────
 
-export function LeadershipStatement({ }: { onRead: (p: Person) => void }) {
+export function LeadershipStatement({}: { onRead: (p: Person) => void }) {
   const jane = founders.find(f => f.id === 'jane')!;
   return (
     <div className="container" style={{ padding: '5rem 0' }}>
@@ -1836,7 +1937,7 @@ export function LeadershipStatement({ }: { onRead: (p: Person) => void }) {
             fontWeight: 700,
             letterSpacing: 3,
             color: '#388bfd',
-            fontFamily: "'DM Mono', monospace",
+
             textTransform: 'uppercase',
             marginBottom: 12,
           }}
@@ -1858,10 +1959,21 @@ export function LeadershipStatement({ }: { onRead: (p: Person) => void }) {
         <div className="col-lg-10">
           <div
             style={{
-              background: 'rgba(14, 28, 54, 0.6)',
-              border: '1px solid rgba(56, 139, 253, 0.18)',
-              borderRadius: 16,
-              padding: '2.5rem 3rem',
+              border: '1px solid rgba(56, 139, 253, 0.12)',
+              borderRadius: 14,
+              padding: '1.5rem',
+              height: '100%',
+              background: 'transparent', // no background initially
+              transition: 'border-color .15s, background .15s',
+              boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
+              e.currentTarget.style.background = 'rgba(56,139,253,0.04)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'rgba(56,139,253,0.12)';
+              e.currentTarget.style.background = 'transparent'; // return to no background
             }}
           >
             <div className="row align-items-center g-4">
@@ -1897,7 +2009,7 @@ export function LeadershipStatement({ }: { onRead: (p: Person) => void }) {
                       style={{
                         color: '#388bfd',
                         fontSize: '0.75rem',
-                        fontFamily: "'DM Mono', monospace",
+
                         margin: 0,
                       }}
                     >
@@ -1920,8 +2032,7 @@ export function LatestUpdates() {
   return (
     <div
       style={{
-        background: 'rgba(6, 15, 31, 0.95)',
-        borderTop: '1px solid rgba(56,139,253,0.12)',
+       
         padding: '5rem 0',
       }}
     >
@@ -1934,7 +2045,7 @@ export function LatestUpdates() {
                 fontWeight: 700,
                 letterSpacing: 3,
                 color: '#388bfd',
-                fontFamily: "'DM Mono', monospace",
+                
                 textTransform: 'uppercase',
                 marginBottom: 12,
               }}
@@ -1966,7 +2077,7 @@ export function LatestUpdates() {
                 padding: '10px 20px',
                 borderRadius: 8,
                 textDecoration: 'none',
-                fontFamily: "'DM Mono', monospace",
+                
                 letterSpacing: 0.5,
               }}
             >
@@ -2008,7 +2119,7 @@ export function LatestUpdates() {
                       fontWeight: 700,
                       letterSpacing: 2,
                       color: '#388bfd',
-                      fontFamily: "'DM Mono', monospace",
+                      
                       textTransform: 'uppercase',
                     }}
                   >
@@ -2030,7 +2141,7 @@ export function LatestUpdates() {
                     style={{
                       color: '#388bfd',
                       fontSize: '0.75rem',
-                      fontFamily: "'DM Mono', monospace",
+                      
                       display: 'flex',
                       alignItems: 'center',
                       gap: 6,
@@ -2062,17 +2173,11 @@ export default function LeadershipPage() {
           to   { transform: translateX(0);    opacity: 1 }
         }
         * { box-sizing: border-box; }
+        
       `}</style>
 
-      <div className="bg-dark">
-        <Breadcrumb
-          items={[
-            { label: 'Company', href: '/company' },
-            { label: 'Leadership', href: '/company/leadership' },
-          ]}
-          style={{ paddingTop: '12rem' }}
-        />
-
+      <div
+        className="bg-dark"  >
         {/* Hero */}
         <div
           style={{
@@ -2084,7 +2189,14 @@ export default function LeadershipPage() {
         >
           <div className="container">
             <div className="row align-items-end">
-              <div className="col-lg-7">
+              <div className="col-lg-6">
+                <Breadcrumb
+                  items={[
+                    { label: 'Company', href: '/company' },
+                    { label: 'Leadership', href: '/company/leadership' },
+                  ]}
+                  style={{ paddingTop: '11rem' }}
+                />
                 <h1
                   style={{
                     color: '#e8f0ff',
@@ -2092,6 +2204,7 @@ export default function LeadershipPage() {
                     fontWeight: 700,
                     lineHeight: 1.1,
                     margin: '0 0 1rem',
+                    marginTop: '2rem',
                   }}
                 >
                   The people behind
@@ -2127,7 +2240,7 @@ export default function LeadershipPage() {
                   />
                 </div>
               </div>
-              <div className="col-lg-5 text-end ">
+              <div className="col-lg-6 text-end ">
                 <div style={{ maxHeight: '400px', width: '100%' }}>
                   <img
                     src={UsecaseRemoteWork1}
@@ -2219,13 +2332,13 @@ export default function LeadershipPage() {
         </div>
 
         {/* 05 — Engineering Credibility Band */}
-        {/* <CredibilityBand /> */}
+        <CredibilityBand />
 
         {/* 06 — Leadership Statement */}
-        {/* <LeadershipStatement onRead={setSelectedPerson} /> */}
+        <LeadershipStatement onRead={setSelectedPerson} />
 
         {/* 07 — Latest Leadership Updates */}
-        {/* <LatestUpdates /> */}
+        <LatestUpdates />
       </div>
 
       <BioModal person={selectedPerson} onClose={() => setSelectedPerson(null)} />
