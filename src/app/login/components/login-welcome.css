@@ -45,15 +45,15 @@
 
 /* Button colors: login.css (.login-auth-btn / .login-welcome-btn) */
 
-/* Divider — full row width, spaced from buttons / social */
+/* Divider — 26px from buttons above, 26px to social below (72px total to social row) */
 .login-welcome-divider {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 13px;
   width: 100%;
-  margin-top: 72px;
-  margin-bottom: 46px;
+  margin-top: 26px;
+  margin-bottom: 26px;
   pointer-events: none;
 }
 

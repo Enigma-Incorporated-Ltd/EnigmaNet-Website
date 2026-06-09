@@ -72,6 +72,24 @@
   gap: 12px;
 }
 
+/* Figma 422:1495 — first / last name side by side */
+.login-fields__name-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.login-fields__name-row .login-field-group {
+  min-width: 0;
+}
+
+@media (max-width: 520px) {
+  .login-fields__name-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Figma 21:2477 — registration light mode */
 .login-layout--light .login-card--register .login-card__lead {
   font-weight: 600;

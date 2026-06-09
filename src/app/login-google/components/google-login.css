@@ -73,11 +73,9 @@
   font-weight: 500;
 }
 
-.login-account-buttons--apple-only {
-  justify-content: center;
-}
-
 .login-account-buttons--apple-only .login-account-buttons__btn {
+  grid-column: 1 / -1;
+  justify-self: center;
   flex: 0 0 auto;
 }
 

@@ -415,7 +415,7 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  gap: 0;
   width: 100%;
 }
 
@@ -899,26 +899,21 @@
   }
 }
 
-/* Figma: account buttons (77:3600) */
+/* Figma 21:2744 — 26px sign-in → divider, 26px divider → social, 72px total to social */
 .login-account-buttons {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 12px;
+  row-gap: 26px;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  justify-items: center;
   width: 100%;
-  margin-top: 0;
-  padding-top: 46px;
+  margin-top: 26px;
   box-sizing: border-box;
 }
 
 .login-divider {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1040,7 +1035,7 @@
   }
 
   .login-form {
-    gap: 48px;
+    gap: 0;
   }
 
   .login-card__heading {
@@ -1052,13 +1047,9 @@
   }
 
   .login-account-buttons {
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding-top: 40px;
-  }
-
-  .login-divider {
-    top: 0;
+    grid-template-columns: 1fr;
+    row-gap: 26px;
+    margin-top: 26px;
   }
 
   .login-account-buttons__btn {

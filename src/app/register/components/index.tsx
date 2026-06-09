@@ -21,13 +21,6 @@ import { Link, useNavigate } from 'react-router';
 import '@/app/login/components/login.css';
 import './register.css';
 
-const splitName = (username: string) => {
-  const parts = username.trim().split(/\s+/).filter(Boolean);
-  if (parts.length === 0) return { firstname: '', lastname: '' };
-  if (parts.length === 1) return { firstname: parts[0], lastname: '' };
-  return { firstname: parts[0], lastname: parts.slice(1).join(' ') };
-};
-
 const RegisterPage = () => {
   const navigate = useNavigate();
   const { register } = useAuth();
@@ -54,10 +47,21 @@ const RegisterPage = () => {
     }
 
     const formData = new FormData(form);
-    const username = String(formData.get('username') ?? '').trim();
+    const firstname = String(formData.get('firstname') ?? '').trim();
+    const lastname = String(formData.get('lastname') ?? '').trim();
     const email = String(formData.get('email') ?? '').trim();
     const password = String(formData.get('password') ?? '');
     const passwordRepeat = String(formData.get('passwordRepeat') ?? '');
+
+    if (!firstname) {
+      setFieldError({ field: 'firstname', message: 'First name is required.' });
+      return;
+    }
+
+    if (!lastname) {
+      setFieldError({ field: 'lastname', message: 'Last name is required.' });
+      return;
+    }
 
     if (password !== passwordRepeat) {
       setFieldError({
@@ -74,8 +78,6 @@ const RegisterPage = () => {
       });
       return;
     }
-
-    const { firstname, lastname } = splitName(username);
 
     setIsSubmitting(true);
     try {
@@ -134,40 +136,73 @@ const RegisterPage = () => {
             </p>
           </div>
 
-          <div className="login-card__interactive" data-node-id="76:3215">
+          <div className="login-card__interactive" data-node-id={isLight ? '422:1492' : '76:3215'}>
             <form className="login-form" noValidate onSubmit={handleSubmit}>
-              <div className="login-card__upperside" data-node-id="76:3216">
-                <div className="login-fields login-fields--register" data-node-id="76:3217">
-                  <div className="login-field-group">
-                    <div
-                      className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'username' ? ' login-field--error' : ''}`}
-                      data-node-id="76:3218"
-                    >
-                      <input
-                        type="text"
-                        id="register-username"
-                        name="username"
-                        className="login-field__input"
-                        placeholder="User Name"
-                        autoComplete="username"
-                        onChange={() => clearFieldError('username')}
-                        required
-                      />
-                      <span className="login-field__icon-wrap">
-                        <UserIcon />
-                      </span>
+              <div className="login-card__upperside" data-node-id={isLight ? '422:1493' : '76:3216'}>
+                <div
+                  className="login-fields login-fields--register"
+                  data-node-id={isLight ? '422:1494' : '76:3217'}
+                >
+                  <div className="login-fields__name-row" data-node-id={isLight ? '422:1495' : undefined}>
+                    <div className="login-field-group">
+                      <div
+                        className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'firstname' ? ' login-field--error' : ''}`}
+                        data-node-id={isLight ? '422:1496' : '76:3218'}
+                      >
+                        <input
+                          type="text"
+                          id="register-firstname"
+                          name="firstname"
+                          className="login-field__input"
+                          placeholder="First Name"
+                          autoComplete="given-name"
+                          onChange={() => clearFieldError('firstname')}
+                          aria-invalid={fieldError?.field === 'firstname'}
+                          required
+                        />
+                        <span className="login-field__icon-wrap">
+                          <UserIcon />
+                        </span>
+                      </div>
+                      {fieldError?.field === 'firstname' ? (
+                        <p className="login-field__error" role="alert">
+                          {fieldError.message}
+                        </p>
+                      ) : null}
                     </div>
-                    {fieldError?.field === 'username' ? (
-                      <p className="login-field__error" role="alert">
-                        {fieldError.message}
-                      </p>
-                    ) : null}
+
+                    <div className="login-field-group">
+                      <div
+                        className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'lastname' ? ' login-field--error' : ''}`}
+                        data-node-id={isLight ? '422:1497' : undefined}
+                      >
+                        <input
+                          type="text"
+                          id="register-lastname"
+                          name="lastname"
+                          className="login-field__input"
+                          placeholder="Last Name"
+                          autoComplete="family-name"
+                          onChange={() => clearFieldError('lastname')}
+                          aria-invalid={fieldError?.field === 'lastname'}
+                          required
+                        />
+                        <span className="login-field__icon-wrap">
+                          <UserIcon />
+                        </span>
+                      </div>
+                      {fieldError?.field === 'lastname' ? (
+                        <p className="login-field__error" role="alert">
+                          {fieldError.message}
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
 
                   <div className="login-field-group">
                     <div
                       className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'email' ? ' login-field--error' : ''}`}
-                      data-node-id="76:3219"
+                      data-node-id={isLight ? '422:1498' : '76:3219'}
                     >
                       <input
                         type="email"
@@ -194,7 +229,7 @@ const RegisterPage = () => {
                   <div className="login-field-group">
                     <div
                       className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'password' ? ' login-field--error' : ''}`}
-                      data-node-id="76:3220"
+                      data-node-id={isLight ? '422:1499' : '76:3220'}
                     >
                       <input
                         type={showPassword ? 'text' : 'password'}
@@ -226,7 +261,7 @@ const RegisterPage = () => {
                   <div className="login-field-group">
                     <div
                       className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'passwordRepeat' ? ' login-field--error' : ''}`}
-                      data-node-id="76:3221"
+                      data-node-id={isLight ? '422:1500' : '76:3221'}
                     >
                       <input
                         type={showRepeatPassword ? 'text' : 'password'}
@@ -259,17 +294,17 @@ const RegisterPage = () => {
                 <button
                   type="submit"
                   className="login-auth-btn login-auth-btn--primary"
-                  data-node-id="76:3222"
+                  data-node-id={isLight ? '422:1501' : '76:3222'}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Creating account…' : 'Create account'}
                 </button>
               </div>
 
-              <div className="login-account-buttons" data-node-id="76:3223">
-                <div className="login-divider" data-node-id="76:3224">
+              <div className="login-account-buttons" data-node-id={isLight ? '422:1502' : '76:3223'}>
+                <div className="login-divider" data-node-id={isLight ? '422:1503' : '76:3224'}>
                   <span className="login-divider__line" aria-hidden="true" />
-                  <span className="login-divider__text" data-node-id={isLight ? '21:2496' : '76:3227'}>
+                  <span className="login-divider__text" data-node-id={isLight ? '422:1506' : '76:3227'}>
                     {isLight ? 'Or sign in with your' : 'Or create account with your'}
                   </span>
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />

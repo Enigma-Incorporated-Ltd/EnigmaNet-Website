@@ -1,4 +1,9 @@
-export type AuthFieldKey = 'email' | 'password' | 'passwordRepeat' | 'username';
+export type AuthFieldKey =
+  | 'email'
+  | 'password'
+  | 'passwordRepeat'
+  | 'firstname'
+  | 'lastname';
 
 export type AuthFieldError = {
   field: AuthFieldKey;
@@ -30,15 +35,15 @@ export function mapRegisterError(message: string): AuthFieldError {
   const lower = message.toLowerCase();
 
   if (lower.includes('last name') || lower.includes('lastname')) {
-    return { field: 'username', message };
+    return { field: 'lastname', message: message.trim() };
   }
 
   if (lower.includes('first name') || lower.includes('firstname')) {
-    return { field: 'username', message };
+    return { field: 'firstname', message: message.trim() };
   }
 
   if (lower.includes('user name') || lower.includes('username')) {
-    return { field: 'username', message };
+    return { field: 'firstname', message: message.trim() };
   }
 
   if (lower.includes('already exists') || lower.includes('user already')) {

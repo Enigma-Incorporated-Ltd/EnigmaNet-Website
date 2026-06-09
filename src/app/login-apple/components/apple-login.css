@@ -77,11 +77,9 @@
   gap: 8px;
 }
 
-.login-account-buttons--google-only {
-  justify-content: center;
-}
-
 .login-account-buttons--google-only .login-account-buttons__btn {
+  grid-column: 1 / -1;
+  justify-self: center;
   flex: 0 0 auto;
 }
 

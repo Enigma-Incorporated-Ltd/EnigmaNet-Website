@@ -105,7 +105,7 @@ export async function registerUser(
   });
 
   if (data.status !== 'Success') {
-    throw new AuthApiError(data.status || 'Registration failed.');
+    throw new AuthApiError((data.status || 'Registration failed.').trim());
   }
 
   return data;
