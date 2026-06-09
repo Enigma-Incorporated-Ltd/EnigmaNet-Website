@@ -24,13 +24,14 @@
         box-shadow 0.4s ease,
         background 0.4s ease;
 }
+
 /* =============================================
    OUTLINE BUTTONS
    ============================================= */
 
 .blue-outline {
     background: transparent;
-    border: 2px solid #18c8e8;
+    border: 1px solid #18c8e8;
     color: #18c8e8;
 }
 
@@ -44,15 +45,17 @@
 }
 
 .blue-outline:hover span {
-    color: #fff;
-    -webkit-text-fill-color: #fff;
+    background: linear-gradient(90deg, #ffffff 20%, #22d4f5 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 }
 
 /* ============================================= */
 
 .gold-outline {
     background: transparent;
-    border: 2px solid #F1BA5F;
+    border: 1px solid #F1BA5F;
     color: #F1BA5F;
 }
 
@@ -66,9 +69,17 @@
 }
 
 .gold-outline:hover span {
-    color: #fff;
-    -webkit-text-fill-color: #fff;
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffe7a3 40%,
+        #F1BA5F 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
 /* Full width */
 .w-100 {
     width: 100%;
@@ -116,7 +127,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 100px;
+    border-radius: inherit;
     background: linear-gradient(180deg, #1e1e22 0%, #111114 100%);
     /* box-shadow:
         inset 3px 3px 1px -3px rgba(255, 255, 255, 0.55),
@@ -208,7 +219,10 @@
 }
 
 .gold-filled:hover span {
-    background: linear-gradient(90deg, #c88c10 0%, #f5c840 100%);
+    background: linear-gradient(90deg,
+            #ffffff 0%,
+            #ffe7a3 40%,
+            #F1BA5F 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -218,7 +232,7 @@
    📱 RESPONSIVE
    ============================================= */
 @media (max-width: 768px) {
-    .custom-btn {      
+    .custom-btn {
         font-size: 16px;
         min-width: 160px;
         letter-spacing: 1.9px;
@@ -235,10 +249,11 @@
         letter-spacing: 3px;
     }
 }
+
 .btn-spinner {
     width: 20px ! important;
     /* equal width & height */
-    height: 19px ;
+    height: 19px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-top: 2px solid #fff;
     border-radius: 50%;
