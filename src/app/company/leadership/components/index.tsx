@@ -1750,7 +1750,7 @@ function SectionHeader({
 
 // ─── Engineering Credibility Band ─────────────────────────────────────────────
 
-function CredibilityBand() {
+export function CredibilityBand() {
   return (
     <div
       style={{
@@ -1825,7 +1825,7 @@ function CredibilityBand() {
 
 // ─── Leadership Statement ─────────────────────────────────────────────────────
 
-function LeadershipStatement({ onRead }: { onRead: (p: Person) => void }) {
+export function LeadershipStatement({ }: { onRead: (p: Person) => void }) {
   const jane = founders.find(f => f.id === 'jane')!;
   return (
     <div className="container" style={{ padding: '5rem 0' }}>
@@ -1916,7 +1916,7 @@ function LeadershipStatement({ onRead }: { onRead: (p: Person) => void }) {
 
 // ─── Latest Leadership Updates ────────────────────────────────────────────────
 
-function LatestUpdates() {
+export function LatestUpdates() {
   return (
     <div
       style={{
