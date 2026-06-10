@@ -1,8 +1,8 @@
-import { UsecaseRemoteWork1 } from '@/assets/img';
 import {
   AdemHeaps,
   ANdyRodger,
   BrunaLopes,
+  Drik,
   Gino,
   Glenn,
   Hamna,
@@ -10,14 +10,26 @@ import {
   JosephHoward,
   Kaspar,
   Ketherine,
+  Koby,
+  leadershipLanding,
   Mae,
-  Mohammed,
   NashimAhmed,
   Santosh,
   TracyHaynes,
   Victoria,
 } from '@/assets/img/company';
+import {
+  BusinessIcon,
+  DesignIcon,
+  EngineeringIcon,
+  OperationIcon,
+  CarrierIcon,
+  NetworkIcon,
+  PatentIcon,
+  DeploymentIcon,
+} from '@/assets/svgs/company/leadership';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import Br from '@/components/ui/NewLine';
 import PremiumButton from '@/components/ui/PremiumButton';
 import { useState } from 'react';
 
@@ -42,7 +54,7 @@ interface Person {
 
 interface SpecialistTeam {
   id: string;
-  icon: string;
+  icon?: string | React.ReactNode;
   name: string;
   description: string | React.ReactNode;
   areas: string[];
@@ -62,27 +74,38 @@ interface NewsCard {
 const founders: Person[] = [
   {
     id: 'glenn',
-    name: 'Glenn Melford-Colegate',
+    name: 'Glenn Melford Colegate',
     role: 'Founder & CTO',
     badge: 'FOUNDER',
     tagline: `Glenn founded Enigma in 2020 with a vision to create efficient network protocols for the AI and   
-IoT era. He is responsible for the company’s intellectual property and leads the design and   
+IoT era. He is responsible for the company's intellectual property and leads the design and   
 construction of products across wide-ranging network markets.   `,
     tags: ['Founder', 'CTO', 'APN Core', 'Network Systems', 'R&D'],
     avatarColor: '#1a3a5c',
-    bio: `Glenn founded Enigma in 2020 with a vision to create efficient network protocols for the AI and   
-IoT era. He is responsible for the company’s intellectual property and leads the design and   
-construction of products across wide-ranging network markets.   `,
-    // experience: [
-    //   '20+ years in telecommunications infrastructure',
-    //   'Previously CTO at TeleCore Networks',
-    //   'Led network deployments across 15+ countries',
-    // ],
-    // qualifications: [
-    //   'BSc Computer Science, University of Melbourne',
-    //   'MBA, INSEAD',
-    //   'Cisco Certified Internetwork Expert (CCIE)',
-    // ],
+    bio: (
+      <>
+        Glenn founded Enigma in 2020 with a vision to create efficient network protocols that would
+        meet the demands of the internet in the era of AI and IoT and be ubiquitous. Glenn is
+        responsible for the creation of the companies Intellecutal Property, and the design and
+        construction of products for the wide ranging network markets. Glenn leads the R&D team of
+        engineers, AI and network specialists.
+        <br />
+        Glenn's prior experience all involved network systems and knowing this was always the weak
+        link created Enigma to solve for corporate network problems.
+      </>
+    ),
+    experience: [
+      'Chief Engineer - Lumina Tech, designed & built prototype EV Earth Moving Equipment (2022) ',
+      'Chief Engineer - Morris Commercial, designed and built prototype EV van (2020-21) ',
+      'Principal Systems Designer, Operations Director - Master Ki Systems (2013-2019) ',
+      'Designed gaming terminals for variety of operators including, TCS John Huxley, Sega, JPM, Inspired Gaming Group (William Hill) ',
+      'Designed self service terminals for variety operations including for Argos, Tesco, Woolworth, Post Office',
+    ],
+    qualifications: [
+      'HND Mechanical & Manufacture Engineering',
+      'with Electrical & Software Engineering (Incomplete)',
+      'NVQ Level 5 - Managing IT Systems ',
+    ],
     // expertise: [
     //   'APN Core Architecture',
     //   'Network Infrastructure',
@@ -442,7 +465,7 @@ accelerators, investment programmes, venture studios and corporate innovation in
     //   'Founder Engagement',
     // ],
     linkedin: 'https://www.linkedin.com/in/koby-yogaretnam/',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=800',
+    avatar: Koby,
   },
   {
     id: 'tracey',
@@ -503,7 +526,7 @@ for customers, partners, investors and the wider market.   `,
 const specialistTeams: SpecialistTeam[] = [
   {
     id: 'biz-dev',
-    icon: '💼',
+    icon: <BusinessIcon />,
     name: 'Business Development & Sales',
     description:
       'Supporting customer growth, partner development, commercial strategy and pipeline activity.',
@@ -548,13 +571,13 @@ const specialistTeams: SpecialistTeam[] = [
         //   'Partnership Development',
         // ],
         // linkedin: 'https://linkedin.com',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=800',
+        avatar: Drik,
       },
     ],
   },
   {
     id: 'design',
-    icon: '🎨',
+    icon: <DesignIcon />,
     name: 'Design, UX/UI & Front-End',
     description:
       'Creating the visual, digital and front-end experience across the Enigma Net website, product interfaces and brand communications.',
@@ -692,7 +715,7 @@ const specialistTeams: SpecialistTeam[] = [
   },
   {
     id: 'ops',
-    icon: '⚙️',
+    icon: <OperationIcon />,
     name: 'Operations & Delivery',
     description:
       'Keeping teams aligned, delivery on track and operational systems structured as Enigma Net scales.',
@@ -786,7 +809,7 @@ const specialistTeams: SpecialistTeam[] = [
   },
   {
     id: 'tech-ops',
-    icon: '🔧',
+    icon: <EngineeringIcon />,
     name: 'Engineering Support',
     description:
       "Supporting Enigma Net's infrastructure, IT, platform environments and technical delivery across internal systems, customer deployments and operational support.",
@@ -900,7 +923,7 @@ const specialistTeams: SpecialistTeam[] = [
           'Enterprise Systems Architecture',
         ],
         linkedin: 'https://www.linkedin.com/in/mohammed-abul-azad-faisal/',
-        avatar: Mohammed,
+        avatar: Gino,
       },
     ],
   },
@@ -909,25 +932,25 @@ const specialistTeams: SpecialistTeam[] = [
 const credibilityTiles = [
   {
     id: 'carrier',
-    icon: '🌐',
+    icon: <CarrierIcon />,
     title: 'Carrier & enterprise experience',
     body: 'Deep experience across large-scale infrastructure, internet, network and enterprise environments.',
   },
   {
     id: 'security',
-    icon: '🔒',
+    icon: <NetworkIcon />,
     title: 'Network & security engineering',
     body: 'Expertise across secure connectivity, infrastructure operations, deployment and cybersecurity.',
   },
   {
     id: 'patent',
-    icon: '📐',
+    icon: <PatentIcon />,
     title: 'Patented technology foundation',
     body: 'Technology leadership supported by company IP, R&D and specialist engineering knowledge.',
   },
   {
     id: 'deploy',
-    icon: '🚀',
+    icon: <DeploymentIcon />,
     title: 'Real-world deployments',
     body: 'Deployment experience across customer environments, technical workloads and operational use cases.',
   },
@@ -974,6 +997,7 @@ function Avatar({ person, size = 80 }: { person: Person; size?: number }) {
         minHeight: size,
         borderRadius,
         overflow: 'hidden',
+
         flexShrink: 0,
         position: 'relative',
         border: '1px solid rgba(56, 139, 253, 0.25)',
@@ -991,13 +1015,15 @@ function Avatar({ person, size = 80 }: { person: Person; size?: number }) {
           alt={person.name}
           loading="lazy"
           style={{
-            width: '100%',
-            height: '100%',
-            display: 'block',
+            position: 'absolute',
+            bottom: -18,
+            // width: '100%',
+            // height: '100%',
+            // display: 'block',
             objectFit: 'cover',
-            objectPosition: 'center',
-            imageRendering: 'auto',
-            WebkitFontSmoothing: 'antialiased',
+            // objectPosition: 'center',
+            // imageRendering: 'auto',
+            // WebkitFontSmoothing: 'antialiased',
           }}
         />
       ) : (
@@ -1012,7 +1038,6 @@ function Avatar({ person, size = 80 }: { person: Person; size?: number }) {
             fontWeight: 700,
             color: '#88bbee',
             letterSpacing: 1,
-            
           }}
         >
           {initials}
@@ -1098,7 +1123,6 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                 border: '1px solid #2adeff',
                 padding: '3px 9px',
                 borderRadius: 4,
-                
               }}
             >
               {person.badge}
@@ -1154,7 +1178,7 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                 color: '#2adeff',
                 fontSize: '0.78rem',
                 margin: '0 0 10px',
-                
+
                 letterSpacing: 0.5,
               }}
             >
@@ -1181,7 +1205,7 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
 
           {person.experience && (
             <section className="mb-4">
-              <SectionLabel>Achievements</SectionLabel>
+              <SectionLabel>Career Highlights</SectionLabel>
               <ul style={{ paddingLeft: 0, listStyle: 'none', margin: 0 }}>
                 {person.experience.map((e, i) => (
                   <li
@@ -1243,7 +1267,6 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                       fontSize: '0.9rem',
                       padding: '4px 12px',
                       borderRadius: 20,
-                      
                     }}
                   >
                     {ex}
@@ -1266,7 +1289,6 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                       fontSize: '0.9rem',
                       padding: '4px 12px',
                       borderRadius: 20,
-                      
                     }}
                   >
                     {ex}
@@ -1291,7 +1313,7 @@ function BioModal({ person, onClose }: { person: Person | null; onClose: () => v
                 padding: '10px 20px',
                 borderRadius: 8,
                 textDecoration: 'none',
-                
+
                 letterSpacing: 0.5,
                 transition: 'all .15s',
                 marginTop: 8,
@@ -1323,7 +1345,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
         fontWeight: 700,
         letterSpacing: 2,
         color: '#388bfd',
-        
+
         textTransform: 'uppercase',
         margin: '0 0 10px',
       }}
@@ -1404,7 +1426,7 @@ function FounderCard({ person, onRead }: { person: Person; onRead: (p: Person) =
               border: '1px solid #2adeff',
               padding: '3px 9px',
               borderRadius: 4,
-              
+
               lineHeight: 1.4,
             }}
           >
@@ -1420,6 +1442,7 @@ function FounderCard({ person, onRead }: { person: Person; onRead: (p: Person) =
           display: 'flex',
           flexDirection: 'column',
           flexGrow: 1,
+          background: 'rgb(6 15 33)',
         }}
       >
         {/* name */}
@@ -1537,47 +1560,73 @@ function LeaderCard({ person, onRead }: { person: Person; onRead: (p: Person) =>
         flexDirection: 'column',
       }}
     >
-      <div className="d-flex flex-column align-items-start gap-3 mb-2">
+      {/* ── IMAGE BLOCK (no padding, full bleed) ── */}
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          background: 'linear-gradient(to bottom, #0a1628 0%, #0a1628 100%)',
+          // height: 400,
+          paddingTop: '100%', // square-ish portrait
+          flexShrink: 0,
+        }}
+      >
+        <img
+          src={person.avatar}
+          alt={person.name}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'top center',
+          }}
+        />
+
+        {/* bottom gradient fade */}
         <div
           style={{
-            position: 'relative',
-            width: '100%',
-            background: 'linear-gradient(to bottom, #0a1628 0%, #0a1628 100%)',
-            // height: 400,
-            paddingTop: '100%', // square-ish portrait
-            flexShrink: 0,
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to bottom, transparent 45%, rgba(6,14,34,0.88) 100%)',
+            pointerEvents: 'none',
           }}
-        >
-          <img
-            src={person.avatar}
-            alt={person.name}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              objectPosition: 'top center',
-            }}
-          />
+        />
 
-          {/* bottom gradient fade */}
-          <div
+        {/* badge — bottom-left, overlapping gradient */}
+        {person.badge && (
+          <span
             style={{
               position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to bottom, transparent 45%, rgba(6,14,34,0.88) 100%)',
-              pointerEvents: 'none',
+              bottom: 14,
+              left: 14,
+              zIndex: 2,
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: 1.6,
+              color: '#2adeff',
+              background: 'rgba(6,14,34,0.72)',
+              border: '1px solid #2adeff',
+              padding: '3px 9px',
+              borderRadius: 4,
+
+              lineHeight: 1.4,
             }}
-          />
-        </div>
+          >
+            {person.badge}
+          </span>
+        )}
       </div>
+
+      {/* ── BODY (padded) ── */}
       <div
         style={{
           padding: '1rem 1.1rem 1.1rem',
           display: 'flex',
           flexDirection: 'column',
           flexGrow: 1,
+          background: 'rgb(6 15 33)',
         }}
       >
         <div>
@@ -1683,16 +1732,25 @@ function SpecialistTeamCard({
   return (
     <div
       style={{
-        background: 'rgba(14, 28, 54, 0.6)',
-        border: '1px solid rgba(56, 139, 253, 0.12)',
         borderRadius: 14,
         padding: '1.5rem',
         height: '100%',
+        transition: 'all .2s ease',
+        background: 'rgba(56,139,253,0.04)',
+        border: '1px solid rgba(56,139,253,0.35)',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.background = 'transparent';
+        e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.background = 'rgba(56,139,253,0.04)';
+        e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
       }}
     >
       <div className="d-flex align-items-center gap-2 mb-2">
         <span style={{ fontSize: 22 }}>{team.icon}</span>
-        <h6 style={{ color: '#e8f0ff', fontSize: '0.95rem', fontWeight: 700, margin: 0 }}>
+        <h6 style={{ color: '#e8f0ff', fontSize: '1rem', fontWeight: 700, margin: 0 }}>
           {team.name}
         </h6>
       </div>
@@ -1735,7 +1793,6 @@ function SpecialistTeamCard({
                     color: '#4a7ab0',
                     fontSize: '0.8rem',
                     margin: 0,
-                    
                   }}
                 >
                   {m.role}
@@ -1751,7 +1808,7 @@ function SpecialistTeamCard({
                 fontSize: '0.9rem',
                 padding: 0,
                 cursor: 'pointer',
-                
+
                 letterSpacing: 0.5,
                 display: 'flex',
                 alignItems: 'center',
@@ -1803,7 +1860,6 @@ function SectionHeader({
       <div className="d-flex align-items-center gap-3">
         <span
           style={{
-            
             fontSize: '1rem',
             color: '#2adeff',
             letterSpacing: 2,
@@ -1831,7 +1887,6 @@ function SectionHeader({
             color: '#4a7ab0',
             fontSize: '1rem',
             margin: '6px 0 0 68px',
-            
           }}
         >
           {subtitle}
@@ -1858,10 +1913,10 @@ export function CredibilityBand() {
         <div className="text-center mb-5">
           <p
             style={{
-              fontSize: '0.7rem',
+              fontSize: '01rem',
               fontWeight: 700,
               letterSpacing: 3,
-              color: '#388bfd',
+              color: '#2adeff',
 
               textTransform: 'uppercase',
               marginBottom: 12,
@@ -1885,11 +1940,20 @@ export function CredibilityBand() {
             <div key={tile.id} className="col-12 col-sm-6 col-lg-3">
               <div
                 style={{
-                  background: 'rgba(14, 28, 54, 0.6)',
-                  border: '1px solid rgba(56, 139, 253, 0.12)',
                   borderRadius: 14,
                   padding: '1.5rem',
                   height: '100%',
+                  transition: 'all .2s ease',
+                  background: 'rgba(56,139,253,0.04)',
+                  border: '1px solid rgba(56,139,253,0.35)',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'rgba(56,139,253,0.04)';
+                  e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
                 }}
               >
                 <div style={{ fontSize: 28, marginBottom: 12 }}>{tile.icon}</div>
@@ -1933,10 +1997,10 @@ export function LeadershipStatement({}: { onRead: (p: Person) => void }) {
       <div className="text-center mb-5">
         <p
           style={{
-            fontSize: '0.7rem',
+            fontSize: '1rem',
             fontWeight: 700,
             letterSpacing: 3,
-            color: '#388bfd',
+            color: '#2adeff',
 
             textTransform: 'uppercase',
             marginBottom: 12,
@@ -1959,21 +2023,22 @@ export function LeadershipStatement({}: { onRead: (p: Person) => void }) {
         <div className="col-lg-10">
           <div
             style={{
-              border: '1px solid rgba(56, 139, 253, 0.12)',
+              background: 'rgba(56,139,253,0.04)',
+              border: '1px solid rgba(56,139,253,0.35)',
               borderRadius: 14,
               padding: '1.5rem',
               height: '100%',
-              background: 'transparent', // no background initially
-              transition: 'border-color .15s, background .15s',
-              boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
+              // background: 'transparent', // no background initially
+              transition: 'all .2s ease',
+              // boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
             }}
             onMouseEnter={e => {
+              e.currentTarget.style.background = 'transparent';
               e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
-              e.currentTarget.style.background = 'rgba(56,139,253,0.04)';
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'rgba(56,139,253,0.12)';
-              e.currentTarget.style.background = 'transparent'; // return to no background
+              e.currentTarget.style.background = 'rgba(56,139,253,0.04)';
+              e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
             }}
           >
             <div className="row align-items-center g-4">
@@ -2032,7 +2097,6 @@ export function LatestUpdates() {
   return (
     <div
       style={{
-       
         padding: '5rem 0',
       }}
     >
@@ -2041,11 +2105,11 @@ export function LatestUpdates() {
           <div className="col">
             <p
               style={{
-                fontSize: '0.7rem',
+                fontSize: '1rem',
                 fontWeight: 700,
                 letterSpacing: 3,
-                color: '#388bfd',
-                
+                color: '#2adeff',
+
                 textTransform: 'uppercase',
                 marginBottom: 12,
               }}
@@ -2077,7 +2141,7 @@ export function LatestUpdates() {
                 padding: '10px 20px',
                 borderRadius: 8,
                 textDecoration: 'none',
-                
+
                 letterSpacing: 0.5,
               }}
             >
@@ -2094,8 +2158,8 @@ export function LatestUpdates() {
               >
                 <div
                   style={{
-                    background: 'rgba(14, 28, 54, 0.6)',
-                    border: '1px solid rgba(56, 139, 253, 0.12)',
+                    background: 'rgba(56,139,253,0.04)',
+                    border: '1px solid rgba(56,139,253,0.35)',
                     borderRadius: 14,
                     padding: '1.5rem',
                     height: '100%',
@@ -2105,12 +2169,12 @@ export function LatestUpdates() {
                     gap: 12,
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56,139,253,0.35)';
-                    (e.currentTarget as HTMLDivElement).style.background = 'rgba(56,139,253,0.04)';
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56,139,253,0.12)';
-                    (e.currentTarget as HTMLDivElement).style.background = 'rgba(14,28,54,0.6)';
+                    e.currentTarget.style.background = 'rgba(56,139,253,0.04)';
+                    e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
                   }}
                 >
                   <span
@@ -2119,7 +2183,7 @@ export function LatestUpdates() {
                       fontWeight: 700,
                       letterSpacing: 2,
                       color: '#388bfd',
-                      
+
                       textTransform: 'uppercase',
                     }}
                   >
@@ -2139,9 +2203,9 @@ export function LatestUpdates() {
                   </p>
                   <span
                     style={{
-                      color: '#388bfd',
+                      color: '#2adeff',
                       fontSize: '0.75rem',
-                      
+
                       display: 'flex',
                       alignItems: 'center',
                       gap: 6,
@@ -2176,8 +2240,7 @@ export default function LeadershipPage() {
         
       `}</style>
 
-      <div
-        className="bg-dark"  >
+      <div className="bg-dark">
         {/* Hero */}
         <div
           style={{
@@ -2188,8 +2251,8 @@ export default function LeadershipPage() {
           }}
         >
           <div className="container">
-            <div className="row align-items-end">
-              <div className="col-lg-6">
+            <div className="row align-items-end g-4">
+              <div className="col-lg-5">
                 <Breadcrumb
                   items={[
                     { label: 'Company', href: '/company' },
@@ -2198,6 +2261,7 @@ export default function LeadershipPage() {
                   style={{ paddingTop: '11rem' }}
                 />
                 <h1
+                  className="text-md-center text-lg-start"
                   style={{
                     color: '#e8f0ff',
                     fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
@@ -2208,15 +2272,16 @@ export default function LeadershipPage() {
                   }}
                 >
                   The people behind
-                  <br />
-                  <span style={{ color: '#2adeff' }}>Enigma Net</span>
+                  <Br isDesktop />
+                  <span style={{ color: '#2adeff' }}> Enigma Net</span>
                 </h1>
                 <p
+                  className="text-md-center text-lg-start"
                   style={{
                     color: '#e8f0ff',
                     fontSize: '0.95rem',
                     lineHeight: 1.75,
-                    maxWidth: 520,
+
                     margin: '0 0 2rem',
                   }}
                 >
@@ -2224,33 +2289,73 @@ export default function LeadershipPage() {
                   software development, security, finance, product, commercial growth, marketing and
                   technical delivery.
                 </p>
-                <div className="d-flex flex-wrap gap-3">
+                <div className="d-flex flex-wrap gap-3 align-items-center justify-content-lg-start justify-content-md-center justify-content-center">
                   <PremiumButton
                     label="Contact us →"
                     href="/get-in-touch"
                     variant="blue"
-                    className="rounded-4"
+                    className="rounded-4 "
+                    style={{
+                      width: '260px',
+                      fontSize: '0.8rem',
+                    }}
                   />
                   <PremiumButton
                     label=" Visit newsroom"
                     href="#"
                     variant="gold"
-                    className="rounded-4"
+                    className="rounded-4 "
                     outline
+                    style={{
+                      width: '250px',
+                      fontSize: '0.8rem',
+                    }}
                   />
                 </div>
               </div>
-              <div className="col-lg-6 text-end ">
-                <div style={{ maxHeight: '400px', width: '100%' }}>
+
+              <div className="col-lg-7 text-lg-end text-md-center text-center">
+                <div style={{ position: 'relative' }}>
                   <img
-                    src={UsecaseRemoteWork1}
+                    src={leadershipLanding}
                     alt="Leadership"
                     style={{
                       width: '100%',
                       height: '100%',
-                      WebkitMaskImage:
-                        'radial-gradient(ellipse 80% 80% at 55% 48%, black 35%, transparent 70%)',
-                      maskImage: 'radial-gradient(91% 83% at 54% 61%, black 43%, transparent 75%)',
+                      display: 'block',
+                      // Aggressive left fade + soft fade on top/bottom/right
+                      WebkitMaskImage: `linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0,0,0,0.5) 10%,
+            black 45%,
+            black 91%,
+            transparent 100%
+          ),
+          linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 15%,
+            black 85%,
+            transparent 100%
+          )`,
+                      WebkitMaskComposite: 'intersect',
+                      maskImage: `linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0,0,0,0.5) 20%,
+            black 45%,
+            black 80%,
+            transparent 100%
+          ),
+          linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 15%,
+            black 85%,
+            transparent 100%
+          )`,
+                      maskComposite: 'intersect',
                     }}
                   />
                 </div>
@@ -2292,7 +2397,6 @@ export default function LeadershipPage() {
               ))}
             </div>
           </section>
-
           {/* 03 — Commercial, Growth & Marketing */}
           <section className="mb-5">
             <SectionHeader
@@ -2308,7 +2412,6 @@ export default function LeadershipPage() {
               ))}
             </div>
           </section>
-
           {/* 04 — Specialist Teams */}
           <section>
             <div className="row mb-4 align-items-center">
