@@ -15,7 +15,7 @@ export default defineConfig({
       '/api': {
         target: 'https://enigmaincenterpriseapp.azurewebsites.net',
         changeOrigin: true,
-        secure: true,
+        secure: false,
       },
     },
   },

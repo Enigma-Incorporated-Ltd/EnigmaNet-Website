@@ -1,32 +1,33 @@
-/** Enigma platform auth — mirrors N0DE env contract (see feasibility study). */
+/** Enigma platform auth — mirrors N0DE CORS pattern (Vite proxy in dev, direct API in prod). */
 
 const trimTrailingSlash = (url: string) => url.replace(/\/$/, '');
 
-const configuredAuthApiBaseUrl = trimTrailingSlash(
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? '',
-);
+const PRODUCTION_API_BASE = 'https://enigmaincenterpriseapp.azurewebsites.net';
 
-/** Prefer same-origin `/api` when configured host differs (prod web.config proxy / dev Vite proxy). */
-function resolveAuthApiBaseUrl(): string {
-  if (!configuredAuthApiBaseUrl) return '';
+const isLocalDevHost = (hostname: string) =>
+  hostname === 'localhost' || hostname === '127.0.0.1';
 
-  if (typeof window === 'undefined') {
-    return configuredAuthApiBaseUrl;
+/**
+ * N0DE pattern:
+ * - localhost → '' (relative /api/*, Vite proxy — no CORS)
+ * - production → VITE_API_BASE_URL or default Azure API (backend CORS required)
+ */
+export function getAuthApiBaseUrl(): string {
+  const envBase = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? '';
+  if (envBase.trim()) {
+    return trimTrailingSlash(envBase);
   }
 
-  try {
-    const configuredOrigin = new URL(configuredAuthApiBaseUrl).origin;
-    if (configuredOrigin !== window.location.origin) {
-      return '';
-    }
-  } catch {
-    return configuredAuthApiBaseUrl;
+  if (typeof window !== 'undefined' && isLocalDevHost(window.location.hostname)) {
+    return '';
   }
 
-  return configuredAuthApiBaseUrl;
+  if (import.meta.env.PROD) {
+    return PRODUCTION_API_BASE;
+  }
+
+  return '';
 }
-
-export const AUTH_API_BASE_URL = configuredAuthApiBaseUrl;
 
 export const AUTH_API_KEY = (import.meta.env.VITE_API_KEY as string | undefined) ?? '';
 
@@ -69,6 +70,6 @@ export function getAuthConfigError(): string | null {
 
 export function authUrl(path: string): string {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  const baseUrl = resolveAuthApiBaseUrl();
-  return baseUrl ? `${baseUrl}${normalizedPath}` : normalizedPath;
+  const base = getAuthApiBaseUrl();
+  return base ? `${base}${normalizedPath}` : normalizedPath;
 }
