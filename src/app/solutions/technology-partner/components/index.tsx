@@ -16,6 +16,7 @@ import PainCard from '@/components/ui/PainCard';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 import { solutions } from '@/utils/solutions';
 import { useSlug } from '@/utils/useSlug';
+import PremiumButton from '@/components/ui/PremiumButton';
 const features = [
   {
     id: 1,
@@ -88,6 +89,7 @@ const TechnologiesPage = () => {
             label: 'Talk to Enigma ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
           {
             label: 'Explore Technology Partnerships',
@@ -111,7 +113,16 @@ const TechnologiesPage = () => {
         }
         description="Many platforms depend on customer networks, distributed infrastructure or variable connectivity conditions they do not control. When performance drops, the platform experience suffers — even when the product itself is not the problem. "
       />
-
+      <div className="d-flex justify-content-center px-5">
+        {' '}
+        <PremiumButton
+          key={theme}
+          label="View  Use Case"
+          variant={theme === 'dark' ? 'gold' : 'blue'}
+          className="btn-lg btn-responsive"
+          href="/solutions/technology-partner/use-case"
+        />
+      </div>
       <CardSlider
         title={
           <>
@@ -183,6 +194,7 @@ const TechnologiesPage = () => {
           label: 'Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
         secondaryButton={{
           label: 'Explore Technology Partnerships ',
@@ -191,8 +203,6 @@ const TechnologiesPage = () => {
         }}
       />
       <NextPageSlider
-        buttonText="All Solutions"
-        buttonLink="/solutions"
         title="Related Solutions"
         basePath="/solutions"
         data={solutions}

@@ -8,6 +8,8 @@ type CaseStudyHighlightProps = {
   quote?: string | React.ReactNode;
   transitionLine?: string | React.ReactNode;
   image?: string;
+  className?: string;
+  isbg?: boolean;
 };
 const CaseStudyHighlight = ({
   data,
@@ -16,6 +18,8 @@ const CaseStudyHighlight = ({
   quote,
   transitionLine,
   image,
+  className,
+  isbg,
 }: CaseStudyHighlightProps) => {
   return (
     <Container className="pt-3 pb-5 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
@@ -43,13 +47,20 @@ const CaseStudyHighlight = ({
           <ul className="list-unstyled row   pb-2 g-3">
             {data.map((item, idx) => (
               <li key={idx} className="col-12 col-md-6">
-                <div className="premium-list-item bg-secondary d-flex align-items-center p-3 h-100">
+                <div
+                  className={`premium-list-item d-flex align-items-center p-3 h-100 ${
+                    !isbg ? 'bg-secondary' : ''
+                  }`}
+                  style={{
+                    background: isbg ? '#f3f6ff' : undefined,
+                  }}
+                >
                   <div className="icon-wrapper me-3">
                     <IconifyIcon icon="bx:check-circle" />
                   </div>
 
                   <div className="d-flex align-items-center h-100">
-                    <span className="text-muted-50">{item}</span>
+                    <span className={` ${className ? className : 'text-muted-50'} `}>{item}</span>
                   </div>
                 </div>
               </li>
@@ -61,14 +72,11 @@ const CaseStudyHighlight = ({
             <img
               src={image}
               width="100%"
-             
               alt="Case Study Highlight"
-              className="img-fluid rounded-4 shadow-lg"
+              className="img-fluid bg-dark rounded-4 shadow-lg"
               style={{
                 borderRadius: '1.5rem',
                 boxShadow: '0 1.875rem 7.5rem -.625rem rgba(124,125,152, .2)',
-               
-               
               }}
             />
           </div>

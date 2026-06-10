@@ -6,12 +6,14 @@ type HeroButton = {
   label: string;
   href: string;
   variant: 'blue' | 'gold';
+  disableSentenceCase?: boolean;
 };
 
 type HeroProps = {
   title: string | React.ReactNode;
   description?: string | React.ReactNode;
   image?: string;
+  isbg?: boolean;
   buttons?: HeroButton[];
   features?: string[];
   subtitle?: string | React.ReactNode;
@@ -24,6 +26,8 @@ const HeroSection = ({
   buttons = [],
   features = [],
   subtitle,
+  isbg = false,
+
 }: HeroProps) => {
   const isFullWidth = !image;
 
@@ -76,6 +80,7 @@ const HeroSection = ({
                     variant={btn.variant}
                     className="btn-lg"
                     href={btn.href}
+                    disableSentenceCase={btn.disableSentenceCase}
                     style={
                       image
                         ? {
@@ -116,7 +121,7 @@ const HeroSection = ({
                 <img
                   src={image}
                   alt={title as string}
-                  className="w-100 rounded-4 "
+                  className={`w-100 rounded-4 ${isbg && 'bg-dark' }`}
                   style={{
                     boxShadow: '0 20px 80px rgba(0,0,0,0.15)',
                     maxHeight: '600px',

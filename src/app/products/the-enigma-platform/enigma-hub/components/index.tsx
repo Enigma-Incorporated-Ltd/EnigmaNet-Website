@@ -10,7 +10,6 @@ import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 
-import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
@@ -416,7 +415,7 @@ const workflows = [
       'Create or invite the initial admin user  ',
       'Link Connect, EDGE, ESC and storage subscriptions  ',
       'Tenant admin invites additional users  ',
-      'assword and 2FA policies are applied  ',
+      'Password and 2FA policies are applied  ',
     ],
     stepList: true,
     stepTitle: 'Steps',
@@ -462,7 +461,7 @@ const workflows = [
   },
 ];
 const Hub = () => {
-  const slug = useSlug();
+
   const { theme } = useTheme();
   return (
     <div>
@@ -480,17 +479,18 @@ const Hub = () => {
       <HeroSection
         title={
           <>
-            Control who has access, what <Br isDesktop isTablet /> they can seeand what they can do.
+            Control who has access, what <Br  isTablet /> they can seeand what they can do.
           </>
         }
         description="Enigma Hub centralises users, tenants, groups, roles, security policies and audit trails across   
         Enigma Connect, Enigma EDGE, ESC – Secure Networking, SyncSphere and Nexus workflows.  "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: 'Talk to Enigma',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
         ]}
         features={['Identity control', 'Role-based access ', 'Audit-ready activity']}
@@ -722,7 +722,7 @@ const Hub = () => {
       <NextPageSlider
         title="Hub connects identity and access across Nexus "
         data={features}
-        currentSlug={slug as string}
+       
       />
       <CTA
         theme={theme}
@@ -740,6 +740,7 @@ const Hub = () => {
           label: 'Talk to Enigma  ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
       />
     </div>

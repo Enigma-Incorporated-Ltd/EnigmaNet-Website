@@ -1,23 +1,25 @@
-import Footer from "@/components/footer/Footer";
-import Navbar from "@/components/navbar/Navbar";
-import PageMeta from "@/components/PageMeta";
-import { BASE_URL } from "@/utils";
-import Ledger from "./components";
-
+import Footer from '@/components/footer/Footer';
+import Navbar from '@/components/navbar/Navbar';
+import PageMeta from '@/components/PageMeta';
+import { BASE_URL } from '@/utils';
+import Ledger from './components';
 
 const EnigmaLedger = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Enigma Ledger',
     url: `${BASE_URL}/products/the-enigma-platform/enigma-ledger`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Ledger centralises subscriptions, invoices, payment methods, tax details, PSP connections, payment devices, reporting and reconciliation across Enigma Connect, Enigma EDGE, ESC, Hot Storage, LFT and MFT.  ',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Enigma Ledger | The Enigma Platform -Products "
+        description="Enigma Ledger centralises subscriptions, invoices, payment methods, tax details, PSP   
+        connections, payment devices, reporting and reconciliation across Enigma Connect, Enigma   
+        EDGE, ESC, Hot Storage, LFT and MFT.  "
         url={`${BASE_URL}/products/the-enigma-platform/enigma-ledger`}
         structuredData={structuredData}
       />
@@ -28,6 +30,6 @@ const EnigmaLedger = () => {
       <Footer />
     </>
   );
-}
+};
 
-export default EnigmaLedger
+export default EnigmaLedger;

@@ -1,20 +1,41 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enterprise as heroImg } from '@/assets/img';
+import {  enigmaSecureDesktop,
+  enigmaSecureMobile,
+  enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
+import Fragmented from '@/assets/svgs/products/enigma-platform/nexus/Pain-card-Fragmented-visibility.svg'
+import Slower from '@/assets/svgs/products/enigma-platform/nexus/pain-point-Slower-incident-response.svg';
+import Limited from '@/assets/svgs/products/enigma-platform/nexus/Pain-card-Limited-operational-control.svg';
+import Growing from '@/assets/svgs/products/enigma-platform/nexus/Pain-card-Growing-service-complexity.svg';
+import Networkoperations from '@/assets/svgs/products/enigma-platform/nexus/What-Nexus-brings-together-Network-operations.svg';
+import Assetvisibility from '@/assets/svgs/products/enigma-platform/nexus/What-Nexus-brings-together-Asset-visibility.svg';
+import Fileandstorageworkflows from '@/assets/svgs/products/enigma-platform/nexus/What-Nexus-brings-together-File-and-storage-workflows.svg';
+import Userandtenantcontrol from '@/assets/svgs/products/enigma-platform/nexus/What-Nexus-brings-together-User-and-tenant-control.svg';
+import AIassistedoperations from '@/assets/svgs/products/enigma-platform/nexus/What-Nexus-brings-together-AI-assisted-operations.svg';
+import Customeradmins from '@/assets/svgs/products/enigma-platform/nexus/What-Nexus-brings-together-Customer-admins.svg';
+import Customertechnicalusers from '@/assets/svgs/products/enigma-platform/nexus/What-Nexus-brings-together-Customer-technical-users.svg';
+import EnigmaNOCandsupportteams from '@/assets/svgs/products/enigma-platform/nexus/What-Nexus-brings-together-Enigma-NOC-and-support-teams.svg';
+import Enigmaengineering from '@/assets/svgs/products/enigma-platform/nexus/What-Nexus-brings-together-Enigma-engineering-and-platform-teams.svg';
+import Onboardcustomer from '@/assets/svgs/products/enigma-platform/nexus/Journey-cards-Onboard-a-customer.svg';
+import Monitorfleethealth from '@/assets/svgs/products/enigma-platform/nexus/Journey-cards-Monitor-fleet-health.svg';
+import Investigateincident from '@/assets/svgs/products/enigma-platform/nexus/Journey-cards-Investigate-an-incident.svg';
+import Movesyncdata from '@/assets/svgs/products/enigma-platform/nexus/Journey-cards-Move-and-sync-data.svg';
+import Reviewactivity from '@/assets/svgs/products/enigma-platform/nexus/Journey-cards-Review-audit-and-compliance-activity.svg';
+import Transparentdecisions from '@/assets/svgs/products/enigma-platform/nexus/Key-message-Transparent-decisions.svg';
+import Controlledautomation from '@/assets/svgs/products/enigma-platform/nexus/Key-message-Controlled-automation.svg';
+import Auditreadyactivity from '@/assets/svgs/products/enigma-platform/nexus/Key-message-Audit-ready-activity.svg';
+import Tenantawaresafety from '@/assets/svgs/products/enigma-platform/nexus/Key-message-Tenant-aware-safety.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
-
 import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import Br from '@/components/ui/NewLine';
+import { useEffect, useState } from 'react';
 const features = [
   {
     id: 1,
@@ -106,26 +127,26 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: Fragmented,
     title: 'Fragmented visibility',
     description: `Network health, devices, files, users and tickets are often managed across separate systems.`,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Slower,
     title: 'Slower incident response',
     description: ` When alerts, telemetry and actions are disconnected, teams lose time working out what happened and what to do next.`,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Limited,
     title: 'Limited operational control',
     description:
       'Customers and support teams need clear permissions, audit trails and approval paths when managing live infrastructure.',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Growing,
     title: 'Growing service complexity',
     description:
       'As Connect, EDGE, ESC and storage services scale, teams need one view of customers, assets, subscriptions and performance.',
@@ -134,33 +155,33 @@ const Core = [
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: Networkoperations,
     title: 'Network operations',
     description: `Monitor tunnel health, latency, jitter, packet loss, alerts and incidents across Enigma services. `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Assetvisibility,
     title: 'Asset visibility ',
     description: `View sites, devices, gateways, services and topology across Connect, EDGE and ESC deployments.`,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Fileandstorageworkflows,
     title: 'File and storage workflows',
     description:
       'Manage Hot Storage, large file transfer, managed file transfer and cross-cloud sync from a single workspace.',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Userandtenantcontrol,
     title: 'User and tenant control',
     description:
       'Manage customers, partners, internal users, roles, subscriptions, licences and audit logs. ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: AIassistedoperations,
     title: 'AI-assisted operations',
     description:
       'Surface LLM-agent insights, tickets, recommended actions and remediation workflows with human approval and override. ',
@@ -169,26 +190,26 @@ const data2 = [
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: Customeradmins,
     title: 'Customer admins',
     description: `Manage sites, users, subscriptions, permissions and high-level service policy. `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Customertechnicalusers,
     title: 'Customer technical users ',
     description: `Monitor performance, run diagnostics, approve changes and interact with the AI agent. `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: EnigmaNOCandsupportteams,
     title: 'Enigma NOC and support teams ',
     description:
       'Investigate incidents, manage alerts, review agent activity and support live customers. ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Enigmaengineering,
     title: 'Enigma engineering and platform teams',
     description:
       'Manage ESC profiles, integrations, automation workflows and platform-level configuration exposed through Nexus.',
@@ -197,35 +218,35 @@ const data3 = [
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: Onboardcustomer,
     title: '1. Onboard a customer ',
     description: `Create the customer account, provision Connect, EDGE or ESC services, invite admins and assign permissions.`,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: Monitorfleethealth,
     title: '2. Monitor fleet health ',
     description:
       'View live tunnel status, link health, latency, jitter, packet loss and device performance across deployed services.',
   },
   {
     id: 3,
-    icon: block1,
+    icon: Investigateincident,
     title: '3. Investigate an incident',
     description:
       'Review alerts, agent insights, tickets and operational logs from one place, then approve or override recommended actions. ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Movesyncdata,
     title: '4. Move and sync data ',
     description:
       'Bring a customer’s media library or dataset into Hot Storage and configure ongoing sync through SyncSphere.',
   },
   {
     id: 5,
-    icon: block2,
+    icon: Reviewactivity,
     title: '5. Review audit and compliance activity  ',
     description: `Export operational logs, user actions and tenant-wide activity for regulated or compliance-sensitive customers.`,
   },
@@ -233,28 +254,27 @@ const data4 = [
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: Transparentdecisions,
     title: 'Transparent decisions ',
     description: `See what the agent detected, what it recommended and why action was suggested.`,
   },
-
   {
     id: 2,
-    icon: block3,
+    icon: Controlledautomation,
     title: 'Controlled automation  ',
     description:
       'Approve, pause or override actions before they affect live customer environments.',
   },
   {
     id: 3,
-    icon: block1,
+    icon: Auditreadyactivity,
     title: 'Audit-ready activity ',
     description:
       'Track agent actions, user approvals, operational events and exports for compliance. ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Tenantawaresafety,
     title: 'Tenant-aware safety',
     description: 'Every action is scoped by customer, role, permission and service entitlement. ',
   },
@@ -366,6 +386,28 @@ const Command = [
 const Nexus = () => {
   const slug = useSlug();
   const { theme } = useTheme();
+  const [caseStudyImage, setCaseStudyImage] = useState(enigmaSecureDesktop);
+  const [heroImage, setHeroImage] = useState(enigmaSecureTablet);
+
+  useEffect(() => {
+    const updateImage = () => {
+      if (window.innerWidth < 768) {
+        setCaseStudyImage(enigmaSecureMobile); 
+        setHeroImage(enigmaSecureMobile);
+      } else if (window.innerWidth < 992) {
+        setCaseStudyImage(enigmaSecureTablet); 
+        setHeroImage(enigmaSecureTablet);
+      } else {
+        setCaseStudyImage(enigmaSecureDesktop); 
+        setHeroImage(enigmaSecureTablet);
+      }
+    };
+
+    updateImage();
+    window.addEventListener('resize', updateImage);
+
+    return () => window.removeEventListener('resize', updateImage);
+  }, []);
   return (
     <div>
       <Breadcrumb
@@ -387,7 +429,8 @@ const Nexus = () => {
           </>
         }
         description=" Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform. "
-        // image={heroImg}
+        image={heroImage}
+        isbg
         buttons={[
           {
             label: 'Explore Nexus ',
@@ -398,6 +441,7 @@ const Nexus = () => {
             label: 'Talk to Enigma',
             href: '/get-in-touch',
             variant: 'gold',
+            disableSentenceCase: true,
           },
         ]}
         features={[' Unified control  ', 'Role-aware access', ' AI-assisted operations']}
@@ -504,7 +548,7 @@ const Nexus = () => {
         data={data4}
       />
       <CaseStudyHighlight
-        image={heroImg}
+        image={caseStudyImage}
         title={
           <>
             <HeaderTitle
@@ -644,6 +688,7 @@ const Nexus = () => {
           label: 'Talk to Enigma',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
     </div>

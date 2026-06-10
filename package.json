@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@iconify/react": "^6.0.1",
+    "@storyblok/react": "^4.6.0",
     "@types/swiper": "^5.4.3",
     "bootstrap": "^5.3.8",
     "dotenv": "^8.2.0",
@@ -45,7 +46,7 @@
     "sas": "^3.0.4",
     "sass": "1.77.6",
     "simplebar-react": "^3.3.2",
-    "swiper": "^11.2.10",
+    "swiper": "^12.1.4",
     "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {

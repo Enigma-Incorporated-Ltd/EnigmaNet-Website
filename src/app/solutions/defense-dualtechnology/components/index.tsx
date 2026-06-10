@@ -16,6 +16,7 @@ import PainCard from '@/components/ui/PainCard';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 import { solutions } from '@/utils/solutions';
 import { useSlug } from '@/utils/useSlug';
+import PremiumButton from '@/components/ui/PremiumButton';
 const features = [
   {
     id: 1,
@@ -92,6 +93,7 @@ const DefenseTechnology = () => {
             label: 'Speak to Enigma',
             href: '/get-in-touch',
             variant: 'gold',
+            disableSentenceCase: true,
           },
         ]}
         features={['Secure by design', 'Multi-link resilience', 'Operational contro']}
@@ -110,6 +112,16 @@ const DefenseTechnology = () => {
         }
         description="From base operations and remote estates to unmanned systems and field connectivity, defence-related environments need secure, resilient communications across mixed link types and difficult conditions. "
       />
+      <div className="d-flex justify-content-center px-5">
+        {' '}
+        <PremiumButton
+          key={theme}
+          label="View  Use Case"
+          variant={theme === 'dark' ? 'gold' : 'blue'}
+          className="btn-lg btn-responsive"
+          href="/solutions/defense-dualtechnology/use-case"
+        />
+      </div>
 
       <CardSlider
         title={
@@ -178,11 +190,10 @@ const DefenseTechnology = () => {
           label: 'Speak to Enigma ',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
       <NextPageSlider
-        buttonText="All Solutions"
-        buttonLink="/solutions"
         title="Related Solutions"
         basePath="/solutions"
         data={solutions}

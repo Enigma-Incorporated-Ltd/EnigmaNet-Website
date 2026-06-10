@@ -16,7 +16,7 @@ const EnigmaHub = () => {
   return (
     <>
       <PageMeta
-        title="Enigma Hub"
+        title="Enigma Hub | The Enigma Platform -Products"
         description="Enigma Hub centralises users, tenants, groups, roles, security policies and audit trails across   
 Enigma Connect, Enigma EDGE, ESC – Secure Networking, SyncSphere and Nexus workflows.  "
         url={`${BASE_URL}/products/the-enigma-platform/enigma-hub`}

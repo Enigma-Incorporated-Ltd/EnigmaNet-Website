@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import {industries} from '@/assets/img';
+import { industries } from '@/assets/img';
 import features1 from '@/assets/svgs/solutions/industries/pain card - Critical systems cannot tolerate disruption.svg';
 import features2 from '@/assets/svgs/solutions/industries/pain card - Limited visibility slows response.svg';
 import features3 from '@/assets/svgs/solutions/industries/pain card - Legacy or fragmented infrastructure creates risk.svg';
@@ -20,6 +20,7 @@ import PainCard from '@/components/ui/PainCard';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 import { solutions } from '@/utils/solutions';
 import { useSlug } from '@/utils/useSlug';
+import PremiumButton from '@/components/ui/PremiumButton';
 const features = [
   {
     id: 1,
@@ -85,7 +86,6 @@ const relevent = [
     description:
       'Give teams live performance insight across the environment so they can respond faster and manage with confidence.',
   },
- 
 ];
 const quote = [
   'Improved resilience across critical operations',
@@ -101,7 +101,7 @@ const outcomes = [
 ];
 const IndustriesData = () => {
   const { theme } = useTheme();
- const slug = useSlug();
+  const slug = useSlug();
   return (
     <div>
       <Breadcrumb
@@ -120,6 +120,7 @@ const IndustriesData = () => {
             label: 'Talk to Enigma ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
           {
             label: 'Book a Consultation',
@@ -143,7 +144,16 @@ const IndustriesData = () => {
         }
         description=" In some industries, connectivity is not just about access. It affects operational continuity, service delivery, responsiveness, security and the ability to perform under pressure."
       />
-
+      <div className="d-flex justify-content-center px-5">
+        {' '}
+        <PremiumButton
+          key={theme}
+          label="View  Use Case"
+          variant={theme === 'dark' ? 'gold' : 'blue'}
+          className="btn-lg btn-responsive"
+          href="/solutions/industries/use-case"
+        />
+      </div>
       <CardSlider
         title={
           <>
@@ -215,6 +225,7 @@ const IndustriesData = () => {
           label: 'Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'gold',
+          disableSentenceCase: true,
         }}
         secondaryButton={{
           label: 'Book a Consultation ',
@@ -223,8 +234,6 @@ const IndustriesData = () => {
         }}
       />
       <NextPageSlider
-        buttonText="All Solutions"
-        buttonLink="/solutions"
         title="Related Solutions"
         basePath="/solutions"
         data={solutions}

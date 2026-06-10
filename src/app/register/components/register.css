@@ -1,0 +1,124 @@
+/* Figma: registration dark mode (76:3209) — overrides on shared login auth styles */
+
+.login-card--register {
+  position: relative;
+  gap: 32px;
+}
+
+.login-card--register .login-card__back {
+  position: absolute;
+  left: 24px;
+  top: 28px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.login-card--register .login-card__back:hover {
+  color: #fff;
+  opacity: 0.75;
+}
+
+.login-card--register .login-card__back svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.login-layout--light .login-card--register .login-card__back {
+  color: #666666;
+}
+
+.login-layout--light .login-card--register .login-card__back:hover {
+  color: #666666;
+}
+
+.login-layout--light .login-card--register .login-card__back svg {
+  color: inherit;
+}
+
+.login-layout--light .login-card__lead {
+  color: #000000;
+}
+
+.login-card__text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+.login-card__lead {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  color: #fff;
+}
+
+.login-fields--register {
+  gap: 12px;
+}
+
+/* Figma 422:1495 — first / last name side by side */
+.login-fields__name-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.login-fields__name-row .login-field-group {
+  min-width: 0;
+}
+
+@media (max-width: 520px) {
+  .login-fields__name-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Figma 21:2477 — registration light mode */
+.login-layout--light .login-card--register .login-card__lead {
+  font-weight: 600;
+  color: #000000;
+}
+
+.login-layout--light
+  .login-card--register
+  .login-field.login-gradient-stroke:not(.login-field--error)::before {
+  background: linear-gradient(90deg, #000000 0%, #3900e3 100%);
+}
+
+.login-layout--light
+  .login-card--register
+  .login-field.login-field--error.login-gradient-stroke::before {
+  background: #ff9b9b;
+}
+
+.login-layout--light .login-card--register .login-field__input {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+
+.login-layout--light .login-card--register .login-divider__line {
+  opacity: 0.5;
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+}
+
+.login-layout--light .login-card--register .login-divider__line--right {
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+  transform: scaleX(-1);
+}

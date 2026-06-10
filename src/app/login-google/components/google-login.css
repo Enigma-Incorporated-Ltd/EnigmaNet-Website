@@ -1,0 +1,116 @@
+/* Figma: signin with google dark mode (59:751) */
+
+.login-card--google {
+  position: relative;
+}
+
+.login-card--google .login-card__back {
+  position: absolute;
+  left: 24px;
+  top: 28px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.login-card--google .login-card__back:hover {
+  color: #fff;
+  opacity: 0.75;
+}
+
+.login-card--google .login-card__back svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.login-google-headline {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  width: 100%;
+}
+
+.login-google-headline__mark {
+  display: block;
+  width: 58.891px;
+  height: 60.991px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.login-google-headline__text {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  color: #fff;
+  line-height: normal;
+}
+
+.login-layout--light .login-google-headline__text,
+.login-layout--light .login-google-headline__text strong,
+.login-layout--light .login-google-headline__rest {
+  color: #000000;
+}
+
+.login-google-headline__text strong {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.login-google-headline__rest {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login-account-buttons--apple-only .login-account-buttons__btn {
+  grid-column: 1 / -1;
+  justify-self: center;
+  flex: 0 0 auto;
+}
+
+/* Figma 59:1066 / 59:857 — google account light mode */
+.login-layout--light
+  .login-card--google
+  .login-field.login-gradient-stroke:not(.login-field--error)::before {
+  background: linear-gradient(90deg, #000000 0%, #3900e3 100%);
+}
+
+.login-layout--light
+  .login-card--google
+  .login-field.login-field--error.login-gradient-stroke::before {
+  background: #ff9b9b;
+}
+
+.login-layout--light .login-card--google .login-field__input {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+
+.login-layout--light .login-card--google .login-divider__line {
+  opacity: 0.5;
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+}
+
+.login-layout--light .login-card--google .login-divider__line--right {
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+  transform: scaleX(-1);
+}
+
+.login-layout--light .login-card--google .login-card__back {
+  color: #666666;
+}
+
+.login-layout--light .login-card--google .login-card__back:hover {
+  color: #666666;
+}

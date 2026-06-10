@@ -9,6 +9,7 @@ type CustomButtonProps = {
   label: string | React.ReactNode;
   loadingLabel?: string;
   variant?: Variant;
+  outline?: boolean;
   href?: string;
   onClick?: () => void;
   className?: string;
@@ -25,6 +26,7 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
   label,
   loadingLabel = 'Loading...',
   variant = 'blue',
+  outline = false,
   href,
   onClick,
   className = '',
@@ -38,9 +40,17 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
 }) => {
   const isDisabled = isLoading || disabled;
 
-  const baseClass = `custom-btn text-center  ${
-    variant === 'blue' ? 'blue-filled' : 'gold-filled'
-  } ${fullWidth ? 'w-100' : ''} ${isDisabled ? 'btn-disabled' : ''} ${className}`;
+  const variantClass = outline
+    ? variant === 'blue'
+      ? 'blue-outline'
+      : 'gold-outline'
+    : variant === 'blue'
+      ? 'blue-filled'
+      : 'gold-filled';
+
+  const baseClass = `custom-btn text-center ${variantClass} ${
+    fullWidth ? 'w-100' : ''
+  } ${isDisabled ? 'btn-disabled' : ''} ${className}`;
 
   const commonStyle: React.CSSProperties = {
     fontSize,
@@ -49,6 +59,7 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
     opacity: isDisabled ? 0.8 : 1,
     ...style,
   };
+
   const buttonText =
     typeof label === 'string' && !disableSentenceCase ? toSentenceCase(label) : label;
 

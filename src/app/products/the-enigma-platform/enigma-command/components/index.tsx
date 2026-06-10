@@ -3,9 +3,34 @@ import HeroSection from '@/components/ui/HeroSection';
 import { enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
+import painCard1 from '@/assets/svgs/products/enigma-platform/commond/Pain-cards-Too-many-disconnected-signals.svg';
+import painCard2 from '@/assets/svgs/products/enigma-platform/commond/Pain-cards-Limited-visibility-into-automation.svg';
+import painCard3 from '@/assets/svgs/products/enigma-platform/commond/Pain-cards-Slow-incident-response.svg';
+import painCard4 from '@/assets/svgs/products/enigma-platform/commond/pain-cards-Audit-pressure.svg';
+import dataactions from '@/assets/svgs/products/enigma-platform/commond/Agent-actions-What-Command-brings-together.svg';
+import dataincidents from '@/assets/svgs/products/enigma-platform/commond/Incidents-What-Command-brings-together.svg';
+import dataLive from '@/assets/svgs/products/enigma-platform/commond/Live-controls-What-Command-brings-together.svg';
+import dataOperational from '@/assets/svgs/products/enigma-platform/commond/Operational-timelines-What-Command-brings-together.svg';
+import dataAudit from '@/assets/svgs/products/enigma-platform/commond/Audit-history-What-Command-brings-together.svg';
+import automationMonitor from '@/assets/svgs/products/enigma-platform/commond/Monitor-only-Automation-mode-cards.svg';
+import automationRecommend from '@/assets/svgs/products/enigma-platform/commond/Recommend-Automation-mode-cards.svg';
+import automationremediation from '@/assets/svgs/products/enigma-platform/commond/Recommend-Automation-mode-cards.svg';
+import automationFull from '@/assets/svgs/products/enigma-platform/commond/Full-auto-remediation-Automation-mode-cards.svg';
+import automationSupporting from '@/assets/svgs/products/enigma-platform/commond/Supporting-note-Automation-mode-cards.svg';
+import NOCoperators from '@/assets/svgs/products/enigma-platform/commond/NOC-operators-Role-cards.svg';
+import Dutymanagers from '@/assets/svgs/products/enigma-platform/commond/Duty-managers-and-team-leads-Role-cards.svg';
+import Platform from '@/assets/svgs/products/enigma-platform/commond/Platform-and-SRE-engineers-Role-cards.svg';
+import Compliance from '@/assets/svgs/products/enigma-platform/commond/Compliance-and-audit-teams-Role-cards.svg';
+import Monitoring from '@/assets/svgs/products/enigma-platform/commond/Integration-cards-Monitoring.svg';
+import Ticketing from '@/assets/svgs/products/enigma-platform/commond/Ticketing-and-collaboration-Role-cards.svg';
+import Communication from '@/assets/svgs/products/enigma-platform/commond/Communication-Integration-cards.svg';
+import Infrastructure from '@/assets/svgs/products/enigma-platform/commond/Infrastructure-Integration-cards.svg';
+import Enigmabackend from '@/assets/svgs/products/enigma-platform/commond/Enigma-backend-Integration-cards.svg';
+import Authentication from '@/assets/svgs/products/enigma-platform/commond/SSO-Trust-cards.svg';
+import Rolebased from '@/assets/svgs/products/enigma-platform/commond/Role-based-access-control-Trust-cards.svg';
+import Actionandapproval from '@/assets/svgs/products/enigma-platform/commond/Action-and-approval-logging-Trust-cards.svg';
+import Guardrails from '@/assets/svgs/products/enigma-platform/commond/Guardrails-and-rate-limits-Trust-cards.svg';
+import Auditsupport from '@/assets/svgs/products/enigma-platform/commond/Audit-support-Trust-cards.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
@@ -92,26 +117,26 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: painCard1,
     title: 'Too many disconnected signals  ',
     description: `Alerts, tickets, emails, telemetry and infrastructure events often sit across separate tools.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: painCard2,
     title: 'Limited visibility into automation ',
     description: `Operators need to know what the agent is doing, why it is acting and when it needs approval. `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: painCard3,
     title: 'Slow incident response  ',
     description:
       'When operational context is scattered, teams lose time moving between systems before they can act.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: painCard4,
     title: 'Audit pressure ',
     description:
       'Regulated and critical environments need clear evidence of every incident, action, approval and override.',
@@ -120,31 +145,31 @@ const Core = [
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: dataincidents,
     title: 'Incidents   ',
     description: `See active incidents, severity, ownership and status in one place.   `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: dataactions,
     title: 'Agent actions  ',
     description: `Review what the LLM agent has detected, recommended, escalated or resolved.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: dataLive,
     title: 'Live controls    ',
     description: 'Pause, resume, override, defer or approve automation when required.   ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: dataOperational,
     title: 'Operational timelines  ',
     description: 'View the sequence of alerts, analysis, actions, outcomes and operator notes.   ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: dataAudit,
     title: 'Audit history  ',
     description:
       'Export logs, reports and incident evidence for management, compliance and post-mortem review.   ',
@@ -153,33 +178,33 @@ const data2 = [
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: Monitoring,
     title: 'Monitoring  ',
     description: `Zabbix alerts, SNMP metrics, email-based alarms, ViBE and ITM statistics.  
 `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Ticketing,
     title: 'Ticketing and collaboration  ',
     description: `Jira ticket status, comments, escalation triggers and technician overrides.   `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Communication,
     title: 'Communication  ',
     description: 'Microsoft 365 incident-related emails and communications via Graph API.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Infrastructure,
     title: 'Infrastructure  ',
     description:
       'Kubernetes and AWS events connected to scaling, recovery and self-healing workflows.   ',
   },
   {
     id: 5,
-    icon: block2,
+    icon: Enigmabackend,
     title: 'Enigma backend    ',
     description:
       '.NET APIs for tunnel stats, device status, service data and operational context.  ',
@@ -188,34 +213,34 @@ const data3 = [
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: automationMonitor,
     title: 'Monitor only  ',
     description: `The agent observes, analyses and reports without taking direct action.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: automationRecommend,
     title: 'Recommend   ',
     description: 'The agent suggests actions for operators to review and approve.',
   },
   {
     id: 3,
-    icon: block1,
+    icon: automationremediation,
     title: 'Assisted remediation  ',
     description:
       'The agent can perform approved actions while operators retain pause and override control.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: automationFull,
     title: 'Full auto-remediation  ',
     description:
       'The agent acts within agreed policy limits, with all decisions logged and auditable.  ',
   },
   {
     id: 5,
-    icon: block2,
+    icon: automationSupporting,
     title: 'Supporting note  ',
     description: `Every mode change is logged with user identity, timestamp and reason where provided.  `,
   },
@@ -223,27 +248,27 @@ const data4 = [
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: NOCoperators,
     title: 'NOC operators    ',
     description: `Monitor the live log, acknowledge alerts, adjust automation mode and request diagnostics.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: Dutymanagers,
     title: 'Duty managers and team leads    ',
     description: `Review daily reports, track KPIs, receive high-risk event alerts and decide what is safe to automate.  `,
   },
   {
     id: 3,
-    icon: block1,
+    icon: Platform,
     title: 'Platform and SRE engineers  ',
     description: `Use performance graphs and incident history to identify recurring issues, tune policies and   
 adjust scaling rules.  `,
   },
   {
     id: 4,
-    icon: block3,
+    icon: Compliance,
     title: 'Compliance and audit teams  ',
     description: `Export incident timelines, operational logs and action histories for governance and external   
 review.  `,
@@ -252,32 +277,32 @@ review.  `,
 const data = [
   {
     id: 1,
-    icon: block1,
+    icon: Authentication,
     title: 'Authentication and SSO  ',
     description: `Access is restricted to authenticated users through Enigma SSO or directory integration.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Rolebased,
     title: 'Role-based access control  ',
     description: `Users only see the customers, services and actions they are authorised to access.   `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Actionandapproval,
     title: 'Action and approval logging   ',
     description:
       'Every operator and agent action is recorded with identity, timestamp and action context.   ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Guardrails,
     title: 'Guardrails and rate limits  ',
     description: 'Policy controls prevent unsafe, excessive or unauthorised actions.   ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: Auditsupport,
     title: 'Audit support  ',
     description:
       'Exportable timelines, reports and logs support ISO 27001, SOC 2 and ITIL-style governance.  ',
@@ -415,15 +440,16 @@ const Command = () => {
       />
 
       <HeroSection
-        title={<>Operational control for AI-assisted network management</>}
+        title={<>Operational control for <Br isDesktop  /> AI-assisted network management</>}
         description="Enigma Command gives NOC and platform teams a single operational view of incidents, alerts,   
         LLM-agent actions, automation status and performance events across Enigma Net services.  "
-        // image={heroImg}
+        image={heroImg}
         buttons={[
           {
             label: ' Talk to Enigma  ',
             href: '/get-in-touch',
             variant: 'blue',
+            disableSentenceCase: true,
           },
         ]}
         features={[
@@ -656,7 +682,7 @@ const Command = () => {
       />
 
       <NextPageSlider
-        title="Command works with the wider Nexus platform.  "
+        title="Command works with the wider Nexus platform  "
         data={features}
         currentSlug={slug as string}
       />
@@ -671,16 +697,12 @@ const Command = () => {
         }
         headline2=" audit live infrastructure.  "
         description="Enigma Command brings incidents, alerts, agent activity, automation controls and operational   
-history into one command centre for Enigma Net services.   "
+        history into one command centre for Enigma Net services.   "
         primaryButton={{
           label: 'Talk to Enigma  ',
           href: '/get-in-touch',
           variant: 'gold',
-        }}
-        secondaryButton={{
-          label: 'See Grid in action',
-          href: '#',
-          variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
     </div>

@@ -76,7 +76,7 @@ const WorkCard = () => {
             className="col-lg-6 mb-4"
             key={feature.id}
             style={{
-              height: '300px',
+              height: '350px',
             }}
           >
             <Card
@@ -125,6 +125,7 @@ const WorkCard = () => {
                 className="feature-card "
                 style={{
                   backgroundImage: `url(${feature.bg})`,
+                    height: '350px',
                 }}
               >
                 <div className="overlay"></div>

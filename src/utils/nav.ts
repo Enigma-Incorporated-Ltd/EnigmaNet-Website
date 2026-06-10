@@ -103,7 +103,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
             {
               label: 'Enigma Connect ',
               href: '/products/connectivity-products/enigma-connect',
-              // badge: 'Start Free'
+              badge: 'Start Free',
             },
             // { label: 'Enigma Connect Mobile', href: '/connect/mobile', badge: 'View Pricing' },
             // { label: 'Enigma Connect Pro', href: '/connect/pro' },
@@ -401,6 +401,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
   Partners: {
     leftRail: [
       { label: 'Kinnami Partnership  ', id: 'for-partners' },
+      { label: 'Start Up Agency ', id: 'startup' },
       // { label: 'Become a Partner', id: 'become' },
       // { label: 'Find a Partner', id: 'find' },
     ],
@@ -425,6 +426,12 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         //     { label: 'Telco / carrier partners', href: '/partners/telco' },
         //   ],
         // },
+      ],
+      startup: [
+        {
+          title: 'Partners ',
+          links: [{ label: 'Start Up Agency ', href: '/partners/start-up-agency' }],
+        },
       ],
       // become: [
       //   {
@@ -459,8 +466,8 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     leftRail: [
       { label: 'Company', id: 'company' },
       { label: 'Trust & Security', id: 'trust' },
-      // { label: 'Resources', id: 'resources' },
-      // { label: 'Careers', id: 'careers' },
+      { label: 'Resources', id: 'resources' },
+      { label: 'Careers', id: 'careers' },
     ],
     panels: {
       company: [
@@ -469,8 +476,9 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
           links: [
             { label: 'About Enigma', href: '/company/about-enigma' },
             { label: 'Leadership', href: '/company/leadership' },
-            { label: 'Trust Centre', href: '/company/trust-centre' },
-            { label: 'Blog', href: '/company/blog' },
+            { label: 'Newsroom', href: '/company/newsroom' },
+
+            { label: 'Blog / Insights', href: '/company/blog' },
           ],
         },
       ],
@@ -478,43 +486,51 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         {
           title: 'Trust & Security',
           links: [
-            { label: 'Legal', href: '/company/legal' },
-            // { label: 'Security posture', href: '/trust/security' },
-            // { label: 'Compliance / certifications', href: '/trust/compliance' },
-            // { label: 'Policies', href: '/trust/policies' },
+            { label: 'Trust Centre', href: '/company/trust-&-security/trust-centre' },
+            { label: 'Security Posture', href: '/company/trust-&-security/security-posture' },
+            {
+              label: 'Compliance / Certifications',
+              href: '/company/trust-&-security/compliance-&-certifications',
+            },
+            { label: 'Policies', href: '/company/trust-&-security/policies' },
           ],
         },
       ],
-      // resources: [
-      //   {
-      //     title: 'RESOURCES',
-      //     links: [
-      //       { label: 'Case studies', href: '/resources/case-studies' },
-      //       { label: 'White papers', href: '/resources/white-papers' },
-      //       { label: 'Architecture notes', href: '/resources/architecture' },
-      //       { label: 'FAQ', href: '/faq' },
-      //       { label: 'Glossary', href: '/glossary' },
-      //     ],
-      //   },
-      // ],
-      // careers: [
-      //   {
-      //     title: 'CAREERS',
-      //     links: [
-      //       { label: 'Careers', href: '/careers' },
-      //       { label: 'Culture', href: '/careers/culture' },
-      //       { label: 'Open roles', href: '/careers/openings', badge: 'Hiring' },
-      //     ],
-      //   },
-      //   {
-      //     title: 'EVENTS & WEBINARS',
-      //     links: [
-      //       { label: 'Events', href: '/events' },
-      //       { label: 'Webinars', href: '/webinars' },
-      //       { label: 'On-demand sessions', href: '/webinars/on-demand' },
-      //     ],
-      //   },
-      // ],
+      resources: [
+        {
+          title: 'RESOURCES',
+          links: [
+            { label: 'Case Studies', href: '/company/resources/case-studies' },
+            { label: 'White Papers', href: '/company/resources/white-papers' },
+            { label: 'Architecture Notes', href: '/company/resources/architecture' },
+            { label: 'FAQ', href: '/company/resources/faq' },
+            { label: 'Glossary', href: '/company/resources/glossary' },
+          ],
+        },
+      ],
+      careers: [
+        {
+          title: 'CAREERS',
+          links: [
+            { label: 'Careers', href: '/company/careers' },
+            { label: 'Culture', href: '/company/careers/culture' },
+            {
+              label: 'Open Roles',
+              href: '/company/careers/opening-roles',
+              // badge: 'Hiring'
+            },
+            { label: 'Why Enigma', href: '/company/careers/why-enigma' },
+          ],
+        },
+        //   {
+        //     title: 'EVENTS & WEBINARS',
+        //     links: [
+        //       { label: 'Events', href: '/events' },
+        //       { label: 'Webinars', href: '/webinars' },
+        //       { label: 'On-demand sessions', href: '/webinars/on-demand' },
+        //     ],
+        //   },
+      ],
     },
     promo: {
       label: 'FEATURED CONTENT',

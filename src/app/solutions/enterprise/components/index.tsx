@@ -186,11 +186,10 @@ const EnterpriseData = () => {
           label: 'Talk to Enigma  ',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
       <NextPageSlider
-        buttonText="All Solutions"
-        buttonLink="/solutions"
         title="Related Solutions"
         basePath="/solutions"
         data={solutions}

@@ -9,15 +9,19 @@ const EnigmaApnCore = () => {
    const structuredData = {
      '@context': 'https://schema.org',
      '@type': 'WebPage',
-     name: 'Coming Soon',
+     name: 'Enigma APN Core',
      url: `${BASE_URL}/products/performance-networking/enigma-apn-core`,
-     description: 'We are working hard to launch something amazing. Stay tuned!',
-   };
+     description: `APN Core is Enigma Net’s software-defined performance overlay, combining byte-level routing,   
+     TCP acceleration, multi-link bonding, RAIN redundancy, telemetry and encryption across fibre,   
+     broadband, 5G, LTE, satellite and mixed networks.  `,
+   }; 
    return (
      <>
        <PageMeta
-         title="Coming Soon"
-         description="We are working hard to launch something amazing. Stay tuned!"
+         title="Enigma APN Core | Performance Networking - Products"
+         description="APN Core is Enigma Net’s software-defined performance overlay, combining byte-level routing,   
+         TCP acceleration, multi-link bonding, RAIN redundancy, telemetry and encryption across fibre,   
+         broadband, 5G, LTE, satellite and mixed networks.  "
          url={`${BASE_URL}/products/performance-networking/enigma-apn-core`}
          structuredData={structuredData}
        />

@@ -1,0 +1,76 @@
+/* Figma: signin success dark mode (76:2424) */
+
+.login-page--signin-success .login-page__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - var(--login-nav-height) - 140px);
+}
+
+.login-card--signin-success {
+  position: relative;
+  gap: 32px;
+  overflow: hidden;
+  min-height: 227px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.login-card__signin-success-deco {
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  width: min(203px, 42%);
+  height: auto;
+  max-height: min(227px, 100%);
+  object-fit: contain;
+  object-position: top right;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.login-card__signin-success-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-card__signin-success-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.login-card__subtitle--signin-success {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  color: #fff;
+}
+
+.login-card__subtitle--signin-success strong {
+  color: #2adeff;
+  font-weight: 500;
+}
+
+.login-card__signin-success-user {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.login-layout--light .login-card__signin-success-user {
+  color: #000000;
+}

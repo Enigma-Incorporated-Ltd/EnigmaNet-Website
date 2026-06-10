@@ -8,15 +8,17 @@ const EscSecureNetworking = () => {
    const structuredData = {
      '@context': 'https://schema.org',
      '@type': 'WebPage',
-     name: 'Coming Soon',
+     name: 'Esc Secure Networking',
      url: `${BASE_URL}/products/performance-networking/esc-secure-networking`,
-     description: 'We are working hard to launch something amazing. Stay tuned!',
+     description: 'ESC – Secure Networking delivers Enigma’s APN Core as a multi-tenant software and SaaS platform, enabling private overlay networking, SD-WAN-style control, traffic acceleration, bonding, RAIN resilience and secure connectivity across any IP network.  ',
    };
    return (
      <>
        <PageMeta
-         title="Coming Soon"
-         description="We are working hard to launch something amazing. Stay tuned!"
+         title="Esc Secure Networking | Performance Networking -Products"
+         description="ESC – Secure Networking delivers Enigma’s APN Core as a multi-tenant software and SaaS   
+         platform, enabling private overlay networking, SD-WAN-style control, traffic acceleration,   
+         bonding, RAIN resilience and secure connectivity across any IP network.  "
          url={`${BASE_URL}/products/performance-networking/esc-secure-networking`}
          structuredData={structuredData}
        />

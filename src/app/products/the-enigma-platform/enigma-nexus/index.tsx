@@ -16,7 +16,7 @@ const EnigmaNexus = () => {
   return (
     <>
       <PageMeta
-        title="Enigma Nexus - The control layer for Enigma Net"
+        title="Enigma Nexus | The Enigma Platform -Products "
         description=" Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform.  "
         url={`${BASE_URL}/solutions/channel-partner`}
         structuredData={structuredData}

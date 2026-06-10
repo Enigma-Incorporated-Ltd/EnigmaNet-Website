@@ -15,7 +15,7 @@ const EnigmaSyncSphere = () => {
   return (
     <>
       <PageMeta
-        title="Enigma SyncSphere"
+        title="Enigma SyncSphere | The Enigma Platform -Products"
         description="Enigma SyncSphere brings Hot Storage, Large File Transfer, Managed File Transfer, third-party   
         cloud storage and local NAS into one secure, accelerated workspace built on Enigma’s APN   
         performance layer.  "

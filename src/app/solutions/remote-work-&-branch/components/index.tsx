@@ -17,6 +17,7 @@ import PainCard from '@/components/ui/PainCard';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 import { solutions } from '@/utils/solutions';
 import { useSlug } from '@/utils/useSlug';
+import PremiumButton from '@/components/ui/PremiumButton';
 const features = [
   {
     id: 1,
@@ -93,6 +94,7 @@ const WorkBranch = () => {
             label: 'Talk to Enigma ',
             href: '/get-in-touch',
             variant: 'gold',
+            disableSentenceCase: true,
           },
         ]}
         features={['Distributed workforce ', 'Centralised control', 'Built-in resilience']}
@@ -111,7 +113,16 @@ const WorkBranch = () => {
         }
         description="Hybrid work, branch offices and cloud applications have exposed the limits of traditional network setups. VPN sprawl, single-link dependence and inconsistent branch performance create operational drag that quietly costs the business every day.  "
       />
-
+      <div className="d-flex justify-content-center px-5">
+        {' '}
+        <PremiumButton
+          key={theme}
+          label="View  Use Case"
+          variant={theme === 'dark' ? 'gold' : 'blue'}
+          className="btn-lg btn-responsive"
+          href="/solutions/remote-work-&-branch/use-case"
+        />
+      </div>
       <CardSlider data={Core} />
       <CaseStudyHighlight
         data={quote}
@@ -156,11 +167,10 @@ const WorkBranch = () => {
           label: 'Talk to Enigma ',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
       <NextPageSlider
-        buttonText="All Solutions"
-        buttonLink="/solutions"
         title="Related Solutions"
         basePath="/solutions"
         data={solutions}

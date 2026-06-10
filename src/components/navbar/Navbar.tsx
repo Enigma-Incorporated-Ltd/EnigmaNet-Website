@@ -2,7 +2,8 @@ import Logo from '@/assets/img/EnigmaNet-logo.png';
 import LogoDark from '@/assets/img/EnigmaNet-dark.png';
 import { Link, useLocation } from 'react-router';
 import { useEffect, useState, useRef } from 'react';
-import { Offcanvas, OffcanvasBody, OffcanvasHeader, Nav, Container, Button } from 'react-bootstrap';
+import { Offcanvas, OffcanvasBody, OffcanvasHeader, Nav, Container } from 'react-bootstrap';
+import './navbar-cta.css';
 import IconifyIcon from '../IconifyIcon';
 import ThemeToggle from '../ThemeToggle';
 import {
@@ -33,7 +34,18 @@ const getItemLinks = (item: NavItem): NavLink[] => {
 };
 
 const isParentActive = (links: NavLink[], pathname: string) =>
-  links.some(link => pathname === link.href || pathname.startsWith(link.href + '/'));
+  links.some(link => isNavLinkActive(link.href, pathname));
+
+/** Match active tab styling (e.g. TrueCost cyan) including nested routes. */
+const isNavLinkActive = (href: string, pathname: string) => {
+  if (href === '/login') {
+    return pathname === '/login' || pathname.startsWith('/login/');
+  }
+  if (href === '/') {
+    return pathname === '/';
+  }
+  return pathname === href || pathname.startsWith(`${href}/`);
+};
 
 const MegaMenuDesktop = ({
   item,
@@ -279,7 +291,7 @@ const Navbar = ({
                 <Link
                   key={item.label}
                   to={item.href!}
-                  className={`nav-link nav-item dropdown ${pathname === item.href ? 'active' : ''}`}
+                  className={`nav-link nav-item dropdown ${isNavLinkActive(item.href!, pathname) ? 'active' : ''}`}
                 >
                   {item.label}
                 </Link>
@@ -313,25 +325,13 @@ const Navbar = ({
           })}
         </Nav>
 
-        <Button
-          variant="primary"
-          size="sm"
-          href={config.cta_button.href}
-          className="d-none d-lg-block"
+        <Link
+          to={config.cta_button.href}
+          className="navbar-cta-start-free d-none d-lg-inline-flex"
           style={{ marginLeft: 'auto' }}
         >
           {config.cta_button.label}
-        </Button>
-        {/* <PremiumButton
-          label={config.cta_button.label}
-          variant="blue"
-          href={config.cta_button.label}
-          className="d-none d-lg-block"
-          style={{ marginLeft: 'auto',
-            backgroundColor: 'var(--bs-primary)',
-            color: 'var(--bs-white)'
-           }}
-        /> */}
+        </Link>
         {/* Mobile Toggle */}
         <div className="d-lg-none d-flex align-items-center gap-2 ms-auto">
           <ThemeToggle themeToggle={isNavDark ?? false} isColor={true} id="theme-mode-mobile" />
@@ -360,8 +360,12 @@ const Navbar = ({
                   <Link
                     key={item.label}
                     to={item.href!}
-                    className="d-block px-4 py-3 text-decoration-none border-bottom"
-                    style={{ color: 'var(--bs-body-color)' }}
+                    className={`d-block px-4 py-3 text-decoration-none border-bottom${isNavLinkActive(item.href!, pathname) ? ' active' : ''}`}
+                    style={{
+                      color: isNavLinkActive(item.href!, pathname)
+                        ? '#2adeff'
+                        : 'var(--bs-body-color)',
+                    }}
                     onClick={() => setShowMenu(false)}
                   >
                     {item.label}

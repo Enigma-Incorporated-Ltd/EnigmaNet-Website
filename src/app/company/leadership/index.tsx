@@ -8,14 +8,14 @@ const Leadership = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Leadership | Company',
     url: `${BASE_URL}/company/leadership`,
     description: 'We are working hard to launch something amazing. Stay tuned!',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
+        title="Leadership | Company"
         description="We are working hard to launch something amazing. Stay tuned!"
         url={`${BASE_URL}/company/leadership`}
         structuredData={structuredData}

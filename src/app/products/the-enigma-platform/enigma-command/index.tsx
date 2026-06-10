@@ -16,7 +16,7 @@ const EnigmaCommand = () => {
   return (
     <>
       <PageMeta
-        title="Enigma Command"
+        title="Enigma Command | The Enigma Platform -Products"
         description="Enigma Command gives NOC and platform teams a single operational view of incidents, alerts,   
         LLM-agent actions, automation status and performance events across Enigma Net services.  
         "

@@ -21,7 +21,7 @@ const Agency1 = lazy(() => import('@/app/(landings)/software-dev-agency-v1'));
 const Agency2 = lazy(() => import('@/app/(landings)/software-dev-agency-v2'));
 const Agency3 = lazy(() => import('@/app/(landings)/software-dev-agency-v3'));
 const Startup = lazy(() => import('@/app/(landings)/startup'));
-const Legal = lazy(() => import('@/app/company/legal'));
+
 //pages
 
 const Error1 = lazy(() => import('@/app/404-v1'));
@@ -85,6 +85,22 @@ const EnigmaNexus = lazy(() => import('@/app/products/the-enigma-platform/enigma
 const EnigmaSyncSphere = lazy(() => import('@/app/products/the-enigma-platform/enigma-syncSphere'));
 const EnigmaCommand = lazy(() => import('@/app/products/the-enigma-platform/enigma-command'));
 
+// ENIGMA LEDGER
+const LedgerDataModel = lazy(
+  () => import('@/app/products/the-enigma-platform/enigma-ledger/ledger-data-model')
+);
+const LedgerPspConnectors = lazy(
+  () => import('@/app/products/the-enigma-platform/enigma-ledger/ledger-psp-connectors')
+);
+const LedgerPaymentDeviceIntegrations = lazy(
+  () =>
+    import('@/app/products/the-enigma-platform/enigma-ledger/ledger-payment-device-integrations')
+);
+const LedgerTenantBillingInvoicingFlows = lazy(
+  () =>
+    import('@/app/products/the-enigma-platform/enigma-ledger/ledger-tenant-billing-invoicing-flows')
+);
+
 // Performance Networking
 const PerformanceNetworking = lazy(() => import('@/app/products/performance-networking'));
 const ApnCore = lazy(() => import('@/app/products/performance-networking/enigma-apn-core'));
@@ -100,6 +116,29 @@ const MultiLinkBonding = lazy(
 );
 const IntelligentTrafficManagement = lazy(
   () => import('@/app/products/performance-networking/intelligent-traffic-management')
+);
+
+//ESC-SECURE-NETWORKING-Children
+
+const EscAwsIntegrationGuide = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-aws-implementation-guide')
+);
+const EscConfigurationGuide = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-configuration-guide')
+);
+const EscDeploymentProfiles = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-deployment-profiles')
+);
+const EscObservabilityAndNocIntegration = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-observability-and-noc-integration')
+);
+const EscSecurityComplianceNotes = lazy(
+  () =>
+    import('@/app/products/performance-networking/esc-secure-networking/esc-security-compliance-notes')
 );
 
 //ai-&-automation
@@ -138,33 +177,75 @@ const VirtualAppliance = lazy(() => import('@/app/products/integration-&-oem/vir
 const Solutions = lazy(() => import('@/app/solutions'));
 const AiAndDataInfrastructure = lazy(() => import('@/app/solutions/ai-&-data-infrastructure'));
 const RemoteWork = lazy(() => import('@/app/solutions/remote-work-&-branch'));
+const RemoteWorkUseCase = lazy(() => import('@/app/solutions/remote-work-&-branch/use-case/'));
 const OperationalTechnology = lazy(
   () => import('@/app/solutions/operational-technology-&-remote-assets')
 );
 const Industries = lazy(() => import('@/app/solutions/industries'));
+const IndustriesUseCase = lazy(() => import('@/app/solutions/industries/use-case'));
 const ServiceProviders = lazy(() => import('@/app/solutions/service-providers-&-partners'));
+const ServiceProvidersUseCase = lazy(
+  () => import('@/app/solutions/service-providers-&-partners/use-case')
+);
 const Enterprise = lazy(() => import('@/app/solutions/enterprise'));
 const DefenseDualtechnology = lazy(() => import('@/app/solutions/defense-dualtechnology'));
+const DefenseDualTechnologyUseCase = lazy(
+  () => import('@/app/solutions/defense-dualtechnology/use-case')
+);
 const TechnologiesPartner = lazy(() => import('@/app/solutions/technology-partner'));
+const TechnologyCase = lazy(() => import('@/app/solutions/technology-partner/use-case'));
 const ChannelPartner = lazy(() => import('@/app/solutions/channel-partner'));
+const ChannelPartnerUseCase = lazy(() => import('@/app/solutions/channel-partner/use-case'));
 const Startups = lazy(() => import('@/app/solutions/startups-&-smb'));
 //support
 const Support = lazy(() => import('@/app/contact-us/support'));
 const Login = lazy(() => import('@/app/login'));
+const Dashboard = lazy(() => import('@/app/dashboard'));
+const Register = lazy(() => import('@/app/register'));
+const LoginGoogle = lazy(() => import('@/app/login-google'));
+const LoginApple = lazy(() => import('@/app/login-apple'));
+const RegisterGoogle = lazy(() => import('@/app/register-google'));
+const RegisterApple = lazy(() => import('@/app/register-apple'));
+const ForgotPassword = lazy(() => import('@/app/forgot-password'));
 //partner
 const Partners = lazy(() => import('@/app/partners'));
 const KinnamiPartnership = lazy(() => import('@/app/partners/kinnami-partnership'));
 const JointSolution = lazy(() => import('@/app/partners/kinnami-partnership/joint-solution'));
+const StartUpAgency = lazy(() => import('@/app/partners/start-up-agency'));
 //company
 const Company = lazy(() => import('@/app/company'));
 const AboutEnigma = lazy(() => import('@/app/company/about-enigma'));
 const Leadership = lazy(() => import('@/app/company/leadership'));
-const TrustCentre = lazy(() => import('@/app/company/trust-centre'));
+const NewsRoom = lazy(() => import('@/app/company/newsroom'));
 
-//contact-us
+//company/trust-&-security
+const Trust = lazy(() => import('@/app/company/trust-&-security'));
+const TrustCentre = lazy(() => import('@/app/company/trust-&-security/trust-centre'));
+const Legal = lazy(() => import('@/app/company/trust-&-security/policies'));
+const SecurityPosture = lazy(() => import('@/app/company/trust-&-security/security-posture'));
+const ComplianceCertifications = lazy(() => import('@/app/company/trust-&-security/compliance-certifications'));
+
+
+//company/resources/
+const Resources = lazy(() => import('@/app/company/resources'));
+const CaseStudies = lazy(() => import('@/app/company/resources/case-studies'));
+const WhitePapers = lazy(() => import('@/app/company/resources/white-papers'));
+const FAQ = lazy(() => import('@/app/company/resources/faq'));
+const Architecture = lazy(() => import('@/app/company/resources/architecture'));
+const Glossary = lazy(() => import('@/app/company/resources/glossary'));
+
 const ContactUs = lazy(() => import('@/app/contact-us'));
 const RequestAQuote = lazy(() => import('@/app/contact-us/request-a-quote'));
 
+
+//company/careers
+const Careers = lazy(() => import('@/app/company/careers'));
+const Culture = lazy(() => import('@/app/company/careers/culture'));
+const Openings = lazy(() => import('@/app/company/careers/openings'));
+const WhyENIGMAPAGE = lazy(() => import('@/app/company/careers/why-enigma'));
+//linkedin-post
+
+const LinkdinPost = lazy(() => import('@/app/linkdin-post'));
 //utility
 const Docs = lazy(() => import('@/app/docs'));
 const DeveloperPortal = lazy(() => import('@/app/developer-portal'));
@@ -180,7 +261,17 @@ export const AllRoutes = [
   { path: '/secure-cloud', element: <SecureCloud /> },
   { path: '/secure-networking', element: <SecureNetworking /> },
   { path: '/trueCost', name: 'MigrationCalculator', element: <MigrationCalculator /> },
-  { path: '/login', name: 'login', element: <Login /> },
+  { path: '/login/*', name: 'login', element: <Login /> },
+  { path: '/dashboard', name: 'dashboard', element: <Dashboard /> },
+  { path: '/register', name: 'register', element: <Register /> },
+  { path: '/register/google', name: 'register-google', element: <RegisterGoogle /> },
+  { path: '/register/apple', name: 'register-apple', element: <RegisterApple /> },
+  { path: '/login/google', name: 'login-google', element: <LoginGoogle /> },
+  { path: '/login/apple', name: 'login-apple', element: <LoginApple /> },
+  { path: '/forgot-password/*', name: 'forgot-password', element: <ForgotPassword /> },
+
+  //linkedin-post
+  { path: '/linkdin-post', name: 'linkdin-post', element: <LinkdinPost /> },
   // Products Routes
   { path: '/products', name: 'Products', element: <Products /> },
 
@@ -193,6 +284,24 @@ export const AllRoutes = [
   { path: '/products/enigma-platform/enigma-syncsphere', element: <EnigmaSyncSphere /> },
   { path: '/products/enigma-platform/enigma-command', element: <EnigmaCommand /> },
   { path: '/products/enigma-platform/enigma-hub', element: <EnigmaHub /> },
+
+  //Engima Ledger Routes
+  {
+    path: '/products/enigma-platform/enigma-ledger/ledger-tenant-billing-invoicing-flows',
+    element: <LedgerTenantBillingInvoicingFlows />,
+  },
+  {
+    path: '/products/enigma-platform/enigma-ledger/ledger-data-model',
+    element: <LedgerDataModel />,
+  },
+  {
+    path: '/products/enigma-platform/enigma-ledger/ledger-payment-device-integrations',
+    element: <LedgerPaymentDeviceIntegrations />,
+  },
+  {
+    path: '/products/enigma-platform/enigma-ledger/ledger-psp-connectors',
+    element: <LedgerPspConnectors />,
+  },
 
   // Performance Networking Routes
   { path: '/products/performance-networking', element: <PerformanceNetworking /> },
@@ -207,6 +316,29 @@ export const AllRoutes = [
   {
     path: '/products/performance-networking/intelligent-traffic-management',
     element: <IntelligentTrafficManagement />,
+  },
+
+  //ESC-SECURE-NETWORKING-Children
+
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-aws-implementation-guide',
+    element: <EscAwsIntegrationGuide />,
+  },
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-configuration-guide',
+    element: <EscConfigurationGuide />,
+  },
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-deployment-profiles',
+    element: <EscDeploymentProfiles />,
+  },
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-observability-and-noc-integration',
+    element: <EscObservabilityAndNocIntegration />,
+  },
+  {
+    path: '/products/performance-networking/esc-secure-networking/esc-security-compliance-notes',
+    element: <EscSecurityComplianceNotes />,
   },
 
   //ai-&-automation
@@ -244,12 +376,21 @@ export const AllRoutes = [
   { path: '/solutions/ai-&-data-infrastructure', element: <AiAndDataInfrastructure /> },
   { path: '/solutions/operational-technology-&-remote-assets', element: <OperationalTechnology /> },
   { path: '/solutions/industries', element: <Industries /> },
+  { path: '/solutions/industries/use-case', element: <IndustriesUseCase /> },
   { path: '/solutions/remote-work-&-branch', element: <RemoteWork /> },
+  { path: '/solutions/remote-work-&-branch/use-case', element: <RemoteWorkUseCase /> },
   { path: '/solutions/service-providers-&-partners', element: <ServiceProviders /> },
+  {
+    path: '/solutions/service-providers-&-partners/use-case',
+    element: <ServiceProvidersUseCase />,
+  },
   { path: '/solutions/enterprise', element: <Enterprise /> },
   { path: '/solutions/defense-dualtechnology', element: <DefenseDualtechnology /> },
+  { path: '/solutions/defense-dualtechnology/use-case', element: <DefenseDualTechnologyUseCase /> },
   { path: '/solutions/technology-partner', element: <TechnologiesPartner /> },
+  { path: '/solutions/technology-partner/use-case', element: <TechnologyCase /> },
   { path: '/solutions/channel-partner', element: <ChannelPartner /> },
+  { path: '/solutions/channel-partner/use-case', element: <ChannelPartnerUseCase /> },
   { path: '/solutions/startups-&-smb', element: <Startups /> },
 
   //support
@@ -261,17 +402,81 @@ export const AllRoutes = [
     path: '/partners/kinnami-partnership/joint-solution',
     element: <JointSolution />,
   },
+  { path: '/partners/start-up-agency', element: <StartUpAgency /> },
 
   //company
   { path: '/company', element: <Company /> },
   { path: '/company/about-enigma', element: <AboutEnigma /> },
   { path: '/company/trust-centre', element: <TrustCentre /> },
   { path: '/company/leadership', element: <Leadership /> },
-  { path: '/company/legal', name: 'legal', element: <Legal /> },
-  { path: 'company/legal/:slug', name: 'legal', element: <Legal /> },
   { path: '/company/blog', name: 'blog', element: <ListWithSidebar /> },
   { path: '/company/blog/grid', name: 'blog-grid', element: <GridWithSidebar /> },
   { path: '/company/blog/:id', name: 'blog-id', element: <BlogSingle /> },
+  { path: '/company/newsroom', name: 'newsroom', element: <NewsRoom /> },
+
+  //company/trust-centre
+  { path: '/company/trust-&-security', element: <Trust /> },
+  { path: '/company/trust-&-security/trust-centre', element: <TrustCentre /> },
+  {
+    path: '/company/trust-&-security/policies',
+    element: <Legal />,
+  },
+  {
+    path: '/company/trust-&-security/policies/:slug',
+    element: <Legal />,
+  },
+  {
+    path: '/company/trust-&-security/security-posture',
+    element: <SecurityPosture />,
+  },
+  {
+    path: '/company/trust-&-security/compliance-&-certifications',
+    element: <ComplianceCertifications />,
+  },
+
+  // company/resources/
+  {
+    path: '/company/resources',
+    element: <Resources />,
+  },
+  {
+    path: '/company/resources/case-studies',
+    element: <CaseStudies />,
+  },
+  {
+    path: '/company/resources/white-papers',
+    element: <WhitePapers />,
+  },
+  {
+    path: '/company/resources/faq',
+    element: <FAQ />,
+  },
+  {
+    path: '/company/resources/architecture',
+    element: <Architecture />,
+  },
+  {
+    path: '/company/resources/glossary',
+    element: <Glossary />,
+  },
+
+  //company/careers
+  {
+    path: '/company/careers',
+    element: <Careers />,
+  },
+  {
+    path: '/company/careers/culture',
+    element: <Culture />,
+  },
+  {
+    path: '/company/careers/opening-roles',
+    element: <Openings />,
+  },
+  {
+    path: '/company/careers/why-enigma',
+    element: <WhyENIGMAPAGE />,
+  },
 
   //contact-us
   { path: '/contact-us', element: <ContactUs /> },

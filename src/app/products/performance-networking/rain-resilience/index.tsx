@@ -8,15 +8,15 @@ const RainResilience = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'RAIN Resilience',
     url: `${BASE_URL}/products/performance-networking/rain-resilience`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: `RAIN duplicates priority traffic across independent paths inside the encrypted APN tunnel,helping Enigma Net maintain session continuity, reduce effective packet loss and protect real-time services when underlying links degrade.`,
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="RAIN Resilience | Performance Networking -Products"
+        description="RAIN duplicates priority traffic across independent paths inside the encrypted APN tunnel,helping Enigma Net maintain session continuity, reduce effective packet loss and protect real-time services when underlying links degrade."
         url={`${BASE_URL}/products/performance-networking/rain-resilience`}
         structuredData={structuredData}
       />
