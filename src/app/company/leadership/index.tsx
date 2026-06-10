@@ -12,6 +12,7 @@ const Leadership = () => {
     url: `${BASE_URL}/company/leadership`,
     description: 'We are working hard to launch something amazing. Stay tuned!',
   };
+  
   return (
     <>
       <PageMeta
@@ -21,7 +22,11 @@ const Leadership = () => {
         structuredData={structuredData}
       />
 
-      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
+      <Navbar
+        Headerclass="header navbar navbar-expand-lg  bg-light fixed-top"
+        darkenable={false}
+        isNavDark={true}
+      />
       <LeadershipPage />
 
       <Footer />

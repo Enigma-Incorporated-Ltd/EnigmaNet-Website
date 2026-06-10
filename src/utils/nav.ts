@@ -39,11 +39,12 @@ type HeaderConfig = {
   cta_button: { label: string; href: string; icon?: string; variant?: string; size?: string };
 };
 
-export type NavClass = {
+export interface NavClass {
   Headerclass?: string;
   headerSticky?: string;
   isNavDark?: boolean;
-};
+  darkenable?: boolean;
+}
 
 // ── Mega Menu Data (Updated per Enigma Recommendation) ────────────────────────────────────────────────
 export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
@@ -512,7 +513,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         {
           title: 'CAREERS',
           links: [
-            { label: 'Careers', href: '/company/careers' },
+            // { label: 'Careers', href: '/company/careers' },
             { label: 'Culture', href: '/company/careers/culture' },
             {
               label: 'Open Roles',

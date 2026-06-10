@@ -61,7 +61,7 @@ const MegaMenuDesktop = ({
   const { theme } = useTheme();
   return (
     <div
-      className="position-absolute top-100 start-0 end-0 p-3 shadow-lg rounded-3"
+      className="position-absolute top-100 start-0 end-0 p-3 shadow-lg rounded-1"
       style={{
         background: theme === 'dark' ? 'rgba(22, 27, 38, 0.75)' : 'white',
         backdropFilter: theme === 'dark' ? 'blur(12px)' : 'none',
@@ -195,9 +195,29 @@ const MegaMenuDesktop = ({
 const Navbar = ({
   Headerclass = 'header navbar navbar-expand-lg bg-light shadow-sm',
   headerSticky,
-  isNavDark,
+  isNavDark = false,
+  darkenable = true,
 }: NavClass) => {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    if (darkenable) return;
+
+    const forcedTheme = isNavDark ? 'dark' : 'light';
+
+    // Save current theme
+    const previousTheme = theme;
+
+    // Force theme
+    setTheme(forcedTheme);
+    document.documentElement.setAttribute('data-bs-theme', forcedTheme);
+
+    return () => {
+      // Restore previous theme when Navbar unmounts
+      setTheme(previousTheme);
+      document.documentElement.setAttribute('data-bs-theme', previousTheme);
+    };
+  }, [darkenable, isNavDark]);
   const [isSticky, setIsSticky] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
@@ -206,7 +226,7 @@ const Navbar = ({
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const pathname = location.pathname;
-
+  const currentTheme = darkenable ? theme : isNavDark ? 'dark' : 'light';
   const config = FALLBACK_CONFIG;
   const { logo, nav_items } = config;
 
@@ -247,16 +267,18 @@ const Navbar = ({
         (isSticky || activeMega) && headerSticky ? headerSticky : ''
       }`}
     >
-      <div
-        className="bg-dark d-none d-lg-block"
-        style={{
-          marginTop: '-12px',
-          padding: '10px',
-        }}
-      >
-        <div className="container ">
-          <div className="d-flex justify-content-end gap-4  align-items-end py-2">
-            {/* {utility_nav?.map(link => (
+      {' '}
+      {darkenable && (
+        <div
+          className="bg-dark d-none d-lg-block"
+          style={{
+            marginTop: '-12px',
+            padding: '10px',
+          }}
+        >
+          <div className="container ">
+            <div className="d-flex justify-content-end gap-4  align-items-end py-2">
+              {/* {utility_nav?.map(link => (
               <Link
                 key={link.label}
                 to={link.href}
@@ -265,15 +287,16 @@ const Navbar = ({
                 {link.label}
               </Link>
             ))} */}
-            <ThemeToggle themeToggle={isNavDark ?? false} id="theme-mode-desktop" />
+              {darkenable && <ThemeToggle themeToggle={isNavDark} id="theme-mode-desktop" />}
+            </div>
           </div>
         </div>
-      </div>
+      )}
       <Container className="container px-3 d-flex align-items-center flex-nowrap">
         {/* Logo */}
         <Link to={logo.href} className="navbar-brand pe-3">
           <img
-            src={theme === 'dark' ? LogoDark : Logo}
+            src={currentTheme === 'dark' ? LogoDark : Logo}
             width={250}
             height={150}
             alt={logo.text}
@@ -334,7 +357,9 @@ const Navbar = ({
         </Link>
         {/* Mobile Toggle */}
         <div className="d-lg-none d-flex align-items-center gap-2 ms-auto">
-          <ThemeToggle themeToggle={isNavDark ?? false} isColor={true} id="theme-mode-mobile" />
+          {darkenable && (
+            <ThemeToggle themeToggle={isNavDark} isColor={true} id="theme-mode-mobile" />
+          )}
 
           <button
             type="button"
@@ -346,7 +371,6 @@ const Navbar = ({
           </button>
         </div>
       </Container>
-
       {/* Mobile Offcanvas Menu */}
       <Offcanvas show={showMenu} onHide={() => setShowMenu(false)} placement="end">
         <OffcanvasHeader closeButton className="border-bottom">

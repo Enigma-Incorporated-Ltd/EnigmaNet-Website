@@ -37,7 +37,7 @@ import { SectionHeader } from './SectionHeader';
 import { LeaderCard } from './LeaderCard';
 import { SpecialistTeamCard } from './SpecialistTeamCard';
 import { FounderCard } from './FounderCard';
-
+import './style.css'
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface SpecialistTeam {
@@ -915,6 +915,7 @@ export default function LeadershipPage() {
     <>
       <div className="bg-dark">
         {/* Hero */}
+
         <div
           style={{
             position: 'relative',
@@ -924,7 +925,7 @@ export default function LeadershipPage() {
           }}
         >
           <div className="container">
-            <div className="row align-items-end g-4">
+            <div className="row align-items-end g-4  leadership-row">
               <div className="col-lg-5">
                 <Breadcrumb
                   items={[
@@ -967,22 +968,14 @@ export default function LeadershipPage() {
                     label="Contact us →"
                     href="/get-in-touch"
                     variant="blue"
-                    className="rounded-4 "
-                    style={{
-                      width: '260px',
-                      fontSize: '0.8rem',
-                    }}
+                    className="rounded-4 card-box "
                   />
                   <PremiumButton
                     label=" Visit newsroom"
                     href="#"
                     variant="gold"
-                    className="rounded-4 "
+                    className="rounded-4  card-box"
                     outline
-                    style={{
-                      width: '250px',
-                      fontSize: '0.8rem',
-                    }}
                   />
                 </div>
               </div>
