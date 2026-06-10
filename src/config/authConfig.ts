@@ -2,9 +2,31 @@
 
 const trimTrailingSlash = (url: string) => url.replace(/\/$/, '');
 
-export const AUTH_API_BASE_URL = trimTrailingSlash(
+const configuredAuthApiBaseUrl = trimTrailingSlash(
   (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? '',
 );
+
+/** Prefer same-origin `/api` when configured host differs (prod web.config proxy / dev Vite proxy). */
+function resolveAuthApiBaseUrl(): string {
+  if (!configuredAuthApiBaseUrl) return '';
+
+  if (typeof window === 'undefined') {
+    return configuredAuthApiBaseUrl;
+  }
+
+  try {
+    const configuredOrigin = new URL(configuredAuthApiBaseUrl).origin;
+    if (configuredOrigin !== window.location.origin) {
+      return '';
+    }
+  } catch {
+    return configuredAuthApiBaseUrl;
+  }
+
+  return configuredAuthApiBaseUrl;
+}
+
+export const AUTH_API_BASE_URL = configuredAuthApiBaseUrl;
 
 export const AUTH_API_KEY = (import.meta.env.VITE_API_KEY as string | undefined) ?? '';
 
@@ -47,7 +69,6 @@ export function getAuthConfigError(): string | null {
 
 export function authUrl(path: string): string {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  return AUTH_API_BASE_URL
-    ? `${AUTH_API_BASE_URL}${normalizedPath}`
-    : normalizedPath;
+  const baseUrl = resolveAuthApiBaseUrl();
+  return baseUrl ? `${baseUrl}${normalizedPath}` : normalizedPath;
 }
