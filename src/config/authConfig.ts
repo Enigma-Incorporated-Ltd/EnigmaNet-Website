@@ -2,11 +2,6 @@
 
 const trimTrailingSlash = (url: string) => url.replace(/\/$/, '');
 
-/**
- * Empty base URL → relative `/api/...` (same origin).
- * Dev: Vite proxy (VITE_API_PROXY_TARGET). Azure: web.config generated in vite.config.ts at build.
- * Set VITE_API_BASE_URL only when the API CORS policy includes this frontend origin.
- */
 export const AUTH_API_BASE_URL = trimTrailingSlash(
   (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? '',
 );
