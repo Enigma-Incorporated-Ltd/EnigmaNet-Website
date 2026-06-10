@@ -13,7 +13,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://enigmaincenterpriseapp.azurewebsites.net',
+        target: 'https://enigmaincappdev.azurewebsites.net',
         changeOrigin: true,
         secure: true,
       },
