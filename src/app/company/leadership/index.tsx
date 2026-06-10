@@ -10,14 +10,15 @@ const Leadership = () => {
     '@type': 'WebPage',
     name: 'Leadership | Company',
     url: `${BASE_URL}/company/leadership`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Net is led by a team with experience across infrastructure, networking, software development, security, finance, product, commercial growth, marketing and technical delivery.',
   };
   
   return (
     <>
       <PageMeta
         title="Leadership | Company"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        description="Enigma Net is led by a team with experience across infrastructure, networking, software development, security, finance, product, commercial growth, marketing and technical delivery."
         url={`${BASE_URL}/company/leadership`}
         structuredData={structuredData}
       />

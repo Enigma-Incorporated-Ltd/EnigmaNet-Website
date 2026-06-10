@@ -161,16 +161,18 @@ const MegaMenuDesktop = ({
                   // style={{ backgroundColor: 'var(--bs-body-bg)' }}
                 >
                   <div
-                    className=" bg-body"
+                    className="bg-body"
                     style={{
                       height: '100px',
-                      backgroundImage: `url(${item.promo.image})`,
-                      backgroundSize: 'cover',
+                      backgroundImage: `url(${theme === 'dark' ? LogoDark : item.promo.image})`,
+                      backgroundSize: 'contain',
+                      backgroundRepeat: 'no-repeat',
                       backgroundPosition: 'center',
+                     
                     }}
-                  ></div>
+                  />
                   <div className="card-body bg-body p-3">
-                    <p className="small mb-2" style={{ color: 'var(--bs-gray-700)' }}>
+                    <p className="small mb-2" style={{ color: 'var(--bs-gray-500)' }}>
                       {item.promo.description}
                     </p>
                     <Link
