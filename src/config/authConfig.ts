@@ -1,33 +1,15 @@
-/** Enigma platform auth — mirrors N0DE CORS pattern (Vite proxy in dev, direct API in prod). */
+/** Enigma platform auth — mirrors N0DE env contract (see feasibility study). */
 
 const trimTrailingSlash = (url: string) => url.replace(/\/$/, '');
 
-const PRODUCTION_API_BASE = 'https://enigmaincenterpriseapp.azurewebsites.net';
-
-const isLocalDevHost = (hostname: string) =>
-  hostname === 'localhost' || hostname === '127.0.0.1';
-
 /**
- * N0DE pattern:
- * - localhost → '' (relative /api/*, Vite proxy — no CORS)
- * - production → VITE_API_BASE_URL or default Azure API (backend CORS required)
+ * Empty base URL → relative `/api/...` (same origin).
+ * Dev: Vite proxy (VITE_API_PROXY_TARGET). Azure: web.config generated at build from same env.
+ * Set VITE_API_BASE_URL only when the API CORS policy includes this frontend origin.
  */
-export function getAuthApiBaseUrl(): string {
-  const envBase = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? '';
-  if (envBase.trim()) {
-    return trimTrailingSlash(envBase);
-  }
-
-  if (typeof window !== 'undefined' && isLocalDevHost(window.location.hostname)) {
-    return '';
-  }
-
-  if (import.meta.env.PROD) {
-    return PRODUCTION_API_BASE;
-  }
-
-  return '';
-}
+export const AUTH_API_BASE_URL = trimTrailingSlash(
+  (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? '',
+);
 
 export const AUTH_API_KEY = (import.meta.env.VITE_API_KEY as string | undefined) ?? '';
 
@@ -70,6 +52,7 @@ export function getAuthConfigError(): string | null {
 
 export function authUrl(path: string): string {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  const base = getAuthApiBaseUrl();
-  return base ? `${base}${normalizedPath}` : normalizedPath;
+  return AUTH_API_BASE_URL
+    ? `${AUTH_API_BASE_URL}${normalizedPath}`
+    : normalizedPath;
 }

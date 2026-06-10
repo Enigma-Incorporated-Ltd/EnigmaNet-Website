@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "generate:web-config": "node scripts/generate-web-config.mjs",
+    "build": "node scripts/generate-web-config.mjs && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

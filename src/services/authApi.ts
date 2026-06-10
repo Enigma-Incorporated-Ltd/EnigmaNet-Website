@@ -68,94 +68,13 @@ async function authRequest<T>(
 ): Promise<T> {
   assertConfigured();
 
-  const requestUrl = authUrl(path);
-  const pageOrigin = typeof window !== 'undefined' ? window.location.origin : 'server';
-  let requestOrigin = 'unknown';
-  try {
-    requestOrigin = new URL(requestUrl, pageOrigin).origin;
-  } catch {
-    requestOrigin = 'invalid-url';
-  }
-  const isCrossOrigin =
-    typeof window !== 'undefined' && requestOrigin !== window.location.origin;
-
-  // #region agent log
-  fetch('http://127.0.0.1:7698/ingest/4ffdd451-ee2f-4b2c-b9f4-49c34b327609', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'bccdb8' },
-    body: JSON.stringify({
-      sessionId: 'bccdb8',
-      runId: 'pre-fix',
-      hypothesisId: 'A',
-      location: 'authApi.ts:authRequest:pre-fetch',
-      message: 'Auth request URL resolved',
-      data: {
-        path,
-        requestUrl,
-        pageOrigin,
-        requestOrigin,
-        isCrossOrigin,
-        apiBaseUrlConfigured: Boolean(import.meta.env.VITE_API_BASE_URL),
-      },
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
-
-  let response: Response;
-  try {
-    response = await fetch(requestUrl, {
-      ...init,
-      headers: {
-        ...buildHeaders(bearerToken),
-        ...(init.headers as Record<string, string> | undefined),
-      },
-    });
-  } catch (fetchError) {
-    // #region agent log
-    fetch('http://127.0.0.1:7698/ingest/4ffdd451-ee2f-4b2c-b9f4-49c34b327609', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'bccdb8' },
-      body: JSON.stringify({
-        sessionId: 'bccdb8',
-        runId: 'pre-fix',
-        hypothesisId: 'B',
-        location: 'authApi.ts:authRequest:fetch-error',
-        message: 'Auth fetch failed before response',
-        data: {
-          requestUrl,
-          isCrossOrigin,
-          errorName: fetchError instanceof Error ? fetchError.name : 'unknown',
-          errorMessage: fetchError instanceof Error ? fetchError.message : String(fetchError),
-        },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion
-    throw fetchError;
-  }
-
-  // #region agent log
-  fetch('http://127.0.0.1:7698/ingest/4ffdd451-ee2f-4b2c-b9f4-49c34b327609', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'bccdb8' },
-    body: JSON.stringify({
-      sessionId: 'bccdb8',
-      runId: 'pre-fix',
-      hypothesisId: 'C',
-      location: 'authApi.ts:authRequest:post-fetch',
-      message: 'Auth fetch completed',
-      data: {
-        requestUrl,
-        isCrossOrigin,
-        ok: response.ok,
-        status: response.status,
-        acao: response.headers.get('access-control-allow-origin'),
-      },
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
+  const response = await fetch(authUrl(path), {
+    ...init,
+    headers: {
+      ...buildHeaders(bearerToken),
+      ...(init.headers as Record<string, string> | undefined),
+    },
+  });
 
   const data = await parseJson<T & ApiStatusResponse>(response);
 
