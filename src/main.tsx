@@ -6,6 +6,7 @@ import { CookiesProvider } from 'react-cookie';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './ScrollToTop';
+import { PostHogPageView } from '@/contexts/PostHogProvider';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <CookiesProvider>
         <AuthProvider>
           <BrowserRouter>
+            <PostHogPageView />
             <ScrollToTop />
             <App />
           </BrowserRouter>

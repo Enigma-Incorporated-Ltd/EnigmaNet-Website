@@ -23,6 +23,7 @@
     "masonry-layout": "^4.2.2",
     "node-fetch": "^3.3.2",
     "parallax-js": "^3.1.0",
+    "posthog-js": "^1.386.3",
     "react": "^19.1.1",
     "react-bootstrap": "^2.10.10",
     "react-compare-slider": "^3.1.0",
@@ -51,6 +52,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@posthog/cli": "^0.7.22",
+    "@posthog/rollup-plugin": "^1.4.5",
     "@types/he": "^1.2.3",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",

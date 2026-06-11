@@ -9,6 +9,7 @@ import IconifyIcon from '@/components/IconifyIcon';
 import PremiumButton from '@/components/ui/PremiumButton';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import './style.css'
+import { useTheme } from '@/utils/useTheme';
 // ─── Types ──────────────────────────────────────────────────────────────────
 
 type FeatureItem = {
@@ -27,6 +28,7 @@ type ButtonConfig = {
 type CardSliderProps = {
   data?: FeatureItem[];
   cardShow?: number;
+  sectionTitle?: string | React.ReactNode;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
   description2?: string | React.ReactNode;
@@ -97,7 +99,9 @@ const CardSlider: React.FC<CardSliderProps> = ({
   autoplayDelay = 3000,
   showNavigation = true,
   showPagination = true,
+  sectionTitle
 }) => {
+  const {theme} = useTheme()
   const swiperRef = useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -125,6 +129,13 @@ const CardSlider: React.FC<CardSliderProps> = ({
   return (
     <>
       <section className="container pb-5 pt-3 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
+        {sectionTitle && (
+          <h5
+            className={`h3 text-center text-uppercase text-${theme === 'dark' ? 'light-blue' : 'warning'}`}
+          >
+            {sectionTitle}
+          </h5>
+        )}
         {/* Title */}
         {title && (
           <h2

@@ -1,6 +1,8 @@
 import IconifyIcon from '@/components/IconifyIcon';
 import { Col, Container, Row } from 'react-bootstrap';
 import PremiumButton from '../PremiumButton';
+import { useTheme } from '@/utils/useTheme';
+import Eyebrow from '../Eyebrow';
 
 type HeroButton = {
   label: string;
@@ -17,6 +19,7 @@ type HeroProps = {
   buttons?: HeroButton[];
   features?: string[];
   subtitle?: string | React.ReactNode;
+  eyebrow?: string;
 };
 
 const HeroSection = ({
@@ -27,10 +30,10 @@ const HeroSection = ({
   features = [],
   subtitle,
   isbg = false,
-
+  eyebrow
 }: HeroProps) => {
   const isFullWidth = !image;
-
+const {theme} = useTheme();
   return (
     <section className="position-relative overflow-hidden py-5">
       <Container className="position-relative zindex-5">
@@ -44,6 +47,8 @@ const HeroSection = ({
             lg={isFullWidth ? 10 : 6}
             className={!isFullWidth ? 'text-lg-start text-center ' : ''}
           >
+            {eyebrow && <Eyebrow label={eyebrow} theme={theme} />}
+
             <h1 className="display-6 fw-semibold py-4 mb-3">{title}</h1>
             {subtitle && (
               <h3 className="h3 text-center  mx-auto  mt-n2 mt-sm-0 pt-md-2">{subtitle}</h3>
@@ -78,7 +83,7 @@ const HeroSection = ({
                     key={index}
                     label={btn.label}
                     variant={btn.variant}
-                    className="btn-lg"
+                    className="btn-lg  "
                     href={btn.href}
                     disableSentenceCase={btn.disableSentenceCase}
                     style={
@@ -121,7 +126,7 @@ const HeroSection = ({
                 <img
                   src={image}
                   alt={title as string}
-                  className={`w-100 rounded-4 ${isbg && 'bg-dark' }`}
+                  className={`w-100 rounded-4 ${isbg && 'bg-dark'}`}
                   style={{
                     boxShadow: '0 20px 80px rgba(0,0,0,0.15)',
                     maxHeight: '600px',
