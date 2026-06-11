@@ -23,7 +23,11 @@ Designed for cloud platforms, SaaS environments, edge infrastructure and real-ti
         structuredData={structuredData}
       />
 
-      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
+      <Navbar
+        Headerclass="header navbar navbar-expand-lg bg-light fixed-top"
+        darkenable={false}
+        isNavDark={false}
+      />
       <TechnologyCasePage />
 
       <Footer />

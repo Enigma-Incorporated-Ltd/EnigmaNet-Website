@@ -1,0 +1,44 @@
+.card-box {
+    width: 250px;
+    font-size: 0.8rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .card-box {
+        width: 250px !important;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .card-box {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+/* Desktop */
+.leadership-row {
+    flex-direction: row;
+}
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+    .leadership-row {
+        flex-direction: column;
+        align-items: center !important;
+    }
+
+    .leadership-row>.col-lg-5,
+    .leadership-row>.col-lg-7 {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+  
+}

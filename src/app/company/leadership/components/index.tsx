@@ -1,8 +1,8 @@
-import { UsecaseRemoteWork1 } from '@/assets/img';
 import {
   AdemHeaps,
   ANdyRodger,
   BrunaLopes,
+  Drik,
   Gino,
   Glenn,
   Hamna,
@@ -10,39 +10,39 @@ import {
   JosephHoward,
   Kaspar,
   Ketherine,
+  Koby,
+  leadershipLanding,
   Mae,
-  Mohammed,
   NashimAhmed,
   Santosh,
   TracyHaynes,
   Victoria,
 } from '@/assets/img/company';
+import {
+  BusinessIcon,
+  DesignIcon,
+  EngineeringIcon,
+  OperationIcon,
+} from '@/assets/svgs/company/leadership';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import Br from '@/components/ui/NewLine';
 import PremiumButton from '@/components/ui/PremiumButton';
 import { useState } from 'react';
-
+import { LatestUpdates } from './LatestUpdates';
+import { CredibilityBand } from './CredibilityBand';
+import { type Person } from './Avatar';
+import { LeadershipStatement } from './LeadershipStatement';
+import { BioModal } from './BioModal';
+import { SectionHeader } from './SectionHeader';
+import { LeaderCard } from './LeaderCard';
+import { SpecialistTeamCard } from './SpecialistTeamCard';
+import { FounderCard } from './FounderCard';
+import './style.css'
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-interface Person {
-  avatar: any;
+export interface SpecialistTeam {
   id: string;
-  name: string;
-  role: string;
-  badge?: string;
-  tagline: string;
-  tags?: string[] | undefined;
-  bio: string | React.ReactNode;
-  experience?: string[];
-  qualifications?: string[];
-  expertise?: string[];
-  linkedin?: string;
-  image?: string;
-  avatarColor?: string;
-}
-
-interface SpecialistTeam {
-  id: string;
-  icon: string;
+  icon?: string | React.ReactNode;
   name: string;
   description: string | React.ReactNode;
   areas: string[];
@@ -50,39 +50,41 @@ interface SpecialistTeam {
   members: Person[];
 }
 
-interface NewsCard {
-  id: string;
-  category: string;
-  headline: string;
-  href?: string;
-}
-
-// ─── Data ────────────────────────────────────────────────────────────────────
-
-const founders: Person[] = [
+export const founders: Person[] = [
   {
     id: 'glenn',
-    name: 'Glenn Melford-Colegate',
+    name: 'Glenn Melford Colegate',
     role: 'Founder & CTO',
     badge: 'FOUNDER',
     tagline: `Glenn founded Enigma in 2020 with a vision to create efficient network protocols for the AI and   
-IoT era. He is responsible for the company’s intellectual property and leads the design and   
+IoT era. He is responsible for the company's intellectual property and leads the design and   
 construction of products across wide-ranging network markets.   `,
     tags: ['Founder', 'CTO', 'APN Core', 'Network Systems', 'R&D'],
     avatarColor: '#1a3a5c',
-    bio: `Glenn founded Enigma in 2020 with a vision to create efficient network protocols for the AI and   
-IoT era. He is responsible for the company’s intellectual property and leads the design and   
-construction of products across wide-ranging network markets.   `,
-    // experience: [
-    //   '20+ years in telecommunications infrastructure',
-    //   'Previously CTO at TeleCore Networks',
-    //   'Led network deployments across 15+ countries',
-    // ],
-    // qualifications: [
-    //   'BSc Computer Science, University of Melbourne',
-    //   'MBA, INSEAD',
-    //   'Cisco Certified Internetwork Expert (CCIE)',
-    // ],
+    bio: (
+      <>
+        Glenn founded Enigma in 2020 with a vision to create efficient network protocols that would
+        meet the demands of the internet in the era of AI and IoT and be ubiquitous. Glenn is
+        responsible for the creation of the companies Intellecutal Property, and the design and
+        construction of products for the wide ranging network markets. Glenn leads the R&D team of
+        engineers, AI and network specialists.
+        <br />
+        Glenn's prior experience all involved network systems and knowing this was always the weak
+        link created Enigma to solve for corporate network problems.
+      </>
+    ),
+    experience: [
+      'Chief Engineer - Lumina Tech, designed & built prototype EV Earth Moving Equipment (2022) ',
+      'Chief Engineer - Morris Commercial, designed and built prototype EV van (2020-21) ',
+      'Principal Systems Designer, Operations Director - Master Ki Systems (2013-2019) ',
+      'Designed gaming terminals for variety of operators including, TCS John Huxley, Sega, JPM, Inspired Gaming Group (William Hill) ',
+      'Designed self service terminals for variety operations including for Argos, Tesco, Woolworth, Post Office',
+    ],
+    qualifications: [
+      'HND Mechanical & Manufacture Engineering',
+      'with Electrical & Software Engineering (Incomplete)',
+      'NVQ Level 5 - Managing IT Systems ',
+    ],
     // expertise: [
     //   'APN Core Architecture',
     //   'Network Infrastructure',
@@ -249,7 +251,7 @@ operational structure and commercially focused decision-making.   `,
   },
 ];
 
-const techLeaders: Person[] = [
+export const techLeaders: Person[] = [
   {
     id: 'nasim',
     name: 'Nasim Ahmad',
@@ -392,7 +394,7 @@ requirements into clear product direction and executable roadmaps.   `,
   },
 ];
 
-const commercialLeaders: Person[] = [
+export const commercialLeaders: Person[] = [
   {
     id: 'koby',
     name: 'Koby Yogaretnam',
@@ -442,7 +444,7 @@ accelerators, investment programmes, venture studios and corporate innovation in
     //   'Founder Engagement',
     // ],
     linkedin: 'https://www.linkedin.com/in/koby-yogaretnam/',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=800',
+    avatar: Koby,
   },
   {
     id: 'tracey',
@@ -500,10 +502,10 @@ for customers, partners, investors and the wider market.   `,
   },
 ];
 
-const specialistTeams: SpecialistTeam[] = [
+export const specialistTeams: SpecialistTeam[] = [
   {
     id: 'biz-dev',
-    icon: '💼',
+    icon: <BusinessIcon />,
     name: 'Business Development & Sales',
     description:
       'Supporting customer growth, partner development, commercial strategy and pipeline activity.',
@@ -548,13 +550,13 @@ const specialistTeams: SpecialistTeam[] = [
         //   'Partnership Development',
         // ],
         // linkedin: 'https://linkedin.com',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=800',
+        avatar: Drik,
       },
     ],
   },
   {
     id: 'design',
-    icon: '🎨',
+    icon: <DesignIcon />,
     name: 'Design, UX/UI & Front-End',
     description:
       'Creating the visual, digital and front-end experience across the Enigma Net website, product interfaces and brand communications.',
@@ -692,7 +694,7 @@ const specialistTeams: SpecialistTeam[] = [
   },
   {
     id: 'ops',
-    icon: '⚙️',
+    icon: <OperationIcon />,
     name: 'Operations & Delivery',
     description:
       'Keeping teams aligned, delivery on track and operational systems structured as Enigma Net scales.',
@@ -786,7 +788,7 @@ const specialistTeams: SpecialistTeam[] = [
   },
   {
     id: 'tech-ops',
-    icon: '🔧',
+    icon: <EngineeringIcon />,
     name: 'Engineering Support',
     description:
       "Supporting Enigma Net's infrastructure, IT, platform environments and technical delivery across internal systems, customer deployments and operational support.",
@@ -900,1285 +902,20 @@ const specialistTeams: SpecialistTeam[] = [
           'Enterprise Systems Architecture',
         ],
         linkedin: 'https://www.linkedin.com/in/mohammed-abul-azad-faisal/',
-        avatar: Mohammed,
+        avatar: '',
       },
     ],
   },
 ];
-
-const credibilityTiles = [
-  {
-    id: 'carrier',
-    icon: '🌐',
-    title: 'Carrier & enterprise experience',
-    body: 'Deep experience across large-scale infrastructure, internet, network and enterprise environments.',
-  },
-  {
-    id: 'security',
-    icon: '🔒',
-    title: 'Network & security engineering',
-    body: 'Expertise across secure connectivity, infrastructure operations, deployment and cybersecurity.',
-  },
-  {
-    id: 'patent',
-    icon: '📐',
-    title: 'Patented technology foundation',
-    body: 'Technology leadership supported by company IP, R&D and specialist engineering knowledge.',
-  },
-  {
-    id: 'deploy',
-    icon: '🚀',
-    title: 'Real-world deployments',
-    body: 'Deployment experience across customer environments, technical workloads and operational use cases.',
-  },
-];
-
-const newsCards: NewsCard[] = [
-  {
-    id: 'n1',
-    category: 'Company news',
-    headline: 'Jane Osborne-Buglear appointed CEO',
-    href: '#',
-  },
-  {
-    id: 'n2',
-    category: 'Insights',
-    headline: 'Why network performance is now a business-critical function',
-    href: '#',
-  },
-  {
-    id: 'n3',
-    category: 'Events',
-    headline: 'Enigma Net at upcoming industry events',
-    href: '#',
-  },
-];
-
-// ─── Avatar Component ────────────────────────────────────────────────────────
-
-function Avatar({ person, size = 80 }: { person: Person; size?: number }) {
-  const initials = person.name
-    .split(' ')
-    .map(n => n[0])
-    .join('')
-    .slice(0, 2);
-
-  const borderRadius = size > 60 ? 12 : 8;
-
-  return (
-    <div
-      style={{
-        width: size,
-        height: size,
-        minWidth: size,
-        minHeight: size,
-        borderRadius,
-        overflow: 'hidden',
-        flexShrink: 0,
-        position: 'relative',
-        border: '1px solid rgba(56, 139, 253, 0.25)',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.04)',
-        background: `linear-gradient(
-          135deg,
-          ${person.avatarColor ?? '#1a3a5c'} 0%,
-          #0a1628 100%
-        )`,
-      }}
-    >
-      {person.avatar ? (
-        <img
-          src={person.avatar}
-          alt={person.name}
-          loading="lazy"
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'block',
-            objectFit: 'cover',
-            objectPosition: 'center',
-            imageRendering: 'auto',
-            WebkitFontSmoothing: 'antialiased',
-          }}
-        />
-      ) : (
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: size > 60 ? 22 : 13,
-            fontWeight: 700,
-            color: '#88bbee',
-            letterSpacing: 1,
-            
-          }}
-        >
-          {initials}
-        </div>
-      )}
-    </div>
-  );
-}
-// ─── Bio Modal ───────────────────────────────────────────────────────────────
-
-function BioModal({ person, onClose }: { person: Person | null; onClose: () => void }) {
-  if (!person) return null;
-  return (
-    <>
-      <div
-        onClick={onClose}
-        style={{
-          position: 'fixed',
-          inset: 0,
-          background: 'rgba(4, 12, 28, 0.85)',
-          backdropFilter: 'blur(6px)',
-          zIndex: 1050,
-          animation: 'fadeIn .2s ease',
-        }}
-      />
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          bottom: 0,
-          width: 'min(540px, 100vw)',
-          background: 'linear-gradient(160deg, #07172e 0%, #060f1f 60%, #04090f 100%)',
-          borderLeft: '1px solid rgba(42, 222, 255, 0.15)',
-          zIndex: 1051,
-          overflowY: 'auto',
-          animation: 'slideIn .25s cubic-bezier(.16,1,.3,1)',
-          boxShadow: '-20px 0 60px rgba(0,0,0,.6)',
-        }}
-      >
-        {/* ── HERO IMAGE HEADER ── */}
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: 620, // ← tall enough to show the full portrait
-            flexShrink: 0,
-            overflow: 'hidden',
-          }}
-        >
-          <img
-            src={person.avatar}
-            alt={person.name}
-            style={{
-              width: '100%',
-              height: '100%', // ← fills the container, no minHeight
-              objectFit: 'cover',
-              objectPosition: 'top center',
-              display: 'block',
-            }}
-          />
-          {/* gradient fade to modal bg */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to bottom, transparent 45%, rgba(6,14,34,0.88) 100%)',
-              pointerEvents: 'none',
-            }}
-          />
-          {/* badge */}
-          {person.badge && (
-            <span
-              style={{
-                position: 'absolute',
-                bottom: 16,
-                left: 20,
-                fontSize: 12,
-                fontWeight: 600,
-                letterSpacing: 1.6,
-                color: '#2adeff',
-                background: 'rgba(6,14,34,0.72)',
-                border: '1px solid #2adeff',
-                padding: '3px 9px',
-                borderRadius: 4,
-                
-              }}
-            >
-              {person.badge}
-            </span>
-          )}
-          {/* close button */}
-          <button
-            onClick={onClose}
-            style={{
-              position: 'absolute',
-              top: 16,
-              right: 16,
-              background: 'rgba(6,14,34,0.72)',
-              border: '1px solid rgba(42,222,255,0.25)',
-              borderRadius: 8,
-              color: '#2adeff',
-              width: 36,
-              height: 36,
-              cursor: 'pointer',
-              fontSize: 18,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              transition: 'all .15s',
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(42,222,255,0.15)';
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(6,14,34,0.72)';
-            }}
-          >
-            ×
-          </button>
-        </div>
-
-        {/* ── BODY ── */}
-        <div style={{ padding: '0 2rem 2.5rem' }}>
-          <div style={{ marginBottom: '1.25rem', marginTop: '1.25rem' }}>
-            <h4
-              style={{
-                color: '#e8f0ff',
-                fontSize: '1.45rem',
-                fontWeight: 700,
-                margin: '0 0 4px',
-                lineHeight: 1.2,
-              }}
-            >
-              {person.name}
-            </h4>
-            <p
-              style={{
-                color: '#2adeff',
-                fontSize: '0.78rem',
-                margin: '0 0 10px',
-                
-                letterSpacing: 0.5,
-              }}
-            >
-              {person.role}
-            </p>
-            <div
-              style={{
-                width: 80,
-                height: 3,
-                background: 'linear-gradient(90deg, #A96A00 0%, #F1BA5F 100%)',
-                borderRadius: 2,
-              }}
-            />
-          </div>
-
-          <hr style={{ borderColor: 'rgba(42,222,255,0.1)', margin: '0 0 1.5rem' }} />
-
-          <section className="mb-4">
-            <SectionLabel>Biography</SectionLabel>
-            <p style={{ color: '#a8c0e0', fontSize: '0.9rem', lineHeight: 1.75, margin: 0 }}>
-              {person.bio}
-            </p>
-          </section>
-
-          {person.experience && (
-            <section className="mb-4">
-              <SectionLabel>Achievements</SectionLabel>
-              <ul style={{ paddingLeft: 0, listStyle: 'none', margin: 0 }}>
-                {person.experience.map((e, i) => (
-                  <li
-                    key={i}
-                    style={{
-                      color: '#a8c0e0',
-                      fontSize: '0.9rem',
-                      padding: '6px 0',
-                      // borderBottom: '1px solid rgba(42,222,255,0.07)',
-                      display: 'flex',
-                      gap: 10,
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    <span style={{ color: '#2adeff', marginTop: 2 }}>›</span>
-                    {e}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-
-          {person.qualifications && (
-            <section className="mb-4">
-              <SectionLabel>Qualifications</SectionLabel>
-              <ul style={{ paddingLeft: 0, listStyle: 'none', margin: 0 }}>
-                {person.qualifications.map((q, i) => (
-                  <li
-                    key={i}
-                    style={{
-                      color: '#a8c0e0',
-                      fontSize: '0.9rem',
-                      padding: '6px 0',
-                      // borderBottom: '1px solid rgba(42,222,255,0.07)',
-                      display: 'flex',
-                      gap: 10,
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    <span style={{ color: '#2adeff', marginTop: 2 }}>›</span>
-                    {q}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-
-          {person.expertise && (
-            <section className="mb-4">
-              <SectionLabel>Areas of Expertise</SectionLabel>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                {person.expertise.map(ex => (
-                  <span
-                    key={ex}
-                    style={{
-                      background: 'rgba(42, 222, 255, 0.07)',
-                      border: '1px solid rgba(42, 222, 255, 0.2)',
-                      color: '#7ad6e8',
-                      fontSize: '0.9rem',
-                      padding: '4px 12px',
-                      borderRadius: 20,
-                      
-                    }}
-                  >
-                    {ex}
-                  </span>
-                ))}
-              </div>
-            </section>
-          )}
-          {person.tags && person.tags.length > 0 && (
-            <section className="mb-4">
-              <SectionLabel>Leadership Focus</SectionLabel>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                {person.tags.map(ex => (
-                  <span
-                    key={ex}
-                    style={{
-                      background: 'rgba(42, 222, 255, 0.07)',
-                      border: '1px solid rgba(42, 222, 255, 0.2)',
-                      color: '#7ad6e8',
-                      fontSize: '0.9rem',
-                      padding: '4px 12px',
-                      borderRadius: 20,
-                      
-                    }}
-                  >
-                    {ex}
-                  </span>
-                ))}
-              </div>
-            </section>
-          )}
-          {person.linkedin && (
-            <a
-              href={person.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                background: 'rgba(42, 222, 255, 0.07)',
-                border: '1px solid rgba(42, 222, 255, 0.25)',
-                color: '#2adeff',
-                fontSize: '0.8rem',
-                padding: '10px 20px',
-                borderRadius: 8,
-                textDecoration: 'none',
-                
-                letterSpacing: 0.5,
-                transition: 'all .15s',
-                marginTop: 8,
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(42,222,255,0.15)';
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(42,222,255,0.07)';
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-              View LinkedIn Profile
-            </a>
-          )}
-        </div>
-      </div>
-    </>
-  );
-}
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p
-      style={{
-        fontSize: '0.7rem',
-        fontWeight: 700,
-        letterSpacing: 2,
-        color: '#388bfd',
-        
-        textTransform: 'uppercase',
-        margin: '0 0 10px',
-      }}
-    >
-      {children}
-    </p>
-  );
-}
-
-// ─── Large Founder Card ───────────────────────────────────────────────────────
-
-function FounderCard({ person, onRead }: { person: Person; onRead: (p: Person) => void }) {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        background: hovered ? 'rgba(56, 139, 253, 0.06)' : 'rgba(14, 28, 54, 0.6)',
-        border: `1px solid ${hovered ? 'rgba(56, 139, 253, 0.35)' : 'rgba(56, 139, 253, 0.12)'}`,
-        borderRadius: 16,
-        overflow: 'hidden', // ← clips image to card corners
-        transition: 'all .2s ease',
-        cursor: 'default',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
-      {/* ── IMAGE BLOCK (no padding, full bleed) ── */}
-      <div
-        style={{
-          position: 'relative',
-          width: '100%',
-          background: 'linear-gradient(to bottom, #0a1628 0%, #0a1628 100%)',
-          // height: 400,
-          paddingTop: '100%', // square-ish portrait
-          flexShrink: 0,
-        }}
-      >
-        <img
-          src={person.avatar}
-          alt={person.name}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'top center',
-          }}
-        />
-
-        {/* bottom gradient fade */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to bottom, transparent 45%, rgba(6,14,34,0.88) 100%)',
-            pointerEvents: 'none',
-          }}
-        />
-
-        {/* badge — bottom-left, overlapping gradient */}
-        {person.badge && (
-          <span
-            style={{
-              position: 'absolute',
-              bottom: 14,
-              left: 14,
-              zIndex: 2,
-              fontSize: 12,
-              fontWeight: 600,
-              letterSpacing: 1.6,
-              color: '#2adeff',
-              background: 'rgba(6,14,34,0.72)',
-              border: '1px solid #2adeff',
-              padding: '3px 9px',
-              borderRadius: 4,
-              
-              lineHeight: 1.4,
-            }}
-          >
-            {person.badge}
-          </span>
-        )}
-      </div>
-
-      {/* ── BODY (padded) ── */}
-      <div
-        style={{
-          padding: '1rem 1.1rem 1.1rem',
-          display: 'flex',
-          flexDirection: 'column',
-          flexGrow: 1,
-        }}
-      >
-        {/* name */}
-        <h5
-          style={{
-            color: '#e8f0ff',
-            fontSize: '1.05rem',
-            fontWeight: 700,
-            margin: '0 0 3px',
-            lineHeight: 1.25,
-          }}
-        >
-          {person.name}
-        </h5>
-
-        {/* role */}
-        <p
-          style={{
-            color: '#2adeff',
-            fontSize: '0.9rem',
-            margin: '0 0 10px',
-          }}
-        >
-          {person.role}
-        </p>
-
-        {/* gold divider */}
-        <div
-          style={{
-            width: 80,
-            height: 3,
-            background: 'linear-gradient(90deg, #A96A00 0%, #F1BA5F 100%)',
-            borderRadius: 2,
-            marginBottom: 12,
-          }}
-        />
-
-        {/* tagline */}
-        <p
-          style={{
-            color: '#7a9cbf',
-            fontSize: '0.82rem',
-            lineHeight: 1.65,
-            margin: '0 0 1rem',
-            flexGrow: 1,
-          }}
-        >
-          {person.tagline}
-        </p>
-
-        {/* tags */}
-        <div className="d-flex flex-wrap gap-1 mb-4">
-          {person.tags?.map(t => (
-            <span
-              key={t}
-              style={{
-                background: 'rgba(42, 222, 255, 0.07)',
-                border: '1px solid rgba(42, 222, 255, 0.2)',
-                color: '#7ad6e8',
-                fontSize: '0.7rem',
-                padding: '3px 10px',
-                borderRadius: 20,
-              }}
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-
-        {/* view bio */}
-        <button
-          onClick={() => onRead(person)}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            color: '#2adeff',
-            fontSize: '1rem',
-            padding: 0,
-            cursor: 'pointer',
-
-            letterSpacing: 0.5,
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 6,
-            transition: 'gap .15s',
-            alignSelf: 'flex-start',
-          }}
-          onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.gap = '10px')}
-          onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.gap = '6px')}
-        >
-          Read bio <span style={{ fontSize: 14 }}>→</span>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// ─── Medium Leader Card ───────────────────────────────────────────────────────
-
-function LeaderCard({ person, onRead }: { person: Person; onRead: (p: Person) => void }) {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        background: hovered ? 'rgba(56, 139, 253, 0.06)' : 'rgba(14, 28, 54, 0.6)',
-        border: `1px solid ${hovered ? 'rgba(56, 139, 253, 0.35)' : 'rgba(56, 139, 253, 0.12)'}`,
-        borderRadius: 16,
-        overflow: 'hidden', // ← clips image to card corners
-        transition: 'all .2s ease',
-        cursor: 'default',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
-      <div className="d-flex flex-column align-items-start gap-3 mb-2">
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            background: 'linear-gradient(to bottom, #0a1628 0%, #0a1628 100%)',
-            // height: 400,
-            paddingTop: '100%', // square-ish portrait
-            flexShrink: 0,
-          }}
-        >
-          <img
-            src={person.avatar}
-            alt={person.name}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              objectPosition: 'top center',
-            }}
-          />
-
-          {/* bottom gradient fade */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to bottom, transparent 45%, rgba(6,14,34,0.88) 100%)',
-              pointerEvents: 'none',
-            }}
-          />
-        </div>
-      </div>
-      <div
-        style={{
-          padding: '1rem 1.1rem 1.1rem',
-          display: 'flex',
-          flexDirection: 'column',
-          flexGrow: 1,
-        }}
-      >
-        <div>
-          <h6
-            style={{
-              color: '#e8f0ff',
-              fontSize: '1rem',
-              fontWeight: 700,
-              margin: '0 0 2px',
-              lineHeight: 1.2,
-            }}
-          >
-            {person.name}
-          </h6>
-          <p
-            style={{
-              color: '#2adeff',
-              fontSize: '0.9rem',
-              margin: '0 0 6px',
-            }}
-          >
-            {person.role}
-          </p>
-          {/* gold divider */}
-          <div
-            style={{
-              width: 80,
-              height: 3,
-              background: 'linear-gradient(90deg, #A96A00 0%, #F1BA5F 100%)',
-              borderRadius: 2,
-              marginBottom: 12,
-            }}
-          />
-        </div>
-        <p
-          style={{
-            color: '#7a9cbf',
-            fontSize: '0.78rem',
-            lineHeight: 1.6,
-            margin: '0.5rem 0 0.75rem',
-            flexGrow: 1,
-          }}
-        >
-          {person.tagline}
-        </p>
-        <div className="d-flex flex-wrap gap-1 mb-3">
-          {person.tags?.map(t => (
-            <span
-              key={t}
-              style={{
-                background: 'rgba(42, 222, 255, 0.07)',
-                border: '1px solid rgba(42, 222, 255, 0.2)',
-                color: '#7ad6e8',
-                fontSize: '0.7rem',
-                padding: '3px 10px',
-                borderRadius: 20,
-              }}
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-        <button
-          onClick={() => onRead(person)}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            color: '#2adeff',
-            fontSize: '1rem',
-            padding: 0,
-            cursor: 'pointer',
-
-            letterSpacing: 0.5,
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 6,
-            transition: 'gap .15s',
-            alignSelf: 'flex-start',
-          }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLButtonElement).style.gap = '10px';
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLButtonElement).style.gap = '6px';
-          }}
-        >
-          Read bio <span style={{ fontSize: 14 }}>→</span>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// ─── Specialist Team Card ────────────────────────────────────────────────────
-
-function SpecialistTeamCard({
-  team,
-  onReadMember,
-}: {
-  team: SpecialistTeam;
-  onReadMember: (p: Person) => void;
-}) {
-  return (
-    <div
-      style={{
-        background: 'rgba(14, 28, 54, 0.6)',
-        border: '1px solid rgba(56, 139, 253, 0.12)',
-        borderRadius: 14,
-        padding: '1.5rem',
-        height: '100%',
-      }}
-    >
-      <div className="d-flex align-items-center gap-2 mb-2">
-        <span style={{ fontSize: 22 }}>{team.icon}</span>
-        <h6 style={{ color: '#e8f0ff', fontSize: '0.95rem', fontWeight: 700, margin: 0 }}>
-          {team.name}
-        </h6>
-      </div>
-
-      <p style={{ color: '#7a9cbf', fontSize: '0.9rem', lineHeight: 1.6, margin: '0 0 0.75rem' }}>
-        {team.description}
-      </p>
-
-      <ul style={{ paddingLeft: 0, listStyle: 'none', margin: '0 0 1rem' }}>
-        {team.areas.map(a => (
-          <li
-            key={a}
-            style={{
-              color: '#7a9cbf',
-              fontSize: '0.9rem',
-              padding: '2px 0',
-              display: 'flex',
-              gap: 8,
-            }}
-          >
-            <span style={{ color: '#388bfd' }}>·</span>
-            {a}
-          </li>
-        ))}
-      </ul>
-
-      <hr style={{ borderColor: 'rgba(56,139,253,0.1)', margin: '1rem 0' }} />
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        {team.members.map(m => (
-          <div key={m.id} className="d-flex align-items-center justify-content-between">
-            <div className="d-flex align-items-center gap-2">
-              <Avatar person={m} size={72} />
-              <div>
-                <p style={{ color: '#c8daf5', fontSize: '0.9rem', fontWeight: 600, margin: 0 }}>
-                  {m.name}
-                </p>
-                <p
-                  style={{
-                    color: '#4a7ab0',
-                    fontSize: '0.8rem',
-                    margin: 0,
-                    
-                  }}
-                >
-                  {m.role}
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={() => onReadMember(m)}
-              style={{
-                background: 'transparent',
-                border: 'none',
-                color: '#2adeff',
-                fontSize: '0.9rem',
-                padding: 0,
-                cursor: 'pointer',
-                
-                letterSpacing: 0.5,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 4,
-                transition: 'gap .15s',
-                whiteSpace: 'nowrap',
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLButtonElement).style.gap = '8px';
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLButtonElement).style.gap = '4px';
-              }}
-            >
-              Bio <span>→</span>
-            </button>
-          </div>
-        ))}
-      </div>
-
-      <p
-        style={{
-          color: '#3a5a80',
-          fontSize: '0.9rem',
-          lineHeight: 1.55,
-          margin: '1rem 0 0',
-          fontStyle: 'italic',
-        }}
-      >
-        {team.teamDetail}
-      </p>
-    </div>
-  );
-}
-
-// ─── Section Header ───────────────────────────────────────────────────────────
-
-function SectionHeader({
-  number,
-  title,
-  subtitle,
-}: {
-  number: string;
-  title: string;
-  subtitle?: string;
-}) {
-  return (
-    <div className="mb-4">
-      <div className="d-flex align-items-center gap-3">
-        <span
-          style={{
-            
-            fontSize: '1rem',
-            color: '#2adeff',
-            letterSpacing: 2,
-          }}
-        >
-          {number}
-        </span>
-        <div style={{ height: 1, width: 32, background: 'rgba(56, 139, 253, 0.35)' }} />
-        <h3
-          style={{
-            color: '#2adeff',
-            fontSize: '1.5rem',
-            fontWeight: 700,
-            margin: 0,
-            letterSpacing: 0.5,
-            textTransform: 'uppercase',
-          }}
-        >
-          {title}
-        </h3>
-      </div>
-      {subtitle && (
-        <p
-          style={{
-            color: '#4a7ab0',
-            fontSize: '1rem',
-            margin: '6px 0 0 68px',
-            
-          }}
-        >
-          {subtitle}
-        </p>
-      )}
-    </div>
-  );
-}
-
-// ─── Engineering Credibility Band ─────────────────────────────────────────────
-
-export function CredibilityBand() {
-  return (
-    <div
-      style={{
-        // background: 'rgba(6, 15, 31, 0.95)',
-        borderTop: '1px solid rgba(56,139,253,0.12)',
-        borderBottom: '1px solid rgba(56,139,253,0.12)',
-        padding: '4rem 0',
-        margin: '5rem 0 0',
-      }}
-    >
-      <div className="container">
-        <div className="text-center mb-5">
-          <p
-            style={{
-              fontSize: '0.7rem',
-              fontWeight: 700,
-              letterSpacing: 3,
-              color: '#388bfd',
-
-              textTransform: 'uppercase',
-              marginBottom: 12,
-            }}
-          >
-            Engineering Credibility
-          </p>
-          <h2
-            style={{
-              color: '#e8f0ff',
-              fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
-              fontWeight: 700,
-              margin: 0,
-            }}
-          >
-            Engineering credibility. Real-world impact.
-          </h2>
-        </div>
-        <div className="row g-4">
-          {credibilityTiles.map(tile => (
-            <div key={tile.id} className="col-12 col-sm-6 col-lg-3">
-              <div
-                style={{
-                  background: 'rgba(14, 28, 54, 0.6)',
-                  border: '1px solid rgba(56, 139, 253, 0.12)',
-                  borderRadius: 14,
-                  padding: '1.5rem',
-                  height: '100%',
-                }}
-              >
-                <div style={{ fontSize: 28, marginBottom: 12 }}>{tile.icon}</div>
-                <h6
-                  style={{
-                    color: '#e8f0ff',
-                    fontSize: '0.9rem',
-                    fontWeight: 700,
-                    margin: '0 0 10px',
-                    lineHeight: 1.3,
-                  }}
-                >
-                  {tile.title}
-                </h6>
-
-                <p
-                  style={{
-                    color: '#7a9cbf',
-                    fontSize: '0.78rem',
-                    lineHeight: 1.65,
-                    margin: 0,
-                  }}
-                >
-                  {tile.body}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Leadership Statement ─────────────────────────────────────────────────────
-
-export function LeadershipStatement({}: { onRead: (p: Person) => void }) {
-  const jane = founders.find(f => f.id === 'jane')!;
-  return (
-    <div className="container" style={{ padding: '5rem 0' }}>
-      <div className="text-center mb-5">
-        <p
-          style={{
-            fontSize: '0.7rem',
-            fontWeight: 700,
-            letterSpacing: 3,
-            color: '#388bfd',
-
-            textTransform: 'uppercase',
-            marginBottom: 12,
-          }}
-        >
-          Leadership Statement
-        </p>
-        <h2
-          style={{
-            color: '#e8f0ff',
-            fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
-            fontWeight: 700,
-            margin: 0,
-          }}
-        >
-          Leadership statement
-        </h2>
-      </div>
-      <div className="row justify-content-center">
-        <div className="col-lg-10">
-          <div
-            style={{
-              border: '1px solid rgba(56, 139, 253, 0.12)',
-              borderRadius: 14,
-              padding: '1.5rem',
-              height: '100%',
-              background: 'transparent', // no background initially
-              transition: 'border-color .15s, background .15s',
-              boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = 'rgba(56,139,253,0.35)';
-              e.currentTarget.style.background = 'rgba(56,139,253,0.04)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'rgba(56,139,253,0.12)';
-              e.currentTarget.style.background = 'transparent'; // return to no background
-            }}
-          >
-            <div className="row align-items-center g-4">
-              <div className="col-auto">
-                <Avatar person={jane} size={72} />
-              </div>
-              <div className="col">
-                <blockquote style={{ margin: 0 }}>
-                  <p
-                    style={{
-                      color: '#c8daf5',
-                      fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                      lineHeight: 1.7,
-                      fontStyle: 'italic',
-                      margin: '0 0 1.25rem',
-                    }}
-                  >
-                    "When teams, sites and systems are distributed, network performance becomes a
-                    business issue — not just an IT one."
-                  </p>
-                  <footer>
-                    <p
-                      style={{
-                        color: '#e8f0ff',
-                        fontWeight: 700,
-                        fontSize: '0.9rem',
-                        margin: '0 0 2px',
-                      }}
-                    >
-                      {jane.name}
-                    </p>
-                    <p
-                      style={{
-                        color: '#388bfd',
-                        fontSize: '0.75rem',
-
-                        margin: 0,
-                      }}
-                    >
-                      {jane.role}
-                    </p>
-                  </footer>
-                </blockquote>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Latest Leadership Updates ────────────────────────────────────────────────
-
-export function LatestUpdates() {
-  return (
-    <div
-      style={{
-       
-        padding: '5rem 0',
-      }}
-    >
-      <div className="container">
-        <div className="row align-items-end mb-5">
-          <div className="col">
-            <p
-              style={{
-                fontSize: '0.7rem',
-                fontWeight: 700,
-                letterSpacing: 3,
-                color: '#388bfd',
-                
-                textTransform: 'uppercase',
-                marginBottom: 12,
-              }}
-            >
-              Newsroom
-            </p>
-            <h2
-              style={{
-                color: '#e8f0ff',
-                fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
-                fontWeight: 700,
-                margin: 0,
-              }}
-            >
-              Latest leadership updates
-            </h2>
-          </div>
-          <div className="col-auto d-none d-md-block">
-            <a
-              href="#"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                background: 'transparent',
-                border: '1px solid rgba(56, 139, 253, 0.35)',
-                color: '#88bbee',
-                fontSize: '0.78rem',
-                padding: '10px 20px',
-                borderRadius: 8,
-                textDecoration: 'none',
-                
-                letterSpacing: 0.5,
-              }}
-            >
-              Visit newsroom →
-            </a>
-          </div>
-        </div>
-        <div className="row g-4">
-          {newsCards.map(card => (
-            <div key={card.id} className="col-12 col-md-4">
-              <a
-                href={card.href ?? '#'}
-                style={{ textDecoration: 'none', display: 'block', height: '100%' }}
-              >
-                <div
-                  style={{
-                    background: 'rgba(14, 28, 54, 0.6)',
-                    border: '1px solid rgba(56, 139, 253, 0.12)',
-                    borderRadius: 14,
-                    padding: '1.5rem',
-                    height: '100%',
-                    transition: 'all .2s ease',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 12,
-                  }}
-                  onMouseEnter={e => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56,139,253,0.35)';
-                    (e.currentTarget as HTMLDivElement).style.background = 'rgba(56,139,253,0.04)';
-                  }}
-                  onMouseLeave={e => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(56,139,253,0.12)';
-                    (e.currentTarget as HTMLDivElement).style.background = 'rgba(14,28,54,0.6)';
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: '0.65rem',
-                      fontWeight: 700,
-                      letterSpacing: 2,
-                      color: '#388bfd',
-                      
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    {card.category}
-                  </span>
-                  <p
-                    style={{
-                      color: '#e8f0ff',
-                      fontSize: '0.95rem',
-                      fontWeight: 600,
-                      lineHeight: 1.45,
-                      margin: 0,
-                      flexGrow: 1,
-                    }}
-                  >
-                    {card.headline}
-                  </p>
-                  <span
-                    style={{
-                      color: '#388bfd',
-                      fontSize: '0.75rem',
-                      
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 6,
-                    }}
-                  >
-                    Read more <span style={{ fontSize: 14 }}>→</span>
-                  </span>
-                </div>
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Main Page ────────────────────────────────────────────────────────────────
 
 export default function LeadershipPage() {
   const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
 
   return (
     <>
-      <style>{`
-        @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
-        @keyframes slideIn {
-          from { transform: translateX(30px); opacity: 0 }
-          to   { transform: translateX(0);    opacity: 1 }
-        }
-        * { box-sizing: border-box; }
-        
-      `}</style>
-
-      <div
-        className="bg-dark"  >
+      <div className="bg-dark">
         {/* Hero */}
+
         <div
           style={{
             position: 'relative',
@@ -2188,8 +925,8 @@ export default function LeadershipPage() {
           }}
         >
           <div className="container">
-            <div className="row align-items-end">
-              <div className="col-lg-6">
+            <div className="row align-items-end g-4  leadership-row">
+              <div className="col-lg-5">
                 <Breadcrumb
                   items={[
                     { label: 'Company', href: '/company' },
@@ -2198,6 +935,7 @@ export default function LeadershipPage() {
                   style={{ paddingTop: '11rem' }}
                 />
                 <h1
+                  className="text-md-center text-lg-start"
                   style={{
                     color: '#e8f0ff',
                     fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
@@ -2208,15 +946,16 @@ export default function LeadershipPage() {
                   }}
                 >
                   The people behind
-                  <br />
-                  <span style={{ color: '#2adeff' }}>Enigma Net</span>
+                  <Br isDesktop />
+                  <span style={{ color: '#2adeff' }}> Enigma Net</span>
                 </h1>
                 <p
+                  className="text-md-center text-lg-start"
                   style={{
                     color: '#e8f0ff',
                     fontSize: '0.95rem',
                     lineHeight: 1.75,
-                    maxWidth: 520,
+
                     margin: '0 0 2rem',
                   }}
                 >
@@ -2224,33 +963,65 @@ export default function LeadershipPage() {
                   software development, security, finance, product, commercial growth, marketing and
                   technical delivery.
                 </p>
-                <div className="d-flex flex-wrap gap-3">
+                <div className="d-flex flex-wrap gap-3 align-items-center justify-content-lg-start justify-content-md-center justify-content-center">
                   <PremiumButton
                     label="Contact us →"
                     href="/get-in-touch"
                     variant="blue"
-                    className="rounded-4"
+                    className="rounded-4 card-box "
                   />
                   <PremiumButton
                     label=" Visit newsroom"
                     href="#"
                     variant="gold"
-                    className="rounded-4"
+                    className="rounded-4  card-box"
                     outline
                   />
                 </div>
               </div>
-              <div className="col-lg-6 text-end ">
-                <div style={{ maxHeight: '400px', width: '100%' }}>
+
+              <div className="col-lg-7 text-lg-end text-md-center text-center">
+                <div style={{ position: 'relative' }}>
                   <img
-                    src={UsecaseRemoteWork1}
+                    src={leadershipLanding}
                     alt="Leadership"
                     style={{
                       width: '100%',
                       height: '100%',
-                      WebkitMaskImage:
-                        'radial-gradient(ellipse 80% 80% at 55% 48%, black 35%, transparent 70%)',
-                      maskImage: 'radial-gradient(91% 83% at 54% 61%, black 43%, transparent 75%)',
+                      display: 'block',
+                      // Aggressive left fade + soft fade on top/bottom/right
+                      WebkitMaskImage: `linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0,0,0,0.5) 10%,
+            black 45%,
+            black 91%,
+            transparent 100%
+          ),
+          linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 15%,
+            black 85%,
+            transparent 100%
+          )`,
+                      WebkitMaskComposite: 'intersect',
+                      maskImage: `linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0,0,0,0.5) 20%,
+            black 45%,
+            black 80%,
+            transparent 100%
+          ),
+          linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 15%,
+            black 85%,
+            transparent 100%
+          )`,
+                      maskComposite: 'intersect',
                     }}
                   />
                 </div>
@@ -2292,7 +1063,6 @@ export default function LeadershipPage() {
               ))}
             </div>
           </section>
-
           {/* 03 — Commercial, Growth & Marketing */}
           <section className="mb-5">
             <SectionHeader
@@ -2308,7 +1078,6 @@ export default function LeadershipPage() {
               ))}
             </div>
           </section>
-
           {/* 04 — Specialist Teams */}
           <section>
             <div className="row mb-4 align-items-center">
