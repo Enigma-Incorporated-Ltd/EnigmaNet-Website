@@ -902,7 +902,7 @@ export const specialistTeams: SpecialistTeam[] = [
           'Enterprise Systems Architecture',
         ],
         linkedin: 'https://www.linkedin.com/in/mohammed-abul-azad-faisal/',
-        avatar: Gino,
+        avatar: '',
       },
     ],
   },
