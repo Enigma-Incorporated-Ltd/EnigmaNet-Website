@@ -62,7 +62,7 @@ const SaveItem = lazy(() => import('@/app/(account)/account-saved-items'));
 const Security = lazy(() => import('@/app/(account)/account-security'));
 const SignIn = lazy(() => import('@/app/(account)/account-signin'));
 const SignUp = lazy(() => import('@/app/(account)/account-signup'));
-const TCOCalculator = lazy(() => import('@/app/product-tco-calculator/index'));
+const TCOCalculator = lazy(() => import('@/app/hot-storage-tco-calculator/index'));
 const MigrationCalculator = lazy(() => import('@/app/trueCost/index'));
 const Product2 = lazy(() => import('@/app/product-2/index'));
 
@@ -490,7 +490,7 @@ export const AllRoutes = [
 
   // Pages Routes
   { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
-  { path: '/product-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
+  { path: '/hot-storage-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
 
   { path: '/product-2', name: 'CommingSoon', element: <Product2 /> },
   { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },

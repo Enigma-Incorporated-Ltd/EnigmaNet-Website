@@ -90,7 +90,7 @@ const TCOCalculator = () => {
       <section className="bg-dark py-4" data-bs-theme="dark">
         <Container className="pb-2 ">
           <Breadcrumb
-            items={[{ label: ' TCO Calculator' }]}
+            items={[{ label: 'Hot Storage TCO Calculator', href: '/hot-storage-tco-calculator  ' }]}
             style={{
               paddingBottom: '10px',
             }}
@@ -102,12 +102,15 @@ const TCOCalculator = () => {
             }}
           />
           {/* <h1 className="text-center mb-2">Total Cost of Ownership Calculator</h1> */}
-          <h5 className="text-center text-light opacity-70 " style={{
-            fontSize:"28px"
-          }}>
+          <h5
+            className="text-center text-light opacity-70 "
+            style={{
+              fontSize: '28px',
+            }}
+          >
             {' '}
-            See for yourself how unpredictable fees for transport, <br />egress, and API requests can
-            inflate your cloud storage budget.
+            See for yourself how unpredictable fees for transport, <br />
+            egress, and API requests can inflate your cloud storage budget.
           </h5>
           {/* <p className="text-center text-light opacity-70 fs-xl mt-2"></p> */}
         </Container>

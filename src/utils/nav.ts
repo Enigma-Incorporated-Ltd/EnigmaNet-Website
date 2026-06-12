@@ -595,6 +595,21 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     },
     label: '',
   },
+  TrueCost: {
+    leftRail: [{ label: 'TrueCost', id: 'truecost' }],
+    panels: {
+      truecost: [
+        {
+          title: 'TrueCost',
+          links: [
+            { label: 'TrueCost', href: '/truecost' },
+            { label: 'Hot storage TCO Calculator', href: '/hot-storage-tco-calculator' },
+          ],
+        },
+      ],
+    },
+    label: '',
+  },
 };
 
 // ── Fallback config (Updated with utility nav and Start Free CTA) ────────────────────────────────────────
@@ -614,9 +629,9 @@ export const FALLBACK_CONFIG: HeaderConfig = {
     { type: 'mega', label: 'Contact Us', data: MEGA_MENU_DATA.ContactUs },
 
     {
-      href: '/trueCost',
-      type: 'link',
-      label: 'TrueCost',
+     
+      type: 'mega',
+      label: 'TrueCost', data: MEGA_MENU_DATA.TrueCost
     },
     {
       href: '/login',

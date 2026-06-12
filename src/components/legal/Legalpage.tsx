@@ -129,7 +129,7 @@ const breadcrumbSchema = active
   // ✅ Empty state
   if (!legalData.length) {
     return (
-      <div className="legal-page">
+      <div className="legal-page container" style={{ paddingTop: '20rem' }}>
         <p className="text-center mt-5">No legal documents found.</p>
       </div>
     );

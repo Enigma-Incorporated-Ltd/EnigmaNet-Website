@@ -16,6 +16,7 @@ import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
+import { SyncSphereHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -484,8 +485,7 @@ const SyncSphere = () => {
       <HeroSection
         title={
           <>
-            Move, sync and manage large files <Br isTablet={true}  /> from one
-            controlled workspace.
+            Move, sync and manage large files <Br isTablet={true} /> from one controlled workspace.
           </>
         }
         description="Enigma SyncSphere brings Hot Storage, Large File Transfer, Managed File Transfer, third-party   
@@ -669,7 +669,7 @@ const SyncSphere = () => {
             />
           </>
         }
-        image={heroImg}
+        image={SyncSphereHero}
         description={
           <>
             SyncSphere combines web views in Nexus, desktop thin-client workflows, backend

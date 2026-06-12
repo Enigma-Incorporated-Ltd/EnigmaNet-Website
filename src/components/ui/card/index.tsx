@@ -6,6 +6,7 @@ import { useTheme } from '@/utils/useTheme';
 export interface CardItem {
   id?: string | number;
   title?: string;
+  subtitle?: string;
   description?: string;
   image?: string;
   href?: string;
@@ -43,7 +44,7 @@ const CardGrid: React.FC<CardGridProps> = ({
                   style={{
                     // objectFit: 'cover',
                     backgroundColor: isBg ? '#fff' : '',
-                   }}
+                  }}
                 />
               </div>
             )}
@@ -53,7 +54,9 @@ const CardGrid: React.FC<CardGridProps> = ({
               {item.title && (
                 <HeaderTitle key={theme} title={item.title} variant="blue" className="h3 fw-bold" />
               )}
-
+              {item.subtitle && (
+                <h2 className="h4 text-start mt-2 text-dark">{item.subtitle}</h2>
+              )}
               {item.description && (
                 <p
                   className="text-muted mb-3"
