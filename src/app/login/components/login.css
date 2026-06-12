@@ -1048,7 +1048,7 @@
   color: #000000;
 }
 
-/* Full-width light Google button (Figma spec) */
+/* Full-width Google button — dark theme (Figma dark spec) */
 .login-account-buttons__btn--light-full {
   display: flex;
   width: 100%;
@@ -1058,10 +1058,10 @@
   gap: 12px;
   box-sizing: border-box;
   border-radius: 100px;
-  border: 0.5px solid rgba(0, 0, 0, 0.35);
-  background: rgba(255, 255, 255, 0.33);
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
-  color: #000;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.20);
+  box-shadow: 0 0 5.5px 0 rgba(255, 255, 255, 0.25);
+  color: #fff;
   text-decoration: none;
   font-family: inherit;
   font-size: 16px;
@@ -1076,15 +1076,32 @@
 }
 
 .login-account-buttons__btn--light-full span {
-  color: #000;
+  color: #fff;
   font-weight: 600;
   position: static;
 }
 
 .login-account-buttons__btn--light-full:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.30);
+  transform: translateY(-1px);
+}
+
+/* Full-width Google button — light theme override (Figma light spec) */
+.login-layout--light .login-account-buttons__btn--light-full {
+  border: 0.5px solid rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.33);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
+  color: #000;
+}
+
+.login-layout--light .login-account-buttons__btn--light-full span {
+  color: #000;
+}
+
+.login-layout--light .login-account-buttons__btn--light-full:hover {
   color: #000;
   background: rgba(255, 255, 255, 0.55);
-  transform: translateY(-1px);
 }
 
 .login-card__logo {
