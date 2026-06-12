@@ -65,10 +65,6 @@ const LoginWelcomePage = () => {
                   <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Google Account</span>
                 </Link>
-                <Link to="/login/apple" className="login-account-buttons__btn login-account-buttons__btn--apple">
-                  <img src={loginAppleImage} alt="" width={24} height={24} aria-hidden="true" />
-                  <span>Apple Account</span>
-                </Link>
               </div>
             </div>
           </div>
