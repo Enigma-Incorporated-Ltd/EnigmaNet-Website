@@ -1,5 +1,4 @@
-import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
-import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
+
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
 import { EmailIcon } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
@@ -23,10 +22,9 @@ const googleCardNodeIds = {
 const GoogleLoginPage = ({ mode = 'login' }: GoogleLoginPageProps) => {
   const { theme } = useTheme();
   const isLight = theme === 'light';
-  const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const isRegister = mode === 'register';
   const backHref = isRegister ? '/register' : '/login';
-  const otherProviderHref = isRegister ? '/register/apple' : '/login/apple';
+
   const cardNodeId = googleCardNodeIds[mode][isLight ? 'light' : 'dark'];
   const cardName = isRegister
     ? isLight
@@ -35,7 +33,7 @@ const GoogleLoginPage = ({ mode = 'login' }: GoogleLoginPageProps) => {
     : isLight
       ? 'signin with google light mode'
       : 'signin with google dark mode';
-  const dividerText = 'Or sign in with your';
+
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -182,23 +180,7 @@ const GoogleLoginPage = ({ mode = 'login' }: GoogleLoginPageProps) => {
                 </button>
               </div>
 
-              <div
-                className="login-account-buttons login-account-buttons--apple-only"
-                data-node-id="59:768"
-              >
-                <div className="login-divider" data-node-id="59:769">
-                  <span className="login-divider__line" aria-hidden="true" />
-                  <span className="login-divider__text" data-node-id="59:772">
-                    {dividerText}
-                  </span>
-                  <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
-                </div>
 
-                <Link to={otherProviderHref} className="login-account-buttons__btn login-account-buttons__btn--apple" data-node-id="59:775">
-                  <img src={loginAppleImage} alt="" width={24} height={24} aria-hidden="true" />
-                  <span>Apple Account</span>
-                </Link>
-              </div>
             </form>
           </div>
 

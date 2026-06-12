@@ -1,6 +1,5 @@
-import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
-import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
+
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useTheme } from '@/utils/useTheme';
@@ -10,7 +9,7 @@ import './login-welcome.css';
 
 const LoginWelcomePage = () => {
   const { theme } = useTheme();
-  const loginAppleImage = theme === 'light' ? icTwotoneApple : loginAppleIcon;
+
 
   return (
     <section className="login-page">
@@ -74,6 +73,7 @@ const LoginWelcomePage = () => {
           </div>
         </div>
       </div>
+
     </section>
   );
 };

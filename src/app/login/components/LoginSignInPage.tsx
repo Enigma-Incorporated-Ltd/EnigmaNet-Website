@@ -219,7 +219,15 @@ const LoginSignInPage = () => {
                   className="login-account-buttons__btn login-account-buttons__btn--google"
                   data-node-id={isLight ? '21:2766' : '5:257'}
                 >
-                  <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
+                  <img
+                    src={loginGoogleIcon}
+                    alt=""
+                    width={24}
+                    height={24}
+                    aria-hidden="true"
+                  />
+                </Link>
+              </div>
             </form>
           </div>
 
