@@ -203,10 +203,8 @@ const LoginSignInPage = () => {
                 >
                   {isSubmitting ? 'Signing in…' : 'Sign In'}
                 </button>
-              </div>
 
-              <div className="login-account-buttons" data-node-id={isLight ? '21:2760' : '77:3600'}>
-                <div className="login-divider" data-node-id={isLight ? '21:2761' : '77:3601'}>
+                <div className="login-forgot-divider">
                   <span className="login-divider__line" aria-hidden="true" />
                   <span className="login-divider__text" data-node-id={isLight ? '21:2764' : '77:3604'}>
                     Or sign in with your
@@ -216,16 +214,11 @@ const LoginSignInPage = () => {
 
                 <Link
                   to="/login/google"
-                  className="login-account-buttons__btn login-account-buttons__btn--google"
+                  className="login-account-buttons__btn login-account-buttons__btn--google login-account-buttons__btn--light-full"
                   data-node-id={isLight ? '21:2766' : '5:257'}
                 >
-                  <img
-                    src={loginGoogleIcon}
-                    alt=""
-                    width={24}
-                    height={24}
-                    aria-hidden="true"
-                  />
+                  <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
+                  <span>Google Account</span>
                 </Link>
               </div>
             </form>

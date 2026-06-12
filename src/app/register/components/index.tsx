@@ -299,10 +299,8 @@ const RegisterPage = () => {
                 >
                   {isSubmitting ? 'Creating account…' : 'Create account'}
                 </button>
-              </div>
 
-              <div className="login-account-buttons" data-node-id={isLight ? '422:1502' : '76:3223'}>
-                <div className="login-divider" data-node-id={isLight ? '422:1503' : '76:3224'}>
+                <div className="login-forgot-divider">
                   <span className="login-divider__line" aria-hidden="true" />
                   <span className="login-divider__text" data-node-id={isLight ? '422:1506' : '76:3227'}>
                     {isLight ? 'Or sign in with your' : 'Or create account with your'}
@@ -310,11 +308,14 @@ const RegisterPage = () => {
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>
 
-                <Link to="/register/google" className="login-account-buttons__btn login-account-buttons__btn--google" data-node-id="76:3229">
+                <Link
+                  to="/register/google"
+                  className="login-account-buttons__btn login-account-buttons__btn--google login-account-buttons__btn--light-full"
+                  data-node-id="76:3229"
+                >
                   <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Google Account</span>
                 </Link>
-
               </div>
             </form>
           </div>

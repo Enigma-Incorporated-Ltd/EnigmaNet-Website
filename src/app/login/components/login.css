@@ -1003,6 +1003,90 @@
   transform: translateY(-1px);
 }
 
+/* Divider used inside flex-column context (upperside), not grid */
+.login-forgot-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.login-forgot-divider .login-divider__line {
+  display: block;
+  flex: 1 1 0;
+  height: 1px;
+  opacity: 0.5;
+  background: linear-gradient(90deg, transparent 0%, #ffffff 100%);
+}
+
+.login-layout--light .login-forgot-divider .login-divider__line {
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+}
+
+.login-forgot-divider .login-divider__line--right {
+  background: linear-gradient(90deg, transparent 0%, #e6e7e7 50%, #eaecec 100%);
+  transform: scaleX(-1);
+}
+
+.login-layout--light .login-forgot-divider .login-divider__line--right {
+  background: linear-gradient(90deg, #000000 0%, #ffffff 100%);
+  transform: scaleX(-1);
+}
+
+.login-forgot-divider .login-divider__text {
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.login-layout--light .login-forgot-divider .login-divider__text {
+  color: #000000;
+}
+
+/* Full-width light Google button (Figma spec) */
+.login-account-buttons__btn--light-full {
+  display: flex;
+  width: 100%;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  border: 0.5px solid rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.33);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
+  color: #000;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.login-account-buttons__btn--light-full::before,
+.login-account-buttons__btn--light-full::after {
+  display: none;
+}
+
+.login-account-buttons__btn--light-full span {
+  color: #000;
+  font-weight: 600;
+  position: static;
+}
+
+.login-account-buttons__btn--light-full:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateY(-1px);
+}
+
 .login-card__logo {
   display: flex;
   justify-content: center;

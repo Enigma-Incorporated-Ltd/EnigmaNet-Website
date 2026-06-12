@@ -59,8 +59,8 @@ const LoginWelcomePage = () => {
                 <span className="login-welcome-divider__line login-welcome-divider__line--right" aria-hidden="true" />
               </div>
 
-              <div className="login-welcome-row login-welcome-social">
-                <Link to="/login/google" className="login-account-buttons__btn login-account-buttons__btn--google">
+              <div className="login-welcome-social">
+                <Link to="/login/google" className="login-account-buttons__btn login-account-buttons__btn--google login-account-buttons__btn--light-full">
                   <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
                   <span>Google Account</span>
                 </Link>
