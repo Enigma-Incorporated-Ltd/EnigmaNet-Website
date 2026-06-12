@@ -1,6 +1,6 @@
-import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
-import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
+
 import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
+
 import {
   EmailIcon,
   EyeClosedIcon,
@@ -26,7 +26,7 @@ const RegisterPage = () => {
   const { register } = useAuth();
   const { theme } = useTheme();
   const isLight = theme === 'light';
-  const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
+
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
   const [fieldError, setFieldError] = useState<AuthFieldError | null>(null);
