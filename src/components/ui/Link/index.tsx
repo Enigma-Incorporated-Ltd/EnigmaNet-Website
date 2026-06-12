@@ -16,7 +16,7 @@ const PolicyLinks: React.FC<PolicyLinksProps> = ({ links, title = 'Policy Links'
 
   return (
     <div className="container mx-auto" style={{ maxWidth: '900px' }}>
-      <h5  style={{ marginBottom: '16px' , paddingLeft: 'inherit' ,fontSize: '20px' }}>{title}</h5>
+      <h5 style={{ marginBottom: '16px', paddingLeft: 'inherit', fontSize: '20px' }}>{title}</h5>
 
       <ul
         style={{
@@ -48,12 +48,18 @@ const PolicyLinks: React.FC<PolicyLinksProps> = ({ links, title = 'Policy Links'
                 borderRadius: '14px',
                 textDecoration: 'none',
                 color: theme === 'dark' ? '#fff' : '#212529',
-                border: '1px solid rgba(56,139,253,0.35)',
+                border:
+                  theme === 'dark'
+                    ? '1px solid rgba(255, 255, 255, 0.14)'
+                    : '1px solid rgba(56,139,253,0.35)',
                 background: 'transparent',
                 transition: 'all 0.3s ease',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(56,139,253,0.08)';
+                e.currentTarget.style.background =
+                  theme === 'dark' ? 'none' : 'rgba(56,139,253,0.08)';
+                e.currentTarget.style.color = theme === 'dark' ? '#2adeff' : '#3d5a9e';
+              
                 e.currentTarget.style.transform = 'translateY(-4px)';
 
                 const arrow = e.currentTarget.querySelector('.arrow') as HTMLElement;
@@ -65,7 +71,8 @@ const PolicyLinks: React.FC<PolicyLinksProps> = ({ links, title = 'Policy Links'
               onMouseLeave={e => {
                 e.currentTarget.style.background = 'transparent';
                 e.currentTarget.style.transform = 'translateY(0)';
-
+                e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#212529';
+               
                 const arrow = e.currentTarget.querySelector('.arrow') as HTMLElement;
 
                 if (arrow) {
