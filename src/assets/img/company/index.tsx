@@ -17,7 +17,7 @@ import Gino from './leadership/Gino-Mathew.png';
 import Mohammed from './leadership/Mohammed.png';
 import Ketherine from './leadership/ketherine.png';
 import leadershipLanding from './leadership/Company-Leadership.png';
-import TrustCenter from './trust-center/trust-center.jpg';
+import TrustCenter from './trust-center/cybersecurity.png';
 export {
   Glenn,
   AdemHeaps,
