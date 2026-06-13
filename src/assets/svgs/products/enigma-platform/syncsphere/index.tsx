@@ -12,8 +12,8 @@ import NexusRelationshipCardsLedger from './Nexus-relationship-cards-Ledger.svg'
 import NexusRelationshipCardsNexus from './Nexus-relationship-cards-Nexus.svg';
 //done
 import PainCard1FilesAreScattered from './pain-card-1-Files-are-scattered.svg';
-import PainCard2TransfersAreTooSlow from './pain-card-2-Transfers-are-too-slow.svg';
-import PainCard3SyncJobsLackVisibility from './pain-card-3-Sync-jobs-lack-visibility.svg';
+import PainCard2TransfersAreTooSlow from './Pain-card-2-Transfers-are-too-slow.svg';
+import PainCard3SyncJobsLackVisibility from './Pain-card-3-Sync-jobs-lack-visibility.svg';
 import PainCard4SharingNeedsControl from './pain-card-4-Sharing-needs-control.svg';
 //done
 import TrustCards2SecureSharing from './Trust-cards-2-Secure-sharing.svg';
