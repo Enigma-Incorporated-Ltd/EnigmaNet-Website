@@ -1,4 +1,4 @@
-import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
+import GoogleAccountButton from '@/components/auth/GoogleAccountButton';
 import { EmailIcon } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
@@ -140,14 +140,10 @@ const ForgotPasswordRequestPage = () => {
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>
 
-                <Link
-                  to="/login/google"
-                  className="login-account-buttons__btn login-account-buttons__btn--google login-account-buttons__btn--light-full"
+                <GoogleAccountButton
+                  mode="login"
                   data-node-id="76:2448"
-                >
-                  <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
-                  <span>Google Account</span>
-                </Link>
+                />
               </div>
             </form>
           </div>

@@ -10,6 +10,8 @@ import type {
   ForgotPasswordPayload,
   LoginPayload,
   LoginSuccessResponse,
+  GoogleAuthPayload,
+  GoogleAuthResponse,
   MicrosoftAuthPayload,
   MicrosoftAuthResponse,
   RefreshTokenPayload,
@@ -173,6 +175,24 @@ export async function loginWithMicrosoft(
 
   if (data.status !== 'Success') {
     throw new AuthApiError(data.status || 'Microsoft sign-in failed.');
+  }
+
+  return data;
+}
+
+export async function loginWithGoogle(
+  payload: GoogleAuthPayload,
+): Promise<GoogleAuthResponse> {
+  const data = await authRequest<GoogleAuthResponse>('/api/auth/google', {
+    method: 'POST',
+    body: JSON.stringify({
+      IdToken: payload.idToken,
+      ApplicationId: AUTH_APPLICATION_ID,
+    }),
+  });
+
+  if (data.status !== 'Success' && data.status !== 'Login successful') {
+    throw new AuthApiError(data.status || 'Google sign-in failed.');
   }
 
   return data;

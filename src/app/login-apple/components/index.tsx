@@ -6,7 +6,7 @@ import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useState } from 'react';
 import { Link } from 'react-router';
-import type { OAuthPageMode } from '@/app/login-google/components';
+import type { OAuthPageMode } from '@/types/oauth';
 import { useTheme } from '@/utils/useTheme';
 import '@/app/login/components/login.css';
 import './apple-login.css';

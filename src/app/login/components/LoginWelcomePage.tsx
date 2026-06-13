@@ -1,5 +1,4 @@
-import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
-
+import GoogleAccountButton from '@/components/auth/GoogleAccountButton';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useTheme } from '@/utils/useTheme';
@@ -60,10 +59,7 @@ const LoginWelcomePage = () => {
               </div>
 
               <div className="login-welcome-social">
-                <Link to="/login/google" className="login-account-buttons__btn login-account-buttons__btn--google login-account-buttons__btn--light-full">
-                  <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
-                  <span>Google Account</span>
-                </Link>
+                <GoogleAccountButton mode="login" />
               </div>
             </div>
           </div>

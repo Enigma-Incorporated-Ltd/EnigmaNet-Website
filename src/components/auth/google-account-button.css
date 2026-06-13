@@ -1,0 +1,29 @@
+.google-account-button {
+  position: relative;
+  width: 100%;
+}
+
+.google-account-button--loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.google-account-button__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0.01;
+  cursor: pointer;
+}
+
+.google-account-button__overlay > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.google-account-button__overlay iframe {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
