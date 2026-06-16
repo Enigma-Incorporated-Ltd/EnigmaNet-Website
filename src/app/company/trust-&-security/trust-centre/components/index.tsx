@@ -7,7 +7,7 @@ import block2 from '@/assets/svgs/solutions/enterprise/Core capabilities - block
 import block3 from '@/assets/svgs/solutions/enterprise/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
-import { TrustCenter } from '@/assets/img/company';
+import { AICPA, ISO, TrustCenter } from '@/assets/img/company';
 import Br from '@/components/ui/NewLine';
 import CardGrid from '@/components/ui/card';
 import PolicyLinks from '@/components/ui/Link';
@@ -225,17 +225,20 @@ const TrustCentrePage = () => {
         }
       />
       <CardGrid
+        customClass=" cusotm-height"
+        isBg={false}
+      
         data={[
           {
             id: 1,
-            image: block1,
+            image: ISO,
             title: 'ISO 27001  ',
             subtitle: 'Status: In progress  ',
             description: `Working towards ISO 27001.  `,
           },
           {
             id: 2,
-            image: block2,
+            image: AICPA,
             title: 'SOC 2  ',
             subtitle: 'Status: Planned  ',
             description: `Planned after ISO 27001.  `,
@@ -329,9 +332,7 @@ customer-facing policy information.   "
           href: '/get-in-touch',
           variant: 'gold',
         }}
-      
       />
-     
     </div>
   );
 };

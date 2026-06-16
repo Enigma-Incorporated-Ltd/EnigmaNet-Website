@@ -39,6 +39,7 @@ const SolutionsGrid = () => {
         data={solutions as CardItem[]}
         columns="col-12 col-md-12 col-lg-6"
         buttonLabel="Explore"
+      
       />
     </section>
   );

@@ -3,6 +3,7 @@ import { Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 import './contact.css';
 import PremiumButton from '@/components/ui/PremiumButton';
+import { useGetInTouchApi } from '@/services/getInTouchApi';
 const features = [
   {
     title: 'Tailored Recommendations',
@@ -22,18 +23,11 @@ const features = [
   },
 ];
 const QuoteForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
+  const { handleSubmit, submitted, sending, errors, handleChange, formData } = useGetInTouchApi();
+
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
-  const [formData, setFormData] = useState({
-    company: '',
-    email: '',
-    firstname: '',
-    lastname: '',
-    jobtitle: '',
-    message: '',
-  });
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -44,69 +38,7 @@ const QuoteForm = () => {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
 
-    const portalId = '145144803';
-    const formId = '0d6ff619-5312-47aa-a346-7deb6981cd24';
-
-    const hutk = document.cookie
-      .split('; ')
-      .find(row => row.startsWith('hubspotutk='))
-      ?.split('=')[1];
-
-    const context: any = {
-      pageUri: window.location.href,
-      pageName: document.title,
-    };
-    if (hutk) {
-      context.hutk = hutk;
-    }
-    const payload = {
-      fields: [
-        { name: 'company', value: formData.company || '' },
-        { name: 'email', value: formData.email || '' },
-        { name: 'firstname', value: formData.firstname || '' },
-        { name: 'lastname', value: formData.lastname || '' },
-        { name: 'jobtitle', value: formData.jobtitle || '' },
-        { name: 'comments', value: formData.message || '' },
-      ],
-      context,
-    };
-
-    try {
-      const res = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setSubmitted(true);
-        console.log('Success:', data);
-      } else {
-        console.error('HubSpot error:', data);
-      }
-    } catch (err) {
-      console.error('Network error:', err);
-    } finally {
-      setSending(false);
-    }
-  };
   return (
     <>
       <section className="contact-section container" ref={sectionRef}>
@@ -172,7 +104,7 @@ const QuoteForm = () => {
             </Col>
 
             {/* ── Right column: form ── */}
-            <Col xl={6} lg={6} md={11} className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
+            <Col xl={6} lg={6}  className={`fade-in delay-2 ${visible ? 'visible' : ''}`}>
               <Card className="contact-card">
                 <Card.Body>
                   {submitted ? (
@@ -192,7 +124,11 @@ const QuoteForm = () => {
                           placeholder="Your company"
                           value={formData.company}
                           onChange={handleChange}
+                          isInvalid={!!errors.company}
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.company}
+                        </Form.Control.Feedback>
                       </Col>
 
                       {/* Email */}
@@ -204,7 +140,9 @@ const QuoteForm = () => {
                           placeholder="you@company.com"
                           value={formData.email}
                           onChange={handleChange}
+                          isInvalid={!!errors.email}
                         />
+                        <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
                       </Col>
 
                       {/* First / Last */}
@@ -216,7 +154,11 @@ const QuoteForm = () => {
                           placeholder="First name"
                           value={formData.firstname}
                           onChange={handleChange}
+                          isInvalid={!!errors.firstname}
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.firstname}
+                        </Form.Control.Feedback>
                       </Col>
 
                       <Col xs={12} sm={6} className={`fade-in delay-3 ${visible ? 'visible' : ''}`}>
@@ -227,7 +169,11 @@ const QuoteForm = () => {
                           placeholder="Last name"
                           value={formData.lastname}
                           onChange={handleChange}
+                          isInvalid={!!errors.lastname}
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.lastname}
+                        </Form.Control.Feedback>
                       </Col>
 
                       {/* Job title */}
@@ -239,7 +185,11 @@ const QuoteForm = () => {
                           placeholder="Your role"
                           value={formData.jobtitle}
                           onChange={handleChange}
+                          isInvalid={!!errors.jobtitle}
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.jobtitle}
+                        </Form.Control.Feedback>
                       </Col>
 
                       {/* Message */}
@@ -252,7 +202,11 @@ const QuoteForm = () => {
                           placeholder="Any specific product, service or solution?"
                           value={formData.message}
                           onChange={handleChange}
+                          isInvalid={!!errors.message}
                         />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.message}
+                        </Form.Control.Feedback>
                       </Col>
 
                       {/* Submit */}

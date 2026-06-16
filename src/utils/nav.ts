@@ -513,7 +513,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         {
           title: 'CAREERS',
           links: [
-            // { label: 'Careers', href: '/company/careers' },
+            { label: 'Careers', href: '/company/careers' },
             { label: 'Culture', href: '/company/careers/culture' },
             {
               label: 'Open Roles',
@@ -553,7 +553,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         {
           title: 'Contact Us',
           links: [
-            { label: 'Contact Us', href: '/contact-us' },
+            { label: 'Contact Us', href: '/get-in-touch' },
             { label: 'Request A Quote', href: '/contact-us/request-a-quote' },
           ],
         },

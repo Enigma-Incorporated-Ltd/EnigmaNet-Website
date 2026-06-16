@@ -8,15 +8,16 @@ const Careers = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Careers - Company',
     url: `${BASE_URL}/company/careers`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Net brings together people across engineering, product, deployment, infrastructure, design, operations, growth and marketing to solve complex data movement and connectivity challenges.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Careers - Company"
+        description="Enigma Net brings together people across engineering, product, deployment, infrastructure, design, operations, growth and marketing to solve complex data movement and connectivity challenges."
         url={`${BASE_URL}/company/careers`}
         structuredData={structuredData}
       />
