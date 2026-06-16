@@ -1,6 +1,7 @@
 import IconifyIcon from '@/components/IconifyIcon';
 import { Container } from 'react-bootstrap';
 import './index.css';
+import HeroImage from '../HeroImage';
 type CaseStudyHighlightProps = {
   data?: string[];
   title?: string | React.ReactNode;
@@ -69,7 +70,12 @@ const CaseStudyHighlight = ({
         )}
         {image && (
           <div className="text-center mb-5">
-            <img
+            <HeroImage
+              img={image}
+              alt={typeof title === 'string' ? title : undefined}
+              isbg={isbg}
+            />
+            {/* <img
               src={image}
               width="100%"
               alt="Case Study Highlight"
@@ -78,7 +84,7 @@ const CaseStudyHighlight = ({
                 borderRadius: '1.5rem',
                 boxShadow: '0 1.875rem 7.5rem -.625rem rgba(124,125,152, .2)',
               }}
-            />
+            /> */}
           </div>
         )}
         {quote && (

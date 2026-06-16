@@ -6,6 +6,7 @@ import { useTheme } from '@/utils/useTheme';
 export interface CardItem {
   id?: string | number;
   title?: string;
+  subtitle?: string;
   description?: string;
   image?: string;
   href?: string;
@@ -17,6 +18,7 @@ interface CardGridProps {
   columns?: string;
   showButton?: boolean;
   isBg?: boolean;
+  customClass?: string;
 }
 
 const CardGrid: React.FC<CardGridProps> = ({
@@ -25,6 +27,7 @@ const CardGrid: React.FC<CardGridProps> = ({
   columns = 'col-12 col-sm-12 col-lg-6',
   showButton = true,
   isBg = false,
+  customClass = '',
 }) => {
   const { theme } = useTheme();
 
@@ -32,28 +35,39 @@ const CardGrid: React.FC<CardGridProps> = ({
     <div className="row g-4 container mx-auto">
       {data.map((item, index) => (
         <div key={item.id ?? index} className={columns}>
-          <div className="card solution-card h-100 shadow-sm border-0">
+          <div
+            className="card solution-card h-100 shadow-sm border-0"
+           
+          >
             {/* Image */}
             {item.image && (
-              <div className="image-wrapper">
+              <div className={` ${customClass ? customClass : 'image-wrapper'}`}>
                 <img
                   src={item.image}
                   alt={item.title || 'card-image'}
-                  className="w-100 h-100 rounded-top"
+                  className={` ${customClass ? customClass : 'w-100 h-100 rounded-top'}`}
                   style={{
-                    // objectFit: 'cover',
-                    backgroundColor: isBg ? '#fff' : '',
-                   }}
+                    backgroundColor: isBg ? '#fff' : '#151822',
+                  }}
                 />
               </div>
             )}
 
             {/* Content */}
-            <div className="card-body d-flex flex-column">
+            <div className="card-body d-flex flex-column pt-2">
               {item.title && (
-                <HeaderTitle key={theme} title={item.title} variant="blue" className="h3 fw-bold" />
+                <HeaderTitle
+                  key={theme}
+                  title={item.title}
+                  variant="blue"
+                  className={`h3 fw-bold `}
+                />
               )}
-
+              {item.subtitle && (
+                <h2 className={`h4 text-start mt-2 }`} >
+                  {item.subtitle}
+                </h2>
+              )}
               {item.description && (
                 <p
                   className="text-muted mb-3"

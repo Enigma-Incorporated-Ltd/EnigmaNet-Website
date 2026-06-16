@@ -3,7 +3,6 @@ import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { Link } from 'react-router';
 import '@/app/login/components/login.css';
-import '@/app/login-google/components/google-login.css';
 import './forgot-password.css';
 
 const ResetPasswordSuccessPage = () => {

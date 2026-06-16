@@ -23,6 +23,13 @@ export const AZURE_REDIRECT_URI =
 export const AZURE_API_SCOPE =
   (import.meta.env.VITE_AZURE_API_SCOPE as string | undefined) ?? '';
 
+export const GOOGLE_CLIENT_ID =
+  (import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined) ?? '';
+
+export function isGoogleAuthConfigured(): boolean {
+  return Boolean(GOOGLE_CLIENT_ID.trim());
+}
+
 export function isAuthConfigured(): boolean {
   return Boolean(
     AUTH_API_KEY.trim() &&

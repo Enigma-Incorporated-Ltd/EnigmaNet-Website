@@ -3,9 +3,6 @@ import HeroSection from '@/components/ui/HeroSection';
 import { enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
@@ -16,6 +13,32 @@ import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
+import { SyncSphereHero } from '@/assets/img/products';
+import {
+  NexusRelationshipCardsHub,
+  NexusRelationshipCardsGrid,
+  NexusRelationshipCardsCommander,
+  NexusRelationshipCardsLedger,
+  NexusRelationshipCardsNexus,
+  WhatSyncSphereBringsTogetherHotStorageWorkspaces,
+  WhatSyncSphereBringsTogetherLargeFileTransfer,
+  WhatSyncSphereBringsTogetherManagedFileTransfer,
+  WhatSyncSphereBringsTogetherMultiCloudAndNASIngest,
+  WhatSyncSphereBringsTogetherGovernanceAndSharing,
+  PainCard1FilesAreScattered,
+  PainCard2TransfersAreTooSlow,
+  PainCard3SyncJobsLackVisibility,
+  PainCard4SharingNeedsControl,
+  TrustCards1IAMAwareAccess,
+  TrustCards2SecureSharing,
+  TrustCards3TransferIntegrity,
+  TrustCards5AuditEvidence,
+  TrustCards4VisibilityAndReporting,
+  ComparisonCardsMASVStylePackageDelivery,
+  ComparisonCardsAsperaStyleManagedWorkflows,
+  ComparisonCardsSigniantStyleMediaOperations,
+  ComparisonCardsDropboxStyleWorkspacesimplicity,
+} from '@/assets/svgs/products/enigma-platform/syncsphere';
 const features = [
   {
     id: 1,
@@ -131,27 +154,27 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: PainCard1FilesAreScattered,
     title: 'Files are scattered  ',
     description: `Assets often sit across cloud drives, local NAS, external drives, S3 buckets and project folders.   `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: PainCard2TransfersAreTooSlow,
     title: 'Transfers are too slow  ',
     description: `Large uploads, downloads and cross-region movement can become painful over long-haul or   
 lossy links.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: PainCard3SyncJobsLackVisibility,
     title: 'Sync jobs lack visibility   ',
     description:
       'Teams need to know what is complete, what failed, what is retrying and where the bottleneck is.',
   },
   {
     id: 4,
-    icon: block1,
+    icon: PainCard4SharingNeedsControl,
     title: 'Sharing needs control',
     description:
       'External links, project folders and collaborator access need expiry, permissions and audit trails.  ',
@@ -160,33 +183,33 @@ lossy links.  `,
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: WhatSyncSphereBringsTogetherHotStorageWorkspaces,
     title: 'Hot Storage workspaces ',
     description: `Project-based storage views built on Enigma Hot Storage.`,
   },
   {
     id: 2,
-    icon: block2,
+    icon: WhatSyncSphereBringsTogetherLargeFileTransfer,
     title: 'Large File Transfer  ',
     description: `Ad-hoc upload and download workflows for large packages, external collaborators and project delivery. `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: WhatSyncSphereBringsTogetherManagedFileTransfer,
     title: 'Managed File Transfer    ',
     description:
       'Scheduled, recurring and policy-driven transfer jobs with telemetry, retries and integrity checks.',
   },
   {
     id: 4,
-    icon: block1,
+    icon: WhatSyncSphereBringsTogetherMultiCloudAndNASIngest,
     title: 'Multi-cloud and NAS ingest  ',
     description:
       'Connect OneDrive, Google Drive, Synology, WebDAV and local NAS sources into one workspace.',
   },
   {
     id: 5,
-    icon: block3,
+    icon: WhatSyncSphereBringsTogetherGovernanceAndSharing,
     title: 'Governance and sharing  ',
     description:
       'IAM-aware folder access, temporary links, versioning, activity records and transfer visibility. ',
@@ -195,34 +218,34 @@ const data2 = [
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: TrustCards1IAMAwareAccess,
     title: 'IAM-aware access  ',
     description: `Folder, bucket and project permissions are controlled through Hub.   
 `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: TrustCards2SecureSharing,
     title: 'Secure sharing   ',
     description: `Temporary links and share tokens can include expiry, access scope and external collaborator   
 controls.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: TrustCards3TransferIntegrity,
     title: 'Transfer integrity  ',
     description: 'MFT workflows can include hashing, retries and integrity checks.   ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: TrustCards4VisibilityAndReporting,
     title: 'Visibility and reporting   ',
     description:
       'Transfer health, source status, last sync time and error rates are surfaced in the workspace.  ',
   },
   {
     id: 5,
-    icon: block2,
+    icon: TrustCards5AuditEvidence,
     title: 'Audit evidence   ',
     description:
       'File actions, sharing activity and permission changes can be recorded for review.   ',
@@ -231,28 +254,28 @@ controls.  `,
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: ComparisonCardsMASVStylePackageDelivery,
     title: 'MASV-style package delivery  ',
     description: `For ad-hoc large file transfers, external uploads, delivery links and project handoff.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: ComparisonCardsAsperaStyleManagedWorkflows,
     title: 'Aspera-style managed workflows  ',
     description:
       'For high-speed managed transfer jobs, recurring movement, retries, policy control and integrity checks.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: ComparisonCardsSigniantStyleMediaOperations,
     title: 'Signiant-style media operations  ',
     description:
       'For distributed creative teams moving large media libraries, rushes and production assets.  ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: ComparisonCardsDropboxStyleWorkspacesimplicity,
     title: 'Dropbox-style workspace simplicity  ',
     description:
       'For browsing, sharing and syncing files — but with infrastructure-grade performance and governance.  ',
@@ -261,32 +284,32 @@ const data4 = [
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: NexusRelationshipCardsHub,
     title: 'Hub    ',
     description: `Hub controls who can access folders, buckets, links, transfer jobs and SyncSphere features.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: NexusRelationshipCardsGrid,
     title: 'Grid    ',
     description: `Grid links file workflows and configuration artefacts to specific sites, assets and services.  `,
   },
   {
     id: 3,
-    icon: block1,
+    icon: NexusRelationshipCardsCommander,
     title: 'Command  ',
     description: `Command surfaces operational issues affecting transfer jobs, storage access or APN performance.    `,
   },
   {
     id: 4,
-    icon: block3,
+    icon: NexusRelationshipCardsLedger,
     title: 'Ledger  ',
     description: ` Ledger records file actions, sharing activity, permission changes and transfer history.  `,
   },
   {
     id: 5,
-    icon: block1,
+    icon: NexusRelationshipCardsNexus,
     title: 'Nexus    ',
     description: ` Nexus brings SyncSphere into the wider Enigma operational interface. `,
   },
@@ -345,6 +368,7 @@ const Command = [
 const assetsFamily = [
   {
     id: 1,
+    icon: WhatSyncSphereBringsTogetherHotStorageWorkspaces,
     title: 'Hot Storage workspace',
     description:
       'SyncSphere is the main user interface for Enigma Hot Storage, presenting buckets as clear project workspaces.  ',
@@ -359,6 +383,7 @@ const assetsFamily = [
   {
     id: 2,
     title: 'Large File Transfer',
+    icon: WhatSyncSphereBringsTogetherLargeFileTransfer,
     description:
       'SyncSphere exposes LFT for fast portal-driven transfers, package delivery and external upload/download links.',
     usecase: [
@@ -372,6 +397,7 @@ const assetsFamily = [
   {
     id: 3,
     title: 'Managed File Transfer',
+    icon: WhatSyncSphereBringsTogetherManagedFileTransfer,
     description:
       'SyncSphere includes a policy-driven layer for recurring, scheduled and controlled data movement.',
     usecase: [
@@ -385,6 +411,7 @@ const assetsFamily = [
   {
     id: 4,
     title: 'Multi-cloud and NAS integration',
+    icon: WhatSyncSphereBringsTogetherMultiCloudAndNASIngest,
     description:
       'SyncSphere connects existing clouds and storage sources so customers can consolidate without a hard cut-over.   ',
     usecase: [
@@ -398,6 +425,7 @@ const assetsFamily = [
   {
     id: 5,
     title: 'Desktop thin client experience',
+    icon: WhatSyncSphereBringsTogetherGovernanceAndSharing,
     description:
       'SyncSphere extends into the desktop through the Enigma thin client for creators, technical teams and enterprise users.',
     usecase: [
@@ -484,8 +512,7 @@ const SyncSphere = () => {
       <HeroSection
         title={
           <>
-            Move, sync and manage large files <Br isTablet={true}  /> from one
-            controlled workspace.
+            Move, sync and manage large files <Br isTablet={true} /> from one controlled workspace.
           </>
         }
         description="Enigma SyncSphere brings Hot Storage, Large File Transfer, Managed File Transfer, third-party   
@@ -669,7 +696,7 @@ const SyncSphere = () => {
             />
           </>
         }
-        image={heroImg}
+        image={SyncSphereHero}
         description={
           <>
             SyncSphere combines web views in Nexus, desktop thin-client workflows, backend

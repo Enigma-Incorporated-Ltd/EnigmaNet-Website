@@ -14,6 +14,7 @@ const HeroImage = ({ img, alt , isbg = false }: Props) => {
         style={{
           borderRadius: '1.5rem',
           boxShadow: '0 1.875rem 7.5rem -.625rem rgba(124,125,152, .2)',
+          objectFit: 'contain',
         }}
       />
     </div>

@@ -8,15 +8,16 @@ const TrustCentre = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Trust Centre',
     url: `${BASE_URL}/company/trust-&-security/trust-centre`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Net helps organisations move data through secure, encrypted and resilient infrastructure.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Trust Centre | Trust & Security -Company"
+        description="Enigma Net helps organisations move data through secure, encrypted and resilient infrastructure."
         url={`${BASE_URL}/company/trust-&-security/trust-centre`}
         structuredData={structuredData}
       />

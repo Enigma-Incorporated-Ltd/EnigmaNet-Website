@@ -15,9 +15,12 @@ import Mae from './leadership/Mae.png';
 import Kaspar from './leadership/Kaspar-Pitblado.png';
 import Gino from './leadership/Gino-Mathew.png';
 import Mohammed from './leadership/Mohammed.png';
-import Ketherine from './leadership/ketherine.png';
+import Ketherine from './leadership/Katherine Priestley.png';
 import leadershipLanding from './leadership/Company-Leadership.png';
-import TrustCenter from './trust-center/trust-center.jpg';
+import TrustCenter from './trust-center/cybersecurity.png';
+import Culture from './culture/culture.jpg';
+import AICPA from './trust-center/AICPA SOC 2.png';
+import ISO from './trust-center/ISO 27001.png';
 export {
   Glenn,
   AdemHeaps,
@@ -39,4 +42,7 @@ export {
   Drik,
   leadershipLanding,
   TrustCenter,
+  Culture,
+  AICPA,
+  ISO,
 };

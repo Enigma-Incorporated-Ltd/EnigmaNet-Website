@@ -6,6 +6,7 @@ import IconifyIcon from '@/components/IconifyIcon';
 
 export interface CardItem {
   id?: string | number;
+  icon?: string;
   title?: string | React.ReactNode;
   subtitle?: string | React.ReactNode;
   description?: string | React.ReactNode;
@@ -61,6 +62,15 @@ const CardWithUseCase: React.FC<CardGridProps> = ({
             <div className="card solution-card h-100 shadow-lg border-0 rounded-4">
               <div className="card-body d-flex flex-column p-4">
                 {/* Title */}
+                {item.icon && (
+                  <img
+                    src={item.icon}
+                    width={100}
+                    height={100}
+                    alt={typeof item.title === 'string' ? item.title : undefined}
+                    loading="lazy"
+                  />
+                )}
                 {item.title && (
                   <HeaderTitle
                     key={theme}

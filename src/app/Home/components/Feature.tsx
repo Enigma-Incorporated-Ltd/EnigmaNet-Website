@@ -1,7 +1,5 @@
 
-import features01 from '@/assets/img/features/features.jpg';
-import lock from '@/assets/img/features/lock.jpg';
-// import security from '@/assets/img/features/ai.jpg';
+import features01 from '@/assets/img/home/commonn-problem.png';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { Container } from 'react-bootstrap';
 
@@ -28,9 +26,7 @@ const Feature = () => {
         </li>
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
           <HeaderTitle title="Common problems we encounter" className="h1 ms-1" />
-          {/* <span>
-            <strong className="text-info h1 ms-1"> Common problems we encounter</strong>
-          </span> */}
+        
         </li>
       </ul>
 
@@ -45,68 +41,7 @@ const Feature = () => {
             boxShadow: '0 1.875rem 7.5rem -.625rem rgba(124,125,152, .2)',
           }}
         />
-
-        <div
-          className="position-absolute w-100"
-          style={{ left: 0, bottom: '13%', paddingRight: '74.33%' }}
-        >
-          <img
-            src={lock}
-            width={308}
-            alt="Popup"
-            className="rellax d-block"
-            style={{
-              borderRadius: '.75rem',
-              boxShadow: '0 .75rem 3.75rem -.625rem rgba(124,125,152, .2)',
-            }}
-            data-rellax-percentage="0.5"
-            data-rellax-speed="1"
-            data-disable-parallax-down="lg"
-          />
-        </div>
-
-        {/* <div
-          className="position-absolute w-100"
-          style={{ right: 0, top: '12%', paddingLeft: '74.16%' }}
-        >
-          <img
-            src={security}
-            width={310}
-            alt="Popup"
-            className="rellax d-block"
-            style={{
-              borderRadius: '.75rem',
-              boxShadow: '-.46875rem 2.25rem 6.5rem 0 rgba(126,123,160, .2)',
-            }}
-            data-rellax-percentage="0.5"
-            data-rellax-speed="1"
-            data-disable-parallax-down="lg"
-          />
-        </div> */}
-
-        {/* <div
-          className="position-absolute w-100"
-          style={{
-            right: 0,
-            bottom: '9.4%',
-            paddingLeft: '64.83%',
-            paddingRight: '5.5%',
-          }}
-        >
-          <img
-            src={popup03}
-            width={322}
-            alt="Popup"
-            className="rellax d-block ms-auto"
-            style={{
-              borderRadius: '.75rem',
-              boxShadow: '-.46875rem 2.25rem 6.5rem 0 rgba(120,118,148, .14)',
-            }}
-            data-rellax-percentage="0.5"
-            data-rellax-speed=".5"
-            data-disable-parallax-down="lg"
-          />
-        </div> */}
+     
       </div>
     </Container>
   );

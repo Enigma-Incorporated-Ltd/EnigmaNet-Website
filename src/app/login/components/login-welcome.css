@@ -106,14 +106,11 @@
   transform: scaleX(-1);
 }
 
-/* Social row — same grid as primary buttons */
-.login-welcome-social .login-account-buttons__btn {
+/* Single-column social row */
+.login-welcome-social {
   width: 100%;
-  min-width: 0;
-  flex: none;
-  justify-content: center;
-  box-sizing: border-box;
 }
+
 
 @media (max-width: 520px) {
   .login-welcome-row {

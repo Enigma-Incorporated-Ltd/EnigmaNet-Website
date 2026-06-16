@@ -62,7 +62,7 @@ const SaveItem = lazy(() => import('@/app/(account)/account-saved-items'));
 const Security = lazy(() => import('@/app/(account)/account-security'));
 const SignIn = lazy(() => import('@/app/(account)/account-signin'));
 const SignUp = lazy(() => import('@/app/(account)/account-signup'));
-const TCOCalculator = lazy(() => import('@/app/product-tco-calculator/index'));
+const TCOCalculator = lazy(() => import('@/app/hot-storage-tco-calculator/index'));
 const MigrationCalculator = lazy(() => import('@/app/trueCost/index'));
 const Product2 = lazy(() => import('@/app/product-2/index'));
 
@@ -202,9 +202,7 @@ const Support = lazy(() => import('@/app/contact-us/support'));
 const Login = lazy(() => import('@/app/login'));
 const Dashboard = lazy(() => import('@/app/dashboard'));
 const Register = lazy(() => import('@/app/register'));
-const LoginGoogle = lazy(() => import('@/app/login-google'));
 const LoginApple = lazy(() => import('@/app/login-apple'));
-const RegisterGoogle = lazy(() => import('@/app/register-google'));
 const RegisterApple = lazy(() => import('@/app/register-apple'));
 const ForgotPassword = lazy(() => import('@/app/forgot-password'));
 //partner
@@ -264,9 +262,7 @@ export const AllRoutes = [
   { path: '/login/*', name: 'login', element: <Login /> },
   { path: '/dashboard', name: 'dashboard', element: <Dashboard /> },
   { path: '/register', name: 'register', element: <Register /> },
-  { path: '/register/google', name: 'register-google', element: <RegisterGoogle /> },
   { path: '/register/apple', name: 'register-apple', element: <RegisterApple /> },
-  { path: '/login/google', name: 'login-google', element: <LoginGoogle /> },
   { path: '/login/apple', name: 'login-apple', element: <LoginApple /> },
   { path: '/forgot-password/*', name: 'forgot-password', element: <ForgotPassword /> },
 
@@ -490,7 +486,7 @@ export const AllRoutes = [
 
   // Pages Routes
   { path: '/app-showcase-v1', name: 'case1', element: <ShowCase1 /> },
-  { path: '/product-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
+  { path: '/hot-storage-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
 
   { path: '/product-2', name: 'CommingSoon', element: <Product2 /> },
   { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },

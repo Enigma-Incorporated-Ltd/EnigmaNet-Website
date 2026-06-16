@@ -23,6 +23,7 @@ type ButtonConfig = {
   label: string;
   href: string;
   variant?: 'blue' | 'gold';
+  disableSentenceCase?: boolean;
 };
 
 type CardSliderProps = {
@@ -239,6 +240,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
                 label={primaryButton.label}
                 href={primaryButton.href}
                 variant={primaryButton.variant ?? 'blue'}
+                disableSentenceCase={primaryButton.disableSentenceCase}
                 className="btn-lg"
               />
             )}
@@ -247,6 +249,7 @@ const CardSlider: React.FC<CardSliderProps> = ({
                 label={secondaryButton.label}
                 href={secondaryButton.href}
                 variant={secondaryButton.variant ?? 'gold'}
+                disableSentenceCase={secondaryButton.disableSentenceCase}
                 className="btn-lg"
               />
             )}
