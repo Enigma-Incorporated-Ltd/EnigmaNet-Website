@@ -1,5 +1,6 @@
 import {
   loginUser,
+  loginWithGoogle,
   loginWithMicrosoft,
   refreshAuthToken,
   registerUser,
@@ -37,6 +38,7 @@ type AuthContextValue = {
   verifyPasswordResetCode: (verificationcode: string) => Promise<void>;
   completePasswordReset: (verificationcode: string, newpassword: string) => Promise<void>;
   loginMicrosoft: (accessToken: string, idToken: string) => Promise<void>;
+  loginGoogle: (idToken: string) => Promise<AuthSession>;
   refreshSession: () => Promise<string | null>;
 };
 
@@ -124,6 +126,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setSession(next);
   }, []);
 
+  const loginGoogle = useCallback(async (idToken: string) => {
+    const response = await loginWithGoogle({ idToken });
+    if (!response.token || !response.refreshToken || !response.userid || !response.email) {
+      throw new AuthApiError('Google login response was missing required fields.');
+    }
+    const next = toSession({
+      token: response.token,
+      refreshToken: response.refreshToken,
+      userid: response.userid,
+      email: response.email,
+      isRootUser: response.isRootUser,
+    });
+    persistSession(next);
+    setSession(next);
+    return next;
+  }, []);
+
   const refreshSession = useCallback(async (): Promise<string | null> => {
     const current = session ?? loadSession();
     if (!current) return null;
@@ -160,6 +179,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       verifyPasswordResetCode,
       completePasswordReset,
       loginMicrosoft,
+      loginGoogle,
       refreshSession,
     }),
     [
@@ -172,6 +192,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       verifyPasswordResetCode,
       completePasswordReset,
       loginMicrosoft,
+      loginGoogle,
       refreshSession,
     ],
   );

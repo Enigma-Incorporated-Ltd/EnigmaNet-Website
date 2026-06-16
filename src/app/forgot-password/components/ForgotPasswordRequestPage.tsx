@@ -1,6 +1,4 @@
-import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
-import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
-import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
+import GoogleAccountButton from '@/components/auth/GoogleAccountButton';
 import { EmailIcon } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
@@ -22,7 +20,6 @@ const ForgotPasswordRequestPage = () => {
   const { requestPasswordReset } = useAuth();
   const { theme } = useTheme();
   const isLight = theme === 'light';
-  const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const location = useLocation();
   const initialEmail = (location.state as RequestLocationState | null)?.email ?? '';
   const [email, setEmail] = useState(initialEmail);
@@ -134,10 +131,8 @@ const ForgotPasswordRequestPage = () => {
                 >
                   {isSubmitting ? 'Sending…' : 'Send Reset Link'}
                 </button>
-              </div>
 
-              <div className="login-account-buttons" data-node-id="76:2442">
-                <div className="login-divider" data-node-id="76:2443">
+                <div className="login-forgot-divider" data-node-id="76:2443">
                   <span className="login-divider__line" aria-hidden="true" />
                   <span className="login-divider__text" data-node-id={isLight ? '37:4802' : '76:2446'}>
                     Or sign in with your
@@ -145,14 +140,10 @@ const ForgotPasswordRequestPage = () => {
                   <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
                 </div>
 
-                <Link to="/login/google" className="login-account-buttons__btn login-account-buttons__btn--google" data-node-id="76:2448">
-                  <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
-                  <span>Google Account</span>
-                </Link>
-                <Link to="/login/apple" className="login-account-buttons__btn login-account-buttons__btn--apple" data-node-id="76:2449">
-                  <img src={loginAppleImage} alt="" width={24} height={24} aria-hidden="true" />
-                  <span>Apple Account</span>
-                </Link>
+                <GoogleAccountButton
+                  mode="login"
+                  data-node-id="76:2448"
+                />
               </div>
             </form>
           </div>

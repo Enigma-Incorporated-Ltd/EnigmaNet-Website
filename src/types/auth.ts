@@ -73,6 +73,19 @@ export type MicrosoftAuthResponse = {
   isRootUser?: boolean;
 };
 
+export type GoogleAuthPayload = {
+  idToken: string;
+};
+
+export type GoogleAuthResponse = {
+  status: string;
+  userid?: string;
+  email?: string;
+  token?: string;
+  refreshToken?: string;
+  isRootUser?: boolean;
+};
+
 export type ForgotPasswordPayload = {
   email: string;
 };

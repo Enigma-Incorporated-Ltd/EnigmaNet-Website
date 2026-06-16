@@ -1,12 +1,12 @@
 import loginAppleIcon from '@/assets/img/login/login-apple-icon.svg';
-import loginGoogleIcon from '@/assets/img/login/login-google-icon.svg';
+
 import icTwotoneApple from '@/assets/img/ic_twotone-apple.svg';
 import { EmailIcon } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useState } from 'react';
 import { Link } from 'react-router';
-import type { OAuthPageMode } from '@/app/login-google/components';
+import type { OAuthPageMode } from '@/types/oauth';
 import { useTheme } from '@/utils/useTheme';
 import '@/app/login/components/login.css';
 import './apple-login.css';
@@ -28,7 +28,7 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
   const loginAppleImage = isLight ? icTwotoneApple : loginAppleIcon;
   const isRegister = mode === 'register';
   const backHref = isRegister ? '/register' : '/login';
-  const otherProviderHref = isRegister ? '/register/google' : '/login/google';
+
   const cardNodeId = appleCardNodeIds[mode][isLight ? 'light' : 'dark'];
   const cardName = isRegister
     ? isLight
@@ -37,7 +37,7 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
     : isLight
       ? 'signin with apple account light mode'
       : 'signin with apple account dark mode';
-  const dividerText = 'Or sign in with your';
+
   const [email, setEmail] = useState('');
   const [showError, setShowError] = useState(false);
 
@@ -205,23 +205,9 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
                 </button>
               </div>
 
-              <div
-                className="login-account-buttons login-account-buttons--google-only"
-                data-node-id="59:930"
-              >
-                <div className="login-divider" data-node-id="59:931">
-                  <span className="login-divider__line" aria-hidden="true" />
-                  <span className="login-divider__text" data-node-id={isRegister && isLight ? '59:1114' : '59:934'}>
-                    {dividerText}
-                  </span>
-                  <span className="login-divider__line login-divider__line--right" aria-hidden="true" />
-                </div>
 
-                <Link to={otherProviderHref} className="login-account-buttons__btn login-account-buttons__btn--google" data-node-id="59:937">
-                  <img src={loginGoogleIcon} alt="" width={24} height={24} aria-hidden="true" />
-                  <span>Google Account</span>
-                </Link>
-              </div>
+              {/* Apple page intentionally hides other-provider account buttons */}
+
             </form>
           </div>
 

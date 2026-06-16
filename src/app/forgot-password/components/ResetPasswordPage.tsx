@@ -8,7 +8,6 @@ import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
 import { useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import '@/app/login/components/login.css';
-import '@/app/login-google/components/google-login.css';
 import './forgot-password.css';
 
 const passwordRulesText =
