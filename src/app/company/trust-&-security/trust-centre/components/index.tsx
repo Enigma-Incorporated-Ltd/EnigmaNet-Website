@@ -2,9 +2,20 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/enterprise/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/enterprise/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/enterprise/Core capabilities - block 3.svg';
+import SecurityFirstDesign from '@/assets/svgs/company/trust-center/Security-first design.svg';
+import Encryption from '@/assets/svgs/company/trust-center/Encryption.svg';
+import ZeroTrustPrinciples from '@/assets/svgs/company/trust-center/Zero-trust principles.svg';
+import KeyManagement from '@/assets/svgs/company/trust-center/Key management.svg';
+import TrafficProtection from '@/assets/svgs/company/trust-center/Traffic protection.svg';
+import Auditability from '@/assets/svgs/company/trust-center/Auditability.svg';
+import PrivacyPolicy from '@/assets/svgs/company/trust-center/Privacy Policy.svg';
+import EndUserPolicy from '@/assets/svgs/company/trust-center/End User Policy.svg';
+import FairUsePolicy from '@/assets/svgs/company/trust-center/Fair Use Policy.svg';
+import ThirdPartyServices from '@/assets/svgs/company/trust-center/Third-party services.svg';
+import Monitoring from '@/assets/svgs/company/trust-center/Monitoring.svg';
+import IncidentHandling from '@/assets/svgs/company/trust-center/Incident handling.svg';
+import SupportRoutes from '@/assets/svgs/company/trust-center/Support routes.svg';
+import OperationalReporting from '@/assets/svgs/company/trust-center/Operational reporting -.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import { AICPA, ISO, TrustCenter } from '@/assets/img/company';
@@ -14,39 +25,39 @@ import PolicyLinks from '@/components/ui/Link';
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: SecurityFirstDesign,
     title: 'Security-first design  ',
     description: `Security considerations are built into Enigma Net products and services from the start.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Encryption,
     title: 'Encryption  ',
     description: `Data in transit is protected using strong encryption, including TLS 1.3 where applicable.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: ZeroTrustPrinciples,
     title: 'Zero-trust principles  ',
     description:
       'Identity-aware access, segmentation and least-privilege principles help reduce unnecessary exposure.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: TrafficProtection,
     title: 'Traffic protection  ',
     description: `Traffic protection features help support secure movement across mixed network environments.   `,
   },
   {
     id: 5,
-    icon: block2,
+    icon: KeyManagement,
     title: 'Key management    ',
     description: `Credential and key handling is designed around secure storage, controlled access and regular   
 rotation.  `,
   },
   {
     id: 6,
-    icon: block3,
+    icon: Auditability,
     title: 'Auditability  ',
     description:
       'Security-relevant events and administrative activity are logged to support accountability and review.  ',
@@ -55,55 +66,54 @@ rotation.  `,
 const Privacy = [
   {
     id: 1,
-    icon: block1,
+    icon: PrivacyPolicy,
     title: 'Privacy Policy  ',
     description: `Explains how Enigma Net handles personal data and privacy commitments.   `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: EndUserPolicy,
     title: 'End User Policy    ',
     description: `Sets out user responsibilities when accessing Enigma Net systems and services.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: FairUsePolicy,
     title: 'Fair Use Policy  ',
     description:
       'Defines acceptable usage parameters and restrictions designed to protect service quality.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: ThirdPartyServices,
     title: 'Third-party services  ',
     description: `Where third-party services are used, the relevant provider terms may also apply.  `,
   },
-  
 ];
 const Operational = [
   {
     id: 1,
-    icon: block1,
+    icon: Monitoring,
     title: 'Monitoring',
     description: `Service and infrastructure monitoring supports visibility across availability, response time and   
 service health.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: IncidentHandling,
     title: 'Incident handling  ',
     description: `Defined incident workflows help track issues from detection through to resolution.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: SupportRoutes,
     title: 'Support routes  ',
     description:
       'Customers can raise service requests, incidents, bugs, change requests and feature requests through defined support routes.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: OperationalReporting,
     title: 'Operational reporting  ',
     description: `Where applicable, customers may receive reporting on uptime, incidents, maintenance activity   
 or service health.  `,
