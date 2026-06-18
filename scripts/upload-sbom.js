@@ -31,11 +31,17 @@ function fail(message) {
 }
 
 if (!apiKey) {
-  fail('Missing DEPENDENCY_TRACK_API_KEY. Add it to .env.');
+  const hint = process.env.GITHUB_ACTIONS === 'true'
+    ? 'Add GitHub secret DEPENDENCY_TRACK_API_KEY (Settings → Secrets and variables → Actions).'
+    : 'Add DEPENDENCY_TRACK_API_KEY to .env.';
+  fail(`Missing DEPENDENCY_TRACK_API_KEY. ${hint}`);
 }
 
 if (!projectUuid) {
-  fail('Missing DEPENDENCY_TRACK_PROJECT (or DEPENDENCY_TRACK_PROJECT_UUID). Add it to .env.');
+  const hint = process.env.GITHUB_ACTIONS === 'true'
+    ? 'Add GitHub secret DEPENDENCY_TRACK_PROJECT (project UUID).'
+    : 'Add DEPENDENCY_TRACK_PROJECT to .env.';
+  fail(`Missing DEPENDENCY_TRACK_PROJECT. ${hint}`);
 }
 
 if (!existsSync(bomPath)) {

@@ -12,7 +12,7 @@
     "sbom:generate": "node scripts/generate-sbom.js",
     "sbom:generate:full": "node scripts/generate-sbom.js --full",
     "sbom:upload": "node scripts/upload-sbom.js",
-    "sbom:deploy": "npm run sbom:generate && npm run sbom:upload"
+    "sbom:deploy": "node scripts/deploy-sbom.js"
   },
   "dependencies": {
     "@iconify/react": "^6.0.1",
