@@ -11,6 +11,7 @@ const Sidebar = () => {
   const [open, setOpen] = useState(false);
 
   const menuItems = [
+    { href: '/profile', icon: 'bx:user-circle', label: 'My Profile' },
     { href: '/account-details', icon: 'bx:cog', label: 'Account Details' },
     { href: '/account-security', icon: 'bx:lock-alt', label: 'Security' },
     { href: '/account-notifications', icon: 'bx:bell', label: 'Notifications' },

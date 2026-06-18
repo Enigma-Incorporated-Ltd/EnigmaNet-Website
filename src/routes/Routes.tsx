@@ -205,6 +205,7 @@ const Register = lazy(() => import('@/app/register'));
 const LoginApple = lazy(() => import('@/app/login-apple'));
 const RegisterApple = lazy(() => import('@/app/register-apple'));
 const ForgotPassword = lazy(() => import('@/app/forgot-password'));
+const ProfilePage = lazy(() => import('@/app/Profile'));
 //partner
 const Partners = lazy(() => import('@/app/partners'));
 const KinnamiPartnership = lazy(() => import('@/app/partners/kinnami-partnership'));
@@ -265,6 +266,7 @@ export const AllRoutes = [
   { path: '/register/apple', name: 'register-apple', element: <RegisterApple /> },
   { path: '/login/apple', name: 'login-apple', element: <LoginApple /> },
   { path: '/forgot-password/*', name: 'forgot-password', element: <ForgotPassword /> },
+  { path: '/profile', name: 'profile', element: <ProfilePage /> },
 
   //linkedin-post
   { path: '/linkdin-post', name: 'linkdin-post', element: <LinkdinPost /> },
