@@ -23,7 +23,7 @@ const AppRoutes = () => {
         {/* ── All other routes wrapped in MainLayout ── */}
         {AllRoutes.map((route) => (
           <Route
-            key={route.name}
+            key={route.name ?? route.path}
             path={route.path}
             element={<MainLayout>{route.element}</MainLayout>}
           />
