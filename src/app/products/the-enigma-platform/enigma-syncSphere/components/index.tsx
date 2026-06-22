@@ -13,7 +13,7 @@ import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
-import { Commond, HeroSyncSphere, SyncSphereHero } from '@/assets/img/products';
+import { Commond, HeroHub, HeroSyncSphere, SyncSphereHero } from '@/assets/img/products';
 import {
   NexusRelationshipCardsHub,
   NexusRelationshipCardsGrid,
@@ -66,7 +66,7 @@ const features = [
       title: 'Hub',
       description: 'Controls identity, roles, permissions and access to SyncSphere workspaces. ',
     },
-    image: heroImg,
+    image: HeroHub,
   },
   {
     id: 3,

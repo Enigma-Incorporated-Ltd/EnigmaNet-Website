@@ -15,7 +15,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { Commond, HeroSyncSphere } from '@/assets/img/products';
+import { Commond, HeroHub, HeroSyncSphere } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -58,7 +58,7 @@ const features = [
       title: 'Hub ',
       description: 'Links users, tenants, roles and permissions to the assets they can access.  ',
     },
-    image: heroImg,
+    image: HeroHub,
   },
   {
     id: 4,
