@@ -1,4 +1,5 @@
-import { enterprise } from '@/assets/img';
+import { enigmaSecureDesktop, enterprise } from '@/assets/img';
+import { Commond, HeroHub, HeroSyncSphere } from '@/assets/img/products';
 
 export const theEnigmaPlatform = [
   {
@@ -14,7 +15,7 @@ export const theEnigmaPlatform = [
       description:
         'Enigma Nexus brings network operations, asset management, file movement, storage workflows, user administration and AI-assisted insights into one secure, role-aware platform.',
     },
-    image: enterprise,
+    image: enigmaSecureDesktop,
   },
   {
     id: 2,
@@ -29,7 +30,7 @@ export const theEnigmaPlatform = [
       description:
         'Enigma Command is the central operations view for incidents, tickets, alerts, agent actions and live network events. It gives Enigma teams and customer operators a clear human-in-the-loop control point for AI-assisted network operations.',
     },
-    image: enterprise,
+    image: Commond,
   },
   {
     id: 3,
@@ -59,7 +60,7 @@ export const theEnigmaPlatform = [
       description:
         'Enigma SyncSphere gives customers one place to manage storage, file sync, cross-cloud movement and transfer workflows. It connects Hot Storage, third-party clouds and Enigma’s accelerated transfer capabilities into a single file operations workspace.',
     },
-    image: enterprise,
+    image: HeroSyncSphere,
   },
   {
     id: 5,
@@ -74,7 +75,7 @@ export const theEnigmaPlatform = [
       description:
         'Enigma Hub is the identity and commercial control point inside Nexus. It manages customers, partners, users, permissions, product entitlements, billing profiles, licences and audit data across Enigma services.',
     },
-    image: enterprise,
+    image: HeroHub,
   },
   {
     id: 6,

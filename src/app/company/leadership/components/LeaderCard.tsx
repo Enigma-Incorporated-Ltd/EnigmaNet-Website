@@ -30,19 +30,55 @@ export function LeaderCard({ person, onRead }: { person: Person; onRead: (p: Per
           flexShrink: 0,
         }}
       >
-        <img
-          src={person.avatar}
-          alt={person.name}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'top center',
-          }}
-        />
-
+        {' '}
+        {person.avatar ? (
+          <img
+            src={person.avatar}
+            alt={person.name}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'top center',
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              // border: '1px solid rgba(56, 139, 253, 0.25)',
+              // boxShadow: '0 4px 12px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.04)',
+              background: 'linear-gradient(135deg, rgb(15, 46, 74) 0%, rgb(6 15 33) 100%)',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                width: '100%',
+                height: '100%',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 'clamp(2rem, 8vw, 6rem)', // responsive
+                fontWeight: 700,
+                color: '#88bbee',
+                letterSpacing: '0.05em',
+                lineHeight: 1,
+                textTransform: 'uppercase',
+                userSelect: 'none',
+              }}
+            >
+              {(person.name || '')
+                .trim()
+                .split(/\s+/)
+                .map(word => word.charAt(0))
+                .join('')
+                .slice(0, 2)}
+            </div>
+          </div>
+        )}
         {/* bottom gradient fade */}
         <div
           style={{
@@ -52,7 +88,6 @@ export function LeaderCard({ person, onRead }: { person: Person; onRead: (p: Per
             pointerEvents: 'none',
           }}
         />
-
         {/* badge — bottom-left, overlapping gradient */}
         {person.badge && (
           <span

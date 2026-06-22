@@ -1,24 +1,44 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enterprise as heroImg } from '@/assets/img';
+import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
-
+import UserAccess from '@/assets/svgs/products/enigma-platform/hub/User access gets fragmented - pain cards.svg';
+import Permissions from '@/assets/svgs/products/enigma-platform/hub/Permissions become unclear - pain card.svg';
+import SecurityPolicies from '@/assets/svgs/products/enigma-platform/hub/Security policies need consistency - pain card.svg';
+import AuditTrails from '@/assets/svgs/products/enigma-platform/hub/Audit trails are essential - pain card.svg';
+import TenantsAndOrganisations from '@/assets/svgs/products/enigma-platform/hub/Tenants and organisations - What Hub brings together.svg';
+import UsersAndGroups from '@/assets/svgs/products/enigma-platform/hub/Users and groups - What Hub brings together.svg';
+import RolesAndPermissions from '@/assets/svgs/products/enigma-platform/hub/Roles and permissions - What Hub brings together.svg';
+import SecurityPolicies2 from '@/assets/svgs/products/enigma-platform/hub/Security policies - What Hub brings together.svg';
+import AuditActivity from '@/assets/svgs/products/enigma-platform/hub/Audit activity - What Hub brings together.svg';
+import ZeroTrustAccessModel from '@/assets/svgs/products/enigma-platform/hub/Zero Trust access model - Security cards.svg';
+import StrongCredentialHandling from '@/assets/svgs/products/enigma-platform/hub/Strong credential handling - Security cards.svg';
+import SessionGovernance from '@/assets/svgs/products/enigma-platform/hub/2FA and session governance - Security cards.svg';
+import ServiceAccountScoping from '@/assets/svgs/products/enigma-platform/hub/Service account scoping - Security cards.svg';
+import AuditReadyRecords from '@/assets/svgs/products/enigma-platform/hub/Audit-ready records - Security cards.svg';
+import ProductAccess from '@/assets/svgs/products/enigma-platform/hub/Product access - Access model cards.svg';
+import ResourceAccess from '@/assets/svgs/products/enigma-platform/hub/Resource access - Access model cards.svg';
+import AdministrativeRights from '@/assets/svgs/products/enigma-platform/hub/Administrative rights - Access model cards.svg';
+import EffectivePermissions from '@/assets/svgs/products/enigma-platform/hub/Effective permissions - Access model cards.svg';
+import CommandIcon from '@/assets/svgs/products/enigma-platform/hub/Command  - Module relationship cards.svg';
+import GridIcon from '@/assets/svgs/products/enigma-platform/hub/Grid - Module relationship cards.svg';
+import SyncSphereIcon from '@/assets/svgs/products/enigma-platform/hub/SyncSphere - Module relationship cards.svg';
+import LedgerIcon from '@/assets/svgs/products/enigma-platform/hub/Ledger - Module relationship cards.svg';
+import LLMAgentIcon from '@/assets/svgs/products/enigma-platform/hub/Tenants and organisations - What Hub brings together.svg';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
+import { Commond, HeroHub, HeroSyncSphere } from '@/assets/img/products';
 const features = [
   {
     id: 1,
     title: 'Nexus  ',
-    href: '/products/enigma-platform/enigma-hub',
+    href: '/products/enigma-platform/enigma-nexus',
     slug: 'enigma-hub',
     description:
       'The universal interface that brings Enigma services, modules and workflows together.  ',
@@ -27,7 +47,7 @@ const features = [
       description:
         'The universal interface that brings Enigma services, modules and workflows together.  ',
     },
-    image: heroImg,
+    image: enigmaSecureTablet,
   },
   {
     id: 2,
@@ -41,7 +61,7 @@ const features = [
       description:
         'Uses Hub permissions for incident visibility, approvals and automation control.  ',
     },
-    image: heroImg,
+    image: Commond,
   },
   {
     id: 3,
@@ -63,7 +83,7 @@ const features = [
     href: '/products/enigma-platform/enigma-syncsphere',
     slug: 'enigma-syncsphere',
     description: 'Uses Hub permissions for folder, bucket, file transfer and storage access.   ',
-    image: heroImg,
+    image: HeroSyncSphere,
     meta: {
       title: 'SyncSphere',
       description: 'Uses Hub permissions for folder, bucket, file transfer and storage access.  ',
@@ -86,26 +106,26 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: UserAccess,
     title: 'User access gets fragmented  ',
     description: `Users, roles and permissions can become scattered across products, portals and workflows.   `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Permissions,
     title: 'Permissions become unclear  ',
     description: `Teams need to know exactly who can view, manage or approve actions across services.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: SecurityPolicies,
     title: 'Security policies need consistency  ',
     description:
       'Password rules, 2FA, session timeouts and account status need central enforcement.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: AuditTrails,
     title: 'Audit trails are essential',
     description:
       'Customers and operators need clear evidence of who did what, when and under which permission level.  ',
@@ -114,33 +134,33 @@ const Core = [
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: TenantsAndOrganisations,
     title: 'Tenants and organisations   ',
     description: `Manage customer, partner and internal Enigma organisations in one place.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: UsersAndGroups,
     title: 'Users and groups  ',
     description: `Create, invite, suspend, delete and organise users by team, role or function.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: RolesAndPermissions,
     title: 'Roles and permissions    ',
     description:
       'Control what users can see, manage, approve or administer across products and resources.   ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: SecurityPolicies2,
     title: 'Security policies  ',
     description:
       'Enforce password rules, 2FA requirements, session timeouts and account recovery controls.  ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: AuditActivity,
     title: 'Audit activity  ',
     description:
       'Track logins, failed logins, permission changes and significant resource actions.  ',
@@ -149,34 +169,34 @@ const data2 = [
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: ZeroTrustAccessModel,
     title: 'Zero Trust access model  ',
     description: `Identity and policy define access, rather than network location.    
 `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: StrongCredentialHandling,
     title: 'Strong credential handling  ',
     description: `Passwords, tokens and service account credentials are protected, rotated and controlled.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: SessionGovernance,
     title: '2FA and session governance  ',
     description:
       'Tenants can enforce two-factor authentication, idle timeouts and session revocation.   ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: ServiceAccountScoping,
     title: 'Service account scoping  ',
     description:
       'Automation identities are limited to the minimum required permissions and audited separately.  ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: AuditReadyRecords,
     title: 'Audit-ready records  ',
     description:
       'User activity, access changes and significant actions are recorded for review and compliance.  ',
@@ -185,28 +205,28 @@ const data3 = [
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: ProductAccess,
     title: 'Product access',
     description: `Controls access to Enigma Connect, Enigma EDGE, ESC, SyncSphere, LFT, MFT and Hot Storage features.   `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: ResourceAccess,
     title: 'Resource access  ',
     description:
       'Controls access to specific folders, buckets, sites, CPE devices, ESC profiles and customer environments.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: AdministrativeRights,
     title: 'Administrative rights ',
     description:
       'Controls who can create users, manage groups, assign roles, enforce security policies and run audit reports.  ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: EffectivePermissions,
     title: 'Effective permissions  ',
     description:
       'Combines direct user permissions with all group and role permissions to calculate what a user can actually do.  ',
@@ -215,7 +235,7 @@ const data4 = [
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: CommandIcon,
     title: 'Command  ',
     description: `Command uses Hub to determine who can view incidents, approve actions, override   
 automation or access operational reports.  `,
@@ -223,28 +243,28 @@ automation or access operational reports.  `,
 
   {
     id: 2,
-    icon: block3,
+    icon: GridIcon,
     title: 'Grid    ',
     description: `Grid uses Hub to determine which sites, devices, tunnels and assets a user can see or manage.  
 `,
   },
   {
     id: 3,
-    icon: block1,
+    icon: SyncSphereIcon,
     title: 'SyncSphere',
     description: `SyncSphere uses Hub to control access to storage buckets, folders, file shares, LFT and MFT   
 workflows.    `,
   },
   {
     id: 4,
-    icon: block3,
+    icon: LedgerIcon,
     title: 'Ledger',
     description: `Ledger uses Hub identity records to show who performed an action, who approved it and under   
 which role.   `,
   },
   {
     id: 5,
-    icon: block1,
+    icon: LLMAgentIcon,
     title: 'LLM Agent ',
     description: `The LLM agent uses Hub identities, roles and service accounts to decide what actions are   
 allowed on behalf of a user or tenant.  `,
@@ -479,12 +499,12 @@ const Hub = () => {
       <HeroSection
         title={
           <>
-            Control who has access, what <Br  isTablet /> they can seeand what they can do.
+            Control who has access, what <Br isTablet /> they can seeand what they can do.
           </>
         }
         description="Enigma Hub centralises users, tenants, groups, roles, security policies and audit trails across   
         Enigma Connect, Enigma EDGE, ESC – Secure Networking, SyncSphere and Nexus workflows.  "
-        image={heroImg}
+        image={HeroHub}
         buttons={[
           {
             label: 'Talk to Enigma',
@@ -719,11 +739,7 @@ const Hub = () => {
         ]}
       />
 
-      <NextPageSlider
-        title="Hub connects identity and access across Nexus "
-        data={features}
-       
-      />
+      <NextPageSlider title="Hub connects identity and access across Nexus " data={features} />
       <CTA
         theme={theme}
         showButtons

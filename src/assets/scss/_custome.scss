@@ -105,6 +105,35 @@
   opacity: 0.6;
 }
 
+
+.gold-divider {
+ width:80px;
+  height: 3px;
+  background: linear-gradient(90deg, #A96A00 0%, #F1BA5F 100%);
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.blue-divider {
+  width:80px;
+  height: 3px;
+  background: linear-gradient(90deg, #3d5a9e 0%, #157bc9 55%, #2adeff 100%);
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.w-10 { width: 10% !important; }
+.w-20 { width: 20% !important; }
+.w-30 { width: 30% !important; }
+.w-40 { width: 40% !important; }
+.w-50 { width: 50% !important; }
+.w-60 { width: 60% !important; }
+.w-70 { width: 70% !important; }
+.w-80 { width: 80% !important; }
+.w-90 { width: 90% !important; }
+.w-100 { width: 100% !important; }
+
+
+
 .page-spinner {
   display: inline-block;
   width: 2.75rem;
