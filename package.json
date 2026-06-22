@@ -6,8 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "postbuild": "npm run sbom:deploy",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sbom:generate": "node scripts/generate-sbom.js",
+    "sbom:generate:full": "node scripts/generate-sbom.js --full",
+    "sbom:upload": "node scripts/upload-sbom.js",
+    "sbom:deploy": "node scripts/deploy-sbom.js"
   },
   "dependencies": {
     "@iconify/react": "^6.0.1",
@@ -52,10 +57,12 @@
     "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
+    "@cyclonedx/cyclonedx-npm": "^4.2.1",
     "@eslint/js": "^9.33.0",
     "@posthog/cli": "^0.7.22",
     "@posthog/rollup-plugin": "^1.4.5",
     "@types/he": "^1.2.3",
+    "@types/node": "^22.15.29",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@types/react-helmet": "^6.1.11",

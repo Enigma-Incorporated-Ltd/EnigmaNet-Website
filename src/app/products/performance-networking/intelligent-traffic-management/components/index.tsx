@@ -14,6 +14,7 @@ import FeatureComparison from '@/components/ui/FeatureComparison';
 import { type CardItem } from '@/components/ui/card';
 import Br from '@/components/ui/NewLine';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
+import { Commond } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -111,11 +112,11 @@ const features = [
   {
     id: 8,
     title: 'Nexus Command   ',
-    href: '#',
-    slug: '#',
+    href: '/products/enigma-platform/enigma-command',
+    slug: 'enigma-command',
     description:
       'Surfaces ITM-driven events, link quality changes and performance decisions for operators. ',
-    image: heroImg,
+    image: Commond,
     meta: {
       title: 'Nexus Command    ',
       description:

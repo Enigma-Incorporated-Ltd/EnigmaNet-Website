@@ -13,6 +13,10 @@
 #
 # 3. Change the value for the AZURE_WEBAPP_NAME. Optionally, change the AZURE_WEBAPP_PACKAGE_PATH and NODE_VERSION environment variables below.
 #
+# 4. For SBOM upload after build, add GitHub repository secrets:
+#    - DEPENDENCY_TRACK_API_KEY
+#    - DEPENDENCY_TRACK_PROJECT  (project UUID from Dependency-Track)
+#
 # For more information on GitHub Actions for Azure: https://github.com/Azure/Actions
 # For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
@@ -27,6 +31,12 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: './dist'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '20.x'                # set this to the node version to use
   POSTHOG_CLI_API_KEY: ${{ secrets.POSTHOG_CLI_API_KEY }}
+  POSTHOG_CLI_PROJECT_ID: '191523'
+  POSTHOG_CLI_HOST: https://eu.i.posthog.com
+  DEPENDENCY_TRACK_URL: http://51.15.201.73
+  DEPENDENCY_TRACK_API_URL: http://51.15.201.73:8080/api/v1/bom
+  DEPENDENCY_TRACK_API_KEY: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
+  DEPENDENCY_TRACK_PROJECT: ${{ secrets.DEPENDENCY_TRACK_PROJECT }}
 permissions:
   contents: read
 

@@ -1,0 +1,92 @@
+    .card-slider-arrows {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .proof-card {
+        background: #0b0f19;
+        border: 1px solid rgba(255, 255, 255, .08);
+        border-radius: 20px;
+        padding: 32px;
+        transition: all .3s ease;
+        overflow: hidden;
+    }
+
+    .proof-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255, 193, 7, .35);
+    }
+
+    .proof-card-topline {
+        width: 60px;
+        height: 4px;
+        background: #ffc107;
+        border-radius: 999px;
+        margin-bottom: 24px;
+    }
+
+    .proof-label {
+        font-size: .75rem;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, .65);
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+
+    .proof-metric {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 1;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .proof-description {
+        color: rgba(255, 255, 255, .75);
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .card-slider-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        border: 1.5px solid var(--bs-border-color, #dee2e6);
+        background: var(--bs-body-bg, #fff);
+        color: var(--bs-body-color, #212529);
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+            transform 0.15s ease, box-shadow 0.2s ease;
+        flex-shrink: 0;
+    }
+
+    .card-slider-arrow:hover:not(:disabled) {
+        background: linear-gradient(90deg, #2a4099 0%, #18c8e8 100%);
+        border-color: none;
+        color: #fff;
+        transform: scale(1.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-slider-arrow:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+    }
+
+    .card-slider-arrow:focus-visible {
+        outline: 2px solid var(--bs-primary, #0d6efd);
+        outline-offset: 2px;
+    }
+
+    /* Hide the default Swiper built-in arrows since we use custom ones */
+    .card-slider-swiper .swiper-button-prev,
+    .card-slider-swiper .swiper-button-next {
+        display: none !important;
+    }
