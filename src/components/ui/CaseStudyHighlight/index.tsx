@@ -2,7 +2,17 @@ import IconifyIcon from '@/components/IconifyIcon';
 import { Container } from 'react-bootstrap';
 import './index.css';
 import HeroImage from '../HeroImage';
+import PremiumButton from '../PremiumButton';
+type ButtonConfig = {
+  label: string;
+  href: string;
+  variant?: 'blue' | 'gold';
+  disableSentenceCase?: boolean;
+};
 type CaseStudyHighlightProps = {
+  showButtons?: boolean;
+  primaryButton?: ButtonConfig;
+  secondaryButton?: ButtonConfig;
   data?: string[];
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
@@ -21,6 +31,9 @@ const CaseStudyHighlight = ({
   image,
   className,
   isbg,
+  showButtons = false,
+  primaryButton,
+  secondaryButton,
 }: CaseStudyHighlightProps) => {
   return (
     <Container className="pt-3 pb-5 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
@@ -105,6 +118,28 @@ const CaseStudyHighlight = ({
             style={{ maxWidth: '45rem' }}
           >
             {transitionLine}
+          </div>
+        )}
+        {showButtons && (primaryButton || secondaryButton) && (
+          <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
+            {primaryButton && (
+              <PremiumButton
+                label={primaryButton.label}
+                href={primaryButton.href}
+                variant={primaryButton.variant ?? 'blue'}
+                disableSentenceCase={primaryButton.disableSentenceCase}
+                className="btn-lg"
+              />
+            )}
+            {secondaryButton && (
+              <PremiumButton
+                label={secondaryButton.label}
+                href={secondaryButton.href}
+                variant={secondaryButton.variant ?? 'gold'}
+                disableSentenceCase={secondaryButton.disableSentenceCase}
+                className="btn-lg"
+              />
+            )}
           </div>
         )}
       </div>

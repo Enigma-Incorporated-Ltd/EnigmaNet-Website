@@ -14,6 +14,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
+import { Commond } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -76,7 +77,7 @@ const features = [
     href: '/products/enigma-platform/enigma-command',
     slug: 'enigma-command',
     description: 'Operational view for incidents, agent activity and live service control.   ',
-    image: heroImg,
+    image: Commond,
     meta: {
       title: 'Nexus Command     ',
       description: 'Operational view for incidents, agent activity and live service control.    ',

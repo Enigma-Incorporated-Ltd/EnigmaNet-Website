@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enterprise as heroImg } from '@/assets/img';
+import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import painCard1 from '@/assets/svgs/products/enigma-platform/commond/Pain-cards-Too-many-disconnected-signals.svg';
@@ -39,6 +39,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
+import { Commond, HeroHub, HeroSyncSphere } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -53,7 +54,7 @@ const features = [
       description:
         'The universal interface that brings Enigma services, users, workflows and modules together.  ',
     },
-    image: heroImg,
+    image: enigmaSecureTablet,
   },
   {
     id: 2,
@@ -63,7 +64,7 @@ const features = [
     description: 'Shows the assets, devices, sites and topology involved in operational events.   ',
 
     meta: {
-      title: 'Command',
+      title: 'Grid  ',
       description:
         'Shows the assets, devices, sites and topology involved in operational events.   ',
     },
@@ -81,7 +82,7 @@ const features = [
       description:
         'Controls users, roles, tenants, permissions, subscriptions and access context.  ',
     },
-    image: heroImg,
+    image: HeroHub,
   },
   {
     id: 4,
@@ -105,7 +106,7 @@ const features = [
     slug: '/enigma-syncsphere',
     description:
       'Connects file, storage, sync and data movement workflows where incidents relate to transfer or storage activity.  ',
-    image: heroImg,
+    image: HeroSyncSphere,
     meta: {
       title: 'SyncSphere',
       description:
@@ -440,10 +441,14 @@ const Command = () => {
       />
 
       <HeroSection
-        title={<>Operational control for <Br isDesktop  /> AI-assisted network management</>}
+        title={
+          <>
+            Operational control for <Br isDesktop /> AI-assisted network management
+          </>
+        }
         description="Enigma Command gives NOC and platform teams a single operational view of incidents, alerts,   
         LLM-agent actions, automation status and performance events across Enigma Net services.  "
-        image={heroImg}
+        image={Commond}
         buttons={[
           {
             label: ' Talk to Enigma  ',

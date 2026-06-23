@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enterprise as heroImg } from '@/assets/img';
+import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
@@ -14,6 +14,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
+import { Commond, HeroHub, HeroSyncSphere } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -28,7 +29,7 @@ const features = [
       description:
         'The universal interface that brings Enigma services, users, assets, workflows and commercial records together.  ',
     },
-    image: heroImg,
+    image: enigmaSecureTablet,
   },
   {
     id: 2,
@@ -43,7 +44,7 @@ const features = [
       description:
         'Controls tenants, roles, finance users, billing contacts and PSP/device permissions.  ',
     },
-    image: heroImg,
+    image: HeroHub,
   },
   {
     id: 3,
@@ -71,7 +72,7 @@ const features = [
       description:
         'Surfaces operational incidents that may affect payments, terminals, PSPs or revenue.  ',
     },
-    image: heroImg,
+    image: Commond,
   },
   {
     id: 5,
@@ -79,7 +80,7 @@ const features = [
     href: '/products/enigma-platform/syncsphere',
     slug: 'syncsphere',
     description: 'Feeds storage, transfer and usage-related services into the commercial model.   ',
-    image: heroImg,
+    image: HeroSyncSphere,
     meta: {
       title: 'SyncSphere  ',
       description:

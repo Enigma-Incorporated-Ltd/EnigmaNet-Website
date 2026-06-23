@@ -14,6 +14,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
+import { Commond } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -74,7 +75,7 @@ const features = [
     slug: 'enigma-command',
     description:
       'Operational command view for ESC incidents, tunnel health and agent-assisted response.    ',
-    image: heroImg,
+    image: Commond,
     meta: {
       title: 'Nexus Command     ',
       description:

@@ -8,15 +8,16 @@ const PoweredByApnCore = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Powered By APN Core | Integration & OEM - Products',
     url: `${BASE_URL}/products/integration-&-oem/powered-by-apn-core`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: 'Powered by APN Core gives OEMs, telcos, platform providers and infrastructure partners access to the core engine behind Enigma Net’s connectivity products delivered as a Linux binary, container or virtual appliance integration model. It allows partners to strengthen their own offer while keeping their own brand, customer experience and commercial model.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Powered By APN Core | Integration & OEM - Products"
+        description="Powered by APN Core gives OEMs, telcos, platform providers and infrastructure partners access to the core engine behind Enigma Net’s connectivity products delivered as a Linux binary, container or virtual appliance integration model.
+It allows partners to strengthen their own offer while keeping their own brand, customer experience and commercial model."
         url={`${BASE_URL}/products/integration-&-oem/powered-by-apn-core`}
         structuredData={structuredData}
       />

@@ -139,7 +139,7 @@ const NextPageSlider = ({
                   <div className="position-relative overflow-hidden" style={{ height: '250px' }}>
                     <img
                       src={item.image || PLACEHOLDER_IMAGE}
-                      className="w-100 h-100 rounded-top"
+                      className="w-100 h-100 rounded-top  bg-dark"
                       style={{ objectFit: 'cover' }}
                       alt={item.title}
                       loading="lazy"

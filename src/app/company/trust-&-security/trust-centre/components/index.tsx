@@ -237,7 +237,6 @@ const TrustCentrePage = () => {
       <CardGrid
         customClass=" cusotm-height"
         isBg={false}
-      
         data={[
           {
             id: 1,

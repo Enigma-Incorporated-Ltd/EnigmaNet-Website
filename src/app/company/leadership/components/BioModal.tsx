@@ -36,82 +36,156 @@ export function BioModal({ person, onClose }: { person: Person | null; onClose: 
           style={{
             position: 'relative',
             width: '100%',
-            height: 620, // ← tall enough to show the full portrait
+            height: person.avatar ? 420 : 400, // ← tall enough to show the full portrait
             flexShrink: 0,
             overflow: 'hidden',
           }}
         >
-          <img
-            src={person.avatar}
-            alt={person.name}
-            style={{
-              width: '100%',
-              height: '100%', // ← fills the container, no minHeight
-              objectFit: 'cover',
-              objectPosition: 'top center',
-              display: 'block',
-            }}
-          />
-          {/* gradient fade to modal bg */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to bottom, transparent 45%, rgba(6,14,34,0.88) 100%)',
-              pointerEvents: 'none',
-            }}
-          />
-          {/* badge */}
-          {person.badge && (
-            <span
+          {person.avatar ? (
+            <div
               style={{
-                position: 'absolute',
-                bottom: 16,
-                left: 20,
-                fontSize: 12,
-                fontWeight: 600,
-                letterSpacing: 1.6,
-                color: '#2adeff',
-                background: 'rgba(6,14,34,0.72)',
-                border: '1px solid #2adeff',
-                padding: '3px 9px',
-                borderRadius: 4,
+                position: 'relative',
+                width: '100%',
+                height: 420, // ← tall enough to show the full portrait
+                flexShrink: 0,
+                overflow: 'hidden',
               }}
             >
-              {person.badge}
-            </span>
+              <img
+                src={person.avatar}
+                alt={person.name}
+                style={{
+                  width: '100%',
+                  height: '100%', // ← fills the container, no minHeight
+                  objectFit: 'cover',
+                  objectPosition: 'top center',
+                  display: 'block',
+                }}
+              />
+              {/* gradient fade to modal bg */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background:
+                    'linear-gradient(to bottom, transparent 45%, rgba(6,14,34,0.88) 100%)',
+                  pointerEvents: 'none',
+                }}
+              />
+              {/* badge */}
+              {person.badge && (
+                <span
+                  style={{
+                    position: 'absolute',
+                    bottom: 16,
+                    left: 20,
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: 1.6,
+                    color: '#2adeff',
+                    background: 'rgba(6,14,34,0.72)',
+                    border: '1px solid #2adeff',
+                    padding: '3px 9px',
+                    borderRadius: 4,
+                  }}
+                >
+                  {person.badge}
+                </span>
+              )}
+              {/* close button */}
+              <button
+                onClick={onClose}
+                style={{
+                  position: 'absolute',
+                  top: 16,
+                  right: 16,
+                  background: 'rgba(6,14,34,0.72)',
+                  border: '1px solid rgba(42,222,255,0.25)',
+                  borderRadius: 8,
+                  color: '#2adeff',
+                  width: 36,
+                  height: 36,
+                  cursor: 'pointer',
+                  fontSize: 18,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all .15s',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLButtonElement).style.background = 'rgba(42,222,255,0.15)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLButtonElement).style.background = 'rgba(6,14,34,0.72)';
+                }}
+              >
+                ×
+              </button>
+            </div>
+          ) : (
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                // border: '1px solid rgba(56, 139, 253, 0.25)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.04)',
+                background: 'linear-gradient(178deg, rgb(15, 46, 74) 0%, rgb(6 14 27) 100%)',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  width: '100%',
+                  height: '100%',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 'clamp(2rem, 8vw, 6rem)', // responsive
+                  fontWeight: 700,
+                  color: '#88bbee',
+                  letterSpacing: '0.05em',
+                  lineHeight: 1,
+                  textTransform: 'uppercase',
+                  userSelect: 'none',
+                }}
+              >
+                {(person.name || '')
+                  .trim()
+                  .split(/\s+/)
+                  .map(word => word.charAt(0))
+                  .join('')
+                  .slice(0, 2)}
+              </div>
+              <button
+                onClick={onClose}
+                style={{
+                  position: 'absolute',
+                  top: 16,
+                  right: 16,
+                  background: 'rgba(6,14,34,0.72)',
+                  border: '1px solid rgba(42,222,255,0.25)',
+                  borderRadius: 8,
+                  color: '#2adeff',
+                  width: 36,
+                  height: 36,
+                  cursor: 'pointer',
+                  fontSize: 18,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all .15s',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLButtonElement).style.background = 'rgba(42,222,255,0.15)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLButtonElement).style.background = 'rgba(6,14,34,0.72)';
+                }}
+              >
+                ×
+              </button>
+            </div>
           )}
-          {/* close button */}
-          <button
-            onClick={onClose}
-            style={{
-              position: 'absolute',
-              top: 16,
-              right: 16,
-              background: 'rgba(6,14,34,0.72)',
-              border: '1px solid rgba(42,222,255,0.25)',
-              borderRadius: 8,
-              color: '#2adeff',
-              width: 36,
-              height: 36,
-              cursor: 'pointer',
-              fontSize: 18,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              transition: 'all .15s',
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(42,222,255,0.15)';
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(6,14,34,0.72)';
-            }}
-          >
-            ×
-          </button>
         </div>
-
         {/* ── BODY ── */}
         <div style={{ padding: '0 2rem 2.5rem' }}>
           <div style={{ marginBottom: '1.25rem', marginTop: '1.25rem' }}>

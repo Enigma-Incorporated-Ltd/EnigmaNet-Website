@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enterprise as heroImg } from '@/assets/img';
+import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
@@ -15,6 +15,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
+import { Commond, HeroHub, HeroSyncSphere } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -29,7 +30,7 @@ const features = [
       description:
         'The universal interface that brings Enigma services, modules and workflows together.  ',
     },
-    image: heroImg,
+    image: enigmaSecureTablet,
   },
   {
     id: 2,
@@ -44,7 +45,7 @@ const features = [
       description:
         'Uses Grid context for incident visibility, automation control and operational decision-making. ',
     },
-    image: heroImg,
+    image: Commond,
   },
   {
     id: 3,
@@ -57,7 +58,7 @@ const features = [
       title: 'Hub ',
       description: 'Links users, tenants, roles and permissions to the assets they can access.  ',
     },
-    image: heroImg,
+    image: HeroHub,
   },
   {
     id: 4,
@@ -79,7 +80,7 @@ const features = [
     slug: '/enigma-syncsphere',
     description:
       'Associates file, storage and configuration artefacts with assets, sites and services.   ',
-    image: heroImg,
+    image: HeroSyncSphere,
     meta: {
       title: 'SyncSphere',
       description:

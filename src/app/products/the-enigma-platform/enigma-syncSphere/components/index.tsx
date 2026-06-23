@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enterprise as heroImg } from '@/assets/img';
+import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import CardSlider from '@/components/ui/CardSlider';
@@ -13,7 +13,7 @@ import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
-import { SyncSphereHero } from '@/assets/img/products';
+import { Commond, HeroHub, HeroSyncSphere, SyncSphereHero } from '@/assets/img/products';
 import {
   NexusRelationshipCardsHub,
   NexusRelationshipCardsGrid,
@@ -53,7 +53,7 @@ const features = [
       description:
         'The universal interface that brings Enigma services, modules and workflows together. ',
     },
-    image: heroImg,
+    image: enigmaSecureTablet,
   },
   {
     id: 2,
@@ -66,7 +66,7 @@ const features = [
       title: 'Hub',
       description: 'Controls identity, roles, permissions and access to SyncSphere workspaces. ',
     },
-    image: heroImg,
+    image: HeroHub,
   },
   {
     id: 3,
@@ -96,7 +96,7 @@ const features = [
       description:
         'Surfaces incidents and operational issues affecting file transfer, storage access and APN performance.   ',
     },
-    image: heroImg,
+    image: Commond,
   },
   {
     id: 5,
@@ -518,7 +518,7 @@ const SyncSphere = () => {
         description="Enigma SyncSphere brings Hot Storage, Large File Transfer, Managed File Transfer, third-party   
         cloud storage and local NAS into one secure, accelerated workspace built on Enigma’s APN   
         performance layer.  "
-        image={heroImg}
+        image={HeroSyncSphere}
         buttons={[
           {
             label: 'Explore SyncSphere ',
