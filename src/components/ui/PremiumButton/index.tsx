@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './style.css';
 import { toSentenceCase } from '@/utils/sentenceCase';
+import { track } from '@/lib/track';
 
 type Variant = 'blue' | 'gold';
 
@@ -38,6 +39,8 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
   disabled = false,
   disableSentenceCase = false,
 }) => {
+  const location = useLocation();
+
   const isDisabled = isLoading || disabled;
 
   const variantClass = outline
@@ -63,6 +66,20 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
   const buttonText =
     typeof label === 'string' && !disableSentenceCase ? toSentenceCase(label) : label;
 
+  const handleClick = () => {
+    const labelText = typeof label === 'string' ? label : 'custom_react_node';
+     const eventName = `button_clicked_${labelText.toLowerCase().replace(/\s+/g, '_')}`;
+
+    track(eventName, {
+      button_label: labelText,
+      target_url: href || null,
+      current_url: window.location.href,
+      current_path: location.pathname,
+    });
+
+    onClick?.();
+  };
+
   const content = (
     <div className="d-flex align-items-center justify-content-center">
       {isLoading && <span className="btn-spinner" />}
@@ -72,7 +89,15 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
 
   if (href) {
     return (
-      <Link to={href} className={baseClass} style={{ textDecoration: 'none', ...commonStyle }}>
+      <Link
+        to={href}
+        onClick={handleClick}
+        className={baseClass}
+        style={{
+          textDecoration: 'none',
+          ...commonStyle,
+        }}
+      >
         {content}
       </Link>
     );
@@ -81,7 +106,7 @@ const PremiumButton: React.FC<CustomButtonProps> = ({
   return (
     <button
       type={type}
-      onClick={onClick}
+      onClick={handleClick}
       className={baseClass}
       style={commonStyle}
       disabled={isDisabled}
