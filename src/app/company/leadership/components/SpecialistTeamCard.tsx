@@ -1,3 +1,4 @@
+import { track } from '@/lib/track';
 import type { SpecialistTeam } from '.';
 import { Avatar, type Person } from './Avatar';
 
@@ -7,7 +8,17 @@ export function SpecialistTeamCard({
 }: {
   team: SpecialistTeam;
   onReadMember: (p: Person) => void;
-}) {
+  }) {
+  const handleRead = (member: Person) => {
+    track(`${member.name} viewed`, {
+      team_id: team.id,
+      team_name: team.name,
+      person_id: member.id,
+      person_name: member.name,
+    });
+
+    onReadMember(member);
+  };
   return (
     <div
       style={{
@@ -79,7 +90,7 @@ export function SpecialistTeamCard({
               </div>
             </div>
             <button
-              onClick={() => onReadMember(m)}
+              onClick={() => handleRead(m)}
               style={{
                 background: 'transparent',
                 border: 'none',

@@ -1,8 +1,17 @@
 import { useState } from 'react';
 import type { Person } from './Avatar';
+import { track } from '@/lib/track';
 
 export function FounderCard({ person, onRead }: { person: Person; onRead: (p: Person) => void }) {
   const [hovered, setHovered] = useState(false);
+const handleRead = () => {
+  track(`Founders_&_executive_viewed_${person.name}`, {
+    person_id: person.id,
+    person_name: person.name,
+  });
+
+  onRead(person);
+};
 
   return (
     <div
@@ -158,7 +167,7 @@ export function FounderCard({ person, onRead }: { person: Person; onRead: (p: Pe
 
         {/* view bio */}
         <button
-          onClick={() => onRead(person)}
+          onClick={handleRead}
           style={{
             background: 'transparent',
             border: 'none',
