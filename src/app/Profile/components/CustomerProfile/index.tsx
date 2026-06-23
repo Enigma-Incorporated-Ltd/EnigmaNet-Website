@@ -6,34 +6,43 @@ import { useCustomerProfile } from './useCustomerProfile';
 const EditProfileModal = ({
   initialName,
   initialInitials,
+  initialImageUrl,
   onClose,
   onSave,
   saving,
 }: {
   initialName: string;
   initialInitials: string;
+  initialImageUrl?: string;
   onClose: () => void;
   onSave: (name: string, file: File | null) => Promise<void>;
   saving: boolean;
 }) => {
   const [name, setName] = useState(initialName);
-  const [avatarSrc, setAvatarSrc] = useState<string | null>(null);
+  const [avatarSrc, setAvatarSrc] = useState<string | null>(initialImageUrl || null);
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [previewError, setPreviewError] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file || file.size > 5 * 1024 * 1024) return;
     setAvatarFile(file);
+    setPreviewError(false);
     const reader = new FileReader();
     reader.onload = ev => setAvatarSrc(ev.target?.result as string);
     reader.readAsDataURL(file);
   };
 
   const handleSave = async () => {
-    await onSave(name, avatarFile);
-    setSaved(true);
+    try {
+      await onSave(name, avatarFile);
+      setSaved(true);
+    } catch (err) {
+      setSaveError(err instanceof Error ? err.message : 'Failed to save. Please try again.');
+    }
   };
 
   return (
@@ -65,7 +74,16 @@ const EditProfileModal = ({
                 role="button" tabIndex={0}
                 onKeyDown={e => e.key === 'Enter' && fileInputRef.current?.click()}
               >
-                {avatarSrc ? <img src={avatarSrc} alt="Profile" /> : initialInitials}
+                {avatarSrc && !previewError ? (
+                  <img 
+                    src={avatarSrc} 
+                    alt="Profile" 
+                    onError={() => setPreviewError(true)}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                ) : (
+                  initialInitials
+                )}
               </div>
               <input ref={fileInputRef} type="file" accept="image/jpeg,image/png,image/gif" style={{ display: 'none' }} onChange={handleImageChange} />
               <label className="edit-modal__upload-label" onClick={() => fileInputRef.current?.click()}>Upload picture</label>
@@ -86,6 +104,11 @@ const EditProfileModal = ({
                 {saving ? 'Saving…' : 'Save changes'}
               </button>
             </div>
+            {saveError && (
+              <p style={{ color: '#ef4444', fontSize: 12, margin: '8px 0 0', width: '100%', textAlign: 'center' }}>
+                {saveError}
+              </p>
+            )}
           </>
         )}
       </div>
@@ -97,6 +120,7 @@ const EditProfileModal = ({
 const CustomerProfile = () => {
   const { data, loading, error, updateProfile, saving } = useCustomerProfile();
   const [editOpen, setEditOpen] = useState(false);
+  const [imageLoadError, setImageLoadError] = useState(false);
 
   if (loading) return (
     <div className="customer-profile-section">
@@ -118,6 +142,7 @@ const CustomerProfile = () => {
         <EditProfileModal
           initialName={data.fullName}
           initialInitials={data.avatarInitials}
+          initialImageUrl={data.profileImageUrl}
           onClose={() => setEditOpen(false)}
           onSave={async (name, file) => updateProfile({ fullName: name }, file)}
           saving={saving}
@@ -132,7 +157,17 @@ const CustomerProfile = () => {
       </div>
 
       <div className="profile-card profile-card--customer">
-        <div className="profile-avatar">{data.avatarInitials}</div>
+        <div className="profile-avatar">
+          {data.profileImageUrl && !imageLoadError
+            ? <img 
+                src={data.profileImageUrl} 
+                alt={data.fullName} 
+                onError={() => setImageLoadError(true)}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} 
+              />
+            : data.avatarInitials
+          }
+        </div>
         <div className="profile-fields">
           <div>
             <p className="profile-field__label">Full Name</p>

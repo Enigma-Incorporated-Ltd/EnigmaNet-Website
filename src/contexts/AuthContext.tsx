@@ -50,6 +50,8 @@ function toSession(response: {
   userid: string;
   email: string;
   isRootUser?: boolean;
+  profileUserId?: string;
+  profileImageUrl?: string;
 }): AuthSession {
   return {
     token: response.token,
@@ -58,6 +60,8 @@ function toSession(response: {
       userId: response.userid,
       email: response.email,
       isRootUser: Boolean(response.isRootUser),
+      profileUserId: response.profileUserId,
+      profileImageUrl: response.profileImageUrl,
     },
   };
 }

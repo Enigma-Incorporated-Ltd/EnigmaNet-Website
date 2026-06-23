@@ -2,6 +2,8 @@ export type AuthUser = {
   userId: string;
   email: string;
   isRootUser: boolean;
+  profileUserId?: string;
+  profileImageUrl?: string;
 };
 
 export type AuthSession = {
@@ -45,6 +47,8 @@ export type LoginSuccessResponse = {
   userid: string;
   email: string;
   isRootUser?: boolean;
+  profileUserId?: string;
+  profileImageUrl?: string;
 };
 
 export type RefreshTokenPayload = {
