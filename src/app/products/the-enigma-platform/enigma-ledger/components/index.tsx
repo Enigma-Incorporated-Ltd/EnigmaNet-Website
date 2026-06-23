@@ -14,7 +14,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { Commond, HeroSyncSphere } from '@/assets/img/products';
+import { Commond, HeroHub, HeroSyncSphere } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -44,7 +44,7 @@ const features = [
       description:
         'Controls tenants, roles, finance users, billing contacts and PSP/device permissions.  ',
     },
-    image: heroImg,
+    image: HeroHub,
   },
   {
     id: 3,

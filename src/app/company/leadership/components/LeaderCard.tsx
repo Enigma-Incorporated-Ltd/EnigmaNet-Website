@@ -1,8 +1,17 @@
 import { useState } from 'react';
 import type { Person } from './Avatar';
+import { track } from '@/lib/track';
 
 export function LeaderCard({ person, onRead }: { person: Person; onRead: (p: Person) => void }) {
   const [hovered, setHovered] = useState(false);
+  const handleRead = () => {
+    track(`${person.name} viewed`, {
+      person_id: person.id,
+      person_name: person.name,
+    });
+  
+    onRead(person);
+  };
   return (
     <div
       onMouseEnter={() => setHovered(true)}
@@ -184,7 +193,7 @@ export function LeaderCard({ person, onRead }: { person: Person; onRead: (p: Per
           ))}
         </div>
         <button
-          onClick={() => onRead(person)}
+          onClick={handleRead}
           style={{
             background: 'transparent',
             border: 'none',

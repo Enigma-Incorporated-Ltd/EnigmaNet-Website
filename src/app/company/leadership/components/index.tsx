@@ -15,6 +15,8 @@ import {
   Santosh,
   TracyHaynes,
   Victoria,
+  Mohammed,
+  JosephHoward,
 } from '@/assets/img/company';
 import {
   BusinessIcon,
@@ -388,7 +390,7 @@ requirements into clear product direction and executable roadmaps.   `,
     //   'Commercial Product Management',
     // ],
     linkedin: 'https://www.linkedin.com/in/iamjoehoward/',
-    avatar: '',
+    avatar: JosephHoward,
   },
 ];
 
@@ -900,7 +902,7 @@ export const specialistTeams: SpecialistTeam[] = [
           'Enterprise Systems Architecture',
         ],
         linkedin: 'https://www.linkedin.com/in/mohammed-abul-azad-faisal/',
-        avatar: '',
+        avatar: Mohammed,
       },
     ],
   },
