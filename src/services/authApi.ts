@@ -91,6 +91,13 @@ async function authRequest<T>(
   return data;
 }
 
+function isSuccessStatus(status?: string): boolean {
+  return (
+    typeof status === 'string' &&
+    (status.toLowerCase() === 'success' || status === 'Login successful')
+  );
+}
+
 export async function registerUser(
   payload: RegisterUserPayload,
 ): Promise<RegisterUserResponse> {
@@ -106,7 +113,7 @@ export async function registerUser(
     }),
   });
 
-  if (data.status !== 'Success') {
+  if (!isSuccessStatus(data.status)) {
     throw new AuthApiError((data.status || 'Registration failed.').trim());
   }
 
@@ -125,7 +132,7 @@ export async function loginUser(payload: LoginPayload): Promise<LoginSuccessResp
 
   const token = data.token ?? data.accessToken;
   if (!token || !data.refreshToken || !data.userid) {
-    if (typeof data.status === 'string' && data.status && data.status !== 'Success') {
+    if (typeof data.status === 'string' && data.status && !isSuccessStatus(data.status)) {
       throw new AuthApiError(data.status);
     }
     throw new AuthApiError('Login response was missing required fields.');
@@ -137,6 +144,8 @@ export async function loginUser(payload: LoginPayload): Promise<LoginSuccessResp
     userid: data.userid,
     email: data.email,
     isRootUser: data.isRootUser,
+    profileUserId: (data as any).profile?.userId,
+    profileImageUrl: (data as any).profile?.profileImageUrl,
   };
 }
 
@@ -173,7 +182,7 @@ export async function loginWithMicrosoft(
     }),
   });
 
-  if (data.status !== 'Success') {
+  if (!isSuccessStatus(data.status)) {
     throw new AuthApiError(data.status || 'Microsoft sign-in failed.');
   }
 
@@ -191,7 +200,7 @@ export async function loginWithGoogle(
     }),
   });
 
-  if (data.status !== 'Success' && data.status !== 'Login successful') {
+  if (!isSuccessStatus(data.status)) {
     throw new AuthApiError(data.status || 'Google sign-in failed.');
   }
 
@@ -209,7 +218,7 @@ export async function requestForgotPassword(
     }),
   });
 
-  if (data.status !== 'Success') {
+  if (!isSuccessStatus(data.status)) {
     throw new AuthApiError(data.status || 'Could not send reset email.');
   }
 
@@ -226,7 +235,7 @@ export async function verifyResetCode(
     }),
   });
 
-  if (data.status !== 'Success') {
+  if (!isSuccessStatus(data.status)) {
     throw new AuthApiError(data.status || 'Invalid verification code.');
   }
 
@@ -244,11 +253,78 @@ export async function updateForgotPassword(
     }),
   });
 
-  if (data.status !== 'Success') {
+  if (!isSuccessStatus(data.status)) {
     throw new AuthApiError(data.status || 'Could not update password.');
   }
 
   return data;
+}
+
+export interface UserProfileResponse {
+  status: string;
+  message: string;
+  profile: {
+    userId: string;
+    formattedUserId: string;
+    displayName: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    profileImageUrl: string;
+    jobTitle: string;
+    role: string;
+    planName: string;
+    isProfileInitialized: boolean;
+    isRootUser: boolean;
+    isActive: boolean;
+    profileDetails: {
+      displayName: string;
+      profileImageUrl: string;
+      userTitle: string;
+      primaryEmail: string;
+      userId: string;
+      ssoIdentity: string;
+      isManaged: boolean;
+    };
+    preferences: {
+      theme: string;
+      notifications: string;
+      language: string;
+    };
+    workspaceContext: {
+      organisation: string;
+      workspace: string;
+      team: string;
+      environment: string;
+      region: string;
+    };
+    accessSnapshot: {
+      accessIncludes: string[];
+      restrictedActions: string[];
+    };
+    security: {
+      signInMethod: string;
+      passwordManagement: string;
+      mfaEnabled: boolean;
+      lastSignIn: string;
+    };
+  };
+}
+
+export async function getUserProfile(userId: string): Promise<UserProfileResponse> {
+  return authRequest<UserProfileResponse>(`/Users/profile/${userId}`, {
+    method: 'GET',
+  });
+}
+
+export async function updateUserProfile(
+  userId: string,
+  payload: { displayName: string; profileImageUrl?: string },
+): Promise<UserProfileResponse> {
+  return authRequest<UserProfileResponse>(`/users/profile/${userId}`, {
+    method: 'PATCH',
+    body: JSON.stringify(payload),
+  });
 }
 
 export async function authFetch(
