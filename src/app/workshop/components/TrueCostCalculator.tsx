@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { Card, CardBody, Col, Row, Container, Form } from 'react-bootstrap';
+import { Card, CardBody, Col, Row, Form } from 'react-bootstrap';
 import IconifyIcon from '@/components/IconifyIcon';
-import Breadcrumb from '@/components/ui/Breadcrumb';
-import Header from '@/components/ui/Header';
-import PremiumButton from '@/components/ui/PremiumButton';
 
 
 const PRICING = {
