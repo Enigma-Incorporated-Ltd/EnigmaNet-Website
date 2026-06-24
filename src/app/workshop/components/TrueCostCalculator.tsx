@@ -241,7 +241,7 @@ const TrueCostCalculator = () => {
 
                 <div className="d-grid gap-2">
                   <button
-                    className="btn bg-primary text-black btn-lg"
+                    className="btn bg-light-blue  text-black btn-lg"
                     onClick={calculateMigration}
                     disabled={!remainingCredits || !currentStorage}
                   >
