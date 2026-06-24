@@ -6,7 +6,10 @@ const THEME_KEY = 'theme';
 const THEME_EVENT = 'themeChange';
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState<Theme>('light');
+ const [theme, setTheme] = useState<Theme>(() => {
+   if (typeof window === 'undefined') return 'light';
+   return (localStorage.getItem('theme') as Theme) ?? 'dark';
+ });
 
   const getTheme = () => {
     const stored = localStorage.getItem(THEME_KEY) || 'light';

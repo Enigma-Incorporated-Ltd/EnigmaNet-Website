@@ -64,6 +64,7 @@ const SignIn = lazy(() => import('@/app/(account)/account-signin'));
 const SignUp = lazy(() => import('@/app/(account)/account-signup'));
 const TCOCalculator = lazy(() => import('@/app/hot-storage-tco-calculator/index'));
 const MigrationCalculator = lazy(() => import('@/app/trueCost/index'));
+
 const Product2 = lazy(() => import('@/app/product-2/index'));
 
 //home
@@ -237,6 +238,9 @@ const ContactUs = lazy(() => import('@/app/contact-us'));
 const RequestAQuote = lazy(() => import('@/app/contact-us/request-a-quote'));
 
 
+//workShop
+const Workshop = lazy(() => import('@/app/workshop'));
+
 //company/careers
 const Careers = lazy(() => import('@/app/company/careers'));
 const Culture = lazy(() => import('@/app/company/careers/culture'));
@@ -273,6 +277,8 @@ export const AllRoutes = [
   // Products Routes
   { path: '/products', name: 'Products', element: <Products /> },
 
+  //workShop
+  { path: '/60-minutes-workshop', name: 'workshop', element: <Workshop /> },
   // Enigma Platform Routes
   { path: '/products', element: <Products /> },
   { path: '/products/the-enigma-platform', element: <EnigmaPlatform /> },
