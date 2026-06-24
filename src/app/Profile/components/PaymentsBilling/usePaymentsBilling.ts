@@ -51,7 +51,7 @@ const MOCK_DATA: BillingData = {
 export function usePaymentsBilling(): UsePaymentsBillingReturn {
   const [data, setData] = useState<BillingData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, _setError] = useState<string | null>(null);
 
   // GET /api/billing
   useEffect(() => {
