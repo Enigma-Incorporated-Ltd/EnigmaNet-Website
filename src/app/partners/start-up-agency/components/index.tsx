@@ -13,8 +13,8 @@ import core2 from '@/assets/svgs/partner/secure-distributed-synchronization.svg'
 import core3 from '@/assets/svgs/partner/operational-continuity.svg';
 import { useTheme } from '@/utils/useTheme';
 import HeroImage from '@/components/ui/HeroImage';
-import { aiInfra, industries, operations, providersPartners, remoteWork } from '@/assets/img';
 import FooterStatement from '@/components/ui/FooterStatement';
+import { startp1, startp2, startup3, startup4, startup5 } from '@/assets/img/partners/inddex';
 const kinnami = [
   {
     title: ' Enigma Net  ',
@@ -290,7 +290,7 @@ const StartUpAgencyPage = () => {
           'Build resilient environments  ',
         ]}
       />
-      <HeroImage img={providersPartners} isbg />
+      <HeroImage img={startup5} isbg />
       <CaseStudyHighlight
         data={problems}
         title={
@@ -313,7 +313,7 @@ const StartUpAgencyPage = () => {
         }
       />
       <CardSlider data={Core} />
-      <HeroImage img={industries} isbg />
+      <HeroImage img={startp1} isbg />
       <CompareCard
         features={kinnami}
         title={
@@ -326,7 +326,7 @@ const StartUpAgencyPage = () => {
           </>
         }
       />
-      <HeroImage img={remoteWork} isbg />
+      <HeroImage img={startp2} isbg />
       <CardSlider
         title={
           <>
@@ -339,7 +339,7 @@ const StartUpAgencyPage = () => {
         }
         data={Core2}
       />
-      <HeroImage img={aiInfra} isbg />
+      <HeroImage img={startup3} isbg />
 
       <CardSlider
         title={
@@ -372,7 +372,7 @@ const StartUpAgencyPage = () => {
         }
         data={Strip}
       />
-      <HeroImage img={operations} isbg />
+      <HeroImage img={startup4} isbg />
       <CaseStudyHighlight
         data={quote2}
         title={
