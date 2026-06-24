@@ -146,6 +146,7 @@ export async function loginUser(payload: LoginPayload): Promise<LoginSuccessResp
     isRootUser: data.isRootUser,
     profileUserId: (data as any).profile?.userId,
     profileImageUrl: (data as any).profile?.profileImageUrl,
+    preferenceTheme: (data as any).profile?.preferences?.theme,
   };
 }
 
