@@ -44,6 +44,21 @@ type AuthContextValue = {
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
+function resolveTheme(apiTheme?: string): 'light' | 'dark' {
+  if (!apiTheme) return 'dark';
+  const t = apiTheme.toLowerCase();
+  if (t === 'light') return 'light';
+  if (t === 'dark') return 'dark';
+  // "system default" → use OS preference
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+
+function applyTheme(theme: 'light' | 'dark'): void {
+  localStorage.setItem('theme', theme);
+  document.documentElement.setAttribute('data-bs-theme', theme);
+  window.dispatchEvent(new Event('themeChange'));
+}
+
 function toSession(response: {
   token: string;
   refreshToken: string;
@@ -52,6 +67,7 @@ function toSession(response: {
   isRootUser?: boolean;
   profileUserId?: string;
   profileImageUrl?: string;
+  preferenceTheme?: string;
 }): AuthSession {
   return {
     token: response.token,
@@ -62,6 +78,7 @@ function toSession(response: {
       isRootUser: Boolean(response.isRootUser),
       profileUserId: response.profileUserId,
       profileImageUrl: response.profileImageUrl,
+      preferenceTheme: response.preferenceTheme,
     },
   };
 }
@@ -87,6 +104,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const next = toSession(response);
     persistSession(next);
     setSession(next);
+    applyTheme(resolveTheme(response.preferenceTheme));
   }, []);
 
   const register = useCallback(async (payload: RegisterUserPayload) => {

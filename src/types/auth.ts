@@ -4,6 +4,7 @@ export type AuthUser = {
   isRootUser: boolean;
   profileUserId?: string;
   profileImageUrl?: string;
+  preferenceTheme?: string;
 };
 
 export type AuthSession = {
@@ -49,6 +50,7 @@ export type LoginSuccessResponse = {
   isRootUser?: boolean;
   profileUserId?: string;
   profileImageUrl?: string;
+  preferenceTheme?: string;
 };
 
 export type RefreshTokenPayload = {
