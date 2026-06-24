@@ -11,7 +11,7 @@ export function useSupportHelp(): UseSupportHelpReturn {
   const [error, setError] = useState<string | null>(null);
 
   // POST /api/support/message
-  const sendMessage = useCallback(async (name: string, message: string) => {
+  const sendMessage = useCallback(async (_name: string, message: string) => {
     setSending(true);
     setError(null);
     try {

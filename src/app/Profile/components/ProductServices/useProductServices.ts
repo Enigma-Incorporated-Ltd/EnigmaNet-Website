@@ -60,7 +60,7 @@ const MOCK_DATA: ProductServicesData = {
 export function useProductServices(): UseProductServicesReturn {
   const [data, setData] = useState<ProductServicesData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, _setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
   // GET /api/subscription

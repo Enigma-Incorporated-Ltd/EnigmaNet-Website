@@ -1,3 +1,4 @@
+import React from 'react';
 import { Icon } from '../icons';
 import { useAccountSettings, type AccountSettingsData } from './useAccountSettings';
 
@@ -24,7 +25,7 @@ const AccountSettings = () => {
   const rows: {
     id: string;
     key: keyof AccountSettingsData;
-    icon: JSX.Element;
+    icon: React.ReactNode;
     label: string;
     desc: string;
   }[] = [
