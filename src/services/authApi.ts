@@ -328,6 +328,16 @@ export async function updateUserProfile(
   });
 }
 
+export async function updateThemePreference(
+  userId: string,
+  theme: 'light' | 'dark',
+): Promise<void> {
+  await authRequest<ApiStatusResponse>(`/users/profile/${userId}`, {
+    method: 'PATCH',
+    body: JSON.stringify({ theme }),
+  });
+}
+
 export async function authFetch(
   path: string,
   init: RequestInit = {},
