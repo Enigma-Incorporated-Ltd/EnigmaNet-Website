@@ -24,7 +24,7 @@ const SignInSuccessPage = () => {
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      navigate('/dashboard', { replace: true });
+      navigate('/profile', { replace: true });
     }, REDIRECT_DELAY_MS);
 
     return () => window.clearTimeout(timer);
