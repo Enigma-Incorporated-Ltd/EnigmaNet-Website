@@ -770,6 +770,28 @@ body.dark .btn-cancel {
   transition: opacity 0.2s;
 }
 
+.profile-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+ background: linear-gradient(90deg, #263777 0%, #2adeff 62%, #00a3da 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+html[data-theme='dark'] .profile-btn::before,
+body[data-theme='dark'] .profile-btn::before,
+html.dark .profile-btn::before,
+body.dark .profile-btn::before {
+  background: linear-gradient(90deg, #ffffff 0%, #2adeff 62%, #00a3da 100%);
+}
+
 .profile-btn > *,
 .profile-btn svg {
   position: relative;
