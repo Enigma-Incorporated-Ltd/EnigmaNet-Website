@@ -3,6 +3,11 @@ import './styles.css';
 import TrueCostCalculator from './TrueCostCalculator';
 import { Drik, Koby } from '@/assets/img/company';
 import Br from '@/components/ui/NewLine';
+import {
+  BannerIcons,
+  // BannerVideo,
+  Workshop1
+} from '@/assets/img/worksohp';
 
 // ── TYPES ──
 interface ToolCardProps {
@@ -15,7 +20,7 @@ interface ToolCardProps {
 interface HostCardProps {
   image: string;
   name: string;
-  role: string;
+  role: string | React.ReactNode;
   description: string;
 }
 
@@ -170,14 +175,14 @@ const HOSTS: HostCardProps[] = [
   {
     image: Koby,
     name: 'Koby Yogaretnam',
-    role: 'Enigma Net',
-    description: 'Workshop host and co-facilitator of the TrueCost Diagnostic session.',
+    role: <>Head of Growth</>,
+    description: 'Head of Growth',
   },
   {
     image: Drik,
     name: 'Dirk Pitblado',
-    role: 'Enigma Net',
-    description: 'Workshop host and co-facilitator of the TrueCost Diagnostic session.',
+    role: <>Growth Manager</>,
+    description: 'Growth Manager',
   },
 ];
 
@@ -408,7 +413,10 @@ const ToolsSection: FC = () => (
         </div>
         <TrueCostCalculator />
       </div>
-      <p className='text-center' style={{ color: 'var(--text-body)', fontSize: '1.2rem', marginBottom: '2rem' , }}>
+      <p
+        className="text-center"
+        style={{ color: 'var(--text-body)', fontSize: '1.2rem', marginBottom: '2rem' }}
+      >
         The workshop includes selected tools from the{' '}
         <strong className="text-white">TrueCost Diagnostic suite </strong>
         These tools are designed to help founders understand where infrastructure costs may be
@@ -435,9 +443,10 @@ const ToolsSection: FC = () => (
       <p
         className="mx-auto mt-5 text-center"
         style={{
-          color: 'var(--text-body)',
-          fontSize: '1.2rem',
+          color: '#2ADEFF',
+          fontSize: '1.8rem',
           maxWidth: '800px',
+          fontWeight: 800,
           fontStyle: 'italic',
         }}
       >
@@ -554,6 +563,7 @@ const HostsSection: FC = () => (
                 <p className="host-name">{host.name}</p>
                 <p className="host-role mb-1">{host.role}</p>
                
+               
               </div>
             </div>
           </div>
@@ -617,10 +627,28 @@ const LandingPage: FC = () => {
         overflow: 'hidden',
         paddingTop: '4rem',
         paddingBottom: '1rem',
+        width: '100%',
       }}
     >
       <Hero />
+      <img
+        src={BannerIcons}
+        alt="Workshop"
+        className="  mx-auto d-flex justify-content-center align-items-center"
+      />
+      
+      {/* <div className="hero-video-wrap">
+        <video className="hero-video" autoPlay muted loop playsInline preload="auto">
+          <source src={BannerVideo} type="video/mp4" />
+        </video>
+      </div> */}
       <WhoItFor />
+      <img
+        src={Workshop1}
+        alt="Workshop"
+        className="  mx-auto d-flex justify-content-center align-items-center"
+      />
+
       <ProblemSection />
       <LearningSection />
       <SyllabusSection />
