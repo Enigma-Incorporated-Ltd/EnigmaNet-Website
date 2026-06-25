@@ -439,6 +439,11 @@
 
 .login-field {
   position: relative;
+  display: flex;
+  padding: 8px 10px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
 }
 
 .login-field.login-gradient-stroke {
@@ -450,6 +455,7 @@
 }
 
 .login-field__input {
+  flex: 1;
   width: 100%;
   height: auto;
   border-radius: 100px;
@@ -1124,8 +1130,118 @@
 
   .login-card {
     padding: 32px 20px;
-    gap: 32px;
+    gap: 16px!important;
     border-radius: 28px;
+  }
+
+  .login-card--sign-in {
+    display: flex;
+    width: 260px;
+    padding: 24px 16px;
+    height :367px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    border-radius: 40px;
+  }
+
+  /* Adjust back arrow position in mobile */
+  .login-card--sign-in .login-card__back {
+    left: 8px;
+    top: 16px;
+  }
+
+  .login-card--sign-in .login-card__heading {
+    text-align: center;
+    font-family: Montserrat !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+  }
+
+  .login-layout--light .login-card--sign-in .login-card__heading {
+    color: #000 !important;
+  }
+
+  .login-layout--dark .login-card--sign-in .login-card__heading {
+    color: #fff !important;
+  }
+
+  .login-card--sign-in .login-card__subtitle {
+    height: 22px;
+    align-self: stretch;
+    text-align: center;
+    font-family: Montserrat !important;
+    font-size: 10px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+  }
+
+  .login-layout--light .login-card--sign-in .login-card__subtitle {
+    color: #000 !important;
+  }
+
+  .login-layout--dark .login-card--sign-in .login-card__subtitle {
+    color: #fff !important;
+  }
+
+  .login-card--sign-in .login-card__subtitle-highlight {
+    color: var(--Light-blue, #2ADEFF) !important;
+    font-family: Montserrat !important;
+    font-size: 10px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+  }
+
+  .login-layout--light .login-card--sign-in {
+    background: #FFF;
+    border: 1px solid #FFF;
+    backdrop-filter: none;
+  }
+  .login-layout--light .login-card--sign-in.login-gradient-stroke::before {
+    display: none;
+  }
+
+  .login-layout--light .login-card--sign-in .login-card__heading,
+  .login-layout--light .login-card--sign-in .login-card__subtitle,
+  .login-layout--light .login-card--sign-in .login-divider__text,
+  .login-layout--light .login-card--sign-in .login-help-text__secondary,
+  .login-layout--light .login-card--sign-in .login-help-text__link {
+    color: #000;
+  }
+
+  .login-layout--light .login-field__input {
+    background: #FFF;
+    color: #000;
+    border: 1px solid #E0E0E0;
+  }
+
+  .login-field {
+    display: flex;
+    width: 228px;
+    height: 28px;
+    border-radius: 100px;
+    border: 0.5px solid;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    box-sizing: border-box;
+  }
+
+  .login-field__input {
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  .login-layout--light .login-field__input::placeholder {
+    color: #666;
+  }
+  .login-layout--light .login-field__icon-wrap,
+  .login-layout--light .login-field__toggle {
+    color: #000;
   }
 
   .login-card__interactive {
@@ -1136,6 +1252,16 @@
     gap: 0;
   }
 
+  /* Reduce spacing above Sign In button */
+  .login-input-block {
+    margin-bottom: 8px;
+  }
+
+  /* Set correct gap in upperside container for mobile */
+  .login-card--sign-in .login-card__upperside {
+    gap: 24px;
+  }
+
   .login-card__heading {
     font-size: 28px;
   }
@@ -1144,34 +1270,114 @@
     font-size: 16px;
   }
 
+  .login-card--sign-in .login-auth-btn--primary {
+    display: flex;
+    width: 107px;
+    height: 36px;
+    min-height: 36px;
+    padding: 8px 16px;
+    margin-left: 55px;
+  }
+
   .login-account-buttons {
     grid-template-columns: 1fr;
-    row-gap: 26px;
-    margin-top: 26px;
+    row-gap: 24px;
+    margin-top: 24px;
+    justify-items: center;
   }
 
   .login-account-buttons__btn {
-    width: 100%;
+    width: auto;
     flex: 0 0 auto;
     justify-content: center;
   }
 
+  .login-account-buttons__btn--light-full {
+    width: 50px !important;
+    height: 34px !important;
+    padding: 0 !important;
+    border-radius: 100px !important;
+    background: #FFF !important;
+    border: 1px solid #E0E0E0 !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1) !important;
+  }
+
+  .login-card--sign-in > .login-card__interactive .login-account-buttons__btn--light-full {
+    margin-left: 85px !important;
+  }
+
+  .login-card--welcome .login-account-buttons__btn--light-full {
+    margin-left: 60px !important;
+  }
+
+  .login-account-buttons__btn--light-full span {
+    display: none !important;
+  }
+
+  .login-account-buttons__btn--light-full img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
   .login-help-text {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: flex-start;
+    justify-content: flex-start;
+   
+  }
+
+  .login-help-text__link {
+    width: auto;
+    height: 10px;
+    font-size: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 100%;
+    text-align: left;
   }
 
   .login-help-text__register {
-    align-items: flex-start;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    text-align: right;
+    width: 100%;
+  }
+
+  .login-help-text__secondary {
+    width: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: right;
   }
 
   .login-help-text__link--register {
-    text-align: left;
+    width: auto;
+    height: 10px;
+    font-size: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 100%;
+    text-align: right;
   }
 
   .login-divider {
     max-width: 100%;
+  }
+
+  .login-divider__text {
+    width: auto!important;
+    height: 7px !important;
+    font-family: 'Montserrat', sans-serif ;
+    font-size: 6px!important;
+    font-weight: 600 !important;
+    font-style: SemiBold !important;
+    line-height: 100% !important;
+    letter-spacing: 0px;
   }
 
   .login-divider__line {

@@ -91,13 +91,7 @@ const LoginSignInPage = () => {
               Welcome Back!
             </h2>
             <p className="login-card__subtitle" data-node-id={isLight ? '21:2747' : '77:3586'}>
-              {isLight
-                ? 'Secure access to Enigma Work infrastructure.'
-                : (
-                  <>
-                    Secure access to <strong>Enigma</strong> Work infrastructure.
-                  </>
-                )}
+              Secure access to <span className="login-card__subtitle-highlight">Enigma</span> Work infrastructure.
             </p>
           </div>
 

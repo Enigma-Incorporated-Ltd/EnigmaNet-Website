@@ -4,6 +4,114 @@
   gap: 48px;
 }
 
+@media (max-width: 575.98px) {
+  .login-card--welcome {
+    display: flex;
+    width: 287px;
+    padding: 24px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    border-radius: 40px;
+  }
+  
+  .login-layout--light .login-card--welcome {
+    background: #FFF;
+    border: 1px solid #FFF;
+    backdrop-filter: none;
+  }
+
+  .login-card--welcome .login-card__heading {
+    align-self: stretch;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .login-layout--light .login-card--welcome .login-card__heading {
+    color: #000;
+  }
+
+  .login-layout--dark .login-card--welcome .login-card__heading {
+    color: #FFF;
+  }
+
+  .login-card--welcome .login-card__subtitle--welcome {
+    height: 22px;
+    align-self: stretch;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .login-layout--light .login-card--welcome .login-card__subtitle--welcome {
+    color: #000;
+  }
+
+  .login-layout--dark .login-card--welcome .login-card__subtitle--welcome {
+    color: #FFF;
+  }
+
+  .login-welcome-divider__text {
+    font-family: Montserrat !important;
+    font-size: 6px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+  }
+
+  .login-layout--light .login-card--welcome .login-welcome-divider__text {
+    color: #000 !important;
+  }
+
+  .login-layout--dark .login-card--welcome .login-welcome-divider__text {
+    color: #FFF !important;
+  }
+
+  .login-layout--light .login-card--welcome .login-account-buttons__btn--light-full {
+    margin-left: 20px;
+  }
+
+  .login-welcome-btn--sign-in {
+    display: flex;
+    padding: 8px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    border-radius: 100px;
+    color: #F4F4F6 !important;
+    font-family: Montserrat !important;
+    font-size: 12px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 20px !important; /* 166.667% */
+    letter-spacing: -0.1px !important;
+  }
+
+  .login-welcome-btn--create {
+    display: flex;
+    padding: 6px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    color: #001A93 !important;
+    font-family: Montserrat !important;
+    font-size: 12px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 20px !important; /* 166.667% */
+    letter-spacing: -0.1px !important;
+  }
+}
+
 .login-welcome-hero {
   display: flex;
   flex-direction: column;
@@ -108,19 +216,40 @@
 
 /* Single-column social row */
 .login-welcome-social {
-  width: 100%;
-}
+    width: 100%;
+  }
 
 
-@media (max-width: 520px) {
+@media (max-width: 575.98px) {
   .login-welcome-row {
     grid-template-columns: 1fr;
-    row-gap: 16px;
+    row-gap: 12px !important;
     column-gap: 0;
   }
 
   .login-welcome-divider {
-    margin-top: 48px;
-    margin-bottom: 32px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .login-welcome-divider__line {
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 0.5px !important;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.50) 0%, rgba(255, 255, 255, 0.50) 100%) !important;
+    opacity: 1 !important;
+  }
+
+  .login-layout--dark .login-welcome-divider__line {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%) !important;
+  }
+
+  .login-welcome-social {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
