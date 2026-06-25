@@ -1,7 +1,7 @@
 import Glenn from './leadership/Glenn-Melford- Colegate.png';
 import AdemHeaps from './leadership/Adam Heaps.png';
 import JaneOsborne from './leadership/Jane Osborne Buglear.png';
-import NashimAhmed from './leadership/nasim-ahmad.png';
+import NashimAhmed from './leadership/Nasim Ahmad.png';
 import ANdyRodger from './leadership/Andy-Rodger.png';
 import JosephHoward from './leadership/Joseph Howard.png';
 import Koby from './leadership/Koby.png';
