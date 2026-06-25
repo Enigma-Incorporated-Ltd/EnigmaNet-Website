@@ -1,0 +1,173 @@
+/* Global success modal — Figma 79:10191 (light + dark) */
+
+.success-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.success-modal {
+  position: relative;
+  width: 100%;
+  max-width: 448px;
+  min-height: 320px;
+  padding: 48px 24px 40px;
+  border-radius: 12px;
+  border: 0.5px solid rgba(0, 0, 0, 0.5);
+  background: #fff;
+  box-shadow: 0 10px 7.5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #187bc9;
+}
+
+.success-modal__close:hover {
+  opacity: 0.75;
+}
+
+.success-modal__close img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.success-modal__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.success-modal__icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  background: rgba(0, 35, 152, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.success-modal__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background: #187bc9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-modal__icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.success-modal__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.success-modal__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #0d1b29;
+}
+
+.success-modal__message {
+  margin: 0;
+  max-width: 320px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #5a6d82;
+}
+
+/* Figma 79:10202 — Contact Support success dialog */
+.success-modal--support {
+  max-width: 467px;
+  min-height: 367px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 26, 148, 0.1);
+  box-shadow:
+    0 10px 7.5px rgba(0, 0, 0, 0.1),
+    0 4px 3px rgba(0, 0, 0, 0.1);
+}
+
+.success-modal--support .success-modal__close {
+  top: 19px;
+  right: 19px;
+}
+
+.success-modal--support .success-modal__message {
+  max-width: 340px;
+  line-height: 22px;
+}
+
+.success-modal__footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 8px;
+}
+
+.success-modal__action {
+  min-width: 120px;
+}
+
+[data-bs-theme='dark'] .success-modal {
+  background: #0d1b29;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 7.5px rgba(0, 0, 0, 0.25);
+}
+
+[data-bs-theme='dark'] .success-modal__close {
+  color: #2adeff;
+}
+
+[data-bs-theme='dark'] .success-modal__icon-wrap {
+  background: rgba(42, 222, 255, 0.1);
+}
+
+[data-bs-theme='dark'] .success-modal__title {
+  color: #fff;
+}
+
+[data-bs-theme='dark'] .success-modal--support {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme='dark'] .success-modal__message {
+  color: rgba(206, 206, 206, 0.89);
+}

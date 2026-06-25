@@ -1,8 +1,6 @@
-import enigmaLogo from '@/assets/img/EnigmaNet-logo.png';
 import { useState } from 'react';
-import { Link } from 'react-router';
-import AccountSettings from './components/AccountSettings';
 import CustomerProfile from './components/CustomerProfile';
+import ProfileHeaderLogo from './components/ProfileHeaderLogo';
 import PaymentsBilling from './components/PaymentsBilling';
 import ProductServices from './components/ProductServices';
 import { ContactSupportModal } from './components/SupportHelp';
@@ -34,9 +32,7 @@ const UserProfilePage = () => {
               Manage your profile, subscription, and account preferences
             </p>
           </div>
-          <Link to="/" className="profile-header__logo">
-            <img src={enigmaLogo} alt="enigmanet" />
-          </Link>
+          <ProfileHeaderLogo />
         </div>
 
         {/* ── Customer Profile ─────────────────────────────────── */}
@@ -47,13 +43,7 @@ const UserProfilePage = () => {
 
         {/* ── Bottom two-column grid ────────────────────────────── */}
         <div className="profile-bottom-grid">
-          {/* Left: Account Settings + Support */}
-          <div className="profile-left-col">
-            <AccountSettings />
-            <SupportHelp />
-          </div>
-
-          {/* Right: Payments & Billing */}
+          <SupportHelp />
           <PaymentsBilling onContactSupport={() => setContactModalOpen(true)} />
         </div>
       </div>
