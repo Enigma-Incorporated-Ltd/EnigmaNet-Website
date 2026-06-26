@@ -182,12 +182,19 @@
     width: 108px;
     height: 28px;
     border-radius: 100px;
-    border: 0.5px solid;
+    border: 0.5px solid #FFF;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 2px 5.8px 0 rgba(255, 255, 255, 0.25);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 10px;
     box-sizing: border-box;
+  }
+
+  .login-layout--light .login-fields__name-row .login-field {
+    border: 0.5px solid #000;
+    box-shadow: 0 2px 5.8px 0 rgba(0, 0, 0, 0.10);
   }
 
   .login-fields__name-row .login-field__input {
@@ -224,12 +231,19 @@
     width: 228px !important;
     height: 28px;
     border-radius: 100px;
-    border: 0.5px solid;
+    border: 0.5px solid #FFF;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 2px 5.8px 0 rgba(255, 255, 255, 0.25);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 10px;
     box-sizing: border-box;
+  }
+
+  .login-layout--light .login-fields--register > .login-field-group .login-field {
+    border: 0.5px solid #000;
+    box-shadow: 0 2px 5.8px 0 rgba(0, 0, 0, 0.10);
   }
 
   .login-fields--register > .login-field-group .login-field__input {
@@ -262,17 +276,17 @@
   /* Create account button styles for mobile */
   .login-card--register .login-auth-btn {
     display: flex;
-    flex-direction: row;
     width: 107px;
     height: 36px;
+    min-height: 36px;
+    padding: 8px 16px;
+    margin-left: 55px;
     font-family: Montserrat;
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: 100%;
     letter-spacing: 0px;
-    padding: 0;
-    margin-left: 52px;
   }
 
   /* Move Google button to the right */
