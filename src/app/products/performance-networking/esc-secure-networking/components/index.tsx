@@ -14,7 +14,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
-import { Commond } from '@/assets/img/products';
+import { Commond, GridHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -88,7 +88,7 @@ const features = [
     href: '/products/enigma-platform/enigma-grid',
     slug: 'enigma-grid',
     description: 'Asset and topology system of record for ESC nodes, sites, links and tunnels.    ',
-    image: heroImg,
+    image: GridHero,
     meta: {
       title: 'Nexus Grid    ',
       description:

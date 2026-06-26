@@ -3,9 +3,6 @@ import HeroSection from '@/components/ui/HeroSection';
 import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
@@ -15,7 +12,8 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { Commond, HeroHub, HeroSyncSphere } from '@/assets/img/products';
+import { Commond, GridHero, HeroHub, HeroSyncSphere } from '@/assets/img/products';
+import { AssetInformationGetsScattered, AutomationContext, AutomationNeedsTrusted, CommandICon, CustomerSuccess, DefineAssetSchema, EstablishGovernance, ExposeTheGridAPI, FinanceBilling, Hub, ImplementationAndField, IncidentContext, IngestExistingSources, Inventory, Ledger, LifecycleStatus, LLMNetwork, NOCAndOperations, Ownership, OwnershipBecomes, SyncSphere, Topology } from '@/assets/svgs/products/enigma-platform/grid';
 const features = [
   {
     id: 1,
@@ -92,63 +90,64 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: AssetInformationGetsScattered,
     title: 'Asset information gets scattered  ',
     description: `Devices, circuits, tunnels, licences and customer details can end up split across portals,   
 spreadsheets, monitoring tools and support notes.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: IncidentContext,
     title: 'Incident context is harder to find  ',
     description: ` When something fails, teams need to know which customers, services and sites are affected   
 without manually piecing it together.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: OwnershipBecomes,
     title: 'Ownership becomes unclear  ',
     description:
       'Support, billing, product and operations teams need a shared view of who owns each asset and what service it belongs to.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: AutomationNeedsTrusted,
     title: 'Automation needs trusted context',
     description:
       'The LLM agent and Command workflows need accurate asset data before they can diagnose,   recommend or remediate safely.  ',
   },
 ];
+
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: Inventory,
     title: 'Inventory ',
     description: `A canonical record of devices, sites, links, tunnels, tenants and licences.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Topology,
     title: 'Topology',
     description: `A structured view of how sites, devices, circuits, tunnels, POPs and services connect.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Ownership,
     title: 'Ownership  ',
     description:
       'Customer, tenant, product, licence and support relationships linked to each asset.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: LifecycleStatus,
     title: 'Lifecycle status  ',
     description:
       'Track assets from planned, staging and live through to degraded, retired or replaced.  ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: AutomationContext,
     title: 'Automation context  ',
     description:
       'Provide Command and the LLM agent with reliable asset data for diagnostics, impact analysis and remediation.  ',
@@ -157,64 +156,65 @@ const data2 = [
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: DefineAssetSchema,
     title: 'Define the asset schema  ',
     description: `Create the canonical model for assets, relationships, ownership, lifecycle states and product bindings.  
 `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: IngestExistingSources,
     title: 'Ingest existing sources  ',
     description: `Bring in data from ViBE SNMP, existing portals, Zabbix, cloud inventories and interim spreadsheets.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: ExposeTheGridAPI,
     title: 'Expose the Grid API ',
     description:
       'Provide stable query patterns for Command and the LLM agent, including asset by key, topology for site and assets by tenant/product.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: EstablishGovernance,
     title: 'Establish governance  ',
     description:
       'Define who can create, modify or retire asset records and align changes with security practices for management plane access.  ',
   },
 ];
+
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: NOCAndOperations,
     title: 'NOC and operations teams  ',
     description: `Use Grid to understand assets, links, tunnels and POPs during incidents and planned changes.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: ImplementationAndField,
     title: 'Implementation and field engineers  ',
     description:
       'Check which devices, SIMs, circuits and licences belong to a site before install, replacement or maintenance.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: CustomerSuccess,
     title: 'Customer success and support  ',
     description:
       'Answer questions about what is installed at a customer site and how it relates to SLAs or escalations.  ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: FinanceBilling,
     title: 'Finance, billing and product teams  ',
     description:
       'Map assets and circuits to product tiers, licences, subscriptions and billing entities.  ',
   },
   {
     id: 5,
-    icon: block2,
+    icon: LLMNetwork,
     title: 'LLM Network Agent   ',
     description: `Uses Grid to map alerts and telemetry to real assets, sites, customers and services before   
 analysis or remediation.  `,
@@ -223,26 +223,26 @@ analysis or remediation.  `,
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: CommandICon,
     title: 'Command  ',
     description: `Command answers <strong> what is happening </strong>. Grid gives Command the asset and topology context behind incidents and actions.`,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: Hub,
     title: 'Hub  ',
     description: `Hub answers <strong> who is allowed to access it </strong>.  Grid links assets to tenants, users, roles and service ownership. `,
   },
   {
     id: 3,
-    icon: block1,
+    icon: SyncSphere,
     title: 'SyncSphere',
     description: `SyncSphere answers <strong> where files, objects and configuration artefacts sit </strong>. Grid links storage and configuration workflows back to sites and assets.  `,
   },
   {
     id: 4,
-    icon: block3,
+    icon: Ledger,
     title: 'Ledger',
     description: `Ledger answers   <strong> what happened and who changed it  </strong>. Grid provides asset context for audit trails, lifecycle changes and operational history.  `,
   },
@@ -472,14 +472,13 @@ const Grid = () => {
       <HeroSection
         title={
           <>
-            See what’s deployed, how it connects <Br  isTablet /> and what depends on
-            it{' '}
+            See what’s deployed, how it connects <Br isTablet /> and what depends on it{' '}
           </>
         }
         description="Enigma Grid gives operations, support, engineering and commercial teams a single   
         authoritative view of devices, links, tunnels, sites, tenants, licences and services across Enigma   
         Net deployments.  "
-        image={heroImg}
+        image={GridHero}
         buttons={[
           {
             label: ' Talk to Enigma  ',
