@@ -616,3 +616,42 @@ hr.dark-hr {
     }
 }
 
+
+
+
+/* video css */
+
+.hero-video-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 3rem auto 0;
+    border-radius: 24px;
+    overflow: hidden;
+    
+
+    background: var(--bg-card);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(42, 222, 255, 0.08);
+}
+
+.hero-video-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(4, 9, 15, 0.4),
+            transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+

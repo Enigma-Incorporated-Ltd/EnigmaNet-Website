@@ -17,6 +17,7 @@ import {
   Victoria,
   Mohammed,
   JosephHoward,
+  NashimAhmed,
 } from '@/assets/img/company';
 import {
   BusinessIcon,
@@ -304,7 +305,7 @@ solutions and enterprise applications. `,
       'Startup & Scale-Up Technology Leadership  ',
     ],
     linkedin: 'https://www.linkedin.com/in/nash-facile/',
-    avatar: '',
+    avatar: NashimAhmed,
   },
   {
     id: 'andy',
