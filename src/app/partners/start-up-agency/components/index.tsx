@@ -253,7 +253,7 @@ const StartUpAgencyPage = () => {
       <Breadcrumb
         items={[
           { label: 'Partners', href: '/partners' },
-          { label: 'Start Up Agencies', href: '/partners/start-up-agency' },
+          { label: 'Start Up Agency', href: '/partners/start-up-agency' },
         ]}
         style={{
           paddingTop: '12rem',
