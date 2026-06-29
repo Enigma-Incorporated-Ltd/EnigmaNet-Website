@@ -276,11 +276,11 @@
   /* Create account button styles for mobile */
   .login-card--register .login-auth-btn {
     display: flex;
-    width: 107px;
+    width: 157px;
     height: 36px;
     min-height: 36px;
     padding: 8px 16px;
-    margin-left: 55px;
+    margin: 0 auto;
     font-family: Montserrat;
     font-size: 12px;
     font-style: normal;
