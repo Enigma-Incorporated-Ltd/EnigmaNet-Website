@@ -1263,6 +1263,16 @@
   .login-layout--light .login-field__toggle {
     color: #000;
   }
+  .login-field__icon-wrap,
+  .login-field__toggle {
+    width: 12px;
+    height: 12px;
+  }
+  .login-field__icon-wrap svg,
+  .login-field__toggle svg {
+    width: 12px;
+    height: 12px;
+  }
 
   .login-card__interactive {
     padding: 0;
