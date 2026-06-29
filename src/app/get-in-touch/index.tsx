@@ -23,7 +23,7 @@ const Index = () => {
         '@type': 'ContactPoint',
         telephone: '+44 (0) 20 8050 4632',
         contactType: 'customer support',
-        email: 'info@enigmainc.co.uk',
+        email: 'info@enigmanet.ai',
         areaServed: 'GB',
         availableLanguage: 'en',
       },

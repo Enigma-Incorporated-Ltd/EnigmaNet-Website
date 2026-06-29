@@ -70,7 +70,7 @@ const FALLBACK: FooterConfig = {
   brand: { name: 'EnigmaNet', href: '/' },
   description:
     'Enigma Secure Cloud offers predictable, transparent pricing with no hidden fees. Store your data securely without worrying about egress, API, or retrieval costs.',
-  email: 'info@enigmainc.co.uk',
+  email: 'info@enigmanet.ai',
   emailLabel: 'Contact Us',
   newsletter: {
     enabled: true,
@@ -347,7 +347,7 @@ const Footer = () => {
                       </a>
                     </div>
                     <div className="info-item-footer">
-                      <a href="mailto:info@enigmainc.co.uk" className="info-link ">
+                      <a href="mailto:info@enigmanet.ai" className="info-link ">
                         <div className="info-icon mt-1">
                           <IconifyIcon icon="bx:envelope" style={{ fontSize: '20px' }} />
                         </div>

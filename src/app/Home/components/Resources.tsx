@@ -184,7 +184,7 @@ const Resources = () => {
             label="Resources"
             variant="gold"
             className="btn-lg btn-responsive"
-            href="/"
+            href="/company/resources"
           />
         </div>
       </Container>

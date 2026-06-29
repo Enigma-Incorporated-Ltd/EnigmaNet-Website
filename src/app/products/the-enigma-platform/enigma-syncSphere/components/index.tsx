@@ -13,7 +13,7 @@ import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
-import { Commond, HeroHub, HeroSyncSphere, SyncSphereHero } from '@/assets/img/products';
+import { Commond, GridHero, HeroHub, HeroSyncSphere, SyncSphereHero } from '@/assets/img/products';
 import {
   NexusRelationshipCardsHub,
   NexusRelationshipCardsGrid,
@@ -81,7 +81,7 @@ const features = [
       description:
         'Associates file workflows, configuration bundles and data movement activity with sites and assets.   ',
     },
-    image: heroImg,
+    image: GridHero,
   },
   {
     id: 4,
