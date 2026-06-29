@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SuccessModal, { SUCCESS_COPY } from '@/components/ui/SuccessModal';
 import { CloseIcon, Icon } from '../icons';
 import { useSupportHelp } from './useSupportHelp';
+
+const adjustTextareaHeight = (el: HTMLTextAreaElement | null) => {
+  if (!el) return;
+  el.style.height = 'auto';
+  el.style.height = `${el.scrollHeight}px`;
+};
 
 /* ── Contact Support Modal (Figma 79:10735) ──────────────────────── */
 const ContactSupportModal = ({
@@ -14,6 +20,15 @@ const ContactSupportModal = ({
   const { sendMessage, sending, error } = useSupportHelp();
   const [message, setMessage] = useState('');
   const [sent, setSent] = useState(false);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  const handleMessageChange = (value: string) => {
+    setMessage(value);
+  };
+
+  useEffect(() => {
+    adjustTextareaHeight(messageRef.current);
+  }, [message]);
 
   const handleSend = async () => {
     try {
@@ -73,11 +88,12 @@ const ContactSupportModal = ({
                 <div className="contact-modal__input-wrap contact-modal__input-wrap--message">
                   <Icon.Mail />
                   <textarea
+                    ref={messageRef}
                     className="contact-modal__input contact-modal__textarea"
                     placeholder="Enter your message..."
                     value={message}
                     rows={1}
-                    onChange={e => setMessage(e.target.value)}
+                    onChange={e => handleMessageChange(e.target.value)}
                   />
                 </div>
               </div>

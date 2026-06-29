@@ -14,7 +14,7 @@ const formatUserLabel = (email: string) => {
   return local ? local.toUpperCase() : 'USER NAME';
 };
 
-const REDIRECT_DELAY_MS = 10_000;
+const REDIRECT_DELAY_MS = 800;
 
 const SignInSuccessPage = () => {
   const navigate = useNavigate();

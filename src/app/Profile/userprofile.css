@@ -305,12 +305,6 @@ body.dark .billing-footnote {
 }
 
 /* Profile avatar upload/input-like surfaces (modals share same classes) */
-html[data-theme='dark'] .modal-overlay,
-body[data-theme='dark'] .modal-overlay,
-html.dark .modal-overlay,
-body.dark .modal-overlay {
-  background: rgba(0, 0, 0, 0.6);
-}
 
 html[data-theme='dark'] .manage-plan-modal,
 body[data-theme='dark'] .manage-plan-modal,
@@ -1544,7 +1538,7 @@ body.dark .profile-btn::before {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(13, 27, 41, 0.7);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -2232,9 +2226,10 @@ body.dark .profile-btn::before {
 }
 
 .contact-modal__textarea {
-  resize: vertical;
+  resize: none;
+  overflow: hidden;
   min-height: 20px;
-  max-height: 120px;
+  field-sizing: content;
 }
 
 .contact-modal__input::placeholder,
