@@ -1538,7 +1538,7 @@ body.dark .profile-btn::before {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(13, 27, 41, 0.7);
+  background: #0D1B29B3;
   z-index: 9999;
   display: flex;
   align-items: center;
