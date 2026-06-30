@@ -146,28 +146,4 @@
   min-width: 120px;
 }
 
-[data-bs-theme='dark'] .success-modal {
-  background: #0d1b29;
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 7.5px rgba(0, 0, 0, 0.25);
-}
-
-[data-bs-theme='dark'] .success-modal__close {
-  color: #2adeff;
-}
-
-[data-bs-theme='dark'] .success-modal__icon-wrap {
-  background: rgba(42, 222, 255, 0.1);
-}
-
-[data-bs-theme='dark'] .success-modal__title {
-  color: #fff;
-}
-
-[data-bs-theme='dark'] .success-modal--support {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-bs-theme='dark'] .success-modal__message {
-  color: rgba(206, 206, 206, 0.89);
-}
+/* Success modal is always white/light regardless of theme — by design */
