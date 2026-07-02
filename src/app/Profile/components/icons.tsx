@@ -16,6 +16,7 @@ import doneDarkIcon from '@/assets/img/profile/icons/done-dark.svg';
 import editIcon from '@/assets/img/profile/icons/edit.svg';
 import hashIcon from '@/assets/img/profile/icons/hash.svg';
 import headsetWhiteIcon from '@/assets/img/profile/icons/headset-white.svg';
+import headsetSupportIcon from '@/assets/img/profile/icons/headset-support.svg';
 import headsetIcon from '@/assets/img/profile/icons/headset.svg';
 import mailIcon from '@/assets/img/profile/icons/mail.svg';
 import monitorSmIcon from '@/assets/img/profile/icons/monitor-sm.svg';
@@ -52,6 +53,7 @@ const PROFILE_ICON_SRC = {
   edit: editIcon,
   hash: hashIcon,
   headset: headsetIcon,
+  headsetSupport: headsetSupportIcon,
   inactiveBadge: inactiveBadgeIcon,
   inactiveX: inactiveXIcon,
   headsetWhite: headsetWhiteIcon,
