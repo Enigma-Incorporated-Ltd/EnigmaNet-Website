@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import SuccessModal, { SUCCESS_COPY } from '@/components/ui/SuccessModal';
-import { CloseIcon, Icon, ProfileIcon } from '../icons';
+import { Icon, ManageModalCloseIcon, ProfileIcon } from '../icons';
 import { useAccountSettings, type AccountSettingsData } from './useAccountSettings';
 
 const SETTINGS_KEYS: (keyof AccountSettingsData)[] = [
@@ -63,54 +64,43 @@ const SETTINGS_ROWS: {
   },
 ];
 
-const INLINE_SETTINGS_ROWS: typeof SETTINGS_ROWS = [
-  { ...SETTINGS_ROWS[0], icon: <Icon.Bell /> },
-  { ...SETTINGS_ROWS[1], icon: <Icon.Package /> },
-  { ...SETTINGS_ROWS[2], icon: <Icon.Receipt /> },
-  { ...SETTINGS_ROWS[3], icon: <Icon.Sun /> },
-];
-
 const AccountSettingsBody = ({
   data,
   loading,
   onToggle,
-  variant = 'inline',
 }: {
   data: AccountSettingsData | null;
   loading: boolean;
   onToggle: (key: keyof AccountSettingsData, value: boolean) => void;
-  variant?: 'inline' | 'modal';
-}) => {
-  const rows = variant === 'modal' ? SETTINGS_ROWS : INLINE_SETTINGS_ROWS;
-
-  return (
-    <div className={`account-settings-modal__body${variant === 'modal' ? ' account-settings-modal__body--modal' : ''}`}>
-      {loading || !data
-        ? <div className="account-settings-modal__loading">Loading…</div>
-        : rows.map((row, index) => (
-            <Fragment key={row.id}>
-              {variant === 'modal' && index > 0 && (
-                <div className="account-settings-modal__divider" aria-hidden="true" />
-              )}
-              <div className="toggle-row">
-                <div className="toggle-row__info">
-                  <span className="toggle-row__icon">{row.icon}</span>
-                  <div>
-                    <p className="toggle-row__label">{row.label}</p>
-                    <p className="toggle-row__desc">{row.desc}</p>
-                  </div>
+}) => (
+  <div className="settings-card__body">
+    {loading || !data
+      ? <div className="settings-card__loading">Loading…</div>
+      : SETTINGS_ROWS.map((row, index) => (
+          <Fragment key={row.id}>
+            {index > 0 && <div className="settings-card__divider" aria-hidden="true" />}
+            <div className="toggle-row">
+              <div className="toggle-row__info">
+                <span className="toggle-row__icon">{row.icon}</span>
+                <div>
+                  <p className="toggle-row__label">{row.label}</p>
+                  <p className="toggle-row__desc">
+                    {row.key === 'lightTheme'
+                      ? (data.lightTheme ? 'Light mode' : 'Dark mode')
+                      : row.desc}
+                  </p>
                 </div>
-                <Toggle
-                  id={row.id}
-                  checked={data[row.key]}
-                  onChange={v => onToggle(row.key, v)}
-                />
               </div>
-            </Fragment>
-          ))}
-    </div>
-  );
-};
+              <Toggle
+                id={row.id}
+                checked={data[row.key]}
+                onChange={v => onToggle(row.key, v)}
+              />
+            </div>
+          </Fragment>
+        ))}
+  </div>
+);
 
 /* ── Account Settings Modal (Figma 79:1056 light / 79:9589 dark) ─── */
 export const AccountSettingsModal = ({ onClose }: { onClose: () => void }) => {
@@ -147,7 +137,7 @@ export const AccountSettingsModal = ({ onClose }: { onClose: () => void }) => {
     return <SuccessModal {...SUCCESS_COPY.settingsSaved} onClose={onClose} />;
   }
 
-  return (
+  return createPortal(
     <div className="modal-overlay" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="account-settings-modal" role="dialog" aria-labelledby="account-settings-title">
         <button
@@ -156,7 +146,7 @@ export const AccountSettingsModal = ({ onClose }: { onClose: () => void }) => {
           onClick={onClose}
           aria-label="Close"
         >
-          <CloseIcon />
+          <ManageModalCloseIcon />
         </button>
 
         <div className="account-settings-modal__header">
@@ -171,7 +161,6 @@ export const AccountSettingsModal = ({ onClose }: { onClose: () => void }) => {
             data={draft}
             loading={loading}
             onToggle={handleToggle}
-            variant="modal"
           />
         </div>
 
@@ -194,7 +183,8 @@ export const AccountSettingsModal = ({ onClose }: { onClose: () => void }) => {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 };
 
@@ -205,7 +195,7 @@ const AccountSettings = () => {
   return (
     <div className="settings-section">
       <h2 className="profile-section-title"><Icon.Settings /> Account Settings</h2>
-      <div className="profile-card">
+      <div className="settings-card">
         <AccountSettingsBody
           data={data}
           loading={loading}

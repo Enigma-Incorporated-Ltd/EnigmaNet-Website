@@ -50,7 +50,7 @@ const MOCK_DATA: ProductServicesData = {
   plans: MOCK_PLANS,
   devices: MOCK_DEVICES,
   startDate: '12 Jul 2025',
-  renewalDate: '12 Jul 2026',
+  renewalDate: 'June 30, 2026',
   devicesUsed: 4,
   devicesTotal: 5,
   productStatus: 'All systems active',
