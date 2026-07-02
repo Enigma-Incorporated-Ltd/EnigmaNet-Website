@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { PaidBadge } from '../Badges';
-import { CloseIcon, Icon } from '../icons';
+import { Icon, ManageModalCloseIcon, ProfileIcon } from '../icons';
 import { usePaymentsBilling, type Invoice } from './usePaymentsBilling';
 
 const BILLING_META_ROWS = [
@@ -10,7 +11,7 @@ const BILLING_META_ROWS = [
   { label: 'Billing contact', key: 'billingContact' as const, link: true },
 ];
 
-/* ── All Invoices Modal ──────────────────────────────────────────── */
+/* ── All Invoices Modal (Figma 79:10062) ───────────────────────── */
 const InvoicesModal = ({
   invoices,
   onClose,
@@ -19,41 +20,61 @@ const InvoicesModal = ({
   invoices: Invoice[];
   onClose: () => void;
   onContactSupport: () => void;
-}) => (
+}) => createPortal(
   <div className="modal-overlay" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
-    <div className="invoices-modal">
-      <button className="contact-modal__close" onClick={onClose} aria-label="Close"><CloseIcon /></button>
-
-      <div className="invoices-modal__header">
-        <Icon.CreditCardTitle />
-        <h2 className="invoices-modal__title">Payments &amp; Billing Invoices</h2>
-      </div>
-
-      <div className="invoices-modal__list">
-        {invoices.map(inv => (
-          <div key={inv.id} className="invoices-modal__row">
-            <span className="invoices-modal__date">
-              <Icon.PolicyDocument />
-              {inv.date}
-            </span>
-            <span className="invoices-modal__right">
-              <span className="invoices-modal__amount">{inv.amount}</span>
-              <PaidBadge label={inv.status} />
-            </span>
-          </div>
-        ))}
-      </div>
-
-      <button type="button" className="profile-btn invoices-modal__support-link" onClick={() => { onClose(); onContactSupport(); }}>
-        <Icon.HeadsetCard />
-        Contact for a support
+    <div className="invoices-modal" role="dialog" aria-labelledby="invoices-modal-title">
+      <button
+        type="button"
+        className="invoices-modal__close"
+        onClick={onClose}
+        aria-label="Close"
+      >
+        <ManageModalCloseIcon />
       </button>
 
-      <p className="invoices-modal__footnote">
-        Payment method and subscription changes must be confirmed by engineering/finance.
-      </p>
+      <div className="invoices-modal__panel">
+        <div className="invoices-modal__body">
+          <div className="invoices-modal__header">
+            <Icon.CreditCardTitle />
+            <h2 id="invoices-modal-title" className="invoices-modal__title">
+              Payments &amp; Billing Invoices
+            </h2>
+          </div>
+
+          <div className="invoices-modal__list">
+            {invoices.map(inv => (
+              <div key={inv.id} className="invoices-modal__row">
+                <span className="invoices-modal__date">
+                  <Icon.PolicyDocument />
+                  {inv.date}
+                </span>
+                <span className="invoices-modal__right">
+                  <span className="invoices-modal__amount">{inv.amount}</span>
+                  <PaidBadge label={inv.status} />
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="invoices-modal__support">
+          <button
+            type="button"
+            className="invoices-modal__support-link"
+            onClick={() => { onClose(); onContactSupport(); }}
+          >
+            <ProfileIcon name="headsetSupport" size={20} />
+            <span>Contact for a support</span>
+          </button>
+        </div>
+
+        <p className="invoices-modal__footnote">
+          Payment method and subscription changes must be confirmed by engineering/finance.
+        </p>
+      </div>
     </div>
-  </div>
+  </div>,
+  document.body,
 );
 
 /* ── Payments & Billing Section ──────────────────────────────────── */

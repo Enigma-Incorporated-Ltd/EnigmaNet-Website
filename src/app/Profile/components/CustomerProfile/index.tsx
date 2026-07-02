@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import SuccessModal, { SUCCESS_COPY } from '@/components/ui/SuccessModal';
 import { AccountSettingsModal } from '../AccountSettings';
 import { AccountStatusBadge } from '../Badges';
-import { CloseIcon, Icon } from '../icons';
+import { Icon, ManageModalCloseIcon } from '../icons';
 import { useCustomerProfile } from './useCustomerProfile';
 
 /* ── Edit Profile Modal ──────────────────────────────────────────── */
@@ -52,81 +53,88 @@ const EditProfileModal = ({
     return <SuccessModal {...SUCCESS_COPY.profileSaved} onClose={onClose} />;
   }
 
-  return (
+  return createPortal(
     <div className="modal-overlay" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="edit-profile-modal" role="dialog" aria-labelledby="edit-profile-title">
-            <div className="edit-profile-modal__header">
-              <h2 id="edit-profile-title" className="edit-profile-modal__title">
-                <Icon.Edit /> Edit Profile
-              </h2>
-              <button type="button" className="edit-profile-modal__close" onClick={onClose} aria-label="Close">
-                <CloseIcon />
-              </button>
-            </div>
+        <button type="button" className="edit-profile-modal__close" onClick={onClose} aria-label="Close">
+          <ManageModalCloseIcon />
+        </button>
 
-            <div className="edit-profile-modal__avatar-section">
-              <div
-                className="edit-profile-modal__avatar"
-                onClick={() => fileInputRef.current?.click()}
-                role="button"
-                tabIndex={0}
-                onKeyDown={e => e.key === 'Enter' && fileInputRef.current?.click()}
-              >
-                {avatarSrc && !previewError ? (
-                  <img
-                    src={avatarSrc}
-                    alt="Profile"
-                    onError={() => setPreviewError(true)}
-                  />
-                ) : (
-                  initialInitials
-                )}
-              </div>
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/jpeg,image/png,image/gif"
-                className="edit-profile-modal__file-input"
-                onChange={handleImageChange}
+        <div className="edit-profile-modal__header">
+          <div className="edit-profile-modal__title-row">
+            <h2 id="edit-profile-title" className="edit-profile-modal__title">
+              <Icon.Edit /> Edit Profile
+            </h2>
+          </div>
+          <p className="edit-profile-modal__subtitle">
+            Update your display name and profile picture.
+          </p>
+        </div>
+
+        <div className="edit-profile-modal__body">
+          <div className="edit-profile-modal__avatar-section">
+          <div
+            className="edit-profile-modal__avatar"
+            onClick={() => fileInputRef.current?.click()}
+            role="button"
+            tabIndex={0}
+            onKeyDown={e => e.key === 'Enter' && fileInputRef.current?.click()}
+          >
+            {avatarSrc && !previewError ? (
+              <img
+                src={avatarSrc}
+                alt="Profile"
+                onError={() => setPreviewError(true)}
               />
-              <button
-                type="button"
-                className="edit-profile-modal__upload-btn"
-                onClick={() => fileInputRef.current?.click()}
-              >
-                Upload picture
-              </button>
-              <p className="edit-profile-modal__upload-hint">JPG, PNG or GIF · max 5 MB</p>
-            </div>
+            ) : (
+              initialInitials
+            )}
+          </div>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/jpeg,image/png,image/gif"
+            className="edit-profile-modal__file-input"
+            onChange={handleImageChange}
+          />
+          <button
+            type="button"
+            className="edit-profile-modal__upload-btn"
+            onClick={() => fileInputRef.current?.click()}
+          >
+            Upload picture
+          </button>
+          <p className="edit-profile-modal__upload-hint">JPG, PNG or GIF · max 5 MB</p>
+        </div>
 
-            <hr className="edit-profile-modal__divider" />
+        <div className="edit-profile-modal__field">
+          <p className="edit-profile-modal__field-label">Full name</p>
+          <div className="edit-profile-modal__input-wrap">
+            <Icon.User />
+            <input
+              className="edit-profile-modal__input"
+              type="text"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              placeholder="Enter your full name"
+            />
+          </div>
+        </div>
+        </div>
 
-            <div className="edit-profile-modal__field">
-              <p className="edit-profile-modal__field-label">Full name</p>
-              <div className="edit-profile-modal__input-wrap">
-                <Icon.User />
-                <input
-                  className="edit-profile-modal__input"
-                  type="text"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                  placeholder="Enter your full name"
-                />
-              </div>
-            </div>
+        <div className="edit-profile-modal__footer">
+          <button type="button" className="profile-btn profile-btn--secondary edit-profile-modal__cancel" onClick={onClose}>
+            Cancel
+          </button>
+          <button type="button" className="profile-btn edit-profile-modal__save" onClick={handleSave} disabled={saving}>
+            {saving ? 'Saving…' : 'Save changes'}
+          </button>
+        </div>
 
-            <div className="edit-profile-modal__footer">
-              <button type="button" className="profile-btn profile-btn--secondary edit-profile-modal__cancel" onClick={onClose}>
-                Cancel
-              </button>
-              <button type="button" className="profile-btn edit-profile-modal__save" onClick={handleSave} disabled={saving}>
-                {saving ? 'Saving…' : 'Save changes'}
-              </button>
-            </div>
-
-            {saveError && <p className="edit-profile-modal__error">{saveError}</p>}
+        {saveError && <p className="edit-profile-modal__error">{saveError}</p>}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 };
 
