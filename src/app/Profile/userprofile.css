@@ -857,23 +857,27 @@ body.dark .profile-btn::before {
 .profile-btn.profile-btn--secondary {
   color: #000;
   font-weight: 500;
-  background: rgba(102, 102, 102, 0.2);
+  border-radius: 100px;
+  background: rgba(102, 102, 102, 0.1);
+  border: none;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   box-shadow:
-    0 0 2px rgba(0, 0, 0, 0.1),
-    0 1px 8px rgba(0, 0, 0, 0.1),
-    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.95),
-    inset 2px 2px 0.5px -2px #262626,
-    inset -2px -2px 0.5px -2px #262626,
-    inset 0 0 0 1px #a6a6a6,
-    inset 0 0 8px 0 rgba(242, 242, 242, 0.45);
+    inset 4px 0 3px -3px rgba(255, 255, 255, 0.95),
+    inset -4px 0 3px -3px rgba(255, 255, 255, 0.95),
+    inset 3px 3px 0.5px -3.5px #fff,
+    inset 2px 2px 0.5px -2px rgba(38, 38, 38, 0.25),
+    inset -2px -2px 0.5px -2px rgba(38, 38, 38, 0.25),
+    inset 0 0 0 1px #d8d8d8,
+    inset 0 0 8px 0 #f2f2f2,
+    0 0 2px 0 rgba(0, 0, 0, 0.1),
+    0 1px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .profile-btn.profile-btn--secondary::before,
 .profile-btn.profile-btn--secondary::after {
-  display: none;
   content: none;
+  display: none;
 }
 
 .profile-btn.profile-btn--secondary:hover:not(:disabled) {
@@ -1537,7 +1541,7 @@ body.dark .profile-btn::before {
   background: transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
+  r;
   cursor: pointer;
   color: #187bc9;
   z-index: 1;
@@ -3106,30 +3110,7 @@ body.dark .invoices-modal__support-link,
   color: rgba(206, 206, 206, 0.89);
 }
 
-[data-bs-theme="dark"] .profile-btn.profile-btn--secondary {
-  color: #000;
-  background: rgba(102, 102, 102, 0.2);
-  box-shadow:
-    0 0 2px rgba(0, 0, 0, 0.1),
-    0 1px 8px rgba(0, 0, 0, 0.1),
-    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.95),
-    inset 2px 2px 0.5px -2px #262626,
-    inset -2px -2px 0.5px -2px #262626,
-    inset 0 0 0 1px #a6a6a6,
-    inset 0 0 8px 0 rgba(242, 242, 242, 0.45);
-}
-
-[data-bs-theme="dark"] .profile-btn.profile-btn--secondary:hover:not(:disabled) {
-  color: #000;
-}
-
-html[data-theme='dark'] .profile-btn.profile-btn--secondary,
-body[data-theme='dark'] .profile-btn.profile-btn--secondary,
-html.dark .profile-btn.profile-btn--secondary,
-body.dark .profile-btn.profile-btn--secondary {
-  color: #000;
-  background: rgba(102, 102, 102, 0.2);
-}
+/* Cancel button is inside modals — always same style regardless of theme */
 
 /* Modals are ALWAYS white/light regardless of theme — by design */
 /* No dark mode overrides for modal windows */
