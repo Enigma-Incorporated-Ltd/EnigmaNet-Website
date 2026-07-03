@@ -16,7 +16,7 @@ type FeatureItem = {
   id: number;
   icon?: string;
   title: string;
-  description: string;
+  description?: string ;
 };
 
 type ButtonConfig = {
@@ -204,8 +204,12 @@ const CardSlider: React.FC<CardSliderProps> = ({
                       ))}
 
                     <HeaderTitle title={feature.title} className="h5 text-warning pt-3 pb-1 mb-2" />
-
-                    <p className="mb-0" dangerouslySetInnerHTML={{ __html: feature.description }} />
+                    {feature.description && (
+                      <p
+                        className="mb-0"
+                        dangerouslySetInnerHTML={{ __html: feature.description }}
+                      />
+                    )}
                   </Card>
                 </SwiperSlide>
               ))}
