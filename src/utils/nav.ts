@@ -479,7 +479,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
             { label: 'Leadership', href: '/company/leadership' },
             { label: 'Newsroom', href: '/company/newsroom' },
 
-            { label: 'Blog / Insights', href: '/company/blog' },
+            { label: 'Blog / Insights', href: '/company/blog-insight' },
           ],
         },
       ],

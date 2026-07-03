@@ -217,14 +217,15 @@ const Company = lazy(() => import('@/app/company'));
 const AboutEnigma = lazy(() => import('@/app/company/about-enigma'));
 const Leadership = lazy(() => import('@/app/company/leadership'));
 const NewsRoom = lazy(() => import('@/app/company/newsroom'));
-
+const BlogInsight = lazy(() => import('@/app/company/blog-insight'));
 //company/trust-&-security
 const Trust = lazy(() => import('@/app/company/trust-&-security'));
 const TrustCentre = lazy(() => import('@/app/company/trust-&-security/trust-centre'));
 const Legal = lazy(() => import('@/app/company/trust-&-security/policies'));
 const SecurityPosture = lazy(() => import('@/app/company/trust-&-security/security-posture'));
-const ComplianceCertifications = lazy(() => import('@/app/company/trust-&-security/compliance-certifications'));
-
+const ComplianceCertifications = lazy(
+  () => import('@/app/company/trust-&-security/compliance-certifications')
+);
 
 //company/resources/
 const Resources = lazy(() => import('@/app/company/resources'));
@@ -237,9 +238,6 @@ const Glossary = lazy(() => import('@/app/company/resources/glossary'));
 const ContactUs = lazy(() => import('@/app/contact-us'));
 const RequestAQuote = lazy(() => import('@/app/contact-us/request-a-quote'));
 
-
-//workShop
-const Workshop = lazy(() => import('@/app/workshop'));
 
 //company/careers
 const Careers = lazy(() => import('@/app/company/careers'));
@@ -277,8 +275,7 @@ export const AllRoutes = [
   // Products Routes
   { path: '/products', name: 'Products', element: <Products /> },
 
-  //workShop
-  { path: '/60-minutes-workshop', name: 'workshop', element: <Workshop /> },
+
   // Enigma Platform Routes
   { path: '/products', element: <Products /> },
   { path: '/products/the-enigma-platform', element: <EnigmaPlatform /> },
@@ -417,7 +414,11 @@ export const AllRoutes = [
   { path: '/company/blog/grid', name: 'blog-grid', element: <GridWithSidebar /> },
   { path: '/company/blog/:id', name: 'blog-id', element: <BlogSingle /> },
   { path: '/company/newsroom', name: 'newsroom', element: <NewsRoom /> },
-
+  {
+    path: '/company/blog-insight',
+    name: 'blog-insight',
+    element: <BlogInsight />,
+  },
   //company/trust-centre
   { path: '/company/trust-&-security', element: <Trust /> },
   { path: '/company/trust-&-security/trust-centre', element: <TrustCentre /> },
