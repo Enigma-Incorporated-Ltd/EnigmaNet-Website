@@ -63,8 +63,8 @@ const GetInTouch = () => {
                   <div>
                     <p className="info-label mb-1">Email</p>
                     <p className="info-title mb-1">Email us</p>
-                    <a href="mailto:info@enigmanet.ai" className="info-link">
-                      info@enigmanet.ai
+                    <a href="mailto:support@enigmanet.ai" className="info-link">
+                      support@enigmanet.ai
                     </a>
                   </div>
                 </div>

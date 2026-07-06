@@ -187,6 +187,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       logout();
       return null;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session, logout]);
 
   const value = useMemo<AuthContextValue>(
