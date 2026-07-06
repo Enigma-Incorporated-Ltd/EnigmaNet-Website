@@ -83,7 +83,12 @@ const RegisterPage = () => {
       await register({ email, password, firstname, lastname });
       navigate('/login/sign-in', { state: { email, registered: true } });
     } catch (submitError) {
-      setFieldError(mapRegisterError(getAuthErrorMessage(submitError)));
+      const errMsg = getAuthErrorMessage(submitError);
+      if (errMsg.toLowerCase().includes('already exists') || errMsg.toLowerCase().includes('user already')) {
+        navigate('/login/sign-in-existing', { state: { email } });
+      } else {
+        setFieldError(mapRegisterError(errMsg));
+      }
     } finally {
       setIsSubmitting(false);
     }
