@@ -14,7 +14,7 @@ type FeatureItem = {
   id: number;
   icon?: string;
   title: string;
-  description: string;
+  description?: string;
   PriceValue?: string | React.ReactNode;
 };
 type ButtonConfig = {
@@ -47,7 +47,7 @@ interface ArrowButtonProps {
   disabled?: boolean;
 }
 
-const ArrowButton: React.FC<ArrowButtonProps> = ({ direction, onClick, disabled }) => {
+export const ArrowButton: React.FC<ArrowButtonProps> = ({ direction, onClick, disabled }) => {
   const isPrev = direction === 'prev';
   return (
     <button
@@ -169,11 +169,13 @@ const AddOnCard: React.FC<CardSliderProps> = ({
                 <SwiperSlide key={feature.id} className="h-auto py-3">
                   <Card className="h-100 card-body card-hover mx-2">
                     <HeaderTitle title={feature.title} className="h5 text-warning pt-3 pb-1 mb-2" />
-                    <p
-                      className="mb-0"
-                      dangerouslySetInnerHTML={{ __html: feature.description }}
-                      style={{ minHeight: '4rem' }}
-                    />
+                    {feature.description && (
+                      <p
+                        className="mb-0"
+                        dangerouslySetInnerHTML={{ __html: feature.description }}
+                        style={{ minHeight: '4rem' }}
+                      />
+                    )}
                     {feature.PriceValue && (
                       <h2 className="h4 text-start mt-5 text-dark">{feature.PriceValue}</h2>
                     )}{' '}
