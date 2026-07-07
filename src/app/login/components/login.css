@@ -1441,17 +1441,17 @@
 }
 
 /* Steel Blue overrides for existing account page link */
-.login-card--existing .login-help-text__link {
+.login-help-text--existing .login-help-text__link {
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 500 !important;
 }
 
-.login-layout--light .login-card--existing .login-help-text__link {
-  color: #4f5a6b !important; /* Steel blue */
+.login-layout--light .login-help-text--existing .login-help-text__link {
+  color: #157bc9 !important; /* Steel blue */
 }
 
-.login-layout--dark .login-card--existing .login-help-text__link {
-  color: #a0aec0 !important;
+.login-layout--dark .login-help-text--existing .login-help-text__link {
+  color: #157bc9 !important;
 }
 
 @media (max-width: 575.98px) {
