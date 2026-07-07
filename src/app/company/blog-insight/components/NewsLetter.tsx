@@ -1,43 +1,50 @@
-import { Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Card, Col, Container, Form, Dropdown, Row } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 import './contact.css';
 import PremiumButton from '@/components/ui/PremiumButton';
+import { useNewsletterApi } from '@/services/newsletter';
 
 const NewsLetter = () => {
- const [formData, setFormData] = useState({
-    email: '',
-    name: '',
-    company: '',
-    interestArea: '',
-    
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-const [errors, setErrors] = useState({
-    email: '',
-    name: '',
-    company: '',
-    interestArea: '',
-});
-    const handleSubmit = async (e: React.FormEvent) => {
+  const { formData, setFormData, errors,successMessage, sending, submitted, subscribeNewsletter } =
+    useNewsletterApi();
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSending(true);
-    setErrors({
-      email: '',
-      name: '',
-      company: '',
-      interestArea: '',
-    });
-    // Add your form submission logic here
-    setSubmitted(true);
-    setSending(false);
+    await subscribeNewsletter();
   };
-const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
+const interestOptions = [
+  { value: 'TrueCostWorkshops', label: 'TrueCost Workshops' },
+  { value: 'AIInfrastructure', label: 'AI Infrastructure' },
+  { value: 'DataMovement', label: 'Data Movement' },
+  { value: 'CloudCostInsights', label: 'Cloud Cost Insights' },
+  { value: 'SecureNetworking', label: 'Secure Networking' },
+  { value: 'ProductUpdates', label: 'Product Updates' },
+  { value: 'CompanyUpdates', label: 'Company Updates' },
+];
+
+const handleInterestChange = (value: string) => {
+  setFormData(prev => {
+    const exists = prev.interestAreas.includes(value);
+
+    return {
+      ...prev,
+      interestAreas: exists
+        ? prev.interestAreas.filter(v => v !== value)
+        : [...prev.interestAreas, value],
+    };
+  });
+};
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -66,8 +73,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
                       <div className="success-icon">✓</div>
                       <p className="success-title">You're subscribed!</p>
                       <p className="success-text">
-                        Thanks for subscribing. You'll receive our latest news, insights, and
-                        product updates.
+                       {successMessage}
                       </p>
                     </div>
                   ) : (
@@ -113,21 +119,46 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
 
                       {/* Interest Area */}
                       <Col xs={12}>
-                        <Form.Label>Interest Area</Form.Label>
-                        <Form.Select
-                          name="interestArea"
-                          value={formData.interestArea}
-                          onChange={handleChange}
-                        >
-                          <option value="">Select an interest</option>
-                          <option value="TrueCost workshops">TrueCost workshops</option>
-                          <option value="AI infrastructure">AI infrastructure</option>
-                          <option value="Data movement">Data movement</option>
-                          <option value="Cloud cost insights">Cloud cost insights</option>
-                          <option value="Secure networking">Secure networking</option>
-                          <option value="Product updates">Product updates</option>
-                          <option value="Company updates">Company updates</option>
-                        </Form.Select>
+                        <Form.Group>
+                          <Form.Label>Interest Areas</Form.Label>
+
+                          <Dropdown autoClose="outside">
+                            <Dropdown.Toggle
+                              as="div"
+                              className="interest-dropdown"
+                              id="interest-dropdown"
+                            >
+                              <span className="interest-placeholder">
+                                {formData.interestAreas.length
+                                  ? interestOptions
+                                      .filter(item => formData.interestAreas.includes(item.value))
+                                      .map(item => item.label)
+                                      .join(', ')
+                                  : 'Select Interest Areas'}
+                              </span>
+
+                              <span className="interest-icon">&#9662;</span>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu className="interest-menu">
+                              {interestOptions.map(item => (
+                                <Dropdown.Item
+                                  key={item.value}
+                                  as="div"
+                                  onClick={e => e.stopPropagation()}
+                                >
+                                  <Form.Check
+                                    type="checkbox"
+                                    id={item.value}
+                                    label={item.label}
+                                    checked={formData.interestAreas.includes(item.value)}
+                                    onChange={() => handleInterestChange(item.value)}
+                                  />
+                                </Dropdown.Item>
+                              ))}
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </Form.Group>
                       </Col>
 
                       {/* Submit */}

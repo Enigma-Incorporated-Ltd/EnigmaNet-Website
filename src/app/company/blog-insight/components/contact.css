@@ -441,3 +441,94 @@
       background: #1f2937;
       color: #fff;
   }
+
+  /* Dropdown input */
+  .interest-dropdown {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+      min-height: 48px;
+      cursor: pointer;
+
+      padding: 0.7rem 1rem;
+
+      border: 1.5px solid var(--si-gray-300, #e2e5f1);
+      border-radius: 10px;
+
+      background: var(--si-body-bg, #fff);
+      color: var(--si-gray-700, #565973);
+
+      transition: border-color .2s, box-shadow .2s;
+  }
+
+  .interest-dropdown:hover,
+  .interest-dropdown.show {
+      border-color: #3d5a9e;
+  }
+
+  .interest-dropdown:focus-within {
+      border-color: #3d5a9e;
+      box-shadow: 0 0 0 3px rgba(61, 90, 158, .12);
+  }
+
+  .interest-placeholder {
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: .92rem;
+  }
+
+  .interest-icon {
+      width: 18px;
+      height: 18px;
+      color: #9397ad;
+      transition: transform .25s;
+  }
+
+  .dropdown.show .interest-icon {
+      transform: rotate(180deg);
+  }
+
+  /* Menu */
+  .interest-menu {
+      width: 100%;
+      margin-top: 6px;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid #e2e5f1;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+      max-height: 260px;
+      overflow-y: auto;
+  }
+
+  .interest-menu .dropdown-item {
+      padding: 8px 12px;
+  }
+
+  .interest-menu .form-check {
+      margin: 0;
+  }
+
+  /* Dark mode */
+  [data-bs-theme="dark"] .interest-dropdown {
+      background: rgba(255, 255, 255, .06);
+      border-color: rgba(255, 255, 255, .1);
+      color: rgba(255, 255, 255, .85);
+  }
+
+  [data-bs-theme="dark"] .interest-menu {
+      background: #1f2937;
+      border-color: rgba(255, 255, 255, .1);
+  }
+
+  [data-bs-theme="dark"] .interest-menu .dropdown-item {
+      color: #fff;
+  }
+  /* Remove Bootstrap default arrow */
+  .interest-dropdown::after {
+      display: none !important;
+      content: none !important;
+  }
