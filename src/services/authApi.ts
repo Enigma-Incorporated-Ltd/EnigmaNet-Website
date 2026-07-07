@@ -237,7 +237,7 @@ export async function verifyResetCode(
   });
 
   if (!isSuccessStatus(data.status)) {
-    throw new AuthApiError(data.status || 'Invalid verification code.');
+    throw new AuthApiError(data.status || 'Wrong code');
   }
 
   return data;

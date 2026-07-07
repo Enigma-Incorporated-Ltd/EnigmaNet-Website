@@ -1453,3 +1453,34 @@
   }
 }
 
+/* Custom Create Account button styles for dark mode */
+.login-welcome-btn--create,
+.login-auth-btn--secondary {
+  border-radius: 100px !important;
+  background: linear-gradient(90deg, rgba(163, 106, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(255, 255, 255, 0.02) 60%, rgba(42, 223, 255, 0.12) 100%), rgba(255, 255, 255, 0.02) !important;
+  box-shadow: 3px 3px 0.5px -3.5px #FFF inset, 2px 2px 0.5px -2px #262626 inset, -2px -2px 0.5px -2px #262626 inset, 0 0 0 1px rgba(255, 255, 255, 0.25) inset, 0 0 8px 0 rgba(242, 242, 242, 0.25) inset, 0 0 2px 0 rgba(0, 0, 0, 0.10), 0 1px 8px 0 rgba(0, 0, 0, 0.10) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #ffffff !important;
+}
+
+.login-welcome-btn--create:hover,
+.login-auth-btn--secondary:hover {
+  background: linear-gradient(90deg, rgba(163, 106, 255, 0.2) 0%, rgba(255, 255, 255, 0.06) 40%, rgba(255, 255, 255, 0.06) 60%, rgba(42, 223, 255, 0.2) 100%), rgba(255, 255, 255, 0.04) !important;
+  filter: brightness(1.1) !important;
+}
+
+/* Custom Create Account button styles for light mode */
+.login-layout--light .login-welcome-btn--create,
+.login-layout--light .login-auth-btn--secondary {
+  background: rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.6) inset, 2px 2px 0.5px -2px rgba(0, 0, 0, 0.05) inset, -2px -2px 0.5px -2px rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.12) inset, 0 0 8px 0 rgba(0, 0, 0, 0.02) inset, 0 0 2px 0 rgba(0, 0, 0, 0.05), 0 1px 8px 0 rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 35, 152, 1) !important;
+}
+
+.login-layout--light .login-welcome-btn--create:hover,
+.login-layout--light .login-auth-btn--secondary:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  filter: brightness(0.95) !important;
+}
+
