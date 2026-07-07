@@ -12,13 +12,13 @@ import NextPageSlider from '@/components/ui/NextPageSlider';
 import { useSlug } from '@/utils/useSlug';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import { type CardItem } from '@/components/ui/card';
-import WorkStep from './WorkStep';
 import PricingCard from '@/components/ui/PricingCard';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import AddOnCard from '@/components/ui/AddOnCard';
 import ComparisonTable from './ComparisonTable';
 import PremiumButton from '@/components/ui/PremiumButton';
 import HeroImage from '@/components/ui/HeroImage';
+import WorkSteps from '@/components/ui/workSteps';
 const features = [
   {
     id: 1,
@@ -420,7 +420,6 @@ const data9 = [
     title: 'Upgrade prompts  ',
     description: 'Move from Connect to EDGE Lite or ESC when usage outgrows self-serve plans.',
   },
-  
 ];
 const data10 = [
   {
@@ -443,9 +442,7 @@ const data10 = [
     description:
       'Hi-fi audio-focused APN experience for low-jitter, high-quality audio streaming.  ',
   },
- 
 ];
-
 
 const data7 = [
   {
@@ -559,9 +556,67 @@ const sharedFeatures = [
   'Basic portal',
   'Latency, loss, usage and quality tiles',
 ];
+
 const Connect = () => {
   const slug = useSlug();
   const { theme } = useTheme();
+  const steps = [
+    {
+      n: 1,
+      title: (
+        <>
+          Install the client -{' '}
+          <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>Install</span>
+        </>
+      ),
+      lead: 'Download the lightweight Connect client for desktop or mobile.',
+      desc: 'Supports Windows, macOS, Linux, iOS and Android.',
+    },
+    {
+      n: 2,
+      title: (
+        <>
+          Connect securely -{' '}
+          <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>Connect</span>
+        </>
+      ),
+      lead: 'Activate an encrypted APN tunnel to the nearest Enigma core.',
+      desc: "Traffic is protected through Enigma's secure overlay.",
+    },
+    {
+      n: 3,
+      title: (
+        <>
+          Optimise automatically -{' '}
+          <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>Optimise</span>
+        </>
+      ),
+      lead: 'ITM prioritises latency-sensitive traffic like calls, games, streaming and cloud apps.',
+      desc: 'Advanced options are available, but not required.',
+    },
+    {
+      n: 4,
+      title: (
+        <>
+          Stabilise performance -{' '}
+          <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>Stabilise</span>
+        </>
+      ),
+      lead: 'FEC, selective retransmit and optional resilience features help reduce loss, jitter and instability.',
+      desc: 'Optional multi-link failover or bonding can support broadband plus mobile hotspot use cases.',
+    },
+    {
+      n: 5,
+      title: (
+        <>
+          Monitor and manage -{' '}
+          <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>Manage</span>
+        </>
+      ),
+      lead: 'The portal shows latency, loss, jitter, MOS and usage tiles in real time.',
+      desc: 'Users can manage plans, devices, add-ons and upgrades from one place.',
+    },
+  ];
   return (
     <div>
       <Breadcrumb
@@ -642,7 +697,7 @@ const Connect = () => {
         }
         data={data2}
       />
-      <WorkStep />
+      <WorkSteps steps={steps} title="Simple for the user. Intelligent underneath " />
 
       <CardSlider
         title={
@@ -873,12 +928,7 @@ const Connect = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline={
-          <>
-            Upgrade your connection in
-           
-          </>
-        }
+        headline={<>Upgrade your connection in</>}
         headline2=" minutes  "
         description="Enigma Connect gives you encrypted, optimised connectivity across the networks you already   
 use, helping calls, gaming, streaming, cloud apps and file sync perform more reliably.  "

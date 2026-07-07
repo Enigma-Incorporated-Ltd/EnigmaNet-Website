@@ -8,15 +8,16 @@ const EnigmaEdge = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Enigma EDGE | Connectivity Products -Products',
     url: `${BASE_URL}/products/connectivity-products/enigma-edge`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma EDGE brings APN-powered optimisation, bonding, RAIN resilience, encrypted tunnels and real-time visibility to business sites, branches, venues, retail estates and distributed infrastructure.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Enigma EDGE | Connectivity Products -Products"
+        description="Enigma EDGE brings APN-powered optimisation, bonding, RAIN resilience, encrypted tunnels and real-time visibility to business sites, branches, venues, retail estates and distributed infrastructure."
         url={`${BASE_URL}/products/connectivity-products/enigma-edge`}
         structuredData={structuredData}
       />
