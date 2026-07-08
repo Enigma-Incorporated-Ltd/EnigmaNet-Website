@@ -30,6 +30,14 @@ const ResetPasswordSuccessPage = () => {
           data-node-id="37:5224"
           data-name="reseting password error dark mode"
         >
+          <Link
+            to="/login"
+            className="login-card__back"
+            aria-label="Back to login"
+          >
+            <IconifyIcon icon="lucide:chevron-left" width={24} height={24} aria-hidden="true" />
+          </Link>
+
           <img
             src={resetPasswordDone}
             alt=""
@@ -43,7 +51,10 @@ const ResetPasswordSuccessPage = () => {
             <div className="login-card__hero-block login-card__hero-block--success" data-node-id="37:5226">
               <div className="login-card__hero">
                 <h2 className="login-card__heading" data-node-id="37:5227">
-                  Password Reset Successful!
+                  Password Reset<span className="login-card__heading-break"> <br />Successful!</span>
+                  <span className="login-card__heading-tick">
+                    <img src={resetPasswordDone} alt="" className="login-card__heading-tick-img" />
+                  </span>
                 </h2>
               </div>
               <p className="login-card__subtitle-lg" data-node-id="37:5228">

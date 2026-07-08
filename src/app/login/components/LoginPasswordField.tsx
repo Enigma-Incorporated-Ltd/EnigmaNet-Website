@@ -10,6 +10,7 @@ type LoginPasswordFieldProps = {
   onToggleVisibility: () => void;
   autoComplete?: string;
   nodeId?: string;
+  hasError?: boolean;
 };
 
 /** Figma: field dark mode (37:4990) */
@@ -23,10 +24,11 @@ const LoginPasswordField = ({
   onToggleVisibility,
   autoComplete = 'new-password',
   nodeId = '37:4990',
+  hasError = false,
 }: LoginPasswordFieldProps) => {
   return (
     <div
-      className="login-field login-field--dark login-gradient-stroke"
+      className={`login-field login-field--dark login-gradient-stroke${hasError ? ' login-field--error' : ''}`}
       data-node-id={nodeId}
       data-name="field dark mode"
     >

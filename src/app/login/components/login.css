@@ -1419,3 +1419,90 @@
     max-width: 80px;
   }
 }
+
+/* Custom styling for existing account sign-in page error */
+.login-help-text--existing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.login-help-text__error-existing {
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #ff9b9b;
+}
+
+.login-layout--light .login-help-text__error-existing {
+  color: #ff5252;
+}
+
+/* Steel Blue overrides for existing account page link */
+.login-card--existing .login-help-text__link {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.login-layout--light .login-card--existing .login-help-text__link {
+  color: #4f5a6b !important; /* Steel blue */
+}
+
+.login-layout--dark .login-card--existing .login-help-text__link {
+  color: #a0aec0 !important;
+}
+
+@media (max-width: 575.98px) {
+  .login-help-text--existing {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important; /* wraps if width is too narrow to prevent clipping */
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 4px 8px !important;
+    width: 100% !important;
+  }
+  
+  .login-help-text__error-existing {
+    font-size: 8px !important;
+  }
+
+  .login-help-text--existing .login-help-text__link {
+    font-size: 8px !important;
+    align-self: center !important;
+  }
+}
+
+/* Custom Create Account button styles for dark mode */
+.login-welcome-btn--create,
+.login-auth-btn--secondary {
+  border-radius: 100px !important;
+  background: linear-gradient(90deg, rgba(163, 106, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(255, 255, 255, 0.02) 60%, rgba(42, 223, 255, 0.12) 100%), rgba(255, 255, 255, 0.02) !important;
+  box-shadow: 3px 3px 0.5px -3.5px #FFF inset, 2px 2px 0.5px -2px #262626 inset, -2px -2px 0.5px -2px #262626 inset, 0 0 0 1px rgba(255, 255, 255, 0.25) inset, 0 0 8px 0 rgba(242, 242, 242, 0.25) inset, 0 0 2px 0 rgba(0, 0, 0, 0.10), 0 1px 8px 0 rgba(0, 0, 0, 0.10) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #ffffff !important;
+}
+
+.login-welcome-btn--create:hover,
+.login-auth-btn--secondary:hover {
+  background: linear-gradient(90deg, rgba(163, 106, 255, 0.2) 0%, rgba(255, 255, 255, 0.06) 40%, rgba(255, 255, 255, 0.06) 60%, rgba(42, 223, 255, 0.2) 100%), rgba(255, 255, 255, 0.04) !important;
+  filter: brightness(1.1) !important;
+}
+
+/* Custom Create Account button styles for light mode */
+.login-layout--light .login-welcome-btn--create,
+.login-layout--light .login-auth-btn--secondary {
+  background: rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.6) inset, 2px 2px 0.5px -2px rgba(0, 0, 0, 0.05) inset, -2px -2px 0.5px -2px rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.12) inset, 0 0 8px 0 rgba(0, 0, 0, 0.02) inset, 0 0 2px 0 rgba(0, 0, 0, 0.05), 0 1px 8px 0 rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 35, 152, 1) !important;
+}
+
+.login-layout--light .login-welcome-btn--create:hover,
+.login-layout--light .login-auth-btn--secondary:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  filter: brightness(0.95) !important;
+}
+

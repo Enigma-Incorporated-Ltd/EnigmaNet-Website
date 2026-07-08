@@ -85,31 +85,29 @@ const ForgotPasswordSentPage = () => {
               {email ? formatUserLabel(email) : 'USER NAME'}
             </p>
 
-            <p className="login-card__confirmation-footer" data-node-id="62:1831">
-              Didn&apos;t receive the email?{' '}
+            <div className="login-card__sent-actions">
+              <Link
+                to="/forgot-password/reset"
+                state={{ email }}
+                className="login-auth-btn login-auth-btn--primary login-card__sent-btn login-card__sent-btn--enter"
+              >
+                Enter code
+              </Link>
               <button
                 type="button"
-                className="login-card__confirmation-resend"
+                className="login-auth-btn login-welcome-btn--create login-card__sent-btn login-card__sent-btn--resend"
                 onClick={handleResend}
                 disabled={isResending}
               >
-                {isResending ? 'Resending…' : 'Resend link.'}
+                {isResending ? 'Resending…' : 'Resend code'}
               </button>
-            </p>
+            </div>
 
             {resendError ? (
               <p className="login-form__error login-form__error--block" role="alert">
                 {resendError}
               </p>
             ) : null}
-
-            <Link
-              to="/forgot-password/reset"
-              state={{ email }}
-              className="login-help-text__link"
-            >
-              Enter verification code
-            </Link>
           </div>
         </div>
       </div>
