@@ -1,0 +1,227 @@
+.checkout-info-section {
+  background-color: #0d1b29; /* Petrol */
+  width: 100%;
+  padding: 60px 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.checkout-info__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.checkout-info__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0;
+}
+
+.checkout-info__subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Flex Columns */
+.checkout-info__container {
+  display: flex;
+  gap: 148px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.checkout-column {
+  width: 514px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+/* Card Style */
+.checkout-card {
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 258px;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 6.3px 0px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.checkout-card:hover {
+  border-color: #2adeff;
+}
+
+.checkout-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+
+.checkout-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+}
+
+.checkout-card__desc {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+}
+
+/* Toggle Button */
+.btn-checkout-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  transition: color 0.2s ease;
+}
+
+.btn-checkout-toggle:hover {
+  color: #2adeff;
+}
+
+.btn-checkout-toggle svg {
+  font-size: 24px;
+  transition: transform 0.2s ease;
+}
+
+/* Steps List */
+.checkout-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.checkout-steps__label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+  letter-spacing: 0.1px;
+}
+
+.checkout-steps__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.checkout-step-item {
+  border: 0.2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+}
+
+.checkout-step-item p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 1199.98px) {
+  .checkout-info-section {
+    padding: 60px 60px;
+  }
+  .checkout-info__container {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .checkout-info-section {
+    padding: 60px 40px;
+    gap: 32px;
+  }
+  
+  .checkout-info__title {
+    font-size: 30px;
+  }
+  
+  .checkout-column {
+    width: 100%;
+    align-items: center;
+  }
+  
+  .checkout-card {
+    height: auto;
+    min-height: 250px;
+    width: 100%;
+    max-width: 514px;
+  }
+
+  .checkout-steps {
+    align-items: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .checkout-info-section {
+    padding: 48px 20px;
+  }
+  .checkout-step-item {
+    width: 100%;
+  }
+}

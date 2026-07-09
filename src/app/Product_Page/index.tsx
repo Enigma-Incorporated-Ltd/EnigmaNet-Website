@@ -11,6 +11,7 @@ import PricingTable from './components/PricingTable';
 import AddOns from './components/AddOns';
 import VirtualEditions from './components/VirtualEditions';
 import TrustStrip from './components/TrustStrip';
+import CheckoutInfo from './components/CheckoutInfo';
 
 const ProductPage = () => {
   const structuredData = {
@@ -42,6 +43,7 @@ const ProductPage = () => {
         <AddOns />
         <VirtualEditions />
         <TrustStrip />
+        <CheckoutInfo />
         {/* Small components will be imported and called here */}
       </main>
 
