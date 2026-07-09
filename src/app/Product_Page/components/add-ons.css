@@ -1,0 +1,154 @@
+.addons-section {
+  background-color: #0d1b29; /* Petrol */
+  width: 100%;
+  padding: 60px 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.addons__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+}
+
+/* Outer layout: Columns */
+.addons__container {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.addons__cards-column {
+  flex: 1;
+  min-width: 300px;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.addons__image-column {
+  flex: 1;
+  min-width: 300px;
+  max-width: 566px;
+  height: 720px; /* matched to figma layout height */
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0px 2px 6.3px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+}
+
+.addons__image-column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+/* Add-on Card */
+.addon-card {
+  border: 0.2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 8px 24px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0px 2px 6.3px 0px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.addon-card:hover {
+  transform: translateY(-2px);
+  border-color: #2adeff;
+}
+
+.addon-card__icon-container {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.addon-card__icon-container svg {
+  width: 48px;
+  height: 48px;
+  color: #2adeff;
+}
+
+.addon-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+
+.addon-card__header {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #2adeff;
+  margin: 0;
+  letter-spacing: -0.1px;
+}
+
+.addon-card__desc {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 1199.98px) {
+  .addons-section {
+    padding: 60px 60px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .addons-section {
+    padding: 60px 40px;
+    gap: 32px;
+  }
+  
+  .addons__title {
+    font-size: 30px;
+  }
+  
+  .addons__image-column {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .addons-section {
+    padding: 48px 20px;
+  }
+  
+  .addon-card {
+    height: auto;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

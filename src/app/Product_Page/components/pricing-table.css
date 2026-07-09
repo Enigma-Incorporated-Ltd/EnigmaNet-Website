@@ -1,0 +1,104 @@
+.pricing-table-section {
+  background-color: #0d1b29; /* Petrol */
+  width: 100%;
+  padding: 60px 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.pricing-table__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+}
+
+/* Table Wrapper for Horizontal Scroll on Mobile */
+.pricing-table__wrapper {
+  width: 100%;
+  overflow-x: auto;
+  box-shadow: 0px 2px 6.3px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.pricing-table__el {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 750px; /* Ensures columns don't squish too much */
+}
+
+.pricing-table__el th,
+.pricing-table__el td {
+  padding: 24px 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  border: 0.2px solid rgba(255, 255, 255, 0.4);
+  vertical-align: middle;
+}
+
+.pricing-table__el th {
+  color: #2adeff;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.pricing-table__el td {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+/* Column Width Percentages */
+.pricing-table__el th:first-child,
+.pricing-table__el td:first-child {
+  width: 15%;
+}
+
+.pricing-table__el th:nth-child(2),
+.pricing-table__el td:nth-child(2) {
+  width: 25%;
+}
+
+.pricing-table__el th:nth-child(3),
+.pricing-table__el td:nth-child(3) {
+  width: 25%;
+}
+
+.pricing-table__el th:last-child,
+.pricing-table__el td:last-child {
+  width: 35%;
+}
+
+/* Responsiveness */
+@media (max-width: 1199.98px) {
+  .pricing-table-section {
+    padding: 60px 60px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .pricing-table-section {
+    padding: 60px 40px;
+  }
+  
+  .pricing-table__title {
+    font-size: 30px;
+  }
+  
+  .pricing-table__el th,
+  .pricing-table__el td {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .pricing-table-section {
+    padding: 48px 20px;
+  }
+}

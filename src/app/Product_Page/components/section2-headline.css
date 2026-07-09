@@ -1,0 +1,140 @@
+.section2-headline-container {
+  background-color: #0d1b29; /* Petrol - alternating background with the black tab menu section */
+  width: 100%;
+  padding: 60px 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.sec2-headline__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+}
+
+.sec2-headline__description {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+}
+
+.sec2-headline__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 32px;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.sec2-headline__subtext {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+/* Button styles matching Figma shadows and borders */
+.btn-large-custom-sec2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 20px;
+  padding: 16px 32px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  position: relative;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-large-custom-sec2:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.btn-primary-large-sec2 {
+  color: #f4f4f6;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  width: 229px;
+  height: 52px;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 8px 0px rgba(0, 0, 0, 0.1),
+    inset 3px 3px 0.5px -3.5px white,
+    inset 2px 2px 0.5px -2px #262626,
+    inset -2px -2px 0.5px -2px #262626,
+    inset 0px 0px 0px 1px #a6a6a6,
+    inset 0px 0px 8px 0px #f2f2f2;
+}
+
+.btn-secondary-large-sec2 {
+  color: #ffffff;
+  background: linear-gradient(90deg, #a96a00 0%, #f1ba5f 100%);
+  width: 221px;
+  height: 52px;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 8px 0px rgba(0, 0, 0, 0.1),
+    inset 3px 3px 0.5px -3.5px white,
+    inset 2px 2px 0.5px -2px #262626,
+    inset -2px -2px 0.5px -2px #262626,
+    inset 0px 0px 0px 1px #a6a6a6,
+    inset 0px 0px 8px 0px #f2f2f2;
+}
+
+/* Responsiveness */
+@media (max-width: 1199.98px) {
+  .section2-headline-container {
+    padding: 60px 60px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .section2-headline-container {
+    padding: 60px 40px;
+    gap: 24px;
+  }
+  
+  .sec2-headline__title {
+    font-size: 30px;
+  }
+  
+  .sec2-headline__description {
+    font-size: 16px;
+  }
+  
+  .sec2-headline__actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .section2-headline-container {
+    padding: 48px 20px;
+  }
+  
+  .btn-large-custom-sec2 {
+    width: 100% !important;
+  }
+}

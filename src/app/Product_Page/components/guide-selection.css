@@ -1,0 +1,315 @@
+.guide-section {
+  background-color: #0d1b29; /* Petrol */
+  width: 100%;
+  padding: 60px 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.guide__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+}
+
+.guide__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
+  width: 100%;
+}
+
+.guide__column {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Guide Card */
+.guide-card {
+  display: flex;
+  min-width: 313px;
+  max-width: 537px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border: 0.2px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  border-radius: 4px;
+  box-shadow: 0px 2px 6.3px 0px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.guide-card:hover {
+  border-color: #2adeff;
+}
+
+.guide-card__inner {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.guide-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2adeff;
+  width: 129px;
+  margin: 0;
+  flex-shrink: 0;
+  word-break: break-word;
+}
+
+.guide-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  flex-grow: 1;
+}
+
+.guide-card__question {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Options */
+.guide-card__options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.guide-option-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Custom Radio Circle */
+.guide-radio-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #2adeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.guide-radio-circle__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2adeff;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.2s ease;
+}
+
+.guide-option-label input {
+  display: none;
+}
+
+.guide-option-label input:checked + .guide-radio-circle .guide-radio-circle__dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.guide-option-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+/* Review Card Styles */
+.guide-review-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.guide-review-card {
+  display: flex;
+  min-width: 313px;
+  max-width: 537px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border: 0.2px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  border-radius: 4px;
+  box-shadow: 0px 2px 6.3px 0px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.guide-review-card:hover {
+  border-color: #2adeff;
+}
+
+.guide-review-card__inner {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.guide-review-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2adeff;
+  width: 129px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.guide-review-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex-grow: 1;
+}
+
+.guide-review-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.guide-review-card__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.guide-review-card__item-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.guide-review-card__item-value {
+  font-weight: 600;
+  color: #2adeff;
+}
+
+.guide-review-card__actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.btn-guide-review {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-guide-review:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.btn-guide-review--primary {
+  background-color: #e6ae51;
+  color: #000000;
+  box-shadow: inset 0px 1px 6.8px 0px rgba(0,0,0,0.25);
+}
+
+.btn-guide-review--secondary {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: inset 0px 1px 6.8px 0px rgba(0,0,0,0.25);
+}
+
+/* Responsiveness */
+@media (max-width: 1199.98px) {
+  .guide-section {
+    padding: 60px 60px;
+  }
+  .guide__grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .guide-section {
+    padding: 60px 40px;
+    gap: 32px;
+  }
+  .guide__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .guide-review-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .guide-section {
+    padding: 48px 20px;
+  }
+  .guide-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .guide-card__title {
+    width: 100%;
+  }
+  .guide-review-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .guide-review-card__title {
+    width: 100%;
+  }
+  .guide-review-card__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-guide-review {
+    width: 100%;
+  }
+}

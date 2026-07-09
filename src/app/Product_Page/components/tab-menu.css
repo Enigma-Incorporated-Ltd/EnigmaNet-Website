@@ -1,0 +1,175 @@
+.tab-menu-section {
+  background-color: #0d1b29;
+  /* Petrol */
+  width: 100%;
+  padding: 60px 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.tab-menu__headline {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 1180px;
+}
+
+.tab-menu__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.tab-menu__subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #c5c8cd;
+  margin: 0;
+}
+
+.tab-menu__container {
+  display: flex;
+  gap: 87px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Card Wrapper with 12px semi-transparent borders */
+.tab-card-wrapper {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px;
+  width: 295px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Tab Header Button */
+.tab-card__button {
+  background-color: #ffffff;
+  border: 1px solid #2adeff;
+  border-radius: 8px;
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0px 2px 3.15px rgba(0, 0, 0, 0.25),
+    inset 0px 1px 6.8px 0px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border-style: solid;
+}
+
+.tab-card__button:hover {
+  background-color: #f8fbfd;
+}
+
+.tab-card__button-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+  margin: 0;
+  text-align: left;
+  letter-spacing: -0.1px;
+}
+
+.tab-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.tab-card__icon.rotated {
+  transform: rotate(180deg);
+}
+
+/* Tab Content Description Box */
+.tab-card__content {
+  background-color: #ffffff;
+  border: 1px solid #2adeff;
+  border-radius: 8px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0px 2px 6.3px 0px rgba(0, 0, 0, 0.25);
+  animation: slideDown 0.2s ease-out;
+  box-sizing: border-box;
+}
+
+.tab-card__content-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+  margin: 0;
+  text-align: left;
+  letter-spacing: -0.1px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 1199.98px) {
+  .tab-menu-section {
+    padding: 60px 60px;
+  }
+
+  .tab-menu__container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .tab-menu-section {
+    padding: 60px 40px;
+    gap: 32px;
+  }
+
+  .tab-menu__title {
+    font-size: 30px;
+  }
+
+  .tab-menu__subtitle {
+    font-size: 16px;
+  }
+
+  .tab-menu__container {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .tab-menu-section {
+    padding: 48px 20px;
+  }
+
+  .tab-card-wrapper {
+    width: 100%;
+  }
+}

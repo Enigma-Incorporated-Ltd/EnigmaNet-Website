@@ -66,6 +66,7 @@ const TCOCalculator = lazy(() => import('@/app/hot-storage-tco-calculator/index'
 const MigrationCalculator = lazy(() => import('@/app/trueCost/index'));
 
 const Product2 = lazy(() => import('@/app/product-2/index'));
+const ProductPage = lazy(() => import('@/app/Product_Page/index'));
 
 //home
 
@@ -498,6 +499,7 @@ export const AllRoutes = [
   { path: '/hot-storage-tco-calculator', name: 'TCOCalculator', element: <TCOCalculator /> },
 
   { path: '/product-2', name: 'CommingSoon', element: <Product2 /> },
+  { path: '/product-page', name: 'ProductPage', element: <ProductPage /> },
   { path: '/app-showcase-v2', name: 'case2', element: <ShowCase2 /> },
   { path: '/app-showcase-v3', name: 'case3', element: <ShowCase3 /> },
   { path: '/blog-list', name: 'blog', element: <Blog /> },
