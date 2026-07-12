@@ -4,7 +4,7 @@ import React, { useRef, useState, useCallback } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
-import { Card } from 'react-bootstrap';
+import { Badge, Card } from 'react-bootstrap';
 import IconifyIcon from '@/components/IconifyIcon';
 import PremiumButton from '@/components/ui/PremiumButton';
 import HeaderTitle from '@/components/ui/HeaderTitle';
@@ -16,7 +16,8 @@ type FeatureItem = {
   id: number;
   icon?: string;
   title: string;
-  description?: string ;
+  description?: string;
+  label?: string;
 };
 
 type ButtonConfig = {
@@ -41,6 +42,7 @@ type CardSliderProps = {
   autoplayDelay?: number;
   showNavigation?: boolean;
   showPagination?: boolean;
+  showLabel?: boolean;
 };
 
 // ─── Arrow Button ────────────────────────────────────────────────────────────
@@ -100,7 +102,8 @@ const CardSlider: React.FC<CardSliderProps> = ({
   autoplayDelay = 3000,
   showNavigation = true,
   showPagination = true,
-  sectionTitle
+  sectionTitle,
+  showLabel = false
 }) => {
   const {theme} = useTheme()
   const swiperRef = useRef<SwiperType | null>(null);
@@ -184,25 +187,36 @@ const CardSlider: React.FC<CardSliderProps> = ({
             >
               {data.map(feature => (
                 <SwiperSlide key={feature.id} className="h-auto py-3">
-                  <Card className="h-100 card-body card-hover mx-2">
+                  <Card className="h-100 card-body position-relative card-hover mx-2">
                     {/* Icon — supports Iconify solar: strings or plain image URLs */}
-                    {feature.icon &&
-                      (feature.icon.startsWith('solar:') ? (
-                        <IconifyIcon
-                          icon={feature.icon}
-                          className="display-5 fw-normal card-icon"
-                          style={{ color: '#b4b7c9' }}
-                        />
-                      ) : (
-                        <img
-                          src={feature.icon}
-                          width={100}
-                          height={100}
-                          alt={feature.title}
-                          loading="lazy"
-                        />
-                      ))}
-
+                    {showLabel
+                      ? feature.label && (
+                          <div className="mb-4">
+                            <Badge
+                              bg="warning"
+                              className="position-absolute top-0 text-black end-0 m-3 px-3 py-2"
+                              style={{ width: 'fit-content' }}
+                            >
+                              {feature.label}
+                            </Badge>
+                          </div>
+                        )
+                      : feature.icon &&
+                        (feature.icon.startsWith('solar:') ? (
+                          <IconifyIcon
+                            icon={feature.icon}
+                            className="display-5 fw-normal card-icon"
+                            style={{ color: '#b4b7c9' }}
+                          />
+                        ) : (
+                          <img
+                            src={feature.icon}
+                            width={100}
+                            height={100}
+                            alt={feature.title}
+                            loading="lazy"
+                          />
+                        ))}
                     <HeaderTitle title={feature.title} className="h5 text-warning pt-3 pb-1 mb-2" />
                     {feature.description && (
                       <p

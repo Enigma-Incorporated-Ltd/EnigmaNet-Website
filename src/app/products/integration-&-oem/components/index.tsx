@@ -1,23 +1,35 @@
-import CommingSoon from '@/components/comming-soon';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import Header from '@/components/ui/Header';
+import CardGrid, { type CardItem } from '@/components/ui/card';
+import HeaderTitle from '@/components/ui/HeaderTitle';
+import { IntegrationOem } from '@/utils/products';
 
 const IntegrationList = () => {
   return (
     <div className="container">
       <Breadcrumb
-        items={[{ label: 'Products', href: '/products' } , { label: 'Integration & OEM' }]}
+        items={[{ label: 'Products', href: '/products' }, { label: 'Integration & OEM' }]}
         style={{
           paddingTop: '12rem',
         }}
       />
-      <Header
-        title="Integration & OEM"
+      <HeaderTitle
+        title={
+          <>
+            <span className="text-primary">Integration & OEM</span>
+          </>
+        }
         style={{
-          padding: '21px 0px ',
+          padding: '31px 0px ',
         }}
+        className="h1"
+        textAlign="center"
       />
-      <CommingSoon />
+
+      <CardGrid
+        data={IntegrationOem as CardItem[]}
+        columns="col-12 col-md-12 col-lg-6"
+        buttonLabel="Explore"
+      />
     </div>
   );
 };

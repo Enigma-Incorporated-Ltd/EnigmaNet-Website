@@ -350,13 +350,13 @@ const Navbar = ({
           })}
         </Nav>
 
-        <Link
+        {/* <Link
           to={config.cta_button.href}
           className="navbar-cta-start-free d-none d-lg-inline-flex"
           style={{ marginLeft: 'auto' }}
         >
           {config.cta_button.label}
-        </Link>
+        </Link> */}
         {/* Mobile Toggle */}
         <div className="d-lg-none d-flex align-items-center gap-2 ms-auto">
           {darkenable && (

@@ -36,7 +36,7 @@ type HeaderConfig = {
   logo: { text: string; href: string };
   nav_items: NavItem[];
   utility_nav?: UtilityNavItem[];
-  cta_button: { label: string; href: string; icon?: string; variant?: string; size?: string };
+  cta_button?: { label: string; href: string; icon?: string; variant?: string; size?: string };
 };
 
 export interface NavClass {
@@ -549,7 +549,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       { label: 'Support', id: 'support' },
     ],
     panels: {
-      sales: [
+      sales:  [
         {
           title: 'Contact Us',
           links: [
@@ -647,11 +647,11 @@ export const FALLBACK_CONFIG: HeaderConfig = {
     { label: 'Pricing', href: '/pricing' },
     { label: 'Status', href: '/status' },
   ],
-  cta_button: {
-    label: 'Start free',
-    href: '#',
-    icon: 'bx:rocket',
-    variant: 'primary',
-    size: 'sm',
-  },
+  // cta_button: {
+  //   label: 'Start free',
+  //   href: '#',
+  //   icon: 'bx:rocket',
+  //   variant: 'primary',
+  //   size: 'sm',
+  // },
 };

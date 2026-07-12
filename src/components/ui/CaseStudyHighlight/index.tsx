@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import './index.css';
 import HeroImage from '../HeroImage';
 import PremiumButton from '../PremiumButton';
+import { useTheme } from '@/utils/useTheme';
 type ButtonConfig = {
   label: string;
   href: string;
@@ -21,6 +22,7 @@ type CaseStudyHighlightProps = {
   image?: string;
   className?: string;
   isbg?: boolean;
+  sectionTitle?: string | React.ReactNode;
 };
 const CaseStudyHighlight = ({
   data,
@@ -34,9 +36,19 @@ const CaseStudyHighlight = ({
   showButtons = false,
   primaryButton,
   secondaryButton,
+  sectionTitle,
 }: CaseStudyHighlightProps) => {
+  const {theme} = useTheme();
   return (
+
     <Container className="pt-3 pb-5 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
+      {sectionTitle && (
+        <h5
+          className={`h3 text-center text-uppercase text-${theme === 'dark' ? 'light-blue' : 'warning'}`}
+        >
+          {sectionTitle}
+        </h5>
+      )}
       {title && (
         <h2
           className={`h1 text-center  mx-auto mt-n2 mt-sm-0 ${!description ? 'pb-4' : ''} pt-md-2`}

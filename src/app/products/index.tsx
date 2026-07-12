@@ -8,15 +8,15 @@ const Products = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Products',
     url: `${BASE_URL}/products`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: 'Enigma Products',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Products"
+        description="Enigma Products"
         url={`${BASE_URL}/products`}
         structuredData={structuredData}
       />

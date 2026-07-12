@@ -2,7 +2,7 @@ import { founders } from '.';
 import { Avatar, type Person } from './Avatar';
 
 export function LeadershipStatement({}: { onRead: (p: Person) => void }) {
-  const jane = founders.find(f => f.id === 'jane')!;
+  const jane = founders.find(f => f.id === 'jane-osborne-buglear')!;
   return (
     <div className="container" style={{ padding: '5rem 0' }}>
       <div className="text-center mb-5">
