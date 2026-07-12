@@ -8,15 +8,16 @@ const ConnectivityProduc = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Connectivity Products -Products',
     url: `${BASE_URL}/products/connectivity-products`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Connectivity Products combine Enigma EDGE and Enigma Connect to deliver secure, APN-powered connectivity with intelligent optimisation, encrypted tunnels, multi-link resilience and seamless access for individuals, teams and distributed business environments.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Connectivity Products -Products"
+        description="Enigma Connectivity Products combine Enigma EDGE and Enigma Connect to deliver secure, APN-powered connectivity with intelligent optimisation, encrypted tunnels, multi-link resilience and seamless access for individuals, teams and distributed business environments."
         url={`${BASE_URL}/products/connectivity-products`}
         structuredData={structuredData}
       />
