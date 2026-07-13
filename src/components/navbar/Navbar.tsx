@@ -309,7 +309,7 @@ const Navbar = ({
         </Link>
 
         {/* Desktop Navigation */}
-        <Nav className="navbar-nav me-auto mb-2 mb-lg-0 d-none d-xl-flex">
+        <Nav className="navbar-nav  mb-2 mb-lg-0 d-none d-xl-flex">
           {nav_items.map(item => {
             if (item.type === 'link') {
               return (
