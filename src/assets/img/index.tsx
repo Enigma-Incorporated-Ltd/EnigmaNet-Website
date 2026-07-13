@@ -11,7 +11,7 @@ import operations from './solutions/remote-assets/operational-technology.png';
 import providersPartners from './solutions/providersPartners-solution/service-providers.png';
 import serviceProvidersUsecase from './solutions/providersPartners-solution/use-case/service-usecase.png';
 import remoteWork from './solutions/remote-work-solution/remote-work-and-branch.png';
-import startups from './solutions/startups-solution/outreach-topic3-cloud.png';
+import startups from './solutions/startups-solution/startups.png';
 import technology from './solutions/technology-solution/technology-partners.png';
 import technologyCase from './solutions/technology-solution/usecase/technology-case.png';
 import technologyUsecase from './solutions/technology-solution/usecase/tech-usecase.png';

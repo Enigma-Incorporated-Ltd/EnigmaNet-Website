@@ -9,15 +9,16 @@ const IntegrationAndOem = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Integration & OEM - Products',
     url: `${BASE_URL}/products/integration-&-oem`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Integration & OEM combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Integration & OEM - Products"
+        description="Enigma Integration & OEM combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments."
         url={`${BASE_URL}/products/integration-&-oem`}
         structuredData={structuredData}
       />

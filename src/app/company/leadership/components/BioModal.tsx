@@ -3,6 +3,7 @@ import { SectionLabel } from './SectionLabel';
 
 export function BioModal({ person, onClose }: { person: Person | null; onClose: () => void }) {
   if (!person) return null;
+  
   return (
     <>
       <div
