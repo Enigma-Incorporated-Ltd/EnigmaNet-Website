@@ -52,7 +52,7 @@ const {theme} = useTheme();
   const textClass = isColor ? (theme === 'dark' ? 'text-white' : 'text-dark') : 'text-white-50';
 
   return (
-    <div className="pe-lg-1 ms-auto me-4" data-bs-theme={themeToggle ? 'dark' : 'light'}>
+    <div className="pe-lg-1 ms-auto " data-bs-theme={themeToggle ? 'dark' : 'light'}>
       <div className="form-check form-switch mode-switch pe-lg-1 ms-auto me-4">
         <input type="checkbox" className="form-check-input" id={id} />
 
