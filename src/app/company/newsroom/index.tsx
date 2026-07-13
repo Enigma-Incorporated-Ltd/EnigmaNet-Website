@@ -8,15 +8,16 @@ const Newsroom = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Newsroom - Company ',
     url: `${BASE_URL}/company/newsroom`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Read official Enigma Net announcements, leadership updates, partnership news, press releases and media updates.',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Newsroom - Company "
+        description="Read official Enigma Net announcements, leadership updates, partnership news, press releases and media updates."
         url={`${BASE_URL}/company/newsroom`}
         structuredData={structuredData}
       />

@@ -8,15 +8,17 @@ const AboutEnigma = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'About Enigma - Company',
     url: `${BASE_URL}/company/about-enigma`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Net helps organisations move, protect and manage large data sets across AI, cloud, edge and distributed environments.  ',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="About Enigma - Company"
+        description="Enigma Net helps organisations move, protect and manage large data sets across AI, cloud,   
+edge and distributed environments.  "
         url={`${BASE_URL}/company/about-enigma`}
         structuredData={structuredData}
       />

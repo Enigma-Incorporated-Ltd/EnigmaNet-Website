@@ -10,6 +10,7 @@ import { useTheme } from '@/utils/useTheme';
 import LoginSignInPage from './components/LoginSignInPage';
 import LoginWelcomePage from './components/LoginWelcomePage';
 import SignInSuccessPage from './components/SignInSuccessPage';
+import LoginSignInExistingPage from './components/LoginSignInExistingPage';
 
 const Login = () => {
   const layoutRef = useRef<HTMLDivElement>(null);
@@ -70,6 +71,7 @@ const Login = () => {
       <Routes>
         <Route index element={<LoginWelcomePage />} />
         <Route path="sign-in" element={<LoginSignInPage />} />
+        <Route path="sign-in-existing" element={<LoginSignInExistingPage />} />
         <Route path="success" element={<SignInSuccessPage />} />
       </Routes>
     </div>

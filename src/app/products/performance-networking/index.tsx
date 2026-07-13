@@ -7,17 +7,18 @@ import PerformanceNetworkingList from "./components/PerformanceNetworkingList";
 
 const PerformanceNetworking = () => {
  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Coming Soon',
-    url: `${BASE_URL}/products/performance-networking`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
-  };
+   '@context': 'https://schema.org',
+   '@type': 'WebPage',
+   name: 'Performance Networking -Products',
+   url: `${BASE_URL}/products/performance-networking`,
+   description:
+     'Enigma Performance Networking combines Enigma APN Core, ESC, Secure Networking, TCP Acceleration, RAIN resilience, Multi-link Bonding and Intelligent Traffic Management to deliver secure, resilient, high-performance connectivity across mission-critical networks.',
+ };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Performance Networking -Products"
+        description="Enigma Performance Networking combines Enigma APN Core, ESC, Secure Networking, TCP Acceleration, RAIN resilience, Multi-link Bonding and Intelligent Traffic Management to deliver secure, resilient, high-performance connectivity across mission-critical networks."
         url={`${BASE_URL}/products/performance-networking`}
         structuredData={structuredData}
       />

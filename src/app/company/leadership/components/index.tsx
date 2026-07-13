@@ -28,7 +28,6 @@ import {
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import Br from '@/components/ui/NewLine';
 import PremiumButton from '@/components/ui/PremiumButton';
-import { useState } from 'react';
 import { LatestUpdates } from './LatestUpdates';
 import { CredibilityBand } from './CredibilityBand';
 import { type Person } from './Avatar';
@@ -39,6 +38,8 @@ import { LeaderCard } from './LeaderCard';
 import { SpecialistTeamCard } from './SpecialistTeamCard';
 import { FounderCard } from './FounderCard';
 import './style.css'
+import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface SpecialistTeam {
@@ -147,7 +148,7 @@ exits.   `,
     avatar: Ketherine,
   },
   {
-    id: 'jane',
+    id: 'jane-osborne-buglear',
     name: 'Jane Osborne-Buglear',
     role: 'Chief Executive Officer',
     badge: 'CEO',
@@ -911,7 +912,33 @@ export const specialistTeams: SpecialistTeam[] = [
 
 export default function LeadershipPage() {
   const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
+const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const handleRead = (person: Person) => {
+    setSelectedPerson(person);
 
+    navigate(`/company/leadership?member=${person.id}`, {
+      replace: true,
+    });
+  };
+  useEffect(() => {
+    const member = searchParams.get('member');
+
+    if (!member) return;
+
+    const allPeople = [
+      ...founders,
+      ...techLeaders,
+      ...commercialLeaders,
+      ...specialistTeams.flatMap(team => team.members),
+    ];
+
+    const person = allPeople.find(p => p.id === member);
+
+    if (person) {
+      setSelectedPerson(person);
+    }
+  }, [searchParams]);
   return (
     <>
       <div className="bg-dark">
@@ -973,7 +1000,7 @@ export default function LeadershipPage() {
                   />
                   <PremiumButton
                     label=" Visit newsroom"
-                    href="#"
+                    href="/company/newsroom"
                     variant="gold"
                     className="rounded-4  card-box"
                     outline
@@ -1043,7 +1070,7 @@ export default function LeadershipPage() {
             <div className="row g-4">
               {founders.map(p => (
                 <div key={p.id} className="col-12 col-sm-6 col-xl-4">
-                  <FounderCard person={p} onRead={setSelectedPerson} />
+                  <FounderCard person={p} onRead={handleRead} />
                 </div>
               ))}
             </div>
@@ -1059,7 +1086,7 @@ export default function LeadershipPage() {
             <div className="row g-4">
               {techLeaders.map(p => (
                 <div key={p.id} className="col-12 col-sm-6 col-lg-4">
-                  <LeaderCard person={p} onRead={setSelectedPerson} />
+                  <LeaderCard person={p} onRead={handleRead} />
                 </div>
               ))}
             </div>
@@ -1074,7 +1101,7 @@ export default function LeadershipPage() {
             <div className="row g-4">
               {commercialLeaders.map(p => (
                 <div key={p.id} className="col-12 col-sm-6 col-lg-4">
-                  <LeaderCard person={p} onRead={setSelectedPerson} />
+                  <LeaderCard person={p} onRead={handleRead} />
                 </div>
               ))}
             </div>
@@ -1094,7 +1121,7 @@ export default function LeadershipPage() {
             <div className="row g-4">
               {specialistTeams.map(team => (
                 <div key={team.id} className="col-12 col-sm-6 col-xl-6">
-                  <SpecialistTeamCard team={team} onReadMember={setSelectedPerson} />
+                  <SpecialistTeamCard team={team} onReadMember={handleRead} />
                 </div>
               ))}
             </div>
@@ -1105,13 +1132,22 @@ export default function LeadershipPage() {
         <CredibilityBand />
 
         {/* 06 — Leadership Statement */}
-        <LeadershipStatement onRead={setSelectedPerson} />
+        <LeadershipStatement onRead={handleRead} />
 
         {/* 07 — Latest Leadership Updates */}
         <LatestUpdates />
       </div>
 
-      <BioModal person={selectedPerson} onClose={() => setSelectedPerson(null)} />
+      <BioModal
+        person={selectedPerson}
+        onClose={() => {
+          setSelectedPerson(null);
+
+          navigate('/company/leadership', {
+            replace: true,
+          });
+        }}
+      />
     </>
   );
 }

@@ -359,7 +359,7 @@ const CareerPage = () => {
 building secure infrastructure for data-intensive environments.  "
         primaryButton={{
           label: 'Visit newsroom',
-          href: '#',
+          href: '/company/newsroom',
           variant: 'gold',
         }}
       />
