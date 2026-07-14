@@ -54,7 +54,7 @@ const Core = [
   {
     id: 3,
     icon: block4,
-    title: 'Real-time traffic contro',
+    title: 'Real-time traffic control',
     description: ` Prioritise critical applications and maintain more stable service behaviour across mixed network conditions. `,
   },
 ];
