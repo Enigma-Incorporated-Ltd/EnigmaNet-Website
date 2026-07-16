@@ -26,69 +26,33 @@ type FaqType = {
 const faqs: FaqType[] = [
   {
     question: 'Do I need to change my ISP or existing infrastructure?',
-    answer: (
-      <>
-        <p className="mb-0">
-          No. Enigma Net sits on top of your existing internet connections, fibre, 5G, satellite,
-          whatever you have. No rip-and-replace, no dependency on a specific provider.
-        </p>
-      </>
-    ),
+    answer:
+      'No. Enigma Net sits on top of your existing internet connections, fibre, 5G, satellite, whatever you have. No rip-and-replace, no dependency on a specific provider.',
   },
   {
     question: 'How is this different from SD-WAN?',
-    answer: (
-      <>
-        <p>
-          While SD-WAN routes traffic across multiple links, Enigma Net actively accelerates and
-          stabilises it. Deterministic performance, not just connectivity.
-        </p>
-      </>
-    ),
+    answer:
+      'While SD-WAN routes traffic across multiple links, Enigma Net actively accelerates and stabilises it. Deterministic performance, not just connectivity.',
   },
   {
     question: 'What kind of performance improvement should I expect?',
-    answer: (
-      <>
-        <p>
-          Up to 39–64× faster large-file transfers. Predictive failover in 20ms. Five-9s reliability
-          using standard internet links.
-        </p>
-      </>
-    ),
+    answer:
+      'Up to 39–64× faster large-file transfers. Predictive failover in 20ms. Five-9s reliability using standard internet links.',
   },
   {
     question: 'Is Enigma Net secure?',
-    answer: (
-      <>
-        <p>
-          All traffic through encrypted tunnels. Identity-based access control. No logs. Zero-trust
-          architecture throughout.
-        </p>
-      </>
-    ),
+    answer:
+      'All traffic through encrypted tunnels. Identity-based access control. No logs. Zero-trust architecture throughout.',
   },
   {
     question: 'Can MSPs and channel partners resell Enigma Net?',
-    answer: (
-      <>
-        <p>
-          Absolutely. MSPs can package, provision and resell as a differentiated managed offering
-          with new revenue streams.
-        </p>
-      </>
-    ),
+    answer:
+      'Absolutely. MSPs can package, provision and resell as a differentiated managed offering with new revenue streams.',
   },
   {
     question: 'What about compliance, NIS2, zero-trust mandates?',
-    answer: (
-      <>
-        <p>
-          Enigma Net is built on zero-trust encrypted networking with multi-path resilience. Aligned
-          to NIS2 requirements and zero-trust architecture mandates for critical infrastructure.
-        </p>
-      </>
-    ),
+    answer:
+      'Enigma Net is built on zero-trust encrypted networking with multi-path resilience. Aligned to NIS2 requirements and zero-trust architecture mandates for critical infrastructure.',
   },
 ];
 const Index = () => {
