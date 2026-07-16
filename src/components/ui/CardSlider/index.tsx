@@ -15,7 +15,7 @@ import { useTheme } from '@/utils/useTheme';
 type FeatureItem = {
   id: number;
   icon?: string;
-  title: string;
+  title?: string;
   description?: string;
   label?: string;
 };
@@ -217,7 +217,13 @@ const CardSlider: React.FC<CardSliderProps> = ({
                             loading="lazy"
                           />
                         ))}
-                    <HeaderTitle title={feature.title} className="h5 text-warning pt-3 pb-1 mb-2" />
+                    {feature.title && (
+                      <HeaderTitle
+                        title={feature.title}
+                        className="h5 text-warning pt-3 pb-1 mb-2"
+                      />
+                    )}
+
                     {feature.description && (
                       <p
                         className="mb-0"

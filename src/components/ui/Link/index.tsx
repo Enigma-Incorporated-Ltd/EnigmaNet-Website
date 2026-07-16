@@ -9,9 +9,14 @@ interface PolicyLink {
 interface PolicyLinksProps {
   links: PolicyLink[];
   title?: string;
+  openInNewTab?: boolean;
 }
 
-const PolicyLinks: React.FC<PolicyLinksProps> = ({ links, title = 'Policy Links' }) => {
+const PolicyLinks: React.FC<PolicyLinksProps> = ({
+  links,
+  title = 'Policy Links',
+  openInNewTab = true,
+}) => {
   const { theme } = useTheme();
 
   return (
@@ -37,8 +42,8 @@ const PolicyLinks: React.FC<PolicyLinksProps> = ({ links, title = 'Policy Links'
           >
             <a
               href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={openInNewTab ? '_blank' : '_self'}
+              rel={openInNewTab ? 'noopener noreferrer' : undefined}
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -59,7 +64,7 @@ const PolicyLinks: React.FC<PolicyLinksProps> = ({ links, title = 'Policy Links'
                 e.currentTarget.style.background =
                   theme === 'dark' ? 'none' : 'rgba(56,139,253,0.08)';
                 e.currentTarget.style.color = theme === 'dark' ? '#2adeff' : '#3d5a9e';
-              
+
                 e.currentTarget.style.transform = 'translateY(-4px)';
 
                 const arrow = e.currentTarget.querySelector('.arrow') as HTMLElement;
@@ -72,7 +77,7 @@ const PolicyLinks: React.FC<PolicyLinksProps> = ({ links, title = 'Policy Links'
                 e.currentTarget.style.background = 'transparent';
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#212529';
-               
+
                 const arrow = e.currentTarget.querySelector('.arrow') as HTMLElement;
 
                 if (arrow) {
