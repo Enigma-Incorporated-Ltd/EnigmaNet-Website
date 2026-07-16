@@ -96,7 +96,14 @@ const Index = () => {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs,
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
   };
   const structuredData = [
     {
@@ -116,7 +123,7 @@ const Index = () => {
         areaServed: 'GB',
         availableLanguage: 'en',
       },
-      sameAs: ['hhttps://www.linkedin.com/company/enigmanet-ai/'],
+      sameAs: ['https://www.linkedin.com/company/enigmanet-ai/'],
     },
     {
       '@context': 'https://schema.org',
