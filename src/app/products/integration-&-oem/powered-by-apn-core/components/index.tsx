@@ -304,7 +304,7 @@ const ApnCoreDetails = () => {
       <Breadcrumb
         items={[
           { label: 'Products', href: '/products' },
-          { label: 'Integration & OEM', href: '/products/integration-&-oem' },
+          { label: 'OEM & Integration', href: '/products/integration-&-oem' },
           { label: 'Powered by APN Core' },
         ]}
         style={{

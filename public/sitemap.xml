@@ -3,7 +3,7 @@
 
     <!-- Homepage -->
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/</loc>
+        <loc>https://enigmanet.ai/</loc>
         <lastmod>2026-04-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
@@ -11,21 +11,21 @@
 
     <!-- Main Pages -->
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/blog</loc>
+        <loc>https://enigmanet.ai/blog</loc>
         <lastmod>2026-04-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/product-tco-calculator</loc>
+        <loc>https://enigmanet.ai/hot-storage-tco-calculator</loc>
         <lastmod>2026-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/get-in-touch</loc>
+        <loc>https://enigmanet.ai/get-in-touch</loc>
         <lastmod>2026-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -33,73 +33,404 @@
 
     <!-- Legal Pages (Low SEO priority) -->
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/legal</loc>
+      <loc>https://enigmanet.ai/company/trust-&amp;-security/policies</loc>
         <priority>0.3</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/legal/standard-terms</loc>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/policies/standard-terms</loc>
         <priority>0.3</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/legal/fair-use-policy</loc>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/policies/fair-use-policy</loc>
         <priority>0.3</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/legal/end-user-policy</loc>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/policies/end-user-policy</loc>
         <priority>0.3</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/legal/privacy-policy</loc>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/policies/privacy-policy</loc>
         <priority>0.3</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/legal/dmca-policy</loc>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/policies/dmca-policy</loc>
         <priority>0.3</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/legal/software-license-agreement</loc>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/policies/software-license-agreement</loc>
         <priority>0.3</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/legal/addendum-cloud-storage</loc>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/policies/addendum-cloud-storage</loc>
         <priority>0.3</priority>
     </url>
 
     <!-- Blog Posts -->
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/blog/network-health</loc>
+        <loc>https://enigmanet.ai/blog/network-health</loc>
         <lastmod>2026-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/blog/bulletproof-payment-data</loc>
+        <loc>https://enigmanet.ai/blog/bulletproof-payment-data</loc>
         <lastmod>2026-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>https://enigmawebsitedev.azurewebsites.net/blog/protecting-your-business</loc>
+        <loc>https://enigmanet.ai/blog/protecting-your-business</loc>
         <lastmod>2026-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
-        <loc>
-            https://enigmawebsitedev.azurewebsites.net/blog/what-could-you-do-with-superpowered-internet</loc>
+        <loc>https://enigmanet.ai/blog/what-could-you-do-with-superpowered-internet</loc>
         <lastmod>2026-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+
+    <!-- Products -->
+    <url>
+        <loc>https://enigmanet.ai/products</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/enigma-platform/enigma-nexus</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/enigma-platform/enigma-command</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/enigma-platform/enigma-grid</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/enigma-platform/enigma-syncsphere</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/enigma-platform/enigma-hub</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/enigma-platform/enigma-ledger</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/performance-networking/enigma-apn-core</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/performance-networking/esc-secure-networking</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/performance-networking/tcp-acceleration</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/performance-networking/rain-resilience</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/performance-networking/multi-link-bonding</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/performance-networking/intelligent-traffic-management</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/connectivity-products/enigma-connect</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/connectivity-products/enigma-edge</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/data-&amp;-file-services/syncsphere</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/ai-&amp;-automation/enigma-sentinel</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/oem-integration</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/data-&amp;-file-services/hot-storage</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/data-&amp;-file-services/large-file-transfer</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/data-&amp;-file-services/managed-file-transfer</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/data-&amp;-file-services/multi-cloud-integration</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/products/oem-integration/powered-by-apn-core</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Solutions -->
+    <url>
+        <loc>https://enigmanet.ai/solutions</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/solutions/enterprise</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/solutions/ai-&amp;-data-infrastructure</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/solutions/remote-work-&amp;-branch</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/solutions/operational-technology-&amp;-remote-assets</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/solutions/industries</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/solutions/service-providers-&amp;-partners</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/solutions/defense-dualtechnology</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/solutions/technology-partner</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/solutions/channel-partner</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/solutions/startups-&amp;-smb</loc>
+    </url>
+
+    <!-- Company -->
+    <url>
+        <loc>https://enigmanet.ai/company</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/company/about-enigma</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/company/leadership</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/company/newsroom</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/company/blog-insight</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/trust-centre</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/security-posture</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/compliance-&amp;-certifications</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/trust-&amp;-security/policies</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/resources/case-studies</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/resources/white-papers</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/resources/architecture</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/resources/faq</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/resources/glossary</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/careers</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/careers/culture</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/careers/opening-roles</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://enigmanet.ai/company/careers/why-enigma</loc>
+        <lastmod>2026-07-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Partners -->
+    <url>
+        <loc>https://enigmanet.ai/partners</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/partners/kinnami-partnership</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/partners/start-up-agency</loc>
+    </url>
+
+    <!-- Contact -->
+    <url>
+        <loc>https://enigmanet.ai/contact-us/request-a-quote</loc>
+    </url>
+    <url>
+        <loc>https://enigmanet.ai/contact-us/support</loc>
+    </url>
+
+    <!-- TrueCost -->
+    <url>
+        <loc>https://enigmanet.ai/truecost</loc>
     </url>
 
 </urlset>

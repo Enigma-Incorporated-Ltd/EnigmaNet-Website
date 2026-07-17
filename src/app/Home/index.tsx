@@ -12,43 +12,62 @@ import Brands from './components/brands';
 import CustomerResults from './components/customerResults';
 import Partner from './components/Partner';
 import Resources from './components/Resources';
-import Faqs from './components/faq/Faqs';
+
 import GetInTouch from './components/getinTouch/GetInTouch';
 import { BASE_URL } from '@/utils';
 import { useTheme } from '@/utils/useTheme';
 import CTA from '@/components/ui/CtaBand';
+import Faqs from '@/components/ui/faq';
+type FaqType = {
+  question: string;
+  answer: React.ReactNode;
+};
 
+const faqs: FaqType[] = [
+  {
+    question: 'Do I need to change my ISP or existing infrastructure?',
+    answer:
+      'No. Enigma Net sits on top of your existing internet connections, fibre, 5G, satellite, whatever you have. No rip-and-replace, no dependency on a specific provider.',
+  },
+  {
+    question: 'How is this different from SD-WAN?',
+    answer:
+      'While SD-WAN routes traffic across multiple links, Enigma Net actively accelerates and stabilises it. Deterministic performance, not just connectivity.',
+  },
+  {
+    question: 'What kind of performance improvement should I expect?',
+    answer:
+      'Up to 39–64× faster large-file transfers. Predictive failover in 20ms. Five-9s reliability using standard internet links.',
+  },
+  {
+    question: 'Is Enigma Net secure?',
+    answer:
+      'All traffic through encrypted tunnels. Identity-based access control. No logs. Zero-trust architecture throughout.',
+  },
+  {
+    question: 'Can MSPs and channel partners resell Enigma Net?',
+    answer:
+      'Absolutely. MSPs can package, provision and resell as a differentiated managed offering with new revenue streams.',
+  },
+  {
+    question: 'What about compliance, NIS2, zero-trust mandates?',
+    answer:
+      'Enigma Net is built on zero-trust encrypted networking with multi-path resilience. Aligned to NIS2 requirements and zero-trust architecture mandates for critical infrastructure.',
+  },
+];
 const Index = () => {
   const { theme } = useTheme();
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Do I need to change my ISP or existing infrastructure?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'No. Enigma Net sits on top of your existing internet connections, fibre, 5G, satellite, whatever you have. No rip-and-replace, no dependency on a specific provider.',
-        },
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
       },
-      {
-        '@type': 'Question',
-        name: 'Is Enigma Net secure?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'All traffic through encrypted tunnels. Identity-based access control. No logs. Zero-trust architecture throughout.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Can MSPs and channel partners resell Enigma Net?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Absolutely. MSPs can package, provision and resell as a differentiated managed offering with new revenue streams.',
-        },
-      },
-    ],
+    })),
   };
   const structuredData = [
     {
@@ -68,7 +87,7 @@ const Index = () => {
         areaServed: 'GB',
         availableLanguage: 'en',
       },
-      sameAs: ['hhttps://www.linkedin.com/company/enigmanet-ai/'],
+      sameAs: ['https://www.linkedin.com/company/enigmanet-ai/'],
     },
     {
       '@context': 'https://schema.org',
@@ -131,7 +150,12 @@ const Index = () => {
       />
       <Partner />
       <Resources />
-      <Faqs />
+      <Faqs
+        faqs={faqs}
+        sectionTitle="Frequently Asked Questions"
+        title="What you need to know before getting started"
+      />
+      {/* <Faqs /> */}
       <GetInTouch />
       <Footer />
     </>

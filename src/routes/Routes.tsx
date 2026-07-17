@@ -167,12 +167,7 @@ const SyncSphere = lazy(() => import('@/app/products/data-&-file-services/sync-s
 
 //integration-&-oem
 const IntegrationOem = lazy(() => import('@/app/products/integration-&-oem'));
-const BinaryIntegration = lazy(() => import('@/app/products/integration-&-oem/binary-integration'));
-const ContainerDeployment = lazy(
-  () => import('@/app/products/integration-&-oem/container-deployment')
-);
 const PoweredByApnCore = lazy(() => import('@/app/products/integration-&-oem/powered-by-apn-core'));
-const VirtualAppliance = lazy(() => import('@/app/products/integration-&-oem/virtual-appliance'));
 
 //Solutions
 const Solutions = lazy(() => import('@/app/solutions'));
@@ -275,7 +270,6 @@ export const AllRoutes = [
   // Products Routes
   { path: '/products', name: 'Products', element: <Products /> },
 
-
   // Enigma Platform Routes
   { path: '/products', element: <Products /> },
   { path: '/products/the-enigma-platform', element: <EnigmaPlatform /> },
@@ -366,11 +360,11 @@ export const AllRoutes = [
   { path: '/products/data-&-file-services/syncsphere', element: <SyncSphere /> },
 
   //integration-&-oem
-  { path: '/products/integration-&-oem', element: <IntegrationOem /> },
-  { path: '/products/integration-&-oem/binary-integration', element: <BinaryIntegration /> },
-  { path: '/products/integration-&-oem/container-deployment', element: <ContainerDeployment /> },
-  { path: '/products/integration-&-oem/powered-by-apn-core', element: <PoweredByApnCore /> },
-  { path: '/products/integration-&-oem/virtual-appliance', element: <VirtualAppliance /> },
+  { path: '/products/oem-integration', element: <IntegrationOem /> },
+  // { path: '/products/integration-&-oem/binary-integration', element: <BinaryIntegration /> },
+  // { path: '/products/integration-&-oem/container-deployment', element: <ContainerDeployment /> },
+  { path: '/products/oem-integration/powered-by-apn-core', element: <PoweredByApnCore /> },
+  // { path: '/products/integration-&-oem/virtual-appliance', element: <VirtualAppliance /> },
 
   //solutions
   { path: '/solutions', element: <Solutions /> },
