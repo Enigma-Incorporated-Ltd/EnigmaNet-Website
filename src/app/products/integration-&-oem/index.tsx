@@ -4,21 +4,20 @@ import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import IntegrationList from './components';
 
-
 const IntegrationAndOem = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Integration & OEM - Products',
+    name: 'OEM & Integration - Products',
     url: `${BASE_URL}/products/integration-&-oem`,
     description:
-      'Enigma Integration & OEM combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments.',
+      'Enigma OEM & Integration combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments.',
   };
   return (
     <>
       <PageMeta
-        title="Integration & OEM - Products"
-        description="Enigma Integration & OEM combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments."
+        title="OEM & Integration - Products"
+        description="Enigma OEM & Integration combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments."
         url={`${BASE_URL}/products/integration-&-oem`}
         structuredData={structuredData}
       />
