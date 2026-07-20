@@ -1,18 +1,28 @@
 import React from 'react';
 import { useTheme } from '@/utils/useTheme';
+import PremiumButton from '../PremiumButton';
 
 interface Column {
   key: string;
   label: string;
 }
-
+type ButtonConfig = {
+  label: string;
+  href: string;
+  variant?: 'blue' | 'gold';
+  disableSentenceCase?: boolean;
+};
 interface ReusableTableProps {
   columns: Column[];
   data: Record<string, any>[];
   minWidth?: string;
   footerText?: string;
+  showButtons?: boolean;
+  primaryButton?: ButtonConfig;
+  secondaryButton?: ButtonConfig;
   isbold?: boolean;
   title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
 }
 
 const ReusableTable: React.FC<ReusableTableProps> = ({
@@ -22,6 +32,10 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
   footerText,
   isbold,
   title,
+  description,
+  showButtons,
+  primaryButton,
+  secondaryButton,
 }) => {
   const { theme } = useTheme();
 
@@ -47,9 +61,19 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
   return (
     <div className="container py-4">
       {title && (
-        <h2 className="h1 text-center mx-auto mt-n2 mt-sm-0 pt-md-2 pb-3" style={{ maxWidth: '70rem' }}>
+        <h2
+          className="h1 text-center mx-auto mt-n2 mt-sm-0 pt-md-2 pb-3"
+          style={{ maxWidth: '70rem' }}
+        >
           {title}
         </h2>
+      )}
+      {description && (
+        <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-4">
+          <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3" style={{ maxWidth: '55rem' }}>
+            <span>{description}</span>
+          </li>
+        </ul>
       )}
       <div
         style={{
@@ -118,6 +142,30 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
           style={{ maxWidth: '45rem' }}
         >
           {footerText}
+        </div>
+      )}
+
+      {/* CTA buttons */}
+      {showButtons && (primaryButton || secondaryButton) && (
+        <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-5">
+          {primaryButton && (
+            <PremiumButton
+              label={primaryButton.label}
+              href={primaryButton.href}
+              variant={primaryButton.variant ?? 'blue'}
+              disableSentenceCase={primaryButton.disableSentenceCase}
+              className="btn-lg"
+            />
+          )}
+          {secondaryButton && (
+            <PremiumButton
+              label={secondaryButton.label}
+              href={secondaryButton.href}
+              variant={secondaryButton.variant ?? 'gold'}
+              disableSentenceCase={secondaryButton.disableSentenceCase}
+              className="btn-lg"
+            />
+          )}
         </div>
       )}
     </div>

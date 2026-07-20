@@ -14,7 +14,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
-import { Commond, GridHero } from '@/assets/img/products';
+import { ApnCoreHero, Commond, GridHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -27,7 +27,7 @@ const features = [
       title: 'APN Core     ',
       description: 'The underlying performance engine that powers ESC behaviour.   ',
     },
-    image: heroImg,
+    image: ApnCoreHero,
   },
   {
     id: 2,

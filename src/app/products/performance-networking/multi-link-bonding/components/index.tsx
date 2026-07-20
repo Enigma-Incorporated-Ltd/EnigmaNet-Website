@@ -13,6 +13,7 @@ import { useSlug } from '@/utils/useSlug';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 
 import Br from '@/components/ui/NewLine';
+import { ApnCoreHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -27,7 +28,7 @@ const features = [
       description:
         'The engine that manages bonding, scheduling, reordering, TCP-A, RAIN and telemetry.   ',
     },
-    image: heroImg,
+    image: ApnCoreHero,
   },
   {
     id: 2,

@@ -14,7 +14,7 @@ import FeatureComparison from '@/components/ui/FeatureComparison';
 import { type CardItem } from '@/components/ui/card';
 import Br from '@/components/ui/NewLine';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
-import { Commond } from '@/assets/img/products';
+import { ApnCoreHero, Commond } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -29,7 +29,7 @@ const features = [
       description:
         'The performance engine that contains ITM, TCP-A, bonding, RAIN and telemetry.   ',
     },
-    image: heroImg,
+    image: ApnCoreHero,
   },
   {
     id: 2,

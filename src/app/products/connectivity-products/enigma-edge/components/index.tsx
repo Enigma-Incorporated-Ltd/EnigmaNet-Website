@@ -29,7 +29,7 @@ import NextPageSlider from '@/components/ui/NextPageSlider';
 import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
-import { GridHero } from '@/assets/img/products';
+import { ApnCoreHero, GridHero } from '@/assets/img/products';
 import WorkSteps from '@/components/ui/workSteps';
 import PricingCard from '@/components/ui/PricingCard';
 import AddOnCard from '@/components/ui/AddOnCard';
@@ -48,7 +48,7 @@ const features = [
       title: 'APN Core',
       description: 'The engine behind EDGE performance, bonding, RAIN, TCP-A, ITM and telemetry.  ',
     },
-    image: GridHero,
+    image: ApnCoreHero,
   },
   {
     id: 2,
