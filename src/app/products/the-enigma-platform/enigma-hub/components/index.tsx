@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
+import { enigmaSecureTablet } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import CardSlider from '@/components/ui/CardSlider';
