@@ -15,6 +15,7 @@ import { useSlug } from '@/utils/useSlug';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import GraphTable from './GraphTable';
 import Br from '@/components/ui/NewLine';
+import { ApnCoreHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -29,7 +30,7 @@ const features = [
       description:
         'The core engine that contains TCP-A, bonding, RAIN, QoS, telemetry and encryption.  ',
     },
-    image: heroImg,
+    image: ApnCoreHero,
   },
   {
     id: 2,

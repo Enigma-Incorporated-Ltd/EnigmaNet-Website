@@ -144,8 +144,8 @@ export const prodcutsList = [
   {
     id: 6,
     title: 'Integration & OEM',
-    href: '/products/integration-&-oem',
-    slug: 'integration-&-oem',
+    href: '/products/oem-integration',
+    slug: 'oem-integration',
     description:
       'Enigma Integration & OEM combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments.',
     image: startp2,
@@ -252,14 +252,14 @@ export const DataFilesServices = [
 ];
 
 
-export const IntegrationOem = [
+export const aiAutomation = [
   {
     id: 1,
-    title: 'Powered by APN Core',
-    href: '/products/integration-&-oem/powered-by-apn-core',
-    slug: 'powered-by-apn-core',
+    title: 'Enigma Sentinel',
+    href: '/products/ai-&-automation/enigma-sentinel',
+    slug: 'enigma-sentinel',
     description:
-      'Powered by APN Core gives OEMs, telcos, platform providers and infrastructure partners access to the core engine behind Enigma Net’s connectivity products delivered as a Linux binary, container or virtual appliance integration model. It allows partners to strengthen their own offer while keeping their own brand, customer experience and commercial model.',
-    image: startup3,
+      'Enigma Sentinel helps teams monitor network infrastructure, diagnose incidents faster and support controlled remediation through AI-assisted operations, clear audit trails and human-in- the-loop oversight.',
+    image: aiInfra,
   },
 ];

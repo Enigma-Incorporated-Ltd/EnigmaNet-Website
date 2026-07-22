@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
+import { enigmaSecureTablet } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import CardSlider from '@/components/ui/CardSlider';
@@ -12,7 +12,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { Commond, GridHero, HeroHub, HeroSyncSphere } from '@/assets/img/products';
+import { Commond, GridHero, HeroHub, HeroSyncSphere, LedgerHero } from '@/assets/img/products';
 import { AssetInformationGetsScattered, AutomationContext, AutomationNeedsTrusted, CommandICon, CustomerSuccess, DefineAssetSchema, EstablishGovernance, ExposeTheGridAPI, FinanceBilling, Hub, ImplementationAndField, IncidentContext, IngestExistingSources, Inventory, Ledger, LifecycleStatus, LLMNetwork, NOCAndOperations, Ownership, OwnershipBecomes, SyncSphere, Topology } from '@/assets/svgs/products/enigma-platform/grid';
 const features = [
   {
@@ -69,7 +69,7 @@ const features = [
       title: 'Ledger',
       description: 'Records asset changes, lifecycle activity, approvals and audit evidence.  ',
     },
-    image: heroImg,
+    image: LedgerHero,
   },
   {
     id: 5,

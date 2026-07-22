@@ -13,7 +13,7 @@ import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
-import { Commond, GridHero, HeroHub, HeroSyncSphere, SyncSphereHero } from '@/assets/img/products';
+import { Commond, GridHero, HeroHub, HeroSyncSphere, LedgerHero, SyncSphereHero } from '@/assets/img/products';
 import {
   NexusRelationshipCardsHub,
   NexusRelationshipCardsGrid,
@@ -105,7 +105,7 @@ const features = [
     slug: '/enigma-ledger',
     description:
       'Records sharing activity, file actions, permissions changes and transfer history.    ',
-    image: heroImg,
+    image: LedgerHero,
     meta: {
       title: 'Ledger  ',
       description:
@@ -139,7 +139,7 @@ const features = [
   {
     id: 8,
     title: 'ESC and APN Core    ',
-    href: '/products/performance-networking/esc-secure-networking',
+    href: '#',
     slug: '/esc-secure-networking',
     description: 'The accelerated, resilient network layer underneath SyncSphere file movement.   ',
     image: heroImg,

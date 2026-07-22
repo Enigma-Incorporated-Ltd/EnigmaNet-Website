@@ -36,6 +36,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import Br from '@/components/ui/NewLine';
 import { useEffect, useState } from 'react';
+import { ApnCoreHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -50,7 +51,7 @@ const features = [
       description:
         'The underlying acceleration and optimisation engine that powers Enigma’s network performance .',
     },
-    image: heroImg,
+    image: ApnCoreHero,
   },
   {
     id: 2,

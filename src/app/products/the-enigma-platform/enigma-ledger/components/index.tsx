@@ -3,9 +3,6 @@ import HeroSection from '@/components/ui/HeroSection';
 import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
@@ -14,7 +11,8 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { Commond, HeroHub, HeroSyncSphere } from '@/assets/img/products';
+import { Commond, GridHero, HeroHub, HeroSyncSphere, LedgerHero } from '@/assets/img/products';
+import { CommandSvg, GridSvg, HubSvg, NexusSvg, PaincardsDeviceestatesneedcommercialcontext, PaincardsFinanceneedsevidence, PaincardsPaymentproviderssitoutsidetheserviceview, PaincardsSubscriptionsbecomehardtotrack, SecuritycardsControlledproviderconnections, SecuritycardsFullcommercialaudittrail, SecuritycardsRolebasedaccess, SecuritycardsSecurePSPcredentialstorage, SecuritycardsTokenbasedpaymenthandling, SyncSphereSvg, UserrolecardsCustomerfinanceandbillingcontacts, UserrolecardsCustomerproductandoperationsteams, UserrolecardsEnigmacommercialandopsteams, UserrolecardsPSPanddevicepartners, WhatLedgerbringstogetherEnigmabilling, WhatLedgerbringstogetherPaymentdevices, WhatLedgerbringstogetherPaymentproviders, WhatLedgerbringstogetherProductusage, WhatLedgerbringstogetherReportingandreconciliation } from '@/assets/svgs/products/enigma-platform/ledger';
 const features = [
   {
     id: 1,
@@ -57,7 +55,7 @@ const features = [
       title: 'Grid   ',
       description: 'Links payment devices, terminals and services to sites, networks and assets.  ',
     },
-    image: heroImg,
+    image: GridHero,
   },
   {
     id: 4,
@@ -147,27 +145,27 @@ const featuresChild = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: PaincardsSubscriptionsbecomehardtotrack,
     title: 'Subscriptions become hard to track  ',
     description: `Customers may use Connect, EDGE, ESC, storage and transfer services across multiple sites, users and tenants.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: PaincardsPaymentproviderssitoutsidetheserviceview,
     title: 'Payment providers sit outside the service view  ',
     description: ` PSP accounts, gateways and merchant IDs often live separately from the services and sites that   
 depend on them.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: PaincardsDeviceestatesneedcommercialcontext,
     title: 'Device estates need commercial context  ',
     description:
       'Payment terminals need to be tied to sites, merchants, PSPs, tenants and operational status.',
   },
   {
     id: 4,
-    icon: block1,
+    icon: PaincardsFinanceneedsevidence,
     title: 'Finance needs evidence  ',
     description:
       'Invoices, payments, price changes, provider connections and device mappings need clear records and audit trails.  ',
@@ -176,31 +174,31 @@ depend on them.  `,
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: WhatLedgerbringstogetherEnigmabilling,
     title: 'Enigma billing  ',
     description: `Subscriptions, invoices, credits, payment methods, tax details and dunning flows.`,
   },
   {
     id: 2,
-    icon: block2,
+    icon: WhatLedgerbringstogetherProductusage,
     title: 'Product usage  ',
     description: `Connect, EDGE, ESC, Hot Storage, LFT and MFT subscriptions linked to tenants and billing accounts.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: WhatLedgerbringstogetherPaymentproviders,
     title: 'Payment providers  ',
     description: 'Customer-owned PSPs, Enigma-approved providers and custom gateway connections.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: WhatLedgerbringstogetherPaymentdevices,
     title: 'Payment devices  ',
     description: 'Terminals, readers, device IDs, firmware, status and site mappings.  ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: WhatLedgerbringstogetherReportingandreconciliation,
     title: 'Reporting and reconciliation  ',
     description: 'Finance-grade exports, settlement checks, revenue views and audit trails',
   },
@@ -208,27 +206,27 @@ const data2 = [
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: UserrolecardsCustomerfinanceandbillingcontacts,
     title: 'Customer finance and billing contacts  ',
     description: `View invoices, update billing details, pay Enigma and export records for accounting.   `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: UserrolecardsCustomerproductandoperationsteams,
     title: 'Customer product and operations teams  ',
     description: `Connect PSP accounts, view payment device estates and understand which services rely on   
 which payment flows.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: UserrolecardsEnigmacommercialandopsteams,
     title: 'Enigma commercial and ops teams  ',
     description:
       'Manage price plans, discounts, revenue-share rules, settlements and product usage alignment.   ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: UserrolecardsPSPanddevicepartners,
     title: 'PSP and device partners  ',
     description: 'Use connector definitions and test tools to integrate with the Enigma ecosystem.',
   },
@@ -236,35 +234,35 @@ which payment flows.  `,
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: HubSvg,
     title: 'Hub  ',
     description: `Hub defines tenants, users, roles and billing contacts that Ledger uses for access and ownership.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: GridSvg,
     title: 'Grid  ',
     description:
       'Grid links payment devices and services to physical sites, networks and assets.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: CommandSvg,
     title: 'Command',
     description:
       'Command surfaces payment-related incidents and operational events that may affect revenue or service availability.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: SyncSphereSvg,
     title: 'SyncSphere',
     description:
       'SyncSphere usage, storage packages, LFT and MFT services can be reflected in Ledger subscriptions and billing records.  ',
   },
   {
     id: 5,
-    icon: block2,
+    icon: NexusSvg,
     title: 'Nexus ',
     description: `Nexus brings finance, operations and service management into one customer and operator   
 experience.  `,
@@ -273,34 +271,34 @@ experience.  `,
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: SecuritycardsSecurePSPcredentialstorage,
     title: 'Secure PSP credential storage  ',
     description: `API keys, OAuth tokens and provider secrets are stored in a secure vault, not plain text.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: SecuritycardsTokenbasedpaymenthandling,
     title: 'Token-based payment handling  ',
     description: 'Card data remains with PSPs. Ledger manages references, not PANs.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: SecuritycardsRolebasedaccess,
     title: 'Role-based access',
     description:
       'Finance, Billing, PSP Admin and Device Admin permissions are governed through Hub.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: SecuritycardsFullcommercialaudittrail,
     title: 'Full commercial audit trail',
     description:
       'Plan changes, pricing updates, PSP changes and device reallocations are logged.  ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: SecuritycardsControlledproviderconnections,
     title: 'Controlled provider connections  ',
     description:
       'PSP integrations can be tested, monitored and governed before being used in live environments.  ',
@@ -566,7 +564,7 @@ const Ledger = () => {
         description=" Enigma Ledger centralises subscriptions, invoices, payment methods, tax details, PSP   
         connections, payment devices, reporting and reconciliation across Enigma Connect, Enigma   
         EDGE, ESC, Hot Storage, LFT and MFT.  "
-        image={heroImg}
+        image={LedgerHero}
         buttons={[
           {
             label: 'Talk to Enigma',

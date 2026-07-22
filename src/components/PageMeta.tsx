@@ -66,14 +66,16 @@ const PageMeta = ({
       <meta name="twitter:image" content={metaImage} />
 
       {/* Structured Data (JSON-LD) */}
-      {structuredData && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
-      )}
+      {structuredData &&
+        (Array.isArray(structuredData) ? structuredData : [structuredData]).map((schema, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(schema),
+            }}
+          />
+        ))}
     </Helmet>
   );
 };
