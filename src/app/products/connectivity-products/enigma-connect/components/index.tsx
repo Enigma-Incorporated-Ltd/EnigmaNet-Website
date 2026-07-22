@@ -19,6 +19,7 @@ import ComparisonTable from './ComparisonTable';
 import PremiumButton from '@/components/ui/PremiumButton';
 import HeroImage from '@/components/ui/HeroImage';
 import WorkSteps from '@/components/ui/workSteps';
+import { ApnCoreHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -31,7 +32,7 @@ const features = [
       title: 'APN Core',
       description: 'The engine that powers Connect performance, encryption, QoS and telemetry.  ',
     },
-    image: heroImg,
+    image: ApnCoreHero,
   },
   {
     id: 2,

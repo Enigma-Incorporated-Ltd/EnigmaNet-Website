@@ -266,72 +266,30 @@ compared with approximately 80 Mb/s using APN Core.   `,
   },
  
 ];
-const faqs = [
+export const OEMfaqs = [
   {
     question: 'Is OEM & Integration a finished appliance or a partner programme?  ',
-    answer: (
-      <>
-        <p className="mb-0">
-          OEM & Integration is a partner integration programme. It allows partners to embed APN Core
-          into their own products, platforms or services.
-        </p>
-      </>
-    ),
+    answer: '  OEM & Integration is a partner integration programme. It allows partners to embed APN Core into their own products, platforms or services.',
   },
   {
     question: 'Can partners keep their own branding and UI?  ',
-    answer: (
-      <>
-        <p>
-          Yes. Partners retain control of their own branding, user interface, orchestration and
-          customer management.
-        </p>
-      </>
-    ),
+    answer: ' Yes. Partners retain control of their own branding, user interface, orchestration and customer management.',
   },
   {
     question: 'What deployment models are supported?  ',
-    answer: (
-      <>
-        <p>
-          APN Core can be integrated as a Linux binary, containerised network function or virtual
-          appliance.
-        </p>
-      </>
-    ),
+    answer:'  APN Core can be integrated as a Linux binary, containerised network function or virtual appliance.',
   },
   {
     question: 'Does integration require kernel modification?  ',
-    answer: (
-      <>
-        <p>
-          The binary model is designed to run in user space and present APN Core as another routed
-          interface to the operating system.
-        </p>
-      </>
-    ),
+    answer:' The binary model is designed to run in user space and present APN Core as another routed interface to the operating system.',
   },
   {
     question: 'Who is this for?  ',
-    answer: (
-      <>
-        <p>
-          It is designed for network vendors, CPE vendors, ISPs, telcos, security vendors,
-          SD-WAN/SASE providers, IoT gateway vendors, cloud providers and edge platform operators.
-        </p>
-      </>
-    ),
+    answer: ' It is designed for network vendors, CPE vendors, ISPs, telcos, security vendors, SD-WAN/SASE providers, IoT gateway vendors, cloud providers and edge platform operators.',
   },
   {
     question: 'Is this self-serve?  ',
-    answer: (
-      <>
-        <p>
-          No. OEM & Integration is sales-led because each partner environment, commercial model and
-          deployment requirement is different.
-        </p>
-      </>
-    ),
+    answer: ' No. OEM & Integration is sales-led because each partner environment, commercial model and deployment requirement is different.',
   },
 ];
 const IntegrationList = () => {
@@ -878,12 +836,16 @@ const IntegrationList = () => {
         }}
       />
 
-      <Faqs faqs={faqs} sectionTitle="FAQs" title="Common questions" />
+      <Faqs faqs={OEMfaqs} sectionTitle="FAQs" title="Common questions" />
       <CTA
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline={<>Embed APN Core into your own product, <br/></>}
+        headline={
+          <>
+            Embed APN Core into your own product, <br />
+          </>
+        }
         headline2="platform or service.  "
         primaryButton={{
           label: 'Book a demo',
