@@ -8,21 +8,25 @@ const CustomerPortal = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Customer Portal',
     url: `${BASE_URL}/customer-portal`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description: 'Sign in once to access your EnigmaNet applications.',
   };
+
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Customer Portal"
+        description="Sign in once to access your EnigmaNet applications."
         url={`${BASE_URL}/customer-portal`}
         structuredData={structuredData}
       />
 
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
-      <CustomerPortalPage />
+
+      <div className="portal-shell portal-shell--with-site-nav">
+        <CustomerPortalPage />
+      </div>
 
       <Footer />
     </>
