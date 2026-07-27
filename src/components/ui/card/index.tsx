@@ -36,7 +36,7 @@ const CardGrid: React.FC<CardGridProps> = ({
       {data.map((item, index) => (
         <div key={item.id ?? index} className={columns}>
           <div
-            className="card solution-card h-100 shadow-sm border-0"
+            className="card solution-card h-100 shadow-sm border-1"
            
           >
             {/* Image */}

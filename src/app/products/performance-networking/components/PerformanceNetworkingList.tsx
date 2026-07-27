@@ -1,24 +1,36 @@
-import CommingSoon from "@/components/comming-soon";
 import Breadcrumb from "@/components/ui/Breadcrumb";
-import Header from "@/components/ui/Header";
+import CardGrid, { type CardItem } from "@/components/ui/card";
+import HeaderTitle from "@/components/ui/HeaderTitle";
+import { performanceNetworking } from "@/utils/products";
 
 
 const PerformanceNetworkingList = () => {
   return (
-    <div className="container">
+    <div className="container pb-5 ">
       <Breadcrumb
         items={[{ label: 'Products', href: '/products' }, { label: 'Performance Networking' }]}
         style={{
           paddingTop: '12rem',
         }}
       />
-      <Header
-        title="Performance Networking"
+      <HeaderTitle
+        title={
+          <>
+            <span className="text-primary">Performance Networking</span>
+          </>
+        }
         style={{
-          padding: '21px 0px ',
+          padding: '31px 0px ',
         }}
+        className="h1"
+        textAlign="center"
       />
-      <CommingSoon />
+
+      <CardGrid
+        data={performanceNetworking as CardItem[]}
+        columns="col-12 col-md-12 col-lg-6"
+        buttonLabel="Explore"
+      />
     </div>
   );
 }

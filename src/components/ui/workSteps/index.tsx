@@ -11,12 +11,21 @@ interface Step {
 interface WorkStepsProps {
   steps: Step[];
   title: React.ReactNode;
+  sectionTitle?: string | React.ReactNode;
+  description?: string | React.ReactNode;
 }
 
-const WorkSteps = ({ steps, title }: WorkStepsProps) => {
+const WorkSteps = ({ steps, title = '', sectionTitle  , description}: WorkStepsProps) => {
   const { theme } = useTheme();
   return (
     <Container className=" d-flex flex-column align-items-center justify-content-center">
+      {sectionTitle && (
+        <h5
+          className={`h3 text-center text-uppercase text-${theme === 'dark' ? 'light-blue' : 'warning'}`}
+        >
+          {sectionTitle}
+        </h5>
+      )}
       <div className="text-center pb-4 pb-md-0 mb-2 mb-md-5 mx-auto">
         <HeaderTitle
           key={theme === 'dark' ? 'dark' : 'light'}
@@ -24,7 +33,13 @@ const WorkSteps = ({ steps, title }: WorkStepsProps) => {
           variant={theme === 'dark' ? 'gold' : 'blue'}
         />
       </div>
-
+      {description && (
+        <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
+          <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3" style={{ maxWidth: '55rem' }}>
+            <span>{description}</span>
+          </li>
+        </ul>
+      )}
       <div
         className="steps steps-sm steps-center   pb-5 mb-md-2 mb-lg-3 "
         style={{ maxWidth: '530px' }}

@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
-import { enigmaSecureTablet, enterprise as heroImg } from '@/assets/img';
+import { enigmaSecureTablet } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 import painCard1 from '@/assets/svgs/products/enigma-platform/commond/Pain-cards-Too-many-disconnected-signals.svg';
@@ -39,7 +39,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { Commond, GridHero, HeroHub, HeroSyncSphere } from '@/assets/img/products';
+import { Commond, GridHero, HeroHub, HeroSyncSphere, LedgerHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -97,7 +97,7 @@ const features = [
       description:
         'Stores audit trails, action history, approvals, overrides and compliance records.  ',
     },
-    image: heroImg,
+    image: LedgerHero,
   },
   {
     id: 5,

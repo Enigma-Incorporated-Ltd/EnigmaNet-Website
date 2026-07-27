@@ -1,6 +1,7 @@
-import CommingSoon from '@/components/comming-soon';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import Header from '@/components/ui/Header';
+import CardGrid, { type CardItem } from '@/components/ui/card';
+import HeaderTitle from '@/components/ui/HeaderTitle';
+import { aiAutomation } from '@/utils/products';
 
 const AIAutomationList = () => {
   return (
@@ -11,13 +12,24 @@ const AIAutomationList = () => {
           paddingTop: '12rem',
         }}
       />
-      <Header
-        title="AI & Automation"
+      <HeaderTitle
+        title={
+          <>
+            <span className="text-primary">AI & Automation</span>
+          </>
+        }
         style={{
-          padding: '21px 0px ',
+          padding: '31px 0px ',
         }}
+        className="h1"
+        textAlign="center"
       />
-      <CommingSoon />
+
+      <CardGrid
+        data={aiAutomation as CardItem[]}
+        columns="col-12 col-md-12 col-lg-6"
+        buttonLabel="Explore"
+      />
     </div>
   );
 };

@@ -1,10 +1,11 @@
-import CommingSoon from '@/components/comming-soon';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import Header from '@/components/ui/Header';
+import CardGrid, { type CardItem } from '@/components/ui/card';
+import HeaderTitle from '@/components/ui/HeaderTitle';
+import { trustAndsecurity } from '@/utils/company';
 
 const TrustAndSecurityPage = () => {
   return (
-    <div className="container">
+    <div className="container pb-5">
       <Breadcrumb
         items={[
           { label: 'Company', href: '/company' },
@@ -14,13 +15,24 @@ const TrustAndSecurityPage = () => {
           paddingTop: '12rem',
         }}
       />
-      <Header
-        title="Trust & Security"
+      <HeaderTitle
+        title={
+          <>
+            <span className="text-primary">Company</span>
+          </>
+        }
         style={{
-          padding: '21px 0px ',
+          padding: '31px 0px ',
         }}
+        className="h1"
+        textAlign="center"
       />
-      <CommingSoon />
+
+      <CardGrid
+        data={trustAndsecurity as CardItem[]}
+        columns="col-12 col-md-12 col-lg-6"
+        buttonLabel="Explore"
+      />
     </div>
   );
 };

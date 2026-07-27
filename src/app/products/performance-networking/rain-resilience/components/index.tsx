@@ -11,6 +11,7 @@ import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
+import { ApnCoreHero } from '@/assets/img/products';
 
 const features = [
   {
@@ -24,7 +25,7 @@ const features = [
       title: 'APN Core',
       description: 'The core engine that contains RAIN, TCP-A, bonding, QoS and telemetry.  ',
     },
-    image: heroImg,
+    image: ApnCoreHero,
   },
   {
     id: 2,

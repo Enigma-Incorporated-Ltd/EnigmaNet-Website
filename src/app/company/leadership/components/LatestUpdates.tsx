@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 interface NewsCard {
   id: string;
   category: string;
@@ -60,8 +62,8 @@ export function LatestUpdates() {
             </h2>
           </div>
           <div className="col-auto d-none d-md-block">
-            <a
-              href="#"
+            <Link
+              to="/company/newsroom"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -78,7 +80,7 @@ export function LatestUpdates() {
               }}
             >
               Visit newsroom →
-            </a>
+            </Link>
           </div>
         </div>
         <div className="row g-4">

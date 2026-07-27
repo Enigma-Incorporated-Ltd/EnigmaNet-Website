@@ -36,7 +36,7 @@ type HeaderConfig = {
   logo: { text: string; href: string };
   nav_items: NavItem[];
   utility_nav?: UtilityNavItem[];
-  cta_button: { label: string; href: string; icon?: string; variant?: string; size?: string };
+  cta_button?: { label: string; href: string; icon?: string; variant?: string; size?: string };
 };
 
 export interface NavClass {
@@ -55,7 +55,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       { label: 'Connectivity Products', id: 'connectivity' },
       { label: 'Data & File Services', id: 'data' },
       { label: 'AI & Automation', id: 'ai' },
-      { label: 'Integration & OEM', id: 'integration' },
+      { label: 'OEM & Integration', id: 'integration' },
       // { label: 'View All Products', id: 'all' },
     ],
     panels: {
@@ -150,19 +150,28 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       ],
       integration: [
         {
-          title: 'Integration & OEM',
+          title: 'OEM & Integration',
           links: [
             {
               label: 'Powered by APN Core',
-              href: '/products/integration-&-oem/powered-by-apn-core',
+              href: '/products/oem-integration/powered-by-apn-core',
             },
-            { label: 'Binary integration', href: '/products/integration-&-oem/binary-integration' },
             {
-              label: 'Container deployment',
-              href: '/products/integration-&-oem/container-deployment',
+              label: 'OEM & Integration',
+              href: '/products/oem-integration',
             },
-            { label: 'Virtual appliance', href: '/products/integration-&-oem/virtual-appliance' },
-            // { label: 'Linux / CPE / OEM / telco integration', href: '/integration/embedded' },
+            {
+              label: 'Binary Integration',
+              href: '/products/oem-integration#binary-integration',
+            },
+            {
+              label: 'Container Deployment',
+              href: '/products/oem-integration#container-deployment',
+            },
+            {
+              label: 'Virtual Appliance',
+              href: '/products/oem-integration#virtual-appliance',
+            },
           ],
         },
       ],
@@ -629,9 +638,9 @@ export const FALLBACK_CONFIG: HeaderConfig = {
     { type: 'mega', label: 'Contact Us', data: MEGA_MENU_DATA.ContactUs },
 
     {
-     
       type: 'mega',
-      label: 'TrueCost', data: MEGA_MENU_DATA.TrueCost
+      label: 'TrueCost',
+      data: MEGA_MENU_DATA.TrueCost,
     },
     {
       href: '/login',
@@ -647,11 +656,11 @@ export const FALLBACK_CONFIG: HeaderConfig = {
     { label: 'Pricing', href: '/pricing' },
     { label: 'Status', href: '/status' },
   ],
-  cta_button: {
-    label: 'Start free',
-    href: '#',
-    icon: 'bx:rocket',
-    variant: 'primary',
-    size: 'sm',
-  },
+  // cta_button: {
+  //   label: 'Start free',
+  //   href: '#',
+  //   icon: 'bx:rocket',
+  //   variant: 'primary',
+  //   size: 'sm',
+  // },
 };

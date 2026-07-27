@@ -132,7 +132,11 @@
 .w-90 { width: 90% !important; }
 .w-100 { width: 100% !important; }
 
-
+#binary-integration,
+#container-deployment,
+#virtual-appliance {
+  scroll-margin-top: 210px;
+}
 
 .page-spinner {
   display: inline-block;

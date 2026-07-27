@@ -46,7 +46,17 @@ const isNavLinkActive = (href: string, pathname: string) => {
   }
   return pathname === href || pathname.startsWith(`${href}/`);
 };
+const isMegaLinkActive = (href: string, pathname: string, hash: string) => {
+  const [path, anchor] = href.split('#');
 
+  // Hash link
+  if (anchor) {
+    return pathname === path && hash === `#${anchor}`;
+  }
+
+  // Normal page link
+  return pathname === path && hash === '';
+};
 const MegaMenuDesktop = ({
   item,
   onLinkClick,
@@ -55,9 +65,12 @@ const MegaMenuDesktop = ({
   onLinkClick: () => void;
 }) => {
   const [activeRail, setActiveRail] = useState(item.leftRail[0].id);
-  const location = useLocation();
-  const pathname = location.pathname;
-  const currentSections = item.panels[activeRail] ?? [];
+  
+const location = useLocation();
+
+
+const currentSections = item.panels[activeRail] ?? [];
+
   const { theme } = useTheme();
   return (
     <div
@@ -115,27 +128,31 @@ const MegaMenuDesktop = ({
                   {section.title}
                 </h6>
                 <ul className="list-unstyled mb-0">
-                  {section.links.map((link, linkIdx) => (
-                    <li key={linkIdx} className="mb-1">
-                      <Link
-                        to={link.href}
-                        className={`d-inline-flex align-items-center gap-1 small text-decoration-none py-1`}
-                        style={{
-                          transition: 'color 0.2s ease',
-                          color: pathname === link.href ? '#2adeff' : 'var(--bs-body-color)',
-                          fontWeight: pathname === link.href ? 600 : 400,
-                        }}
-                        onClick={onLinkClick}
-                      >
-                        {link.label}
-                        {link.badge && (
-                          <span className="badge bg-success ms-1" style={{ fontSize: '0.65rem' }}>
-                            {link.badge}
-                          </span>
-                        )}
-                      </Link>
-                    </li>
-                  ))}
+                  {section.links.map((link, linkIdx) => {
+                    const active = isMegaLinkActive(link.href, location.pathname, location.hash);
+
+                    return (
+                      <li key={linkIdx} className="mb-1">
+                        <Link
+                          to={link.href}
+                          className="d-inline-flex align-items-center gap-1 small text-decoration-none py-1"
+                          style={{
+                            transition: 'color 0.2s ease',
+                            color: active ? '#2adeff' : 'var(--bs-body-color)',
+                            fontWeight: active ? 600 : 400,
+                          }}
+                          onClick={onLinkClick}
+                        >
+                          {link.label}
+                          {link.badge && (
+                            <span className="badge bg-success ms-1" style={{ fontSize: '0.65rem' }}>
+                              {link.badge}
+                            </span>
+                          )}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
@@ -309,7 +326,7 @@ const Navbar = ({
         </Link>
 
         {/* Desktop Navigation */}
-        <Nav className="navbar-nav me-auto mb-2 mb-lg-0 d-none d-xl-flex">
+        <Nav className="navbar-nav  mb-2 mb-lg-0 d-none d-xl-flex">
           {nav_items.map(item => {
             if (item.type === 'link') {
               return (
@@ -350,13 +367,13 @@ const Navbar = ({
           })}
         </Nav>
 
-        <Link
+        {/* <Link
           to={config.cta_button.href}
           className="navbar-cta-start-free d-none d-lg-inline-flex"
           style={{ marginLeft: 'auto' }}
         >
           {config.cta_button.label}
-        </Link>
+        </Link> */}
         {/* Mobile Toggle */}
         <div className="d-lg-none d-flex align-items-center gap-2 ms-auto">
           {darkenable && (

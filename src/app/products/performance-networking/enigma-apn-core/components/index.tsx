@@ -3,9 +3,6 @@ import HeroSection from '@/components/ui/HeroSection';
 import { enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
@@ -14,7 +11,43 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { Commond, GridHero } from '@/assets/img/products';
+import { ApnCoreHero, Commond, GridHero } from '@/assets/img/products';
+import {
+  AndPlus,
+  APNCoreimprovesContinuoustelemetry,
+  APNCoreimprovesencryptedoverlay,
+  APNCoreimprovesRAINredudancy,
+  Bandwithdowsnotequalperformance,
+  Byteleveltrafficmanagement,
+  CLI,
+  CommandSvg,
+  DataMovement,
+  EDGE,
+  Effectivelosscontrol,
+  EnigmaConnect,
+  EnigmaPortal,
+  Ephemeralkeyexchange,
+  ESC,
+  Failoveroftenbreakssession,
+  MetaDataProtection,
+  MultiLink,
+  partnerandOEMplatforms,
+  Realtimeapplications,
+  Realtimetrafficgetstrapped,
+  Realtimevoicestability,
+  Remoteandedgeaccess,
+  RESTandgRPC,
+  Sessioncontinuity,
+  Signedconfigurationandupdates,
+  SNMP,
+  Strongencryption,
+  TCPacceleration,
+  TCPstrugglesoverlossylonghaullinks,
+  Teamslacktransportvisibility,
+  Testmatrixperformance,
+  Throughputuplift,
+  Zerotrustaligment,
+} from '@/assets/svgs/products/performance-networking/apn-core';
 const features = [
   {
     id: 1,
@@ -101,34 +134,34 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: Bandwithdowsnotequalperformance,
     title: 'Bandwidth does not equal performance',
     description: `A fast circuit can still deliver poor throughput when latency or packet loss is present.  `,
   },
   {
     id: 2,
-    icon: block3,
+    icon: TCPstrugglesoverlossylonghaullinks,
     title: 'TCP struggles over lossy long-haul links  ',
     description:
       'Legacy TCP behaviour reduces throughput dramatically when distance, delay or loss increase.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: Failoveroftenbreakssession,
     title: 'Failover often breaks sessions  ',
     description:
       'Traditional failover can move traffic to another link, but active sessions may still drop or stall.  ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Realtimetrafficgetstrapped,
     title: 'Real-time traffic gets trapped behind bulk data   ',
     description:
       'Voice, video and interactive traffic can suffer when large transfers occupy the queue. ',
   },
   {
     id: 6,
-    icon: block1,
+    icon: Teamslacktransportvisibility,
     title: 'Teams lack transport visibility',
     description:
       'Without link and tunnel telemetry, teams struggle to understand latency, jitter, loss, utilisation and MOS in context.   ',
@@ -137,40 +170,40 @@ const Core = [
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: Byteleveltrafficmanagement,
     title: 'Byte-level traffic management   ',
     description: `Small, latency-sensitive traffic can be prioritised ahead of bulk data.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: TCPacceleration,
     title: 'TCP acceleration  ',
     description: `Optimised congestion and recovery behaviour improves throughput over lossy or high-latency paths.    `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: MultiLink,
     title: 'Multi-link bonding   ',
     description:
       'Up to eight circuits can be bonded and managed as part of one performance fabric.   ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: APNCoreimprovesRAINredudancy,
     title: 'RAIN redundancy   ',
     description:
       'Critical traffic can be duplicated across alternate paths to reduce effective loss.   ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: APNCoreimprovesContinuoustelemetry,
     title: 'Continuous telemetry   ',
     description:
       'Latency, jitter, loss, throughput, utilisation and MOS data feed portals, NOC tools and APIs.  ',
   },
   {
     id: 6,
-    icon: block3,
+    icon: APNCoreimprovesencryptedoverlay,
     title: 'Encrypted overlay  ',
     description:
       'Traffic is protected inside an encrypted APN tunnel with security controls and limited telemetry. ',
@@ -179,35 +212,35 @@ const data2 = [
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: Throughputuplift,
     title: 'Throughput uplift   ',
     description: `On a 100 Mb/s link with 0.5% loss and 300 ms RTT, raw TCP achieved approximately 6 Mb/s.   
 APN Core restored throughput to approximately 80 Mb/s.    `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Testmatrixperformance,
     title: 'Test matrix performance  ',
     description: `Across high-latency, lossy-link tests, APN Core delivered between 10× and 64× faster transfers   
 than raw TCP.   `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Realtimevoicestability,
     title: 'Real-time voice stability   ',
     description:
       'In VoIP stress testing, APN maintained 180 concurrent G.711 calls at MOS 4 after bandwidth was reduced from 8 Mb/s to 4 Mb/s.   ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Effectivelosscontrol,
     title: 'Effective loss control    ',
     description:
       'RAIN and bonding can keep protected traffic below 0.1% effective loss, even when raw loss spikes significantly.  ',
   },
   {
     id: 5,
-    icon: block2,
+    icon: Sessioncontinuity,
     title: 'Session continuity   ',
     description:
       'Multi-link bonding and sub-second failover help preserve IP sessions when circuits fail or degrade.  ',
@@ -216,28 +249,28 @@ than raw TCP.   `,
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: EnigmaConnect,
     title: 'Enigma Connect  ',
     description: `Self-serve connectivity products for individuals and small teams. Each plan is a policy and capacity slice on top of APN Core.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: EDGE,
     title: 'Enigma EDGE    ',
     description:
       'Managed edge and branch connectivity for business, enterprise, sites, campuses and partner networks.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: ESC,
     title: 'ESC – Secure Networking  ',
     description:
       'SaaS delivery of APN Core for devices, thin clients and remote users without dedicated hardware.    ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: AndPlus,
     title: 'AND/+ Integration Platform  ',
     description:
       'APN Core packaged as an embeddable engine for carriers, OEMs and SaaS platforms.   ',
@@ -246,35 +279,35 @@ const data4 = [
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: CLI,
     title: 'CLI  ',
     description: `Used for day-one provisioning, low-level troubleshooting and engineering workflows.    `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: SNMP,
     title: 'SNMP  ',
     description:
       'vibeSNMP exposes per-link latency, loss, jitter, counters and tunnel metrics for NOC tools.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: RESTandgRPC,
     title: 'REST and gRPC  ',
     description:
       'AND/+ APIs support provisioning, policy updates, telemetry export and billing integration.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: EnigmaPortal,
     title: 'Enigma portals  ',
     description:
       'Connect, EDGE and ESC portals provide product-specific UX surfaces built on APN Core metrics and control.   ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: CommandSvg,
     title: 'Nexus and Command   ',
     description:
       'Operational telemetry can feed Nexus, Command and NOC workflows for incident visibility and automation context.   ',
@@ -283,34 +316,34 @@ const data5 = [
 const data6 = [
   {
     id: 1,
-    icon: block1,
+    icon: Strongencryption,
     title: 'Strong encryption    ',
     description: `APN tunnels use AES-256-GCM encryption with FIPS-validated OpenSSL primitives.   `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: Ephemeralkeyexchange,
     title: 'Ephemeral key exchange    ',
     description: 'Key exchange can use modern approaches such as Curve25519.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: Signedconfigurationandupdates,
     title: 'Signed configuration and updates  ',
     description:
       'Firmware and configuration updates can be signed and validated before deployment.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Zerotrustaligment,
     title: 'Zero-trust alignment   ',
     description:
       'APN can complement SASE and ZTNA policies with identity and device posture controls.   ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: MetaDataProtection,
     title: 'Metadata protection  ',
     description:
       'No traffic content is logged, with private DNS and encrypted handshakes protecting sensitive connection context.    ',
@@ -319,34 +352,34 @@ const data6 = [
 const data7 = [
   {
     id: 1,
-    icon: block1,
+    icon: DataMovement,
     title: 'Data movement    ',
     description: `Large file transfer, backups, sync jobs, media movement and AI dataset transfer.   `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: Realtimeapplications,
     title: 'Real-time applications    ',
     description:
       'Voice, video, collaboration, trading, gaming, control traffic and interactive SaaS.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: MultiLink,
     title: 'Multi-link resilience  ',
     description: 'Sites with fibre, broadband, LTE, 5G, satellite or mixed backup links.    ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Remoteandedgeaccess,
     title: 'Remote and edge access ',
     description:
       'Branch sites, mobile users, field operations, remote devices and thin clients.   ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: partnerandOEMplatforms,
     title: 'Partner and OEM platforms   ',
     description:
       'Carriers, SaaS platforms and device vendors embedding APN Core under their own experience.    ',
@@ -514,7 +547,7 @@ const ApnCore = () => {
         description="APN Core is Enigma Net’s software-defined performance overlay, combining byte-level routing,   
         TCP acceleration, multi-link bonding, RAIN redundancy, telemetry and encryption across fibre,   
         broadband, 5G, LTE, satellite and mixed networks.  "
-        image={heroImg}
+        image={ApnCoreHero}
         buttons={[
           {
             label: 'Explore APN Core  ',
@@ -742,7 +775,7 @@ const ApnCore = () => {
               title={
                 <>
                   APN Core is the transport engine,
-                  <Br  isTablet /> not the product wrapper
+                  <Br isTablet /> not the product wrapper
                 </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
