@@ -249,6 +249,15 @@ export const DataFilesServices = [
       'Enigma Large File Transfer lets users send files to anyone through secure shareable links, with APN-accelerated transfer, portal-based upload and download, link controls, audit visibility and support for external collaborators.  ',
     image: HeroSyncSphere,
   },
+  {
+    id: 3,
+    title: 'Managed File Transfer',
+    href: '/products/data-&-file-services/managed-file-transfer',
+    slug: 'managed-file-transfer',
+    description:
+      'Enigma Managed File Transfer automates recurring file movement between storage environments with scheduling, encryption, integrity checks, APN acceleration, monitoring and governance.  ',
+    image: startup3,
+  },
 ];
 
 
