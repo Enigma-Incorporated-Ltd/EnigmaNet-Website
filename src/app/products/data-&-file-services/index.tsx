@@ -3,21 +3,37 @@ import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import DataAndFileServicesList from './components';
-
+import { DataFilesServices } from '@/utils/products';
 
 const DataAndFileServices = () => {
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Coming Soon',
+    '@type': 'CollectionPage',
+    name: 'Data & File Services - Products',
     url: `${BASE_URL}/products/data-&-file-services`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Data & File Services combine SyncSphere, Hot Storage, Large File Transfer, Managed File Transfer and Multi-cloud Integration to deliver secure, scalable data storage, transfer and management.',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: DataFilesServices.length,
+      itemListElement: DataFilesServices.map((product, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${BASE_URL}${product.href}`,
+        item: {
+          '@type': 'Service',
+          name: product.title,
+          description: product.description,
+          url: `${BASE_URL}${product.href}`,
+        },
+      })),
+    },
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Data & File Services - Products"
+        description="Enigma Data & File Services combine SyncSphere, Hot Storage, Large File Transfer, Managed File Transfer and Multi-cloud Integration to deliver secure, scalable data storage, transfer and management."
         url={`${BASE_URL}/products/data-&-file-services`}
         structuredData={structuredData}
       />

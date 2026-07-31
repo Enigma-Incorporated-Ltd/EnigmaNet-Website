@@ -20,6 +20,7 @@ type HeroProps = {
   features?: string[];
   subtitle?: string | React.ReactNode;
   eyebrow?: string;
+  transitionLine?: string | React.ReactNode;
 };
 
 const HeroSection = ({
@@ -30,7 +31,8 @@ const HeroSection = ({
   features = [],
   subtitle,
   isbg = false,
-  eyebrow
+  eyebrow,
+  transitionLine
 }: HeroProps) => {
   const isFullWidth = !image;
 const {theme} = useTheme();
@@ -136,6 +138,14 @@ const {theme} = useTheme();
             </Col>
           )}
         </Row>
+        {transitionLine && (
+          <div
+            className="position-relative text-center mt-5 pt-4 text-muted fst-italic fs-3 d-flex flex-wrap justify-content-center mx-auto fw-semibold"
+            style={{ maxWidth: '45rem' }}
+          >
+            {transitionLine}
+          </div>
+        )}
       </Container>
     </section>
   );
