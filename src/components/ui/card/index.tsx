@@ -54,13 +54,13 @@ const CardGrid: React.FC<CardGridProps> = ({
             )}
 
             {/* Content */}
-            <div className="card-body d-flex flex-column pt-2">
+            <div className="card-body d-flex flex-column pt-2 mt-3">
               {item.title && (
                 <HeaderTitle
                   key={theme}
                   title={item.title}
                   variant="blue"
-                  className={`h3 fw-bold `}
+                  className={`h3 fw-bold pb-3`}
                 />
               )}
               {item.subtitle && (

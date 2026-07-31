@@ -10,14 +10,19 @@ const Partners = () => {
     '@type': 'CollectionPage',
     name: 'Enigma Partners',
     url: `${BASE_URL}/partners`,
-    description: 'Enigma Partners',
+    description: 'Explore Enigma Net strategic technology and business partnerships.',
     mainEntity: {
       '@type': 'ItemList',
-      itemListElement: listPartners.map((item, index) => ({
+      itemListElement: listPartners.map((partner, index) => ({
         '@type': 'ListItem',
         position: index + 1,
-        name: item.title,
-        url: `${BASE_URL}${item.href}`,
+        url: `${BASE_URL}${partner.href}`,
+        item: {
+          '@type': 'Organization',
+          name: partner.title,
+          description: partner.description,
+          url: `${BASE_URL}${partner.href}`,
+        },
       })),
     },
   };
