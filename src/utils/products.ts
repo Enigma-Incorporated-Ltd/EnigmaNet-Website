@@ -1,6 +1,6 @@
-import { aiInfra, enigmaSecureDesktop, enterprise, remoteWork } from '@/assets/img';
+import { aiInfra, enigmaSecureDesktop, operations, remoteWork } from '@/assets/img';
 import { startp2, startup3 } from '@/assets/img/partners/inddex';
-import { Commond, GridHero, HeroHub, HeroSyncSphere } from '@/assets/img/products';
+import { ApnCoreHero, Commond, GridHero, HeroHub, HeroSyncSphere, LedgerHero } from '@/assets/img/products';
 
 export const theEnigmaPlatform = [
   {
@@ -91,7 +91,7 @@ export const theEnigmaPlatform = [
       description:
         'Enigma Ledger is the accountability layer inside Nexus. It records user activity, system changes, agent actions, approvals, overrides and operational events across Enigma services, giving customers and internal teams a clear history of what happened, when it happened and who authorised it.',
     },
-    image: enterprise,
+    image: LedgerHero,
   },
 ];
 
@@ -160,7 +160,7 @@ export const performanceNetworking = [
     slug: 'enigma-apn-core',
     description:
       'APN Core is Enigma Net’s software-defined performance overlay, combining byte-level routing, TCP acceleration, multi-link bonding, RAIN redundancy, telemetry and encryption across fibre, broadband, 5G, LTE, satellite and mixed networks.',
-    image: startup3,
+    image: ApnCoreHero,
   },
   {
     id: 2,
@@ -233,20 +233,29 @@ export const connectivityProducts = [
 export const DataFilesServices = [
   {
     id: 1,
-    title: 'SyncSphere',
-    href: '/products/data-&-file-services/syncsphere',
-    slug: 'syncsphere',
+    title: 'Hot Storage',
+    href: '/products/data-&-file-services/hot-storage',
+    slug: 'hot-storage',
     description:
-      ' SyncSphere is a multi-cloud file transfer service that provides secure, reliable and cost-effective data transfer between cloud environments.',
-    image: startup3,
+      'Enigma Hot Storage gives teams S3-compatible object storage with accelerated transfer, secure access, flat pricing and workflow visibility designed for media, backups, logs, working assets and large data sets',
+    image: operations,
   },
   {
     id: 2,
-    title: 'SyncSphere',
-    href: '/products/data-&-file-services/syncsphere',
-    slug: 'syncsphere',
+    title: 'Large File Transfer',
+    href: '/products/data-&-file-services/large-file-transfer',
+    slug: 'large-file-transfer',
     description:
-      ' SyncSphere is a multi-cloud file transfer service that provides secure, reliable and cost-effective data transfer between cloud environments.',
+      'Enigma Large File Transfer lets users send files to anyone through secure shareable links, with APN-accelerated transfer, portal-based upload and download, link controls, audit visibility and support for external collaborators.  ',
+    image: HeroSyncSphere,
+  },
+  {
+    id: 3,
+    title: 'Managed File Transfer',
+    href: '/products/data-&-file-services/managed-file-transfer',
+    slug: 'managed-file-transfer',
+    description:
+      'Enigma Managed File Transfer automates recurring file movement between storage environments with scheduling, encryption, integrity checks, APN acceleration, monitoring and governance.  ',
     image: startup3,
   },
 ];

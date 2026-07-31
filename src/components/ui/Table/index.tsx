@@ -16,7 +16,7 @@ interface ReusableTableProps {
   columns: Column[];
   data: Record<string, any>[];
   minWidth?: string;
-  footerText?: string;
+  footerText?: string | React.ReactNode;
   showButtons?: boolean;
   primaryButton?: ButtonConfig;
   secondaryButton?: ButtonConfig;
@@ -139,7 +139,7 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
       {footerText && (
         <div
           className="position-relative text-center mt-5 pt-4 text-muted fst-italic fs-3 d-flex flex-wrap justify-content-center mx-auto fw-semibold zindex-5"
-          style={{ maxWidth: '45rem' }}
+          style={{ maxWidth: '55rem' }}
         >
           {footerText}
         </div>

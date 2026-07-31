@@ -3,15 +3,35 @@ import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import CompanyData from './components';
+import { company } from '@/utils/company';
 
 const Company = () => {
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Company',
-    url: `${BASE_URL}/company`,
-    description: 'Enigma Net helps organisations move, protect and manage large data sets across AI, cloud, edge and distributed environments. Our technology is designed for a world where network performance can no longer be the bottleneck. We help businesses move data faster, more reliably and more predictably across the infrastructure layer.',
-  };
+  const structuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Company',
+      url: `${BASE_URL}/company`,
+      description:
+        'Enigma Net helps organisations move, protect and manage large data sets across AI, cloud, edge and distributed environments. Our technology is designed for a world where network performance can no longer be the bottleneck. We help businesses move data faster, more reliably and more predictably across the infrastructure layer.',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Company',
+      itemListElement: company.map((product, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${BASE_URL}${product.href}`,
+        item: {
+          '@type': 'Service',
+          name: product.title,
+          description: product.description,
+          url: `${BASE_URL}${product.href}`,
+        },
+      })),
+    },
+  ];
   return (
     <>
       <PageMeta
