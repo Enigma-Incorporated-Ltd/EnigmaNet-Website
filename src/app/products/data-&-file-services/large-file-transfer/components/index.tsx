@@ -274,7 +274,7 @@ const comparisonData1 = [
     price: '£99',
     unit: 'per tenant / month',
     customer:
-      'Tenant platform fee	£99	per tenant / month	Access to portal, APIs, LFT engine, analytics and standard support',
+      '	Access to portal, APIs, LFT engine, analytics and standard support',
   },
   {
     product: 'PAYG transfer',
@@ -314,7 +314,7 @@ const comparisonData1 = [
   },
   {
     product: 'Professional services',
-    price: '£7,500–  £15,00',
+    price: '£7,500–  £15,000',
     unit: 'per project',
     customer: 'Minimum engagement for pipeline integration',
   },
