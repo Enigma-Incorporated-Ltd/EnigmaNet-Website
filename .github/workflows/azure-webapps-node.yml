@@ -23,11 +23,11 @@
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "production-release" ]
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: EnigmaWebsiteDev # set this to your application's name
+  AZURE_WEBAPP_NAME: EnigmaWebsiteProd # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: './dist'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '20.x'                # set this to the node version to use
   POSTHOG_CLI_API_KEY: ${{ secrets.POSTHOG_CLI_API_KEY }}
@@ -84,5 +84,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_ENIGMA_WEBSITE }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PROD_PUBLISH_PROFILE_ENIGMA_WEBSITE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
