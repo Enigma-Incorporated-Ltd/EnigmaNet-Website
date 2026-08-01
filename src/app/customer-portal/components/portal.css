@@ -5,6 +5,66 @@
 
 :root {
   --portal-site-nav-offset: 10rem;
+
+  /* Theme variables - Default (Dark Mode) */
+  --portal-bg: #000b1a;
+  --portal-text: #fff;
+  --portal-text-secondary: #fff;
+  --portal-text-muted: rgba(255, 255, 255, 0.45);
+  --portal-card-bg: #111C44;
+  --portal-card-border: rgba(255, 255, 255, 0.08);
+  --portal-card-shadow: none;
+  --portal-card-hover-border: #7551FF;
+  --portal-card-hover-shadow: 0 10px 25px rgba(117, 81, 255, 0.15);
+  --portal-card-name: #fff;
+  --portal-card-locked-text: rgba(255, 255, 255, 0.45);
+  --portal-search-bg: rgba(255, 255, 255, 0.10);
+  --portal-search-border: rgba(255, 255, 255, 0.1);
+  --portal-search-shadow: 0 1px 2px 0 rgba(168, 217, 255, 0.40);
+  --portal-search-text: #fff;
+  --portal-search-icon-color: rgba(255, 255, 255, 0.4);
+  --portal-dropdown-bg: #111C44;
+  --portal-dropdown-border: rgba(255, 255, 255, 0.10);
+  --portal-dropdown-shadow: 0px 8px 30px rgba(0, 0, 0, 0.35);
+  --portal-dropdown-text: #fff;
+  --portal-dropdown-email: rgba(255, 255, 255, 0.45);
+  --portal-user-bg: linear-gradient(180deg, rgba(13, 27, 41, 0.20) 0%, rgba(13, 41, 74, 0.20) 46.34%, rgba(11, 84, 179, 0.20) 100%);
+  --portal-welcome-subtitle-color: #fff;
+  --portal-apps-subtitle-color: #fff;
+  --portal-instruction-color: #fff;
+  --portal-user-email-color: #fff;
+  --portal-logout-icon-color: #fff;
+}
+
+html[data-bs-theme="light"] {
+  /* Theme variables - Light Mode */
+  --portal-bg: #F4F7FE;
+  --portal-text: #0D1B29;
+  --portal-text-secondary: #0D1B29;
+  --portal-text-muted: #A3AED0;
+  --portal-card-bg: #ffffff;
+  --portal-card-border: #e0e5f2;
+  --portal-card-shadow: 0px 10px 30px rgba(0, 0, 0, 0.03);
+  --portal-card-hover-border: #7551FF;
+  --portal-card-hover-shadow: 0px 10px 30px rgba(117, 81, 255, 0.08);
+  --portal-card-name: #0D1B29;
+  --portal-card-locked-text: #A3AED0;
+  --portal-search-bg: #ffffff;
+  --portal-search-border: #e0e5f2;
+  --portal-search-shadow: 0px 10px 30px rgba(117, 81, 255, 0.03);
+  --portal-search-text: #0D1B29;
+  --portal-search-icon-color: #A3AED0;
+  --portal-dropdown-bg: #ffffff;
+  --portal-dropdown-border: #e0e5f2;
+  --portal-dropdown-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+  --portal-dropdown-text: #0D1B29;
+  --portal-dropdown-email: #A3AED0;
+  --portal-user-bg: linear-gradient(180deg, rgba(35, 193, 239, 0.20) 0%, rgba(27, 127, 156, 0.20) 46.34%, rgba(11, 84, 179, 0.20) 100%);
+  --portal-welcome-subtitle-color: #0D1B29;
+  --portal-apps-subtitle-color: #0D1B29;
+  --portal-instruction-color: #0D1B29;
+  --portal-user-email-color: #0D1B29;
+  --portal-logout-icon-color: #0D1B29;
 }
 
 .portal-shell--with-site-nav {
@@ -13,8 +73,8 @@
 
 .portal-layout {
   min-height: calc(100vh - var(--portal-site-nav-offset));
-  background: #000b1a;
-  color: #fff;
+  background: var(--portal-bg);
+  color: var(--portal-text);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -199,8 +259,8 @@
   align-items: center;
   gap: 4px;
   border-radius: 4px;
-  background: linear-gradient(180deg, rgba(13, 27, 41, 0.20) 0%, rgba(13, 41, 74, 0.20) 46.34%, rgba(11, 84, 179, 0.20) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--portal-user-bg);
+  border: 1px solid var(--portal-card-border);
   color: inherit;
   font-family: inherit;
   cursor: pointer;
@@ -208,8 +268,8 @@
 }
 
 .portal-user-menu__trigger:hover:not(:disabled) {
-  border-color: rgba(42, 222, 255, 0.35);
-  background: linear-gradient(180deg, rgba(13, 27, 41, 0.30) 0%, rgba(13, 41, 74, 0.30) 46.34%, rgba(11, 84, 179, 0.30) 100%);
+  border-color: #7551FF;
+  opacity: 0.88;
 }
 
 .portal-user-menu__trigger:disabled {
@@ -246,7 +306,7 @@
 
 .portal-user-menu__name {
   align-self: stretch;
-  color: #FFF;
+  color: var(--portal-text-secondary);
   font-family: Montserrat, sans-serif;
   font-size: 10px;
   font-style: normal;
@@ -260,7 +320,7 @@
 
 .portal-user-menu__email {
   align-self: stretch;
-  color: #FFF;
+  color: var(--portal-user-email-color);
   font-family: Montserrat, sans-serif;
   font-size: 10px;
   font-style: normal;
@@ -288,31 +348,31 @@
   top: calc(100% + 0.5rem);
   right: 0;
   min-width: 220px;
-  background: #001528;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--portal-dropdown-bg);
+  border: 1px solid var(--portal-dropdown-border);
   border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: var(--portal-dropdown-shadow);
   overflow: hidden;
   z-index: 20;
 }
 
 .portal-user-menu__dropdown-header {
   padding: 0.875rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--portal-dropdown-border);
 }
 
 .portal-user-menu__dropdown-name {
   display: block;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--portal-dropdown-text);
 }
 
 .portal-user-menu__dropdown-email {
   display: block;
   margin-top: 0.125rem;
   font-size: 0.6875rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--portal-dropdown-email);
   word-break: break-all;
 }
 
@@ -382,6 +442,7 @@
   height: 14px;
   aspect-ratio: 1/1;
   flex-shrink: 0;
+  color: var(--portal-logout-icon-color);
 }
 
 /* ---------------------------------------------------------------
@@ -414,7 +475,7 @@
 
 .portal-dashboard__welcome-title {
   align-self: stretch;
-  color: #FFF;
+  color: var(--portal-text);
   font-family: Montserrat, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -425,7 +486,7 @@
 
 .portal-dashboard__welcome-subtitle {
   align-self: stretch;
-  color: #FFF;
+  color: var(--portal-welcome-subtitle-color);
   font-family: Montserrat, sans-serif;
   font-size: 11px;
   font-style: normal;
@@ -493,7 +554,7 @@
 
 .portal-dashboard__apps-title {
   align-self: stretch;
-  color: #FFF;
+  color: var(--portal-text);
   font-family: Montserrat, sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -503,7 +564,7 @@
 }
 
 .portal-dashboard__apps-subtitle {
-  color: #FFF;
+  color: var(--portal-apps-subtitle-color);
   font-family: Montserrat, sans-serif;
   font-size: 10px;
   font-style: normal;
@@ -522,7 +583,7 @@
 }
 
 .portal-dashboard__instruction {
-  color: #FFF;
+  color: var(--portal-instruction-color);
   font-family: Montserrat, sans-serif;
   font-size: 13px;
   font-style: normal;
@@ -539,13 +600,14 @@
   align-items: center;
   gap: 10px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.10);
-  box-shadow: 0 1px 2px 0 rgba(168, 217, 255, 0.40);
+  background: var(--portal-search-bg);
+  border: 1px solid var(--portal-search-border);
+  box-shadow: var(--portal-search-shadow);
   box-sizing: border-box;
 }
 
 .portal-search-icon {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--portal-search-icon-color);
   pointer-events: none;
   width: 14px;
   height: 14px;
@@ -555,7 +617,7 @@
 .portal-dashboard__search {
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--portal-search-text);
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   flex: 1;
@@ -565,7 +627,7 @@
 }
 
 .portal-dashboard__search::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--portal-text-muted);
 }
 
 .portal-dashboard__loading {
@@ -603,8 +665,8 @@
 ---------------------------------------------------------------- */
 
 .portal-app-card {
-  background: #111C44;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--portal-card-bg);
+  border: 1px solid var(--portal-card-border);
   border-radius: 14px;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -614,11 +676,12 @@
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--portal-card-shadow);
 }
 
 .portal-app-card:hover:not(.portal-app-card--locked):not(.portal-app-card--launching) {
-  border-color: #7551FF;
-  box-shadow: 0 10px 25px rgba(117, 81, 255, 0.15);
+  border-color: var(--portal-card-hover-border);
+  box-shadow: var(--portal-card-hover-shadow);
   transform: translateY(-2px);
 }
 
@@ -687,7 +750,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: #fff;
+  color: var(--portal-card-name);
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -754,7 +817,7 @@
 
 .portal-app-card__locked-msg {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--portal-card-locked-text);
   font-family: 'Montserrat', sans-serif;
   white-space: nowrap;
   overflow: hidden;
@@ -765,7 +828,8 @@
 .portal-app-card__launching {
   position: absolute;
   inset: 0;
-  background: rgba(11, 15, 25, 0.9);
+  background: var(--portal-bg);
+  opacity: 0.95;
   backdrop-filter: blur(4px);
   display: flex;
   flex-direction: column;
