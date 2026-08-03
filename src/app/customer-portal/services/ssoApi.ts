@@ -30,7 +30,9 @@ export interface SsoApplication {
   applicationName: string;
   description?: string;
   iconUrl?: string;
-  launchUrl: string;
+  appUrl: string;
+  callbackUrl: string;
+  logoutUrl?: string;
   accessGranted: boolean;
   accessDeniedReason?: string;
   displayOrder: number;
