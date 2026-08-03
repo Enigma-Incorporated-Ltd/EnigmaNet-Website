@@ -16,11 +16,6 @@ interface AppCardProps {
   sessionToken: string;
 }
 
-const REDIRECT_URIS: Record<string, string> = {
-  n0de: (import.meta.env.VITE_NODE_SSO_CALLBACK as string | undefined)
-    ?? 'http://localhost:5174/sso/callback',
-};
-
 export default function AppCard({ app, sessionToken }: AppCardProps) {
   const [launching, setLaunching] = useState(false);
   const [launchError, setLaunchError] = useState<string | null>(null);
@@ -39,10 +34,12 @@ export default function AppCard({ app, sessionToken }: AppCardProps) {
     writeLaunchPendingTab(newTab, app.applicationName);
 
     try {
-      const redirectUri = REDIRECT_URIS[app.clientId];
+      const redirectUri = app.callbackUrl;
       if (!redirectUri) {
         newTab.close();
-        setLaunchError('Launch URL not configured for this app.');
+        setLaunchError(
+          `No callback URL from API for "${app.clientId}". Check tblSSOApplications AppUrl.`,
+        );
         setLaunching(false);
         return;
       }

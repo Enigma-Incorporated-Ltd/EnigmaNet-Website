@@ -72,8 +72,8 @@ export function useSsoSession() {
     if (state.status !== 'authenticated' || logoutLoading) return;
     setLogoutLoading(true);
     try {
-      const logoutResult = await ssoLogout(state.session.sessionToken);
-      triggerAppLogoutUrls(logoutResult.appLogoutUrls);
+      const result = await ssoLogout(state.session.sessionToken);
+      triggerAppLogoutUrls(result.appLogoutUrls);
       setState({ status: 'unauthenticated' });
       setError(null);
     } finally {
