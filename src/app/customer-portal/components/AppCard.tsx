@@ -88,29 +88,24 @@ export default function AppCard({ app, sessionToken }: AppCardProps) {
         </div>
       )}
 
-      <div className="portal-app-card__left">
-        <div className="portal-app-card__icon-wrap">
-          {app.iconUrl ? (
-            <img
-              src={app.iconUrl}
-              alt=""
-              className="portal-app-card__icon"
-            />
-          ) : (
-            <div className="portal-app-card__icon-placeholder">{initials}</div>
-          )}
-        </div>
-        <div className="portal-app-card__info">
-          <h3 className="portal-app-card__name">{app.applicationName}</h3>
-          {app.accessGranted ? (
-            <span className="portal-badge portal-badge--success">Authorized</span>
-          ) : (
-            <span className="portal-badge portal-badge--danger">Locked</span>
-          )}
-        </div>
+      <div
+        className="portal-app-card__image"
+        style={app.iconUrl ? { backgroundImage: `url(${app.iconUrl})` } : undefined}
+      >
+        {!app.iconUrl && (
+          <div className="portal-app-card__icon-placeholder">{initials}</div>
+        )}
       </div>
 
-      <div className="portal-app-card__right">
+      <h3 className="portal-app-card__name" title={app.applicationName}>
+        {app.applicationName}
+      </h3>
+
+      <p className="portal-app-card__description" title={app.description}>
+        {app.description || 'No description available'}
+      </p>
+
+      <div className="portal-app-card__action">
         {launchError && (
           <p className="portal-app-card__error">{launchError}</p>
         )}
@@ -125,7 +120,10 @@ export default function AppCard({ app, sessionToken }: AppCardProps) {
             {launching ? 'Opening…' : 'Open'}
           </button>
         ) : (
-          <div className="portal-app-card__locked-msg" title={app.accessDeniedReason ?? 'You do not have access to this application.'}>
+          <div
+            className="portal-app-card__locked-msg"
+            title={app.accessDeniedReason ?? 'You do not have access to this application.'}
+          >
             {app.accessDeniedReason ?? 'Locked'}
           </div>
         )}

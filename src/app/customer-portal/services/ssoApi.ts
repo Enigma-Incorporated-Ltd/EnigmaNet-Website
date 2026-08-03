@@ -45,12 +45,15 @@ export interface SsoDashboard {
 }
 
 export class SsoApiError extends Error {
+  public readonly statusCode?: number;
+
   constructor(
-    public readonly message: string,
-    public readonly statusCode?: number,
+    message: string,
+    statusCode?: number,
   ) {
     super(message);
     this.name = 'SsoApiError';
+    this.statusCode = statusCode;
   }
 }
 
