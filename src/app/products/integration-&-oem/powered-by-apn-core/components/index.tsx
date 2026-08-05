@@ -315,7 +315,7 @@ const ApnCoreDetails = () => {
       <HeroSection
         title={
           <>
-            Embed Enigma’s APN Core <Br isDesktop />
+            Embed Enigma’s APN Core <Br isDesktop  isTablet/>
             into your own platform
           </>
         }

@@ -9,15 +9,18 @@ const DataAndFileServices = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Coming Soon',
+    name: 'Managed File Transfer - Data & File Services - Products',
     url: `${BASE_URL}/products/data-&-file-services/managed-file-transfer`,
-    description: 'We are working hard to launch something amazing. Stay tuned!',
+    description:
+      'Enigma Managed File Transfer automates recurring file movement between storage environments with scheduling, encryption, integrity checks, APN acceleration, monitoring and governance.  ',
   };
   return (
     <>
       <PageMeta
-        title="Coming Soon"
-        description="We are working hard to launch something amazing. Stay tuned!"
+        title="Managed File Transfer - Data & File Services - Products"
+        description="Enigma Managed File Transfer automates recurring file movement between storage   
+environments with scheduling, encryption, integrity checks, APN acceleration, monitoring and   
+governance.  "
         url={`${BASE_URL}/products/data-&-file-services/managed-file-transfer`}
         structuredData={structuredData}
       />
