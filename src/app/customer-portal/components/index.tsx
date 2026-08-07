@@ -1,40 +1,25 @@
-import './portal.css';
-import { useSsoSession } from '../hooks/useSsoSession';
-import SsoDashboardPage from './SsoDashboard';
-import SsoLoginPage from './SsoLoginPage';
+import CommingSoon from '@/components/comming-soon';
+import Breadcrumb from '@/components/ui/Breadcrumb';
+import Header from '@/components/ui/Header';
 
-export default function CustomerPortalPage() {
-  const {
-    status,
-    session,
-    dashboard,
-    dashboardLoading,
-    logoutLoading,
-    error,
-    login,
-    logout,
-  } = useSsoSession();
-
-  if (status === 'loading') {
-    return (
-      <div className="portal-page-loading">
-        <span className="portal-spinner portal-spinner--lg" />
-        Loading portal…
-      </div>
-    );
-  }
-
-  if (status === 'unauthenticated' || !session) {
-    return <SsoLoginPage onLogin={login} error={error} />;
-  }
-
+const CustomerPortalPage = () => {
   return (
-    <SsoDashboardPage
-      session={session}
-      dashboard={dashboard}
-      dashboardLoading={dashboardLoading}
-      onLogout={logout}
-      logoutLoading={logoutLoading}
-    />
+    <div className="container">
+      <Breadcrumb
+        items={[{ label: 'Customer Portal', href: '/customer-portal' }]}
+        style={{
+          paddingTop: '12rem',
+        }}
+      />
+      <Header
+        title="Customer Portal"
+        style={{
+          padding: '21px 0px ',
+        }}
+      />
+      <CommingSoon />
+    </div>
   );
-}
+};
+
+export default CustomerPortalPage;
