@@ -1,3 +1,5 @@
+import Footer from '@/components/footer/Footer';
+import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
 import CustomerPortalPage from './components';
@@ -6,23 +8,23 @@ const CustomerPortal = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Customer Portal',
+    name: 'Coming Soon',
     url: `${BASE_URL}/customer-portal`,
-    description: 'Sign in once to access your EnigmaNet applications.',
+    description: 'We are working hard to launch something amazing. Stay tuned!',
   };
-
   return (
     <>
       <PageMeta
-        title="Customer Portal"
-        description="Sign in once to access your EnigmaNet applications."
+        title="Coming Soon"
+        description="We are working hard to launch something amazing. Stay tuned!"
         url={`${BASE_URL}/customer-portal`}
         structuredData={structuredData}
       />
 
-      <div className="portal-shell">
-        <CustomerPortalPage />
-      </div>
+      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
+      <CustomerPortalPage />
+
+      <Footer />
     </>
   );
 };
