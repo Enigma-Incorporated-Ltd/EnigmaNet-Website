@@ -82,12 +82,12 @@ const CardWithUseCase: React.FC<CardGridProps> = ({
         key={theme}
         title={headerTitle}
         variant={theme === 'dark' ? 'gold' : 'blue'}
-        className="text-center pb-5 my-4"
+        className="text-center pb-5 "
       />
 
       {description && (
         <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
-          <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3" style={{ maxWidth: '55rem' }}>
+          <li className="d-flex fs-xl mx-3 " style={{ maxWidth: '55rem' }}>
             <span>{description}</span>
           </li>
         </ul>

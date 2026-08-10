@@ -9,6 +9,8 @@ import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import { Culture } from '@/assets/img/company';
 import HeroImage from '@/components/ui/HeroImage';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 const Core = [
   {
     id: 1,
@@ -148,7 +150,26 @@ to evolve.  `,
 ];
 const CareerPage = () => {
   const { theme } = useTheme();
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
 
+      // Wait until the page is rendered
+      setTimeout(() => {
+        const element = document.getElementById(id);
+
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0 });
+    }
+  }, [location]);
   return (
     <div>
       <Breadcrumb
@@ -191,43 +212,38 @@ const CareerPage = () => {
         eyebrow="Company  "
       />
       <HeroImage img={Culture} />
-
-      <CardSlider
-        sectionTitle="Culture overview  "
-        title={
-          <>
-            <HeaderTitle
-              key={theme}
-              title={<>A technical team built around practical problem-solving</>}
-              variant={theme === 'dark' ? 'gold' : 'blue'}
-            />
-          </>
-        }
-        description={
-          <>
-            Enigma Net’s culture is shaped by people who understand technology, delivery, commercial
-            growth and customer need.
-            <br />
-            <br />
-            The team includes deep experience across internet infrastructure, network systems,
-            software development, deployment, product, operations, business growth and brand
-            communication. Glenn Melford-Colegate founded Enigma Net with a focus on creating
-            efficient network protocols for the AI and IoT era, while Jane Osborne-Buglear brings
-            extensive experience designing and operating large corporate networks and helping
-            develop the public Internet.
-            <br />
-            <br />
-            Across the wider team, the shared thread is practical execution: understanding the
-            problem, building the right solution, documenting the work and keeping momentum.
-          </>
-        }
-        showButtons
-        primaryButton={{
-          label: 'Culture',
-          href: '/company/careers/culture',
-          variant: 'blue',
-        }}
-      />
+      <section id="culture">
+        <CardSlider
+          sectionTitle="Culture overview  "
+          title={
+            <>
+              <HeaderTitle
+                key={theme}
+                title={<>A technical team built around practical problem-solving</>}
+                variant={theme === 'dark' ? 'gold' : 'blue'}
+              />
+            </>
+          }
+          description={
+            <>
+              Enigma Net’s culture is shaped by people who understand technology, delivery,
+              commercial growth and customer need.
+              <br />
+              <br />
+              The team includes deep experience across internet infrastructure, network systems,
+              software development, deployment, product, operations, business growth and brand
+              communication. Glenn Melford-Colegate founded Enigma Net with a focus on creating
+              efficient network protocols for the AI and IoT era, while Jane Osborne-Buglear brings
+              extensive experience designing and operating large corporate networks and helping
+              develop the public Internet.
+              <br />
+              <br />
+              Across the wider team, the shared thread is practical execution: understanding the
+              problem, building the right solution, documenting the work and keeping momentum.
+            </>
+          }
+        />
+      </section>
 
       <CardSlider
         sectionTitle="How the team works  "
@@ -287,67 +303,65 @@ const CareerPage = () => {
         }
         data={Operational}
       />
-      <CardSlider
-        sectionTitle="Why Enigma    "
-        title={
-          <>
-            <HeaderTitle
-              key={theme}
-              title={<>Work on infrastructure problems that matter</>}
-              variant={theme === 'dark' ? 'gold' : 'blue'}
-            />
-          </>
-        }
-        description={
-          <>
-            Enigma Net is focused on one of the most important infrastructure challenges facing
-            modern organisations: how to move data faster, more securely and more predictably across
-            complex environments.
-            <br />
-            <br />
-            For people who enjoy solving difficult problems, working across disciplines and building
-            technology with real-world impact, Enigma Net offers the chance to contribute to a
-            growing company at the intersection of secure networking, cloud infrastructure, data
-            movement and AI-ready environments.
-          </>
-        }
-        data={WhyEnigma}
-        showButtons
-        primaryButton={{
-          label: 'Why Enigma',
-          href: '/company/careers/why-enigma',
-          variant: 'blue',
-        }}
-      />
-      <CardSlider
-        sectionTitle="Open roles  "
-        title={
-          <>
-            <HeaderTitle
-              key={theme}
-              title={<>No open roles currently</>}
-              variant={theme === 'dark' ? 'gold' : 'blue'}
-            />
-          </>
-        }
-        description={
-          <>
-            We are not currently advertising open roles.
-            <br />
-            <br />
-            As Enigma Net grows, future opportunities will be shared on this page. If you are
-            interested in following our work, you can connect with us through our company updates
-            and newsroom.
-          </>
-        }
-        showButtons
-        primaryButton={{
-          label: 'Follow Enigma Net on LinkedIn  ',
-          href: 'https://www.linkedin.com/company/enigmanet-ai/',
-          variant: 'blue',
-          disableSentenceCase: true,
-        }}
-      />
+      <section id="why-enigma">
+        <CardSlider
+          sectionTitle="Why Enigma    "
+          title={
+            <>
+              <HeaderTitle
+                key={theme}
+                title={<>Work on infrastructure problems that matter</>}
+                variant={theme === 'dark' ? 'gold' : 'blue'}
+              />
+            </>
+          }
+          description={
+            <>
+              Enigma Net is focused on one of the most important infrastructure challenges facing
+              modern organisations: how to move data faster, more securely and more predictably
+              across complex environments.
+              <br />
+              <br />
+              For people who enjoy solving difficult problems, working across disciplines and
+              building technology with real-world impact, Enigma Net offers the chance to contribute
+              to a growing company at the intersection of secure networking, cloud infrastructure,
+              data movement and AI-ready environments.
+            </>
+          }
+          data={WhyEnigma}
+        />
+      </section>
+      <section id="opening-roles">
+        <CardSlider
+          sectionTitle="Open roles  "
+          title={
+            <>
+              <HeaderTitle
+                key={theme}
+                title={<>No open roles currently</>}
+                variant={theme === 'dark' ? 'gold' : 'blue'}
+              />
+            </>
+          }
+          description={
+            <>
+              We are not currently advertising open roles.
+              <br />
+              <br />
+              As Enigma Net grows, future opportunities will be shared on this page. If you are
+              interested in following our work, you can connect with us through our company updates
+              and newsroom.
+            </>
+          }
+          showButtons
+          primaryButton={{
+            label: 'Follow Enigma Net on LinkedIn  ',
+            href: 'https://www.linkedin.com/company/enigmanet-ai/',
+            variant: 'blue',
+            disableSentenceCase: true,
+          }}
+        />
+      </section>
 
       <CTA
         theme={theme}
