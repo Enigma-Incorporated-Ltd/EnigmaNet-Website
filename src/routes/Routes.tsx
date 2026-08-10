@@ -217,10 +217,7 @@ const BlogInsight = lazy(() => import('@/app/company/blog-insight'));
 const Trust = lazy(() => import('@/app/company/trust-&-security'));
 const TrustCentre = lazy(() => import('@/app/company/trust-&-security/trust-centre'));
 const Legal = lazy(() => import('@/app/company/trust-&-security/policies'));
-const SecurityPosture = lazy(() => import('@/app/company/trust-&-security/security-posture'));
-const ComplianceCertifications = lazy(
-  () => import('@/app/company/trust-&-security/compliance-certifications')
-);
+
 
 //company/resources/
 const Resources = lazy(() => import('@/app/company/resources'));
@@ -233,12 +230,9 @@ const Glossary = lazy(() => import('@/app/company/resources/glossary'));
 const ContactUs = lazy(() => import('@/app/contact-us'));
 const RequestAQuote = lazy(() => import('@/app/contact-us/request-a-quote'));
 
-
 //company/careers
 const Careers = lazy(() => import('@/app/company/careers'));
-const Culture = lazy(() => import('@/app/company/careers/culture'));
-const Openings = lazy(() => import('@/app/company/careers/openings'));
-const WhyENIGMAPAGE = lazy(() => import('@/app/company/careers/why-enigma'));
+
 //linkedin-post
 
 const LinkdinPost = lazy(() => import('@/app/linkdin-post'));
@@ -247,6 +241,7 @@ const Docs = lazy(() => import('@/app/docs'));
 const DeveloperPortal = lazy(() => import('@/app/developer-portal'));
 const CustomerPortal = lazy(() => import('@/app/customer-portal'));
 const Status = lazy(() => import('@/app/status'));
+// const InfrastructureResilienceCheck = lazy(() => import('@/app/Home/infrastructure-resilience-check'));
 export const AllRoutes = [
   // Home
   { path: '/', name: 'index1', element: <Home /> },
@@ -254,6 +249,7 @@ export const AllRoutes = [
   { path: '/smarter-infrastructure', element: <SmartInfrastructure /> },
   { path: '/hosting-secure-cloud', element: <HostingSecureCloud /> },
   { path: '/complete-ai-infrastructure', element: <CompleteAi /> },
+  // { path: '/infrastructure-resilience-check', element: <InfrastructureResilienceCheck /> },
   { path: '/secure-cloud', element: <SecureCloud /> },
   { path: '/secure-networking', element: <SecureNetworking /> },
   { path: '/trueCost', name: 'MigrationCalculator', element: <MigrationCalculator /> },
@@ -424,14 +420,7 @@ export const AllRoutes = [
     path: '/company/trust-&-security/policies/:slug',
     element: <Legal />,
   },
-  {
-    path: '/company/trust-&-security/security-posture',
-    element: <SecurityPosture />,
-  },
-  {
-    path: '/company/trust-&-security/compliance-&-certifications',
-    element: <ComplianceCertifications />,
-  },
+ 
 
   // company/resources/
   {
@@ -463,18 +452,6 @@ export const AllRoutes = [
   {
     path: '/company/careers',
     element: <Careers />,
-  },
-  {
-    path: '/company/careers/culture',
-    element: <Culture />,
-  },
-  {
-    path: '/company/careers/opening-roles',
-    element: <Openings />,
-  },
-  {
-    path: '/company/careers/why-enigma',
-    element: <WhyENIGMAPAGE />,
   },
 
   //contact-us

@@ -65,11 +65,10 @@ const MegaMenuDesktop = ({
   onLinkClick: () => void;
 }) => {
   const [activeRail, setActiveRail] = useState(item.leftRail[0].id);
-  
-const location = useLocation();
 
+  const location = useLocation();
 
-const currentSections = item.panels[activeRail] ?? [];
+  const currentSections = item.panels[activeRail] ?? [];
 
   const { theme } = useTheme();
   return (
@@ -145,7 +144,10 @@ const currentSections = item.panels[activeRail] ?? [];
                         >
                           {link.label}
                           {link.badge && (
-                            <span className="badge bg-success ms-1" style={{ fontSize: '0.65rem' }}>
+                            <span
+                              className={`badge bg-${link.type || 'primary'} ms-1 py-1`}
+                              style={{ fontSize: '0.65rem' }}
+                            >
                               {link.badge}
                             </span>
                           )}
@@ -185,7 +187,6 @@ const currentSections = item.panels[activeRail] ?? [];
                       backgroundSize: 'contain',
                       backgroundRepeat: 'no-repeat',
                       backgroundPosition: 'center',
-                     
                     }}
                   />
                   <div className="card-body bg-body p-3">
@@ -439,6 +440,35 @@ const Navbar = ({
                           const railKey = `${item.label}-${rail.id}`;
                           const isRailOpen = openMobileRail === railKey;
                           const sections = item.data.panels[rail.id] ?? [];
+
+                          const firstLink = sections[0]?.links[0];
+
+                          const hideRail =
+                            firstLink &&
+                            firstLink.label.trim().toLowerCase() ===
+                              rail.label.trim().toLowerCase();
+                          if (hideRail) {
+                            return (
+                              <div key={rail.id} className="ps-3 pb-2">
+                                {sections.map((section, si) => (
+                                  <div key={si}>
+                                    {section.links.map(link => (
+                                      <Link
+                                        key={link.href}
+                                        to={link.href}
+                                        className="d-block py-2 small text-decoration-none"
+                                        style={{ color: 'var(--bs-body-color)' }}
+                                        onClick={() => setShowMenu(false)}
+                                      >
+                                        {link.label}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                ))}
+                              </div>
+                            );
+                          }
+
                           return (
                             <div key={rail.id} className="mb-2">
                               <button
@@ -451,13 +481,17 @@ const Navbar = ({
                                   icon={isRailOpen ? 'bx:chevron-up' : 'bx:chevron-down'}
                                 />
                               </button>
+
                               {isRailOpen && (
                                 <div className="ps-3 pb-2">
                                   {sections.map((section, si) => (
                                     <div key={si} className="mb-2">
-                                      <div className="small  fw-bold text-primary mt-2">
-                                        {section.title}
-                                      </div>
+                                      {section.title !== rail.label && (
+                                        <div className="small fw-bold text-primary mt-2">
+                                          {section.title}
+                                        </div>
+                                      )}
+
                                       {section.links.map(link => (
                                         <Link
                                           key={link.href}

@@ -22,6 +22,8 @@ import { AICPA, ISO, TrustCenter } from '@/assets/img/company';
 import Br from '@/components/ui/NewLine';
 import CardGrid from '@/components/ui/card';
 import PolicyLinks from '@/components/ui/Link';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 const Core = [
   {
     id: 1,
@@ -145,7 +147,27 @@ const policyLinks = [
 ];
 const TrustCentrePage = () => {
   const { theme } = useTheme();
- 
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+
+      // Wait until the page is rendered
+      setTimeout(() => {
+        const element = document.getElementById(id);
+
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0 });
+    }
+  }, [location]);
+
   return (
     <div>
       <Breadcrumb
@@ -181,79 +203,84 @@ const TrustCentrePage = () => {
         ]}
         eyebrow="Trust & Security"
       />
+      <section id="security-posture">
+        <CardSlider
+          sectionTitle="Security posture  "
+          title={
+            <>
+              <HeaderTitle
+                key={theme}
+                title={
+                  <>
+                    Designed to protect data movement, <Br isDesktop /> access and service integrity
+                  </>
+                }
+                variant={theme === 'dark' ? 'gold' : 'blue'}
+              />
+            </>
+          }
+          description={
+            <>
+              Enigma Net is designed around secure transport, controlled access and resilient
+              service delivery. Our platform uses security-first design principles to help protect
+              data in transit, manage access and support trusted operation across distributed
+              environments.
+            </>
+          }
+          data={Core}
+        />
+      </section>
 
-      <CardSlider
-        sectionTitle="Security posture  "
-        title={
-          <>
-            <HeaderTitle
-              key={theme}
-              title={
-                <>
-                  Designed to protect data movement, <Br isDesktop /> access and service integrity
-                </>
-              }
-              variant={theme === 'dark' ? 'gold' : 'blue'}
-            />
-          </>
-        }
-        description={
-          <>
-            Enigma Net is designed around secure transport, controlled access and resilient service
-            delivery. Our platform uses security-first design principles to help protect data in
-            transit, manage access and support trusted operation across distributed environments.
-          </>
-        }
-        data={Core}
-      />
+      <section id="compliance-and-certifications">
+        <CardSlider
+          sectionTitle="Compliance roadmap"
+          title={
+            <>
+              <HeaderTitle
+                key={theme}
+                title={
+                  <>
+                    Working towards recognised security
+                    <Br isDesktop /> and assurance standards{' '}
+                  </>
+                }
+                variant={theme === 'dark' ? 'gold' : 'blue'}
+              />
+            </>
+          }
+          description={
+            <>
+              Enigma Net is currently working towards ISO 27001 as part of its commitment to
+              information security, governance and operational maturity.
+              <br />
+              <br />
+              Following the ISO 27001 programme, Enigma Net plans to progress towards SOC 2 to
+              support future customer, partner and enterprise assurance requirements.
+            </>
+          }
+        />
+        <CardGrid
+          customClass=" cusotm-height"
+          isBg={false}
+          data={[
+            {
+              id: 1,
+              image: ISO,
+              title: 'ISO 27001  ',
+              subtitle: 'Status: In progress  ',
+              description: `Working towards ISO 27001.  `,
+            },
+            {
+              id: 2,
+              image: AICPA,
+              title: 'SOC 2  ',
+              subtitle: 'Status: Planned  ',
+              description: `Planned after ISO 27001.  `,
+            },
+          ]}
+        />
+      </section>
 
-      <CardSlider
-        sectionTitle="Compliance roadmap"
-        title={
-          <>
-            <HeaderTitle
-              key={theme}
-              title={
-                <>
-                  Working towards recognised security
-                  <Br isDesktop /> and assurance standards{' '}
-                </>
-              }
-              variant={theme === 'dark' ? 'gold' : 'blue'}
-            />
-          </>
-        }
-        description={
-          <>
-            Enigma Net is currently working towards ISO 27001 as part of its commitment to
-            information security, governance and operational maturity.
-            <br />
-            <br />
-            Following the ISO 27001 programme, Enigma Net plans to progress towards SOC 2 to support
-            future customer, partner and enterprise assurance requirements.
-          </>
-        }
-      />
-      <CardGrid
-        customClass=" cusotm-height"
-        isBg={false}
-        data={[
-          {
-            id: 1,
-            image: ISO,
-            title: 'ISO 27001  ',
-            subtitle: 'Status: In progress  ',
-            description: `Working towards ISO 27001.  `,
-          },
-          {
-            id: 2,
-            image: AICPA,
-            title: 'SOC 2  ',
-            subtitle: 'Status: Planned  ',
-            description: `Planned after ISO 27001.  `,
-          },
-        ]}
-      />
       <CardSlider
         sectionTitle="Privacy  "
         title={

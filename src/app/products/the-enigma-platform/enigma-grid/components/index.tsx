@@ -514,7 +514,7 @@ const Grid = () => {
             <br />
             Without a clear asset and topology layer, teams waste time asking basic operational
             questions:{' '}
-            <strong>
+            <strong className="text-dark">
               {' '}
               what is installed, where it sits, who owns it, what service it supports and what else
               depends on it.{' '}

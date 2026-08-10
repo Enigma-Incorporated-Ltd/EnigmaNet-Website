@@ -693,7 +693,7 @@ const FileTransfer = () => {
         }
         showButtons
         primaryButton={{
-          href: '#',
+          href: '/get-in-touch',
           label: 'Request LFT pricing  ',
           disableSentenceCase: true,
         }}
