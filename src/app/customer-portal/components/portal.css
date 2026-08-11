@@ -613,7 +613,8 @@ html[data-bs-theme="light"] .portal-sidebar__logo-sub {
 
 html[data-bs-theme="light"] .portal-sidebar__nav-item--active {
   color: #0D1B29 !important;
-  border-color: #0D1B29;
+  border-color: #2ADEFF !important;
+  box-shadow: 0 0 2px 0 #2ADEFF !important;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -629,6 +630,7 @@ html[data-bs-theme="light"] .portal-sidebar__nav-item--active::after {
 html[data-bs-theme="light"] .portal-sidebar__nav-item:not(.portal-sidebar__nav-item--active) {
   color: rgba(13, 27, 41, 0.70) !important;
   border-color: rgba(13, 27, 41, 0.15);
+  box-shadow: none !important;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -802,8 +804,10 @@ html[data-bs-theme="light"] .portal-sidebar__copyright {
   padding: 0;
   cursor: pointer;
   display: flex;
-  align-items: center;
+  width: 24px;
+  height: 24px;
   justify-content: center;
+  align-items: center;
   outline: none;
   transition: transform 0.15s ease;
 }
@@ -831,6 +835,7 @@ html[data-bs-theme="light"] .portal-sidebar__copyright {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: stretch;
   text-align: center;
   font-family: Montserrat, sans-serif;
   font-size: 8.167px;
@@ -895,22 +900,6 @@ html[data-bs-theme="light"] .portal-header__theme-indicator {
   background: #fff;
 }
 
-.portal-header__notify-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  color: var(--portal-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s;
-  position: relative;
-}
-
-.portal-header__notify-btn:hover {
-  opacity: 0.8;
-}
 
 .portal-header__notify-icon {
   width: 24px;
@@ -2865,4 +2854,47 @@ html[data-bs-theme="light"] .portal-activities-card .portal-activity-row {
 
 html[data-bs-theme="light"] .portal-activities-card .portal-activity-row:last-child {
   border-bottom: 1px solid var(--Petrol30, rgba(13, 27, 41, 0.30)) !important;
+}
+
+/* Notifications dropdown styles */
+.portal-notify-dropdown {
+  position: absolute;
+  top: 43px; /* 24px icon height + 19px gap */
+  right: 0;
+  width: 175px;
+  background: #0d1b29;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.portal-notify-dropdown__item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 2px 8px 8px 8px;
+  background: #0d1b29;
+  font-family: Montserrat, sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.portal-notify-dropdown__item--highlight {
+  background: #29527b;
+}
+
+.portal-notify-dropdown__time {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.portal-notify-dropdown__text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
