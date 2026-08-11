@@ -293,7 +293,7 @@ body {
 .portal-sidebar {
   width: 240px;
   background: var(--portal-sidebar-bg);
-  border: 1px solid var(--portal-card-border);
+  border: none;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -414,6 +414,17 @@ html[data-bs-theme="light"] .portal-sidebar__logo-sub {
   position: relative;
 }
 
+.portal-sidebar__nav-item:not(.portal-sidebar__nav-item--active):hover {
+  border-radius: 4px;
+  border: 0.5px solid var(--White, #FFF);
+  box-shadow: 3px 4px 7.3px 0 rgba(0, 0, 0, 0.25);
+  color: var(--White, #FFF) !important;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
 
 .portal-sidebar__nav-item--active {
   display: flex;
@@ -425,7 +436,7 @@ html[data-bs-theme="light"] .portal-sidebar__logo-sub {
   border-radius: 4px;
   border: 0.8px solid var(--Light-blue, #2ADEFF);
   box-shadow: 0 0 2px 0 #2ADEFF;
-  color: var(--White80, rgba(255, 255, 255, 0.80));
+  color: var(--White, #FFF) !important;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -609,7 +620,7 @@ html[data-bs-theme="light"] .portal-sidebar {
   background: linear-gradient(180deg, #FFF 0%, rgba(130, 187, 244, 0.50) 100%);
   padding: 24px 20px;
   gap: 0;
-  border-color: rgba(13, 27, 41, 0.10);
+  border: none;
 }
 
 html[data-bs-theme="light"] .portal-sidebar__logo {
@@ -646,13 +657,20 @@ html[data-bs-theme="light"] .portal-sidebar__nav-item--active::after {
 
 html[data-bs-theme="light"] .portal-sidebar__nav-item:not(.portal-sidebar__nav-item--active) {
   color: rgba(13, 27, 41, 0.70) !important;
-  border-color: rgba(13, 27, 41, 0.15);
-  box-shadow: none !important;
+  border: 0.5px solid var(--Steel, #666);
+  box-shadow: 3px 4px 7.3px 0 rgba(0, 0, 0, 0.25) !important;
   font-family: Montserrat, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__nav-item:not(.portal-sidebar__nav-item--active):hover {
+  border: 0.5px solid #0D1B29;
+  box-shadow: 3px 4px 7.3px 0 rgba(0, 0, 0, 0.25) !important;
+  color: var(--Petrol, #0D1B29) !important;
+  font-weight: 600;
 }
 
 html[data-bs-theme="light"] .portal-sidebar__help-card {
