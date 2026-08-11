@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import type { SsoDashboard, SsoSession } from '../services/ssoApi';
 import AppCard from './AppCard';
 import ErrorModal from './ErrorModal';
@@ -33,6 +33,71 @@ export default function SsoDashboardPage({
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isLogoutConfirmOpen, setIsLogoutConfirmOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  // Draggable floating support button state
+  const [supportPos, setSupportPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [isDraggingSupport, setIsDraggingSupport] = useState(false);
+  const isDraggingRef = useRef(false);
+  const dragStartRef = useRef<{ startX: number; startY: number; posX: number; posY: number }>({
+    startX: 0,
+    startY: 0,
+    posX: 0,
+    posY: 0,
+  });
+  const hasDraggedRef = useRef(false);
+
+  const handleSupportPointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.button !== 0 && e.pointerType === 'mouse') return;
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch (err) {
+      // Ignore
+    }
+    isDraggingRef.current = true;
+    setIsDraggingSupport(true);
+    hasDraggedRef.current = false;
+    dragStartRef.current = {
+      startX: e.clientX,
+      startY: e.clientY,
+      posX: supportPos.x,
+      posY: supportPos.y,
+    };
+  };
+
+  const handleSupportPointerMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (!isDraggingRef.current) return;
+    const deltaX = e.clientX - dragStartRef.current.startX;
+    const deltaY = e.clientY - dragStartRef.current.startY;
+    if (Math.abs(deltaX) > 3 || Math.abs(deltaY) > 3) {
+      hasDraggedRef.current = true;
+    }
+    setSupportPos({
+      x: dragStartRef.current.posX + deltaX,
+      y: dragStartRef.current.posY + deltaY,
+    });
+  };
+
+  const handleSupportPointerUp = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    setIsDraggingSupport(false);
+    try {
+      if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      }
+    } catch (err) {
+      // Ignore
+    }
+  };
+
+  const handleSupportClick = (e: React.MouseEvent) => {
+    if (hasDraggedRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    setIsSupportOpen(true);
+  };
 
   // Make sure the theme attribute on documentElement matches local theme
   useEffect(() => {
@@ -278,10 +343,10 @@ export default function SsoDashboardPage({
           <div className="portal-header__actions">
             {/* Notification bell icon */}
             <button type="button" className="portal-header__notify-btn" aria-label="Notifications">
-              <svg className="portal-header__notify-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                <path d="M13.2483 16.25C13.2483 16.7096 13.1577 17.1648 12.9818 17.5894C12.8059 18.014 12.5481 18.3999 12.2231 18.7249C11.8981 19.0499 11.5123 19.3077 11.0876 19.4836C10.663 19.6595 10.2079 19.75 9.74826 19.75C9.28863 19.75 8.83351 19.6595 8.40887 19.4836C7.98423 19.3077 7.59839 19.0499 7.27338 18.7249C6.94838 18.3999 6.69057 18.014 6.51468 17.5894C6.33879 17.1648 6.24826 16.7096 6.24826 16.25M16.9793 16.25H2.51826C2.16843 16.2499 1.8265 16.146 1.5357 15.9515C1.24489 15.7571 1.01827 15.4808 0.884481 15.1575C0.750692 14.8343 0.715744 14.4787 0.784054 14.1356C0.852365 13.7925 1.02087 13.4773 1.26826 13.23L1.87026 12.627C2.43254 12.0644 2.74835 11.3014 2.74826 10.506V7.75C2.74826 5.89348 3.48575 4.11301 4.79851 2.80025C6.11126 1.4875 7.89174 0.75 9.74826 0.75C11.6048 0.75 13.3852 1.4875 14.698 2.80025C16.0108 4.11301 16.7483 5.89348 16.7483 7.75V10.506C16.7484 11.3016 17.0646 12.0645 17.6273 12.627L18.2303 13.23C18.4772 13.4775 18.6452 13.7926 18.7133 14.1356C18.7813 14.4785 18.7463 14.8339 18.6125 15.1569C18.4788 15.48 18.2525 15.7562 17.962 15.9507C17.6715 16.1452 17.3289 16.2494 16.9793 16.25Z" stroke="url(#paint0_linear_bell_notify)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg className="portal-header__notify-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.5002 18C15.5002 18.4596 15.4097 18.9148 15.2338 19.3394C15.0579 19.764 14.8001 20.1499 14.4751 20.4749C14.1501 20.7999 13.7642 21.0577 13.3396 21.2336C12.915 21.4095 12.4598 21.5 12.0002 21.5C11.5406 21.5 11.0855 21.4095 10.6608 21.2336C10.2362 21.0577 9.85034 20.7999 9.52534 20.4749C9.20033 20.1499 8.94252 19.764 8.76663 19.3394C8.59074 18.9148 8.50021 18.4596 8.50021 18M19.2312 18H4.77021C4.42038 17.9999 4.07845 17.896 3.78765 17.7015C3.49684 17.5071 3.27022 17.2308 3.13643 16.9075C3.00265 16.5843 2.9677 16.2287 3.03601 15.8856C3.10432 15.5425 3.27282 15.2273 3.52021 14.98L4.12221 14.377C4.68449 13.8144 5.00031 13.0514 5.00021 12.256V9.5C5.00021 7.64348 5.73771 5.86301 7.05046 4.55025C8.36322 3.2375 10.1437 2.5 12.0002 2.5C13.8567 2.5 15.6372 3.2375 16.95 4.55025C18.2627 5.86301 19.0002 7.64348 19.0002 9.5V12.256C19.0004 13.0516 19.3166 13.8145 19.8792 14.377L20.4822 14.98C20.7291 15.2275 20.8972 15.5426 20.9652 15.8856C21.0333 16.2285 20.9982 16.5839 20.8645 16.9069C20.7308 17.23 20.5044 17.5062 20.2139 17.7007C19.9234 17.8952 19.5808 17.9994 19.2312 18Z" stroke="url(#paint0_linear_bell_notify)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 <defs>
-                  <linearGradient id="paint0_linear_bell_notify" x1="0.734605" y1="10.25" x2="18.7471" y2="10.25" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="paint0_linear_bell_notify" x1="2.98656" y1="12" x2="20.9991" y2="12" gradientUnits="userSpaceOnUse">
                     <stop stopColor="#2ADEFF" />
                     <stop offset="1" stopColor="#002398" />
                   </linearGradient>
@@ -327,8 +392,200 @@ export default function SsoDashboardPage({
 
         {/* Main Content Layout */}
         <main className="portal-content" id="dashboard">
-          {/* Welcome Banner */}
-          <div className="portal-welcome">
+          {activeNav === 'activities' ? (
+            <div className="portal-activities-container">
+              {/* Back btn and header */}
+              <div className="portal-activities-header" style={{ display: 'flex', alignItems: 'flex-start', gap: '24px', marginBottom: '56px' }}>
+                <button
+                  type="button"
+                  onClick={() => setActiveNav('dashboard')}
+                  className="portal-back-btn"
+                  aria-label="Back to dashboard"
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    padding: 0,
+                    paddingTop: '3px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--portal-text)',
+                    transition: 'transform 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'translateX(-2px)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17" fill="none">
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M2.41379 8.485L9.48479 15.556L8.07079 16.97L0.292786 9.192C0.105315 9.00447 0 8.75016 0 8.485C0 8.21984 0.105315 7.96553 0.292786 7.778L8.07079 0L9.48479 1.414L2.41379 8.485Z"
+                      fill={theme === 'light' ? 'url(#paint0_linear_720_449)' : '#2ADEFF'}
+                    />
+                    <defs>
+                      <linearGradient id="paint0_linear_720_449" x1="-0.00811359" y1="8.485" x2="9.48479" y2="8.485" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#2ADEFF"/>
+                        <stop offset="1" stopColor="#002398"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </button>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <h1 className="portal-activities-title" style={{ margin: 0 }}>Recent Activity</h1>
+                  <p className="portal-activities-subtitle" style={{ margin: 0 }}>
+                    Stay up to date with the latest activity across your Enigma services.
+                  </p>
+                </div>
+              </div>
+
+              {/* Activities Card Log */}
+              <div className="portal-summary-card portal-activities-card" style={{ width: '100%', maxWidth: '880px' }}>
+                <div className="portal-summary-card__header">
+                  <h2 className="portal-summary-card__title">Recent Activity</h2>
+                </div>
+                <div className="portal-summary-card__body">
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                      <span className="portal-activity-row__time">2 min ago</span>
+                    </div>
+                    <span className="portal-badge portal-badge--pending">Pending</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                      <span className="portal-activity-row__time">2 min ago</span>
+                    </div>
+                    <span className="portal-badge portal-badge--warning">Warning</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                      <span className="portal-activity-row__time">2 min ago</span>
+                    </div>
+                    <span className="portal-badge portal-badge--pending">Pending</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                      <span className="portal-activity-row__time">2 min ago</span>
+                    </div>
+                    <span className="portal-badge portal-badge--progress">In Progress</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                      <span className="portal-activity-row__time">2 min ago</span>
+                    </div>
+                    <span className="portal-badge portal-badge--operational">Success</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                      <span className="portal-activity-row__time">2 min ago</span>
+                    </div>
+                    <span className="portal-badge portal-badge--operational">Success</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                      <span className="portal-activity-row__time">2 min ago</span>
+                    </div>
+                    <span className="portal-badge portal-badge--operational">Success</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : activeNav === 'health' ? (
+            <div className="portal-activities-container">
+              {/* Back btn and header */}
+              <div className="portal-activities-header" style={{ display: 'flex', alignItems: 'flex-start', gap: '24px', marginBottom: '56px' }}>
+                <button
+                  type="button"
+                  onClick={() => setActiveNav('dashboard')}
+                  className="portal-back-btn"
+                  aria-label="Back to dashboard"
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    padding: 0,
+                    paddingTop: '3px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--portal-text)',
+                    transition: 'transform 0.2s ease',
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17" fill="none">
+                    <path fillRule="evenodd" clip-rule="evenodd" d="M2.41379 8.485L9.48479 15.556L8.07079 16.97L0.292786 9.192C0.105315 9.00447 0 8.75016 0 8.485C0 8.21984 0.105315 7.96553 0.292786 7.778L8.07079 0L9.48479 1.414L2.41379 8.485Z" fill="url(#paint0_linear_720_449)"/>
+                    <defs>
+                      <linearGradient id="paint0_linear_720_449" x1="-0.00811359" y1="8.485" x2="9.48479" y2="8.485" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#2ADEFF"/>
+                        <stop offset="1" stopColor="#002398"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </button>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <h1 className="portal-activities-title" style={{ margin: 0 }}>Health Summary</h1>
+                  <p className="portal-activities-subtitle" style={{ margin: 0 }}>
+                    Stay up to date with the current status of your Enigma services.
+                  </p>
+                </div>
+              </div>
+
+              {/* Health Card Log */}
+              <div className="portal-summary-card portal-activities-card" style={{ width: '100%', maxWidth: '880px' }}>
+                <div className="portal-summary-card__header">
+                  <h2 className="portal-summary-card__title">Health summary</h2>
+                </div>
+                <div className="portal-summary-card__body">
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                    </div>
+                    <span className="portal-badge portal-badge--provisioning">Provisioning</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                    </div>
+                    <span className="portal-badge portal-badge--operational">Operational</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                    </div>
+                    <span className="portal-badge portal-badge--updating">Updating</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                    </div>
+                    <span className="portal-badge portal-badge--operational">Operational</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                    </div>
+                    <span className="portal-badge portal-badge--provisioning">Provisioning</span>
+                  </div>
+                  <div className="portal-activity-row">
+                    <div className="portal-activity-row__details">
+                      <span className="portal-activity-row__name">GPU Cluster created</span>
+                    </div>
+                    <span className="portal-badge portal-badge--operational">Operational</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <>
+              {/* Welcome Banner */}
+              <div className="portal-welcome">
             <h1 className="portal-welcome__title">Welcome, {displayName.split(' ')[0]}!</h1>
             <p className="portal-welcome__subtitle">
               Access your Enigma applications, manage your account and discover new solutions from one secure portal.
@@ -430,18 +687,42 @@ export default function SsoDashboardPage({
                   <div className="portal-hero-card__group">
                     <span className="portal-hero-card__title">12</span>
                     <span className="portal-hero-card__desc">Recent logins</span>
-                    <a href="#activity" className="portal-hero-card__link">View all</a>
+                    <a
+                      href="#activity"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setActiveNav('activities');
+                      }}
+                      className="portal-hero-card__link"
+                    >
+                      View all
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Floating Support Button */}
-            <button className="portal-support-btn" aria-label="Support" onClick={() => setIsSupportOpen(true)}>
+            <button
+              type="button"
+              className={`portal-support-btn ${isDraggingSupport ? 'portal-support-btn--dragging' : ''}`}
+              aria-label="Support"
+              onPointerDown={handleSupportPointerDown}
+              onPointerMove={handleSupportPointerMove}
+              onPointerUp={handleSupportPointerUp}
+              onPointerCancel={handleSupportPointerUp}
+              onClick={handleSupportClick}
+              style={{
+                transform: `translate(${supportPos.x}px, ${supportPos.y}px)`,
+                cursor: isDraggingSupport ? 'grabbing' : 'grab',
+                touchAction: 'none',
+                userSelect: 'none',
+              }}
+            >
               <div className="portal-support-btn__outer">
                 <div className="portal-support-btn__inner">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M14.1222 4.87122C13.4285 4.66497 12.7122 4.56372 11.9997 4.56372C8.18223 4.56372 4.99848 7.42872 4.59348 11.2312L4.56348 15.9037H6.32973V16.7887H7.72098C8.27598 16.7887 8.75223 16.1475 8.78973 15.5962C8.84973 14.7787 8.84598 13.5187 8.78973 12.7837C8.74848 12.2587 8.26473 11.625 7.72098 11.625H6.32973V12.5062H5.26473V12.4162C5.19723 10.9612 5.53848 9.60372 6.24348 8.49372L6.29598 8.41122L6.37848 8.46747L7.70223 9.42372C8.10348 8.86872 8.60598 8.26122 9.27723 7.82247C10.0722 7.29747 11.0172 7.01997 11.9997 7.01997C12.9822 7.01997 13.9722 7.31247 14.7822 7.85622C15.3972 8.27247 15.8772 8.84997 16.301 9.42372L17.606 8.45622L17.6847 8.39622L17.741 8.47872C18.446 9.55122 18.8022 10.95 18.7422 12.4162V12.5062H17.6735V11.625H16.2822C15.7272 11.625 15.251 12.2625 15.2097 12.8137C15.1535 13.6312 15.1535 14.8912 15.2097 15.6262C15.251 16.1512 15.7385 16.7887 16.2822 16.7887H17.6735V15.9037H18.7422V16.6012C18.7422 17.1712 18.0297 17.8537 17.4297 17.8575H14.0735L14.051 17.7975C13.8672 17.2987 13.406 16.9762 12.8697 16.9762C12.4985 16.9762 12.1647 17.1375 11.9285 17.4262C11.6472 17.7712 11.5797 18.2512 11.7522 18.6787C11.9247 19.0987 12.2847 19.3837 12.7197 19.4362C12.7422 19.4362 12.7685 19.44 12.7947 19.44C12.8322 19.44 12.866 19.4362 12.9035 19.4362C12.941 19.4325 12.9822 19.4325 13.0197 19.4325H13.0797C13.556 19.3125 13.8897 19.0275 14.051 18.6112L14.0735 18.5512H17.4897C18.2997 18.4837 19.0347 17.9287 19.3122 17.1712C19.3422 17.0887 19.361 17.0025 19.3797 16.9125C19.3985 16.8375 19.4135 16.7625 19.436 16.6912V11.5012C19.2597 8.46747 17.0735 5.73747 14.1222 4.87122ZM7.02348 12.3187H7.66098C7.72098 12.3187 7.93473 12.4612 7.95348 12.48C8.03223 12.5625 8.08473 12.7237 8.09598 12.8287C8.14098 13.2975 8.12223 13.8112 8.09973 14.3062C8.08098 14.7487 8.06223 15.2062 8.09223 15.6225C8.08473 15.8025 7.83348 16.0912 7.66098 16.0912H7.02348V12.3187ZM5.26098 13.2H6.32973V15.21H5.26098V13.2ZM17.2272 7.87497L17.216 7.88997L17.2047 7.90122L16.511 8.39622L16.4397 8.44497L16.3872 8.38122C15.4797 7.30872 14.231 6.60372 12.8735 6.39747C12.5885 6.35247 12.296 6.32997 12.011 6.32997C10.3122 6.32997 8.71098 7.07622 7.61598 8.37747L7.55973 8.44497L7.48848 8.39622L6.79848 7.88622L6.71973 7.82622L6.77973 7.75122C7.58598 6.71997 8.74473 5.93997 10.0385 5.54997C10.6722 5.35872 11.3322 5.26497 11.996 5.26497C13.9197 5.26497 15.7497 6.07122 17.0135 7.48122C17.2722 7.77372 17.2647 7.82247 17.2272 7.87497ZM16.976 16.0912H16.3385C16.2747 16.0912 16.0497 15.9262 16.0347 15.9112C15.9597 15.825 15.9147 15.6825 15.9072 15.585C15.8622 15.1162 15.881 14.6025 15.9072 14.1075C15.926 13.665 15.9447 13.2075 15.9147 12.7875C15.911 12.6637 16.0272 12.5287 16.0797 12.4762C16.136 12.4162 16.2447 12.3187 16.3422 12.3187H16.9797V16.0912H16.976ZM13.2635 18.585C13.1585 18.69 13.031 18.7462 12.896 18.7462C12.6822 18.7462 12.4797 18.6112 12.3897 18.4087C12.3035 18.2175 13.3335 18.015 12.476 17.85C12.5847 17.73 12.7197 17.6625 12.866 17.6625C13.0872 17.6625 13.301 17.8125 13.3872 18.0225C13.4697 18.2175 13.4247 18.4237 13.2635 18.585ZM18.7422 15.21H17.6735V13.2H18.7422V15.21Z" fill="white" />
+                    <path d="M14.1222 4.87122C13.4285 4.66497 12.7122 4.56372 11.9997 4.56372C8.18223 4.56372 4.99848 7.42872 4.59348 11.2312L4.56348 15.9037H6.32973V16.7887H7.72098C8.27598 16.7887 8.75223 16.1475 8.78973 15.5962C8.84973 14.7787 8.84598 13.5187 8.78973 12.7837C8.74848 12.2587 8.26473 11.625 7.72098 11.625H6.32973V12.5062H5.26473V12.4162C5.19723 10.9612 5.53848 9.60372 6.24348 8.49372L6.29598 8.41122L6.37848 8.46747L7.70223 9.42372C8.10348 8.86872 8.60598 8.26122 9.27723 7.82247C10.0722 7.29747 11.0172 7.01997 11.9997 7.01997C12.9822 7.01997 13.9722 7.31247 14.7822 7.85622C15.3972 8.27247 15.8772 8.84997 16.301 9.42372L17.606 8.45622L17.6847 8.39622L17.741 8.47872C18.446 9.55122 18.8022 10.95 18.7422 12.4162V12.5062H17.6735V11.625H16.2822C15.7272 11.625 15.251 12.2625 15.2097 12.8137C15.1535 13.6312 15.1535 14.8912 15.2097 15.6262C15.251 16.1512 15.7385 16.7887 16.2822 16.7887H17.6735V15.9037H18.7422V16.6012C18.7422 17.1712 18.0297 17.8537 17.4297 17.8575H14.0735L14.051 17.7975C13.8672 17.2987 13.406 16.9762 12.8697 16.9762C12.4985 16.9762 12.1647 17.1375 11.9285 17.4262C11.6472 17.7712 11.5797 18.2512 11.7522 18.6787C11.9247 19.0987 12.2847 19.3837 12.7197 19.4362C12.7422 19.4362 12.7685 19.44 12.7947 19.44C12.8322 19.44 12.866 19.4362 12.9035 19.4362C12.941 19.4325 12.9822 19.4325 13.0197 19.4325H13.0797C13.556 19.3125 13.8897 19.0275 14.051 18.6112L14.0735 18.5512H17.4897C18.2997 18.4837 19.0347 17.9287 19.3122 17.1712C19.3422 17.0887 19.361 17.0025 19.3797 16.9125C19.3985 16.8375 19.4135 16.7625 19.436 16.6912V11.5012C19.2597 8.46747 17.0735 5.73747 14.1222 4.87122ZM7.02348 12.3187H7.66098C7.72098 12.3187 7.93473 12.4612 7.95348 12.48C8.03223 12.5625 8.08473 12.7237 8.09598 12.8287C8.14098 13.2975 8.12223 13.8112 8.09973 14.3062C8.08098 14.7487 8.06223 15.2062 8.09223 15.6225C8.08473 15.8025 7.83348 16.0912 7.66098 16.0912H7.02348V12.3187ZM5.26098 13.2H6.32973V15.21H5.26098V13.2ZM17.2272 7.87497L17.216 7.88997L17.2047 7.90122L16.511 8.39622L16.4397 8.44497L16.3872 8.38122C15.4797 7.30872 14.231 6.60372 12.8735 6.39747C12.5885 6.35247 12.296 6.32997 12.011 6.32997C10.3122 6.32997 8.71098 7.07622 7.61598 8.37747L7.55973 8.44497L7.48848 8.39622L6.79848 7.88622L6.71973 7.82622L6.77973 7.75122C7.58598 6.71997 8.74473 5.93997 10.0385 5.54997C10.6722 5.35872 11.3322 5.26497 11.996 5.26497C13.9197 5.26497 15.7497 6.07122 17.0135 7.48122C17.2722 7.77372 17.2647 7.82247 17.2272 7.87497ZM16.976 16.0912H16.3385C16.2747 16.0912 16.0497 15.9262 16.0347 15.9112C15.9597 15.825 15.9147 15.6825 15.9072 15.585C15.8622 15.1162 15.881 14.6025 15.9072 14.1075C15.926 13.665 15.9447 13.2075 15.9147 12.7875C15.911 12.6637 16.0272 12.5287 16.0797 12.4762C16.136 12.4165 16.2447 12.3187 16.3422 12.3187H16.9797V16.0912H16.976ZM13.2635 18.585C13.1585 18.69 13.031 18.7462 12.896 18.7462C12.6822 18.7462 12.4797 18.6112 12.3897 18.4087C12.3035 18.2175 13.3335 18.015 12.476 17.85C12.5847 17.73 12.7197 17.6625 12.866 17.6625C13.0872 17.6625 13.301 17.8125 13.3872 18.0225C13.4697 18.2175 13.4247 18.4237 13.2635 18.585ZM18.7422 15.21H17.6735V13.2H18.7422V15.21Z" fill="white" />
                   </svg>
                 </div>
               </div>
@@ -838,7 +1119,14 @@ export default function SsoDashboardPage({
             <section className="portal-summary-card">
               <div className="portal-summary-card__header">
                 <h2 className="portal-summary-card__title">Recent Activity</h2>
-                <a href="#activities" className="portal-summary-card__link">
+                <a
+                  href="#activities"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveNav('activities');
+                  }}
+                  className="portal-summary-card__link"
+                >
                   View all activities
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <line x1="5" y1="12" x2="19" y2="12" />
@@ -882,7 +1170,14 @@ export default function SsoDashboardPage({
             <section className="portal-summary-card">
               <div className="portal-summary-card__header">
                 <h2 className="portal-summary-card__title">Health summary</h2>
-                <a href="#health" className="portal-summary-card__link">
+                <a
+                  href="#health"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveNav('health');
+                  }}
+                  className="portal-summary-card__link"
+                >
                   View all activities
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <line x1="5" y1="12" x2="19" y2="12" />
@@ -910,6 +1205,8 @@ export default function SsoDashboardPage({
               </div>
             </section>
           </div>
+          </>
+          )}
         </main>
       </div>
     </div>
