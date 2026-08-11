@@ -22,6 +22,7 @@ type CaseStudyHighlightProps = {
   image?: string;
   className?: string;
   isbg?: boolean;
+  description2?: string | React.ReactNode;
   sectionTitle?: string | React.ReactNode;
 };
 const CaseStudyHighlight = ({
@@ -36,11 +37,11 @@ const CaseStudyHighlight = ({
   showButtons = false,
   primaryButton,
   secondaryButton,
+  description2,
   sectionTitle,
 }: CaseStudyHighlightProps) => {
   const {theme} = useTheme();
   return (
-
     <Container className="pt-3 pb-5 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
       {sectionTitle && (
         <h5
@@ -91,6 +92,14 @@ const CaseStudyHighlight = ({
                 </div>
               </li>
             ))}
+          </ul>
+        )}
+        {/* Secondary description */}
+        {description2 && (
+          <ul className="list-unstyled d-flex flex-wrap text-center justify-content-center mb-5">
+            <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3" style={{ maxWidth: '55rem' }}>
+              <span>{description2}</span>
+            </li>
           </ul>
         )}
         {image && (

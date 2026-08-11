@@ -3,6 +3,7 @@ export type NavLink = {
   label: string;
   href: string;
   badge?: string;
+  type?: 'info' | 'warning' | 'error' | 'success';
 };
 
 export type NavSection = {
@@ -105,6 +106,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
               label: 'Enigma Connect ',
               href: '/products/connectivity-products/enigma-connect',
               badge: 'Start Free',
+              type: 'success',
             },
             // { label: 'Enigma Connect Mobile', href: '/connect/mobile', badge: 'View Pricing' },
             // { label: 'Enigma Connect Pro', href: '/connect/pro' },
@@ -497,10 +499,13 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
           title: 'Trust & Security',
           links: [
             { label: 'Trust Centre', href: '/company/trust-&-security/trust-centre' },
-            { label: 'Security Posture', href: '/company/trust-&-security/security-posture' },
+            {
+              label: 'Security Posture',
+              href: '/company/trust-&-security/trust-centre#security-posture',
+            },
             {
               label: 'Compliance / Certifications',
-              href: '/company/trust-&-security/compliance-&-certifications',
+              href: '/company/trust-&-security/trust-centre#compliance-and-certifications',
             },
             { label: 'Policies', href: '/company/trust-&-security/policies' },
           ],
@@ -523,13 +528,14 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
           title: 'CAREERS',
           links: [
             { label: 'Careers', href: '/company/careers' },
-            { label: 'Culture', href: '/company/careers/culture' },
+            { label: 'Culture', href: '/company/careers#culture' },
             {
               label: 'Open Roles',
-              href: '/company/careers/opening-roles',
-              // badge: 'Hiring'
+              href: '/company/careers#opening-roles',
+              badge: 'No open roles currently',
+              type: 'info',
             },
-            { label: 'Why Enigma', href: '/company/careers/why-enigma' },
+            { label: 'Why Enigma', href: '/company/careers#why-enigma' },
           ],
         },
         //   {
@@ -613,6 +619,10 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
           links: [
             { label: 'TrueCost', href: '/truecost' },
             { label: 'Hot storage TCO Calculator', href: '/hot-storage-tco-calculator' },
+            // {
+            //   label: 'Infrastructure Resilience Check',
+            //   href: '/infrastructure-resilience-check',
+            // },
           ],
         },
       ],
