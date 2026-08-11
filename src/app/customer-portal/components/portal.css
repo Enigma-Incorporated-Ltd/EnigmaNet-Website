@@ -100,10 +100,12 @@ body {
   background: var(--portal-bg-main);
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .portal-layout {
   min-height: calc(100vh - 64px);
+  max-width: calc(100vw - 64px);
   margin: 32px;
   background: var(--portal-bg);
   border: 1px solid var(--portal-frame-border);
