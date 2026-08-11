@@ -7,7 +7,8 @@
   --portal-site-nav-offset: 0px;
 
   /* Theme variables - Default (Dark Mode) */
-  --portal-bg: #0d1b29;
+  --Royal-Blue10: rgba(0, 26, 148, 0.10);
+  --portal-bg: var(--Royal-Blue10, rgba(0, 26, 148, 0.10));
   --portal-text: #fff;
   --portal-text-secondary: #fff;
   --portal-text-muted: rgba(255, 255, 255, 0.6);
@@ -860,16 +861,17 @@ html[data-bs-theme="light"] .portal-header__theme-switch {
   width: 19px;
   height: 19px;
   border-radius: 50%;
-  background: #0d1b29;
+  background: #187bc9;
   display: block;
   position: absolute;
   top: 2px;
+  left: 2px;
   transition: transform 0.2s, background-color 0.2s;
 }
 
 :root:not([data-bs-theme="light"]) .portal-header__theme-indicator {
   transform: translateX(23px);
-  background: #0d1b29;
+  background: #187BC9;
 }
 
 html[data-bs-theme="light"] .portal-header__theme-indicator {
@@ -1033,7 +1035,7 @@ html[data-bs-theme="light"] .portal-header__notify-badge {
   align-items: flex-start;
   gap: 12px;
   border-radius: 4px;
-  background: var(--Royal-Blue10, rgba(0, 26, 148, 0.10));
+  background: var(--Card-filling, linear-gradient(180deg, rgba(13, 27, 41, 0.20) 0%, rgba(13, 41, 74, 0.20) 46.34%, rgba(11, 84, 179, 0.20) 100%));
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   box-sizing: border-box;
