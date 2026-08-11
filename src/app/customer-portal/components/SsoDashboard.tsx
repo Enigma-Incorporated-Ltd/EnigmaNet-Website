@@ -30,6 +30,8 @@ export default function SsoDashboardPage({
   const { theme, setTheme } = useTheme();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeNav, setActiveNav] = useState('dashboard');
+  const [unreadCount, setUnreadCount] = useState(1);
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isLogoutConfirmOpen, setIsLogoutConfirmOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -304,7 +306,7 @@ export default function SsoDashboardPage({
 
         {/* Copyright */}
         <div className="portal-sidebar__copyright">
-          <p>Â© 2026 Enigma Net.</p>
+          <p>© 2026 Enigma Net.</p>
           <p>All rights reserved.</p>
         </div>
       </aside>
@@ -342,18 +344,53 @@ export default function SsoDashboardPage({
           {/* Theme, notification, and user profile menu */}
           <div className="portal-header__actions">
             {/* Notification bell icon */}
-            <button type="button" className="portal-header__notify-btn" aria-label="Notifications">
-              <svg className="portal-header__notify-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.5002 18C15.5002 18.4596 15.4097 18.9148 15.2338 19.3394C15.0579 19.764 14.8001 20.1499 14.4751 20.4749C14.1501 20.7999 13.7642 21.0577 13.3396 21.2336C12.915 21.4095 12.4598 21.5 12.0002 21.5C11.5406 21.5 11.0855 21.4095 10.6608 21.2336C10.2362 21.0577 9.85034 20.7999 9.52534 20.4749C9.20033 20.1499 8.94252 19.764 8.76663 19.3394C8.59074 18.9148 8.50021 18.4596 8.50021 18M19.2312 18H4.77021C4.42038 17.9999 4.07845 17.896 3.78765 17.7015C3.49684 17.5071 3.27022 17.2308 3.13643 16.9075C3.00265 16.5843 2.9677 16.2287 3.03601 15.8856C3.10432 15.5425 3.27282 15.2273 3.52021 14.98L4.12221 14.377C4.68449 13.8144 5.00031 13.0514 5.00021 12.256V9.5C5.00021 7.64348 5.73771 5.86301 7.05046 4.55025C8.36322 3.2375 10.1437 2.5 12.0002 2.5C13.8567 2.5 15.6372 3.2375 16.95 4.55025C18.2627 5.86301 19.0002 7.64348 19.0002 9.5V12.256C19.0004 13.0516 19.3166 13.8145 19.8792 14.377L20.4822 14.98C20.7291 15.2275 20.8972 15.5426 20.9652 15.8856C21.0333 16.2285 20.9982 16.5839 20.8645 16.9069C20.7308 17.23 20.5044 17.5062 20.2139 17.7007C19.9234 17.8952 19.5808 17.9994 19.2312 18Z" stroke="url(#paint0_linear_bell_notify)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                <defs>
-                  <linearGradient id="paint0_linear_bell_notify" x1="2.98656" y1="12" x2="20.9991" y2="12" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#2ADEFF" />
-                    <stop offset="1" stopColor="#002398" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <span className="portal-header__notify-badge">1</span>
-            </button>
+            <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+              <button
+                type="button"
+                className="portal-header__notify-btn"
+                aria-label="Notifications"
+                onClick={() => {
+                  setIsNotificationsOpen(!isNotificationsOpen);
+                  setUnreadCount(0);
+                }}
+              >
+                <svg className="portal-header__notify-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.5002 18C15.5002 18.4596 15.4097 18.9148 15.2338 19.3394C15.0579 19.764 14.8001 20.1499 14.4751 20.4749C14.1501 20.7999 13.7642 21.0577 13.3396 21.2336C12.915 21.4095 12.4598 21.5 12.0002 21.5C11.5406 21.5 11.0855 21.4095 10.6608 21.2336C10.2362 21.0577 9.85034 20.7999 9.52534 20.4749C9.20033 20.1499 8.94252 19.764 8.76663 19.3394C8.59074 18.9148 8.50021 18.4596 8.50021 18M19.2312 18H4.77021C4.42038 17.9999 4.07845 17.896 3.78765 17.7015C3.49684 17.5071 3.27022 17.2308 3.13643 16.9075C3.00265 16.5843 2.9677 16.2287 3.03601 15.8856C3.10432 15.5425 3.27282 15.2273 3.52021 14.98L4.12221 14.377C4.68449 13.8144 5.00031 13.0514 5.00021 12.256V9.5C5.00021 7.64348 5.73771 5.86301 7.05046 4.55025C8.36322 3.2375 10.1437 2.5 12.0002 2.5C13.8567 2.5 15.6372 3.2375 16.95 4.55025C18.2627 5.86301 19.0002 7.64348 19.0002 9.5V12.256C19.0004 13.0516 19.3166 13.8145 19.8792 14.377L20.4822 14.98C20.7291 15.2275 20.8972 15.5426 20.9652 15.8856C21.0333 16.2285 20.9982 16.5839 20.8645 16.9069C20.7308 17.23 20.5044 17.5062 20.2139 17.7007C19.9234 17.8952 19.5808 17.9994 19.2312 18Z" stroke="url(#paint0_linear_bell_notify)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <defs>
+                    <linearGradient id="paint0_linear_bell_notify" x1="2.98656" y1="12" x2="20.9991" y2="12" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#2ADEFF" />
+                      <stop offset="1" stopColor="#002398" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                {unreadCount > 0 && <span className="portal-header__notify-badge">1</span>}
+              </button>
+
+              {isNotificationsOpen && (
+                <div className="portal-notify-dropdown">
+                  <div className="portal-notify-dropdown__item portal-notify-dropdown__item--highlight">
+                    <span className="portal-notify-dropdown__time">1 min. ago</span>
+                    <span className="portal-notify-dropdown__text">New update is available...</span>
+                  </div>
+                  <div className="portal-notify-dropdown__item">
+                    <span className="portal-notify-dropdown__time">2 days ago</span>
+                    <span className="portal-notify-dropdown__text">Your receive for July ...</span>
+                  </div>
+                  <div className="portal-notify-dropdown__item">
+                    <span className="portal-notify-dropdown__time">2 days ago</span>
+                    <span className="portal-notify-dropdown__text">Your receive for July ...</span>
+                  </div>
+                  <div className="portal-notify-dropdown__item">
+                    <span className="portal-notify-dropdown__time">2 days ago</span>
+                    <span className="portal-notify-dropdown__text">Your receive for July ...</span>
+                  </div>
+                  <div className="portal-notify-dropdown__item">
+                    <span className="portal-notify-dropdown__time">2 days ago</span>
+                    <span className="portal-notify-dropdown__text">Your receive for July ...</span>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Figma-styled Theme Toggle Switch */}
             <div className="portal-header__theme-toggle">
