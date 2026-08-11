@@ -737,7 +737,7 @@ html[data-bs-theme="light"] .portal-sidebar__copyright {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 32px 0 32px;
+  padding: 0 32px 24px 32px;
   box-sizing: border-box;
 }
 
