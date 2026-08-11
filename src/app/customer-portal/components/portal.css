@@ -11,6 +11,8 @@
   /* Theme variables - Default (Dark Mode) */
   --Royal-Blue10: rgba(0, 26, 148, 0.10);
   --portal-bg: var(--Royal-Blue10, rgba(0, 26, 148, 0.10));
+  --portal-bg-main: #0D1B29;
+  --portal-frame-border: rgba(255, 255, 255, 0.15);
   --portal-text: #fff;
   --portal-text-secondary: #fff;
   --portal-text-muted: rgba(255, 255, 255, 0.6);
@@ -51,6 +53,8 @@
 html[data-bs-theme="light"] {
   /* Theme variables - Light Mode */
   --portal-bg: var(--Royal-Blue10, rgba(0, 26, 148, 0.10));
+  --portal-bg-main: #ffffff;
+  --portal-frame-border: rgba(0, 26, 148, 0.15);
   --portal-text: #0D1B29;
   --portal-text-secondary: #0D1B29;
   --portal-text-muted: #8F9BBA;
@@ -92,15 +96,26 @@ html[data-bs-theme="light"] {
   padding-top: var(--portal-site-nav-offset);
 }
 
+body {
+  background: var(--portal-bg-main);
+  margin: 0;
+  padding: 0;
+}
+
 .portal-layout {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
+  margin: 32px;
   background: var(--portal-bg);
+  border: 1px solid var(--portal-frame-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 30px rgba(0, 26, 148, 0.05);
   color: var(--portal-text);
   font-family: 'Montserrat', sans-serif;
   display: flex;
   padding: 32px;
   box-sizing: border-box;
-  gap: 32px;
+  gap: 62px;
 }
 
 /* ---------------------------------------------------------------
@@ -2859,7 +2874,8 @@ html[data-bs-theme="light"] .portal-activities-card .portal-activity-row:last-ch
 /* Notifications dropdown styles */
 .portal-notify-dropdown {
   position: absolute;
-  top: 43px; /* 24px icon height + 19px gap */
+  top: 43px;
+  /* 24px icon height + 19px gap */
   right: 0;
   width: 175px;
   background: #0d1b29;
