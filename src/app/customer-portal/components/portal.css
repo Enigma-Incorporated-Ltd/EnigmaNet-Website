@@ -1563,11 +1563,19 @@ html[data-bs-theme="light"] .portal-summary-card {
   border-top: 1px solid var(--Petrol30, rgba(13, 27, 41, 0.30)) !important;
   border-bottom: none !important;
   border-radius: 4px 4px 0 0;
+  height: fit-content !important;
 }
 
 html[data-bs-theme="light"] .portal-activity-row,
 html[data-bs-theme="light"] .portal-health-row {
+  display: flex;
+  height: 48px;
+  padding: 12px 20px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
   border-bottom: 1px solid var(--Petrol30, rgba(13, 27, 41, 0.30)) !important;
+  box-sizing: border-box;
 }
 
 html[data-bs-theme="light"] .portal-activity-row:last-child,
