@@ -1,0 +1,443 @@
+/* ---------------------------------------------------------------
+   Sidebar Layout & Container
+   ---------------------------------------------------------------- */
+.portal-sidebar {
+  width: 240px;
+  background: var(--portal-sidebar-bg);
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  align-self: flex-start;
+}
+
+/* ---------------------------------------------------------------
+   Logo Section
+   ---------------------------------------------------------------- */
+.portal-sidebar__logo {
+  display: flex;
+  width: 190px;
+  height: 66px;
+  padding: 12.959px 14.77px 12.993px 14.771px;
+  justify-content: center;
+  align-items: center;
+  gap: 7.236px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  margin-bottom: 24px;
+}
+
+.portal-sidebar__logo-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+}
+
+.portal-sidebar__logo-icon {
+  width: 35.193px;
+  height: 40.01px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.portal-sidebar__logo-brand {
+  width: auto;
+  height: auto;
+  font-family: Montserrat, sans-serif;
+  font-size: 19.636px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.portal-sidebar__logo-text-white {
+  color: var(--White, #FFF);
+}
+
+.portal-sidebar__logo-text-cyan {
+  color: #2ADEFF;
+}
+
+.portal-sidebar__logo-sub {
+  width: auto;
+  height: auto;
+  color: #FFF;
+  font-family: Montserrat, sans-serif;
+  font-size: 6.545px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------
+   Navigation Menu
+   ---------------------------------------------------------------- */
+.portal-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 120px;
+}
+
+.portal-sidebar__nav-item {
+  display: flex;
+  min-width: 150px;
+  padding: 4px 10px;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 0.5px solid var(--White80, rgba(255, 255, 255, 0.80));
+  box-shadow: 3px 4px 7.3px 0 rgba(0, 0, 0, 0.25);
+  color: var(--White80, rgba(255, 255, 255, 0.80)) !important;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none !important;
+  box-sizing: border-box;
+  background: transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+
+.portal-sidebar__nav-item:not(.portal-sidebar__nav-item--active):hover {
+  border-radius: 4px;
+  border: 0.5px solid var(--White, #FFF);
+  box-shadow: 3px 4px 7.3px 0 rgba(0, 0, 0, 0.25);
+  color: var(--White, #FFF) !important;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.portal-sidebar__nav-item--active {
+  display: flex;
+  min-width: 150px;
+  padding: 4px 10px;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 0.8px solid var(--Light-blue, #2ADEFF);
+  box-shadow: 0 0 2px 0 #2ADEFF;
+  color: var(--White, #FFF) !important;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none !important;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.portal-sidebar__nav-item--active::after {
+  content: '';
+  position: absolute;
+  right: 9px;
+  top: 13px;
+  width: 6px;
+  height: 6px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #23C1EF;
+  filter: drop-shadow(0 0 0.9px #A8D9FF) drop-shadow(0 0 1.8px #A8D9FF) drop-shadow(0 0 6.3px #A8D9FF) drop-shadow(0 0 12.6px #A8D9FF) drop-shadow(0 0 21.6px #A8D9FF) drop-shadow(0 0 37.8px #A8D9FF);
+  pointer-events: none;
+}
+
+.portal-sidebar__nav-icon {
+  width: 24px;
+  height: 24px;
+  aspect-ratio: 1/1;
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------------
+   Help Card Section
+   ---------------------------------------------------------------- */
+.portal-sidebar__help-card {
+  display: flex;
+  width: 187px;
+  padding: 10px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-radius: 4px;
+  background: var(--Card-bg-dark, linear-gradient(180deg, rgba(13, 27, 41, 0.20) 0%, rgba(13, 41, 74, 0.20) 46.34%, rgba(11, 84, 179, 0.20) 100%));
+  box-sizing: border-box;
+}
+
+.portal-sidebar__help-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--White, #FFF);
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.portal-sidebar__help-card-header svg {
+  width: 24px;
+  height: 24px;
+  aspect-ratio: 1/1;
+}
+
+.portal-sidebar__help-card p {
+  align-self: stretch;
+  color: var(--White, #FFF);
+  font-family: Montserrat, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.portal-sidebar__help-btn {
+  display: flex;
+  width: 155px;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 4px;
+  background: var(--sup-btn-default, linear-gradient(180deg, rgba(13, 27, 41, 0.20) 0%, rgba(13, 41, 74, 0.20) 46.34%, rgba(11, 84, 179, 0.20) 100%));
+  color: #FFF !important;
+  text-decoration: none !important;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 11.667px;
+}
+
+.portal-sidebar__help-btn:hover {
+  border-radius: 4px;
+  background: var(--sup-btn-hovered, linear-gradient(180deg, rgba(0, 128, 255, 0.20) 0%, rgba(11, 84, 179, 0.20) 100%));
+  opacity: 1;
+}
+
+.portal-sidebar__help-btn svg {
+  width: 17px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------------
+   User Block Footer
+   ---------------------------------------------------------------- */
+.portal-sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.portal-sidebar__avatar-placeholder {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--Steel-blue, #187BC9);
+  background: #3C5670;
+  box-shadow: 0 0 2px 0 rgba(36, 195, 240, 0.40);
+  color: var(--Light-blue, #2ADEFF);
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+.portal-sidebar__user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.portal-sidebar__username {
+  align-self: stretch;
+  color: var(--Light-blue, #2ADEFF);
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.portal-sidebar__user-email {
+  align-self: stretch;
+  color: var(--White, #FFF);
+  font-family: Montserrat, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+/* ---------------------------------------------------------------
+   Copyright
+   ---------------------------------------------------------------- */
+.portal-sidebar__copyright {
+  margin-top: 64px;
+  align-self: stretch;
+  color: var(--White80, rgba(255, 255, 255, 0.80));
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.1px;
+}
+
+.portal-sidebar__copyright p {
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------
+   Light Mode Sidebar Overrides (Figma Specs)
+   ---------------------------------------------------------------- */
+html[data-bs-theme="light"] .portal-sidebar {
+  background: linear-gradient(180deg, #FFF 0%, rgba(130, 187, 244, 0.50) 100%);
+  padding: 24px 20px;
+  gap: 0;
+  border: none;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__logo {
+  margin-bottom: 24px;
+  background: transparent;
+  border-radius: 0;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__nav {
+  margin-bottom: 64px;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__logo-text-white {
+  color: #001A93;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__logo-sub {
+  color: #666666;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__nav-item--active {
+  color: #0D1B29 !important;
+  border-color: #2ADEFF !important;
+  box-shadow: 0 0 2px 0 #2ADEFF !important;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__nav-item--active::after {
+  background-color: #002398;
+  filter: drop-shadow(0 0 0.9px #A8D9FF) drop-shadow(0 0 1.8px #A8D9FF) drop-shadow(0 0 6.3px #A8D9FF) drop-shadow(0 0 12.6px #A8D9FF) drop-shadow(0 0 21.6px #A8D9FF) drop-shadow(0 0 37.8px #A8D9FF);
+}
+
+html[data-bs-theme="light"] .portal-sidebar__nav-item:not(.portal-sidebar__nav-item--active) {
+  color: rgba(13, 27, 41, 0.70) !important;
+  border: 0.5px solid var(--Steel, #666);
+  box-shadow: none !important;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__nav-item:not(.portal-sidebar__nav-item--active):hover {
+  border: 0.5px solid #0D1B29;
+  box-shadow: none !important;
+  color: var(--Petrol, #0D1B29) !important;
+  font-weight: 600;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__help-card {
+  width: 187px;
+  padding: 10px 16px;
+  gap: 16px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.20) 0%, rgba(27, 127, 156, 0.20) 46.34%, rgba(11, 84, 179, 0.20) 100%);
+}
+
+html[data-bs-theme="light"] .portal-sidebar__help-card-header {
+  color: var(--Petrol, #0D1B29);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__help-card p {
+  color: var(--Petrol, #0D1B29);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__help-btn {
+  width: 155px;
+  padding: 10px 16px;
+  gap: 12px;
+  border-radius: 4px;
+  background: var(--sup-btn-default, linear-gradient(180deg, rgba(13, 27, 41, 0.20) 0%, rgba(13, 41, 74, 0.20) 46.34%, rgba(11, 84, 179, 0.20) 100%));
+  color: var(--Petrol, #0D1B29) !important;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 11.667px;
+}
+
+html[data-bs-theme="light"] .portal-sidebar__help-btn:hover {
+  border-radius: 4px;
+  background: var(--sup-btn-hovered, linear-gradient(180deg, rgba(0, 128, 255, 0.20) 0%, rgba(11, 84, 179, 0.20) 100%));
+}
+
+html[data-bs-theme="light"] .portal-sidebar__help-btn svg path {
+  fill: var(--Petrol, #0D1B29);
+}
+
+html[data-bs-theme="light"] .portal-sidebar__avatar-placeholder {
+  background: var(--color-white-solid, #FFF);
+  border: 1px solid var(--Steel-blue, #187BC9);
+  box-shadow: 0 0 2px 0 rgba(36, 195, 240, 0.40);
+  color: var(--Royal-Blue, #001A94);
+}
+
+html[data-bs-theme="light"] .portal-sidebar__username {
+  color: var(--Royal-Blue, #001A94);
+}
+
+html[data-bs-theme="light"] .portal-sidebar__user-email {
+  color: var(--Petrol, #0D1B29);
+}
+
+html[data-bs-theme="light"] .portal-sidebar__copyright {
+  color: rgba(13, 27, 41, 0.70);
+}

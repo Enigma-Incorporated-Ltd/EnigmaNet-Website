@@ -6,10 +6,8 @@ import {
   ssoAuthorize,
   type SsoApplication,
 } from '../services/ssoApi';
-import {
-  navigateLaunchTab,
-  writeLaunchPendingTab,
-} from '../utils/launchUi';
+import { navigateLaunchTab, writeLaunchPendingTab } from '../utils/launchUi';
+import './AppCard.css';
 
 interface AppCardProps {
   app: SsoApplication;

@@ -1,3 +1,5 @@
+import './ErrorModal.css';
+
 interface ErrorModalProps {
   isOpen: boolean;
   message?: string | null;
