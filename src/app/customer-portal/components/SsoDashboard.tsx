@@ -458,7 +458,7 @@ export default function SsoDashboardPage({
                       fillRule="evenodd"
                       clipRule="evenodd"
                       d="M2.41379 8.485L9.48479 15.556L8.07079 16.97L0.292786 9.192C0.105315 9.00447 0 8.75016 0 8.485C0 8.21984 0.105315 7.96553 0.292786 7.778L8.07079 0L9.48479 1.414L2.41379 8.485Z"
-                      fill={theme === 'light' ? 'url(#paint0_linear_720_449)' : '#2ADEFF'}
+                      fill="url(#paint0_linear_720_449)"
                     />
                     <defs>
                       <linearGradient id="paint0_linear_720_449" x1="-0.00811359" y1="8.485" x2="9.48479" y2="8.485" gradientUnits="userSpaceOnUse">
