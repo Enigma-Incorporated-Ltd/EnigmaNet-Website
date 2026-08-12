@@ -1,16 +1,8 @@
-# Build and deploy to Azure App Service by branch:
+# Deploy by branch:
 #   - main               → EnigmaWebsiteDev  (https://enigmawebsitedev.azurewebsites.net)
+#                          secret: AZURE_WEBAPP_PUBLISH_PROFILE_ENIGMA_WEBSITE
 #   - production-release → EnigmaWebsiteProd (https://enigmawebsiteprod.azurewebsites.net)
-#
-# Secrets required:
-#   - AZURE_WEBAPP_PROD_PUBLISH_PROFILE_ENIGMA_WEBSITE  (EnigmaWebsiteProd)
-#   - AZURE_WEBAPP_DEV_PUBLISH_PROFILE_ENIGMA_WEBSITE   (EnigmaWebsiteDev)
-#
-# To get a publish profile: Azure Portal → App Service → Overview → Get publish profile
-#
-# Optional SBOM secrets:
-#   - DEPENDENCY_TRACK_API_KEY
-#   - DEPENDENCY_TRACK_PROJECT
+#                          secret: AZURE_WEBAPP_PROD_PUBLISH_PROFILE_ENIGMA_WEBSITE
 
 on:
   push:
@@ -18,8 +10,6 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_PROD_NAME: EnigmaWebsiteProd
-  AZURE_WEBAPP_DEV_NAME: EnigmaWebsiteDev
   AZURE_WEBAPP_PACKAGE_PATH: './dist'
   NODE_VERSION: '20.x'
   POSTHOG_CLI_API_KEY: ${{ secrets.POSTHOG_CLI_API_KEY }}
@@ -32,10 +22,6 @@ env:
 
 permissions:
   contents: read
-
-concurrency:
-  group: azure-website-deploy-${{ github.ref }}
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -70,9 +56,6 @@ jobs:
     environment:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    concurrency:
-      group: azure-EnigmaWebsiteDev-deploy
-      cancel-in-progress: false
 
     steps:
     - name: Download artifact from build job
@@ -84,8 +67,8 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ env.AZURE_WEBAPP_DEV_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_DEV_PUBLISH_PROFILE_ENIGMA_WEBSITE }}
+        app-name: EnigmaWebsiteDev
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_ENIGMA_WEBSITE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
   deploy-prod:
@@ -97,9 +80,6 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    concurrency:
-      group: azure-EnigmaWebsiteProd-deploy
-      cancel-in-progress: false
 
     steps:
     - name: Download artifact from build job
@@ -111,6 +91,6 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ env.AZURE_WEBAPP_PROD_NAME }}
+        app-name: EnigmaWebsiteProd
         publish-profile: ${{ secrets.AZURE_WEBAPP_PROD_PUBLISH_PROFILE_ENIGMA_WEBSITE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
