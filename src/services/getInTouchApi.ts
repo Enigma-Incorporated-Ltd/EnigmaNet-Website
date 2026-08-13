@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-export const useGetInTouchApi = () => {
+export const useGetInTouchApi = (isLead: boolean = false) => {
   const [successMessage, setSuccessMessage] = useState('');
+
   const [errors, setErrors] = useState({
     company: '',
     email: '',
@@ -9,6 +10,7 @@ export const useGetInTouchApi = () => {
     lastname: '',
     jobtitle: '',
     message: '',
+    telephoneNumber: '',
   });
 
   const [formData, setFormData] = useState({
@@ -18,11 +20,16 @@ export const useGetInTouchApi = () => {
     lastname: '',
     jobtitle: '',
     message: '',
+    numberOfSites: '',
+    telephoneNumber: '',
+    mainInfrastructurePriority: '',
   });
+
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+
   const validate = () => {
-    let newErrors: any = {};
+    const newErrors: any = {};
 
     if (!formData.company.trim()) {
       newErrors.company = 'Company name is required';
@@ -30,7 +37,7 @@ export const useGetInTouchApi = () => {
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Enter a valid email';
     }
 
@@ -46,8 +53,19 @@ export const useGetInTouchApi = () => {
       newErrors.jobtitle = 'Job title is required';
     }
 
-    if (!formData.message.trim()) {
+    // Message is required only when isLead is false
+    if (!isLead && !formData.message.trim()) {
       newErrors.message = 'Message cannot be empty';
+    }
+
+    // Telephone number is OPTIONAL.
+    // Validate only if the user has entered a value.
+    if (formData.telephoneNumber.trim() && formData.telephoneNumber.length < 10) {
+      newErrors.telephoneNumber = 'Enter a valid telephone number';
+    }
+
+    if (formData.telephoneNumber.trim() && formData.telephoneNumber.length > 15) {
+      newErrors.telephoneNumber = 'Telephone number cannot exceed 15 digits';
     }
 
     setErrors(newErrors);
@@ -58,20 +76,68 @@ export const useGetInTouchApi = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
-    // update form data
+    // Telephone number: numbers only, maximum 15 digits
+    const updatedValue = name === 'telephoneNumber' ? value.replace(/\D/g, '').slice(0, 15) : value;
+
+    // Update form data
     setFormData(prev => ({
       ...prev,
-      [name]: value,
+      [name]: updatedValue,
     }));
 
-    // validate this field only
-    setErrors((prev: any) => {
+    // Validate this field only
+    setErrors(prev => {
       let error = '';
 
-      if (!value.trim()) {
-        error = `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
+      // Telephone number is optional
+      if (name === 'telephoneNumber') {
+        if (updatedValue.trim()) {
+          if (updatedValue.length < 10) {
+            error = 'Enter a valid telephone number';
+          } else if (updatedValue.length > 15) {
+            error = 'Telephone number cannot exceed 15 digits';
+          }
+        }
+
+        return {
+          ...prev,
+          [name]: error,
+        };
+      }
+
+      // Required field validation
+      if (!updatedValue.trim()) {
+        switch (name) {
+          case 'company':
+            error = 'Company name is required';
+            break;
+
+          case 'email':
+            error = 'Email is required';
+            break;
+
+          case 'firstname':
+            error = 'First name is required';
+            break;
+
+          case 'lastname':
+            error = 'Last name is required';
+            break;
+
+          case 'jobtitle':
+            error = 'Job title is required';
+            break;
+
+          case 'message':
+            error = isLead ? '' : 'Message cannot be empty';
+            break;
+
+          default:
+            error = 'This field is required';
+        }
       } else {
-        if (name === 'email' && !/\S+@\S+\.\S+/.test(value)) {
+        // Email validation
+        if (name === 'email' && !/\S+@\S+\.\S+/.test(updatedValue)) {
           error = 'Enter a valid email';
         }
       }
@@ -83,7 +149,7 @@ export const useGetInTouchApi = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validate()) return;
@@ -92,30 +158,54 @@ export const useGetInTouchApi = () => {
 
     const fullName = `${formData.firstname} ${formData.lastname}`.trim();
 
-    const payload = {
-      companyName: formData.company,
-      email: formData.email,
-      fullName,
-      jobTitle: formData.jobtitle,
-      message: formData.message,
-    };
+    // Only send fields that are not empty
+    const payload = Object.fromEntries(
+      Object.entries({
+        companyName: formData.company,
+        email: formData.email,
+        fullName,
+        jobTitle: formData.jobtitle,
+        message: formData.message,
+        numberOfSites: formData.numberOfSites,
+        telephoneNumber: formData.telephoneNumber,
+        mainInfrastructurePriorityId: formData.mainInfrastructurePriority,
+      }).filter(([_, value]) => value?.trim() !== '')
+    );
 
     try {
       const res = await fetch(import.meta.env.VITE_GET_IN_TOUCH_API_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json();
-      setSuccessMessage(data.message);
+      // Safely handle empty/non-JSON response
+      const text = await res.text();
+
+      let data: any = {};
+
+      if (text) {
+        try {
+          data = JSON.parse(text);
+        } catch {
+          data = {
+            message: text,
+          };
+        }
+      }
+
       if (res.ok) {
+        setSuccessMessage(data?.message || 'Your request has been submitted successfully.');
         setSubmitted(true);
       } else {
-        console.error(data);
+        console.error('API Error:', data);
+
+        setSuccessMessage(data?.message || 'Something went wrong. Please try again.');
       }
     } catch (err) {
-      console.error(err);
+      console.error('Submit error:', err);
     } finally {
       setSending(false);
     }
