@@ -619,10 +619,10 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
           links: [
             { label: 'TrueCost', href: '/truecost' },
             { label: 'Hot storage TCO Calculator', href: '/hot-storage-tco-calculator' },
-            // {
-            //   label: 'Infrastructure Resilience Check',
-            //   href: '/infrastructure-resilience-check',
-            // },
+            {
+              label: 'Infrastructure Resilience Check',
+              href: '/infrastructure-resilience-check',
+            },
           ],
         },
       ],

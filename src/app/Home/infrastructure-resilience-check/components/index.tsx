@@ -12,7 +12,7 @@ import block3 from '@/assets/svgs/secure-cloud/Solution capabilities - Predictab
 import FlowListCard from '@/components/ui/FlowListCard';
 import { channel, providersPartners } from '@/assets/img';
 import CardWithUseCase, { type CardItem } from '@/components/ui/CardWithUseCase';
-// import Lead from './Lead';
+import Lead from './Lead';
 import CTA from '@/components/ui/CtaBand';
 
 const Core = [
@@ -412,7 +412,6 @@ const InfrastructureResilienceCheckPage = () => {
             />
           </>
         }
-       
         description={assessmentData.description}
         list={assessmentData.list}
       />
@@ -490,7 +489,7 @@ const InfrastructureResilienceCheckPage = () => {
           </>
         }
       />
-      {/* <Lead
+      <Lead
         title={
           <>
             <HeaderTitle
@@ -506,7 +505,7 @@ const InfrastructureResilienceCheckPage = () => {
             category scores, priority findings and recommended next steps.
           </div>
         }
-      /> */}
+      />
       <CTA
         theme={theme}
         showButtons

@@ -178,7 +178,7 @@ export const performanceNetworking = [
     slug: 'tcp-acceleration',
     description:
       'TCP Acceleration is a core APN capability that improves single-flow throughput by replacing legacy TCP congestion behaviour inside Enigma’s encrypted tunnel, helping traffic run closer to line rate even when latency, packet loss or distance would normally slow it down.',
-    image: startup3,
+    image: Commond,
   },
   {
     id: 4,
@@ -187,7 +187,7 @@ export const performanceNetworking = [
     slug: 'rain-resilience',
     description:
       'RAIN duplicates priority traffic across independent paths inside the encrypted APN tunnel,helping Enigma Net maintain session continuity, reduce effective packet loss and protect real-time services when underlying links degrade.',
-    image: startup3,
+    image: aiInfra,
   },
   {
     id: 5,
@@ -196,7 +196,7 @@ export const performanceNetworking = [
     slug: 'multi-link-bonding',
     description:
       'Multi-Link Bonding combines up to eight circuits per site into a single APN overlay, allowing applications to use one logical path while Enigma manages bandwidth aggregation, path scheduling, packet ordering and failover underneath.',
-    image: startup3,
+    image: HeroHub,
   },
   {
     id: 6,
@@ -205,7 +205,7 @@ export const performanceNetworking = [
     slug: 'intelligent-traffic-management',
     description:
       'Intelligent Traffic Management monitors link quality, classifies traffic and adapts routing, QoS and resilience decisions in real time, helping Enigma products keep critical applications responsive across fibre, broadband, 4G, 5G, satellite and mixed networks.',
-    image: startup3,
+    image: HeroSyncSphere,
   },
 ];
 
@@ -217,7 +217,7 @@ export const connectivityProducts = [
     slug: 'enigma-connect',
     description:
       'Enigma Connect gives individuals and small teams encrypted, optimised connectivity using the same APN acceleration engine that powers Enigma’s enterprise products — delivered through a lightweight desktop and mobile client.',
-    image: startup3,
+    image: aiInfra,
   },
   {
     id: 2,
