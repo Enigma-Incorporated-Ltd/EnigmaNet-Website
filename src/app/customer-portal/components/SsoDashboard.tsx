@@ -7,6 +7,8 @@ import PortalHeader from './PortalHeader';
 import RecentActivityView from './RecentActivity';
 import HealthSummaryView from './HealthSummary';
 import DashboardOverview from './DashboardOverview';
+import Marketplace from './Marketplace';
+
 
 interface SsoDashboardProps {
   session: SsoSession;
@@ -74,6 +76,8 @@ export default function SsoDashboardPage({
             <RecentActivityView setActiveNav={setActiveNav} />
           ) : activeNav === 'health' ? (
             <HealthSummaryView setActiveNav={setActiveNav} />
+          ) : activeNav === 'marketplace' ? (
+            <Marketplace setActiveNav={setActiveNav} />
           ) : (
             <DashboardOverview
               displayName={displayName}
