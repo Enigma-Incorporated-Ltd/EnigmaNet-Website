@@ -802,9 +802,9 @@ html[data-bs-theme="light"] .portal-sidebar__copyright {
   align-items: center;
   gap: 10px;
   border-radius: 4px;
-  background: var(--portal-search-bg);
+  background: rgba(42, 222, 255, 0.10);
   border: 1px solid var(--portal-search-border);
-  box-shadow: var(--portal-search-shadow);
+  box-shadow: 0 1px 2px 0 rgba(0, 35, 152, 0.40);
   box-sizing: border-box;
 }
 
