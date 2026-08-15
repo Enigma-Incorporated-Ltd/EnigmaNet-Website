@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Card, Col, Container, Dropdown, Form, Row } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 import '../../../company/blog-insight/components/contact.css';
 import PremiumButton from '@/components/ui/PremiumButton';
@@ -12,8 +12,17 @@ interface LeadProps {
 }
 const Lead = ({ title, description }: LeadProps) => {
   const { theme } = useTheme();
-  const { handleSubmit, submitted, sending, errors, handleChange, formData } = useGetInTouchApi();
+  const { handleSubmit, submitted, sending, errors, handleChange, formData, successMessage } =
+    useGetInTouchApi(true);
 
+ 
+  const interestOptions = [
+    { value: '10711', label: 'Network Reliability & Uptime' },
+    { value: '10712', label: 'Cloud Infrastructure/Migration' },
+    { value: '10713', label: 'Cybersecurity' },
+    { value: '10714', label: 'IT Support & Helpdesk' },
+    { value: '10715', label: 'Other' },
+  ];
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -52,7 +61,7 @@ const Lead = ({ title, description }: LeadProps) => {
                 {submitted ? (
                   <div className="success-state">
                     <div className="success-icon">✓</div>
-                    <p className="success-title">You're subscribed!</p>
+                    <p className="success-title">{successMessage}</p>
                   </div>
                 ) : (
                   <Form className="row g-3" onSubmit={handleSubmit}>
@@ -125,7 +134,7 @@ const Lead = ({ title, description }: LeadProps) => {
                         {errors.jobtitle}
                       </Form.Control.Feedback>
                     </Col>
-                    {/* <Col xs={12} md={6}>
+                    <Col xs={12} md={6}>
                       <Form.Label>Number of sites </Form.Label>
                       <Form.Control
                         name="numberOfSites"
@@ -151,15 +160,65 @@ const Lead = ({ title, description }: LeadProps) => {
                       </Form.Control.Feedback>
                     </Col>
                     <Col xs={12} md={6}>
-                      <Form.Label>Main infrastructure priority </Form.Label>
-                      <Form.Control
-                        name="mainInfrastructurePriority"
-                        type="text"
-                        placeholder="Main infrastructure priority"
-                        value={formData.mainInfrastructurePriority}
-                        onChange={handleChange}
-                      />
-                    </Col> */}
+                      <Form.Group>
+                        <Form.Label>Main infrastructure priority</Form.Label>
+
+                        <Dropdown autoClose="outside">
+                          <Dropdown.Toggle
+                            as="div"
+                            className="interest-dropdown"
+                            id="interest-dropdown"
+                          >
+                            <span className="interest-placeholder">
+                              {formData.mainInfrastructurePriority
+                                ? interestOptions.find(
+                                    item => item.value === formData.mainInfrastructurePriority
+                                  )?.label
+                                : 'Select Infrastructure Priority'}
+                            </span>
+
+                            <span className="interest-icon">&#9662;</span>
+                          </Dropdown.Toggle>
+
+                          <Dropdown.Menu className="interest-menu">
+                            {interestOptions.map(item => (
+                              <Dropdown.Item
+                                key={item.value}
+                                as="div"
+                                onClick={() => {
+                                  const syntheticEvent = {
+                                    target: {
+                                      name: 'mainInfrastructurePriority',
+                                      value: item.value,
+                                    },
+                                  } as React.ChangeEvent<HTMLInputElement>;
+
+                                  handleChange(syntheticEvent);
+                                }}
+                              >
+                                <Form.Check
+                                  type="checkbox"
+                                  name="mainInfrastructurePriority"
+                                  id={`priority-${item.value}`}
+                                  label={item.label}
+                                  checked={formData.mainInfrastructurePriority === item.value}
+                                  onChange={() => {
+                                    const syntheticEvent = {
+                                      target: {
+                                        name: 'mainInfrastructurePriority',
+                                        value: item.value,
+                                      },
+                                    } as React.ChangeEvent<HTMLInputElement>;
+
+                                    handleChange(syntheticEvent);
+                                  }}
+                                />
+                              </Dropdown.Item>
+                            ))}
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </Form.Group>
+                    </Col>
                     <p className="fs-sm text-muted">
                       By submitting this form, you agree to receive your assessment results and
                       relevant Enigma Net information. You can unsubscribe at any time.{' '}

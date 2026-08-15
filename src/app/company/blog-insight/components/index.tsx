@@ -6,7 +6,7 @@ import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 
 import Br from '@/components/ui/NewLine';
-import { GridHero } from '@/assets/img/products';
+import { GridHero, HeroHub } from '@/assets/img/products';
 import {
   AssetInformationGetsScattered,
   AutomationNeedsTrusted,
@@ -19,6 +19,9 @@ import {
 import BlogCard, { type BlogPost } from '@/components/ui/BlogCard';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import NewsLetter from './NewsLetter';
+import { leadershipLanding } from '@/assets/img/company';
+import { aiInfra } from '@/assets/img';
+import { startup3 } from '@/assets/img/partners/inddex';
 
 const Core = [
   {
@@ -125,7 +128,7 @@ const featuredPosts: BlogPost[] = [
     summary:
       'AI workloads depend on more than GPU availability. Data movement, network performance, storage access and pipeline stability all affect how efficiently infrastructure performs.  ',
     category: 'AI infrastructure  ',
-    image: GridHero,
+    image: aiInfra,
     date: 'July 2, 2026',
     readingTime: '5 min read',
   },
@@ -138,7 +141,7 @@ const latestPosts: BlogPost[] = [
     summary:
       'Why data movement, storage, networking and infrastructure design matter as AI workloads scale.  ',
     category: 'AI infrastructure  ',
-    image: GridHero,
+    image: aiInfra,
     date: 'July 2, 2026',
     readingTime: '5 min read',
     buttonText: ' Read more  ',
@@ -150,7 +153,7 @@ const latestPosts: BlogPost[] = [
     summary:
       'How large datasets, distributed teams and cloud platforms expose hidden infrastructure friction.  ',
     category: 'Data movement  ',
-    image: GridHero,
+    image: startup3,
     date: 'July 2, 2026',
     readingTime: '5 min read',
     buttonText: ' Read more  ',
@@ -174,7 +177,7 @@ const latestPosts: BlogPost[] = [
     summary:
       'How free cloud credits can hide infrastructure cost pressure until product usage starts growing.    ',
     category: 'Cloud cost  ',
-    image: GridHero,
+    image: HeroHub,
     date: 'July 2, 2026',
     readingTime: '5 min read',
     buttonText: ' Read more  ',
@@ -199,7 +202,7 @@ const BlogInsightPage = () => {
         title={<>Insights on data movement, AI infrastructure and performance bottlenecks.</>}
         description="Explore Enigma Net perspectives on the infrastructure problems that slow down AI workloads,   
 cloud environments, data pipelines and distributed systems.  "
-        image={GridHero}
+        image={leadershipLanding}
         buttons={[
           {
             label: 'Read latest insights  ',
