@@ -1,6 +1,5 @@
 /* ================================================================
-   Enigma Customer Portal — SSO Dashboard Styles
-   Color tokens: #000b1a, #00254a, #0088cc, #2adeff (unchanged)
+   Enigma Customer Portal — SSO Dashboard Styles (Global Tokens & Shell)
    ================================================================ */
 
 :root {
@@ -103,10 +102,14 @@ body {
   overflow-x: hidden;
 }
 
+/* ---------------------------------------------------------------
+   Page & Column Shell Layouts
+   ---------------------------------------------------------------- */
 .portal-layout {
   min-height: calc(100vh - 64px);
-  max-width: calc(100vw - 64px);
-  margin: 32px;
+  max-width: 1244px;
+  width: calc(100vw - 64px);
+  margin: 32px auto;
   background: var(--portal-bg);
   border: 1px solid var(--portal-frame-border);
   backdrop-filter: blur(10px);
@@ -120,10 +123,24 @@ body {
   gap: 62px;
 }
 
+.portal-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.portal-content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  box-sizing: border-box;
+}
+
 /* ---------------------------------------------------------------
    Shared loading & spinner
    ---------------------------------------------------------------- */
-
 @keyframes portal-spin {
   to {
     transform: rotate(360deg);
@@ -163,7 +180,6 @@ body {
 /* ---------------------------------------------------------------
    Login Page
    ---------------------------------------------------------------- */
-
 .portal-login {
   display: flex;
   align-items: center;
@@ -802,9 +818,9 @@ html[data-bs-theme="light"] .portal-sidebar__copyright {
   align-items: center;
   gap: 10px;
   border-radius: 4px;
-  background: rgba(42, 222, 255, 0.10);
+  background: var(--portal-search-bg);
   border: 1px solid var(--portal-search-border);
-  box-shadow: 0 1px 2px 0 rgba(0, 35, 152, 0.40);
+  box-shadow: var(--portal-search-shadow);
   box-sizing: border-box;
 }
 
