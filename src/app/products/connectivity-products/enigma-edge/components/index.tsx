@@ -29,7 +29,7 @@ import NextPageSlider from '@/components/ui/NextPageSlider';
 import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
-import { ApnCoreHero, GridHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero, GridHero } from '@/assets/img/products';
 import WorkSteps from '@/components/ui/workSteps';
 import PricingCard from '@/components/ui/PricingCard';
 import AddOnCard from '@/components/ui/AddOnCard';
@@ -61,7 +61,7 @@ const features = [
       title: 'ESC – Secure Networking',
       description: 'The secure core and control fabric that EDGE nodes connect into.  ',
     },
-    image: GridHero,
+    image: EscHero,
   },
   {
     id: 3,

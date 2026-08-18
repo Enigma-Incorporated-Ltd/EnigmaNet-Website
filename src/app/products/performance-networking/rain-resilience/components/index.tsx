@@ -11,7 +11,7 @@ import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero } from '@/assets/img/products';
 
 const features = [
   {
@@ -75,7 +75,7 @@ const features = [
     href: '/products/performance-networking/esc-secure-networking',
     slug: 'esc-secure-networking',
     description: 'Delivers RAIN as part of secure overlay networking and resilience packaging.    ',
-    image: heroImg,
+    image: EscHero,
     meta: {
       title: 'ESC – Secure Networking  ',
       description:

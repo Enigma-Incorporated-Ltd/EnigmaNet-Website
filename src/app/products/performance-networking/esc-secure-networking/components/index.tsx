@@ -3,9 +3,6 @@ import HeroSection from '@/components/ui/HeroSection';
 import { enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
@@ -14,7 +11,8 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero, Commond, GridHero } from '@/assets/img/products';
+import { ApnCoreHero, Commond, EscHero, EseLandingImg, GridHero } from '@/assets/img/products';
+import { APNCore, CloudAndData, CloudRouting, ControlledManagement, EncrypedTunnel, EnigmaConnect, ESC, ESCEdge, IotAndScada, ISPAndMSP, KeyManagement, leavetransport, LicensingAndKeys, LiveTunnel, MPLSAugmentation, MultiTenant, Multitenantoperations, NextworkRequirment, Nexus, Observability, ObservabilityAndControl, OEMCArrier, OSandKernel, Privateoverlaydeployments, ProvisioningAndManagement, QualityMonitoring, RemoteControl, RuntimeLibraries, SecureOverlay, SNMPIntegration, TenantSegentation, TradingHealthCare, Underlaysareinconsistent, ZeroTrust } from '@/assets/svgs/products/performance-networking/esc-secure-networking';
 const features = [
   {
     id: 1,
@@ -166,34 +164,34 @@ const featuresChild = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: Underlaysareinconsistent,
     title: 'Underlays are inconsistent  ',
     description: `Performance varies across ISPs, access types, regions, clouds and edge locations.  `,
   },
   {
     id: 2,
-    icon: block3,
+    icon: leavetransport,
     title: 'SD-WAN can still leave transport issues exposed  ',
     description:
       'Failover and routing do not always solve TCP loss, jitter, delay or real-time traffic degradation.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: Privateoverlaydeployments,
     title: 'Private overlay deployments are complex ',
     description:
       'Customers need secure tunnels, segmentation, provisioning and policy without rebuilding every network.  ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Multitenantoperations,
     title: 'Multi-tenant operations need control  ',
     description:
       'Service providers and enterprises need tenant separation, policy enforcement and clear operational boundaries.  ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: Observability,
     title: 'Observability is often fragmented  ',
     description:
       'Teams need live tunnel, link, licence and quality data across every deployment model.   ',
@@ -202,32 +200,32 @@ const Core = [
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: APNCore,
     title: 'APN Core behaviour   ',
     description: `TCP acceleration, byte-level QoS, bonding, RAIN and tunnel resilience.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: SecureOverlay,
     title: 'Secure overlay networking   ',
     description: `Encrypted tunnels, private overlays, tenant segmentation and route realm separation.    `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: ProvisioningAndManagement,
     title: 'Provisioning and management   ',
     description: 'Configuration push, licensing, remote actions and policy-based deployment.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: MultiTenant,
     title: 'Multi-tenant service delivery  ',
     description:
       'Tenant-aware overlays for telecoms, enterprises, MSPs and platform integrations.  ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: ObservabilityAndControl,
     title: 'Observability and control   ',
     description: 'Live tunnel statistics, SNMP integration, vibe-stat metrics and NOC visibility. ',
   },
@@ -235,28 +233,28 @@ const data2 = [
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: EnigmaConnect,
     title: 'Enigma Connect  ',
     description: `Self-serve thin clients and small edge devices terminate into ESC to give individuals and small   
 offices APN-quality connectivity without network design.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: ESCEdge,
     title: 'Enigma EDGE  ',
     description: `Managed CPE, gateways and virtual appliances connect branches, data centres, clouds and IoT   
 networks into ESC.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: ESC,
     title: 'ESC – Secure Networking  ',
     description:
       'The core fabric and control plane that endpoints home into. It can run as Enigma-hosted SaaS, customer-hosted cloud VM or on-prem appliance.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: OEMCArrier,
     title: 'OEM / Carrier / IoT integrations   ',
     description:
       'Partners can embed or connect APN-powered services into ESC for branded, vertical or fleet-based deployments.   ',
@@ -265,34 +263,34 @@ networks into ESC.  `,
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: OSandKernel,
     title: 'OS and kernel ',
     description: `Recent Linux distribution with TUN/TAP support and netfilter / conntrack enabled.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: RuntimeLibraries,
     title: 'Runtime libraries   ',
     description:
       'Core dependencies for configuration parsing, kernel integration and cryptography.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: LicensingAndKeys,
     title: 'Licensing and keys    ',
     description: 'Licence file and asymmetric key storage for APN v6 and later environments.      ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: NextworkRequirment,
     title: 'Network requirements  ',
     description:
       'Required UDP ports open between ESC core and CPE, with routing policies aligned to the deployment environment.    ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: CloudRouting,
     title: 'Cloud routing  ',
     description:
       'In EC2 or similar environments, policy routing ensures traffic exits through the correct interface and public IP.     ',
@@ -301,7 +299,7 @@ const data4 = [
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: MPLSAugmentation,
     title: 'MPLS augmentation or replacement    ',
     description: `Create an internet overlay that supports high-availability targets without relying solely on   
 private circuits.   `,
@@ -309,28 +307,28 @@ private circuits.   `,
 
   {
     id: 2,
-    icon: block3,
+    icon: ISPAndMSP,
     title: 'ISP and MSP SD-WAN services    ',
     description:
       'Allow service providers to package ESC under their own commercial and support model.    ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: TradingHealthCare,
     title: 'Trading, healthcare, broadcast and industrial control  ',
     description:
       'Support environments where jitter, packet loss or degraded real-time traffic is operationally unacceptable.     ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: IotAndScada,
     title: 'IoT and SCADA overlays ',
     description:
       'Tunnel telemetry and control traffic from lightweight gateways back to a secure ESC hub.     ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: CloudAndData,
     title: 'Cloud and data centre interconnect  ',
     description:
       'Connect branches, cloud environments, enterprise hubs and regional POPs through encrypted APN tunnels.   ',
@@ -339,34 +337,34 @@ private circuits.   `,
 const data6 = [
   {
     id: 1,
-    icon: block1,
+    icon: LiveTunnel,
     title: 'Live tunnel statistics      ',
     description: `View tunnel state, link quality, RTT, jitter and licence state.    `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: SNMPIntegration,
     title: 'SNMP integration     ',
     description: 'Use vibeSNMP and dedicated MIBs for NOC-grade monitoring.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: RemoteControl,
     title: 'Remote control functions    ',
     description:
       'Push configuration, request licence actions, reboot nodes or trigger upgrades.    ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Nexus,
     title: 'Portal and Nexus integration    ',
     description:
       'Expose ESC health and operational data through Connect, EDGE, Nexus Command and NOC tooling.   ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: QualityMonitoring,
     title: 'Quality monitoring   ',
     description:
       'Track jitter, RTT, tunnel quality and degradation patterns across links and remotes.  ',
@@ -375,34 +373,34 @@ const data6 = [
 const data7 = [
   {
     id: 1,
-    icon: block1,
+    icon: EncrypedTunnel,
     title: 'Encrypted tunnels  ',
     description: `Traffic is protected using strong cryptography through OpenSSL and GNU crypto libraries.   `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: KeyManagement,
     title: 'Key management    ',
     description:
       'Keys are stored in defined APN key directories, with APN v6 and later using asymmetric key handling.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: TenantSegentation,
     title: 'Tenant segmentation   ',
     description: 'vpn_id and route_realm options segment traffic into isolated overlays.    ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: ZeroTrust,
     title: 'Zero-trust alignment   ',
     description:
       'ESC can support designs where policy, identity and device posture control access.   ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: ControlledManagement,
     title: 'Controlled management plane   ',
     description:
       'Provisioning, licence and remote actions are handled through controlled management interfaces.    ',
@@ -641,14 +639,13 @@ const SecureNetworking = () => {
         description="ESC – Secure Networking delivers Enigma’s APN Core as a multi-tenant software and SaaS   
         platform, enabling private overlay networking, SD-WAN-style control, traffic acceleration,   
         bonding, RAIN resilience and secure connectivity across any IP network.   "
-        image={heroImg}
+        image={EscHero}
         buttons={[
           {
             label: 'Talk to Enigma',
             href: '/get-in-touch',
             variant: 'blue',
             disableSentenceCase: true,
-            
           },
         ]}
         features={[
@@ -664,7 +661,7 @@ const SecureNetworking = () => {
               key={theme}
               title={
                 <>
-                  Modern networks need more than connectivity. <Br isDesktop  />
+                  Modern networks need more than connectivity. <Br isDesktop />
                   They need controlled performance over any underlay
                 </>
               }
@@ -768,7 +765,7 @@ const SecureNetworking = () => {
         }
       />
       <CaseStudyHighlight
-        image={heroImg}
+        image={EseLandingImg}
         title={
           <>
             <HeaderTitle
