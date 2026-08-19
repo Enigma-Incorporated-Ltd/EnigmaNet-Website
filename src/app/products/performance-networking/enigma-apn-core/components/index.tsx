@@ -11,7 +11,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero, Commond, GridHero } from '@/assets/img/products';
+import { ApnCoreHero, Commond, EscHero, GridHero } from '@/assets/img/products';
 import {
   AndPlus,
   APNCoreimprovesContinuoustelemetry,
@@ -87,7 +87,7 @@ const features = [
       description:
         'SaaS overlay delivery of APN Core for remote users, thin clients and devices.   ',
     },
-    image: heroImg,
+    image: EscHero,
   },
   {
     id: 4,
