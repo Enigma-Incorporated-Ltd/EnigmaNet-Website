@@ -13,7 +13,7 @@ import { useSlug } from '@/utils/useSlug';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -78,7 +78,7 @@ const features = [
     href: '/products/performance-networking/esc-secure-networking',
     slug: 'esc-secure-networking',
     description: 'Delivers bonding through secure overlay networking and deployment profiles.  ',
-    image: heroImg,
+    image: EscHero,
     meta: {
       title: 'ESC – Secure Networking  ',
       description: 'Delivers bonding through secure overlay networking and deployment profiles.  ',

@@ -5,7 +5,6 @@ import {
   AccordionBody,
   AccordionHeader,
   AccordionItem,
-  Container,
 } from 'react-bootstrap';
 import './faq.css';
 type FaqsProps = {
@@ -15,14 +14,14 @@ type FaqsProps = {
 
 type FaqType = {
   faqs: FaqsProps[];
-  sectionTitle: string | React.ReactNode;
-  title: string | React.ReactNode;
+  sectionTitle?: string | React.ReactNode;
+  title?: string | React.ReactNode;
 };
 const Faqs = ({ faqs, sectionTitle, title }: FaqType) => {
   const [activeKey, setActiveKey] = useState<string | null>('0');
   const { theme } = useTheme();
   return (
-    <Container className="pt-5  mb-lg-2">
+    <div className="pt-5  mb-lg-2">
       <div
         className="py-2 container-sm  py-md-4 py-lg-5"
         style={{
@@ -57,7 +56,7 @@ const Faqs = ({ faqs, sectionTitle, title }: FaqType) => {
           ))}
         </Accordion>
       </div>
-    </Container>
+    </div>
   );
 };
 

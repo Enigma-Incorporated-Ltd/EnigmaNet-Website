@@ -36,7 +36,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import Br from '@/components/ui/NewLine';
 import { useEffect, useState } from 'react';
-import { ApnCoreHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -64,7 +64,7 @@ const features = [
       title: 'ESC – Secure Networking',
       description: 'Secure overlay networking deployments monitored and controlled through Nexus. ',
     },
-    image: heroImg,
+    image: EscHero,
   },
   {
     id: 3,

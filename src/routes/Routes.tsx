@@ -241,7 +241,7 @@ const Docs = lazy(() => import('@/app/docs'));
 const DeveloperPortal = lazy(() => import('@/app/developer-portal'));
 const CustomerPortal = lazy(() => import('@/app/customer-portal'));
 const Status = lazy(() => import('@/app/status'));
-const InfrastructureResilienceCheck = lazy(() => import('@/app/Home/infrastructure-resilience-check'));
+// const InfrastructureResilienceCheck = lazy(() => import('@/app/Home/infrastructure-resilience-check'));
 export const AllRoutes = [
   // Home
   { path: '/', name: 'index1', element: <Home /> },
@@ -249,7 +249,7 @@ export const AllRoutes = [
   { path: '/smarter-infrastructure', element: <SmartInfrastructure /> },
   { path: '/hosting-secure-cloud', element: <HostingSecureCloud /> },
   { path: '/complete-ai-infrastructure', element: <CompleteAi /> },
-  { path: '/infrastructure-resilience-check', element: <InfrastructureResilienceCheck /> },
+  // { path: '/infrastructure-resilience-check', element: <InfrastructureResilienceCheck /> },
   { path: '/secure-cloud', element: <SecureCloud /> },
   { path: '/secure-networking', element: <SecureNetworking /> },
   { path: '/trueCost', name: 'MigrationCalculator', element: <MigrationCalculator /> },

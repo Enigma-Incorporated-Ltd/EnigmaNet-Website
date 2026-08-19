@@ -15,7 +15,7 @@ import { useSlug } from '@/utils/useSlug';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import GraphTable from './GraphTable';
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -45,7 +45,7 @@ const features = [
       description:
         'Delivers APN Core and TCP-A as a software and SaaS secure networking platform.  ',
     },
-    image: heroImg,
+    image: EscHero,
   },
   {
     id: 3,

@@ -18,7 +18,7 @@ const Feature = () => {
         <li className="d-flex fs-xl mx-3 mt-2 mt-sm-3">
           <span>
             Unpredictable performance, rising transfer costs, and fragile connectivity <br /> are
-            slowing down organisations — whether they're training models,
+            slowing down organisations, whether they're training models,
             <br /> connecting distributed sites, or running mission-critical operations. Most
             <br />
             infrastructure wasn't built for this.
