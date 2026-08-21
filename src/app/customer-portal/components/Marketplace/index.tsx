@@ -21,9 +21,58 @@ export interface Product {
     label: string;
     options: string[];
   }[];
+  currencySymbol?: string;
 }
 
 const MOCK_PRODUCTS: Product[] = [
+  {
+    id: 'esc-lite',
+    name: 'ESC Lite',
+    description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
+    price: 99,
+    period: '/site/month',
+    category: 'Multi-site',
+    recommended: true,
+    currencySymbol: '£',
+    features: [
+      'Secure connectivity',
+      'Managed networking',
+      'APN integration',
+      'Centralised policy management',
+      'Monitoring'
+    ],
+    specs: []
+  },
+  {
+    id: 'esc-tenant-base',
+    name: 'ESC Tenant Base',
+    description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
+    price: 150,
+    period: '/tenant/month',
+    category: 'Multi-site',
+    currencySymbol: '£',
+    features: [
+      'Nexus integration & API access',
+      'Global policy engine',
+      'First 5 sites included'
+    ],
+    specs: []
+  },
+  {
+    id: 'esc-pro',
+    name: 'ESC Pro',
+    description: 'Enhanced secure networking for sites requiring higher performance and greater connectivity capacity.',
+    price: 199,
+    period: '/site/month',
+    category: 'Multi-site',
+    currencySymbol: '£',
+    features: [
+      'Up to ~1 Gbps optimised',
+      'Secure & reliable',
+      'Easy to deploy & manage'
+    ],
+    specs: []
+  },
   {
     id: 'edge',
     name: 'EDGE',
@@ -124,7 +173,7 @@ const MOCK_PRODUCTS: Product[] = [
       'POS transaction packet priority queueing',
       'PCI-DSS compliance tunnels by design',
       'Ultra-low bandwidth packet optimization algorithms',
-      'Real-time transaction latency monitoring dashboards'
+      'Real-time transaction transaction latency monitoring dashboards'
     ],
     specs: [
       { label: 'POS Terminal Count', options: ['1-5 terminals', '6-20 terminals (+$20/mo)', 'Enterprise unlimited (+$60/mo)'] }
@@ -141,7 +190,7 @@ const MOCK_PRODUCTS: Product[] = [
     features: [
       'Ruggedized weather-resistant casing (IP65)',
       'Triple-carrier aggregate cellular 5G modems',
-      'Deployable in minutes with portable mast mounts',
+      'Deployable in minutes with portable portable mast mounts',
       'GPS location tracking & network coverage mapping'
     ],
     specs: [
@@ -186,7 +235,13 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
     setSelectedProduct(product);
     
     // Initialize default specs
-    const initialConfig: Record<string, string> = {};
+    const initialConfig: Record<string, string> = {
+      sites: '5',
+      billing: 'Monthly',
+      securityPack: 'false',
+      resiliencePack: 'false',
+      analyticsPack: 'false'
+    };
     product.specs.forEach(spec => {
       initialConfig[spec.label] = spec.options[0];
     });
@@ -245,6 +300,7 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
           product={selectedProduct}
           onBuy={() => setStep('configure')} 
           onBack={() => setStep('list')} 
+          onExploreProduct={handleSelectProduct}
         />
       )}
       {step === 'configure' && selectedProduct && (
