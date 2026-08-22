@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './PaymentBilling.css';
 import type { Product } from '../index';
 
 interface PaymentBillingProps {
@@ -118,8 +119,21 @@ export default function PaymentBilling({ product, config, onContinue, onBack }: 
       {/* Header Area */}
       <div className="details-header-row">
         <button type="button" className="details-back-arrow-btn" onClick={onBack} aria-label="Go back" disabled={loading}>
-          <svg width="12" height="20" viewBox="0 0 12 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="10 2 2 10 10 18" />
+          <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+            <defs>
+              <linearGradient id="backArrowGradPayment" x1="10" y1="2" x2="2" y2="18" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#0066cc" />
+                <stop offset="50%" stopColor="#00a3da" />
+                <stop offset="100%" stopColor="#2adeff" />
+              </linearGradient>
+            </defs>
+            <polyline 
+              points="10 2 2 10 10 18" 
+              stroke="url(#backArrowGradPayment)" 
+              strokeWidth="3" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            />
           </svg>
         </button>
         <div className="details-header-titles">
@@ -401,7 +415,7 @@ export default function PaymentBilling({ product, config, onContinue, onBack }: 
             <div className="sidebar-total-section">
               <div className="total-label">Estimated total</div>
               <div className="total-value">{formatPrice(totalPrice)} /month</div>
-              <div className="total-caption">Billed {billing.toLowerCase()}ly</div>
+              <div className="total-caption">Billed {billing === 'Monthly' ? 'monthly' : 'annually'}</div>
             </div>
 
           </div>

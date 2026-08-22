@@ -1,164 +1,351 @@
+import { useState } from 'react';
+import './ProductDetails.css';
 import type { Product } from '../index';
 
 interface ProductDetailsProps {
   product: Product;
   onBuy: () => void;
   onBack: () => void;
+  onExploreProduct?: (product: Product) => void;
 }
 
-export default function ProductDetails({ product, onBuy, onBack }: ProductDetailsProps) {
-  // Helper to render high quality product illustrations (same SVGs but optimized for Details view)
-  const renderDetailsIllustration = (id: string) => {
+// Define the other family products so we can fetch them for the recommendations
+const FAMILY_PRODUCTS = [
+  {
+    id: 'esc-lite',
+    name: 'ESC Lite',
+    description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
+    price: 99,
+    period: '/site/month',
+    category: 'Multi-site',
+    currencySymbol: '£',
+    features: ['Secure connectivity', 'Managed networking', 'APN integration', 'Centralised policy management', 'Monitoring']
+  },
+  {
+    id: 'esc-tenant-base',
+    name: 'ESC Tenant Base',
+    description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
+    price: 150,
+    period: '/tenant/month',
+    category: 'Multi-site',
+    currencySymbol: '£',
+    features: ['Nexus integration & API access', 'Global policy engine', 'First 5 sites included']
+  },
+  {
+    id: 'esc-pro',
+    name: 'ESC Pro',
+    description: 'Enhanced secure networking for sites requiring higher performance and greater connectivity capacity.',
+    price: 199,
+    period: '/site/month',
+    category: 'Multi-site',
+    currencySymbol: '£',
+    features: ['Up to ~1 Gbps optimised', 'Secure & reliable', 'Easy to deploy & manage']
+  }
+];
+
+export default function ProductDetails({ product, onBuy, onBack, onExploreProduct }: ProductDetailsProps) {
+  const [quoteStatus, setQuoteStatus] = useState<string | null>(null);
+
+  const currency = product.currencySymbol || '$';
+
+  // Get dynamic badges based on product
+  const getBadges = (id: string) => {
     switch (id) {
-      case 'edge':
+      case 'esc-lite':
+        return [
+          { text: 'Up to ~300 Mbps optimised', type: 'speed' },
+          { text: 'Secure & reliable', type: 'security' },
+          { text: 'Easy to deploy & manage', type: 'deploy' }
+        ];
+      case 'esc-tenant-base':
+        return [
+          { text: 'Up to ~500 Mbps optimised', type: 'speed' },
+          { text: 'Dedicated tenancy', type: 'security' },
+          { text: 'Automated API orchestration', type: 'deploy' }
+        ];
+      case 'esc-pro':
+        return [
+          { text: 'Up to ~1 Gbps optimised', type: 'speed' },
+          { text: 'High availability failover', type: 'security' },
+          { text: 'Complete SDN controller mesh', type: 'deploy' }
+        ];
+      default:
+        return [
+          { text: 'High-performance routing', type: 'speed' },
+          { text: 'Enterprise-grade encryption', type: 'security' },
+          { text: 'Zero-touch deployment', type: 'deploy' }
+        ];
+    }
+  };
+
+  const badges = getBadges(product.id);
+
+  // Render SVG icons for badges
+  const renderBadgeIcon = (type: string) => {
+    switch (type) {
+      case 'speed':
         return (
-          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
-            <rect x="12" y="16" width="40" height="32" rx="4" />
-            <rect x="20" y="24" width="24" height="16" rx="2" strokeDasharray="2,2" />
-            <line x1="8" y1="32" x2="12" y2="32" />
-            <line x1="52" y1="32" x2="56" y2="32" />
-            <circle cx="26" cy="32" r="2" fill="#2adeff" />
-            <circle cx="38" cy="32" r="2" fill="#2adeff" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 2a10 10 0 0 0-10 10h2a8 8 0 0 1 8-8V2z" fill="rgba(42,222,255,0.15)" />
+            <path d="M12 4a8 8 0 0 0-8 8h2a6 6 0 0 1 6-6V4z" />
+            <path d="M19.07 4.93a10 10 0 0 0-14.14 0l1.41 1.41a8 8 0 0 1 11.32 0l1.41-1.41z" />
+            <line x1="12" y1="12" x2="16" y2="8" strokeWidth="2.5" strokeLinecap="round" />
+            <circle cx="12" cy="12" r="1.5" fill="currentColor" />
           </svg>
         );
-      case 'large-file-transfer':
+      case 'security':
         return (
-          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
-            <rect x="10" y="16" width="16" height="20" rx="2" />
-            <rect x="38" y="28" width="16" height="20" rx="2" />
-            <path d="M26 26h12v6H26z" fill="rgba(42,222,255,0.1)" />
-            <path d="M38 26l6-6v4M26 32l-6 6v-4" />
-            <circle cx="46" cy="38" r="3" />
-            <circle cx="18" cy="26" r="3" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(42,222,255,0.15)" />
+            <path d="M9 11l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         );
-      case 'single-vpn':
+      case 'deploy':
         return (
-          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
-            <rect x="22" y="28" width="20" height="20" rx="3" />
-            <path d="M27 28v-8a5 5 0 0 1 10 0v8" />
-            <circle cx="32" cy="38" r="2" fill="#2adeff" />
-            <path d="M32 40v3" />
-          </svg>
-        );
-      case 'sdn-mesh':
-        return (
-          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
-            <circle cx="32" cy="14" r="5" fill="#2adeff" />
-            <circle cx="16" cy="46" r="5" />
-            <circle cx="48" cy="46" r="5" />
-            <line x1="32" y1="19" x2="16" y2="41" />
-            <line x1="32" y1="19" x2="48" y2="41" />
-            <line x1="21" y1="46" x2="43" y2="46" />
-          </svg>
-        );
-      case 'ha-gateway':
-        return (
-          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
-            <rect x="14" y="10" width="36" height="18" rx="2" />
-            <rect x="14" y="36" width="36" height="18" rx="2" />
-            <circle cx="22" cy="19" r="2" fill="#2adeff" />
-            <circle cx="22" cy="45" r="2" fill="#2adeff" />
-            <line x1="32" y1="28" x2="32" y2="36" strokeDasharray="3,3" />
-          </svg>
-        );
-      case 'pos-wan':
-        return (
-          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
-            <rect x="16" y="24" width="32" height="24" rx="3" />
-            <line x1="16" y1="38" x2="48" y2="38" />
-            <circle cx="24" cy="31" r="2" />
-            <circle cx="32" cy="31" r="2" />
-            <circle cx="40" cy="31" r="2" />
-          </svg>
-        );
-      case 'construction-modem':
-        return (
-          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
-            <rect x="20" y="28" width="24" height="26" rx="2" />
-            <line x1="32" y1="28" x2="32" y2="12" />
-            <circle cx="32" cy="12" r="3" fill="#2adeff" />
-          </svg>
-        );
-      case 'remote-access':
-        return (
-          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
-            <rect x="14" y="22" width="36" height="22" rx="2" />
-            <path d="M10 44h44M32 44v4" />
-            <circle cx="32" cy="31" r="3" fill="#2adeff" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M16.5 9.4L7.55 4.24a1 1 0 0 0-1 0L2.3 6.7a1 1 0 0 0 0 1.72l9 5.2a1 1 0 0 0 1 0l4.24-2.45v-1.78z" fill="rgba(42,222,255,0.15)" />
+            <path d="M2 17l10 5.8 10-5.8M2 12l10 5.8 10-5.8" strokeLinecap="round" />
           </svg>
         );
       default:
         return (
-          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
-            <circle cx="32" cy="32" r="16" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="8" />
           </svg>
         );
     }
   };
 
+  const handleRequestQuote = () => {
+    setQuoteStatus('Processing…');
+    setTimeout(() => {
+      setQuoteStatus(`Quote request submitted! Reference: ENM-QT-${Math.floor(100000 + Math.random() * 900000)}`);
+    }, 1000);
+  };
+
+  // Get dynamic family products (filter out current product)
+  const familyRecommendations = FAMILY_PRODUCTS.filter(p => p.id !== product.id).slice(0, 2);
+
   return (
-    <div className="marketplace-checkout-card">
-      <div className="checkout-header">
-        <h2 className="checkout-title">Product Details</h2>
-        <p className="checkout-subtitle">Learn more about the product features and pricing plans.</p>
+    <div className="details-layout-container">
+      {/* Header Area */}
+      <div className="details-header-row">
+        <button type="button" className="details-back-arrow-btn" onClick={onBack} aria-label="Go back to list">
+          <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+            <defs>
+              <linearGradient id="backArrowGradDetails" x1="10" y1="2" x2="2" y2="18" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#0066cc" />
+                <stop offset="50%" stopColor="#00a3da" />
+                <stop offset="100%" stopColor="#2adeff" />
+              </linearGradient>
+            </defs>
+            <polyline 
+              points="10 2 2 10 10 18" 
+              stroke="url(#backArrowGradDetails)" 
+              strokeWidth="3" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+        <div className="details-header-titles">
+          <h1 className="details-page-title">{product.name}</h1>
+          <p className="details-page-subtitle">{product.description}</p>
+        </div>
       </div>
 
-      <div className="details-content-grid">
-        {/* Left Side: Product Illustration */}
-        <div className="details-illustration-box">
-          {renderDetailsIllustration(product.id)}
+      {/* Main Product Card */}
+      <div className="details-main-product-card">
+        {/* Left Column: Graphic & Badges */}
+        <div className="details-card-left">
+          <div className="details-graphic-box">
+            <div className="details-graphic-circle">
+              {/* Overlapping Nodes SVG */}
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2adeff" strokeWidth="2">
+                <rect x="3" y="3" width="10" height="10" rx="2" />
+                <rect x="11" y="11" width="10" height="10" rx="2" fill="rgba(42,222,255,0.2)" />
+                <path d="M13 10V11H10V13" />
+              </svg>
+            </div>
+          </div>
+          
+          <div className="details-badge-row">
+            {badges.map((badge, idx) => (
+              <div key={idx} className="details-badge-item">
+                <div className="details-badge-icon">
+                  {renderBadgeIcon(badge.type)}
+                </div>
+                <span className="details-badge-text">{badge.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Right Side: Info & Features */}
-        <div className="details-info-box">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <span style={{ fontSize: '10px', color: '#2ADEFF', fontWeight: 600, textTransform: 'uppercase' }}>
-              {product.category}
-            </span>
-            <h3 style={{ margin: 0, fontSize: '22px', fontWeight: 600, color: 'var(--portal-text)' }}>
-              {product.name}
-            </h3>
+        {/* Right Column: Title, Features & Actions */}
+        <div className="details-card-right">
+          <div className="details-card-right-header">
+            <h2>{product.name}</h2>
+            <p>{product.description}</p>
           </div>
 
-          <p className="details-description">{product.description}</p>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--portal-text-muted)' }}>
-              Key Features:
-            </span>
-            <ul className="details-features-list">
-              {product.features.map((feature, idx) => (
-                <li key={idx} className="details-feature-item">
-                  <svg className="details-feature-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="7" cy="7" r="6.5" stroke="currentColor" />
-                    <path d="M4 7l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Benefits list */}
+          <div className="details-card-benefits">
+            {product.features.map((feature, idx) => (
+              <div key={idx} className="benefit-item">
+                <div className="benefit-icon-wrapper">
+                  <svg className="benefit-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <circle cx="7" cy="7" r="6" />
+                    <path d="M4.5 7l2 2 3.5-4" strokeLinecap="round" />
                   </svg>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
+                </div>
+                <span className="benefit-text">{feature}</span>
+              </div>
+            ))}
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginTop: '8px' }}>
-            <span style={{ fontSize: '24px', fontWeight: 700, color: '#2ADEFF' }}>
-              ${product.price}
-            </span>
-            <span style={{ fontSize: '12px', color: 'var(--portal-text-muted)' }}>
-              {product.period}
-            </span>
+          {/* Pricing Info */}
+          <div className="details-card-price-section">
+            <span className="price-label">Starting from</span>
+            <div className="price-value-row">
+              <span className="price-amount">{currency}{product.price}</span>
+              <span className="price-period">
+                {product.period === '/mo' ? '/site /month' : product.period.replace('/', '/')}
+              </span>
+            </div>
           </div>
+
+          {/* Actions */}
+          <div className="details-card-actions">
+            <button type="button" className="details-btn-primary" onClick={onBuy}>
+              Add to cart
+            </button>
+            <button 
+              type="button" 
+              className="details-btn-secondary" 
+              onClick={handleRequestQuote}
+              disabled={quoteStatus !== null && quoteStatus.startsWith('Processing')}
+            >
+              Request a quote
+            </button>
+          </div>
+
+          {quoteStatus && (
+            <div className="quote-status-alert">
+              {quoteStatus}
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Action Buttons */}
-      <div className="checkout-actions-row">
-        <button type="button" className="checkout-btn-secondary" onClick={onBack}>
-          Back to List
-        </button>
-        <button type="button" className="checkout-btn-primary" onClick={onBuy}>
-          Configure Product
-        </button>
+      {/* Specifications & Terms Grid */}
+      <div className="details-meta-specs-grid">
+        <div className="details-meta-column">
+          <h3>Contract</h3>
+          <p>24-month initial term, then 12-month renewal</p>
+        </div>
+
+        <div className="details-meta-column">
+          <h3>Specifications / Product information</h3>
+          <ul className="details-meta-list">
+            <li>Throughput</li>
+            <li>Deployment</li>
+            <li>Billing</li>
+            <li>Minimum commitment</li>
+            <li>Included services</li>
+            <li>Support</li>
+            <li>Availability</li>
+          </ul>
+        </div>
+
+        <div className="details-meta-column">
+          <h3>{product.name} includes</h3>
+          <ul className="details-meta-list">
+            <li>Enigma Net Core integration</li>
+            <li>Global policy management</li>
+            <li>API access</li>
+            <li>Site connectivity</li>
+            <li>Monitoring</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Recommendations / Family Products Section */}
+      <div className="details-recommendations-section">
+        <div className="recommendations-header">
+          <h2>Looking for more performance?</h2>
+          <p>Check the family products “ESC Secure Networking”</p>
+        </div>
+
+        <div className="recommendations-cards-row">
+          {familyRecommendations.map((familyProd) => (
+            <div key={familyProd.id} className="recommendation-product-card">
+              <div className="rec-card-icon-box">
+                {/* Connection Nodes SVG */}
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2adeff" strokeWidth="2">
+                  <rect x="3" y="3" width="10" height="10" rx="2" />
+                  <rect x="11" y="11" width="10" height="10" rx="2" fill="rgba(42,222,255,0.2)" />
+                  <path d="M13 10V11H10V13" />
+                </svg>
+              </div>
+              <div className="rec-card-info-box">
+                <div className="rec-card-header">
+                  <h3>{familyProd.name}</h3>
+                  <p>{familyProd.description}</p>
+                </div>
+
+                <div className="rec-card-benefits">
+                  {familyProd.features.slice(0, 3).map((feat, fidx) => (
+                    <div key={fidx} className="rec-benefit-row">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="rec-card-footer">
+                  <div className="rec-price-box">
+                    <span className="rec-price-label">Starting from</span>
+                    <span className="rec-price-val">{familyProd.currencySymbol || '$'}{familyProd.price} {familyProd.period.replace('/', '/')}</span>
+                  </div>
+                  
+                  <button 
+                    type="button" 
+                    className="rec-explore-btn"
+                    onClick={() => {
+                      // Fetch full product details from FAMILY_PRODUCTS keys if needed,
+                      // or find matching product in list
+                      if (onExploreProduct) {
+                        const fullProd = FAMILY_PRODUCTS.find(fp => fp.id === familyProd.id);
+                        if (fullProd) {
+                          // Ensure we pass a compliant Product shape (with specs array)
+                          onExploreProduct({
+                            ...fullProd,
+                            specs: []
+                          });
+                        }
+                      }
+                    }}
+                  >
+                    Explore product
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* View More Footer Action */}
+        <div className="recommendations-footer">
+          <button type="button" className="rec-view-more-btn" onClick={onBack}>
+            <span>View more</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );
