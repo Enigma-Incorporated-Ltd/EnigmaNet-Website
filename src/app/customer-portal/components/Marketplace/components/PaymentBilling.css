@@ -1,0 +1,294 @@
+/* ================================================================
+   Payment & Billing Layout & Styles (Figma Match)
+   ================================================================ */
+
+.payment-layout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.payment-error-toast {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: #ff4d4f;
+  border: 1.5px solid rgba(255, 77, 79, 0.3);
+  background: rgba(255, 77, 79, 0.05);
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.payment-method-card {
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.04) 0%, rgba(11, 84, 179, 0.04) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.payment-method-card:hover {
+  border-color: rgba(42, 222, 255, 0.25);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.payment-method-card--selected {
+  border-color: #2adeff;
+  background: rgba(42, 222, 255, 0.06);
+}
+
+.payment-method-header-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.payment-method-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.radio-outer {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--portal-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: rgba(0,0,0,0.15);
+}
+
+.radio-outer--active {
+  border-color: #2adeff;
+}
+
+.radio-inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2adeff;
+}
+
+.payment-method-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--portal-text);
+}
+
+.payment-card-subform {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.payment-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.payment-field-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--portal-text-muted);
+}
+
+.payment-text-input,
+.payment-select-input {
+  height: 38px;
+  border-radius: 4px;
+  background: rgba(13, 27, 41, 0.6);
+  border: 1px solid rgba(42, 222, 255, 0.2);
+  color: var(--portal-text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  padding: 0 12px;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.payment-text-input:focus,
+.payment-select-input:focus {
+  border-color: #2adeff;
+  background: rgba(13, 27, 41, 0.8);
+}
+
+.card-number-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.card-number-input-wrapper .payment-text-input {
+  padding-right: 90px;
+}
+
+.card-brand-logos {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.brand-logo-circle {
+  width: 22px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.brand-logo-circle--mastercard {
+  background: linear-gradient(90deg, #ff5f00 50%, #eb001b 50%);
+}
+
+.brand-logo-circle--visa {
+  background: #002398;
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.brand-logo-circle--discover {
+  background: #ff5f00;
+}
+
+.payment-fields-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.payment-fields-row .payment-field-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.country-select-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.payment-select-input {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 32px;
+}
+
+.country-select-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--portal-text-muted);
+  pointer-events: none;
+}
+
+.payment-card-disclaimer {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: var(--portal-text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.payment-redirect-message {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text-muted);
+  padding: 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.payment-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 12px;
+  align-items: center;
+}
+
+/* ================================================================
+   Light Theme Overrides
+   ================================================================ */
+
+html[data-bs-theme="light"] .payment-method-card {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+html[data-bs-theme="light"] .payment-method-card:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+html[data-bs-theme="light"] .payment-method-card--selected {
+  border-color: #00a3da;
+  background: #eef3ff;
+}
+
+html[data-bs-theme="light"] .payment-text-input,
+html[data-bs-theme="light"] .payment-select-input {
+  background: #eef3ff;
+  border: 1px solid #262b37;
+  color: #0d1b29;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+html[data-bs-theme="light"] .payment-text-input::placeholder {
+  color: rgba(13, 27, 41, 0.3);
+}
+
+html[data-bs-theme="light"] .payment-text-input:focus,
+html[data-bs-theme="light"] .payment-select-input:focus {
+  border-color: #00a3da;
+  background: #ffffff;
+}
+
+html[data-bs-theme="light"] .country-select-wrapper::after {
+  border-top-color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .payment-redirect-message {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #0d1b29;
+}

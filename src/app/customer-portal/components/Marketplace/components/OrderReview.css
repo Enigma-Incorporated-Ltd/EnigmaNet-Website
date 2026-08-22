@@ -1,0 +1,357 @@
+/* ================================================================
+   Order Review Layout & Styles (Figma Match)
+   ================================================================ */
+
+.order-review-container {
+  background: var(--marketplace-card-gradient);
+  border: 1px solid rgba(42, 222, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  text-align: left;
+  width: 100%;
+}
+
+.order-review-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+
+.order-review-header h2 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--portal-text);
+}
+
+.order-review-header p {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text-muted);
+}
+
+.order-review-product-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid rgba(13, 27, 41, 0.8);
+  padding-bottom: 12px;
+}
+
+.order-review-product-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0d1b29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(42, 222, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.order-review-product-info h4 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2adeff;
+}
+
+.order-review-product-info p {
+  margin: 2px 0 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  color: var(--portal-text-muted);
+}
+
+.order-review-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid rgba(13, 27, 41, 0.3);
+  padding-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.order-review-section-heading {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--portal-text-muted);
+}
+
+.order-review-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+}
+
+.order-review-row--align-start {
+  align-items: flex-start;
+}
+
+.order-review-label {
+  color: var(--portal-text-muted);
+}
+
+.order-review-value {
+  color: var(--portal-text);
+  font-weight: 500;
+}
+
+.order-review-detail-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text);
+}
+
+.order-review-sub-caption {
+  font-size: 12px;
+  color: var(--portal-text-muted);
+}
+
+.order-review-total-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  padding: 4px 0;
+}
+
+.order-review-total-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--portal-text-muted);
+}
+
+.order-review-total-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2adeff;
+  line-height: 1.2;
+}
+
+.order-review-total-caption {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--portal-text-muted);
+}
+
+.order-review-terms {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text);
+  text-align: left;
+}
+
+.order-review-checkbox {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+
+.order-review-terms-link {
+  color: #2adeff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.order-review-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.order-review-btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  border: none;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 163, 218, 0.15);
+  width: 100%;
+}
+
+.order-review-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(90deg, rgba(38, 55, 119, 0.8) 0%, rgba(0, 163, 218, 0.8) 100%);
+  box-shadow: 0 6px 14px rgba(0, 163, 218, 0.25);
+  transform: translateY(-1px);
+}
+
+.order-review-btn-primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.order-review-btn-secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px;
+  border-radius: 100px;
+  background: rgba(102, 102, 102, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-review-btn-secondary:hover {
+  background: rgba(102, 102, 102, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* ================================================================
+   Dark Theme Overrides
+   ================================================================ */
+
+html[data-bs-theme="dark"] .order-review-product-header {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+html[data-bs-theme="dark"] .order-review-section {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+html[data-bs-theme="dark"] .order-review-product-info h4 {
+  color: #2adeff;
+}
+
+html[data-bs-theme="dark"] .order-review-product-info p {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .order-review-label,
+html[data-bs-theme="dark"] .order-review-value {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .order-review-section-heading {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .order-review-total-label,
+html[data-bs-theme="dark"] .order-review-total-caption,
+html[data-bs-theme="dark"] .order-review-total-value {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .order-review-sub-caption {
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+html[data-bs-theme="dark"] .order-review-terms {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .order-review-terms-link {
+  color: #2adeff;
+  text-decoration: underline;
+}
+
+/* ================================================================
+   Light Theme Overrides
+   ================================================================ */
+
+html[data-bs-theme="light"] .order-review-sub-caption {
+  color: #0d1b29;
+  opacity: 0.8;
+}
+
+html[data-bs-theme="light"] .order-review-section-heading {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .order-review-label {
+  color: #0d1b29;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+html[data-bs-theme="light"] .order-review-value {
+  color: #0d1b29;
+  font-weight: 500;
+}
+
+html[data-bs-theme="light"] .order-review-total-label,
+html[data-bs-theme="light"] .order-review-total-caption {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .order-review-total-value {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .order-review-product-info h4 {
+  color: #001a94;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+html[data-bs-theme="light"] .order-review-product-info p {
+  color: #0d1b29;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 1;
+}
+
+html[data-bs-theme="light"] .order-review-terms {
+  color: #0d1b29;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+html[data-bs-theme="light"] .order-review-terms-link {
+  color: #001a94;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+}
