@@ -31,7 +31,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
     price: 99,
     period: '/site/month',
-    category: 'Multi-site',
+    category: 'ESC Secure Networking',
     recommended: true,
     currencySymbol: '£',
     features: [
@@ -49,7 +49,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
     price: 150,
     period: '/tenant/month',
-    category: 'Multi-site',
+    category: 'ESC Secure Networking',
     currencySymbol: '£',
     features: [
       'Nexus integration & API access',
@@ -64,7 +64,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Enhanced secure networking for sites requiring higher performance and greater connectivity capacity.',
     price: 199,
     period: '/site/month',
-    category: 'Multi-site',
+    category: 'ESC Secure Networking',
     currencySymbol: '£',
     features: [
       'Up to ~1 Gbps optimised',
@@ -79,7 +79,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Accelerate branch connectivity and security with Enigma Net Edge routing and built-in SD-WAN.',
     price: 120,
     period: '/mo',
-    category: 'Multi-site',
+    category: 'Enigma EDGE',
     recommended: true,
     features: [
       'High-speed SD-WAN routing and traffic steering',
@@ -93,12 +93,30 @@ const MOCK_PRODUCTS: Product[] = [
     ]
   },
   {
+    id: 'esc-storage',
+    name: 'ESC Secure Storage Vault',
+    description: 'Highly secure, encrypted cloud storage vault with automated snapshot backups and compliance logging.',
+    price: 79,
+    period: '/tb/month',
+    category: 'ESC Secure Storage',
+    currencySymbol: '£',
+    features: [
+      'AES-256 military-grade encryption',
+      'Automated daily snapshots & retention policies',
+      'Compliance & access audit logs',
+      '99.999% durability & availability'
+    ],
+    specs: [
+      { label: 'Storage Tier', options: ['1 TB Standard', '5 TB Pro (+$150/mo)', '20 TB Enterprise (+$500/mo)'] }
+    ]
+  },
+  {
     id: 'large-file-transfer',
     name: 'Large File Transfer',
     description: 'Secure and reliable high-speed data transfer solutions for large payloads and files across servers.',
     price: 45,
     period: '/mo',
-    category: 'Virtual/cloud',
+    category: 'Enigma LFT',
     newProduct: true,
     features: [
       'UDP accelerated transfer protocols for low-latency delivery',
@@ -116,7 +134,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Secure remote VPN gateway connectivity for a single branch or office location.',
     price: 29,
     period: '/mo',
-    category: 'Single site',
+    category: 'ESC Secure Networking',
     features: [
       'Secure IPsec & OpenVPN gateway support',
       'Up to 50 concurrent client connections',
@@ -133,7 +151,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Connect multiple office sites together in a dynamic, self-healing site-to-site SDN network.',
     price: 199,
     period: '/mo',
-    category: 'Multi-site',
+    category: 'Enigma CONNECT',
     features: [
       'Fully meshed site-to-site tunnels',
       'Dynamic routing and path path selection',
@@ -150,7 +168,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Redundant network gateways with sub-second failover capabilities for mission-critical setups.',
     price: 149,
     period: '/mo',
-    category: 'High availability',
+    category: 'Enigma CONNECT',
     recommended: true,
     features: [
       'Active-active redundancy hot standby mode',
@@ -168,7 +186,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Prioritize POS transaction traffic and optimize bandwidth efficiency for retail stores.',
     price: 39,
     period: '/mo',
-    category: 'Retail',
+    category: 'Enigma CONNECT',
     features: [
       'POS transaction packet priority queueing',
       'PCI-DSS compliance tunnels by design',
@@ -185,7 +203,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Heavy-duty weather-proof cellular router for outdoor construction projects and temporary sites.',
     price: 89,
     period: '/mo',
-    category: 'Construction',
+    category: 'Enigma EDGE',
     newProduct: true,
     features: [
       'Ruggedized weather-resistant casing (IP65)',
@@ -203,7 +221,7 @@ const MOCK_PRODUCTS: Product[] = [
     description: 'Provide secure clientless web gateway access to internal systems for remote workers.',
     price: 19,
     period: '/mo',
-    category: 'Remote',
+    category: 'ESC Secure Networking',
     features: [
       'SAML 2.0 / OpenID Connect SSO integration',
       'Device posture compliance authentication',
@@ -298,6 +316,7 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
       {step === 'details' && selectedProduct && (
         <ProductDetails 
           product={selectedProduct}
+          products={MOCK_PRODUCTS}
           onBuy={() => setStep('configure')} 
           onBack={() => setStep('list')} 
           onExploreProduct={handleSelectProduct}

@@ -61,12 +61,6 @@
 .details-main-product-card {
   display: flex;
   gap: 40px;
-  background: linear-gradient(180deg, rgba(35, 193, 239, 0.08) 0%, rgba(27, 127, 156, 0.08) 46%, rgba(11, 84, 179, 0.08) 100%);
-  border: 1px solid rgba(42, 222, 255, 0.12);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 6px;
-  padding: 24px;
   box-sizing: border-box;
   width: 100%;
 }
@@ -80,28 +74,58 @@
 }
 
 .details-graphic-box {
-  height: 148px;
-  background: #0d1b29;
+  padding: 8px;
+  background: var(--marketplace-card-gradient);
   border: 1px solid rgba(42, 222, 255, 0.2);
+  border-radius: 4px;
+  width: 271px;
+  height: 148px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-graphic-inner {
+  background: #0d1b29;
+  width: 100%;
+  height: 100%;
   border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
   position: relative;
   overflow: hidden;
 }
 
-.details-graphic-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: #07121c;
+.details-graphic-glow-1 {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(35, 193, 239, 0.15) 0%, rgba(35, 193, 239, 0) 70%);
+  filter: blur(20px);
+  top: -40px;
+  left: -40px;
+  pointer-events: none;
+}
+
+.details-graphic-glow-2 {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(11, 84, 179, 0.2) 0%, rgba(11, 84, 179, 0) 70%);
+  filter: blur(20px);
+  bottom: -40px;
+  right: -40px;
+  pointer-events: none;
+}
+
+.details-graphic-icon-wrapper {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1.5px solid rgba(42, 222, 255, 0.15);
-  box-shadow: 0 0 20px rgba(42, 222, 255, 0.08);
 }
 
 .details-badge-row {
@@ -177,13 +201,9 @@
 .details-card-benefits {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   width: 100%;
-  border: 1.5px solid rgba(0, 26, 148, 0.15);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 4px;
-  padding: 12px;
   box-sizing: border-box;
+  margin-bottom: 8px;
 }
 
 .benefit-item {
@@ -193,13 +213,22 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   color: var(--portal-text);
+  border-bottom: 1px solid rgba(0, 26, 148, 0.1);
+  padding: 12px 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.benefit-icon-wrapper {
-  color: #2adeff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.benefit-item:last-child {
+  border-bottom: none;
+}
+
+.benefit-bullet-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #2adeff 0%, #0055ff 100%);
+  box-shadow: 0 0 6px rgba(42, 222, 255, 0.6);
   flex-shrink: 0;
 }
 
@@ -270,20 +299,23 @@
   align-items: center;
   padding: 9px;
   border-radius: 100px;
-  background: rgba(102, 102, 102, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--portal-text-muted);
+  background: rgba(102, 102, 102, 0.2);
+  border: none;
+  color: #002398;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2, 0 1px 8px rgba(0, 0, 0, 0.1);
 }
 
 .details-btn-secondary:hover {
-  background: rgba(102, 102, 102, 0.2);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--portal-text);
+  background: rgba(102, 102, 102, 0.3);
+  color: #001a94;
+  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2, 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .quote-status-alert {
@@ -335,13 +367,20 @@
 
 .details-meta-list {
   margin: 0;
-  padding-left: 16px;
+  padding-left: 18px;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   color: var(--portal-text-muted);
   display: flex;
   flex-direction: column;
   gap: 6px;
+  list-style-type: disc !important;
+}
+
+.details-meta-list li {
+  display: list-item !important;
+  list-style-type: disc !important;
+  padding-left: 4px;
 }
 
 /* Family upgrade products section */

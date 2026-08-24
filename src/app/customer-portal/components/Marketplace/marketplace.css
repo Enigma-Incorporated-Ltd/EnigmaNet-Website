@@ -616,3 +616,107 @@ html[data-bs-theme="light"] {
     gap: 24px;
     box-shadow: var(--portal-card-shadow);
 }
+
+/* ================================================================
+   Categories Section & Tags Styles (Figma Aligned)
+   ================================================================ */
+
+.marketplace-categories-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.marketplace-categories-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.marketplace-categories-title {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--portal-text);
+    line-height: normal;
+}
+
+.marketplace-categories-view-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--White30, rgba(255, 255, 255, 0.30));
+    background: var(--marketplace-card-gradient);
+    box-shadow: 0px 1px 2px 0px rgba(0, 35, 152, 0.25);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--portal-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.marketplace-categories-view-all:hover {
+    background: var(--White10, rgba(255, 255, 255, 0.10));
+    border-color: var(--White30, rgba(255, 255, 255, 0.30));
+    box-shadow: 0px 1px 6px 0px rgba(42, 222, 255, 0.25);
+}
+
+.marketplace-categories-view-all svg {
+    transition: transform 0.2s ease;
+}
+
+.marketplace-categories-view-all:hover svg {
+    transform: translateX(2px);
+}
+
+.marketplace-categories-list {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+}
+
+.marketplace-category-tag {
+    display: flex;
+    flex: 1 0 0;
+    min-width: 120px;
+    height: 38px;
+    padding: 10px 16px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: 1px solid var(--White30, rgba(255, 255, 255, 0.30));
+    background: var(--marketplace-card-gradient);
+    box-shadow: 0px 1px 2px 0px rgba(0, 35, 152, 0.25);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--portal-text);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.marketplace-category-tag:hover {
+    background: var(--White10, rgba(255, 255, 255, 0.10));
+    border-color: var(--White30, rgba(255, 255, 255, 0.30));
+    box-shadow: 0px 1px 6px 0px rgba(42, 222, 255, 0.25);
+}
+
+.marketplace-category-tag--active {
+    background: linear-gradient(180deg, #0d1b29 0%, #1b3a5a 100%) !important;
+    border-color: #2adeff !important;
+    color: #ffffff !important;
+    box-shadow: 0px 1px 6px 0px rgba(42, 222, 255, 0.4) !important;
+    font-weight: 600;
+}

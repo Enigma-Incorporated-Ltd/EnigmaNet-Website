@@ -4,46 +4,13 @@ import type { Product } from '../index';
 
 interface ProductDetailsProps {
   product: Product;
+  products: Product[];
   onBuy: () => void;
   onBack: () => void;
   onExploreProduct?: (product: Product) => void;
 }
 
-// Define the other family products so we can fetch them for the recommendations
-const FAMILY_PRODUCTS = [
-  {
-    id: 'esc-lite',
-    name: 'ESC Lite',
-    description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
-    price: 99,
-    period: '/site/month',
-    category: 'Multi-site',
-    currencySymbol: '£',
-    features: ['Secure connectivity', 'Managed networking', 'APN integration', 'Centralised policy management', 'Monitoring']
-  },
-  {
-    id: 'esc-tenant-base',
-    name: 'ESC Tenant Base',
-    description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
-    price: 150,
-    period: '/tenant/month',
-    category: 'Multi-site',
-    currencySymbol: '£',
-    features: ['Nexus integration & API access', 'Global policy engine', 'First 5 sites included']
-  },
-  {
-    id: 'esc-pro',
-    name: 'ESC Pro',
-    description: 'Enhanced secure networking for sites requiring higher performance and greater connectivity capacity.',
-    price: 199,
-    period: '/site/month',
-    category: 'Multi-site',
-    currencySymbol: '£',
-    features: ['Up to ~1 Gbps optimised', 'Secure & reliable', 'Easy to deploy & manage']
-  }
-];
-
-export default function ProductDetails({ product, onBuy, onBack, onExploreProduct }: ProductDetailsProps) {
+export default function ProductDetails({ product, products, onBuy, onBack, onExploreProduct }: ProductDetailsProps) {
   const [quoteStatus, setQuoteStatus] = useState<string | null>(null);
 
   const currency = product.currencySymbol || '$';
@@ -116,6 +83,77 @@ export default function ProductDetails({ product, onBuy, onBack, onExploreProduc
     }
   };
 
+  // Helper to render high quality product illustrations based on product ID
+  const renderDetailedIllustration = (id: string) => {
+    switch (id) {
+      case 'edge':
+      case 'construction-modem':
+        return (
+          <svg width="70" height="70" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
+            <rect x="12" y="16" width="40" height="32" rx="4" />
+            <rect x="20" y="24" width="24" height="16" rx="2" strokeDasharray="2,2" />
+            <line x1="8" y1="32" x2="12" y2="32" />
+            <line x1="52" y1="32" x2="56" y2="32" />
+            <circle cx="26" cy="32" r="2" fill="#2adeff" />
+            <circle cx="38" cy="32" r="2" fill="#2adeff" />
+          </svg>
+        );
+      case 'large-file-transfer':
+        return (
+          <svg width="70" height="70" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
+            <rect x="10" y="16" width="16" height="20" rx="2" />
+            <rect x="38" y="28" width="16" height="20" rx="2" />
+            <path d="M26 26h12v6H26z" fill="rgba(42,222,255,0.1)" />
+            <path d="M38 26l6-6v4M26 32l-6 6v-4" />
+            <circle cx="46" cy="38" r="3" />
+            <circle cx="18" cy="26" r="3" />
+          </svg>
+        );
+      case 'single-vpn':
+      case 'esc-lite':
+      case 'esc-tenant-base':
+      case 'esc-pro':
+      case 'remote-access':
+        return (
+          <svg width="70" height="70" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
+            <rect x="22" y="28" width="20" height="20" rx="3" />
+            <path d="M27 28v-8a5 5 0 0 1 10 0v8" />
+            <circle cx="32" cy="38" r="2" fill="#2adeff" />
+            <path d="M32 40v3" />
+            <path d="M8 20l6-6 6 6" />
+          </svg>
+        );
+      case 'sdn-mesh':
+      case 'ha-gateway':
+      case 'pos-wan':
+        return (
+          <svg width="70" height="70" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
+            <circle cx="32" cy="14" r="5" fill="#2adeff" />
+            <circle cx="16" cy="46" r="5" />
+            <circle cx="48" cy="46" r="5" />
+            <line x1="32" y1="19" x2="16" y2="41" />
+            <line x1="32" y1="19" x2="48" y2="41" />
+            <line x1="21" y1="46" x2="43" y2="46" />
+            <circle cx="32" cy="34" r="3" fill="#2adeff" />
+          </svg>
+        );
+      case 'esc-storage':
+        return (
+          <svg width="70" height="70" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
+            <rect x="16" y="16" width="32" height="32" rx="4" />
+            <circle cx="32" cy="32" r="6" />
+            <path d="M32 20v6M32 38v6M20 32h6M38 32h6" />
+          </svg>
+        );
+      default:
+        return (
+          <svg width="70" height="70" viewBox="0 0 64 64" fill="none" stroke="#2adeff" strokeWidth="2">
+            <circle cx="32" cy="32" r="16" />
+          </svg>
+        );
+    }
+  };
+
   const handleRequestQuote = () => {
     setQuoteStatus('Processing…');
     setTimeout(() => {
@@ -124,7 +162,16 @@ export default function ProductDetails({ product, onBuy, onBack, onExploreProduc
   };
 
   // Get dynamic family products (filter out current product)
-  const familyRecommendations = FAMILY_PRODUCTS.filter(p => p.id !== product.id).slice(0, 2);
+  const familyRecommendations = products
+    .filter(p => p.category === product.category && p.id !== product.id)
+    .slice(0, 2);
+
+  // Fallback to other products if no items in same category
+  const recommendationsToRender = familyRecommendations.length > 0
+    ? familyRecommendations
+    : products.filter(p => p.id !== product.id).slice(0, 2);
+
+  const hasFamily = familyRecommendations.length > 0;
 
   return (
     <div className="details-layout-container">
@@ -159,13 +206,12 @@ export default function ProductDetails({ product, onBuy, onBack, onExploreProduc
         {/* Left Column: Graphic & Badges */}
         <div className="details-card-left">
           <div className="details-graphic-box">
-            <div className="details-graphic-circle">
-              {/* Overlapping Nodes SVG */}
-              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2adeff" strokeWidth="2">
-                <rect x="3" y="3" width="10" height="10" rx="2" />
-                <rect x="11" y="11" width="10" height="10" rx="2" fill="rgba(42,222,255,0.2)" />
-                <path d="M13 10V11H10V13" />
-              </svg>
+            <div className="details-graphic-inner">
+              <div className="details-graphic-glow-1"></div>
+              <div className="details-graphic-glow-2"></div>
+              <div className="details-graphic-icon-wrapper">
+                {renderDetailedIllustration(product.id)}
+              </div>
             </div>
           </div>
           
@@ -192,12 +238,7 @@ export default function ProductDetails({ product, onBuy, onBack, onExploreProduc
           <div className="details-card-benefits">
             {product.features.map((feature, idx) => (
               <div key={idx} className="benefit-item">
-                <div className="benefit-icon-wrapper">
-                  <svg className="benefit-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <circle cx="7" cy="7" r="6" />
-                    <path d="M4.5 7l2 2 3.5-4" strokeLinecap="round" />
-                  </svg>
-                </div>
+                <div className="benefit-bullet-dot" />
                 <span className="benefit-text">{feature}</span>
               </div>
             ))}
@@ -260,11 +301,9 @@ export default function ProductDetails({ product, onBuy, onBack, onExploreProduc
         <div className="details-meta-column">
           <h3>{product.name} includes</h3>
           <ul className="details-meta-list">
-            <li>Enigma Net Core integration</li>
-            <li>Global policy management</li>
-            <li>API access</li>
-            <li>Site connectivity</li>
-            <li>Monitoring</li>
+            {product.features.map((feat, idx) => (
+              <li key={idx}>{feat}</li>
+            ))}
           </ul>
         </div>
       </div>
@@ -273,19 +312,18 @@ export default function ProductDetails({ product, onBuy, onBack, onExploreProduc
       <div className="details-recommendations-section">
         <div className="recommendations-header">
           <h2>Looking for more performance?</h2>
-          <p>Check the family products “ESC Secure Networking”</p>
+          <p>
+            {hasFamily 
+              ? `Check the family products “${product.category}”` 
+              : "Check out our other product offerings"}
+          </p>
         </div>
 
         <div className="recommendations-cards-row">
-          {familyRecommendations.map((familyProd) => (
+          {recommendationsToRender.map((familyProd) => (
             <div key={familyProd.id} className="recommendation-product-card">
               <div className="rec-card-icon-box">
-                {/* Connection Nodes SVG */}
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2adeff" strokeWidth="2">
-                  <rect x="3" y="3" width="10" height="10" rx="2" />
-                  <rect x="11" y="11" width="10" height="10" rx="2" fill="rgba(42,222,255,0.2)" />
-                  <path d="M13 10V11H10V13" />
-                </svg>
+                {renderDetailedIllustration(familyProd.id)}
               </div>
               <div className="rec-card-info-box">
                 <div className="rec-card-header">
@@ -314,17 +352,8 @@ export default function ProductDetails({ product, onBuy, onBack, onExploreProduc
                     type="button" 
                     className="rec-explore-btn"
                     onClick={() => {
-                      // Fetch full product details from FAMILY_PRODUCTS keys if needed,
-                      // or find matching product in list
                       if (onExploreProduct) {
-                        const fullProd = FAMILY_PRODUCTS.find(fp => fp.id === familyProd.id);
-                        if (fullProd) {
-                          // Ensure we pass a compliant Product shape (with specs array)
-                          onExploreProduct({
-                            ...fullProd,
-                            specs: []
-                          });
-                        }
+                        onExploreProduct(familyProd);
                       }
                     }}
                   >
