@@ -21,14 +21,6 @@ const FIGMA_CATEGORIES = [
   'Enigma LFT'
 ];
 
-const FIGMA_CATEGORY_MAP: Record<string, string> = {
-  'ESC Secure Networking': 'Single site',
-  'ESC Secure Storage': 'Virtual/cloud',
-  'Enigma CONNECT': 'High availability',
-  'Enigma EDGE': 'Multi-site',
-  'Enigma LFT': 'Virtual/cloud'
-};
-
 const SORT_OPTIONS = [
   'Highest price',
   'Lowest price',
@@ -232,7 +224,7 @@ export default function ProductList({
           <div className="marketplace-dropdown-wrapper" ref={filterRef}>
             <button
               type="button"
-              className={`marketplace-dropdown-btn ${activeCategory !== 'All' ? 'marketplace-dropdown-btn--active' : ''}`}
+              className={`marketplace-dropdown-btn ${activeCategory !== 'All' ? 'marketplace-dropdown-btn--selected' : ''}`}
               onClick={() => {
                 setFilterOpen(!filterOpen);
                 setSortOpen(false);
@@ -248,21 +240,38 @@ export default function ProductList({
 
             {filterOpen && (
               <div className="marketplace-dropdown-menu">
+                <button
+                  type="button"
+                  className={`marketplace-dropdown-item ${activeCategory === 'All' ? 'marketplace-dropdown-item--selected' : ''}`}
+                  onClick={() => {
+                    setActiveCategory('All');
+                    setFilterOpen(false);
+                  }}
+                >
+                  <span>All Categories</span>
+                  <span className="marketplace-checkbox">
+                    {activeCategory === 'All' && (
+                      <svg className="marketplace-checkbox-check" viewBox="0 0 8 8" fill="currentColor">
+                        <path d="M2.5 5.25L0.75 3.5L0.25 4L2.5 6.25L7.75 1L7.25 0.5L2.5 5.25Z" />
+                      </svg>
+                    )}
+                  </span>
+                </button>
                 {FIGMA_CATEGORIES.map((cat) => {
-                  const mapped = FIGMA_CATEGORY_MAP[cat];
+                  const isActive = activeCategory === cat;
                   return (
                     <button
                       key={cat}
                       type="button"
-                      className={`marketplace-dropdown-item ${activeCategory === mapped ? 'marketplace-dropdown-item--selected' : ''}`}
+                      className={`marketplace-dropdown-item ${isActive ? 'marketplace-dropdown-item--selected' : ''}`}
                       onClick={() => {
-                        setActiveCategory(mapped);
+                        setActiveCategory(cat);
                         setFilterOpen(false);
                       }}
                     >
                       <span>{cat}</span>
                       <span className="marketplace-checkbox">
-                        {activeCategory === mapped && (
+                        {isActive && (
                           <svg className="marketplace-checkbox-check" viewBox="0 0 8 8" fill="currentColor">
                             <path d="M2.5 5.25L0.75 3.5L0.25 4L2.5 6.25L7.75 1L7.25 0.5L2.5 5.25Z" />
                           </svg>
@@ -333,14 +342,13 @@ export default function ProductList({
         </div>
         <div className="marketplace-categories-list">
           {FIGMA_CATEGORIES.map((cat) => {
-            const mappedVal = FIGMA_CATEGORY_MAP[cat];
-            const isActive = activeCategory === mappedVal;
+            const isActive = activeCategory === cat;
             return (
               <button
                 key={cat}
                 type="button"
                 className={`marketplace-category-tag ${isActive ? 'marketplace-category-tag--active' : ''}`}
-                onClick={() => setActiveCategory(isActive ? 'All' : mappedVal)}
+                onClick={() => setActiveCategory(isActive ? 'All' : cat)}
               >
                 {cat}
               </button>
