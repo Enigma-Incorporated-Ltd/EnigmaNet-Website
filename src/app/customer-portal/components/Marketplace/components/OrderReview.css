@@ -223,15 +223,15 @@
 }
 
 .order-review-btn-secondary {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 9px;
   border-radius: 100px;
   background: rgba(102, 102, 102, 0.2);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: none !important;
+  outline: none !important;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
@@ -239,13 +239,24 @@
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-review-btn-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 100px;
+  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2;
 }
 
 .order-review-btn-secondary:hover {
   background: rgba(102, 102, 102, 0.3);
-  border-color: rgba(255, 255, 255, 0.3);
   color: #ffffff;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* ================================================================

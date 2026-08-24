@@ -10,6 +10,14 @@
   --marketplace-card-specs-border: rgba(255, 255, 255, 0.1);
   --marketplace-card-price-color: #2adeff;
   --marketplace-card-specs-bg: rgba(255, 255, 255, 0.1);
+
+  /* Dropdown Variables */
+  --marketplace-dropdown-btn-text: #ffffff;
+  --marketplace-dropdown-item-selected: #2adeff;
+  --marketplace-dropdown-item-selected-bg: rgba(42, 222, 255, 0.08);
+  --marketplace-dropdown-checkbox-selected-bg: #2adeff;
+  --marketplace-dropdown-checkbox-selected-border: #2adeff;
+  --marketplace-dropdown-checkbox-check: #0d1b29;
 }
 
 html[data-bs-theme="light"] {
@@ -20,6 +28,14 @@ html[data-bs-theme="light"] {
   --marketplace-card-specs-border: rgba(0, 26, 148, 0.15);
   --marketplace-card-price-color: #001a94;
   --marketplace-card-specs-bg: rgba(255, 255, 255, 0.15);
+
+  /* Dropdown Variables */
+  --marketplace-dropdown-btn-text: #0d1b29;
+  --marketplace-dropdown-item-selected: #001a94;
+  --marketplace-dropdown-item-selected-bg: rgba(0, 26, 148, 0.08);
+  --marketplace-dropdown-checkbox-selected-bg: #001a94;
+  --marketplace-dropdown-checkbox-selected-border: #001a94;
+  --marketplace-dropdown-checkbox-check: #ffffff;
 }
 
 .portal-app-card__illustration-svg {
@@ -181,7 +197,7 @@ html[data-bs-theme="light"] {
     cursor: pointer;
     transition: all 0.2s ease;
     box-sizing: border-box;
-    color: #0d1b29;
+    color: var(--marketplace-dropdown-btn-text);
 
     /* Default */
     border-radius: 4px;
@@ -196,7 +212,7 @@ html[data-bs-theme="light"] {
     border: 1px solid var(--White30, rgba(255, 255, 255, 0.30));
     background: var(--White10, rgba(255, 255, 255, 0.10));
     box-shadow: 0 1px 2px 0 rgba(42, 222, 255, 0.25) inset, 0 1px 2px 0 rgba(42, 222, 255, 0.25);
-    color: #0d1b29;
+    color: var(--marketplace-dropdown-btn-text);
 }
 
 .marketplace-dropdown-btn--selected {
@@ -205,7 +221,7 @@ html[data-bs-theme="light"] {
     border: 1px solid var(--White80, rgba(255, 255, 255, 0.80)) !important;
     background: var(--White80, rgba(255, 255, 255, 0.80)) !important;
     box-shadow: 0 1px 2px 0 rgba(0, 35, 152, 0.25) inset, 0 1px 2px 0 rgba(0, 35, 152, 0.25) !important;
-    color: #0d1b29 !important;
+    color: var(--marketplace-dropdown-btn-text) !important;
 }
 
 .marketplace-dropdown-btn-icon {
@@ -284,8 +300,8 @@ html[data-bs-theme="light"] {
 
 .marketplace-dropdown-item--selected {
     font-weight: 600;
-    color: #2ADEFF;
-    background: rgba(42, 222, 255, 0.08);
+    color: var(--marketplace-dropdown-item-selected);
+    background: var(--marketplace-dropdown-item-selected-bg);
 }
 
 .marketplace-checkbox {
@@ -302,14 +318,14 @@ html[data-bs-theme="light"] {
 }
 
 .marketplace-dropdown-item--selected .marketplace-checkbox {
-    border-color: #2ADEFF;
-    background: #2ADEFF;
+    border-color: var(--marketplace-dropdown-checkbox-selected-border);
+    background: var(--marketplace-dropdown-checkbox-selected-bg);
 }
 
 .marketplace-checkbox-check {
     width: 8px;
     height: 8px;
-    color: #0D1B29;
+    color: var(--marketplace-dropdown-checkbox-check);
 }
 
 /* Empty State / No products found styling from Figma */
