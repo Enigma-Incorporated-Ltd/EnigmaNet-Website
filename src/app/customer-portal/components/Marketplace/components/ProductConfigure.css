@@ -480,14 +480,16 @@
 }
 
 .sidebar-btn-secondary {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 9px;
   border-radius: 100px;
   background: rgba(102, 102, 102, 0.2);
-  border: none;
-  color: #002398;
+  border: none !important;
+  outline: none !important;
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 600;
@@ -495,13 +497,22 @@
   transition: all 0.2s ease;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2, 0 1px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-btn-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 100px;
+  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2;
 }
 
 .sidebar-btn-secondary:hover {
   background: rgba(102, 102, 102, 0.3);
-  color: #001a94;
-  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2, 0 2px 12px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive configurations */
@@ -541,15 +552,12 @@ html[data-bs-theme="light"] .configure-step-text p {
 html[data-bs-theme="light"] .toggle-pill-container {
   background: transparent;
   border: 1px solid rgba(13, 27, 41, 0.2);
-  padding: 4px;
+  padding: 3px;
 }
 
 html[data-bs-theme="light"] .toggle-pill-btn {
   color: rgba(13, 27, 41, 0.6);
-  font-size: 10px;
-  font-weight: 600;
-  border: 0.5px solid transparent;
-  padding: 5px 30px;
+  border: none;
 }
 
 html[data-bs-theme="light"] .toggle-pill-btn:hover {
@@ -558,9 +566,8 @@ html[data-bs-theme="light"] .toggle-pill-btn:hover {
 
 html[data-bs-theme="light"] .toggle-pill-btn--active {
   background: transparent;
-  border: 0.5px solid #0d1b29;
+  box-shadow: inset 0 0 0 1px #0d1b29;
   color: #0d1b29 !important;
-  box-shadow: none;
 }
 
 html[data-bs-theme="light"] .configure-step-card {
@@ -636,5 +643,147 @@ html[data-bs-theme="light"] .addon-custom-checkbox {
 html[data-bs-theme="light"] .addon-item-card--selected .addon-custom-checkbox {
   border-color: #001a94;
   background: #001a94;
+  color: #ffffff;
+}
+
+/* ================================================================
+   Dark Theme Configuration Sidebar Overrides
+   ================================================================ */
+
+html[data-bs-theme="dark"] .marketplace-configure-sidebar {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-bs-theme="dark"] .sidebar-title {
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-bs-theme="dark"] .sidebar-product-header {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+html[data-bs-theme="dark"] .sidebar-product-info h4 {
+  color: #2adeff;
+}
+
+html[data-bs-theme="dark"] .sidebar-product-info p {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .sidebar-summary-list {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+html[data-bs-theme="dark"] .summary-heading {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .summary-label {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .summary-value {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+html[data-bs-theme="dark"] .summary-detail-desc {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .summary-sub-caption {
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+html[data-bs-theme="dark"] .total-label {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .total-value {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .total-caption {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .sidebar-btn-secondary {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .sidebar-btn-secondary:hover {
+  color: #ffffff;
+}
+
+/* ================================================================
+   Light Theme Configuration Sidebar Overrides
+   ================================================================ */
+
+html[data-bs-theme="light"] .marketplace-configure-sidebar {
+  border-color: rgba(0, 26, 148, 0.15);
+}
+
+html[data-bs-theme="light"] .sidebar-title {
+  color: #0d1b29;
+  border-bottom-color: rgba(0, 26, 148, 0.15);
+}
+
+html[data-bs-theme="light"] .sidebar-product-header {
+  border-bottom-color: rgba(13, 27, 41, 0.8);
+}
+
+html[data-bs-theme="light"] .sidebar-product-info h4 {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .sidebar-product-info p {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .sidebar-summary-list {
+  border-bottom-color: rgba(0, 26, 148, 0.1);
+}
+
+html[data-bs-theme="light"] .summary-heading {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .summary-label {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .summary-value {
+  color: #0d1b29;
+  font-weight: 500;
+}
+
+html[data-bs-theme="light"] .summary-detail-desc {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .summary-sub-caption {
+  color: #0d1b29;
+  opacity: 0.8;
+}
+
+html[data-bs-theme="light"] .total-label {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .total-value {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .total-caption {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .sidebar-btn-secondary {
+  color: #ffffff;
+}
+
+html[data-bs-theme="light"] .sidebar-btn-secondary:hover {
   color: #ffffff;
 }

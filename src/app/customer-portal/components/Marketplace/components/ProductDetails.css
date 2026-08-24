@@ -294,14 +294,16 @@
 }
 
 .details-btn-secondary {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 9px;
   border-radius: 100px;
   background: rgba(102, 102, 102, 0.2);
-  border: none;
-  color: #002398;
+  border: none !important;
+  outline: none !important;
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -309,13 +311,22 @@
   transition: all 0.2s ease;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2, 0 1px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details-btn-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 100px;
+  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2;
 }
 
 .details-btn-secondary:hover {
   background: rgba(102, 102, 102, 0.3);
-  color: #001a94;
-  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2, 0 2px 12px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .quote-status-alert {
@@ -640,12 +651,12 @@ html[data-bs-theme="light"] .price-period {
 html[data-bs-theme="light"] .details-btn-secondary {
   background: rgba(102, 102, 102, 0.2);
   border: 1px solid rgba(13, 27, 41, 0.15);
-  color: #002398;
+  color: #ffffff;
 }
 
 html[data-bs-theme="light"] .details-btn-secondary:hover {
   background: rgba(102, 102, 102, 0.3);
-  color: #001a94;
+  color: #ffffff;
 }
 
 html[data-bs-theme="light"] .details-meta-specs-grid {
@@ -698,4 +709,17 @@ html[data-bs-theme="light"] .rec-price-label {
 
 html[data-bs-theme="light"] .rec-price-val {
   color: #001a94;
+}
+
+/* ================================================================
+   Dark Theme Product Details Overrides
+   ================================================================ */
+
+html[data-bs-theme="dark"] .details-meta-column p,
+html[data-bs-theme="dark"] .details-meta-list {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .details-page-subtitle {
+  color: #ffffff;
 }
