@@ -3,16 +3,24 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { Pagination, Autoplay } from 'swiper/modules';
 import './brand.css';
-import { GammaLogo, Hooked, IntelLogo, KInnami, LoopaliLogo, NvidiaInceptionProgram, wasabi } from '@/assets/img/partner-logo';
-const brands = [
-  wasabi,
-  LoopaliLogo,
-  IntelLogo,
-  NvidiaInceptionProgram,
+import {
   GammaLogo,
   Hooked,
+  IntelLogo,
   KInnami,
+  LoopaliLogo,
+  NvidiaInceptionProgram,
   wasabi,
+} from '@/assets/img/partner-logo';
+const brands = [
+  wasabi,
+  GammaLogo,
+  NvidiaInceptionProgram,
+  IntelLogo,
+  LoopaliLogo,
+  Hooked,
+  KInnami,
+  // wasabi,
   // LoopaliLogo,
   // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b31529c133d881adef92_1.648815FC_Sheffield_Wednesday__80_s_logo___48086.jpg',
   // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b36f570da95155ab5e3f_STARTUP-AGENCY.png',
