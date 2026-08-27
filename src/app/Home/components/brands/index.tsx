@@ -3,16 +3,25 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { Pagination, Autoplay } from 'swiper/modules';
 import './brand.css';
+import { GammaLogo, Hooked, IntelLogo, KInnami, LoopaliLogo, NvidiaInceptionProgram, wasabi } from '@/assets/img/partner-logo';
 const brands = [
-  'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c382dd77d5718a35e3ee42_loopli-logo.png',
-  'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b31529c133d881adef92_1.648815FC_Sheffield_Wednesday__80_s_logo___48086.jpg',
-  'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b36f570da95155ab5e3f_STARTUP-AGENCY.png',
-  'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c38347bcbac30b0f71b4e0_O2-Logo.png',
-  'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c382dd77d5718a35e3ee42_loopli-logo.png',
-  'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b31529c133d881adef92_1.648815FC_Sheffield_Wednesday__80_s_logo___48086.jpg',
-  'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c38347bcbac30b0f71b4e0_O2-Logo.png',
-  'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c382dd77d5718a35e3ee42_loopli-logo.png',
-  'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b31529c133d881adef92_1.648815FC_Sheffield_Wednesday__80_s_logo___48086.jpg',
+  wasabi,
+  LoopaliLogo,
+  IntelLogo,
+  NvidiaInceptionProgram,
+  GammaLogo,
+  Hooked,
+  KInnami,
+  wasabi,
+  // LoopaliLogo,
+  // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b31529c133d881adef92_1.648815FC_Sheffield_Wednesday__80_s_logo___48086.jpg',
+  // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b36f570da95155ab5e3f_STARTUP-AGENCY.png',
+  // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c38347bcbac30b0f71b4e0_O2-Logo.png',
+  // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c382dd77d5718a35e3ee42_loopli-logo.png',
+  // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b31529c133d881adef92_1.648815FC_Sheffield_Wednesday__80_s_logo___48086.jpg',
+  // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c38347bcbac30b0f71b4e0_O2-Logo.png',
+  // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c382dd77d5718a35e3ee42_loopli-logo.png',
+  // 'https://cdn.prod.website-files.com/69c2bfbd6a9dea083b5a3306/69c3b31529c133d881adef92_1.648815FC_Sheffield_Wednesday__80_s_logo___48086.jpg',
 ];
 
 const Brands = () => {

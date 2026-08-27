@@ -116,7 +116,9 @@ const CloudPage = () => {
             <HeaderTitle
               key={theme}
               title={
-                <>Standard cloud models become expensive and <br /> awkward under data-heavy demand.</>
+                <>
+                  Standard cloud models become expensive and <br /> awkward under data-heavy demand.
+                </>
               }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
@@ -195,7 +197,7 @@ const CloudPage = () => {
         theme={theme}
         showButtons
         subHeadline="Get Started"
-        headline="Run compute, GPU, storage and transfer with more confidence and "
+        headline={<>Run compute, GPU, storage and transfer with <br/> more confidence and </>}
         headline2=" less cloud friction."
         // description="Get a free network performance assessment "
         primaryButton={{

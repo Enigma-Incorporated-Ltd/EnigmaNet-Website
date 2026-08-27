@@ -11,7 +11,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero, Commond, EscHero, GridHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero } from '@/assets/img/products';
 import {
   AndPlus,
   APNCoreimprovesContinuoustelemetry,
@@ -104,32 +104,32 @@ const features = [
     },
     image: heroImg,
   },
-  {
-    id: 5,
-    title: 'Nexus Command    ',
-    href: '/products/enigma-platform/enigma-command',
-    slug: 'enigma-command',
-    description: 'Operational view for incidents, agent activity and live service control.   ',
-    image: Commond,
-    meta: {
-      title: 'Nexus Command     ',
-      description: 'Operational view for incidents, agent activity and live service control.    ',
-    },
-  },
-  {
-    id: 6,
-    title: 'Nexus Grid   ',
-    href: '/products/enigma-platform/enigma-grid',
-    slug: 'enigma-grid',
-    description:
-      'Asset and topology view for devices, links, tunnels, sites and service mappings.  ',
-    image: GridHero,
-    meta: {
-      title: 'Nexus Grid    ',
-      description:
-        'Asset and topology view for devices, links, tunnels, sites and service mappings.   ',
-    },
-  },
+  // {
+  //   id: 5,
+  //   title: 'Nexus Command    ',
+  //   href: '/products/enigma-platform/enigma-command',
+  //   slug: 'enigma-command',
+  //   description: 'Operational view for incidents, agent activity and live service control.   ',
+  //   image: Commond,
+  //   meta: {
+  //     title: 'Nexus Command     ',
+  //     description: 'Operational view for incidents, agent activity and live service control.    ',
+  //   },
+  // },
+  // {
+  //   id: 6,
+  //   title: 'Nexus Grid   ',
+  //   href: '/products/enigma-platform/enigma-grid',
+  //   slug: 'enigma-grid',
+  //   description:
+  //     'Asset and topology view for devices, links, tunnels, sites and service mappings.  ',
+  //   image: GridHero,
+  //   meta: {
+  //     title: 'Nexus Grid    ',
+  //     description:
+  //       'Asset and topology view for devices, links, tunnels, sites and service mappings.   ',
+  //   },
+  // },
 ];
 const Core = [
   {

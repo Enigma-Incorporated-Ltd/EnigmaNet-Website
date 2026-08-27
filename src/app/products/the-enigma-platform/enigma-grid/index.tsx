@@ -1,9 +1,8 @@
-import Footer from "@/components/footer/Footer";
-import Navbar from "@/components/navbar/Navbar";
-import PageMeta from "@/components/PageMeta";
-import { BASE_URL } from "@/utils";
-import Grid from "./components";
-
+import Footer from '@/components/footer/Footer';
+import Navbar from '@/components/navbar/Navbar';
+import PageMeta from '@/components/PageMeta';
+import { BASE_URL } from '@/utils';
+import Grid from './components';
 
 const EnigmaGrid = () => {
   const structuredData = {
@@ -26,11 +25,15 @@ const EnigmaGrid = () => {
         structuredData={structuredData}
       />
 
-      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
+      <Navbar
+        Headerclass="header navbar navbar-expand-lg  bg-light fixed-top"
+        darkenable={false}
+        isNavDark={true}
+      />
       <Grid />
       <Footer />
     </>
   );
-}
+};
 
-export default EnigmaGrid
+export default EnigmaGrid;

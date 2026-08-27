@@ -75,20 +75,20 @@ const features = [
     image: heroImg,
   },
 
-  {
-    id: 5,
-    title: 'SyncSphere / LFT   ',
-    href: '/products/data-&-file-services/syncsphere',
-    slug: 'syncsphere',
-    description:
-      'Uses TCP-A to accelerate large file transfer, cloud movement and storage workflows.',
-    image: heroImg,
-    meta: {
-      title: 'SyncSphere / LFT  ',
-      description:
-        'Uses TCP-A to accelerate large file transfer, cloud movement and storage workflows.',
-    },
-  },
+  // {
+  //   id: 5,
+  //   title: 'SyncSphere / LFT   ',
+  //   href: '/products/data-&-file-services/syncsphere',
+  //   slug: 'syncsphere',
+  //   description:
+  //     'Uses TCP-A to accelerate large file transfer, cloud movement and storage workflows.',
+  //   image: Commond,
+  //   meta: {
+  //     title: 'SyncSphere / LFT  ',
+  //     description:
+  //       'Uses TCP-A to accelerate large file transfer, cloud movement and storage workflows.',
+  //   },
+  // },
   {
     id: 6,
     title: 'AND/+  ',
@@ -690,7 +690,7 @@ line rate even when latency, packet loss or distance would normally slow it down
         headline={
           <>
             Recover performance from the
-            <Br isTablet />
+            <Br isTablet  />
           </>
         }
         headline2="  connection you already have. "

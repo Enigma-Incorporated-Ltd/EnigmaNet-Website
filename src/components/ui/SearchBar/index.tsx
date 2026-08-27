@@ -1,29 +1,29 @@
 'use client';
-
+import { useEffect, useMemo, useRef, useState } from 'react';
 import IconifyIcon from '@/components/IconifyIcon';
-import { useMemo, useState } from 'react';
+
 import Faqs from '../faq';
 import HeaderTitle from '../HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
 type FaqProps = {
   id: number;
   question: string;
-  answer: string ;
+  answer: string;
   category: string;
-}
-  type SearchBarProps = {
-    categories: string[];
-    faqs: FaqProps[];
-    title?: string | React.ReactNode;
-    description?: string | React.ReactNode;
-  };
+};
+type SearchBarProps = {
+  categories: string[];
+  faqs: FaqProps[];
+  title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
+};
 
-
-export default function FAQSearch({ categories  , faqs , title, description}: SearchBarProps) {
+export default function FAQSearch({ categories, faqs, title, description }: SearchBarProps) {
   const { theme } = useTheme();
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [showFilter, setShowFilter] = useState(false);
+  const filterRef = useRef<HTMLDivElement>(null);
 
   const filteredFAQs = useMemo(() => {
     return faqs.filter(faq => {
@@ -39,6 +39,7 @@ export default function FAQSearch({ categories  , faqs , title, description}: Se
       return matchesCategory && matchesSearch;
     });
   }, [search, selectedCategory]);
+
   const groupedFAQs = useMemo(() => {
     return filteredFAQs.reduce<Record<string, typeof filteredFAQs>>((groups, faq) => {
       if (!groups[faq.category]) {
@@ -50,6 +51,21 @@ export default function FAQSearch({ categories  , faqs , title, description}: Se
       return groups;
     }, {});
   }, [filteredFAQs]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+        setShowFilter(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="  px-3 py-5">
       {/* Search + Filter */}
@@ -86,7 +102,7 @@ export default function FAQSearch({ categories  , faqs , title, description}: Se
             </div>
 
             {/* Filter */}
-            <div className="position-relative">
+            <div className="position-relative" ref={filterRef}>
               <button
                 type="button"
                 className="btn btn-outline-primary h-100"

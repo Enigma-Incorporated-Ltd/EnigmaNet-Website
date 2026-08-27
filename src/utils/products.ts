@@ -1,6 +1,6 @@
-import { aiInfra, enigmaSecureDesktop, operations, remoteWork } from '@/assets/img';
-import { startp2, startup3 } from '@/assets/img/partners/inddex';
-import { ApnCoreHero, Commond, GridHero, HeroHub, HeroSyncSphere, LedgerHero } from '@/assets/img/products';
+import { aiInfra, enigmaSecureDesktop, operations } from '@/assets/img';
+import { startup3 } from '@/assets/img/partners/inddex';
+import { ApnCoreHero, Commond, EscHero, GridHero, HeroHub, HeroSyncSphere, LedgerHero } from '@/assets/img/products';
 
 export const theEnigmaPlatform = [
   {
@@ -96,15 +96,15 @@ export const theEnigmaPlatform = [
 ];
 
 export const prodcutsList = [
-  {
-    id: 1,
-    title: 'The Enigma Platform',
-    href: '/products/the-enigma-platform',
-    slug: 'enigma-platform',
-    description:
-      'The Enigma Platform unifies Enigma Command, Enigma Nexus, Enigma Grid, Enigma SyncSphere, Enigma Hub and Enigma Ledger into a secure, intelligent ecosystem for network operations, orchestration, collaboration, file movement, storage and digital asset management.',
-    image: GridHero,
-  },
+  // {
+  //   id: 1,
+  //   title: 'The Enigma Platform',
+  //   href: '/products/the-enigma-platform',
+  //   slug: 'enigma-platform',
+  //   description:
+  //     'The Enigma Platform unifies Enigma Command, Enigma Nexus, Enigma Grid, Enigma SyncSphere, Enigma Hub and Enigma Ledger into a secure, intelligent ecosystem for network operations, orchestration, collaboration, file movement, storage and digital asset management.',
+  //   image: GridHero,
+  // },
   {
     id: 2,
     title: 'Performance Networking',
@@ -112,7 +112,7 @@ export const prodcutsList = [
     slug: 'performance-networking',
     description:
       'Enigma Performance Networking combines Enigma APN Core, ESC, Secure Networking, TCP Acceleration, RAIN resilience, Multi-link Bonding and Intelligent Traffic Management to deliver secure, resilient, high-performance connectivity across mission-critical networks.',
-    image: startup3,
+    // image: startup3,
   },
   {
     id: 3,
@@ -121,7 +121,7 @@ export const prodcutsList = [
     slug: 'connectivity-products',
     description:
       'Enigma Connectivity Products combine Enigma EDGE and Enigma Connect to deliver secure, APN-powered connectivity with intelligent optimisation, encrypted tunnels, multi-link resilience and seamless access for individuals, teams and distributed business environments.',
-    image: remoteWork,
+    // image: remoteWork,
   },
   {
     id: 4,
@@ -130,7 +130,7 @@ export const prodcutsList = [
     slug: 'data-&-file-services',
     description:
       'Enigma Data & File Services combine SyncSphere, Hot Storage, Large File Transfer, Managed File Transfer and Multi-cloud Integration to deliver secure, scalable data storage, transfer and management.',
-    image: HeroSyncSphere,
+    // image: HeroSyncSphere,
   },
   {
     id: 5,
@@ -139,7 +139,7 @@ export const prodcutsList = [
     slug: 'ai-&-automation',
     description:
       'Enigma AI & Automation is powered by Enigma Sentinel, delivering intelligent automation, AI-driven insights and proactive operational intelligence for enterprise environments.',
-    image: aiInfra,
+    // image: aiInfra,
   },
   {
     id: 6,
@@ -148,7 +148,7 @@ export const prodcutsList = [
     slug: 'oem-integration',
     description:
       'Enigma Integration & OEM combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments.',
-    image: startp2,
+    // image: startp2,
   },
 ];
 
@@ -169,7 +169,7 @@ export const performanceNetworking = [
     slug: 'esc-secure-networking',
     description:
       'ESC – Secure Networking delivers Enigma’s APN Core as a multi-tenant software and SaaS platform, enabling private overlay networking, SD-WAN-style control, traffic acceleration, bonding, RAIN resilience and secure connectivity across any IP network.',
-    image: startup3,
+    image: EscHero,
   },
   {
     id: 3,

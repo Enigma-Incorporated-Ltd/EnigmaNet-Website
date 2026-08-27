@@ -78,13 +78,13 @@ const SecureNetworking = lazy(() => import('@/app/Home/secure-networking'));
 //Products
 const Products = lazy(() => import('@/app/products'));
 // Enigma Platform
-const EnigmaPlatform = lazy(() => import('@/app/products/the-enigma-platform'));
-const EnigmaHub = lazy(() => import('@/app/products/the-enigma-platform/enigma-hub'));
-const EnigmaGrid = lazy(() => import('@/app/products/the-enigma-platform/enigma-grid'));
-const EnigmaLedger = lazy(() => import('@/app/products/the-enigma-platform/enigma-ledger'));
-const EnigmaNexus = lazy(() => import('@/app/products/the-enigma-platform/enigma-nexus'));
-const EnigmaSyncSphere = lazy(() => import('@/app/products/the-enigma-platform/enigma-syncSphere'));
-const EnigmaCommand = lazy(() => import('@/app/products/the-enigma-platform/enigma-command'));
+// const EnigmaPlatform = lazy(() => import('@/app/products/the-enigma-platform'));
+// const EnigmaHub = lazy(() => import('@/app/products/the-enigma-platform/enigma-hub'));
+// const EnigmaGrid = lazy(() => import('@/app/products/the-enigma-platform/enigma-grid'));
+// const EnigmaLedger = lazy(() => import('@/app/products/the-enigma-platform/enigma-ledger'));
+// const EnigmaNexus = lazy(() => import('@/app/products/the-enigma-platform/enigma-nexus'));
+// const EnigmaSyncSphere = lazy(() => import('@/app/products/the-enigma-platform/enigma-syncSphere'));
+// const EnigmaCommand = lazy(() => import('@/app/products/the-enigma-platform/enigma-command'));
 
 // ENIGMA LEDGER
 const LedgerDataModel = lazy(
@@ -268,13 +268,13 @@ export const AllRoutes = [
 
   // Enigma Platform Routes
   { path: '/products', element: <Products /> },
-  { path: '/products/the-enigma-platform', element: <EnigmaPlatform /> },
-  { path: '/products/enigma-platform/enigma-grid', element: <EnigmaGrid /> },
-  { path: '/products/enigma-platform/enigma-ledger', element: <EnigmaLedger /> },
-  { path: '/products/enigma-platform/enigma-nexus', element: <EnigmaNexus /> },
-  { path: '/products/enigma-platform/enigma-syncsphere', element: <EnigmaSyncSphere /> },
-  { path: '/products/enigma-platform/enigma-command', element: <EnigmaCommand /> },
-  { path: '/products/enigma-platform/enigma-hub', element: <EnigmaHub /> },
+  // { path: '/products/the-enigma-platform', element: <EnigmaPlatform /> },
+  // { path: '/products/enigma-platform/enigma-grid', element: <EnigmaGrid /> },
+  // { path: '/products/enigma-platform/enigma-ledger', element: <EnigmaLedger /> },
+  // { path: '/products/enigma-platform/enigma-nexus', element: <EnigmaNexus /> },
+  // { path: '/products/enigma-platform/enigma-syncsphere', element: <EnigmaSyncSphere /> },
+  // { path: '/products/enigma-platform/enigma-command', element: <EnigmaCommand /> },
+  // { path: '/products/enigma-platform/enigma-hub', element: <EnigmaHub /> },
 
   //Engima Ledger Routes
   {

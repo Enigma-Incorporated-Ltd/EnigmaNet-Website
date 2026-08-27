@@ -112,10 +112,10 @@ const FALLBACK: FooterConfig = {
     },
     {
       links: [
-        {
-          url: '/products/the-enigma-platform',
-          title: 'Enigma Platform',
-        },
+        // {
+        //   url: '/products/the-enigma-platform',
+        //   title: 'Enigma Platform',
+        // },
         {
           url: '/products/performance-networking',
           title: 'Performance Networking',

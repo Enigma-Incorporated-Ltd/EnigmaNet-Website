@@ -51,7 +51,7 @@ const features = [
       title: 'Enigma EDGE    ',
       description: 'Managed business and enterprise edge deployments that connect into ESC.    ',
     },
-    image: heroImg,
+    image: Commond,
   },
   {
     id: 4,
@@ -64,35 +64,35 @@ const features = [
       title: 'AND/+ Integration Platform    ',
       description: 'Embeddable APN and ESC integration layer for carriers, OEMs and platforms.    ',
     },
-    image: heroImg,
-  },
-  {
-    id: 5,
-    title: 'Nexus Command    ',
-    href: '/products/enigma-platform/enigma-command',
-    slug: 'enigma-command',
-    description:
-      'Operational command view for ESC incidents, tunnel health and agent-assisted response.    ',
-    image: Commond,
-    meta: {
-      title: 'Nexus Command     ',
-      description:
-        'Operational command view for ESC incidents, tunnel health and agent-assisted response.     ',
-    },
-  },
-  {
-    id: 6,
-    title: 'Nexus Grid   ',
-    href: '/products/enigma-platform/enigma-grid',
-    slug: 'enigma-grid',
-    description: 'Asset and topology system of record for ESC nodes, sites, links and tunnels.    ',
     image: GridHero,
-    meta: {
-      title: 'Nexus Grid    ',
-      description:
-        'Asset and topology system of record for ESC nodes, sites, links and tunnels.   ',
-    },
   },
+  // {
+  //   id: 5,
+  //   title: 'Nexus Command    ',
+  //   href: '/products/enigma-platform/enigma-command',
+  //   slug: 'enigma-command',
+  //   description:
+  //     'Operational command view for ESC incidents, tunnel health and agent-assisted response.    ',
+  //   image: Commond,
+  //   meta: {
+  //     title: 'Nexus Command     ',
+  //     description:
+  //       'Operational command view for ESC incidents, tunnel health and agent-assisted response.     ',
+  //   },
+  // },
+  // {
+  //   id: 6,
+  //   title: 'Nexus Grid   ',
+  //   href: '/products/enigma-platform/enigma-grid',
+  //   slug: 'enigma-grid',
+  //   description: 'Asset and topology system of record for ESC nodes, sites, links and tunnels.    ',
+  //   image: GridHero,
+  //   meta: {
+  //     title: 'Nexus Grid    ',
+  //     description:
+  //       'Asset and topology system of record for ESC nodes, sites, links and tunnels.   ',
+  //   },
+  // },
 ];
 const featuresChild = [
   {
@@ -106,7 +106,7 @@ const featuresChild = [
       title: 'ESC – Deployment Profiles   ',
       description: 'Cloud, on-prem, hybrid topologies and reference diagrams.     ',
     },
-    image: heroImg,
+    image: GridHero,
   },
   {
     id: 2,
@@ -132,7 +132,7 @@ const featuresChild = [
       title: 'ESC – AWS Implementation Guide      ',
       description: 'Detailed EC2 endpoint and policy routing steps.     ',
     },
-    image: heroImg,
+    image: Commond,
   },
   {
     id: 4,
@@ -158,7 +158,7 @@ const featuresChild = [
       title: 'ESC – Security & Compliance Notes       ',
       description: 'Key management, cipher selection, audit points and threat model.     ',
     },
-    image: heroImg,
+    image: EscHero,
   },
 ];
 const Core = [
