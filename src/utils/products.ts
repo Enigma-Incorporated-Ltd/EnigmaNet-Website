@@ -1,6 +1,6 @@
 import { aiInfra, enigmaSecureDesktop, operations } from '@/assets/img';
 import { startup3 } from '@/assets/img/partners/inddex';
-import { ApnCoreHero, Commond, EscHero, GridHero, HeroHub, HeroSyncSphere, LedgerHero } from '@/assets/img/products';
+import { ApnCoreHero, Commond, EscHero, GridHero, HeroHub, HeroSyncSphere, LedgerHero, TcpHero } from '@/assets/img/products';
 
 export const theEnigmaPlatform = [
   {
@@ -110,6 +110,7 @@ export const prodcutsList = [
     title: 'Performance Networking',
     href: '/products/performance-networking',
     slug: 'performance-networking',
+    
     description:
       'Enigma Performance Networking combines Enigma APN Core, ESC, Secure Networking, TCP Acceleration, RAIN resilience, Multi-link Bonding and Intelligent Traffic Management to deliver secure, resilient, high-performance connectivity across mission-critical networks.',
     // image: startup3,
@@ -178,7 +179,7 @@ export const performanceNetworking = [
     slug: 'tcp-acceleration',
     description:
       'TCP Acceleration is a core APN capability that improves single-flow throughput by replacing legacy TCP congestion behaviour inside Enigma’s encrypted tunnel, helping traffic run closer to line rate even when latency, packet loss or distance would normally slow it down.',
-    image: Commond,
+    image: TcpHero,
   },
   {
     id: 4,

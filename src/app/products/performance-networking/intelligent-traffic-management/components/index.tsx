@@ -14,7 +14,7 @@ import FeatureComparison from '@/components/ui/FeatureComparison';
 import { type CardItem } from '@/components/ui/card';
 import Br from '@/components/ui/NewLine';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
-import { ApnCoreHero, Commond, EscHero } from '@/assets/img/products';
+import { ApnCoreHero, Commond, EscHero, TcpHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -42,7 +42,7 @@ const features = [
       title: 'TCP Acceleration',
       description: 'Improves throughput when loss and latency slow standard TCP.   ',
     },
-    image: heroImg,
+    image: TcpHero,
   },
   {
     id: 3,

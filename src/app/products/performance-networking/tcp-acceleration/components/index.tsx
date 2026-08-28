@@ -15,7 +15,7 @@ import { useSlug } from '@/utils/useSlug';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import GraphTable from './GraphTable';
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero, EscHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero, TcpHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -393,7 +393,7 @@ const Acceleration = () => {
         description="TCP Acceleration is a core APN capability that improves single-flow throughput by replacing   
 legacy TCP congestion behaviour inside Enigma’s encrypted tunnel, helping traffic run closer to   
 line rate even when latency, packet loss or distance would normally slow it down.  "
-        image={heroImg}
+        image={TcpHero}
         buttons={[
           {
             label: 'Explore TCP Acceleration  ',
@@ -479,7 +479,7 @@ line rate even when latency, packet loss or distance would normally slow it down
         data={data2}
       />
       <CaseStudyHighlight
-        image={heroImg}
+        image={TcpHero}
         title={
           <>
             <HeaderTitle
@@ -690,7 +690,7 @@ line rate even when latency, packet loss or distance would normally slow it down
         headline={
           <>
             Recover performance from the
-            <Br isTablet  />
+            <Br isTablet />
           </>
         }
         headline2="  connection you already have. "

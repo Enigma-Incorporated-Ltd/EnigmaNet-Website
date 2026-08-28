@@ -13,7 +13,7 @@ import { useSlug } from '@/utils/useSlug';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero, EscHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero, TcpHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -41,7 +41,7 @@ const features = [
       title: 'TCP Acceleration',
       description: 'Improves throughput over lossy and high-latency links.  ',
     },
-    image: heroImg,
+    image: TcpHero,
   },
   {
     id: 3,

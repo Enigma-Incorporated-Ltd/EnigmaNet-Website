@@ -29,7 +29,7 @@ import NextPageSlider from '@/components/ui/NextPageSlider';
 import { useSlug } from '@/utils/useSlug';
 import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
-import { ApnCoreHero, EscHero, GridHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero, GridHero, TcpHero } from '@/assets/img/products';
 import WorkSteps from '@/components/ui/workSteps';
 import PricingCard from '@/components/ui/PricingCard';
 import AddOnCard from '@/components/ui/AddOnCard';
@@ -124,7 +124,7 @@ const features = [
       title: 'TCP Acceleration  ',
       description: 'Improves throughput over lossy and high-latency links.    ',
     },
-    image: GridHero,
+    image: TcpHero,
   },
   {
     id: 8,

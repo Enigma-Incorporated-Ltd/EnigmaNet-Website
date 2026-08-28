@@ -508,6 +508,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
               href: '/company/trust-&-security/trust-centre#compliance-and-certifications',
             },
             { label: 'Policies', href: '/company/trust-&-security/policies' },
+            { label: 'Legal', href: '/legal' },
           ],
         },
       ],
