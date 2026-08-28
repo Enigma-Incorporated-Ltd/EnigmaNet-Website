@@ -194,7 +194,7 @@ const SmarterInfrastructurePage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" What the solution delivers"
+              title="What the solution delivers"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -243,7 +243,7 @@ const SmarterInfrastructurePage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title=" Designed to improve real-world infrastructure outcomes"
+              title="Designed to improve real-world infrastructure outcomes"
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -266,16 +266,16 @@ const SmarterInfrastructurePage = () => {
             Improve performance, resilience and visibility <br /> without
           </>
         }
-        headline2=" rebuilding everything."
+        headline2="rebuilding everything."
         // description="Get a free network performance assessment "
         primaryButton={{
-          label: ' Talk to Enigma ',
+          label: 'Talk to Enigma',
           href: '/get-in-touch',
           variant: 'gold',
           disableSentenceCase: true,
         }}
         secondaryButton={{
-          label: 'Book a Network Assessment ',
+          label: 'Book a Network Assessment',
           href: '/get-in-touch',
           variant: 'blue',
         }}

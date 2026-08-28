@@ -216,8 +216,8 @@ const BlogInsight = lazy(() => import('@/app/company/blog-insight'));
 //company/trust-&-security
 const Trust = lazy(() => import('@/app/company/trust-&-security'));
 const TrustCentre = lazy(() => import('@/app/company/trust-&-security/trust-centre'));
-const Legal = lazy(() => import('@/app/company/trust-&-security/policies'));
-
+const Policies = lazy(() => import('@/app/company/trust-&-security/policies'));
+const Legal = lazy(() => import('@/app/legal'));
 
 //company/resources/
 const Resources = lazy(() => import('@/app/company/resources'));
@@ -414,13 +414,20 @@ export const AllRoutes = [
   { path: '/company/trust-&-security/trust-centre', element: <TrustCentre /> },
   {
     path: '/company/trust-&-security/policies',
-    element: <Legal />,
+    element: <Policies />,
   },
   {
     path: '/company/trust-&-security/policies/:slug',
+    element: <Policies />,
+  },
+  {
+    path: '/legal',
     element: <Legal />,
   },
- 
+  {
+    path: '/legal/:slug',
+    element: <Legal />,
+  },
 
   // company/resources/
   {

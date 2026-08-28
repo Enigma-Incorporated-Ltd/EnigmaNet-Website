@@ -2,7 +2,7 @@ import Footer from '@/components/footer/Footer';
 import Navbar from '@/components/navbar/Navbar';
 import PageMeta from '@/components/PageMeta';
 import { BASE_URL } from '@/utils';
-import FaqPage from './components';
+import FaqPage, { faqs } from './components';
 
 const FAQ = () => {
   const structuredData = {
@@ -10,7 +10,20 @@ const FAQ = () => {
     '@type': 'WebPage',
     name: 'FAQ | Resources | Company',
     url: `${BASE_URL}/company/resources/faq`,
-    description: 'Find quick answers about Enigma Net products, secure networking, data and file storage, APN acceleration, deployment options, pricing, security and support.  ',
+    description:
+      'Find quick answers about Enigma Net products, secure networking, data and file storage, APN acceleration, deployment options, pricing, security and support.  ',
+  };
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question.trim(),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer.trim(),
+      },
+    })),
   };
   return (
     <>
@@ -19,7 +32,7 @@ const FAQ = () => {
         description="Find quick answers about Enigma Net products, secure networking, data and file storage, APN   
 acceleration, deployment options, pricing, security and support.  "
         url={`${BASE_URL}/company/resources/faq`}
-        structuredData={structuredData}
+        structuredData={[structuredData, faqSchema]}
       />
 
       <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />

@@ -75,7 +75,7 @@ const features = [
   {
     id: 5,
     title: 'SyncSphere  ',
-    href: '/products/enigma-platform/syncsphere',
+    href: '/products/enigma-platform/enigma-syncSphere',
     slug: 'syncsphere',
     description: 'Feeds storage, transfer and usage-related services into the commercial model.   ',
     image: HeroSyncSphere,

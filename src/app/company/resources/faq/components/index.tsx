@@ -19,7 +19,7 @@ const categories = [
   'Support',
 ];
 
-const faqs = [
+export const faqs = [
   {
     id: 1,
     question: 'What does Enigma Net do?',

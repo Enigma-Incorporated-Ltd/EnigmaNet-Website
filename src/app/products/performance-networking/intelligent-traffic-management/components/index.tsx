@@ -14,7 +14,7 @@ import FeatureComparison from '@/components/ui/FeatureComparison';
 import { type CardItem } from '@/components/ui/card';
 import Br from '@/components/ui/NewLine';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
-import { ApnCoreHero, Commond, EscHero } from '@/assets/img/products';
+import { ApnCoreHero, Commond, EscHero, TcpHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -42,7 +42,7 @@ const features = [
       title: 'TCP Acceleration',
       description: 'Improves throughput when loss and latency slow standard TCP.   ',
     },
-    image: heroImg,
+    image: TcpHero,
   },
   {
     id: 3,
@@ -55,7 +55,7 @@ const features = [
       title: 'RAIN Resilience  ',
       description: 'Protects Gold traffic through packet duplication and loss masking.   ',
     },
-    image: heroImg,
+    image: Commond,
   },
   {
     id: 4,
@@ -109,20 +109,20 @@ const features = [
       description: 'Uses ITM to improve self-serve connectivity and thin-client performance.    ',
     },
   },
-  {
-    id: 8,
-    title: 'Nexus Command   ',
-    href: '/products/enigma-platform/enigma-command',
-    slug: 'enigma-command',
-    description:
-      'Surfaces ITM-driven events, link quality changes and performance decisions for operators. ',
-    image: Commond,
-    meta: {
-      title: 'Nexus Command    ',
-      description:
-        'Surfaces ITM-driven events, link quality changes and performance decisions for operators. ',
-    },
-  },
+  // {
+  //   id: 8,
+  //   title: 'Nexus Command   ',
+  //   href: '/products/enigma-platform/enigma-command',
+  //   slug: 'enigma-command',
+  //   description:
+  //     'Surfaces ITM-driven events, link quality changes and performance decisions for operators. ',
+  //   image: Commond,
+  //   meta: {
+  //     title: 'Nexus Command    ',
+  //     description:
+  //       'Surfaces ITM-driven events, link quality changes and performance decisions for operators. ',
+  //   },
+  // },
 ];
 
 const Core = [

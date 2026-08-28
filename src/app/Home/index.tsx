@@ -7,11 +7,8 @@ import HeroSlider from '@/components/landing/HeroSlider';
 import DataCard from './components/DataCard';
 import NetworkingCard from './components/NetworkingCard';
 import WorkCard from './components/workCard';
-import UseCase from './components/UseCase';
 import Brands from './components/brands';
-import CustomerResults from './components/customerResults';
 import Partner from './components/Partner';
-import Resources from './components/Resources';
 
 import GetInTouch from './components/getinTouch/GetInTouch';
 import { BASE_URL } from '@/utils';
@@ -25,34 +22,34 @@ type FaqType = {
 
 const faqs: FaqType[] = [
   {
-    question: 'Do I need to change my ISP or existing infrastructure?',
+    question: 'What does Enigma Net do?',
     answer:
-      'No. Enigma Net sits on top of your existing internet connections, fibre, 5G, satellite, whatever you have. No rip-and-replace, no dependency on a specific provider.',
+      'Enigma Net provides infrastructure technologies across networking, cloud and data movement, helping organisations improve performance, resilience, security and control across their existing environments.',
   },
   {
-    question: 'How is this different from SD-WAN?',
+    question: 'Do I need to replace my existing infrastructure?',
     answer:
-      'While SD-WAN routes traffic across multiple links, Enigma Net actively accelerates and stabilises it. Deterministic performance, not just connectivity.',
+      'No. Enigma Net is designed to work alongside existing connectivity, cloud and storage environments, helping improve performance without forcing unnecessary replacement.',
   },
   {
-    question: 'What kind of performance improvement should I expect?',
+    question: 'Is Enigma Net storage S3 compatible?',
     answer:
-      'Up to 39–64× faster large-file transfers. Predictive failover in 20ms. Five-9s reliability using standard internet links.',
+      'Yes. Enigma Net’s cloud and storage capabilities include support for S3-compatible storage, allowing organisations to integrate object storage into wider data and cloud workflows.',
   },
   {
-    question: 'Is Enigma Net secure?',
+    question: 'Can Enigma Net connect with existing cloud and storage platforms?',
     answer:
-      'All traffic through encrypted tunnels. Identity-based access control. No logs. Zero-trust architecture throughout.',
+      'Yes. Enigma Net is designed to work across existing environments, including cloud storage, NAS and S3-compatible platforms, helping organisations access and move data without managing each environment separately.',
   },
   {
-    question: 'Can MSPs and channel partners resell Enigma Net?',
+    question: 'How does Enigma Net improve network performance and resilience?',
     answer:
-      'Absolutely. MSPs can package, provision and resell as a differentiated managed offering with new revenue streams.',
+      'Enigma Net uses technologies including intelligent traffic management, TCP acceleration, QoS, bonding, failover and RAIN to optimise data movement and maintain service when network conditions change.',
   },
   {
-    question: 'What about compliance, NIS2, zero-trust mandates?',
+    question: 'How secure is Enigma Net?',
     answer:
-      'Enigma Net is built on zero-trust encrypted networking with multi-path resilience. Aligned to NIS2 requirements and zero-trust architecture mandates for critical infrastructure.',
+      'Security is built into the Enigma Net architecture, with encrypted data transport and a zero-trust approach designed to protect data as it moves across the network and between environments.',
   },
 ];
 const Index = () => {
@@ -131,8 +128,8 @@ const Index = () => {
       <DataCard />
       <NetworkingCard />
       <WorkCard />
-      <UseCase />
-      <CustomerResults />
+      {/* <UseCase /> */}
+      {/* <CustomerResults /> */}
 
       <CTA
         theme={theme}
@@ -149,7 +146,7 @@ const Index = () => {
         }}
       />
       <Partner />
-      <Resources />
+      {/* <Resources /> */}
       <Faqs
         faqs={faqs}
         sectionTitle="Frequently Asked Questions"

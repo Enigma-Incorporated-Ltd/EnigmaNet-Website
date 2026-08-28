@@ -51,7 +51,7 @@ export interface NavClass {
 export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
   Products: {
     leftRail: [
-      { label: 'The Enigma Platform', id: 'platform' },
+      // { label: 'The Enigma Platform', id: 'platform' },
       { label: 'Performance Networking', id: 'networking' },
       { label: 'Connectivity Products', id: 'connectivity' },
       { label: 'Data & File Services', id: 'data' },
@@ -60,19 +60,19 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       // { label: 'View All Products', id: 'all' },
     ],
     panels: {
-      platform: [
-        {
-          title: 'The Enigma Platform',
-          links: [
-            { label: 'Enigma Nexus', href: '/products/enigma-platform/enigma-nexus' },
-            { label: 'Enigma Command', href: '/products/enigma-platform/enigma-command' },
-            { label: 'Enigma Grid', href: '/products/enigma-platform/enigma-grid' },
-            { label: 'Enigma SyncSphere', href: '/products/enigma-platform/enigma-syncsphere' },
-            { label: 'Enigma Hub', href: '/products/enigma-platform/enigma-hub' },
-            { label: 'Enigma Ledger', href: '/products/enigma-platform/enigma-ledger' },
-          ],
-        },
-      ],
+      // platform: [
+      //   {
+      //     title: 'The Enigma Platform',
+      //     links: [
+      //       { label: 'Enigma Nexus', href: '/products/enigma-platform/enigma-nexus' },
+      //       { label: 'Enigma Command', href: '/products/enigma-platform/enigma-command' },
+      //       { label: 'Enigma Grid', href: '/products/enigma-platform/enigma-grid' },
+      //       { label: 'Enigma SyncSphere', href: '/products/enigma-platform/enigma-syncsphere' },
+      //       { label: 'Enigma Hub', href: '/products/enigma-platform/enigma-hub' },
+      //       { label: 'Enigma Ledger', href: '/products/enigma-platform/enigma-ledger' },
+      //     ],
+      //   },
+      // ],
       networking: [
         {
           title: 'Performance Networking',
@@ -508,6 +508,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
               href: '/company/trust-&-security/trust-centre#compliance-and-certifications',
             },
             { label: 'Policies', href: '/company/trust-&-security/policies' },
+            { label: 'Legal', href: '/legal' },
           ],
         },
       ],

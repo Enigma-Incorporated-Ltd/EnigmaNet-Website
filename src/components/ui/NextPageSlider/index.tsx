@@ -88,10 +88,10 @@ const NextPageSlider = ({
 
       <section className="container pt-3 pt-md-4 pt-lg-5 pb-2 mt-lg-2 mt-xl-4">
         {/* Header row: title + view-all button + arrows */}
-        <div className="d-flex flex-sm-row flex-column align-items-center justify-content-between mb-4 pb-1 pb-md-3">
-          <HeaderTitle title={title} className="h1 mb-sm-0 pb-3" />
+        <div className="d-flex flex-sm-row  align-items-center justify-content-between mb-4 pb-1 pb-md-3">
+          <HeaderTitle title={title} className="h1 mb-sm-0 " />
 
-          <div className="d-flex align-items-center gap-3 mt-3 mt-sm-0">
+          <div className="d-flex align-items-center gap-3 ">
             {buttonLink && (
               <PremiumButton
                 label={
