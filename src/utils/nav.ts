@@ -121,20 +121,20 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         {
           title: 'Data & File Services',
           links: [
-            { label: 'SyncSphere ', href: '/products/data-&-file-services/syncsphere' },
+            // { label: 'SyncSphere ', href: '/products/data-&-file-services/syncsphere' },
             { label: 'Hot Storage', href: '/products/data-&-file-services/hot-storage' },
-            {
-              label: 'Large File Transfer',
-              href: '/products/data-&-file-services/large-file-transfer',
-            },
+            // {
+            //   label: 'Large File Transfer',
+            //   href: '/products/data-&-file-services/large-file-transfer',
+            // },
             {
               label: 'Managed File Transfer',
               href: '/products/data-&-file-services/managed-file-transfer',
             },
-            {
-              label: 'Multi-cloud integration',
-              href: '/products/data-&-file-services/multi-cloud-integration',
-            },
+            // {
+            //   label: 'Multi-cloud integration',
+            //   href: '/products/data-&-file-services/multi-cloud-integration',
+            // },
           ],
         },
       ],
@@ -158,22 +158,22 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
               label: 'Powered by APN Core',
               href: '/products/oem-integration/powered-by-apn-core',
             },
-            {
-              label: 'OEM & Integration',
-              href: '/products/oem-integration',
-            },
-            {
-              label: 'Binary Integration',
-              href: '/products/oem-integration#binary-integration',
-            },
-            {
-              label: 'Container Deployment',
-              href: '/products/oem-integration#container-deployment',
-            },
-            {
-              label: 'Virtual Appliance',
-              href: '/products/oem-integration#virtual-appliance',
-            },
+            // {
+            //   label: 'OEM & Integration',
+            //   href: '/products/oem-integration',
+            // },
+            // {
+            //   label: 'Binary Integration',
+            //   href: '/products/oem-integration#binary-integration',
+            // },
+            // {
+            //   label: 'Container Deployment',
+            //   href: '/products/oem-integration#container-deployment',
+            // },
+            // {
+            //   label: 'Virtual Appliance',
+            //   href: '/products/oem-integration#virtual-appliance',
+            // },
           ],
         },
       ],

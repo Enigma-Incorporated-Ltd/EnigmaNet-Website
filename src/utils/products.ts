@@ -241,15 +241,15 @@ export const DataFilesServices = [
       'Enigma Hot Storage gives teams S3-compatible object storage with accelerated transfer, secure access, flat pricing and workflow visibility designed for media, backups, logs, working assets and large data sets',
     image: operations,
   },
-  {
-    id: 2,
-    title: 'Large File Transfer',
-    href: '/products/data-&-file-services/large-file-transfer',
-    slug: 'large-file-transfer',
-    description:
-      'Enigma Large File Transfer lets users send files to anyone through secure shareable links, with APN-accelerated transfer, portal-based upload and download, link controls, audit visibility and support for external collaborators.  ',
-    image: HeroSyncSphere,
-  },
+  // {
+  //   id: 2,
+  //   title: 'Large File Transfer',
+  //   href: '/products/data-&-file-services/large-file-transfer',
+  //   slug: 'large-file-transfer',
+  //   description:
+  //     'Enigma Large File Transfer lets users send files to anyone through secure shareable links, with APN-accelerated transfer, portal-based upload and download, link controls, audit visibility and support for external collaborators.  ',
+  //   image: HeroSyncSphere,
+  // },
   {
     id: 3,
     title: 'Managed File Transfer',

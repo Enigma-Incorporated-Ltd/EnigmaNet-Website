@@ -304,7 +304,7 @@ const ApnCoreDetails = () => {
       <Breadcrumb
         items={[
           { label: 'Products', href: '/products' },
-          { label: 'OEM & Integration', href: '/products/integration-&-oem' },
+          { label: 'OEM & Integration', href: '/products/oem-integration' },
           { label: 'Powered by APN Core' },
         ]}
         style={{
@@ -315,7 +315,7 @@ const ApnCoreDetails = () => {
       <HeroSection
         title={
           <>
-            Embed Enigma’s APN Core <Br isDesktop  isTablet/>
+            Embed Enigma’s APN Core <Br isDesktop isTablet />
             into your own platform
           </>
         }

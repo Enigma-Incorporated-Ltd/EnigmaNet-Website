@@ -152,7 +152,7 @@ const breadcrumbSchema = active
           { label: 'Policies ', href: '/company/trust-&-security/policies' },
         ]}
         style={{
-          paddingTop: '6rem ',
+          paddingTop: '9rem ',
         }}
       />{' '}
       <Header
