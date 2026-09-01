@@ -211,10 +211,10 @@ const CustomerProfile = () => {
                 <p className="profile-field__label">Current Plan</p>
                 <p className="profile-field__value"><Icon.Book />{data.currentPlan}</p>
               </div>
-              <div>
+              {/* <div>
                 <p className="profile-field__label">User ID</p>
                 <p className="profile-field__value"><Icon.Hash />{data.userId}</p>
-              </div>
+              </div> */}
             </div>
             <div className="profile-fields__col">
               <div>

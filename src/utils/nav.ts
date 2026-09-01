@@ -340,7 +340,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
           title: 'Utility',
           links: [
             // { label: 'Contact support', href: '/support' },
-            { label: 'Customer Portal', href: '/customer-portal' },
+            { label: 'Customer Portal', href: '/customers-portal' },
             { label: 'Developer Portal', href: '/developer-portal' },
             { label: 'Docs', href: '/docs' },
             { label: 'Pricing', href: '/pricing' },
@@ -661,7 +661,7 @@ export const FALLBACK_CONFIG: HeaderConfig = {
     { type: 'mega', label: '☰', data: MEGA_MENU_DATA.Support },
   ],
   utility_nav: [
-    { label: 'Customer Portal', href: '/customer-portal' },
+    { label: 'Customer Portal', href: '/customers-portal' },
     { label: 'Developer Portal', href: '/developer-portal' },
     { label: 'Docs', href: '/docs' },
     { label: 'Pricing', href: '/pricing' },
