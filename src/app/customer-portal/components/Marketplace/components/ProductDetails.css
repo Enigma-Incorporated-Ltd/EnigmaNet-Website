@@ -1,0 +1,725 @@
+/* ================================================================
+   Product Details Layout & Styles (Figma Match)
+   ================================================================ */
+
+.details-layout-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.details-header-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.details-back-arrow-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--portal-text);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.details-back-arrow-btn:hover {
+  color: #2adeff;
+}
+
+.details-header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.details-page-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--portal-text);
+}
+
+.details-page-subtitle {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--portal-text-muted);
+}
+
+/* Main Graphic and Purchase Card */
+.details-main-product-card {
+  display: flex;
+  gap: 40px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.details-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 271px;
+  flex-shrink: 0;
+}
+
+.details-graphic-box {
+  padding: 8px;
+  background: var(--marketplace-card-gradient);
+  border: 1px solid rgba(42, 222, 255, 0.2);
+  border-radius: 4px;
+  width: 271px;
+  height: 148px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-graphic-inner {
+  background: #0d1b29;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.details-graphic-glow-1 {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(35, 193, 239, 0.15) 0%, rgba(35, 193, 239, 0) 70%);
+  filter: blur(20px);
+  top: -40px;
+  left: -40px;
+  pointer-events: none;
+}
+
+.details-graphic-glow-2 {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(11, 84, 179, 0.2) 0%, rgba(11, 84, 179, 0) 70%);
+  filter: blur(20px);
+  bottom: -40px;
+  right: -40px;
+  pointer-events: none;
+}
+
+.details-graphic-icon-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-badge-row {
+  display: flex;
+  border: 1px solid rgba(0, 26, 148, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.details-badge-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-right: 1px solid rgba(0, 26, 148, 0.15);
+  padding: 10px 4px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.details-badge-item:last-child {
+  border-right: none;
+}
+
+.details-badge-icon {
+  color: #2adeff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-badge-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  color: var(--portal-text);
+  text-align: center;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.details-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.details-card-right-header h2 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2adeff;
+}
+
+.details-card-right-header p {
+  margin: 4px 0 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--portal-text-muted);
+  line-height: 1.4;
+}
+
+.details-card-benefits {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text);
+  border-bottom: 1px solid rgba(0, 26, 148, 0.1);
+  padding: 12px 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.benefit-item:last-child {
+  border-bottom: none;
+}
+
+.benefit-bullet-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #2adeff 0%, #0055ff 100%);
+  box-shadow: 0 0 6px rgba(42, 222, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.details-card-price-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: var(--portal-text-muted);
+}
+
+.price-value-row {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.price-amount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #2adeff;
+}
+
+.price-period {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text-muted);
+}
+
+.details-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.details-btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  border: none;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 163, 218, 0.15);
+}
+
+.details-btn-primary:hover {
+  background: linear-gradient(90deg, rgba(38, 55, 119, 0.8) 0%, rgba(0, 163, 218, 0.8) 100%);
+  box-shadow: 0 6px 14px rgba(0, 163, 218, 0.25);
+  transform: translateY(-1px);
+}
+
+.details-btn-secondary {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px;
+  border-radius: 100px;
+  background: rgba(102, 102, 102, 0.2);
+  border: none !important;
+  outline: none !important;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details-btn-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 100px;
+  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2;
+}
+
+.details-btn-secondary:hover {
+  background: rgba(102, 102, 102, 0.3);
+  color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quote-status-alert {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: #2adeff;
+  border: 1px solid rgba(42, 222, 255, 0.3);
+  background: rgba(42, 222, 255, 0.05);
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Specs, Terms and Inclusions Grid */
+.details-meta-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.details-meta-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.details-meta-column h3 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--portal-text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 6px;
+}
+
+.details-meta-column p {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text-muted);
+  line-height: 1.4;
+}
+
+.details-meta-list {
+  margin: 0;
+  padding-left: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style-type: disc !important;
+}
+
+.details-meta-list li {
+  display: list-item !important;
+  list-style-type: disc !important;
+  padding-left: 4px;
+}
+
+/* Family upgrade products section */
+.details-recommendations-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.recommendations-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.recommendations-header h2 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--portal-text);
+}
+
+.recommendations-header p {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--portal-text-muted);
+}
+
+.recommendations-cards-row {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.recommendation-product-card {
+  display: flex;
+  gap: 16px;
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.08) 0%, rgba(27, 127, 156, 0.08) 46%, rgba(11, 84, 179, 0.08) 100%);
+  border: 1px solid rgba(42, 222, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 6px;
+  padding: 16px;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.rec-card-icon-box {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #0d1b29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(42, 222, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.rec-card-info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.rec-card-header h3 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2adeff;
+}
+
+.rec-card-header p {
+  margin: 4px 0 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  color: var(--portal-text-muted);
+  line-height: 1.3;
+}
+
+.rec-card-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rec-benefit-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  color: var(--portal-text);
+}
+
+.rec-benefit-row svg {
+  color: #2adeff;
+  flex-shrink: 0;
+}
+
+.rec-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.rec-price-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rec-price-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  color: var(--portal-text-muted);
+}
+
+.rec-price-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #2adeff;
+}
+
+.rec-explore-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  border: none;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rec-explore-btn:hover {
+  background: linear-gradient(90deg, rgba(38, 55, 119, 0.8) 0%, rgba(0, 163, 218, 0.8) 100%);
+  transform: translateY(-0.5px);
+}
+
+.recommendations-footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.rec-view-more-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(13,27,41,0.2) 0%, rgba(11,84,179,0.2) 100%);
+  border: 1px solid rgba(42, 222, 255, 0.15);
+  color: var(--portal-text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rec-view-more-btn:hover {
+  border-color: rgba(42, 222, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive details layout */
+@media (max-width: 900px) {
+  .details-main-product-card {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .details-card-left {
+    width: 100%;
+  }
+  
+  .details-meta-specs-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .recommendations-cards-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+/* ================================================================
+   Light Mode Overrides
+   ================================================================ */
+
+html[data-bs-theme="light"] .details-page-subtitle {
+  color: #0d1b29;
+  opacity: 0.8;
+}
+
+/* Product Details Light Mode Overrides */
+html[data-bs-theme="light"] .details-card-right-header h2 {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .details-card-right-header p {
+  color: #0d1b29;
+  font-size: 12px;
+}
+
+html[data-bs-theme="light"] .details-card-benefits {
+  border: 1.5px solid rgba(0, 26, 148, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+html[data-bs-theme="light"] .benefit-item {
+  color: #0d1b29;
+  font-size: 12px;
+}
+
+html[data-bs-theme="light"] .benefit-icon-wrapper {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .price-label {
+  color: rgba(13, 27, 41, 0.8);
+}
+
+html[data-bs-theme="light"] .price-amount {
+  color: #001a94;
+  font-size: 24px;
+}
+
+html[data-bs-theme="light"] .price-period {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .details-btn-secondary {
+  background: rgba(102, 102, 102, 0.2);
+  border: 1px solid rgba(13, 27, 41, 0.15);
+  color: #ffffff;
+}
+
+html[data-bs-theme="light"] .details-btn-secondary:hover {
+  background: rgba(102, 102, 102, 0.3);
+  color: #ffffff;
+}
+
+html[data-bs-theme="light"] .details-meta-specs-grid {
+  border-top: 1px solid rgba(13, 27, 41, 0.15);
+}
+
+html[data-bs-theme="light"] .details-meta-column h3 {
+  color: #0d1b29;
+  border-bottom: 1px solid rgba(13, 27, 41, 0.15);
+}
+
+html[data-bs-theme="light"] .details-meta-column p {
+  color: #0d1b29;
+  font-size: 12px;
+}
+
+html[data-bs-theme="light"] .details-meta-list {
+  color: #0d1b29;
+  font-size: 12px;
+}
+
+html[data-bs-theme="light"] .details-recommendations-section {
+  border-top: 1px solid rgba(13, 27, 41, 0.15);
+}
+
+/* Product Recommendations Light Mode Overrides */
+html[data-bs-theme="light"] .recommendation-product-card {
+  background: var(--marketplace-card-gradient);
+}
+
+html[data-bs-theme="light"] .rec-card-header h3 {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .rec-card-header p {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .rec-benefit-row {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .rec-benefit-row svg {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .rec-price-label {
+  color: rgba(13, 27, 41, 0.8);
+}
+
+html[data-bs-theme="light"] .rec-price-val {
+  color: #001a94;
+}
+
+/* ================================================================
+   Dark Theme Product Details Overrides
+   ================================================================ */
+
+html[data-bs-theme="dark"] .details-meta-column p,
+html[data-bs-theme="dark"] .details-meta-list {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .details-page-subtitle {
+  color: #ffffff;
+}

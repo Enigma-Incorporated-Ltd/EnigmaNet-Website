@@ -1,0 +1,789 @@
+.marketplace-configure-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 56px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+.marketplace-configure-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ================================================================
+   Steps Cards with Glassmorphism
+   ================================================================ */
+
+.configure-step-card {
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.08) 0%, rgba(27, 127, 156, 0.08) 46%, rgba(11, 84, 179, 0.08) 100%);
+  border: 1px solid rgba(42, 222, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 6px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.configure-step-card--column {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.configure-step-info {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  width: 249px;
+  flex-shrink: 0;
+}
+
+.configure-step-number {
+  background: rgba(42, 222, 255, 0.1);
+  border: 1px solid rgba(42, 222, 255, 0.2);
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2adeff;
+  flex-shrink: 0;
+}
+
+.configure-step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.configure-step-text h3 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--portal-text);
+}
+
+.configure-step-text p {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text-muted);
+  line-height: 1.4;
+}
+
+/* Step 1 Counter Controls */
+.configure-step-action-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 26, 148, 0.15);
+  border: 0.5px solid #2adeff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.counter-btn {
+  width: 32px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.02);
+  border: none;
+  color: var(--portal-text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2;
+}
+
+.counter-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.counter-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.counter-value {
+  width: 56px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #2adeff;
+  border: none;
+  background: rgba(0, 26, 148, 0.1);
+}
+
+.counter-caption {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  color: var(--portal-text-muted);
+  text-align: center;
+}
+
+/* Step 2 Toggle Switch */
+.configure-step-action-toggle {
+  flex-shrink: 0;
+}
+
+.toggle-pill-container {
+  display: flex;
+  background: rgba(13, 27, 41, 0.4);
+  border: 1px solid rgba(42, 222, 255, 0.2);
+  padding: 3px;
+  border-radius: 100px;
+}
+
+.toggle-pill-btn {
+  padding: 6px 20px;
+  border-radius: 100px;
+  background: transparent;
+  border: none;
+  color: var(--portal-text-muted);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-pill-btn:hover {
+  color: var(--portal-text);
+}
+
+.toggle-pill-btn--active {
+  background: linear-gradient(90deg, #263777 0%, #00A3DA 100%);
+  color: #ffffff !important;
+  box-shadow: 0 1px 6px rgba(0, 163, 218, 0.3);
+}
+
+/* Step 3 Additional Packs Checklist */
+.configure-addons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.addon-item-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid rgba(0, 26, 148, 0.1);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.addon-item-card:hover {
+  border-color: rgba(42, 222, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.addon-item-card--selected {
+  border-color: rgba(42, 222, 255, 0.6);
+  background: rgba(42, 222, 255, 0.06);
+  box-shadow: 0 0 1px rgba(42, 222, 255, 0.2);
+}
+
+.addon-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  text-align: left;
+}
+
+.addon-custom-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #001a94;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  background: #ffffff;
+}
+
+.addon-item-card--selected .addon-custom-checkbox {
+  border-color: #001a94;
+  background: #001a94;
+  color: #ffffff;
+}
+
+.addon-custom-checkbox svg {
+  width: 10px;
+  height: 10px;
+}
+
+.addon-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.addon-meta h4 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--portal-text);
+}
+
+.addon-meta p {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: var(--portal-text-muted);
+  line-height: 1.3;
+}
+
+.addon-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.addon-price-pct {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2adeff;
+}
+
+.addon-price-period {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  color: var(--portal-text-muted);
+}
+
+/* Sidebar configuration view styles */
+.marketplace-configure-sidebar {
+  width: 290px;
+  background: var(--marketplace-card-gradient);
+  border: 1px solid rgba(42, 222, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 4px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--portal-text);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+  text-align: left;
+}
+
+.sidebar-product-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  border-bottom: 1px solid rgba(13, 27, 41, 0.8);
+  padding-bottom: 12px;
+  width: 100%;
+}
+
+.sidebar-product-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #0d1b29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(42, 222, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.sidebar-product-info h4 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2adeff;
+}
+
+.sidebar-product-info p {
+  margin: 2px 0 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  color: var(--portal-text-muted);
+  line-height: 1.3;
+}
+
+.sidebar-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid rgba(0, 26, 148, 0.1);
+  padding-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.summary-heading {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--portal-text-muted);
+  text-align: left;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+}
+
+.summary-row--align-start {
+  align-items: flex-start;
+}
+
+.summary-label {
+  color: var(--portal-text-muted);
+}
+
+.summary-value {
+  color: var(--portal-text);
+  font-weight: 500;
+}
+
+.summary-detail-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: var(--portal-text);
+  text-align: left;
+}
+
+.summary-sub-caption {
+  font-size: 12px;
+  color: var(--portal-text-muted);
+}
+
+.sidebar-total-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  padding: 4px 0;
+}
+
+.total-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--portal-text-muted);
+}
+
+.total-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2adeff;
+  line-height: 1.2;
+}
+
+.total-caption {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--portal-text-muted);
+}
+
+.sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.sidebar-btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  border: none;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 163, 218, 0.15);
+}
+
+.sidebar-btn-primary:hover {
+  background: linear-gradient(90deg, rgba(38, 55, 119, 0.8) 0%, rgba(0, 163, 218, 0.8) 100%);
+  box-shadow: 0 6px 14px rgba(0, 163, 218, 0.25);
+  transform: translateY(-1px);
+}
+
+.sidebar-btn-secondary {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px;
+  border-radius: 100px;
+  background: rgba(102, 102, 102, 0.2);
+  border: none !important;
+  outline: none !important;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-btn-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 100px;
+  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2;
+}
+
+.sidebar-btn-secondary:hover {
+  background: rgba(102, 102, 102, 0.3);
+  color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive configurations */
+@media (max-width: 992px) {
+  .marketplace-configure-layout {
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .marketplace-configure-sidebar {
+    width: 100%;
+  }
+}
+
+/* ================================================================
+   Light Mode Overrides
+   ================================================================ */
+
+html[data-bs-theme="light"] .summary-sub-caption {
+  color: #0d1b29;
+  opacity: 0.8;
+}
+
+html[data-bs-theme="light"] .summary-heading {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .configure-step-text h3 {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .configure-step-text p {
+  color: #0d1b29;
+  font-size: 12px;
+}
+
+html[data-bs-theme="light"] .toggle-pill-container {
+  background: transparent;
+  border: 1px solid rgba(13, 27, 41, 0.2);
+  padding: 3px;
+}
+
+html[data-bs-theme="light"] .toggle-pill-btn {
+  color: rgba(13, 27, 41, 0.6);
+  border: none;
+}
+
+html[data-bs-theme="light"] .toggle-pill-btn:hover {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .toggle-pill-btn--active {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px #0d1b29;
+  color: #0d1b29 !important;
+}
+
+html[data-bs-theme="light"] .configure-step-card {
+  background: var(--marketplace-card-gradient);
+}
+
+html[data-bs-theme="light"] .configure-step-number {
+  background: rgba(42, 222, 255, 0.1);
+  border: none;
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .counter-value {
+  color: #001a94;
+  font-size: 20px;
+  border: none;
+  background: rgba(0, 26, 148, 0.1);
+}
+
+html[data-bs-theme="light"] .counter-btn {
+  background: #ffffff;
+  border: 0.5px solid #2adeff;
+  border-radius: 4px;
+  color: #0d1b29;
+  font-size: 20px;
+  font-weight: 600;
+  width: 32px;
+  height: 38px;
+}
+
+html[data-bs-theme="light"] .counter-btn:hover:not(:disabled) {
+  background: #f0faff;
+  border-color: #00a3da;
+}
+
+html[data-bs-theme="light"] .addon-item-card {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 26, 148, 0.15);
+}
+
+html[data-bs-theme="light"] .addon-item-card:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: #001a94;
+}
+
+html[data-bs-theme="light"] .addon-item-card--selected {
+  background: rgba(0, 26, 148, 0.08);
+  border-color: #001a94;
+  box-shadow: 0 0 1px rgba(0, 26, 148, 0.2);
+}
+
+html[data-bs-theme="light"] .addon-meta h4 {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .addon-meta p {
+  color: rgba(13, 27, 41, 0.7);
+}
+
+html[data-bs-theme="light"] .addon-price-pct {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .addon-price-period {
+  color: rgba(13, 27, 41, 0.6);
+}
+
+html[data-bs-theme="light"] .addon-custom-checkbox {
+  border-color: #001a94;
+  background: #ffffff;
+}
+
+html[data-bs-theme="light"] .addon-item-card--selected .addon-custom-checkbox {
+  border-color: #001a94;
+  background: #001a94;
+  color: #ffffff;
+}
+
+/* ================================================================
+   Dark Theme Configuration Sidebar Overrides
+   ================================================================ */
+
+html[data-bs-theme="dark"] .marketplace-configure-sidebar {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-bs-theme="dark"] .sidebar-title {
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-bs-theme="dark"] .sidebar-product-header {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+html[data-bs-theme="dark"] .sidebar-product-info h4 {
+  color: #2adeff;
+}
+
+html[data-bs-theme="dark"] .sidebar-product-info p {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .sidebar-summary-list {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+html[data-bs-theme="dark"] .summary-heading {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .summary-label {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .summary-value {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+html[data-bs-theme="dark"] .summary-detail-desc {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .summary-sub-caption {
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+html[data-bs-theme="dark"] .total-label {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .total-value {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .total-caption {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .sidebar-btn-secondary {
+  color: #ffffff;
+}
+
+html[data-bs-theme="dark"] .sidebar-btn-secondary:hover {
+  color: #ffffff;
+}
+
+/* ================================================================
+   Light Theme Configuration Sidebar Overrides
+   ================================================================ */
+
+html[data-bs-theme="light"] .marketplace-configure-sidebar {
+  border-color: rgba(0, 26, 148, 0.15);
+}
+
+html[data-bs-theme="light"] .sidebar-title {
+  color: #0d1b29;
+  border-bottom-color: rgba(0, 26, 148, 0.15);
+}
+
+html[data-bs-theme="light"] .sidebar-product-header {
+  border-bottom-color: rgba(13, 27, 41, 0.8);
+}
+
+html[data-bs-theme="light"] .sidebar-product-info h4 {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .sidebar-product-info p {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .sidebar-summary-list {
+  border-bottom-color: rgba(0, 26, 148, 0.1);
+}
+
+html[data-bs-theme="light"] .summary-heading {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .summary-label {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .summary-value {
+  color: #0d1b29;
+  font-weight: 500;
+}
+
+html[data-bs-theme="light"] .summary-detail-desc {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .summary-sub-caption {
+  color: #0d1b29;
+  opacity: 0.8;
+}
+
+html[data-bs-theme="light"] .total-label {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .total-value {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .total-caption {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .sidebar-btn-secondary {
+  color: #ffffff;
+}
+
+html[data-bs-theme="light"] .sidebar-btn-secondary:hover {
+  color: #ffffff;
+}
