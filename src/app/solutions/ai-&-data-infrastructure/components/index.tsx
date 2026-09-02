@@ -1,7 +1,7 @@
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import HeroSection from '@/components/ui/HeroSection';
 import { aiInfra } from '@/assets/img';
-import features1 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Pain point -GPU costs.svg';
+import features1 from '@/assets/svgs/solutions/ai-&-data-infrastructure/vCPU.svg';
 import features2 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Pain point - Storage costs creep up quietly.svg';
 import features3 from '@/assets/svgs/solutions/ai-&-data-infrastructure/Pain point - Engineering time gets pulled away.svg';
 import HeaderTitle from '@/components/ui/HeaderTitle';
@@ -20,7 +20,7 @@ const features = [
   {
     id: 1,
     icon: features1,
-    title: 'GPU costs are hard to model  ',
+    title: 'vCPU costs are hard to model  ',
   },
   {
     id: 2,
@@ -37,8 +37,8 @@ const Core = [
   {
     id: 1,
     icon: block1,
-    title: 'Dedicated GPU hosting',
-    description: `Run training and inference on high-performance dedicated GPU infrastructure with stronger cost visibility and more control over how workloads scale.`,
+    title: 'Dedicated vCPU hosting',
+    description: `Run training and inference on high-performance dedicated vCPU infrastructure with stronger cost visibility and more control over how workloads scale.`,
   },
   {
     id: 2,
@@ -80,7 +80,7 @@ const DataInfrastructure = () => {
 
       <HeroSection
         title="AI infrastructure that stays fast, flexible and under your control"
-        description="From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. "
+        description="From vCPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. "
         image={aiInfra}
         buttons={[
           {
@@ -92,6 +92,7 @@ const DataInfrastructure = () => {
             label: 'Book an Infrastructure Call',
             href: '/get-in-touch',
             variant: 'gold',
+            disableSentenceCase: true,
           },
         ]}
         features={['Predictable compute', 'Transparent storage', 'Controlled data movement']}
@@ -108,7 +109,7 @@ const DataInfrastructure = () => {
             />
           </>
         }
-        description="Many AI teams default to hyperscalers because they feel like the safe option. But familiar infrastructure often creates problems later: unpredictable GPU costs, expensive storage behaviour and architectures that become restrictive before the business is ready. "
+        description="Many AI teams default to hyperscalers because they feel like the safe option. But familiar infrastructure often creates problems later: unpredictable vCPU costs, expensive storage behaviour and architectures that become restrictive before the business is ready. "
       />
 
       <CardSlider
@@ -188,6 +189,7 @@ const DataInfrastructure = () => {
           label: 'Book an Infrastructure Call',
           href: '/get-in-touch',
           variant: 'blue',
+          disableSentenceCase: true,
         }}
       />
       <NextPageSlider

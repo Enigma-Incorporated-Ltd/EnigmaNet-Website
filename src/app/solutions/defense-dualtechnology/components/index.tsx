@@ -112,7 +112,7 @@ const DefenseTechnology = () => {
         }
         description="From base operations and remote estates to unmanned systems and field connectivity, defence-related environments need secure, resilient communications across mixed link types and difficult conditions. "
       />
-      <div className="d-flex justify-content-center px-5">
+      <div className="d-flex justify-content-center px-5 pb-5">
         {' '}
         <PremiumButton
           key={theme}

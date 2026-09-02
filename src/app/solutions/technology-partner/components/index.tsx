@@ -113,7 +113,7 @@ const TechnologiesPage = () => {
         }
         description="Many platforms depend on customer networks, distributed infrastructure or variable connectivity conditions they do not control. When performance drops, the platform experience suffers — even when the product itself is not the problem. "
       />
-      <div className="d-flex justify-content-center px-5">
+      <div className="d-flex justify-content-center px-5 pb-5">
         {' '}
         <PremiumButton
           key={theme}

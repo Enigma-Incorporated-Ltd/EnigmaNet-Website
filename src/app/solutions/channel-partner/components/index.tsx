@@ -112,7 +112,7 @@ const ChannelPage = () => {
         }
         description="For channel partners, the challenge is often commercial as much as technical. Customers want more value, more resilience and better outcomes but many partner offers still look too similar, making differentiation and margin growth harder to achieve.  "
       />
-      <div className="d-flex justify-content-center px-5">
+      <div className="d-flex justify-content-center px-5 pb-5">
         {' '}
         <PremiumButton
           key={theme}

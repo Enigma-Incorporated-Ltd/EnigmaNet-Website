@@ -55,8 +55,8 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       { label: 'Performance Networking', id: 'networking' },
       { label: 'Connectivity Products', id: 'connectivity' },
       { label: 'Data & File Services', id: 'data' },
-      { label: 'AI & Automation', id: 'ai' },
-      { label: 'OEM & Integration', id: 'integration' },
+      // { label: 'AI & Automation', id: 'ai' },
+      // { label: 'OEM & Integration', id: 'integration' },
       // { label: 'View All Products', id: 'all' },
     ],
     panels: {
@@ -158,22 +158,22 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
               label: 'Powered by APN Core',
               href: '/products/oem-integration/powered-by-apn-core',
             },
-            // {
-            //   label: 'OEM & Integration',
-            //   href: '/products/oem-integration',
-            // },
-            // {
-            //   label: 'Binary Integration',
-            //   href: '/products/oem-integration#binary-integration',
-            // },
-            // {
-            //   label: 'Container Deployment',
-            //   href: '/products/oem-integration#container-deployment',
-            // },
-            // {
-            //   label: 'Virtual Appliance',
-            //   href: '/products/oem-integration#virtual-appliance',
-            // },
+            {
+              label: 'OEM & Integration',
+              href: '/products/oem-integration',
+            },
+            {
+              label: 'Binary Integration',
+              href: '/products/oem-integration#binary-integration',
+            },
+            {
+              label: 'Container Deployment',
+              href: '/products/oem-integration#container-deployment',
+            },
+            {
+              label: 'Virtual Appliance',
+              href: '/products/oem-integration#virtual-appliance',
+            },
           ],
         },
       ],
@@ -202,13 +202,13 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
   },
   Solutions: {
     leftRail: [
-      { label: 'Enterprise', id: 'enterprise' },
+      // { label: 'Enterprise', id: 'enterprise' },
       { label: 'AI & Data Infrastructure', id: 'ai-data' },
-      { label: 'Remote Work & Branch', id: 'remote' },
-      { label: 'Operational Technology & Remote Assets', id: 'ot' },
-      { label: 'Industries', id: 'industries' },
+      // { label: 'Remote Work & Branch', id: 'remote' },
+      // { label: 'Operational Technology & Remote Assets', id: 'ot' },
+      // { label: 'Industries', id: 'industries' },
       { label: 'Service Providers & Partners', id: 'providers' },
-      { label: 'Defense Dualtechnology', id: 'defense' },
+      // { label: 'Defense Dualtechnology', id: 'defense' },
       { label: 'Technology Partner', id: 'techpartner' },
       { label: 'Channel Partner ', id: 'channel' },
       { label: 'Startups & SMBs', id: 'startups' },
