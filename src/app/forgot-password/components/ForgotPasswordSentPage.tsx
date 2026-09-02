@@ -77,7 +77,7 @@ const ForgotPasswordSentPage = () => {
           <div className="login-card__confirmation-content" data-node-id="37:4864">
             <div className="login-card__hero" data-node-id="37:4866">
               <h2 className="login-card__confirmation-heading" data-node-id="37:4867">
-                We&apos;ve sent you a reset link, please check you email.
+                We&apos;ve sent you a reset link, please check your email.
               </h2>
             </div>
 
