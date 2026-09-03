@@ -22,7 +22,11 @@ It allows partners to strengthen their own offer while keeping their own brand, 
         structuredData={structuredData}
       />
 
-      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
+      <Navbar
+        Headerclass="header navbar navbar-expand-lg  bg-light fixed-top"
+        darkenable={false}
+        isNavDark={true}
+      />
       <ApnCoreDetails />
 
       <Footer />

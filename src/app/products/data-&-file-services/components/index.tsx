@@ -15,7 +15,7 @@ const DataAndFileServicesList = () => {
       <HeaderTitle
         title={
           <>
-            <span className="text-primary">The Enigma Platform</span>
+            <span className="text-primary">Data & File Services</span>
           </>
         }
         style={{

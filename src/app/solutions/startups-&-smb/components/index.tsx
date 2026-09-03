@@ -206,6 +206,7 @@ const Startups = () => {
               key={theme}
               title="Fix the cost problem, the connectivity problem or both"
               variant={theme === 'dark' ? 'gold' : 'blue'}
+              className='pb-3'
             />
           </>
         }

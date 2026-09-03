@@ -109,20 +109,20 @@ const features = [
         'Performance storage surfaced through SyncSphere for file and object workflows. ',
     },
   },
-  {
-    id: 6,
-    title: 'Large File Transfer / MFT ',
-    href: '/products/data-&-file-services/large-file-transfer',
-    slug: '/products/data-&-file-services/large-file-transfer',
-    description:
-      'Accelerated transfer workflows connected into SyncSphere and monitored through Nexus.',
-    image: heroImg,
-    meta: {
-      title: 'Large File Transfer / MFT ',
-      description:
-        'Accelerated transfer workflows connected into SyncSphere and monitored through Nexus.',
-    },
-  },
+  // {
+  //   id: 6,
+  //   title: 'Large File Transfer / MFT ',
+  //   href: '/products/data-&-file-services/large-file-transfer',
+  //   slug: '/products/data-&-file-services/large-file-transfer',
+  //   description:
+  //     'Accelerated transfer workflows connected into SyncSphere and monitored through Nexus.',
+  //   image: heroImg,
+  //   meta: {
+  //     title: 'Large File Transfer / MFT ',
+  //     description:
+  //       'Accelerated transfer workflows connected into SyncSphere and monitored through Nexus.',
+  //   },
+  // },
 ];
 
 const Core = [
