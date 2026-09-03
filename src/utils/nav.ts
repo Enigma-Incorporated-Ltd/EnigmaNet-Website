@@ -55,8 +55,8 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
       { label: 'Performance Networking', id: 'networking' },
       { label: 'Connectivity Products', id: 'connectivity' },
       { label: 'Data & File Services', id: 'data' },
-      { label: 'AI & Automation', id: 'ai' },
-      { label: 'OEM & Integration', id: 'integration' },
+      // { label: 'AI & Automation', id: 'ai' },
+      // { label: 'OEM & Integration', id: 'integration' },
       // { label: 'View All Products', id: 'all' },
     ],
     panels: {
@@ -121,20 +121,20 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         {
           title: 'Data & File Services',
           links: [
-            { label: 'SyncSphere ', href: '/products/data-&-file-services/syncsphere' },
+            // { label: 'SyncSphere ', href: '/products/data-&-file-services/syncsphere' },
             { label: 'Hot Storage', href: '/products/data-&-file-services/hot-storage' },
-            {
-              label: 'Large File Transfer',
-              href: '/products/data-&-file-services/large-file-transfer',
-            },
+            // {
+            //   label: 'Large File Transfer',
+            //   href: '/products/data-&-file-services/large-file-transfer',
+            // },
             {
               label: 'Managed File Transfer',
               href: '/products/data-&-file-services/managed-file-transfer',
             },
-            {
-              label: 'Multi-cloud integration',
-              href: '/products/data-&-file-services/multi-cloud-integration',
-            },
+            // {
+            //   label: 'Multi-cloud integration',
+            //   href: '/products/data-&-file-services/multi-cloud-integration',
+            // },
           ],
         },
       ],
@@ -202,13 +202,13 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
   },
   Solutions: {
     leftRail: [
-      { label: 'Enterprise', id: 'enterprise' },
+      // { label: 'Enterprise', id: 'enterprise' },
       { label: 'AI & Data Infrastructure', id: 'ai-data' },
-      { label: 'Remote Work & Branch', id: 'remote' },
-      { label: 'Operational Technology & Remote Assets', id: 'ot' },
-      { label: 'Industries', id: 'industries' },
+      // { label: 'Remote Work & Branch', id: 'remote' },
+      // { label: 'Operational Technology & Remote Assets', id: 'ot' },
+      // { label: 'Industries', id: 'industries' },
       { label: 'Service Providers & Partners', id: 'providers' },
-      { label: 'Defense Dualtechnology', id: 'defense' },
+      // { label: 'Defense Dualtechnology', id: 'defense' },
       { label: 'Technology Partner', id: 'techpartner' },
       { label: 'Channel Partner ', id: 'channel' },
       { label: 'Startups & SMBs', id: 'startups' },

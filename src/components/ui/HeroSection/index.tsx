@@ -51,7 +51,9 @@ const {theme} = useTheme();
           >
             {eyebrow && <Eyebrow label={eyebrow} theme={theme} />}
 
-            <h1 className="display-6 fw-semibold py-4 mb-3">{title}</h1>
+            <h1 className="display-6 py-4 mb-3 fw-normal d-md-none">{title}</h1>
+
+            <h1 className="display-6 py-4 mb-3 fw-semibold d-none d-md-block">{title}</h1>
             {subtitle && (
               <h3 className="h3 text-center  mx-auto  mt-n2 mt-sm-0 pt-md-2">{subtitle}</h3>
             )}

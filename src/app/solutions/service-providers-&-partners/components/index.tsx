@@ -115,7 +115,7 @@ const ProvidersPartners = () => {
         }
         description=" For service providers and partners, the challenge is no longer just delivering access. Customers increasingly expect resilience, visibility, prioritisation and a better real-world experience across the services they already buy."
       />
-      <div className="d-flex justify-content-center px-5">
+      <div className="d-flex justify-content-center px-5 pb-5">
         {' '}
         <PremiumButton
           key={theme}

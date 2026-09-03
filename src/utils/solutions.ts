@@ -1,81 +1,92 @@
-import {aiInfra, channel, defense, enterprise, industries, operations, providersPartners, remoteWork, startups, technology} from '@/assets/img/index';
+import {
+  aiInfra,
+  channel,
+  // defense,
+  // enterprise,
+  // industries,
+  // operations,
+  providersPartners,
+  // remoteWork,
+  startups,
+  technology,
+} from '@/assets/img/index';
 
 export const solutions = [
-  {
-    id: 1,
-    title: 'Enterprise',
-    href: '/solutions/enterprise',
-    slug: 'enterprise',
-    description:
-      'Enigma helps enterprises improve resilience, protect critical traffic and gain visibility across the network without replacing existing infrastructure.',
+  // {
+  //   id: 1,
+  //   title: 'Enterprise',
+  //   href: '/solutions/enterprise',
+  //   slug: 'enterprise',
+  //   description:
+  //     'Enigma helps enterprises improve resilience, protect critical traffic and gain visibility across the network without replacing existing infrastructure.',
 
-    meta: {
-      title: 'Enterprise Solutions',
-      description:
-        'Enigma helps enterprises improve resilience, protect critical traffic and gain visibility across the network without replacing existing infrastructure.',
-    },
-    image: enterprise,
-  },
+  //   meta: {
+  //     title: 'Enterprise Solutions',
+  //     description:
+  //       'Enigma helps enterprises improve resilience, protect critical traffic and gain visibility across the network without replacing existing infrastructure.',
+  //   },
+  //   image: enterprise,
+  // },
   {
     id: 2,
     title: 'AI & Data Infrastructure',
     href: '/solutions/ai-&-data-infrastructure',
     slug: 'ai-&-data-infrastructure',
     description:
-      'From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks.',
+      'From vCPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks.',
 
     meta: {
       title: 'AI & Data Infrastructure Solutions',
       description:
-        'From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks.',
+        'From vCPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks.',
     },
     image: aiInfra,
   },
-  {
-    id: 3,
-    title: 'Remote Work & Branch',
-    href: '/solutions/remote-work-&-branch',
-    slug: 'remote-work-&-branch',
-    description:
-      'Enigma helps businesses improve performance across branches, remote teams and distributed operations with centralised visibility, built-in resilience and better control over critical traffic.',
+  // {
+  //   id: 3,
+  //   title: 'Remote Work & Branch',
+  //   href: '/solutions/remote-work-&-branch',
+  //   slug: 'remote-work-&-branch',
+  //   description:
+  //     'Enigma helps businesses improve performance across branches, remote teams and distributed operations with centralised visibility, built-in resilience and better control over critical traffic.',
 
-    meta: {
-      title: 'Remote Work & Branch Solutions',
-      description:
-        'Enigma helps businesses improve performance across branches, remote teams and distributed operations with centralised visibility, built-in resilience and better control over critical traffic.',
-    },
-    image: remoteWork,
-  },
-  {
-    id: 4,
-    title: 'Operational Technology & Remote Assets',
-    href: '/solutions/operational-technology-&-remote-assets',
-    slug: 'operational-technology-&-remote-assets',
-    description:
-      'Enigma helps organisations keep remote sites, industrial systems and operational assets connected with resilient, policy-controlled networking across difficult environments.',
+  //   meta: {
+  //     title: 'Remote Work & Branch Solutions',
+  //     description:
+  //       'Enigma helps businesses improve performance across branches, remote teams and distributed operations with centralised visibility, built-in resilience and better control over critical traffic.',
+  //   },
+  //   image: remoteWork,
+  // },
+  // {
+  //   id: 4,
+  //   title: 'Operational Technology & Remote Assets',
+  //   href: '/solutions/operational-technology-&-remote-assets',
+  //   slug: 'operational-technology-&-remote-assets',
+  //   description:
+  //     'Enigma helps organisations keep remote sites, industrial systems and operational assets connected with resilient, policy-controlled networking across difficult environments.',
 
-    meta: {
-      title: 'Operational Technology & Remote Assets Solutions',
-      description:
-        'Enigma helps organisations keep remote sites, industrial systems and operational assets connected with resilient, policy-controlled networking across difficult environments.',
-    },
-    image: operations,
-  },
-  {
-    id: 5,
-    title: 'Industries',
-    href: '/solutions/industries',
-    slug: 'industries',
-    description:
-      'Enigma helps organisations improve resilience, protect critical systems and gain visibility across the infrastructure their operations depend on.',
+  //   meta: {
+  //     title: 'Operational Technology & Remote Assets Solutions',
+  //     description:
+  //       'Enigma helps organisations keep remote sites, industrial systems and operational assets connected with resilient, policy-controlled networking across difficult environments.',
+  //   },
+  //   image: operations,
+  // },
+  // {
+  //   id: 5,
+  //   title: 'Industries',
+  //   href: '/solutions/industries',
+  //   slug: 'industries',
+  //   description:
+  //     'Enigma helps organisations improve resilience, protect critical systems and gain visibility across the infrastructure their operations depend on.',
 
-    meta: {
-      title: 'Industry Solutions',
-      description:
-        'Enigma helps organisations improve resilience, protect critical systems and gain visibility across the infrastructure their operations depend on.',
-    },
-    image: industries,
-  },
+  //   meta: {
+  //     title: 'Industry Solutions',
+  //     description:
+  //       'Enigma helps organisations improve resilience, protect critical systems and gain visibility across the infrastructure their operations depend on.',
+  //   },
+  //   image: industries,
+  // },
   {
     id: 6,
     title: 'Service Providers & Partners',
@@ -91,21 +102,21 @@ export const solutions = [
     },
     image: providersPartners,
   },
-  {
-    id: 7,
-    title: 'Defense Dualtechnology',
-    href: '/solutions/defense-dualtechnology',
-    slug: 'defense-dualtechnology',
-    description:
-      'Enigma provides a secure, high-performance network layer for defence-adjacent and dual-use environments where failure, delay or loss of control is not acceptable.',
+  // {
+  //   id: 7,
+  //   title: 'Defense Dualtechnology',
+  //   href: '/solutions/defense-dualtechnology',
+  //   slug: 'defense-dualtechnology',
+  //   description:
+  //     'Enigma provides a secure, high-performance network layer for defence-adjacent and dual-use environments where failure, delay or loss of control is not acceptable.',
 
-    meta: {
-      title: 'Defense Dualtechnology Solutions',
-      description:
-        'Enigma provides a secure, high-performance network layer for defence-adjacent and dual-use environments where failure, delay or loss of control is not acceptable.',
-    },
-    image: defense,
-  },
+  //   meta: {
+  //     title: 'Defense Dualtechnology Solutions',
+  //     description:
+  //       'Enigma provides a secure, high-performance network layer for defence-adjacent and dual-use environments where failure, delay or loss of control is not acceptable.',
+  //   },
+  //   image: defense,
+  // },
   {
     id: 8,
     title: 'Technology Partners',

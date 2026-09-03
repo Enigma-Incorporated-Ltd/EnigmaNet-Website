@@ -124,18 +124,18 @@ const features = [
       description: 'The primary Enigma object storage layer exposed through SyncSphere.   ',
     },
   },
-  {
-    id: 7,
-    title: 'LFT and MFT     ',
-    href: '/products/data-&-file-services/large-file-transfer',
-    slug: '/large-file-transfer',
-    description: 'The transfer engines that power ad-hoc and managed data movement workflows.  ',
-    image: heroImg,
-    meta: {
-      title: 'LFT and MFT  ',
-      description: 'The transfer engines that power ad-hoc and managed data movement workflows.  ',
-    },
-  },
+  // {
+  //   id: 7,
+  //   title: 'LFT and MFT     ',
+  //   href: '/products/data-&-file-services/large-file-transfer',
+  //   slug: '/large-file-transfer',
+  //   description: 'The transfer engines that power ad-hoc and managed data movement workflows.  ',
+  //   image: heroImg,
+  //   meta: {
+  //     title: 'LFT and MFT  ',
+  //     description: 'The transfer engines that power ad-hoc and managed data movement workflows.  ',
+  //   },
+  // },
   {
     id: 8,
     title: 'ESC and APN Core    ',

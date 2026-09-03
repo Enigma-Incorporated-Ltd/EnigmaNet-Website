@@ -1,6 +1,15 @@
 import { aiInfra, enigmaSecureDesktop, operations } from '@/assets/img';
 import { startup3 } from '@/assets/img/partners/inddex';
-import { ApnCoreHero, Commond, EscHero, GridHero, HeroHub, HeroSyncSphere, LedgerHero, TcpHero } from '@/assets/img/products';
+import {
+  ApnCoreHero,
+  Commond,
+  EscHero,
+  GridHero,
+  HeroHub,
+  HeroSyncSphere,
+  LedgerHero,
+  TcpHero,
+} from '@/assets/img/products';
 
 export const theEnigmaPlatform = [
   {
@@ -110,7 +119,7 @@ export const prodcutsList = [
     title: 'Performance Networking',
     href: '/products/performance-networking',
     slug: 'performance-networking',
-    
+
     description:
       'Enigma Performance Networking combines Enigma APN Core, ESC, Secure Networking, TCP Acceleration, RAIN resilience, Multi-link Bonding and Intelligent Traffic Management to deliver secure, resilient, high-performance connectivity across mission-critical networks.',
     // image: startup3,
@@ -133,24 +142,24 @@ export const prodcutsList = [
       'Enigma Data & File Services combine SyncSphere, Hot Storage, Large File Transfer, Managed File Transfer and Multi-cloud Integration to deliver secure, scalable data storage, transfer and management.',
     // image: HeroSyncSphere,
   },
-  {
-    id: 5,
-    title: 'AI & Automation',
-    href: '/products/ai-&-automation',
-    slug: 'ai-&-automation',
-    description:
-      'Enigma AI & Automation is powered by Enigma Sentinel, delivering intelligent automation, AI-driven insights and proactive operational intelligence for enterprise environments.',
-    // image: aiInfra,
-  },
-  {
-    id: 6,
-    title: 'Integration & OEM',
-    href: '/products/oem-integration',
-    slug: 'oem-integration',
-    description:
-      'Enigma Integration & OEM combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments.',
-    // image: startp2,
-  },
+  // {
+  //   id: 5,
+  //   title: 'AI & Automation',
+  //   href: '/products/ai-&-automation',
+  //   slug: 'ai-&-automation',
+  //   description:
+  //     'Enigma AI & Automation is powered by Enigma Sentinel, delivering intelligent automation, AI-driven insights and proactive operational intelligence for enterprise environments.',
+  //   // image: aiInfra,
+  // },
+  // {
+  //   id: 6,
+  //   title: 'Integration & OEM',
+  //   href: '/products/oem-integration',
+  //   slug: 'oem-integration',
+  //   description:
+  //     'Enigma Integration & OEM combines APN Core, Binary Integration, Container Deployment and Virtual Appliance support to enable seamless deployment, integration and embedding across enterprise environments.',
+  //   // image: startp2,
+  // },
 ];
 
 export const performanceNetworking = [
@@ -241,15 +250,15 @@ export const DataFilesServices = [
       'Enigma Hot Storage gives teams S3-compatible object storage with accelerated transfer, secure access, flat pricing and workflow visibility designed for media, backups, logs, working assets and large data sets',
     image: operations,
   },
-  {
-    id: 2,
-    title: 'Large File Transfer',
-    href: '/products/data-&-file-services/large-file-transfer',
-    slug: 'large-file-transfer',
-    description:
-      'Enigma Large File Transfer lets users send files to anyone through secure shareable links, with APN-accelerated transfer, portal-based upload and download, link controls, audit visibility and support for external collaborators.  ',
-    image: HeroSyncSphere,
-  },
+  // {
+  //   id: 2,
+  //   title: 'Large File Transfer',
+  //   href: '/products/data-&-file-services/large-file-transfer',
+  //   slug: 'large-file-transfer',
+  //   description:
+  //     'Enigma Large File Transfer lets users send files to anyone through secure shareable links, with APN-accelerated transfer, portal-based upload and download, link controls, audit visibility and support for external collaborators.  ',
+  //   image: HeroSyncSphere,
+  // },
   {
     id: 3,
     title: 'Managed File Transfer',
@@ -260,7 +269,6 @@ export const DataFilesServices = [
     image: startup3,
   },
 ];
-
 
 export const aiAutomation = [
   {

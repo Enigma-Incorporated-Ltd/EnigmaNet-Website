@@ -144,7 +144,7 @@ const IndustriesData = () => {
         }
         description=" In some industries, connectivity is not just about access. It affects operational continuity, service delivery, responsiveness, security and the ability to perform under pressure."
       />
-      <div className="d-flex justify-content-center px-5">
+      <div className="d-flex justify-content-center px-5 pb-5">
         {' '}
         <PremiumButton
           key={theme}

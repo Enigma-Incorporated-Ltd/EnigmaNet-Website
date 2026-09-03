@@ -3,9 +3,6 @@ import HeroSection from '@/components/ui/HeroSection';
 import { enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import CTA from '@/components/ui/CtaBand';
@@ -16,6 +13,44 @@ import FeatureComparison from '@/components/ui/FeatureComparison';
 import GraphTable from './GraphTable';
 import Br from '@/components/ui/NewLine';
 import { ApnCoreHero, EscHero, TcpHero } from '@/assets/img/products';
+import {
+  AIanddatapipelines,
+  Bandwidthdoesnotguaranteethroughput,
+  Bettersingleflowperformance,
+  Byteleveloptimisation,
+  Cloudstorageandsync,
+  Cloudworkflowsfeelremote,
+  Earlyacknowledgement,
+  EnterpriseWANandbranchconnectivity,
+  Forwarderrorcorrection,
+  Largefilestakelongerthantheyshould,
+  Largefiletransfer,
+  LocalTCPhandling,
+  Longdistancelinkssuffermost,
+  Longhaulacceleration,
+  Lossawaretransporthandling,
+  Portfoliowidecapability,
+  Remoteandhybridteams,
+  Satelliteandlonghaullinks,
+  Security,
+  Selectiveretransmit,
+  Stability,
+  Standardnetworkcompatibility,
+  TCPAND,
+  TCPAPNCore,
+  TCPEnigmaConnect,
+  TCPEnigmaEDGE,
+  TCPESCSecureNetworking,
+  TCPPerformance,
+  TCPreactstooaggressively,
+  TCPSyncSphere,
+  Versusaddingbandwidth,
+  Versuscloudnativeaccelerators,
+  VersusMPLS,
+  VersusstandardVPNs,
+  VersusUDPbasedfiletransfertools,
+  Visibility,
+} from '@/assets/svgs/products/performance-networking/tcp';
 const features = [
   {
     id: 1,
@@ -108,34 +143,34 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: Bandwidthdoesnotguaranteethroughput,
     title: 'Bandwidth does not guarantee throughput  ',
     description: `A 100Mb/s line can still perform poorly when packet loss and latency are present.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: TCPreactstooaggressively,
     title: 'TCP reacts too aggressively',
     description: `Standard TCP treats loss as congestion and slows the flow down, even when the path could   
 carry more.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Longdistancelinkssuffermost,
     title: 'Long-distance links suffer most  ',
     description:
       'High RTT paths, satellite, international transfer and cloud-to-premise movement expose TCP limitations quickly.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Largefilestakelongerthantheyshould,
     title: 'Large files take longer than they should  ',
     description:
       'Media, backups, logs and datasets can take minutes or hours longer than the available bandwidth suggests.  ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: Cloudworkflowsfeelremote,
     title: 'Cloud workflows feel remote  ',
     description:
       'High RTT and packet loss make cloud sync, file recall and cross-region movement feel slow and unpredictable.   ',
@@ -144,34 +179,34 @@ carry more.  `,
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: Bettersingleflowperformance,
     title: 'Better single-flow performance  ',
     description: `Improves throughput for individual TCP flows that would normally slow down under loss or   
 latency.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Lossawaretransporthandling,
     title: 'Loss-aware transport handling  ',
     description: `Uses APN’s tunnel behaviour to reduce the impact of packet loss on application throughput.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Longhaulacceleration,
     title: 'Long-haul acceleration',
     description:
       'Helps data continue moving efficiently across high-RTT paths, including cloud, satellite and international routes.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Standardnetworkcompatibility,
     title: 'Standard network compatibility  ',
     description:
       'Runs through Enigma’s APN overlay and can operate over normal IP networks without requiring a custom application stack.  ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: Portfoliowidecapability,
     title: 'Portfolio-wide capability  ',
     description:
       'TCP-A appears across APN Core, ESC, EDGE, Connect, AND/+ and SyncSphere/LFT workflows.   ',
@@ -180,35 +215,35 @@ latency.  `,
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: LocalTCPhandling,
     title: 'Local TCP handling  ',
     description: `TCP-A manages TCP behaviour at the APN edge, reducing the impact of long RTT and loss on   
 the application flow.   `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Earlyacknowledgement,
     title: 'Early acknowledgement   ',
     description: `Traffic can be acknowledged more intelligently inside the tunnel, avoiding the stop-start   
 behaviour that slows raw TCP.   `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Selectiveretransmit,
     title: 'Selective retransmit   ',
     description:
       'The e-book describes APN transport behaviour using early-ACK and selective retransmit at the transport layer .  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Forwarderrorcorrection,
     title: 'Forward error correction  ',
     description:
       'APN includes forward-error-correction for TCP and UDP traffic as part of its transport-layer role .  ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: Byteleveloptimisation,
     title: 'Byte-level optimisation  ',
     description:
       'TCP-A works alongside Enigma’s byte-level optimisation, which the e-book says supports up to 64× throughput improvement on lossy or high-latency links .   ',
@@ -217,40 +252,40 @@ behaviour that slows raw TCP.   `,
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: TCPAPNCore,
     title: 'APN Core   ',
     description: `The engine that contains TCP-A, byte-level QoS, bonding, RAIN and telemetry.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: TCPESCSecureNetworking,
     title: 'ESC – Secure Networking  ',
     description:
       'Delivers TCP-A as part of Enigma’s software and SaaS secure networking platform.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: TCPEnigmaEDGE,
     title: 'Enigma EDGE  ',
     description: 'Uses TCP-A for branch, campus, edge and enterprise connectivity.  ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: TCPEnigmaConnect,
     title: 'Enigma Connect  ',
     description:
       'Uses the same APN behaviour for self-serve connectivity and thin-client experiences.  ',
   },
   {
     id: 5,
-    icon: block2,
+    icon: TCPAND,
     title: 'AND/+   ',
     description: `Exposes the ViBE/APN engine for OEM, carrier and embedded integration use cases.  `,
   },
   {
     id: 6,
-    icon: block2,
+    icon: TCPSyncSphere,
     title: 'SyncSphere / LFT  ',
     description: `Uses APN acceleration and TCP-A to improve large file transfer and storage workflows.    `,
   },
@@ -258,71 +293,72 @@ const data4 = [
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: Visibility,
     title: 'Visibility   ',
     description: `Real-time telemetry helps teams understand throughput, latency, loss and link behaviour.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: TCPPerformance,
     title: 'Performance  ',
     description:
       'TCP-A improves throughput when packet loss, congestion or long RTT would normally reduce speed.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: Stability,
     title: 'Stability  ',
     description:
       'RAIN, bonding and failover help preserve continuity while TCP-A keeps data movement efficient.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Security,
     title: 'Security  ',
-    description: 'Traffic remains inside the encrypted APN tunnel, with zero-trust and obfuscation available across the platform.  ',
+    description:
+      'Traffic remains inside the encrypted APN tunnel, with zero-trust and obfuscation available across the platform.  ',
   },
 ];
 const data6 = [
   {
     id: 1,
-    icon: block1,
+    icon: Largefiletransfer,
     title: 'Large file transfer     ',
     description: `Move media files, project packages, creative assets and heavy documents faster across distributed teams.   `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: Cloudstorageandsync,
     title: 'Cloud storage and sync    ',
     description:
       'Improve access to cloud storage, backup, archive and cross-cloud transfer workflows.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: AIanddatapipelines,
     title: 'AI and data pipelines    ',
     description:
       'Support movement of datasets, model updates, logs and telemetry across distributed infrastructure.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Remoteandhybridteams,
     title: 'Remote and hybrid teams  ',
     description:
       'Help file access, SaaS workflows and collaboration tools stay responsive across variable home or public networks.    ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: Satelliteandlonghaullinks,
     title: 'Satellite and long-haul links   ',
     description:
       'Reduce the performance penalty of high RTT links where standard TCP struggles.    ',
   },
   {
     id: 6,
-    icon: block3,
+    icon: EnterpriseWANandbranchconnectivity,
     title: 'Enterprise WAN and branch connectivity  ',
     description:
       'Improve usable throughput across existing circuits without requiring private leased lines.     ',
@@ -331,7 +367,7 @@ const data6 = [
 const data7 = [
   {
     id: 1,
-    icon: block1,
+    icon: Versusaddingbandwidth,
     title: 'Versus adding bandwidth     ',
     description: `More bandwidth does not solve packet loss, latency or poor TCP behaviour. TCP-A helps recover   
 usable performance from the bandwidth already available.  `,
@@ -339,34 +375,33 @@ usable performance from the bandwidth already available.  `,
 
   {
     id: 2,
-    icon: block3,
+    icon: VersusMPLS,
     title: 'Versus MPLS    ',
     description:
       'MPLS can be expensive and slow to provision. Enigma’s APN overlay is designed to improve performance without requiring a private circuit replacement project.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: VersusstandardVPNs,
     title: 'Versus standard VPNs    ',
     description:
       'VPNs can add overhead. TCP-A is part of an acceleration layer designed to improve performance while keeping traffic protected.  ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: VersusUDPbasedfiletransfertools,
     title: 'Versus UDP-based file transfer tools    ',
     description:
       'Some file-transfer tools rely on custom UDP protocols. Enigma’s approach supports accelerated transfer through the APN layer while remaining aligned with standard enterprise network environments.    ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: Versuscloudnativeaccelerators,
     title: 'Versus cloud-native accelerators  ',
     description:
       'Cloud accelerators can be tied to one provider. TCP-A supports Enigma’s broader any-network positioning across cloud, branch, edge and remote access.  ',
   },
 ];
-
 
 const Acceleration = () => {
   const slug = useSlug();
@@ -397,7 +432,7 @@ line rate even when latency, packet loss or distance would normally slow it down
         buttons={[
           {
             label: 'Explore TCP Acceleration  ',
-            href: '/products/performance-networking/tcp-acceleration/explore-tcp-acceleration',
+            href: '#',
             variant: 'blue',
             disableSentenceCase: true,
           },

@@ -11,13 +11,13 @@ const AiAndDataInfrastructure = () => {
     name: 'AI & Data Infrastructure',
     url: `${BASE_URL}/solutions/ai-&-data-infrastructure`,
     description:
-      'From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. ',
+      'From vCPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. ',
   };
   return (
     <>
       <PageMeta
         title="AI & Data Infrastructure"
-        description="From GPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. "
+        description="From vCPU hosting to storage and data movement, Enigma helps AI and data-intensive teams scale without hyperscaler cost shocks, lock-in or hidden performance bottlenecks. "
         url={`${BASE_URL}/solutions/ai-&-data-infrastructure`}
         structuredData={structuredData}
       />

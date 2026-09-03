@@ -110,7 +110,7 @@ const Legal = () => {
           {
             '@type': 'ListItem',
             position: 2,
-            name: 'Trust & Security Policies',
+            name: 'Legal',
             item: `${BASE_URL}/legal`,
           },
           {
@@ -150,7 +150,7 @@ const Legal = () => {
       <Breadcrumb
         items={[{ label: 'Legal', href: '/legal' }]}
         style={{
-          paddingTop: '6rem ',
+          paddingTop: '9rem ',
         }}
       />{' '}
       <Header
