@@ -10,15 +10,15 @@ export const company = [
       'Enigma Net helps organisations move data through secure, encrypted and resilient infrastructure.',
     // image: defense,
   },
-  {
-    id: 3,
-    title: 'Resources',
-    href: '/company/resources',
-    slug: 'resources',
-    description:
-      'Explore Enigma Net’s case studies, white papers, architecture notes, FAQs, and glossary for practical insights, guidance, and information about our solutions.',
-    // image: startup3,
-  },
+  // {
+  //   id: 3,
+  //   title: 'Resources',
+  //   href: '/company/resources',
+  //   slug: 'resources',
+  //   description:
+  //     'Explore Enigma Net’s case studies, white papers, architecture notes, FAQs, and glossary for practical insights, guidance, and information about our solutions.',
+  //   // image: startup3,
+  // },
   {
     id: 4,
     title: 'Careers',

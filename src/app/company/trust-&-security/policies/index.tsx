@@ -6,10 +6,11 @@ const Legal = () => {
   return (
     <>
       <Navbar
-        Headerclass="header navbar navbar-expand-lg position-absolute navbar-sticky"
-        headerSticky="navbar-stuck"
+        Headerclass="header navbar navbar-expand-lg  bg-light fixed-top"
+        darkenable={false}
+        isNavDark={true}
       />
-      
+
       <LegalPage />
 
       <Footer />

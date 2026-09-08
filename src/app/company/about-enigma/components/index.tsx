@@ -198,7 +198,7 @@ const AboutEnigmaPage = () => {
       <Breadcrumb
         items={[
           { label: 'Company', href: '/company' },
-          { label: 'Careers', href: '/company/careers' },
+          { label: 'About Enigma', href: '/company/about-enigma' },
         ]}
         style={{
           paddingTop: '12rem',
@@ -208,7 +208,7 @@ const AboutEnigmaPage = () => {
       <HeroSection
         title={
           <>
-            <h4 className="fw-bold   h2 text-light-blue text-center">About Enigma </h4>
+            <h4 className="fw-bold h2 text-light-blue text-center">About Enigma </h4>
             Building the infrastructure layer <Br isDesktop /> for predictable data movement.
           </>
         }
@@ -281,10 +281,8 @@ const AboutEnigmaPage = () => {
         description={
           <>
             AI, cloud platforms, remote operations and data-heavy applications are creating new
-            pressure on infrastructure.
-           
-            Moving data is no longer a background task. It directly affects performance, cost,
-            resilience, customer experience and operational control.
+            pressure on infrastructure. Moving data is no longer a background task. It directly
+            affects performance, cost, resilience, customer experience and operational control.
             <br />
             <br />
             Traditional internet infrastructure was not designed for today’s scale, speed or
@@ -391,7 +389,12 @@ const AboutEnigmaPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Built by people who understand networks, <Br isDesktop /> infrastructure and delivery</>}
+              title={
+                <>
+                  Built by people who understand networks, <Br isDesktop /> infrastructure and
+                  delivery
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -399,11 +402,9 @@ const AboutEnigmaPage = () => {
         description={
           <>
             Enigma Net is shaped by network, security, software, deployment, product and
-            infrastructure experience.
-           
-            The company brings together technical and commercial expertise across internet
-            infrastructure, enterprise networking, software development, cloud architecture,
-            deployment, finance, growth and communications.
+            infrastructure experience. The company brings together technical and commercial
+            expertise across internet infrastructure, enterprise networking, software development,
+            cloud architecture, deployment, finance, growth and communications.
             <br />
             <br />
             This multidisciplinary approach helps Enigma Net build technology that is technically
@@ -417,7 +418,12 @@ const AboutEnigmaPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Towards a more predictable infrastructure <Br isDesktop /> layer for AI, cloud and edge</>}
+              title={
+                <>
+                  Towards a more predictable infrastructure <Br isDesktop /> layer for AI, cloud and
+                  edge
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>

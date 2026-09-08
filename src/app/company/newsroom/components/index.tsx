@@ -40,19 +40,19 @@ const featuredPosts: BlogPost[] = [
     buttonText: 'Read update',
     isleadership: true,
   },
-  {
-    id: 3,
-    slug: '/partners',
-    title: 'Enigma Net expands partner ecosystem  ',
-    summary:
-      'Updates on Enigma Net’s strategic partnerships, channel relationships and joint market activity.  ',
-    category: 'Partnership news',
-    image: startup5,
-    date: 'July 2, 2026',
-    readingTime: '5 min read',
-    buttonText: 'Read update',
-    isleadership: true,
-  },
+  // {
+  //   id: 3,
+  //   slug: '/partners',
+  //   title: 'Enigma Net expands partner ecosystem  ',
+  //   summary:
+  //     'Updates on Enigma Net’s strategic partnerships, channel relationships and joint market activity.  ',
+  //   category: 'Partnership news',
+  //   image: startup5,
+  //   date: 'July 2, 2026',
+  //   readingTime: '5 min read',
+  //   buttonText: 'Read update',
+  //   isleadership: true,
+  // },
   {
     id: 4,
     slug: '/company/blog-insight',
