@@ -6,7 +6,7 @@ import HeaderTitle from '@/components/ui/HeaderTitle';
 import HeroSection from '@/components/ui/HeroSection';
 import { useTheme } from '@/utils/useTheme';
 import './style.css';
-import { startup3, startup4, startup5 } from '@/assets/img/partners/inddex';
+import { startup3, startup4 } from '@/assets/img/partners/inddex';
 import CardSlider from '@/components/ui/CardSlider';
 import NewsLetter from '../../blog-insight/components/NewsLetter';
 import CTA from '@/components/ui/CtaBand';
