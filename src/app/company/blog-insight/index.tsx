@@ -22,9 +22,13 @@ cloud environments, data pipelines and distributed systems.  "
         url={`${BASE_URL}/company/blog-insight`}
         structuredData={structuredData}
       />
-      <Navbar Headerclass="header navbar navbar-expand-lg bg-light fixed-top" />
+      <Navbar
+        Headerclass="header navbar navbar-expand-lg  bg-light fixed-top"
+        darkenable={false}
+        isNavDark={true}
+      />
       <BlogInsightPage />
-    
+
       <Footer />
     </>
   );
