@@ -1,7 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import StraightLine from './StraightLine';
 import IconifyIcon from '@/components/IconifyIcon';
-import PremiumButton from '@/components/ui/PremiumButton';
+// import PremiumButton from '@/components/ui/PremiumButton';
 
 const features = [
   {
@@ -68,14 +68,14 @@ const Partner = () => {
           ))}
         </Col>
       </Row>
-      <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
+      {/* <div className="d-flex gap-4 flex-column flex-sm-row justify-content-center pt-3 pt-sm-4">
         <PremiumButton
           label="Our  Partners"
           variant="gold"
           className="btn-lg btn-responsive"
           href="/partners"
         />
-      </div>
+      </div> */}
     </Container>
   );
 };

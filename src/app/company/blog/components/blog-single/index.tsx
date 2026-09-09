@@ -114,6 +114,8 @@ const Index = () => {
       <Navbar
         Headerclass="header navbar navbar-expand-lg bg-light navbar-sticky"
         headerSticky="navbar-stuck"
+        darkenable={false}
+        isNavDark={true}
       />
       <Breadcrumb
         items={[
