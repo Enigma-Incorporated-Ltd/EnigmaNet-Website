@@ -145,60 +145,59 @@ difficult to control. `,
 const AboutEnigmaPage = () => {
   const { theme } = useTheme();
 
-    const steps = [
-      {
-        n: 1,
-        title: (
-          <>
-            {' '}
-            <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>
-              Network performance challenge
-            </span>
-          </>
-        ),
-        lead: 'Identifying network inefficiency as a limiting factor for modern digital operations.   ',
-      },
-      {
-        n: 2,
-        title: (
-          <>
-            <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>
-              Core technology foundation
-            </span>
-          </>
-        ),
-        lead: ' Developing a software-defined performance overlay to improve how data moves.   ',
-      },
-      {
-        n: 3,
-        title: (
-          <>
-            <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>
-              Secure deployment models{' '}
-            </span>
-          </>
-        ),
-        lead: 'Packaging the technology for users, sites, enterprises, cloud and edge environments.  ',
-      },
-      {
-        n: 4,
-        title: (
-          <>
-            <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>
-              Infrastructure platform{' '}
-            </span>
-          </>
-        ),
-        lead: ' Expanding into secure networking, cloud infrastructure, operational visibility and AI-ready data movement.   ',
-      },
-     
-    ];
+  const steps = [
+    {
+      n: 1,
+      title: (
+        <>
+          {' '}
+          <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>
+            Network performance challenge
+          </span>
+        </>
+      ),
+      lead: 'Identifying network inefficiency as a limiting factor for modern digital operations.   ',
+    },
+    {
+      n: 2,
+      title: (
+        <>
+          <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>
+            Core technology foundation
+          </span>
+        </>
+      ),
+      lead: ' Developing a software-defined performance overlay to improve how data moves.   ',
+    },
+    {
+      n: 3,
+      title: (
+        <>
+          <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>
+            Secure deployment models{' '}
+          </span>
+        </>
+      ),
+      lead: 'Packaging the technology for users, sites, enterprises, cloud and edge environments.  ',
+    },
+    {
+      n: 4,
+      title: (
+        <>
+          <span className={theme === 'light' ? 'text-primary' : 'text-light-blue'}>
+            Infrastructure platform{' '}
+          </span>
+        </>
+      ),
+      lead: ' Expanding into secure networking, cloud infrastructure, operational visibility and AI-ready data movement.   ',
+    },
+  ];
   return (
     <div>
       <Breadcrumb
         items={[
           { label: 'Company', href: '/company' },
-          { label: 'Careers', href: '/company/careers' },
+          { label: 'About Enigma', href: '/company/about-enigma' },
         ]}
         style={{
           paddingTop: '12rem',
@@ -281,10 +280,8 @@ const AboutEnigmaPage = () => {
         description={
           <>
             AI, cloud platforms, remote operations and data-heavy applications are creating new
-            pressure on infrastructure.
-           
-            Moving data is no longer a background task. It directly affects performance, cost,
-            resilience, customer experience and operational control.
+            pressure on infrastructure. Moving data is no longer a background task. It directly
+            affects performance, cost, resilience, customer experience and operational control.
             <br />
             <br />
             Traditional internet infrastructure was not designed for today’s scale, speed or
@@ -391,7 +388,12 @@ const AboutEnigmaPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Built by people who understand networks, <Br isDesktop /> infrastructure and delivery</>}
+              title={
+                <>
+                  Built by people who understand networks, <Br isDesktop /> infrastructure and
+                  delivery
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>
@@ -399,11 +401,9 @@ const AboutEnigmaPage = () => {
         description={
           <>
             Enigma Net is shaped by network, security, software, deployment, product and
-            infrastructure experience.
-           
-            The company brings together technical and commercial expertise across internet
-            infrastructure, enterprise networking, software development, cloud architecture,
-            deployment, finance, growth and communications.
+            infrastructure experience. The company brings together technical and commercial
+            expertise across internet infrastructure, enterprise networking, software development,
+            cloud architecture, deployment, finance, growth and communications.
             <br />
             <br />
             This multidisciplinary approach helps Enigma Net build technology that is technically
@@ -417,7 +417,12 @@ const AboutEnigmaPage = () => {
           <>
             <HeaderTitle
               key={theme}
-              title={<>Towards a more predictable infrastructure <Br isDesktop /> layer for AI, cloud and edge</>}
+              title={
+                <>
+                  Towards a more predictable infrastructure <Br isDesktop /> layer for AI, cloud and
+                  edge
+                </>
+              }
               variant={theme === 'dark' ? 'gold' : 'blue'}
             />
           </>

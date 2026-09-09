@@ -478,7 +478,7 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
     leftRail: [
       { label: 'Company', id: 'company' },
       { label: 'Trust & Security', id: 'trust' },
-      { label: 'Resources', id: 'resources' },
+      // { label: 'Resources', id: 'resources' },
       { label: 'Careers', id: 'careers' },
     ],
     panels: {
@@ -498,16 +498,16 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
         {
           title: 'Trust & Security',
           links: [
-            { label: 'Trust Centre', href: '/company/trust-&-security/trust-centre' },
-            {
-              label: 'Security Posture',
-              href: '/company/trust-&-security/trust-centre#security-posture',
-            },
-            {
-              label: 'Compliance / Certifications',
-              href: '/company/trust-&-security/trust-centre#compliance-and-certifications',
-            },
-            { label: 'Policies', href: '/company/trust-&-security/policies' },
+            // { label: 'Trust Centre', href: '/company/trust-&-security/trust-centre' },
+            // {
+            //   label: 'Security Posture',
+            //   href: '/company/trust-&-security/trust-centre#security-posture',
+            // },
+            // {
+            //   label: 'Compliance / Certifications',
+            //   href: '/company/trust-&-security/trust-centre#compliance-and-certifications',
+            // },
+            // { label: 'Policies', href: '/company/trust-&-security/policies' },
             { label: 'Legal', href: '/legal' },
           ],
         },
@@ -529,14 +529,14 @@ export const MEGA_MENU_DATA: Record<string, MegaMenuItem> = {
           title: 'CAREERS',
           links: [
             { label: 'Careers', href: '/company/careers' },
-            { label: 'Culture', href: '/company/careers#culture' },
-            {
-              label: 'Open Roles',
-              href: '/company/careers#opening-roles',
-              badge: 'No open roles currently',
-              type: 'info',
-            },
-            { label: 'Why Enigma', href: '/company/careers#why-enigma' },
+            // { label: 'Culture', href: '/company/careers#culture' },
+            // {
+            //   label: 'Open Roles',
+            //   href: '/company/careers#opening-roles',
+            //   badge: 'No open roles currently',
+            //   type: 'info',
+            // },
+            // { label: 'Why Enigma', href: '/company/careers#why-enigma' },
           ],
         },
         //   {
@@ -644,7 +644,7 @@ export const FALLBACK_CONFIG: HeaderConfig = {
     { type: 'mega', label: 'Products', data: MEGA_MENU_DATA.Products },
     { type: 'mega', label: 'Solutions', data: MEGA_MENU_DATA.Solutions },
 
-    { type: 'mega', label: 'Partners', data: MEGA_MENU_DATA.Partners },
+    // { type: 'mega', label: 'Partners', data: MEGA_MENU_DATA.Partners },
     { type: 'mega', label: 'Company', data: MEGA_MENU_DATA.Company },
     { type: 'mega', label: 'Contact Us', data: MEGA_MENU_DATA.ContactUs },
 
