@@ -198,7 +198,7 @@ const AboutEnigmaPage = () => {
       <Breadcrumb
         items={[
           { label: 'Company', href: '/company' },
-          { label: 'Careers', href: '/company/careers' },
+          { label: 'About Enigma', href: '/company/about-enigma' },
         ]}
         style={{
           paddingTop: '12rem',

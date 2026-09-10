@@ -6,7 +6,7 @@ import HeaderTitle from '@/components/ui/HeaderTitle';
 import HeroSection from '@/components/ui/HeroSection';
 import { useTheme } from '@/utils/useTheme';
 import './style.css';
-import { startup3, startup4, startup5 } from '@/assets/img/partners/inddex';
+import { startup3, startup4 } from '@/assets/img/partners/inddex';
 import CardSlider from '@/components/ui/CardSlider';
 import NewsLetter from '../../blog-insight/components/NewsLetter';
 import CTA from '@/components/ui/CtaBand';
@@ -40,19 +40,19 @@ const featuredPosts: BlogPost[] = [
     buttonText: 'Read update',
     isleadership: true,
   },
-  {
-    id: 3,
-    slug: '/partners',
-    title: 'Enigma Net expands partner ecosystem  ',
-    summary:
-      'Updates on Enigma Net’s strategic partnerships, channel relationships and joint market activity.  ',
-    category: 'Partnership news',
-    image: startup5,
-    date: 'July 2, 2026',
-    readingTime: '5 min read',
-    buttonText: 'Read update',
-    isleadership: true,
-  },
+  // {
+  //   id: 3,
+  //   slug: '/partners',
+  //   title: 'Enigma Net expands partner ecosystem  ',
+  //   summary:
+  //     'Updates on Enigma Net’s strategic partnerships, channel relationships and joint market activity.  ',
+  //   category: 'Partnership news',
+  //   image: startup5,
+  //   date: 'July 2, 2026',
+  //   readingTime: '5 min read',
+  //   buttonText: 'Read update',
+  //   isleadership: true,
+  // },
   {
     id: 4,
     slug: '/company/blog-insight',

@@ -8,8 +8,10 @@ const Legal = () => {
       <Navbar
         Headerclass="header navbar navbar-expand-lg position-absolute navbar-sticky"
         headerSticky="navbar-stuck"
+        darkenable={false}
+        isNavDark={true}
       />
-      
+
       <LegalPage />
 
       <Footer />
