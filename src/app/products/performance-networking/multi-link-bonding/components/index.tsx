@@ -13,7 +13,7 @@ import { useSlug } from '@/utils/useSlug';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero, EscHero, TcpHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero, RainHero, TcpHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -54,7 +54,7 @@ const features = [
       title: 'RAIN Resilience  ',
       description: 'Duplicates critical packets across bonded paths for packet-level protection.  ',
     },
-    image: heroImg,
+    image: RainHero,
   },
   {
     id: 4,

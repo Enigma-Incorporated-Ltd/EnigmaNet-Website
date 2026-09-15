@@ -19,7 +19,7 @@ import ComparisonTable from './ComparisonTable';
 import PremiumButton from '@/components/ui/PremiumButton';
 import HeroImage from '@/components/ui/HeroImage';
 import WorkSteps from '@/components/ui/workSteps';
-import { ApnCoreHero, EscHero, TcpHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero, RainHero, TcpHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -71,7 +71,7 @@ const features = [
       title: 'RAIN Resilience  ',
       description: 'Helps reduce effective packet loss for protected traffic.   ',
     },
-    image: heroImg,
+    image: RainHero,
   },
   {
     id: 5,
