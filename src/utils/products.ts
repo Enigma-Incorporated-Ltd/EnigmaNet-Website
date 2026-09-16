@@ -8,6 +8,7 @@ import {
   HeroHub,
   HeroSyncSphere,
   LedgerHero,
+  RainHero,
   TcpHero,
 } from '@/assets/img/products';
 
@@ -197,7 +198,7 @@ export const performanceNetworking = [
     slug: 'rain-resilience',
     description:
       'RAIN duplicates priority traffic across independent paths inside the encrypted APN tunnel,helping Enigma Net maintain session continuity, reduce effective packet loss and protect real-time services when underlying links degrade.',
-    image: aiInfra,
+    image: RainHero,
   },
   {
     id: 5,
