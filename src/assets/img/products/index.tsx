@@ -8,4 +8,5 @@ import LedgerHero from "./ledger/LEDGER.png";
 import EscHero from './esc/ESC.png'
 import EseLandingImg from './esc/ESC-secure-networking.png'
 import TcpHero from './tcp/TCP.png'
-export { SyncSphereHero, Commond, HeroSyncSphere, HeroHub, GridHero , ApnCoreHero , LedgerHero , EscHero , EseLandingImg , TcpHero}; 
+import RainHero from './rain/RAIN.png';
+export { SyncSphereHero, Commond, HeroSyncSphere, HeroHub, GridHero, ApnCoreHero, LedgerHero, EscHero, EseLandingImg, TcpHero, RainHero }; 
