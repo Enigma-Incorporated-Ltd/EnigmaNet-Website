@@ -14,7 +14,7 @@ import FeatureComparison from '@/components/ui/FeatureComparison';
 import { type CardItem } from '@/components/ui/card';
 import Br from '@/components/ui/NewLine';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
-import { ApnCoreHero, Commond, EscHero, TcpHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero, RainHero, TcpHero } from '@/assets/img/products';
 const features = [
   {
     id: 1,
@@ -55,7 +55,7 @@ const features = [
       title: 'RAIN Resilience  ',
       description: 'Protects Gold traffic through packet duplication and loss masking.   ',
     },
-    image: Commond,
+    image: RainHero,
   },
   {
     id: 4,

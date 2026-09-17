@@ -3,15 +3,76 @@ import HeroSection from '@/components/ui/HeroSection';
 import { enterprise as heroImg } from '@/assets/img';
 import HeaderTitle from '@/components/ui/HeaderTitle';
 import { useTheme } from '@/utils/useTheme';
-import block1 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 1.svg';
-import block2 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 2.svg';
-import block3 from '@/assets/svgs/solutions/channel-partner/Core capabilities - block 3.svg';
 import CardSlider from '@/components/ui/CardSlider';
 import CTA from '@/components/ui/CtaBand';
 import NextPageSlider from '@/components/ui/NextPageSlider';
 import FeatureComparison from '@/components/ui/FeatureComparison';
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero, EscHero, TcpHero } from '@/assets/img/products';
+import { ApnCoreHero, EscHero, RainHero, TcpHero } from '@/assets/img/products';
+import {
+  Bidirectionalduplication,
+  Broadcastandliveevents,
+  BytelevelQoS,
+  Classifycriticaltraffic,
+  Combigroups,
+  Commandintegration,
+  Criticalbranchconnectivity,
+  Criticaltrafficneedsprotection,
+  Downstreamduplication,
+  Duplicatepacketsfrom,
+  Effectivepacketlossbelow,
+  Enabledmode,
+  Failovercanbetoolate,
+  failoversupport,
+  Farendreassembly,
+  Financialtrading,
+  ForwardErrorCorrection,
+  Gridcontext,
+  Healthcareandemergencyservices,
+  Hidelinklossfromtheapplication,
+  Highresiliencemode,
+  Highresiliencetoggle,
+  Includedresilience,
+  Independentpaths,
+  IndustrialcontrolandSCADA,
+  Jittercreatesinstability,
+  Mobileandfieldoperations,
+  Multilinkbonding,
+  Nexusdashboards,
+  Observability,
+  Optionalbranchresilience,
+  Packetduplication,
+  Packetlossbreaksexperience,
+  Packetlossmaskedunderrawloss,
+  Paymentconnectivity,
+  RainAPNCore,
+  RainEnigmaConnect,
+  RainEnigmaEDGE,
+  RainEnigmaGuardian,
+  RainEnigmaRoam,
+  RainESC,
+  RainN0DE,
+  RainQFi,
+  RainTCPAcceleration,
+  Reassembleatthefarend,
+  Reducedretransmissiondelay,
+  ResiliencePack,
+  Retransmissionaddsdelay,
+  Selectiveresilience,
+  stabilityunderconstrainedbandwidth,
+  Staggerdelivery,
+  Transparentoperation,
+  Ultralowjittersupport,
+  Upstreamduplication,
+  Versuscustomapplicationresilience,
+  VersusSDWANpathswitching,
+  Versusstackingmultiplerepairsystems,
+  Versusstandardfailover,
+  VersusstandardFEC,
+  vibeSNMP,
+  vibestat,
+  Voiceandvideo,
+} from '@/assets/svgs/products/performance-networking/rain';
 
 const features = [
   {
@@ -123,33 +184,33 @@ const features = [
 const Core = [
   {
     id: 1,
-    icon: block1,
+    icon: Packetlossbreaksexperience,
     title: 'Packet loss breaks experience  ',
     description: `Even small loss levels can damage voice, video, payments, telemetry and live applications.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Jittercreatesinstability,
     title: 'Jitter creates instability',
     description: `Variable packet timing can make real-time services feel unreliable before a link fully fails.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Failovercanbetoolate,
     title: 'Failover can be too late  ',
     description:
       'By the time a backup path activates, users may already have felt interruption.   ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Retransmissionaddsdelay,
     title: 'Retransmission adds delay  ',
     description:
       'Waiting for missing packets to be resent creates latency and visible disruption.  ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: Criticaltrafficneedsprotection,
     title: 'Critical traffic needs protection  ',
     description:
       'Payments, voice, control systems, healthcare, broadcast and trading flows cannot tolerate unstable delivery.  ',
@@ -158,38 +219,38 @@ const Core = [
 const data2 = [
   {
     id: 1,
-    icon: block1,
+    icon: Packetduplication,
     title: 'Packet duplication  ',
     description: `Critical packets are duplicated before loss affects the service.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Independentpaths,
     title: 'Independent paths  ',
     description: `Duplicates can travel across separate links, bonded paths or queues.  `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Farendreassembly,
     title: 'Far-end reassembly  ',
     description: 'The receiving side accepts the successful copy and rebuilds the stream.  ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Reducedretransmissiondelay,
     title: 'Reduced retransmission delay  ',
     description: 'Traffic does not need to wait for standard retransmission recovery.  ',
   },
 
   {
     id: 5,
-    icon: block3,
+    icon: Transparentoperation,
     title: 'Transparent operation  ',
     description: 'RAIN works inside the APN tunnel without application changes.  ',
   },
   {
     id: 6,
-    icon: block3,
+    icon: Selectiveresilience,
     title: 'Selective resilience  ',
     description: 'RAIN can be applied to priority flows where continuity matters most.  ',
   },
@@ -197,33 +258,33 @@ const data2 = [
 const data3 = [
   {
     id: 1,
-    icon: block1,
+    icon: Classifycriticaltraffic,
     title: '1. Classify critical traffic  ',
     description: `APN identifies traffic that needs stronger protection, such as voice, payments, control traffic or   
 high-priority RTP.  `,
   },
   {
     id: 2,
-    icon: block2,
+    icon: Duplicatepacketsfrom,
     title: '2. Duplicate packets  ',
     description: `RAIN sends a second copy of priority packets across another path, queue or tunnel.   `,
   },
   {
     id: 3,
-    icon: block3,
+    icon: Staggerdelivery,
     title: '3. Stagger delivery   ',
     description:
       'Duplicates can be delayed or staggered to improve resilience without overwhelming the link.    ',
   },
   {
     id: 4,
-    icon: block1,
+    icon: Reassembleatthefarend,
     title: '4. Reassemble at the far end   ',
     description: 'The receiving side accepts the successful copy and rebuilds the stream.   ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: Hidelinklossfromtheapplication,
     title: '5. Hide link loss from the application  ',
     description: 'If one path loses packets, the application can still receive a complete flow.  ',
   },
@@ -231,35 +292,35 @@ high-priority RTP.  `,
 const data4 = [
   {
     id: 1,
-    icon: block1,
+    icon: Effectivepacketlossbelow,
     title: 'Effective packet loss below 0.1%  ',
     description: `RAIN can hold effective packet loss below 0.1% even when raw loss spikes significantly.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: failoversupport,
     title: 'Sub-200ms failover support  ',
     description:
       'RAIN and bonded configurations support sub-200ms failover in existing deployment models.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: stabilityunderconstrainedbandwidth,
     title: 'VoIP stability under constrained bandwidth  ',
     description:
       'APN maintained 180 concurrent G.711 VoIP calls at MOS 4 after an underlying link was throttled from 8 Mb/s to 4 Mb/s.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Ultralowjittersupport,
     title: 'Ultra-low jitter support  ',
     description:
       'RAIN-supported overlays can help keep jitter below 5 ms for sensitive real-time services.    ',
   },
   {
     id: 5,
-    icon: block2,
+    icon: Packetlossmaskedunderrawloss,
     title: 'Packet loss masked under raw loss   ',
     description: `RAIN and VoIP-optimised overlays can mask packet loss up to 2% raw loss in relevant   
 deployment profiles.  `,
@@ -268,7 +329,7 @@ deployment profiles.  `,
 const data5 = [
   {
     id: 1,
-    icon: block1,
+    icon: Upstreamduplication,
     title: 'Upstream duplication    ',
     description: `<strong class="text-dark">rain_mode = up  </strong><br />
     Duplicates upstream traffic where upload continuity is the priority.   `,
@@ -276,28 +337,28 @@ const data5 = [
 
   {
     id: 2,
-    icon: block3,
+    icon: Downstreamduplication,
     title: 'Downstream duplication',
     description: `<strong class="text-dark">rain_mode = down  </strong><br />
     Duplicates downstream traffic where receiving continuity matters most.  `,
   },
   {
     id: 3,
-    icon: block1,
+    icon: Bidirectionalduplication,
     title: 'Bidirectional duplication  ',
     description: `<strong class="text-dark">rain_mode = both  </strong><br />
     Duplicates traffic in both directions for maximum resilience.  `,
   },
   {
     id: 4,
-    icon: block3,
+    icon: Enabledmode,
     title: 'Enabled mode   ',
     description: `<strong class="text-dark">rain_mode = yes or rain_mode = on  </strong><br />
     Enables RAIN based on the relevant deployment context.  `,
   },
   {
     id: 5,
-    icon: block3,
+    icon: Highresiliencemode,
     title: 'High resilience mode  ',
     description: `For CPE or customer-facing interfaces, RAIN can be surfaced as a simplified <strong class="text-dark">High Resilience   
 Mode</strong> toggle.  `,
@@ -306,7 +367,7 @@ Mode</strong> toggle.  `,
 const data6 = [
   {
     id: 1,
-    icon: block1,
+    icon: RainTCPAcceleration,
     title: 'TCP Acceleration   ',
     description: `TCP-A fixes throughput behaviour on lossy links. RAIN reduces the effective loss seen by critical   
 traffic.   `,
@@ -314,34 +375,34 @@ traffic.   `,
 
   {
     id: 2,
-    icon: block3,
+    icon: Multilinkbonding,
     title: 'Multi-link bonding  ',
     description: 'Bonding provides the multiple paths that RAIN can use for duplicated delivery.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: BytelevelQoS,
     title: 'Byte-level QoS / ITM',
     description:
       'QoS identifies Gold, Silver and Bronze traffic classes so RAIN can protect the most critical flows.  ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Combigroups,
     title: 'Combi-groups   ',
     description:
       'Combi-groups allow resilience across multiple tunnels with separate sequence space and processing paths.   ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: ForwardErrorCorrection,
     title: 'Forward Error Correction  ',
     description:
       'FEC adds redundancy data. RAIN sends full packet duplicates. Together, they strengthen loss masking.   ',
   },
   {
     id: 6,
-    icon: block1,
+    icon: Observability,
     title: 'Observability  ',
     description:
       'vibe-stat, SNMP and Nexus dashboards expose loss, jitter, quality and RAIN/failover state.    ',
@@ -350,55 +411,55 @@ traffic.   `,
 const data8 = [
   {
     id: 1,
-    icon: block1,
+    icon: Paymentconnectivity,
     title: 'Payment connectivity   ',
     description: `Protect card machines, kiosks, vending, fuel, EV charging and unattended payment devices.   `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: Voiceandvideo,
     title: 'Voice and video  ',
     description:
       'Maintain call quality, conferencing stability, telehealth sessions and real-time communications.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: Broadcastandliveevents,
     title: 'Broadcast and live events  ',
     description:
       'Protect live production, contribution feeds, venue connectivity and event operations.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Financialtrading,
     title: 'Financial trading  ',
     description:
       'Support real-time trading and transaction flows where packet loss or delay is unacceptable.  ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: Healthcareandemergencyservices,
     title: 'Healthcare and emergency services     ',
     description:
       'Keep clinical, triage, imaging, mobile clinic and emergency communications stable. ',
   },
   {
     id: 6,
-    icon: block3,
+    icon: IndustrialcontrolandSCADA,
     title: 'Industrial control and SCADA    ',
     description:
       'Protect telemetry, control signals and remote monitoring across unstable links.   ',
   },
   {
     id: 7,
-    icon: block1,
+    icon: Mobileandfieldoperations,
     title: 'Mobile and field operations      ',
     description: 'Support Roam-style deployments across 4G, 5G, satellite and mixed uplinks.   ',
   },
   {
     id: 8,
-    icon: block1,
+    icon: Criticalbranchconnectivity,
     title: 'Critical branch connectivity    ',
     description:
       'Protect branch sites, retail, logistics, remote offices and distributed infrastructure.    ',
@@ -407,7 +468,7 @@ const data8 = [
 const data9 = [
   {
     id: 1,
-    icon: block1,
+    icon: Versusstandardfailover,
     title: 'Versus standard failover  ',
     description: `Failover switches paths after degradation. RAIN duplicates traffic before degradation becomes   
 visible.    `,
@@ -415,65 +476,64 @@ visible.    `,
 
   {
     id: 2,
-    icon: block3,
+    icon: VersusstandardFEC,
     title: 'Versus standard FEC  ',
     description:
       'FEC adds redundancy data within a stream. RAIN sends full duplicated packets across alternate paths.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: VersusSDWANpathswitching,
     title: 'Versus SD-WAN path switching  ',
     description:
       'SD-WAN can steer traffic between paths. RAIN can actively protect selected traffic across multiple paths.  ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Versuscustomapplicationresilience,
     title: 'Versus custom application resilience  ',
     description:
       'RAIN works inside the APN tunnel, so applications do not need to be redesigned.   ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: Versusstackingmultiplerepairsystems,
     title: 'Versus stacking multiple repair systems  ',
     description:
       'Where APN handles last-mile instability, other transport repair features should be carefully managed to avoid conflicting behaviour. ',
   },
- 
 ];
 const data10 = [
   {
     id: 1,
-    icon: block1,
+    icon: vibestat,
     title: 'vibe-stat ',
     description: `Reports RAIN state alongside tunnel status, jitter, RTT, quality and loss.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: vibeSNMP,
     title: 'vibeSNMP  ',
     description: 'Allows NOC tools to monitor RAIN and tunnel health through SNMP integration.   ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: Nexusdashboards,
     title: 'Nexus dashboards   ',
     description:
       'Can surface RAIN status, failover state and resilience indicators for operators and customers. ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Commandintegration,
     title: 'Command integration ',
     description:
       'RAIN-related events can be correlated with incidents, alerts and agent recommendations.  ',
   },
   {
     id: 5,
-    icon: block1,
+    icon: Gridcontext,
     title: 'Grid context  ',
     description: 'RAIN status can be tied to specific sites, devices, links and tunnels.  ',
   },
@@ -481,27 +541,27 @@ const data10 = [
 const dat11 = [
   {
     id: 1,
-    icon: block1,
+    icon: ResiliencePack,
     title: 'Resilience Pack   ',
     description: `A feature add-on for ESC and selected services where higher continuity is required.  `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: Includedresilience,
     title: 'Included resilience  ',
     description:
       'Guardian-style payment and critical-service products can include RAIN by default.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: Optionalbranchresilience,
     title: 'Optional branch resilience  ',
     description: 'EDGE deployments can add RAIN to selected sites, tunnels or critical flows.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: Highresiliencetoggle,
     title: 'High resilience toggle  ',
     description:
       'Customer-facing portals can expose RAIN as a simplified high resilience mode rather than detailed technical configuration.  ',
@@ -511,60 +571,58 @@ const dat11 = [
 const data7 = [
   {
     id: 1,
-    icon: block1,
+    icon: RainAPNCore,
     title: 'APN Core    ',
     description: `The core engine that delivers RAIN duplication and packet-level resilience.   `,
   },
 
   {
     id: 2,
-    icon: block3,
+    icon: RainESC,
     title: 'ESC – Secure Networking   ',
     description: 'Exposes RAIN as a SaaS capability and as part of the Resilience Pack.  ',
   },
   {
     id: 3,
-    icon: block1,
+    icon: RainEnigmaEDGE,
     title: 'Enigma EDGE  ',
     description:
       'Uses optional RAIN for mirrored packet paths on critical branch, campus and enterprise flows.   ',
   },
   {
     id: 4,
-    icon: block3,
+    icon: RainEnigmaConnect,
     title: 'Enigma Connect   ',
     description:
       'Uses packet duplication, FEC and fast failover to reduce effective loss for self-serve connectivity.   ',
   },
   {
     id: 5,
-    icon: block3,
+    icon: RainN0DE,
     title: 'N0DE',
     description: 'Uses RAIN to support low-latency stability for gamer and thin-client overlays.  ',
   },
   {
     id: 6,
-    icon: block1,
+    icon: RainQFi,
     title: 'Q-Fi   ',
     description: 'Uses audio-specific RAIN redundancy for ultra-low jitter streaming.  ',
   },
   {
     id: 7,
-    icon: block3,
+    icon: RainEnigmaGuardian,
     title: 'Enigma Guardian  ',
     description: 'Includes Resilience Pack by default to keep payment terminals online.   ',
   },
   {
     id: 8,
-    icon: block3,
+    icon: RainEnigmaRoam,
     title: 'Enigma Roam  ',
     description: 'Uses RAIN and bonding for mobile, field and in-motion deployments.  ',
   },
- 
 ];
 
 const Resilience = () => {
-
   const { theme } = useTheme();
   return (
     <div>
@@ -586,7 +644,7 @@ const Resilience = () => {
           </>
         }
         description="RAIN duplicates priority traffic across independent paths inside the encrypted APN tunnel,helping Enigma Net maintain session continuity, reduce effective packet loss and protect real-time services when underlying links degrade. "
-        image={heroImg}
+        image={RainHero}
         buttons={[
           {
             label: ' Explore RAIN Resilience   ',
