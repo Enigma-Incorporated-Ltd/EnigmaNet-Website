@@ -1,1 +1,1 @@
-export { useAuth, getAuthErrorMessage } from '@/contexts/AuthContext';
+export { useAuth, getAuthErrorMessage, isAuthErrorUnverified } from '@/contexts/AuthContext';

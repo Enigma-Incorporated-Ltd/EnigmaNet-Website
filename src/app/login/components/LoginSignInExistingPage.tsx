@@ -1,8 +1,9 @@
 import GoogleAccountButton from '@/components/auth/GoogleAccountButton';
 import { EmailIcon, EyeClosedIcon, EyeOpenIcon } from './LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
+import loginCardBgLogo from '@/assets/img/login/vectorlogo.png';
 import IconifyIcon from '@/components/IconifyIcon';
-import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
+import { getAuthErrorMessage, isAuthErrorUnverified, useAuth } from '@/hooks/useAuth';
 import {
   mapLoginError,
   type AuthFieldError,
@@ -11,12 +12,18 @@ import {
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router';
 import { useTheme } from '@/utils/useTheme';
+import '@/app/forgot-password/components/forgot-password.css';
 import './login.css';
+
+const formatUserLabel = (email: string) => {
+  const local = (email.split('@')[0] ?? email).trim();
+  return local ? local.toUpperCase() : 'USER NAME';
+};
 
 const LoginSignInExistingPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { login } = useAuth();
+  const { login, resendVerification } = useAuth();
   const { theme } = useTheme();
   const isLight = theme === 'light';
 
@@ -27,9 +34,26 @@ const LoginSignInExistingPage = () => {
   const [fieldError, setFieldError] = useState<AuthFieldError | null>(null);
   const [emailExistsError, setEmailExistsError] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isUnverified, setIsUnverified] = useState(false);
+  const [isResending, setIsResending] = useState(false);
+  const [verificationSent, setVerificationSent] = useState(false);
 
   const clearFieldError = (field: AuthFieldKey) => {
     setFieldError(current => (current?.field === field ? null : current));
+  };
+
+  const handleResendVerification = async () => {
+    const trimmedEmail = email.trim();
+    if (!trimmedEmail) return;
+    setIsResending(true);
+    try {
+      await resendVerification(trimmedEmail);
+      setVerificationSent(true);
+    } catch (err) {
+      setFieldError({ field: 'email', message: getAuthErrorMessage(err) });
+    } finally {
+      setIsResending(false);
+    }
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -53,11 +77,82 @@ const LoginSignInExistingPage = () => {
       await login(trimmedEmail, trimmedPassword);
       navigate('/login/success', { state: { email: trimmedEmail } });
     } catch (submitError) {
+      if (isAuthErrorUnverified(submitError)) {
+        setIsUnverified(true);
+      }
       setFieldError(mapLoginError(getAuthErrorMessage(submitError)));
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  if (verificationSent) {
+    return (
+      <section className="login-page login-page--confirmation-sent">
+        <div className="login-page__header-wrap">
+          <div className="login-page__header" data-node-id="77:3556" data-name="Text">
+            <h1 className="login-page__title" data-node-id="77:3557">
+              Sign In Page
+            </h1>
+            <nav className="login-page__breadcrumb" data-node-id="77:3558" data-name="Navigation" aria-label="breadcrumb">
+              <Link to="/" data-node-id="77:3559">
+                <IconifyIcon icon="lucide:home" width={12} height={12} aria-hidden="true" />
+                Home
+              </Link>
+              <span className="login-page__breadcrumb-sep" data-node-id="77:3566" aria-hidden="true">
+                <IconifyIcon icon="lucide:chevron-right" width={12} height={12} />
+              </span>
+              <span className="login-page__breadcrumb-current" data-node-id="77:3568">
+                Sign In
+              </span>
+            </nav>
+          </div>
+        </div>
+
+        <div className="login-page__content">
+          <div
+            className="login-card login-card--confirmation login-gradient-stroke"
+            data-node-id="37:4862"
+            data-name="confirmation verification sent"
+          >
+            <img
+              src={loginCardBgLogo}
+              alt=""
+              className="login-card__bg-logo"
+              aria-hidden="true"
+              data-node-id="37:4863"
+              data-name="logo"
+            />
+
+            <div className="login-card__confirmation-content" data-node-id="37:4864">
+              <div className="login-card__hero" data-node-id="37:4866">
+                <h2 className="login-card__confirmation-heading" data-node-id="37:4867">
+                  We&apos;ve sent you a verification link, please check your email.
+                </h2>
+              </div>
+
+              <p className="login-card__confirmation-user" data-node-id="37:4868">
+                {email ? formatUserLabel(email) : 'USER NAME'}
+              </p>
+
+              <div style={{ width: '100%', maxWidth: '280px', margin: '0 auto' }}>
+                <button
+                  type="button"
+                  className="login-auth-btn login-auth-btn--primary"
+                  onClick={() => {
+                    setVerificationSent(false);
+                    setIsUnverified(false);
+                  }}
+                >
+                  Sign In
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="login-page">
@@ -106,9 +201,8 @@ const LoginSignInExistingPage = () => {
                   <div className="login-fields login-fields--sign-in" data-node-id={isLight ? '21:2751' : '77:3591'}>
                     <div className="login-field-group">
                       <div
-                        className={`login-field login-field--dark login-gradient-stroke${
-                          fieldError?.field === 'email' || emailExistsError ? ' login-field--error' : ''
-                        }`}
+                        className={`login-field login-field--dark login-gradient-stroke${fieldError?.field === 'email' || emailExistsError ? ' login-field--error' : ''
+                          }`}
                         data-node-id={isLight ? '29:4579' : '77:3592'}
                       >
                         <input
@@ -183,9 +277,21 @@ const LoginSignInExistingPage = () => {
                         An Account with this Email already exists.
                       </span>
                     ) : null}
-                    <Link to="/forgot-password" className="login-help-text__link">
-                      Forgot your password?
-                    </Link>
+                    <div className="login-help-text__forgot-col">
+                      <Link to="/forgot-password" className="login-help-text__link">
+                        Forgot your password?
+                      </Link>
+                      {isUnverified && (
+                        <button
+                          type="button"
+                          className="login-help-text__link login-help-text__resend-btn"
+                          onClick={handleResendVerification}
+                          disabled={isResending}
+                        >
+                          {isResending ? 'Sending…' : 'Resend Verification Email'}
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
 
