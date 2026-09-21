@@ -10,7 +10,20 @@ export type AuthFieldError = {
   message: string;
 };
 
-export function mapLoginError(message: string): AuthFieldError {
+export function mapLoginError(
+  message: string,
+  errors?: Record<string, string[] | string>,
+): AuthFieldError {
+  if (errors && typeof errors === 'object') {
+    for (const [key, val] of Object.entries(errors)) {
+      const msg = Array.isArray(val) ? val[0] : typeof val === 'string' ? val : '';
+      if (!msg) continue;
+      const lowerKey = key.toLowerCase();
+      if (lowerKey.includes('email')) return { field: 'email', message: msg };
+      if (lowerKey.includes('password')) return { field: 'password', message: msg };
+    }
+  }
+
   const lower = message.toLowerCase();
 
   if (
@@ -31,7 +44,23 @@ export function mapLoginError(message: string): AuthFieldError {
   return { field: 'email', message };
 }
 
-export function mapRegisterError(message: string): AuthFieldError {
+export function mapRegisterError(
+  message: string,
+  errors?: Record<string, string[] | string>,
+): AuthFieldError {
+  if (errors && typeof errors === 'object') {
+    for (const [key, val] of Object.entries(errors)) {
+      const msg = Array.isArray(val) ? val[0] : typeof val === 'string' ? val : '';
+      if (!msg) continue;
+      const lowerKey = key.toLowerCase();
+      if (lowerKey.includes('email')) return { field: 'email', message: msg };
+      if (lowerKey.includes('first')) return { field: 'firstname', message: msg };
+      if (lowerKey.includes('last')) return { field: 'lastname', message: msg };
+      if (lowerKey.includes('repeat') || lowerKey.includes('confirmpassword')) return { field: 'passwordRepeat', message: msg };
+      if (lowerKey.includes('password')) return { field: 'password', message: msg };
+    }
+  }
+
   const lower = message.toLowerCase();
 
   if (lower.includes('last name') || lower.includes('lastname')) {
