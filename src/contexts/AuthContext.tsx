@@ -231,6 +231,7 @@ export function useAuth(): AuthContextValue {
   return context;
 }
 
+export { AuthApiError };
 export function getAuthErrorMessage(error: unknown): string {
   if (error instanceof AuthApiError) return error.message;
   if (error instanceof Error) return error.message;

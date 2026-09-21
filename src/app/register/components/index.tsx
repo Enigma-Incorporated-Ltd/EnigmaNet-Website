@@ -8,7 +8,7 @@ import {
 } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
-import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
+import { AuthApiError, getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
 import {
   mapRegisterError,
   type AuthFieldError,
@@ -87,7 +87,8 @@ const RegisterPage = () => {
       if (errMsg.toLowerCase().includes('already exists') || errMsg.toLowerCase().includes('user already')) {
         navigate('/login/sign-in-existing', { state: { email } });
       } else {
-        setFieldError(mapRegisterError(errMsg));
+        const errorObj = submitError instanceof AuthApiError ? submitError.errors : undefined;
+        setFieldError(mapRegisterError(errMsg, errorObj));
       }
     } finally {
       setIsSubmitting(false);

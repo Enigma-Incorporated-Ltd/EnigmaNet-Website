@@ -2,7 +2,7 @@ import GoogleAccountButton from '@/components/auth/GoogleAccountButton';
 import { EmailIcon, EyeClosedIcon, EyeOpenIcon } from './LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
-import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
+import { AuthApiError, getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
 import {
   mapLoginError,
   type AuthFieldError,
@@ -49,7 +49,9 @@ const LoginSignInPage = () => {
       await login(trimmedEmail, trimmedPassword);
       navigate('/login/success', { state: { email: trimmedEmail } });
     } catch (submitError) {
-      setFieldError(mapLoginError(getAuthErrorMessage(submitError)));
+      const errMsg = getAuthErrorMessage(submitError);
+      const errorObj = submitError instanceof AuthApiError ? submitError.errors : undefined;
+      setFieldError(mapLoginError(errMsg, errorObj));
     } finally {
       setIsSubmitting(false);
     }
