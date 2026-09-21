@@ -120,24 +120,6 @@ export async function registerUser(
   return data;
 }
 
-export async function resendVerificationEmail(
-  email: string,
-): Promise<ApiStatusResponse> {
-  const data = await authRequest<ApiStatusResponse>('/api/Users/resend-verification', {
-    method: 'POST',
-    body: JSON.stringify({
-      email,
-      applicationId: AUTH_APPLICATION_ID,
-    }),
-  });
-
-  if (typeof data.status === 'string' && data.status && !isSuccessStatus(data.status)) {
-    throw new AuthApiError(data.status);
-  }
-
-  return data;
-}
-
 export async function loginUser(payload: LoginPayload): Promise<LoginSuccessResponse> {
   const data = await authRequest<LoginSuccessResponse & ApiStatusResponse>('/api/users/login', {
     method: 'POST',

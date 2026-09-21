@@ -20,16 +20,16 @@ export default defineConfig(({ mode }) => {
       react(),
       ...(enablePosthogSourcemaps
         ? [
-          posthog({
-            personalApiKey: posthogApiKey,
-            projectId: posthogProjectId,
-            host: posthogHost,
-            sourcemaps: {
-              enabled: true,
-              deleteAfterUpload: true,
-            },
-          }),
-        ]
+            posthog({
+              personalApiKey: posthogApiKey,
+              projectId: posthogProjectId,
+              host: posthogHost,
+              sourcemaps: {
+                enabled: true,
+                deleteAfterUpload: true,
+              },
+            }),
+          ]
         : []),
     ],
     build: {
@@ -42,7 +42,6 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
-      open: true,
       proxy: {
         '/api': {
           target: 'https://enigmaincappdev.azurewebsites.net',

@@ -5,7 +5,6 @@ import {
   refreshAuthToken,
   registerUser,
   requestForgotPassword,
-  resendVerificationEmail,
   updateForgotPassword,
   verifyResetCode,
   AuthApiError,
@@ -38,7 +37,6 @@ type AuthContextValue = {
   requestPasswordReset: (email: string) => Promise<void>;
   verifyPasswordResetCode: (verificationcode: string) => Promise<void>;
   completePasswordReset: (verificationcode: string, newpassword: string) => Promise<void>;
-  resendVerification: (email: string) => Promise<void>;
   loginMicrosoft: (accessToken: string, idToken: string) => Promise<void>;
   loginGoogle: (idToken: string) => Promise<AuthSession>;
   refreshSession: () => Promise<string | null>;
@@ -134,10 +132,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     [],
   );
 
-  const resendVerification = useCallback(async (email: string) => {
-    await resendVerificationEmail(email);
-  }, []);
-
   const loginMicrosoft = useCallback(async (accessToken: string, idToken: string) => {
     const response = await loginWithMicrosoft({ accessToken, idToken });
     if (!response.token || !response.refreshToken || !response.userid || !response.email) {
@@ -207,7 +201,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       requestPasswordReset,
       verifyPasswordResetCode,
       completePasswordReset,
-      resendVerification,
       loginMicrosoft,
       loginGoogle,
       refreshSession,
@@ -221,7 +214,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       requestPasswordReset,
       verifyPasswordResetCode,
       completePasswordReset,
-      resendVerification,
       loginMicrosoft,
       loginGoogle,
       refreshSession,
@@ -237,24 +229,6 @@ export function useAuth(): AuthContextValue {
     throw new Error('useAuth must be used within AuthProvider');
   }
   return context;
-}
-
-export function isAuthErrorUnverified(error: unknown): boolean {
-  if (error instanceof AuthApiError) {
-    if (error.statusCode === 403) return true;
-    const msg = (error.message || '').toLowerCase();
-    return msg.includes('not verified') || msg.includes('verify') || msg.includes('verification');
-  }
-  if (error instanceof Error) {
-    const msg = error.message.toLowerCase();
-    return (
-      msg.includes('not verified') ||
-      msg.includes('verify') ||
-      msg.includes('verification') ||
-      msg.includes('403')
-    );
-  }
-  return false;
 }
 
 export function getAuthErrorMessage(error: unknown): string {

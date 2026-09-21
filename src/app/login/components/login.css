@@ -16,11 +16,13 @@
   padding: calc(var(--login-nav-height) + 23px) 0 4rem;
   overflow-x: hidden;
   color: #fff;
-  --login-stroke-gradient: linear-gradient(90deg,
-      #ffffff 0%,
-      #d4f6ff 28%,
-      #2adeff 62%,
-      #00a3da 100%);
+  --login-stroke-gradient: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #d4f6ff 28%,
+    #2adeff 62%,
+    #00a3da 100%
+  );
 }
 
 .login-page__bg {
@@ -45,9 +47,11 @@
 }
 
 .login-page__bg-overlay {
-  background: linear-gradient(180deg,
-      rgba(0, 0, 0, 0.6) 31.73%,
-      rgba(102, 102, 102, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 31.73%,
+    rgba(102, 102, 102, 0) 100%
+  );
 }
 
 /* Figma: title @ x=142 on 1440 frame (130px content margin + 12px) — not centered container */
@@ -195,11 +199,15 @@
   color: #ff5252;
 }
 
-.login-layout--light .login-card--sign-in .login-field.login-gradient-stroke:not(.login-field--error)::before {
+.login-layout--light
+  .login-card--sign-in
+  .login-field.login-gradient-stroke:not(.login-field--error)::before {
   background: linear-gradient(90deg, #000000 0%, #3900e3 100%);
 }
 
-.login-layout--light .login-card--sign-in .login-field.login-field--error.login-gradient-stroke::before {
+.login-layout--light
+  .login-card--sign-in
+  .login-field.login-field--error.login-gradient-stroke::before {
   background: #ff9b9b;
 }
 
@@ -280,9 +288,11 @@
 }
 
 .login-layout--light .login-page__bg-overlay {
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.45) 31.73%,
-      rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 31.73%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .login-layout--light .login-page__title {
@@ -546,13 +556,6 @@
   width: 100%;
 }
 
-.login-help-text__forgot-col {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-}
-
 .login-help-text__link {
   color: #187bc9;
   font-size: 12px;
@@ -563,14 +566,6 @@
 
 .login-help-text__link:hover {
   color: #2adeff;
-}
-
-.login-help-text__resend-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
 }
 
 .login-help-text__register {
@@ -906,7 +901,6 @@
 }
 
 @supports not (mix-blend-mode: plus-lighter) {
-
   .login-figma-btn__glass,
   .login-primary-btn:not(:has(.login-figma-btn__fx))::before,
   .login-secondary-btn:not(:has(.login-figma-btn__fx))::before {
@@ -1149,7 +1143,7 @@
 
   .login-card {
     padding: 32px 20px;
-    gap: 16px !important;
+    gap: 16px!important;
     border-radius: 28px;
   }
 
@@ -1157,7 +1151,7 @@
     display: flex;
     width: 260px;
     padding: 24px 16px;
-
+    
     flex-direction: column;
     align-items: center;
     gap: 24px;
@@ -1220,7 +1214,6 @@
     border: 1px solid #FFF;
     backdrop-filter: none;
   }
-
   .login-layout--light .login-card--sign-in.login-gradient-stroke::before {
     display: none;
   }
@@ -1263,22 +1256,18 @@
     box-shadow: none;
     background: transparent;
   }
-
   .login-layout--light .login-field__input::placeholder {
     color: #666;
   }
-
   .login-layout--light .login-field__icon-wrap,
   .login-layout--light .login-field__toggle {
     color: #000;
   }
-
   .login-field__icon-wrap,
   .login-field__toggle {
     width: 12px;
     height: 12px;
   }
-
   .login-field__icon-wrap svg,
   .login-field__toggle svg {
     width: 12px;
@@ -1340,10 +1329,10 @@
     border-radius: 100px !important;
     background: #FFF !important;
     border: 1px solid #E0E0E0 !important;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1) !important;
   }
 
-  .login-card--sign-in>.login-card__interactive .login-account-buttons__btn--light-full {
+  .login-card--sign-in > .login-card__interactive .login-account-buttons__btn--light-full {
     margin-left: 85px !important;
   }
 
@@ -1364,7 +1353,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-
+   
   }
 
   .login-help-text__link {
@@ -1416,10 +1405,10 @@
   }
 
   .login-divider__text {
-    width: auto !important;
+    width: auto!important;
     height: 7px !important;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 6px !important;
+    font-family: 'Montserrat', sans-serif ;
+    font-size: 6px!important;
     font-weight: 600 !important;
     font-style: SemiBold !important;
     line-height: 100% !important;
@@ -1458,8 +1447,7 @@
 }
 
 .login-layout--light .login-help-text--existing .login-help-text__link {
-  color: #157bc9 !important;
-  /* Steel blue */
+  color: #157bc9 !important; /* Steel blue */
 }
 
 .login-layout--dark .login-help-text--existing .login-help-text__link {
@@ -1470,14 +1458,13 @@
   .login-help-text--existing {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: wrap !important;
-    /* wraps if width is too narrow to prevent clipping */
+    flex-wrap: wrap !important; /* wraps if width is too narrow to prevent clipping */
     align-items: center !important;
     justify-content: space-between !important;
     gap: 4px 8px !important;
     width: 100% !important;
   }
-
+  
   .login-help-text__error-existing {
     font-size: 8px !important;
   }
@@ -1518,3 +1505,4 @@
   background: rgba(0, 0, 0, 0.08) !important;
   filter: brightness(0.95) !important;
 }
+
