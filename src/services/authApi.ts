@@ -24,11 +24,13 @@ import type {
 
 export class AuthApiError extends Error {
   statusCode?: number;
+  errors?: Record<string, string[] | string>;
 
-  constructor(message: string, statusCode?: number) {
+  constructor(message: string, statusCode?: number, errors?: Record<string, string[] | string>) {
     super(message);
     this.name = 'AuthApiError';
     this.statusCode = statusCode;
+    this.errors = errors;
   }
 }
 
@@ -81,11 +83,38 @@ async function authRequest<T>(
   const data = await parseJson<T & ApiStatusResponse>(response);
 
   if (!response.ok) {
-    const message =
-      typeof data.status === 'string' && data.status
-        ? data.status
-        : `Request failed (${response.status})`;
-    throw new AuthApiError(message, response.status);
+    const rawData = data as any;
+    let message = '';
+
+    // Handle ASP.NET Core RFC 7231 / RFC 7807 ValidationProblemDetails: { errors: { email: ["..."] } }
+    if (rawData?.errors && typeof rawData.errors === 'object' && !Array.isArray(rawData.errors)) {
+      const entries = Object.entries(rawData.errors);
+      for (const [, msgs] of entries) {
+        if (Array.isArray(msgs) && msgs.length > 0 && typeof msgs[0] === 'string') {
+          message = msgs[0];
+          break;
+        } else if (typeof msgs === 'string' && msgs.trim()) {
+          message = msgs.trim();
+          break;
+        }
+      }
+    }
+
+    if (!message) {
+      if (typeof rawData?.detail === 'string' && rawData.detail) {
+        message = rawData.detail;
+      } else if (typeof rawData?.message === 'string' && rawData.message) {
+        message = rawData.message;
+      } else if (typeof data.status === 'string' && data.status) {
+        message = data.status;
+      } else if (typeof rawData?.title === 'string' && rawData.title) {
+        message = rawData.title;
+      } else {
+        message = `Request failed (${response.status})`;
+      }
+    }
+
+    throw new AuthApiError(message, response.status, rawData?.errors);
   }
 
   return data;
