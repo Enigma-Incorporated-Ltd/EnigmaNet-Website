@@ -41,7 +41,7 @@ const Detail = () => {
             <Col sm={6} className="mb-4">
               <FormGroup controlId="email">
                 <FormLabel className="fs-base">Email address</FormLabel>
-                <FormControl size="lg" type="email" defaultValue="jonny@email.com" required />
+                <FormControl size="lg" type="email" maxLength={254} defaultValue="jonny@email.com" required />
                 <Form.Control.Feedback type="invalid">
                   Please provide a valid email address!
                 </Form.Control.Feedback>

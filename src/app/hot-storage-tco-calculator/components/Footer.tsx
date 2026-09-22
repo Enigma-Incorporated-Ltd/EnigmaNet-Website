@@ -85,6 +85,7 @@ const Footer = () => {
                 <input
                   type="email"
                   id="subscr-email"
+                  maxLength={254}
                   className="form-control rounded-start ps-5"
                   placeholder="Your email"
                   required

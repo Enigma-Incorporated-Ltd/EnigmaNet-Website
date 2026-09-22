@@ -129,6 +129,7 @@ export default function NewsletterFormSection({ blok }: { blok: NewsletterBlok }
                     id={`nl-email-${blok._uid}`}
                     name="email"
                     type="email"
+                    maxLength={254}
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
