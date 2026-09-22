@@ -239,7 +239,8 @@ const LinkdinPost = lazy(() => import('@/app/linkdin-post'));
 //utility
 const Docs = lazy(() => import('@/app/docs'));
 const DeveloperPortal = lazy(() => import('@/app/developer-portal'));
-const CustomerPortal = lazy(() => import('@/app/customer-portal'));
+const CustomersPortal = lazy(() => import('@/app/customers-portal'));
+// const CustomerPortal = lazy(() => import('@/app/customer-portal'));
 const Status = lazy(() => import('@/app/status'));
 // const InfrastructureResilienceCheck = lazy(() => import('@/app/Home/infrastructure-resilience-check'));
 export const AllRoutes = [
@@ -467,7 +468,8 @@ export const AllRoutes = [
   { path: '/contact-us/support', element: <Support /> },
   //utility
   { path: '/developer-portal', element: <DeveloperPortal /> },
-  { path: '/customer-portal', element: <CustomerPortal /> },
+  { path: '/customers-portal', element: <CustomersPortal /> },
+  // { path: '/customer-portal', element: <CustomerPortal /> },
   { path: '/status', element: <Status /> },
   { path: '/docs', element: <Docs /> },
 
