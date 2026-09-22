@@ -4,7 +4,7 @@ import certificate1 from '@/assets/img/certificates/c1.png';
 import certificate2 from '@/assets/img/certificates/c2.png';
 import certificate3 from '@/assets/img/certificates/c3.png';
 import certificate4 from '@/assets/img/certificates/c4.webp';
-import certificate5 from '@/assets/img/certificates/c5.png';
+import certificate5 from '@/assets/img/certificates/c11.jpeg';
 import certificate6 from '@/assets/img/certificates/c6.jpg';
 import { useEffect, useState } from 'react';
 import { Col, Collapse, Container, Row } from 'react-bootstrap';
@@ -17,7 +17,7 @@ const brands = [
   { src: certificate2, pending: false },
   { src: certificate3, pending: true }, // ISO:27001
   { src: certificate4, pending: false },
-  { src: certificate5, pending: false },
+  { src: certificate5, pending: false,  },
   { src: certificate6, pending: true }, // NVIDIA
 ];
 
@@ -57,6 +57,7 @@ export const BrandStrip = () => {
               objectFit: 'contain',
               objectPosition: 'center',
               position: 'relative',
+             
             }}
           />
         ))}

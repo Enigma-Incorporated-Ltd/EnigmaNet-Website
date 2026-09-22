@@ -11,7 +11,7 @@ const ImplementationGuide = () => {
         items={[
           { label: 'Products', href: '/products' },
           { label: 'Performance Networking', href: '/products/performance-networking' },
-          { label: 'Intelligent Traffic Management', href: '/products/performance-networking/esc-secure-networking/' },
+          { label: 'ESC Secure Networking', href: '/products/performance-networking/esc-secure-networking/' },
           { label: 'ESC AWS Implementation Guide' },
         ]}
         style={{
