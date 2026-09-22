@@ -37,6 +37,8 @@ export const useGetInTouchApi = (isLead: boolean = false) => {
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
+    } else if (formData.email.length > 254) {
+      newErrors.email = 'Email cannot exceed 254 characters';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Enter a valid email';
     }
@@ -137,8 +139,12 @@ export const useGetInTouchApi = (isLead: boolean = false) => {
         }
       } else {
         // Email validation
-        if (name === 'email' && !/\S+@\S+\.\S+/.test(updatedValue)) {
-          error = 'Enter a valid email';
+        if (name === 'email') {
+          if (updatedValue.length > 254) {
+            error = 'Email cannot exceed 254 characters';
+          } else if (!/\S+@\S+\.\S+/.test(updatedValue)) {
+            error = 'Enter a valid email';
+          }
         }
       }
 

@@ -51,11 +51,19 @@ function firstButton(blok: NewsletterBlok): StoryblokButtonBlok | undefined {
 
 export default function NewsletterFormSection({ blok }: { blok: NewsletterBlok }) {
   const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (email) setSubmitted(true);
+    const trimmed = email.trim();
+    if (!trimmed) return;
+    if (trimmed.length > 254) {
+      setError('Email cannot exceed 254 characters.');
+      return;
+    }
+    setError('');
+    setSubmitted(true);
   };
 
   const cta = firstButton(blok);
@@ -131,14 +139,22 @@ export default function NewsletterFormSection({ blok }: { blok: NewsletterBlok }
                     type="email"
                     required
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setEmail(val);
+                      if (val.length > 254) {
+                        setError('Email cannot exceed 254 characters.');
+                      } else if (error) {
+                        setError('');
+                      }
+                    }}
                     placeholder={placeholder}
                     style={{
                       flex: 1,
                       minWidth: 0,
                       padding: '16px 22px',
                       borderRadius: 'var(--rounded_md)',
-                      border: 'none',
+                      border: error ? '1.5px solid #ff6b6b' : 'none',
                       fontSize: '1rem',
                       outline: 'none',
                       color: 'var(--primary-dark)',
@@ -166,6 +182,20 @@ export default function NewsletterFormSection({ blok }: { blok: NewsletterBlok }
                     </button>
                   )}
                 </div>
+                {error && (
+                  <p
+                    style={{
+                      color: '#ff6b6b',
+                      fontSize: '0.875rem',
+                      marginTop: '8px',
+                      marginBottom: 0,
+                      fontWeight: 500,
+                    }}
+                    role="alert"
+                  >
+                    {error}
+                  </p>
+                )}
               </form>
             )}
           </div>

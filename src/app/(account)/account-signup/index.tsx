@@ -45,6 +45,7 @@ const Index = () => {
                     <input
                       type="email"
                       id="email"
+                      maxLength={254}
                       className="form-control form-control-lg"
                       required
                     />

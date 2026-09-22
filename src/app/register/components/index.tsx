@@ -10,6 +10,8 @@ import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { AuthApiError, getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
 import {
+  EMAIL_MAX_LENGTH,
+  EMAIL_MAX_LENGTH_ERROR,
   mapRegisterError,
   type AuthFieldError,
   type AuthFieldKey,
@@ -26,6 +28,7 @@ const RegisterPage = () => {
   const { theme } = useTheme();
   const isLight = theme === 'light';
 
+  const [email, setEmail] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
   const [fieldError, setFieldError] = useState<AuthFieldError | null>(null);
@@ -59,6 +62,11 @@ const RegisterPage = () => {
 
     if (!lastname) {
       setFieldError({ field: 'lastname', message: 'Last name is required.' });
+      return;
+    }
+
+    if (email.length > EMAIL_MAX_LENGTH) {
+      setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
       return;
     }
 
@@ -213,10 +221,19 @@ const RegisterPage = () => {
                         type="email"
                         id="register-email"
                         name="email"
+                        value={email}
                         className="login-field__input"
                         placeholder="Enter Email"
                         autoComplete="email"
-                        onChange={() => clearFieldError('email')}
+                        onChange={event => {
+                          const val = event.target.value;
+                          setEmail(val);
+                          if (val.length > EMAIL_MAX_LENGTH) {
+                            setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
+                          } else if (fieldError?.field === 'email') {
+                            clearFieldError('email');
+                          }
+                        }}
                         aria-invalid={fieldError?.field === 'email'}
                         required
                       />

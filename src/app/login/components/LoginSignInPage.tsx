@@ -4,6 +4,8 @@ import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { AuthApiError, getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
 import {
+  EMAIL_MAX_LENGTH,
+  EMAIL_MAX_LENGTH_ERROR,
   mapLoginError,
   type AuthFieldError,
   type AuthFieldKey,
@@ -41,6 +43,11 @@ const LoginSignInPage = () => {
     const trimmedEmail = email.trim();
     const trimmedPassword = password.trim();
     if (!trimmedEmail || !trimmedPassword) {
+      return;
+    }
+
+    if (trimmedEmail.length > EMAIL_MAX_LENGTH) {
+      setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
       return;
     }
 
@@ -116,8 +123,13 @@ const LoginSignInPage = () => {
                           autoComplete="email"
                           value={email}
                           onChange={event => {
-                            setEmail(event.target.value);
-                            clearFieldError('email');
+                            const val = event.target.value;
+                            setEmail(val);
+                            if (val.length > EMAIL_MAX_LENGTH) {
+                              setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
+                            } else if (fieldError?.field === 'email') {
+                              clearFieldError('email');
+                            }
                           }}
                           aria-invalid={fieldError?.field === 'email'}
                           aria-describedby={fieldError?.field === 'email' ? 'login-email-error' : undefined}

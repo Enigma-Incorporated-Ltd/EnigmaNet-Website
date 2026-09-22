@@ -23,10 +23,17 @@ interface ContactFormSectionProps {
 
 export default function ContactFormSection({ blok }: ContactFormSectionProps) {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [emailError, setEmailError] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handle = (e: React.FormEvent) => {
     e.preventDefault();
+    const trimmedEmail = form.email.trim();
+    if (trimmedEmail.length > 254) {
+      setEmailError('Email cannot exceed 254 characters.');
+      return;
+    }
+    setEmailError('');
     setSubmitted(true);
   };
 
@@ -126,9 +133,22 @@ export default function ContactFormSection({ blok }: ContactFormSectionProps) {
                   placeholder="Email address"
                   required
                   value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  style={inputStyle}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setForm({ ...form, email: val });
+                    if (val.length > 254) {
+                      setEmailError('Email cannot exceed 254 characters.');
+                    } else if (emailError) {
+                      setEmailError('');
+                    }
+                  }}
+                  style={{ ...inputStyle, border: emailError ? '1.5px solid #ff6b6b' : inputStyle.border }}
                 />
+                {emailError && (
+                  <p style={{ color: '#ff6b6b', fontSize: '0.85rem', margin: '-8px 0 0 0' }} role="alert">
+                    {emailError}
+                  </p>
+                )}
                 <textarea
                   placeholder="Your message"
                   required
