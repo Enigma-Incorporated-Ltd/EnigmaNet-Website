@@ -113,30 +113,30 @@ const features = [
     },
   },
 
-  {
-    id: 8,
-    title: 'N0DE ',
-    href: '#',
-    slug: '#',
-    description: 'Specialist gaming experience built on the APN engine.  ',
-    image: heroImg,
-    meta: {
-      title: 'N0DE ',
-      description: 'Specialist gaming experience built on the APN engine.    ',
-    },
-  },
-  {
-    id: 9,
-    title: 'Q-Fi  ',
-    href: '#',
-    slug: '#',
-    description: 'Specialist audio experience built on the APN engine.  ',
-    image: heroImg,
-    meta: {
-      title: 'Q-Fi  ',
-      description: 'Specialist audio experience built on the APN engine.  ',
-    },
-  },
+  // {
+  //   id: 8,
+  //   title: 'N0DE ',
+  //   href: '#',
+  //   slug: '#',
+  //   description: 'Specialist gaming experience built on the APN engine.  ',
+  //   image: heroImg,
+  //   meta: {
+  //     title: 'N0DE ',
+  //     description: 'Specialist gaming experience built on the APN engine.    ',
+  //   },
+  // },
+  // {
+  //   id: 9,
+  //   title: 'Q-Fi  ',
+  //   href: '#',
+  //   slug: '#',
+  //   description: 'Specialist audio experience built on the APN engine.  ',
+  //   image: heroImg,
+  //   meta: {
+  //     title: 'Q-Fi  ',
+  //     description: 'Specialist audio experience built on the APN engine.  ',
+  //   },
+  // },
 ];
 
 const Core = [

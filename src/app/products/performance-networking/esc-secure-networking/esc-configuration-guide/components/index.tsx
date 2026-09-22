@@ -10,7 +10,7 @@ const EscConfigurationGuidePage = () => {
           { label: 'Products', href: '/products' },
           { label: 'Performance Networking', href: '/products/performance-networking' },
           {
-            label: 'Intelligent Traffic Management',
+            label: 'ESC Secure Networking',
             href: '/products/performance-networking/esc-secure-networking/',
           },
           { label: 'ESC Configuration Guide' },

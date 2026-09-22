@@ -431,8 +431,8 @@ line rate even when latency, packet loss or distance would normally slow it down
         image={TcpHero}
         buttons={[
           {
-            label: 'Explore TCP Acceleration  ',
-            href: '#',
+            label: 'Talk to us',
+            href: '/get-in-touch',
             variant: 'blue',
             disableSentenceCase: true,
           },
@@ -732,8 +732,8 @@ line rate even when latency, packet loss or distance would normally slow it down
         description="TCP Acceleration helps Enigma Net products move data faster across lossy, congested and high-
         latency links by improving transport behaviour inside the APN tunnel.   "
         primaryButton={{
-          label: 'Explore TCP Acceleration',
-          href: '#',
+          label: 'Talk to us',
+          href: '/get-in-touch',
           variant: 'gold',
           disableSentenceCase: true,
         }}
