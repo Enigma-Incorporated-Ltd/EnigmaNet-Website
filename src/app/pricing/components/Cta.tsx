@@ -18,6 +18,7 @@ const Cta = () => {
             >
               <input
                 type="email"
+                maxLength={254}
                 className="form-control rounded-start ps-5"
                 placeholder="Your email"
                 required
@@ -38,6 +39,7 @@ const Cta = () => {
               <div className="position-relative mb-3">
                 <input
                   type="email"
+                  maxLength={254}
                   className="form-control form-control-lg rounded-start ps-5"
                   placeholder="Your email"
                   required

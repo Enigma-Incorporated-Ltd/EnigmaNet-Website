@@ -4,6 +4,8 @@ import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { AuthApiError, getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
 import {
+  EMAIL_MAX_LENGTH,
+  EMAIL_MAX_LENGTH_ERROR,
   mapLoginError,
   type AuthFieldError,
   type AuthFieldKey,
@@ -45,6 +47,11 @@ const LoginSignInExistingPage = () => {
     const trimmedEmail = email.trim();
     const trimmedPassword = password.trim();
     if (!trimmedEmail || !trimmedPassword) {
+      return;
+    }
+
+    if (trimmedEmail.length > EMAIL_MAX_LENGTH) {
+      setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
       return;
     }
 
@@ -117,14 +124,26 @@ const LoginSignInExistingPage = () => {
                           type="email"
                           id="login-email"
                           name="email"
+                          maxLength={EMAIL_MAX_LENGTH}
                           className="login-field__input"
                           placeholder="Enter Email"
                           autoComplete="email"
                           value={email}
                           onChange={event => {
-                            setEmail(event.target.value);
-                            clearFieldError('email');
+                            const val = event.target.value;
+                            setEmail(val);
+                            if (val.length > EMAIL_MAX_LENGTH) {
+                              setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
+                            } else {
+                              clearFieldError('email');
+                            }
                             setEmailExistsError(false);
+                          }}
+                          onPaste={event => {
+                            const pastedText = event.clipboardData.getData('text');
+                            if (pastedText.length > EMAIL_MAX_LENGTH || (email.length + pastedText.length) > EMAIL_MAX_LENGTH) {
+                              setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
+                            }
                           }}
                           aria-invalid={fieldError?.field === 'email' || emailExistsError}
                           aria-describedby={fieldError?.field === 'email' ? 'login-email-error' : undefined}

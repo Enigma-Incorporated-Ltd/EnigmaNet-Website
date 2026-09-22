@@ -137,6 +137,7 @@ const QuoteForm = () => {
                         <Form.Control
                           name="email"
                           type="email"
+                          maxLength={254}
                           placeholder="you@company.com"
                           value={formData.email}
                           onChange={handleChange}
