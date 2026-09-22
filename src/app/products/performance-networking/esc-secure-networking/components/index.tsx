@@ -11,7 +11,7 @@ import { type CardItem } from '@/components/ui/card';
 import CardWithUseCase from '@/components/ui/CardWithUseCase';
 import CaseStudyHighlight from '@/components/ui/CaseStudyHighlight';
 import Br from '@/components/ui/NewLine';
-import { ApnCoreHero, Commond, EscHero, EseLandingImg, GridHero } from '@/assets/img/products';
+import { ApnCoreHero, Commond, EscHero, EseLandingImg } from '@/assets/img/products';
 import { APNCore, CloudAndData, CloudRouting, ControlledManagement, EncrypedTunnel, EnigmaConnect, ESC, ESCEdge, IotAndScada, ISPAndMSP, KeyManagement, leavetransport, LicensingAndKeys, LiveTunnel, MPLSAugmentation, MultiTenant, Multitenantoperations, NextworkRequirment, Nexus, Observability, ObservabilityAndControl, OEMCArrier, OSandKernel, Privateoverlaydeployments, ProvisioningAndManagement, QualityMonitoring, RemoteControl, RuntimeLibraries, SecureOverlay, SNMPIntegration, TenantSegentation, TradingHealthCare, Underlaysareinconsistent, ZeroTrust } from '@/assets/svgs/products/performance-networking/esc-secure-networking';
 const features = [
   {
@@ -53,19 +53,19 @@ const features = [
     },
     image: Commond,
   },
-  {
-    id: 4,
-    title: 'AND/+ Integration Platform  ',
-    href: '#',
-    slug: 'and-plus',
-    description: 'Embeddable APN and ESC integration layer for carriers, OEMs and platforms.    ',
+  // {
+  //   id: 4,
+  //   title: 'AND/+ Integration Platform  ',
+  //   href: '#',
+  //   slug: 'and-plus',
+  //   description: 'Embeddable APN and ESC integration layer for carriers, OEMs and platforms.    ',
 
-    meta: {
-      title: 'AND/+ Integration Platform    ',
-      description: 'Embeddable APN and ESC integration layer for carriers, OEMs and platforms.    ',
-    },
-    image: GridHero,
-  },
+  //   meta: {
+  //     title: 'AND/+ Integration Platform    ',
+  //     description: 'Embeddable APN and ESC integration layer for carriers, OEMs and platforms.    ',
+  //   },
+  //   image: GridHero,
+  // },
   // {
   //   id: 5,
   //   title: 'Nexus Command    ',
@@ -94,73 +94,73 @@ const features = [
   //   },
   // },
 ];
-const featuresChild = [
-  {
-    id: 1,
-    title: 'ESC – Deployment Profiles    ',
-    href: '/products/performance-networking/esc-secure-networking/esc-deployment-profiles',
-    slug: 'esc-deployment-profiles',
-    description: 'Cloud, on-prem, hybrid topologies and reference diagrams.   ',
+// const featuresChild = [
+//   {
+//     id: 1,
+//     title: 'ESC – Deployment Profiles    ',
+//     href: '/products/performance-networking/esc-secure-networking/esc-deployment-profiles',
+//     slug: 'esc-deployment-profiles',
+//     description: 'Cloud, on-prem, hybrid topologies and reference diagrams.   ',
 
-    meta: {
-      title: 'ESC – Deployment Profiles   ',
-      description: 'Cloud, on-prem, hybrid topologies and reference diagrams.     ',
-    },
-    image: GridHero,
-  },
-  {
-    id: 2,
-    title: 'ESC – Configuration Guide    ',
-    href: '/products/performance-networking/esc-secure-networking/esc-configuration-guide',
-    slug: 'esc-configuration-guide',
-    description: 'Mapping Enigma concepts to configuration options and use cases.    ',
+//     meta: {
+//       title: 'ESC – Deployment Profiles   ',
+//       description: 'Cloud, on-prem, hybrid topologies and reference diagrams.     ',
+//     },
+//     image: GridHero,
+//   },
+//   {
+//     id: 2,
+//     title: 'ESC – Configuration Guide    ',
+//     href: '/products/performance-networking/esc-secure-networking/esc-configuration-guide',
+//     slug: 'esc-configuration-guide',
+//     description: 'Mapping Enigma concepts to configuration options and use cases.    ',
 
-    meta: {
-      title: 'ESC – Configuration Guide   ',
-      description: 'Mapping Enigma concepts to configuration options and use cases.    ',
-    },
-    image: heroImg,
-  },
-  {
-    id: 3,
-    title: 'ESC – AWS Implementation Guide     ',
-    href: '/products/performance-networking/esc-secure-networking/esc-aws-implementation-guide',
-    slug: 'esc-aws-implementation-guide',
-    description: 'Detailed EC2 endpoint and policy routing steps.     ',
+//     meta: {
+//       title: 'ESC – Configuration Guide   ',
+//       description: 'Mapping Enigma concepts to configuration options and use cases.    ',
+//     },
+//     image: heroImg,
+//   },
+//   {
+//     id: 3,
+//     title: 'ESC – AWS Implementation Guide     ',
+//     href: '/products/performance-networking/esc-secure-networking/esc-aws-implementation-guide',
+//     slug: 'esc-aws-implementation-guide',
+//     description: 'Detailed EC2 endpoint and policy routing steps.     ',
 
-    meta: {
-      title: 'ESC – AWS Implementation Guide      ',
-      description: 'Detailed EC2 endpoint and policy routing steps.     ',
-    },
-    image: Commond,
-  },
-  {
-    id: 4,
-    title: 'ESC – Observability and NOC Integration     ',
-    href: '/products/performance-networking/esc-secure-networking/esc-observability-and-noc-integration',
-    slug: 'esc-observability-and-noc-integration',
-    description: 'vibe-stat, SNMP MIBs and metrics export patterns.     ',
+//     meta: {
+//       title: 'ESC – AWS Implementation Guide      ',
+//       description: 'Detailed EC2 endpoint and policy routing steps.     ',
+//     },
+//     image: Commond,
+//   },
+//   {
+//     id: 4,
+//     title: 'ESC – Observability and NOC Integration     ',
+//     href: '/products/performance-networking/esc-secure-networking/esc-observability-and-noc-integration',
+//     slug: 'esc-observability-and-noc-integration',
+//     description: 'vibe-stat, SNMP MIBs and metrics export patterns.     ',
 
-    meta: {
-      title: 'ESC – Observability and NOC Integration      ',
-      description: 'vibe-stat, SNMP MIBs and metrics export patterns.    ',
-    },
-    image: heroImg,
-  },
-  {
-    id: 5,
-    title: 'ESC – Security & Compliance Notes     ',
-    href: '/products/performance-networking/esc-secure-networking/esc-security-compliance-notes',
-    slug: 'esc-security-compliance-notes',
-    description: 'Key management, cipher selection, audit points and threat model.      ',
+//     meta: {
+//       title: 'ESC – Observability and NOC Integration      ',
+//       description: 'vibe-stat, SNMP MIBs and metrics export patterns.    ',
+//     },
+//     image: heroImg,
+//   },
+//   {
+//     id: 5,
+//     title: 'ESC – Security & Compliance Notes     ',
+//     href: '/products/performance-networking/esc-secure-networking/esc-security-compliance-notes',
+//     slug: 'esc-security-compliance-notes',
+//     description: 'Key management, cipher selection, audit points and threat model.      ',
 
-    meta: {
-      title: 'ESC – Security & Compliance Notes       ',
-      description: 'Key management, cipher selection, audit points and threat model.     ',
-    },
-    image: EscHero,
-  },
-];
+//     meta: {
+//       title: 'ESC – Security & Compliance Notes       ',
+//       description: 'Key management, cipher selection, audit points and threat model.     ',
+//     },
+//     image: EscHero,
+//   },
+// ];
 const Core = [
   {
     id: 1,
@@ -925,11 +925,11 @@ const SecureNetworking = () => {
         data={features}
         currentSlug={slug as string}
       />
-      <NextPageSlider
+      {/* <NextPageSlider
         title="ESC – Secure Networking features"
         data={featuresChild}
         currentSlug={slug as string}
-      />
+      /> */}
       <CTA
         theme={theme}
         showButtons
