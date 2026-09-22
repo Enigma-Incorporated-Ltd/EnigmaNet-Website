@@ -24,7 +24,7 @@ const Index = () => {
                 <label htmlFor="email" className="form-label fs-base">
                   Email
                 </label>
-                <input type="email" id="email" className="form-control form-control-lg" required />
+                <input type="email" id="email" maxLength={254} className="form-control form-control-lg" required />
                 <div className="invalid-feedback position-absolute start-0 top-100">
                   Please enter a valid email address!
                 </div>

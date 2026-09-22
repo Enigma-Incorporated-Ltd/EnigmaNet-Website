@@ -6,6 +6,7 @@ import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { useState } from 'react';
 import { Link } from 'react-router';
+import { EMAIL_MAX_LENGTH, EMAIL_MAX_LENGTH_ERROR } from '@/utils/authFieldErrors';
 import type { OAuthPageMode } from '@/types/oauth';
 import { useTheme } from '@/utils/useTheme';
 import '@/app/login/components/login.css';
@@ -39,12 +40,21 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
       : 'signin with apple account dark mode';
 
   const [email, setEmail] = useState('');
-  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const showError = Boolean(errorMessage);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const trimmed = email.trim();
-    setShowError(!trimmed || !emailPattern.test(trimmed));
+    if (trimmed.length > EMAIL_MAX_LENGTH) {
+      setErrorMessage(EMAIL_MAX_LENGTH_ERROR);
+      return;
+    }
+    if (!trimmed || !emailPattern.test(trimmed)) {
+      setErrorMessage('Wrong Email, please check your Email Address');
+      return;
+    }
+    setErrorMessage('');
   };
 
   return (
@@ -150,8 +160,13 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
                         autoComplete="email"
                         value={email}
                         onChange={event => {
-                          setEmail(event.target.value);
-                          if (showError) setShowError(false);
+                          const val = event.target.value;
+                          setEmail(val);
+                          if (val.length > EMAIL_MAX_LENGTH) {
+                            setErrorMessage(EMAIL_MAX_LENGTH_ERROR);
+                          } else if (errorMessage) {
+                            setErrorMessage('');
+                          }
                         }}
                         aria-invalid={showError}
                         aria-describedby={showError ? 'apple-login-email-error' : undefined}
@@ -168,7 +183,7 @@ const AppleLoginPage = ({ mode = 'login' }: AppleLoginPageProps) => {
                         role="alert"
                         data-node-id="60:1436"
                       >
-                        Wrong Email, please check your Email Address
+                        {errorMessage}
                       </p>
                     )}
                   </div>
