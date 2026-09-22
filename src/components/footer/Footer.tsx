@@ -17,7 +17,7 @@ const brands = [
   { src: certificate2, pending: false },
   { src: certificate3, pending: true }, // ISO:27001
   { src: certificate4, pending: false },
-  { src: certificate5, pending: false },
+  { src: certificate5, pending: false , isbg: true },
   { src: certificate6, pending: true }, // NVIDIA
 ];
 
@@ -57,6 +57,7 @@ export const BrandStrip = () => {
               objectFit: 'contain',
               objectPosition: 'center',
               position: 'relative',
+              ...(brand.isbg && { background: 'white' }),
             }}
           />
         ))}
