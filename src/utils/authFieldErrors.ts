@@ -10,6 +10,16 @@ export type AuthFieldError = {
   message: string;
 };
 
+export const EMAIL_MAX_LENGTH = 254;
+export const EMAIL_MAX_LENGTH_ERROR = 'Email cannot exceed 254 characters.';
+
+export function validateEmailLength(email: string): string | null {
+  if (email.length > EMAIL_MAX_LENGTH) {
+    return EMAIL_MAX_LENGTH_ERROR;
+  }
+  return null;
+}
+
 export function mapLoginError(
   message: string,
   errors?: Record<string, string[] | string>,
@@ -32,7 +42,9 @@ export function mapLoginError(
     lower.includes('user does not exist') ||
     lower.includes('does not exist') ||
     lower.includes('account not found') ||
-    lower.includes('no user')
+    lower.includes('no user') ||
+    lower.includes('254') ||
+    lower.includes('exceed')
   ) {
     return { field: 'email', message };
   }
@@ -79,7 +91,7 @@ export function mapRegisterError(
     return { field: 'email', message };
   }
 
-  if (lower.includes('email')) {
+  if (lower.includes('email') || lower.includes('254') || lower.includes('exceed')) {
     return { field: 'email', message };
   }
 

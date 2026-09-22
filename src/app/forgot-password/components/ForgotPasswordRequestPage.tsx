@@ -3,6 +3,7 @@ import { EmailIcon } from '@/app/login/components/LoginIcons';
 import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
+import { EMAIL_MAX_LENGTH, EMAIL_MAX_LENGTH_ERROR } from '@/utils/authFieldErrors';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { useTheme } from '@/utils/useTheme';
@@ -31,7 +32,14 @@ const ForgotPasswordRequestPage = () => {
     setFieldError('');
 
     const trimmed = email.trim();
-    if (!trimmed || !emailPattern.test(trimmed)) return;
+    if (!trimmed) return;
+
+    if (trimmed.length > EMAIL_MAX_LENGTH) {
+      setFieldError(EMAIL_MAX_LENGTH_ERROR);
+      return;
+    }
+
+    if (!emailPattern.test(trimmed)) return;
 
     setIsSubmitting(true);
     try {
@@ -100,13 +108,25 @@ const ForgotPasswordRequestPage = () => {
                       type="email"
                       id="forgot-email"
                       name="email"
+                      maxLength={EMAIL_MAX_LENGTH}
                       className="login-field__input"
                       placeholder="Enter Email"
                       autoComplete="email"
                       value={email}
                       onChange={event => {
-                        setEmail(event.target.value);
-                        if (fieldError) setFieldError('');
+                        const val = event.target.value;
+                        setEmail(val);
+                        if (val.length > EMAIL_MAX_LENGTH) {
+                          setFieldError(EMAIL_MAX_LENGTH_ERROR);
+                        } else if (fieldError) {
+                          setFieldError('');
+                        }
+                      }}
+                      onPaste={event => {
+                        const pastedText = event.clipboardData.getData('text');
+                        if (pastedText.length > EMAIL_MAX_LENGTH || (email.length + pastedText.length) > EMAIL_MAX_LENGTH) {
+                          setFieldError(EMAIL_MAX_LENGTH_ERROR);
+                        }
                       }}
                       aria-invalid={Boolean(fieldError)}
                       aria-describedby={fieldError ? 'forgot-email-error' : undefined}

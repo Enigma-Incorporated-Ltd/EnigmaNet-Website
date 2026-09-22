@@ -5,17 +5,26 @@ interface SsoLoginPageProps {
   error: string | null;
 }
 
-export default function SsoLoginPage({ onLogin, error }: SsoLoginPageProps) {
+export default function SsoLoginPage({ onLogin, error: propError }: SsoLoginPageProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [localError, setLocalError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const error = localError || propError;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!email.trim() || !password) return;
+    const trimmed = email.trim();
+    if (!trimmed || !password) return;
+    if (trimmed.length > 254) {
+      setLocalError('Email cannot exceed 254 characters.');
+      return;
+    }
+    setLocalError('');
     setLoading(true);
     try {
-      await onLogin(email.trim(), password);
+      await onLogin(trimmed, password);
     } finally {
       setLoading(false);
     }
@@ -43,10 +52,25 @@ export default function SsoLoginPage({ onLogin, error }: SsoLoginPageProps) {
             <input
               id="sso-email"
               type="email"
+              maxLength={254}
               className="portal-login__input"
               placeholder="you@example.com"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setEmail(val);
+                if (val.length > 254) {
+                  setLocalError('Email cannot exceed 254 characters.');
+                } else if (localError) {
+                  setLocalError('');
+                }
+              }}
+              onPaste={(e) => {
+                const pastedText = e.clipboardData.getData('text');
+                if (pastedText.length > 254 || (email.length + pastedText.length) > 254) {
+                  setLocalError('Email cannot exceed 254 characters.');
+                }
+              }}
               autoComplete="email"
               required
             />

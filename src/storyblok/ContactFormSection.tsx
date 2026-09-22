@@ -124,6 +124,7 @@ export default function ContactFormSection({ blok }: ContactFormSectionProps) {
                 <input
                   type="email"
                   placeholder="Email address"
+                  maxLength={254}
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}

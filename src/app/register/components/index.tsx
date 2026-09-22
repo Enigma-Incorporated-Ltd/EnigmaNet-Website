@@ -10,6 +10,8 @@ import loginLogo from '@/assets/img/login/login-logo.svg';
 import IconifyIcon from '@/components/IconifyIcon';
 import { AuthApiError, getAuthErrorMessage, useAuth } from '@/hooks/useAuth';
 import {
+  EMAIL_MAX_LENGTH,
+  EMAIL_MAX_LENGTH_ERROR,
   mapRegisterError,
   type AuthFieldError,
   type AuthFieldKey,
@@ -59,6 +61,11 @@ const RegisterPage = () => {
 
     if (!lastname) {
       setFieldError({ field: 'lastname', message: 'Last name is required.' });
+      return;
+    }
+
+    if (email.length > EMAIL_MAX_LENGTH) {
+      setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
       return;
     }
 
@@ -213,10 +220,23 @@ const RegisterPage = () => {
                         type="email"
                         id="register-email"
                         name="email"
+                        maxLength={EMAIL_MAX_LENGTH}
                         className="login-field__input"
                         placeholder="Enter Email"
                         autoComplete="email"
-                        onChange={() => clearFieldError('email')}
+                        onChange={event => {
+                          if (event.target.value.length > EMAIL_MAX_LENGTH) {
+                            setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
+                          } else {
+                            clearFieldError('email');
+                          }
+                        }}
+                        onPaste={event => {
+                          const pastedText = event.clipboardData.getData('text');
+                          if (pastedText.length > EMAIL_MAX_LENGTH || (event.currentTarget.value.length + pastedText.length) > EMAIL_MAX_LENGTH) {
+                            setFieldError({ field: 'email', message: EMAIL_MAX_LENGTH_ERROR });
+                          }
+                        }}
                         aria-invalid={fieldError?.field === 'email'}
                         required
                       />
