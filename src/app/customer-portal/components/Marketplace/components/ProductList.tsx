@@ -414,10 +414,31 @@ export default function ProductList({
                 className={`marketplace-category-tag ${isActive ? 'marketplace-category-tag--active' : ''}`}
                 onClick={() => setActiveCategory(isActive ? 'All' : cat.name)}
               >
-                <span className="marketplace-category-tag__name">{cat.name}</span>
                 {isActive && (
-                  <span className="marketplace-category-tag__desc">{cat.desc}</span>
+                  <svg
+                    className="marketplace-category-tag__bg-svg"
+                    width="177"
+                    height="105"
+                    viewBox="0 0 177 105"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 4C0 1.79086 1.79086 0 4 0H173C175.209 0 177 1.79086 177 4V32C177 34.2091 175.209 36 173 36H138.832C136.623 36 134.832 37.7909 134.832 40V101C134.832 103.209 133.041 105 130.832 105H3.99999C1.79085 105 0 103.209 0 101V4Z"
+                      className="marketplace-category-tag__bg-fill"
+                    />
+                    <path
+                      d="M4 0.0996094H173C175.154 0.0996116 176.9 1.84609 176.9 4V32C176.9 34.1539 175.154 35.9004 173 35.9004H138.832C136.568 35.9006 134.732 37.7357 134.732 40V101C134.732 103.154 132.986 104.9 130.832 104.9H4C1.84609 104.9 0.0996095 103.154 0.0996094 101V4C0.0996094 1.84609 1.84609 0.0996094 4 0.0996094Z"
+                      className="marketplace-category-tag__bg-stroke"
+                    />
+                  </svg>
                 )}
+                <div className="marketplace-category-tag__content">
+                  <span className="marketplace-category-tag__name">{cat.name}</span>
+                  {isActive && (
+                    <span className="marketplace-category-tag__desc">{cat.desc}</span>
+                  )}
+                </div>
               </button>
             );
           })}
