@@ -17,6 +17,7 @@ export interface Product {
   recommended?: boolean;
   newProduct?: boolean;
   features: string[];
+  tags?: string[];
   specs: {
     label: string;
     options: string[];
@@ -28,138 +29,150 @@ const MOCK_PRODUCTS: Product[] = [
   {
     id: 'esc-lite',
     name: 'ESC Lite',
-    description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
+    description: 'Secure, high-performance networking for single sites with optimised connectivity.',
     price: 99,
-    period: '/site/month',
+    period: '/site /month',
     category: 'ESC Secure Networking',
     recommended: true,
     currencySymbol: '£',
+    tags: ['Single site', 'Virtual/cloud'],
     features: [
-      'Secure connectivity',
-      'Managed networking',
-      'APN integration',
-      'Centralised policy management',
-      'Monitoring'
+      'Up to ~300 Mbps optimised',
+      'Secure & reliable',
+      'Easy to deploy & manage'
     ],
-    specs: []
+    specs: [
+      { label: 'Deployment Region', options: ['UK & Europe', 'North America', 'Asia-Pacific'] },
+      { label: 'Bandwidth Tier', options: ['300 Mbps (Base)', '500 Mbps (+£30/mo)', '1 Gbps (+£70/mo)'] }
+    ]
   },
   {
     id: 'esc-tenant-base',
     name: 'ESC Tenant Base',
-    description: 'Centralised networking foundation for secure, managed connectivity across your sites.',
+    description: 'Centralised networking foundation for secure, managed connectivity across your multi-site deployment.',
     price: 150,
-    period: '/tenant/month',
+    period: '/tenant /month',
     category: 'ESC Secure Networking',
     currencySymbol: '£',
+    tags: ['Multi-site', 'High availability'],
     features: [
       'Nexus integration & API access',
       'Global policy engine',
       'First 5 sites included'
     ],
-    specs: []
+    specs: [
+      { label: 'Tenant Tier', options: ['Standard (5 sites)', 'Enterprise (15 sites +£100/mo)', 'Global Unlimited (+£250/mo)'] }
+    ]
   },
   {
     id: 'esc-pro',
     name: 'ESC Pro',
-    description: 'Enhanced secure networking for sites requiring higher performance and greater connectivity capacity.',
+    description: 'Enhanced secure networking for enterprise sites requiring ultra-high throughput and dedicated capacity.',
     price: 199,
-    period: '/site/month',
+    period: '/site /month',
     category: 'ESC Secure Networking',
     currencySymbol: '£',
+    tags: ['Multi-site', 'High availability', 'Remote'],
     features: [
       'Up to ~1 Gbps optimised',
-      'Secure & reliable',
-      'Easy to deploy & manage'
+      'Dedicated SLA & 99.999% uptime',
+      'Advanced threat protection'
     ],
-    specs: []
+    specs: [
+      { label: 'Throughput', options: ['1 Gbps Dedicated', '2.5 Gbps Enterprise (+£120/mo)', '10 Gbps Ultra (+£350/mo)'] }
+    ]
   },
   {
     id: 'edge',
-    name: 'EDGE',
+    name: 'Enigma EDGE Router',
     description: 'Accelerate branch connectivity and security with Enigma Net Edge routing and built-in SD-WAN.',
     price: 120,
-    period: '/mo',
+    period: '/site /month',
     category: 'Enigma EDGE',
     recommended: true,
+    currencySymbol: '£',
+    tags: ['Single site', 'Multi-site', 'Remote'],
     features: [
-      'High-speed SD-WAN routing and traffic steering',
-      'Integrated enterprise branch firewall protection',
-      'Zero-touch provisioning and remote management console',
-      'Dual LTE cellular failover backup SIM card slot'
+      'High-speed SD-WAN routing',
+      'Integrated enterprise firewall',
+      'Zero-touch remote console'
     ],
     specs: [
-      { label: 'Deployment Region', options: ['North America', 'Europe', 'Asia-Pacific'] },
-      { label: 'Throughput Tier', options: ['100 Mbps (Base)', '500 Mbps (+$50/mo)', '1 Gbps (+$100/mo)'] }
+      { label: 'Deployment Region', options: ['UK & Europe', 'North America', 'Asia-Pacific'] },
+      { label: 'Throughput Tier', options: ['100 Mbps (Base)', '500 Mbps (+£40/mo)', '1 Gbps (+£80/mo)'] }
     ]
   },
   {
     id: 'esc-storage',
-    name: 'ESC Secure Storage Vault',
-    description: 'Highly secure, encrypted cloud storage vault with automated snapshot backups and compliance logging.',
+    name: 'ESC Secure Storage',
+    description: 'Secure file and data management with fast access, multi-cloud redundancy, and encryption.',
     price: 79,
-    period: '/tb/month',
+    period: '/tb /month',
     category: 'ESC Secure Storage',
     currencySymbol: '£',
+    tags: ['Virtual/cloud'],
     features: [
       'AES-256 military-grade encryption',
-      'Automated daily snapshots & retention policies',
-      'Compliance & access audit logs',
-      '99.999% durability & availability'
+      'Automated daily snapshots',
+      'Compliance & access audit logs'
     ],
     specs: [
-      { label: 'Storage Tier', options: ['1 TB Standard', '5 TB Pro (+$150/mo)', '20 TB Enterprise (+$500/mo)'] }
+      { label: 'Storage Tier', options: ['1 TB Standard', '5 TB Pro (+£120/mo)', '20 TB Enterprise (+£400/mo)'] }
     ]
   },
   {
     id: 'large-file-transfer',
-    name: 'Large File Transfer',
-    description: 'Secure and reliable high-speed data transfer solutions for large payloads and files across servers.',
+    name: 'Enigma LFT (Large File Transfer)',
+    description: 'Fast, secure large-file transfers for moving data seamlessly between distributed teams and locations.',
     price: 45,
-    period: '/mo',
+    period: '/tenant /month',
     category: 'Enigma LFT',
     newProduct: true,
+    currencySymbol: '£',
+    tags: ['Virtual/cloud', 'Remote'],
     features: [
-      'UDP accelerated transfer protocols for low-latency delivery',
-      'End-to-end AES-256 encryption for corporate files',
-      'No physical file size limit limitations',
-      'Automated retry, validation check, and resume logic'
+      'UDP accelerated transfer engine',
+      'End-to-end encrypted tunnels',
+      'Automated resume & validation'
     ],
     specs: [
-      { label: 'Storage Capacity', options: ['500 GB (Base)', '2 TB (+$25/mo)', '10 TB (+$80/mo)'] }
+      { label: 'Storage Bandwidth', options: ['500 GB (Base)', '2 TB (+£20/mo)', '10 TB (+£60/mo)'] }
     ]
   },
   {
     id: 'single-vpn',
-    name: 'Single Site VPN',
+    name: 'Single Site VPN Gateway',
     description: 'Secure remote VPN gateway connectivity for a single branch or office location.',
     price: 29,
-    period: '/mo',
+    period: '/site /month',
     category: 'ESC Secure Networking',
+    currencySymbol: '£',
+    tags: ['Single site', 'Remote'],
     features: [
-      'Secure IPsec & OpenVPN gateway support',
-      'Up to 50 concurrent client connections',
-      'Active network audit logging',
-      'Self-service client provisioning portal'
+      'IPsec & OpenVPN gateway support',
+      'Up to 50 concurrent client links',
+      'Active real-time audit logging'
     ],
     specs: [
-      { label: 'Server Location', options: ['US East', 'US West', 'EU West', 'Asia East'] }
+      { label: 'Server Location', options: ['London (UK)', 'Frankfurt (EU)', 'New York (US East)', 'Singapore'] }
     ]
   },
   {
     id: 'sdn-mesh',
-    name: 'SDN Mesh Network',
-    description: 'Connect multiple office sites together in a dynamic, self-healing site-to-site SDN network.',
+    name: 'Enigma Connect SDN Mesh',
+    description: 'Self-service connectivity plans for reliable, high-performance mesh networking between sites.',
     price: 199,
-    period: '/mo',
-    category: 'Enigma CONNECT',
+    period: '/network /month',
+    category: 'Enigma Connect',
+    currencySymbol: '£',
+    tags: ['Multi-site', 'High availability'],
     features: [
-      'Fully meshed site-to-site tunnels',
-      'Dynamic routing and path path selection',
-      'Low-latency overlay tunneling',
-      'Centralized APN controller dashboard console'
+      'Fully meshed site tunnels',
+      'Dynamic routing & failover',
+      'Centralized APN controller'
     ],
     specs: [
-      { label: 'Number of Sites', options: ['Up to 5 sites', 'Up to 15 sites (+$100/mo)', 'Unlimited sites (+$250/mo)'] }
+      { label: 'Connected Nodes', options: ['Up to 5 sites', 'Up to 15 sites (+£80/mo)', 'Unlimited sites (+£200/mo)'] }
     ]
   },
   {
@@ -167,17 +180,18 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'High Availability Gateway',
     description: 'Redundant network gateways with sub-second failover capabilities for mission-critical setups.',
     price: 149,
-    period: '/mo',
-    category: 'Enigma CONNECT',
+    period: '/site /month',
+    category: 'Enigma Connect',
     recommended: true,
+    currencySymbol: '£',
+    tags: ['High availability', 'Multi-site'],
     features: [
-      'Active-active redundancy hot standby mode',
-      'Automatic sub-second cellular/fiber failover link',
-      'Dual provider ISP load balancing algorithms',
-      'SLA guaranteed 99.999% uptime benchmark'
+      'Active-active hot standby mode',
+      'Sub-second cellular/fiber failover',
+      'Dual ISP dynamic load balancing'
     ],
     specs: [
-      { label: 'Secondary ISP Link', options: ['Verizon Wireless Backup', 'AT&T Cellular Backup', 'Dual Provider (+$40/mo)'] }
+      { label: 'Backup Link Carrier', options: ['Vodafone 5G Backup', 'EE Cellular Backup', 'Dual Carrier (+£35/mo)'] }
     ]
   },
   {
@@ -185,34 +199,36 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Retail POS WAN Optimizer',
     description: 'Prioritize POS transaction traffic and optimize bandwidth efficiency for retail stores.',
     price: 39,
-    period: '/mo',
-    category: 'Enigma CONNECT',
+    period: '/site /month',
+    category: 'Enigma Connect',
+    currencySymbol: '£',
+    tags: ['Retail', 'Single site'],
     features: [
-      'POS transaction packet priority queueing',
-      'PCI-DSS compliance tunnels by design',
-      'Ultra-low bandwidth packet optimization algorithms',
-      'Real-time transaction transaction latency monitoring dashboards'
+      'POS transaction queue priority',
+      'PCI-DSS compliant tunneling',
+      'Real-time latency monitoring'
     ],
     specs: [
-      { label: 'POS Terminal Count', options: ['1-5 terminals', '6-20 terminals (+$20/mo)', 'Enterprise unlimited (+$60/mo)'] }
+      { label: 'POS Terminal Count', options: ['1-5 terminals', '6-20 terminals (+£15/mo)', 'Unlimited (+£45/mo)'] }
     ]
   },
   {
     id: 'construction-modem',
     name: 'Construction Site Cellular Link',
-    description: 'Heavy-duty weather-proof cellular router for outdoor construction projects and temporary sites.',
+    description: 'Managed edge connectivity for businesses, branches, temporary sites, and outdoor construction.',
     price: 89,
-    period: '/mo',
+    period: '/site /month',
     category: 'Enigma EDGE',
     newProduct: true,
+    currencySymbol: '£',
+    tags: ['Construction', 'Remote', 'Single site'],
     features: [
-      'Ruggedized weather-resistant casing (IP65)',
-      'Triple-carrier aggregate cellular 5G modems',
-      'Deployable in minutes with portable portable mast mounts',
-      'GPS location tracking & network coverage mapping'
+      'Ruggedized weatherproof IP65 case',
+      'Triple-carrier 5G aggregation',
+      'Deployable in minutes with mast mounts'
     ],
     specs: [
-      { label: 'Enclosure Type', options: ['Standard indoor desktop', 'IP67 Rugged Outdoor (+$15/mo)'] }
+      { label: 'Enclosure Type', options: ['Standard Desktop Mount', 'IP67 Rugged Pole Mount (+£12/mo)'] }
     ]
   },
   {
@@ -220,16 +236,36 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Remote Access Server',
     description: 'Provide secure clientless web gateway access to internal systems for remote workers.',
     price: 19,
-    period: '/mo',
+    period: '/seat /month',
     category: 'ESC Secure Networking',
+    currencySymbol: '£',
+    tags: ['Remote', 'Virtual/cloud'],
     features: [
-      'SAML 2.0 / OpenID Connect SSO integration',
-      'Device posture compliance authentication',
-      'Granular directory group access controller',
-      'Clientless HTML5 support for remote browser access'
+      'SAML 2.0 / OpenID Connect SSO',
+      'Device posture compliance checks',
+      'Clientless HTML5 browser access'
     ],
     specs: [
-      { label: 'User Seat Band', options: ['1-10 users', '11-50 users (+$25/mo)', '51-200 users (+$65/mo)'] }
+      { label: 'User Seat Band', options: ['1-10 users', '11-50 users (+£20/mo)', '51-200 users (+£50/mo)'] }
+    ]
+  },
+  {
+    id: 'esc-enterprise',
+    name: 'ESC Enterprise Gateway',
+    description: 'Ultra high-speed dedicated gateway with advanced traffic steering and multi-cloud interconnection.',
+    price: 249,
+    period: '/site /month',
+    category: 'ESC Secure Networking',
+    newProduct: true,
+    currencySymbol: '£',
+    tags: ['High availability', 'Multi-site'],
+    features: [
+      'Up to ~2.5 Gbps throughput',
+      'Zero-loss dynamic failover',
+      '24/7 dedicated NOC monitoring'
+    ],
+    specs: [
+      { label: 'Uptime Tier', options: ['99.99% Platinum', '99.999% Diamond (+£100/mo)'] }
     ]
   }
 ];
@@ -243,10 +279,11 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [config, setConfig] = useState<Record<string, string>>({});
   
-  // Local browsing states
+  // Local browsing states (default to ESC Secure Networking matching Figma)
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [activeSort, setActiveSort] = useState<string>('');
+  const [activeCategory, setActiveCategory] = useState<string>('ESC Secure Networking');
+  const [activeFilter, setActiveFilter] = useState<string>('All');
+  const [activeSort, setActiveSort] = useState<string>('Recommended');
 
   // Handle product selection
   const handleSelectProduct = (product: Product) => {
@@ -272,7 +309,8 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           product.description.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = activeCategory === 'All' || product.category === activeCategory;
-    return matchesSearch && matchesCategory;
+    const matchesFilter = activeFilter === 'All' || (product.tags && product.tags.includes(activeFilter));
+    return matchesSearch && matchesCategory && matchesFilter;
   });
 
   // Sort logic
@@ -284,13 +322,11 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
       return a.price - b.price;
     }
     if (activeSort === 'Highest throughput') {
-      // Edge and Mesh SDN network first (mock rule)
-      const aWeight = a.id === 'edge' || a.id === 'sdn-mesh' ? 2 : 0;
-      const bWeight = b.id === 'edge' || b.id === 'sdn-mesh' ? 2 : 0;
+      const aWeight = a.id === 'edge' || a.id === 'sdn-mesh' || a.id === 'esc-pro' ? 2 : 0;
+      const bWeight = b.id === 'edge' || b.id === 'sdn-mesh' || b.id === 'esc-pro' ? 2 : 0;
       return bWeight - aWeight;
     }
     if (activeSort === 'Most resilient') {
-      // High Availability Gateway and Construction Link first (mock rule)
       const aWeight = a.id === 'ha-gateway' || a.id === 'construction-modem' ? 2 : 0;
       const bWeight = b.id === 'ha-gateway' || b.id === 'construction-modem' ? 2 : 0;
       return bWeight - aWeight;
@@ -307,10 +343,13 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
           setSearchQuery={setSearchQuery}
           activeCategory={activeCategory}
           setActiveCategory={setActiveCategory}
+          activeFilter={activeFilter}
+          setActiveFilter={setActiveFilter}
           activeSort={activeSort}
           setActiveSort={setActiveSort}
           onSelect={handleSelectProduct} 
           onBack={() => setActiveNav('dashboard')} 
+          onViewRequests={() => setActiveNav('activities')}
         />
       )}
       {step === 'details' && selectedProduct && (

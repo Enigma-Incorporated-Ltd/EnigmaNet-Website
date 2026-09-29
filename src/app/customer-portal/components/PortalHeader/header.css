@@ -9,6 +9,11 @@
   box-sizing: border-box;
 }
 
+.portal-header--marketplace {
+  justify-content: flex-end;
+  padding: 0 0 16px 0;
+}
+
 .portal-header__nav-controls {
   display: flex;
   gap: 8px;

@@ -8,6 +8,7 @@ interface PortalHeaderProps {
   setSearchQuery: (query: string) => void;
   onLogout: () => void | Promise<void>;
   logoutLoading?: boolean;
+  activeNav?: string;
 }
 
 export default function PortalHeader({
@@ -17,6 +18,7 @@ export default function PortalHeader({
   setSearchQuery,
   onLogout,
   logoutLoading = false,
+  activeNav = 'dashboard',
 }: PortalHeaderProps) {
   const [unreadCount, setUnreadCount] = useState(1);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
@@ -24,30 +26,34 @@ export default function PortalHeader({
 
   return (
     <>
-      <header className="portal-header">
-        {/* Search Input */}
-        <div className="portal-header__search-wrap">
-          <svg
-            className="portal-search-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-          >
-            <path
-              d="M7.75 7H7.355L7.215 6.865C7.72198 6.27704 8.0006 5.52636 8 4.75C8 4.10721 7.80939 3.47886 7.45228 2.9444C7.09516 2.40994 6.58758 1.99338 5.99372 1.74739C5.39986 1.50141 4.7464 1.43705 4.11596 1.56245C3.48552 1.68785 2.90642 1.99738 2.4519 2.4519C1.99738 2.90642 1.6875 3.48552 1.56245 4.11596C1.43705 4.7464 1.50141 5.39986 1.74739 5.99372C1.99338 6.58758 2.40994 7.09516 2.9444 7.45228C3.47886 7.80939 4.10721 8 4.75 8C5.555 8 6.295 7.705 6.865 7.215L7 7.355V7.75L9.5 10.245L10.245 9.5L7.75 7ZM4.75 7C3.505 7 2.5 5.995 2.5 4.75C2.5 3.505 3.505 2.5 4.75 2.5C5.995 2.5 7 3.505 7 4.75C7 5.995 5.995 7 4.75 7Z"
-              fill="currentColor"
+      <header className={`portal-header ${activeNav === 'marketplace' ? 'portal-header--marketplace' : ''}`}>
+        {/* Search Input - only shown on dashboard / services */}
+        {activeNav !== 'marketplace' ? (
+          <div className="portal-header__search-wrap">
+            <svg
+              className="portal-search-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+            >
+              <path
+                d="M7.75 7H7.355L7.215 6.865C7.72198 6.27704 8.0006 5.52636 8 4.75C8 4.10721 7.80939 3.47886 7.45228 2.9444C7.09516 2.40994 6.58758 1.99338 5.99372 1.74739C5.39986 1.50141 4.7464 1.43705 4.11596 1.56245C3.48552 1.68785 2.90642 1.99738 2.4519 2.4519C1.99738 2.90642 1.6875 3.48552 1.56245 4.11596C1.43705 4.7464 1.50141 5.39986 1.74739 5.99372C1.99338 6.58758 2.40994 7.09516 2.9444 7.45228C3.47886 7.80939 4.10721 8 4.75 8C5.555 8 6.295 7.705 6.865 7.215L7 7.355V7.75L9.5 10.245L10.245 9.5L7.75 7ZM4.75 7C3.505 7 2.5 5.995 2.5 4.75C2.5 3.505 3.505 2.5 4.75 2.5C5.995 2.5 7 3.505 7 4.75C7 5.995 5.995 7 4.75 7Z"
+                fill="currentColor"
+              />
+            </svg>
+            <input
+              type="text"
+              className="portal-header__search"
+              placeholder="Search for application, services, documentation..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
-          </svg>
-          <input
-            type="text"
-            className="portal-header__search"
-            placeholder="Search for application, services, documentation..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+          </div>
+        ) : (
+          <div className="portal-header__empty-left" />
+        )}
 
         {/* Theme, notification, and user profile menu */}
         <div className="portal-header__actions">

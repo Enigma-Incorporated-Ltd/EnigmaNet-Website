@@ -33,10 +33,32 @@ export default function SsoDashboardPage({
     .slice(0, 2)
     .toUpperCase();
 
+  const getInitialNav = () => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '');
+      if (['dashboard', 'services', 'marketplace', 'admin', 'billing', 'itm', 'support', 'profile', 'activities', 'health'].includes(hash)) {
+        return hash;
+      }
+    }
+    return 'dashboard';
+  };
+
   const { theme, setTheme } = useTheme();
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeNav, setActiveNav] = useState('dashboard');
+  const [activeNav, setActiveNav] = useState<string>(getInitialNav);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  // Sync hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && ['dashboard', 'services', 'marketplace', 'admin', 'billing', 'itm', 'support', 'profile', 'activities', 'health'].includes(hash)) {
+        setActiveNav(hash);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Make sure the theme attribute on documentElement matches local theme
   useEffect(() => {
@@ -68,6 +90,7 @@ export default function SsoDashboardPage({
           setSearchQuery={setSearchQuery}
           onLogout={onLogout}
           logoutLoading={logoutLoading}
+          activeNav={activeNav}
         />
 
         {/* Main Content Layout */}
