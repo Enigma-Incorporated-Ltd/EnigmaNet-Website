@@ -396,8 +396,11 @@ export default function ProductList({
             onClick={() => setActiveCategory('All')}
           >
             <span>View all</span>
-            <svg width="14" height="10" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg width="17" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17.5303 6.0533C17.8232 5.76041 17.8232 5.28553 17.5303 4.99264L12.7574 0.21967C12.4645 -0.0732231 11.9896 -0.0732231 11.6967 0.21967C11.4038 0.512564 11.4038 0.987437 11.6967 1.28033L15.9393 5.52297L11.6967 9.76561C11.4038 10.0585 11.4038 10.5334 11.6967 10.8263C11.9896 11.1192 12.4645 11.1192 12.7574 10.8263L17.5303 6.0533ZM0 5.52297V6.27297H17V5.52297V4.77297H0V5.52297Z"
+                fill="currentColor"
+              />
             </svg>
           </button>
         </div>

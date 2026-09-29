@@ -792,7 +792,9 @@ html[data-bs-theme="light"] .marketplace-product-card__btn:hover {
     font-weight: 500;
     color: var(--portal-text);
     cursor: pointer;
+    white-space: nowrap;
     transition: all 0.2s ease;
+    flex-shrink: 0;
 }
 
 .marketplace-categories-view-all:hover {
@@ -802,11 +804,13 @@ html[data-bs-theme="light"] .marketplace-product-card__btn:hover {
 }
 
 .marketplace-categories-view-all svg {
+    display: block;
+    flex-shrink: 0;
     transition: transform 0.2s ease;
 }
 
 .marketplace-categories-view-all:hover svg {
-    transform: translateX(2px);
+    transform: translateX(3px);
 }
 
 html[data-bs-theme="light"] .marketplace-categories-view-all {
@@ -819,6 +823,7 @@ html[data-bs-theme="light"] .marketplace-categories-view-all {
 html[data-bs-theme="light"] .marketplace-categories-view-all:hover {
     background: linear-gradient(180deg, rgba(13, 27, 41, 0.28) 0%, rgba(13, 41, 74, 0.28) 46.338%, rgba(11, 84, 179, 0.28) 100%);
     box-shadow: 0px 2px 8px rgba(0, 35, 152, 0.15);
+    color: #0d1b29;
 }
 
 .marketplace-categories-list {
