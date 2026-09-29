@@ -52,7 +52,7 @@ html[data-bs-theme="light"] {
   flex-direction: column;
   gap: 32px;
   width: 100%;
-  max-width: 1180px;
+  max-width: 100%;
   margin: 0;
   padding-bottom: 56px;
   box-sizing: border-box;
@@ -422,7 +422,7 @@ html[data-bs-theme="light"] .portal-back-btn:hover .portal-back-btn__path {
 .marketplace-products-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 56px;
+  gap: 24px;
   width: 100%;
   box-sizing: border-box;
 }
