@@ -692,6 +692,7 @@ html[data-bs-theme="light"] .marketplace-product-card__badge {
   background: linear-gradient(90deg, #263777 0%, #00A3DA 100%);
   box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 1px 8px 0 rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: #FFFFFF;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -700,20 +701,34 @@ html[data-bs-theme="light"] .marketplace-product-card__badge {
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
 }
 
 .marketplace-product-card__btn:hover {
-  background: linear-gradient(90deg, #1d2c63 0%, #0092c4 100%);
-  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(255, 255, 255, 0.6), 0 4px 14px 0 rgba(0, 163, 218, 0.35);
-  transform: translateY(-1px);
+  background: linear-gradient(90deg, rgba(85, 125, 235, 0.60) 0%, rgba(175, 235, 255, 0.75) 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 0 12px 0 rgba(151, 229, 255, 0.30);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FFFFFF;
 }
 
-.marketplace-product-card__btn:active {
-  transform: translateY(0);
+:root:not([data-bs-theme="light"]) .marketplace-product-card__btn:hover {
+  background: linear-gradient(90deg, rgba(85, 125, 235, 0.60) 0%, rgba(175, 235, 255, 0.75) 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 0 12px 0 rgba(151, 229, 255, 0.30);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FFFFFF;
+}
+
+html[data-bs-theme="light"] .marketplace-product-card__btn:hover {
+  background: linear-gradient(90deg, rgba(19, 52, 177, 0.50) 0%, rgba(151, 229, 255, 0.50) 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #F4F4F6;
 }
 
 /* ================================================================
@@ -792,6 +807,18 @@ html[data-bs-theme="light"] .marketplace-product-card__badge {
 
 .marketplace-categories-view-all:hover svg {
     transform: translateX(2px);
+}
+
+html[data-bs-theme="light"] .marketplace-categories-view-all {
+    background: linear-gradient(180deg, rgba(13, 27, 41, 0.20) 0%, rgba(13, 41, 74, 0.20) 46.338%, rgba(11, 84, 179, 0.20) 100%);
+    border: none;
+    box-shadow: none;
+    color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .marketplace-categories-view-all:hover {
+    background: linear-gradient(180deg, rgba(13, 27, 41, 0.28) 0%, rgba(13, 41, 74, 0.28) 46.338%, rgba(11, 84, 179, 0.28) 100%);
+    box-shadow: 0px 2px 8px rgba(0, 35, 152, 0.15);
 }
 
 .marketplace-categories-list {
