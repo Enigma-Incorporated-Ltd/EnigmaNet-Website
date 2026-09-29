@@ -215,11 +215,11 @@ export default function ProductList({
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24" fill="none">
             <path
+              className="portal-back-btn__path"
               fillRule="evenodd"
               clipRule="evenodd"
-              d="M10.1554 11.979C10.1554 12.6322 9.89735 13.2519 9.42935 13.689L2.42835 20.689L0.828351 19.089L7.42935 12.012L0.829351 4.90901L2.42935 3.30901L9.42935 10.309C9.89735 10.7461 10.1554 11.3659 10.1554 12.019V11.979Z"
+              d="M3.343 12L10.414 19.071L9 20.485L1.222 12.707C1.03453 12.5195 0.929214 12.2652 0.929214 12C0.929214 11.7348 1.03453 11.4805 1.222 11.293L9 3.515L10.414 4.929L3.343 12Z"
               fill="url(#paint0_linear_market_back_icon)"
-              transform="scale(-1, 1) translate(-12, 0)"
             />
             <defs>
               <linearGradient id="paint0_linear_market_back_icon" x1="0" y1="12" x2="12" y2="12" gradientUnits="userSpaceOnUse">
@@ -244,8 +244,11 @@ export default function ProductList({
           title="View my requests"
         >
           <span>View my requests</span>
-          <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg width="17" height="14" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M17.7071 8.07107C18.0976 7.68054 18.0976 7.04738 17.7071 6.65685L11.3431 0.292893C10.9526 -0.097631 10.3195 -0.097631 9.92893 0.292893C9.53841 0.683418 9.53841 1.31658 9.92893 1.70711L15.5858 7.36396L9.92893 13.0208C9.53841 13.4113 9.53841 14.0445 9.92893 14.435C10.3195 14.8256 10.9526 14.8256 11.3431 14.435L17.7071 8.07107ZM0 7.36396V8.36396H17V7.36396V6.36396H0V7.36396Z"
+              fill="currentColor"
+            />
           </svg>
         </button>
       </div>

@@ -120,11 +120,25 @@ html[data-bs-theme="light"] {
 }
 
 .marketplace-view-requests-btn svg {
+    display: block;
+    flex-shrink: 0;
     transition: transform 0.2s ease;
 }
 
 .marketplace-view-requests-btn:hover svg {
     transform: translateX(3px);
+}
+
+html[data-bs-theme="light"] .marketplace-view-requests-btn {
+    background: linear-gradient(180deg, rgba(13, 27, 41, 0.20) 0%, rgba(13, 41, 74, 0.20) 46.338%, rgba(11, 84, 179, 0.20) 100%);
+    border: none;
+    box-shadow: none;
+    color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .marketplace-view-requests-btn:hover {
+    background: linear-gradient(180deg, rgba(13, 27, 41, 0.28) 0%, rgba(13, 41, 74, 0.28) 46.338%, rgba(11, 84, 179, 0.28) 100%);
+    box-shadow: 0px 2px 8px rgba(0, 35, 152, 0.15);
 }
 
 /* Back Button (Chevron) */
@@ -144,6 +158,17 @@ html[data-bs-theme="light"] {
 .portal-back-btn:hover {
     transform: translateX(-3px);
     opacity: 0.8;
+}
+
+html[data-bs-theme="light"] .portal-back-btn svg path,
+html[data-bs-theme="light"] .portal-back-btn__path {
+    fill: #0D1B29 !important;
+}
+
+html[data-bs-theme="light"] .portal-back-btn:hover svg path,
+html[data-bs-theme="light"] .portal-back-btn:hover .portal-back-btn__path {
+    fill: #0D1B29 !important;
+    opacity: 0.75;
 }
 
 /* Toolbar (Search, Filter, Sort) */
