@@ -1,39 +1,50 @@
 /* ================================================================
-   Product Details Layout & Styles (Figma Match)
+   Product Details Layout & Styles (Figma Match: Node 1252:19059 & 1252:19076)
    ================================================================ */
 
 .details-layout-container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
   width: 100%;
   box-sizing: border-box;
 }
 
+/* Header Row with Back Button & View My Requests */
 .details-header-row {
   display: flex;
-  gap: 24px;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.details-header-left {
+  display: flex;
+  gap: 16px;
   align-items: flex-start;
   text-align: left;
 }
 
 .details-back-arrow-btn {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   border: none;
-  color: var(--portal-text);
+  color: #2adeff;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   padding: 0;
   flex-shrink: 0;
+  margin-top: 4px;
 }
 
 .details-back-arrow-btn:hover {
-  color: #2adeff;
+  transform: translateX(-2px);
+  opacity: 0.85;
 }
 
 .details-header-titles {
@@ -47,106 +58,134 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 600;
-  color: var(--portal-text);
+  color: #ffffff;
 }
 
 .details-page-subtitle {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  color: var(--portal-text-muted);
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0.8;
 }
 
-/* Main Graphic and Purchase Card */
+/* View my requests button (matching Figma Arrow 1 button) */
+.details-view-requests-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: linear-gradient(180deg, rgba(13, 27, 41, 0.2) 0%, rgba(13, 41, 74, 0.2) 46.34%, rgba(11, 84, 179, 0.2) 100%);
+  border: 1px solid rgba(42, 222, 255, 0.2);
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.details-view-requests-btn:hover {
+  background: linear-gradient(180deg, rgba(13, 27, 41, 0.4) 0%, rgba(13, 41, 74, 0.4) 46.34%, rgba(11, 84, 179, 0.4) 100%);
+  border-color: #2adeff;
+  transform: translateY(-1px);
+}
+
+.details-view-requests-btn svg {
+  color: #2adeff;
+  transition: transform 0.2s ease;
+}
+
+.details-view-requests-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Main Detailed Product Card */
 .details-main-product-card {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 39px;
+  align-items: flex-start;
   box-sizing: border-box;
   width: 100%;
+  text-align: left;
 }
 
+/* Top Section: Left Graphic & Right Info */
+.details-card-top-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Left Column: Graphic Box + 3 Badges */
 .details-card-left {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  align-items: center;
+  justify-content: center;
   width: 271px;
   flex-shrink: 0;
 }
 
 .details-graphic-box {
-  padding: 8px;
-  background: var(--marketplace-card-gradient);
-  border: 1px solid rgba(42, 222, 255, 0.2);
-  border-radius: 4px;
   width: 271px;
   height: 148px;
+  border-radius: 4px;
+  padding: 8px;
   box-sizing: border-box;
+  background: linear-gradient(180deg, rgba(13, 27, 41, 0.2) 0%, rgba(13, 41, 74, 0.2) 46.34%, rgba(11, 84, 179, 0.2) 100%);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .details-graphic-inner {
+  width: 100%;
+  height: 120px;
   background: #0d1b29;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-gpu-svg {
   width: 100%;
   height: 100%;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+  display: block;
 }
 
-.details-graphic-glow-1 {
-  position: absolute;
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle, rgba(35, 193, 239, 0.15) 0%, rgba(35, 193, 239, 0) 70%);
-  filter: blur(20px);
-  top: -40px;
-  left: -40px;
-  pointer-events: none;
-}
-
-.details-graphic-glow-2 {
-  position: absolute;
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle, rgba(11, 84, 179, 0.2) 0%, rgba(11, 84, 179, 0) 70%);
-  filter: blur(20px);
-  bottom: -40px;
-  right: -40px;
-  pointer-events: none;
-}
-
-.details-graphic-icon-wrapper {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Badges Row (3 columns) */
 .details-badge-row {
-  display: flex;
-  border: 1px solid rgba(0, 26, 148, 0.15);
-  background: rgba(255, 255, 255, 0.02);
+  width: 271px;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
-  width: 100%;
+  overflow: hidden;
 }
 
 .details-badge-item {
   display: flex;
-  flex-direction: column;
-  flex: 1;
+  flex: 1 0 0;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  border-right: 1px solid rgba(0, 26, 148, 0.15);
-  padding: 10px 4px;
+  gap: 4px;
+  height: 46px;
+  padding: 8px 6px;
+  border-right: 1px solid rgba(0, 26, 148, 0.1);
   box-sizing: border-box;
   min-width: 0;
 }
@@ -156,30 +195,40 @@
 }
 
 .details-badge-icon {
-  color: #2adeff;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .details-badge-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 8px;
   font-weight: 500;
-  color: var(--portal-text);
-  text-align: center;
-  line-height: 1.3;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  color: #ffffff;
+  word-break: break-word;
+  line-height: 1.2;
+  text-align: left;
 }
 
+/* Right Column: Title, Specs, Pricing, CTAs */
 .details-card-right {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  flex-grow: 1;
-  min-width: 0;
+  gap: 24px;
+  min-width: 320px;
+  width: 320px;
+  box-sizing: border-box;
   text-align: left;
+}
+
+.details-card-right-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 320px;
 }
 
 .details-card-right-header h2 {
@@ -188,60 +237,73 @@
   font-size: 24px;
   font-weight: 600;
   color: #2adeff;
+  line-height: 1.2;
 }
 
 .details-card-right-header p {
-  margin: 4px 0 0 0;
+  margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  color: var(--portal-text-muted);
+  font-weight: 400;
+  color: #ffffff;
   line-height: 1.4;
 }
 
-.details-card-benefits {
+/* 5-row Vertical Specs Container */
+.details-card-specs-box {
+  width: 320px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
-  width: 100%;
   box-sizing: border-box;
-  margin-bottom: 8px;
 }
 
-.benefit-item {
+.details-spec-row-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  color: var(--portal-text);
+  gap: 6px;
+  padding: 6px 8px;
   border-bottom: 1px solid rgba(0, 26, 148, 0.1);
-  padding: 12px 4px;
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
 }
 
-.benefit-item:last-child {
+.details-spec-row-item:last-child {
   border-bottom: none;
 }
 
-.benefit-bullet-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #2adeff 0%, #0055ff 100%);
-  box-shadow: 0 0 6px rgba(42, 222, 255, 0.6);
+.details-spec-icon-wrap {
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.details-spec-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  color: #ffffff;
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Pricing Section */
 .details-card-price-section {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 320px;
 }
 
 .price-label {
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
-  color: var(--portal-text-muted);
+  font-weight: 300;
+  color: #ffffff;
 }
 
 .price-value-row {
@@ -252,227 +314,258 @@
 
 .price-amount {
   font-family: 'Montserrat', sans-serif;
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 600;
   color: #2adeff;
 }
 
 .price-period {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  color: var(--portal-text-muted);
+  font-size: 10px;
+  font-weight: 500;
+  color: #ffffff;
 }
 
+/* Action Buttons */
 .details-card-actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 100%;
+  gap: 12px;
+  width: 320px;
 }
 
 .details-btn-primary {
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 10px;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  padding: 12px;
   border-radius: 100px;
   background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
   border: none;
+  outline: none;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 163, 218, 0.15);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1),
+              0px 1px 8px 0px rgba(0, 0, 0, 0.1),
+              inset 3px 3px 0.5px -3.5px #ffffff,
+              inset 2px 2px 0.5px -2px #262626,
+              inset -2px -2px 0.5px -2px #262626,
+              inset 0px 0px 0px 1px #a6a6a6,
+              inset 0px 0px 8px 0px #f2f2f2;
 }
 
 .details-btn-primary:hover {
-  background: linear-gradient(90deg, rgba(38, 55, 119, 0.8) 0%, rgba(0, 163, 218, 0.8) 100%);
-  box-shadow: 0 6px 14px rgba(0, 163, 218, 0.25);
+  opacity: 0.92;
   transform: translateY(-1px);
 }
 
 .details-btn-secondary {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 9px;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  padding: 12px;
   border-radius: 100px;
-  background: rgba(102, 102, 102, 0.2);
-  border: none !important;
-  outline: none !important;
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-}
-
-.details-btn-secondary::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: 100px;
-  box-shadow: inset 3px 3px 0.5px -3.5px #ffffff, inset 2px 2px 0.5px -2px #262626, inset -2px -2px 0.5px -2px #262626, inset 0px 0px 0px 1px #a6a6a6, inset 0px 0px 8px 0px #f2f2f2;
+  border: none;
+  outline: none;
+  color: #0d1b29;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1),
+              0px 1px 8px 0px rgba(0, 0, 0, 0.1),
+              inset 3px 3px 0.5px -3.5px #ffffff,
+              inset 2px 2px 0.5px -2px #262626,
+              inset -2px -2px 0.5px -2px #262626,
+              inset 0px 0px 0px 1px #a6a6a6,
+              inset 0px 0px 8px 0px #f2f2f2;
 }
 
 .details-btn-secondary:hover {
-  background: rgba(102, 102, 102, 0.3);
-  color: #ffffff;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
 }
 
 .quote-status-alert {
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   color: #2adeff;
   border: 1px solid rgba(42, 222, 255, 0.3);
   background: rgba(42, 222, 255, 0.05);
-  padding: 8px;
+  padding: 8px 12px;
   border-radius: 4px;
   text-align: center;
 }
 
-/* Specs, Terms and Inclusions Grid */
-.details-meta-specs-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 24px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.details-meta-column {
+/* Bottom Specs Section (Contract, Specifications, Includes) */
+.details-bottom-specs-stack {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 324px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #ffffff;
   text-align: left;
 }
 
-.details-meta-column h3 {
+.details-specs-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+.details-specs-heading {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
-  color: var(--portal-text);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 6px;
+  color: #ffffff;
+  line-height: normal;
 }
 
-.details-meta-column p {
+.details-specs-text {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  color: var(--portal-text-muted);
-  line-height: 1.4;
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: normal;
 }
 
-.details-meta-list {
+.details-specs-bullet-list {
   margin: 0;
   padding-left: 18px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  color: var(--portal-text-muted);
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   list-style-type: disc !important;
+  line-height: normal;
+  text-align: left;
 }
 
-.details-meta-list li {
+.details-specs-bullet-list li {
   display: list-item !important;
   list-style-type: disc !important;
-  padding-left: 4px;
+  padding-left: 2px;
 }
 
-/* Family upgrade products section */
+/* ================================================================
+   Recommendations / Family Products Section (Figma node 1252:19077)
+   ================================================================ */
+
 .details-recommendations-section {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 32px;
+  gap: 32px;
   width: 100%;
   box-sizing: border-box;
+  text-align: left;
 }
 
 .recommendations-header {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   text-align: left;
+  width: 100%;
 }
 
 .recommendations-header h2 {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  color: var(--portal-text);
+  color: #ffffff;
 }
 
 .recommendations-header p {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  color: var(--portal-text-muted);
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0.8;
 }
 
 .recommendations-cards-row {
   display: flex;
-  gap: 32px;
+  gap: 56px;
+  flex-wrap: wrap;
+  align-items: center;
   width: 100%;
   box-sizing: border-box;
 }
 
+/* Recommendation Product Card (Matching Figma 370px Card) */
 .recommendation-product-card {
   display: flex;
+  flex-direction: column;
   gap: 16px;
-  background: linear-gradient(180deg, rgba(35, 193, 239, 0.08) 0%, rgba(27, 127, 156, 0.08) 46%, rgba(11, 84, 179, 0.08) 100%);
-  border: 1px solid rgba(42, 222, 255, 0.12);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 6px;
-  padding: 16px;
-  flex: 1;
-  min-width: 0;
+  width: 370px;
+  max-width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(13, 27, 41, 0.2) 0%, rgba(13, 41, 74, 0.2) 46.34%, rgba(11, 84, 179, 0.2) 100%);
+  border: 1px solid rgba(42, 222, 255, 0.15);
   box-sizing: border-box;
+  text-align: left;
 }
 
-.rec-card-icon-box {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: #0d1b29;
+.rec-card-top-layout {
   display: flex;
+  gap: 16px;
   align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(42, 222, 255, 0.25);
+  width: 100%;
+}
+
+.rec-card-gpu-box {
+  width: 120px;
+  height: 120px;
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 60px;
+}
+
+.rec-card-gpu-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .rec-card-info-box {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  flex-grow: 1;
+  flex: 1 0 0;
   min-width: 0;
-  text-align: left;
 }
 
 .rec-card-header h3 {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #2adeff;
 }
@@ -480,94 +573,141 @@
 .rec-card-header p {
   margin: 4px 0 0 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  color: var(--portal-text-muted);
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
   line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-.rec-card-benefits {
+.rec-card-specs-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.rec-benefit-row {
+.rec-spec-row-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  color: var(--portal-text);
+  gap: 4px;
+  border-bottom: 1px solid rgba(0, 26, 148, 0.1);
+  box-sizing: border-box;
+  width: 100%;
 }
 
-.rec-benefit-row svg {
-  color: #2adeff;
+.rec-spec-row-item:last-child {
+  border-bottom: none;
+}
+
+.rec-spec-icon {
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
-}
-
-.rec-card-footer {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-top: auto;
-  padding-top: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
-.rec-price-box {
+.rec-spec-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  color: #ffffff;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.rec-card-price-section {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
+  width: 100%;
 }
 
 .rec-price-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 8px;
-  color: var(--portal-text-muted);
+  font-size: 10px;
+  font-weight: 300;
+  color: #ffffff;
 }
 
-.rec-price-val {
+.rec-price-val-row {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.rec-price-amount {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 600;
   color: #2adeff;
 }
 
+.rec-price-period {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
 .rec-explore-btn {
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 6px 16px;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
   border-radius: 100px;
   background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
   border: none;
+  outline: none;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1),
+              0px 1px 8px 0px rgba(0, 0, 0, 0.1),
+              inset 3px 3px 0.5px -3.5px #ffffff,
+              inset 2px 2px 0.5px -2px #262626,
+              inset -2px -2px 0.5px -2px #262626,
+              inset 0px 0px 0px 1px #a6a6a6,
+              inset 0px 0px 8px 0px #f2f2f2;
 }
 
 .rec-explore-btn:hover {
-  background: linear-gradient(90deg, rgba(38, 55, 119, 0.8) 0%, rgba(0, 163, 218, 0.8) 100%);
-  transform: translateY(-0.5px);
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
+/* View More Button Footer */
 .recommendations-footer {
   display: flex;
   justify-content: flex-start;
+  width: 100%;
   margin-top: 8px;
 }
 
 .rec-view-more-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
+  gap: 12px;
+  padding: 10px 16px;
   border-radius: 4px;
-  background: linear-gradient(180deg, rgba(13,27,41,0.2) 0%, rgba(11,84,179,0.2) 100%);
-  border: 1px solid rgba(42, 222, 255, 0.15);
-  color: var(--portal-text);
+  background: linear-gradient(180deg, rgba(13, 27, 41, 0.2) 0%, rgba(13, 41, 74, 0.2) 46.34%, rgba(11, 84, 179, 0.2) 100%);
+  border: 1px solid rgba(42, 222, 255, 0.2);
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -576,26 +716,46 @@
 }
 
 .rec-view-more-btn:hover {
-  border-color: rgba(42, 222, 255, 0.35);
-  background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, rgba(13, 27, 41, 0.4) 0%, rgba(13, 41, 74, 0.4) 46.34%, rgba(11, 84, 179, 0.4) 100%);
+  border-color: #2adeff;
+  transform: translateY(-1px);
 }
 
-/* Responsive details layout */
-@media (max-width: 900px) {
-  .details-main-product-card {
+.rec-view-more-btn svg {
+  color: #2adeff;
+  transition: transform 0.2s ease;
+}
+
+.rec-view-more-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .details-header-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .details-card-top-content {
     flex-direction: column;
     gap: 24px;
   }
   
-  .details-card-left {
+  .details-card-left,
+  .details-graphic-box,
+  .details-badge-row,
+  .details-card-right,
+  .details-card-right-header,
+  .details-card-specs-box,
+  .details-card-price-section,
+  .details-card-actions,
+  .details-bottom-specs-stack,
+  .recommendation-product-card {
     width: 100%;
+    min-width: 0;
   }
-  
-  .details-meta-specs-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  
+
   .recommendations-cards-row {
     flex-direction: column;
     gap: 24px;
@@ -606,33 +766,47 @@
    Light Mode Overrides
    ================================================================ */
 
+html[data-bs-theme="light"] .details-page-title {
+  color: #0d1b29;
+}
+
 html[data-bs-theme="light"] .details-page-subtitle {
   color: #0d1b29;
   opacity: 0.8;
 }
 
-/* Product Details Light Mode Overrides */
+html[data-bs-theme="light"] .details-view-requests-btn {
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.15) 0%, rgba(11, 84, 179, 0.15) 100%);
+  border-color: rgba(0, 26, 148, 0.2);
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .details-view-requests-btn svg {
+  color: #001a94;
+}
+
 html[data-bs-theme="light"] .details-card-right-header h2 {
   color: #001a94;
 }
 
 html[data-bs-theme="light"] .details-card-right-header p {
   color: #0d1b29;
-  font-size: 12px;
 }
 
-html[data-bs-theme="light"] .details-card-benefits {
-  border: 1.5px solid rgba(0, 26, 148, 0.15);
-  background: rgba(255, 255, 255, 0.05);
+html[data-bs-theme="light"] .details-badge-row {
+  background: rgba(0, 26, 148, 0.06);
 }
 
-html[data-bs-theme="light"] .benefit-item {
+html[data-bs-theme="light"] .details-badge-text {
   color: #0d1b29;
-  font-size: 12px;
 }
 
-html[data-bs-theme="light"] .benefit-icon-wrapper {
-  color: #001a94;
+html[data-bs-theme="light"] .details-card-specs-box {
+  background: rgba(0, 26, 148, 0.06);
+}
+
+html[data-bs-theme="light"] .details-spec-text {
+  color: #0d1b29;
 }
 
 html[data-bs-theme="light"] .price-label {
@@ -641,7 +815,6 @@ html[data-bs-theme="light"] .price-label {
 
 html[data-bs-theme="light"] .price-amount {
   color: #001a94;
-  font-size: 24px;
 }
 
 html[data-bs-theme="light"] .price-period {
@@ -649,42 +822,41 @@ html[data-bs-theme="light"] .price-period {
 }
 
 html[data-bs-theme="light"] .details-btn-secondary {
-  background: rgba(102, 102, 102, 0.2);
-  border: 1px solid rgba(13, 27, 41, 0.15);
-  color: #ffffff;
+  background: rgba(13, 27, 41, 0.08);
+  color: #0d1b29;
 }
 
 html[data-bs-theme="light"] .details-btn-secondary:hover {
-  background: rgba(102, 102, 102, 0.3);
-  color: #ffffff;
+  background: rgba(13, 27, 41, 0.12);
 }
 
-html[data-bs-theme="light"] .details-meta-specs-grid {
-  border-top: 1px solid rgba(13, 27, 41, 0.15);
-}
-
-html[data-bs-theme="light"] .details-meta-column h3 {
+html[data-bs-theme="light"] .details-bottom-specs-stack {
   color: #0d1b29;
-  border-bottom: 1px solid rgba(13, 27, 41, 0.15);
 }
 
-html[data-bs-theme="light"] .details-meta-column p {
+html[data-bs-theme="light"] .details-specs-heading {
   color: #0d1b29;
-  font-size: 12px;
 }
 
-html[data-bs-theme="light"] .details-meta-list {
+html[data-bs-theme="light"] .details-specs-text {
   color: #0d1b29;
-  font-size: 12px;
 }
 
-html[data-bs-theme="light"] .details-recommendations-section {
-  border-top: 1px solid rgba(13, 27, 41, 0.15);
+html[data-bs-theme="light"] .details-specs-bullet-list {
+  color: #0d1b29;
 }
 
-/* Product Recommendations Light Mode Overrides */
+html[data-bs-theme="light"] .recommendations-header h2 {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .recommendations-header p {
+  color: #0d1b29;
+}
+
 html[data-bs-theme="light"] .recommendation-product-card {
-  background: var(--marketplace-card-gradient);
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.1) 0%, rgba(11, 84, 179, 0.1) 100%);
+  border-color: rgba(0, 26, 148, 0.15);
 }
 
 html[data-bs-theme="light"] .rec-card-header h3 {
@@ -695,31 +867,32 @@ html[data-bs-theme="light"] .rec-card-header p {
   color: #0d1b29;
 }
 
-html[data-bs-theme="light"] .rec-benefit-row {
-  color: #0d1b29;
+html[data-bs-theme="light"] .rec-card-specs-box {
+  background: rgba(0, 26, 148, 0.06);
 }
 
-html[data-bs-theme="light"] .rec-benefit-row svg {
-  color: #001a94;
+html[data-bs-theme="light"] .rec-spec-text {
+  color: #0d1b29;
 }
 
 html[data-bs-theme="light"] .rec-price-label {
   color: rgba(13, 27, 41, 0.8);
 }
 
-html[data-bs-theme="light"] .rec-price-val {
+html[data-bs-theme="light"] .rec-price-amount {
   color: #001a94;
 }
 
-/* ================================================================
-   Dark Theme Product Details Overrides
-   ================================================================ */
-
-html[data-bs-theme="dark"] .details-meta-column p,
-html[data-bs-theme="dark"] .details-meta-list {
-  color: #ffffff;
+html[data-bs-theme="light"] .rec-price-period {
+  color: #0d1b29;
 }
 
-html[data-bs-theme="dark"] .details-page-subtitle {
-  color: #ffffff;
+html[data-bs-theme="light"] .rec-view-more-btn {
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.15) 0%, rgba(11, 84, 179, 0.15) 100%);
+  border-color: rgba(0, 26, 148, 0.2);
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .rec-view-more-btn svg {
+  color: #001a94;
 }

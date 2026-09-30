@@ -359,6 +359,7 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
           onBuy={() => setStep('configure')} 
           onBack={() => setStep('list')} 
           onExploreProduct={handleSelectProduct}
+          onViewRequests={() => setActiveNav('activities')}
         />
       )}
       {step === 'configure' && selectedProduct && (
