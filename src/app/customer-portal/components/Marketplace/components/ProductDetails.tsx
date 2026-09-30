@@ -79,6 +79,21 @@ function IntegrationNodesIcon() {
   );
 }
 
+// Gradient Dot Icon for 5 specs list
+function SpecDotIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="10.5" cy="10.5" r="5.5" fill="url(#details_paint_spec_dot)" />
+      <defs>
+        <linearGradient id="details_paint_spec_dot" x1="4.99" y1="10.5" x2="16" y2="10.5" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#2ADEFF" />
+          <stop offset="1" stopColor="#002398" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
 // Circular 120px connection graphic for recommendations card
 function CircularGpuGraphic() {
   return (
@@ -165,13 +180,13 @@ function DetailsGraphicBox() {
   );
 }
 
-export default function ProductDetails({ 
-  product, 
-  products = [], 
-  onBuy, 
-  onBack, 
+export default function ProductDetails({
+  product,
+  products = [],
+  onBuy,
+  onBack,
   onExploreProduct,
-  onViewRequests 
+  onViewRequests
 }: ProductDetailsProps) {
   const [quoteStatus, setQuoteStatus] = useState<string | null>(null);
 
@@ -240,14 +255,14 @@ export default function ProductDetails({
         </div>
 
         {onViewRequests && (
-          <button 
-            type="button" 
-            className="details-view-requests-btn" 
+          <button
+            type="button"
+            className="details-view-requests-btn"
             onClick={onViewRequests}
           >
             <span>View my requests</span>
             <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 1L17 6M17 6L12 11M17 6H1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 1L17 6M17 6L12 11M17 6H1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         )}
@@ -260,7 +275,7 @@ export default function ProductDetails({
           {/* Left Column: Graphic & 3 Badges */}
           <div className="details-card-left">
             <DetailsGraphicBox />
-            
+
             <div className="details-badge-row">
               <div className="details-badge-item">
                 <div className="details-badge-icon">
@@ -295,7 +310,7 @@ export default function ProductDetails({
               {specItems.map((spec, idx) => (
                 <div key={idx} className="details-spec-row-item">
                   <div className="details-spec-icon-wrap">
-                    <SpeedGaugeIcon />
+                    <SpecDotIcon />
                   </div>
                   <span className="details-spec-text">{spec}</span>
                 </div>
@@ -316,9 +331,9 @@ export default function ProductDetails({
               <button type="button" className="details-btn-primary" onClick={onBuy}>
                 Add to cart
               </button>
-              <button 
-                type="button" 
-                className="details-btn-secondary" 
+              <button
+                type="button"
+                className="details-btn-secondary"
                 onClick={handleRequestQuote}
                 disabled={quoteStatus !== null && quoteStatus.startsWith('Processing')}
               >
@@ -376,7 +391,7 @@ export default function ProductDetails({
             <div key={recProd.id} className="recommendation-product-card" data-name="product cards">
               <div className="rec-card-top-layout">
                 <CircularGpuGraphic />
-                
+
                 <div className="rec-card-info-box">
                   <div className="rec-card-header">
                     <h3>{recProd.name}</h3>
@@ -422,8 +437,8 @@ export default function ProductDetails({
                 </div>
               </div>
 
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="rec-explore-btn"
                 onClick={() => {
                   if (onExploreProduct) {
@@ -442,7 +457,7 @@ export default function ProductDetails({
           <button type="button" className="rec-view-more-btn" onClick={onBack}>
             <span>View more</span>
             <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 1L17 6M17 6L12 11M17 6H1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 1L17 6M17 6L12 11M17 6H1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         </div>

@@ -335,35 +335,52 @@
 }
 
 .details-btn-primary {
-  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 44px;
-  padding: 12px;
+  justify-content: center;
+  align-items: center;
   border-radius: 100px;
-  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
-  border: none;
-  outline: none;
-  color: #ffffff;
+  background: linear-gradient(90deg, #263777 0%, #00A3DA 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FFFFFF;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 500;
+  letter-spacing: -0.1px;
+  text-decoration: none;
+  border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1),
-              0px 1px 8px 0px rgba(0, 0, 0, 0.1),
-              inset 3px 3px 0.5px -3.5px #ffffff,
-              inset 2px 2px 0.5px -2px #262626,
-              inset -2px -2px 0.5px -2px #262626,
-              inset 0px 0px 0px 1px #a6a6a6,
-              inset 0px 0px 8px 0px #f2f2f2;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
 .details-btn-primary:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
+  background: linear-gradient(90deg, rgba(85, 125, 235, 0.60) 0%, rgba(175, 235, 255, 0.75) 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 0 12px 0 rgba(151, 229, 255, 0.30);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FFFFFF;
+}
+
+:root:not([data-bs-theme="light"]) .details-btn-primary:hover {
+  background: linear-gradient(90deg, rgba(85, 125, 235, 0.60) 0%, rgba(175, 235, 255, 0.75) 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 0 12px 0 rgba(151, 229, 255, 0.30);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FFFFFF;
+}
+
+html[data-bs-theme="light"] .details-btn-primary:hover {
+  background: linear-gradient(90deg, rgba(19, 52, 177, 0.50) 0%, rgba(151, 229, 255, 0.50) 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #F4F4F6;
 }
 
 .details-btn-secondary {
@@ -387,12 +404,12 @@
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1),
-              0px 1px 8px 0px rgba(0, 0, 0, 0.1),
-              inset 3px 3px 0.5px -3.5px #ffffff,
-              inset 2px 2px 0.5px -2px #262626,
-              inset -2px -2px 0.5px -2px #262626,
-              inset 0px 0px 0px 1px #a6a6a6,
-              inset 0px 0px 8px 0px #f2f2f2;
+    0px 1px 8px 0px rgba(0, 0, 0, 0.1),
+    inset 3px 3px 0.5px -3.5px #ffffff,
+    inset 2px 2px 0.5px -2px #262626,
+    inset -2px -2px 0.5px -2px #262626,
+    inset 0px 0px 0px 1px #a6a6a6,
+    inset 0px 0px 8px 0px #f2f2f2;
 }
 
 .details-btn-secondary:hover {
@@ -661,34 +678,52 @@
 }
 
 .rec-explore-btn {
-  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  padding: 12px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
   border-radius: 100px;
-  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
-  border: none;
-  outline: none;
-  color: #ffffff;
+  background: linear-gradient(90deg, #263777 0%, #00A3DA 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FFFFFF;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 500;
+  letter-spacing: -0.1px;
+  text-decoration: none;
+  border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1),
-              0px 1px 8px 0px rgba(0, 0, 0, 0.1),
-              inset 3px 3px 0.5px -3.5px #ffffff,
-              inset 2px 2px 0.5px -2px #262626,
-              inset -2px -2px 0.5px -2px #262626,
-              inset 0px 0px 0px 1px #a6a6a6,
-              inset 0px 0px 8px 0px #f2f2f2;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
 .rec-explore-btn:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
+  background: linear-gradient(90deg, rgba(85, 125, 235, 0.60) 0%, rgba(175, 235, 255, 0.75) 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 0 12px 0 rgba(151, 229, 255, 0.30);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FFFFFF;
+}
+
+:root:not([data-bs-theme="light"]) .rec-explore-btn:hover {
+  background: linear-gradient(90deg, rgba(85, 125, 235, 0.60) 0%, rgba(175, 235, 255, 0.75) 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 0 12px 0 rgba(151, 229, 255, 0.30);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FFFFFF;
+}
+
+html[data-bs-theme="light"] .rec-explore-btn:hover {
+  background: linear-gradient(90deg, rgba(19, 52, 177, 0.50) 0%, rgba(151, 229, 255, 0.50) 100%);
+  box-shadow: inset 3px 3px 0.5px -3.5px #FFFFFF, inset 0 0 0 1px rgba(166, 166, 166, 0.4), 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #F4F4F6;
 }
 
 /* View More Button Footer */
@@ -741,7 +776,7 @@
     flex-direction: column;
     gap: 24px;
   }
-  
+
   .details-card-left,
   .details-graphic-box,
   .details-badge-row,
