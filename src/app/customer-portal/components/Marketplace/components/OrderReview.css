@@ -406,12 +406,12 @@ html[data-bs-theme="light"] .order-review-btn-secondary:hover {
 }
 
 html[data-bs-theme="dark"] .order-review-btn-secondary {
-  background: rgba(102, 102, 102, 0.2);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.8);
+  color: #0d1b29;
 }
 
 html[data-bs-theme="dark"] .order-review-btn-secondary:hover {
-  background: rgba(102, 102, 102, 0.35);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0d1b29;
   transform: translateY(-1px);
 }
