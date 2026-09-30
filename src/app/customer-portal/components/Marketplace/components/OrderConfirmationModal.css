@@ -1,0 +1,604 @@
+/* ================================================================
+   Order Confirmation Modal Styles (Matching Figma Node 1252:21143)
+   ================================================================ */
+
+.order-confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 12, 22, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  animation: fadeInOrderConfirm 0.25s ease-out;
+}
+
+@keyframes fadeInOrderConfirm {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Card */
+.order-confirm-card {
+  width: 100%;
+  max-width: 540px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 24px 48px -12px rgba(0, 20, 60, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.5);
+  animation: scaleInOrderConfirm 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+  margin: auto;
+}
+
+@keyframes scaleInOrderConfirm {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Header Area (Node 1252:21144) */
+.order-confirm-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.order-confirm-check-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background: #029147;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(2, 145, 71, 0.35);
+  animation: popInCheck 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popInCheck {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.order-confirm-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 34px;
+  color: #0f172a;
+}
+
+.order-confirm-subtitle {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #64748b;
+  max-width: 440px;
+}
+
+/* Info Banner (Node 1158:8049) */
+.order-confirm-info-banner {
+  background: #ecfdf5;
+  border: 1px solid rgba(2, 145, 71, 0.15);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.order-confirm-info-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: #029147;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.order-confirm-info-text {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #029147;
+  line-height: 18px;
+  flex: 1;
+}
+
+/* Order Meta Bar (Node 1252:21149) */
+.order-confirm-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2px 4px;
+  box-sizing: border-box;
+}
+
+.order-confirm-number {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.order-confirm-status-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.order-confirm-status-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.order-confirm-status-badge {
+  background: rgba(0, 26, 148, 0.08);
+  border: 0.5px solid #001a94;
+  border-radius: 6px;
+  padding: 3px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.order-confirm-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: #001a94;
+}
+
+.order-confirm-status-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #001a94;
+  line-height: normal;
+}
+
+/* Product Details Card (Node 1252:21154) */
+.order-confirm-product-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.order-confirm-product-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.order-confirm-product-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: #0d1b29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(42, 222, 255, 0.2);
+}
+
+.order-confirm-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.order-confirm-product-name {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.order-confirm-product-plan {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #0f172a;
+}
+
+.order-confirm-product-billing {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.order-confirm-product-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-confirm-region-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.order-confirm-region-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.order-confirm-region-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Payment Summary Card (Node 1252:21167) */
+.order-confirm-summary-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.order-confirm-summary-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.order-confirm-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.order-confirm-summary-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.order-confirm-summary-amount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.order-confirm-card-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.order-confirm-brand-tag {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.order-confirm-card-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #0f172a;
+}
+
+/* Action Buttons Group (Node 1252:21178) */
+.order-confirm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.order-confirm-btn-primary {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.order-confirm-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 3px 12px rgba(0, 163, 218, 0.4);
+}
+
+.order-confirm-btn-secondary {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #dce6ff;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0d1b29;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.order-confirm-btn-secondary:hover {
+  background: #ffffff;
+  border-color: #b9ccfb;
+}
+
+.order-confirm-btn-link {
+  background: none;
+  border: none;
+  color: #001a94;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+  margin-top: 4px;
+  transition: opacity 0.15s ease;
+}
+
+.order-confirm-btn-link:hover {
+  text-decoration: underline;
+}
+
+/* Divider Line */
+.order-confirm-divider {
+  width: 100%;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+/* Footer Note */
+.order-confirm-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.order-confirm-footer-icon {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #2adeff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #001a94;
+  flex-shrink: 0;
+}
+
+.order-confirm-footer-text {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+/* ================================================================
+   Dark Theme Adaptation
+   ================================================================ */
+
+html:not([data-bs-theme="light"]) .order-confirm-card {
+  background: linear-gradient(180deg, rgba(16, 30, 48, 0.98) 0%, rgba(10, 20, 34, 0.98) 100%);
+  border-color: rgba(42, 222, 255, 0.2);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(42, 222, 255, 0.08);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-title {
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-number {
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-status-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-status-badge {
+  background: rgba(42, 222, 255, 0.15);
+  border-color: #2adeff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-status-dot {
+  background: #2adeff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-status-text {
+  color: #2adeff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-product-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-product-name {
+  color: #2adeff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-product-plan {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-product-billing {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-region-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-region-val {
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-summary-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-summary-title {
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-summary-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-summary-amount {
+  color: #2adeff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-brand-tag {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-card-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-btn-link {
+  color: #2adeff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-divider {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-footer-icon {
+  border-color: #2adeff;
+  color: #2adeff;
+}
+
+html:not([data-bs-theme="light"]) .order-confirm-footer-text {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 540px) {
+  .order-confirm-card {
+    padding: 24px 18px;
+    border-radius: 20px;
+    gap: 16px;
+  }
+
+  .order-confirm-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .order-confirm-product-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

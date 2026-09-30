@@ -1,5 +1,5 @@
 /* ================================================================
-   Payment & Billing Layout & Styles (Figma Match)
+   Payment & Billing Layout & Styles (Figma Node 1252:20554)
    ================================================================ */
 
 .payment-layout-form {
@@ -12,176 +12,413 @@
 
 .payment-error-toast {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  color: #ff4d4f;
-  border: 1.5px solid rgba(255, 77, 79, 0.3);
-  background: rgba(255, 77, 79, 0.05);
-  padding: 10px;
-  border-radius: 4px;
+  font-size: 12px;
+  color: #f55959;
+  border: 1px solid rgba(245, 89, 89, 0.3);
+  background: rgba(245, 89, 89, 0.08);
+  padding: 12px;
+  border-radius: 6px;
   text-align: center;
 }
 
-.payment-method-card {
-  background: linear-gradient(180deg, rgba(35, 193, 239, 0.04) 0%, rgba(11, 84, 179, 0.04) 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  padding: 16px;
+.payment-content-columns {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ================================================================
+   Left Column: Payment Methods
+   ================================================================ */
+
+.payment-methods-column {
+  flex: 1 0 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+}
+
+/* Generic Gradient Box (Matching Figma Node 1252:20570, 1252:20595, 1252:20601) */
+.payment-card-box {
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.15) 0%, rgba(27, 127, 156, 0.15) 46.34%, rgba(11, 84, 179, 0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.payment-option-row-box {
+  padding: 32px;
+  cursor: pointer;
+  gap: 0;
+}
+
+.payment-option-row-box:hover {
+  border-color: rgba(42, 222, 255, 0.3);
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.22) 0%, rgba(27, 127, 156, 0.22) 46.34%, rgba(11, 84, 179, 0.22) 100%);
+}
+
+.payment-card-box--selected {
+  border-color: #2adeff;
+}
+
+.payment-card-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.payment-card-box-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: normal;
+}
+
+/* + Add card pill button (Matching primary btn M) */
+.payment-add-card-btn {
+  position: relative;
+  border: none;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  color: #f4f4f6;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.payment-add-card-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 2px 10px rgba(0, 163, 218, 0.3);
+}
+
+.payment-add-card-btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Saved Cards List */
+.payment-saved-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.payment-saved-card-item {
+  border: 1px solid rgba(102, 102, 102, 0.15);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
   cursor: pointer;
   transition: all 0.2s ease;
   box-sizing: border-box;
   width: 100%;
-  text-align: left;
 }
 
-.payment-method-card:hover {
-  border-color: rgba(42, 222, 255, 0.25);
-  background: rgba(255, 255, 255, 0.02);
+.payment-saved-card-item:hover {
+  border-color: rgba(42, 222, 255, 0.3);
 }
 
-.payment-method-card--selected {
+.payment-saved-card-item--default {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.payment-saved-card-item--selected {
   border-color: #2adeff;
-  background: rgba(42, 222, 255, 0.06);
 }
 
-.payment-method-header-row {
+.payment-saved-card-left {
   display: flex;
-  gap: 16px;
   align-items: center;
+  gap: 16px;
+  flex: 1 0 0;
+  min-width: 0;
 }
 
-.payment-method-radio {
+/* Brand Badges */
+.payment-brand-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 4px 6px;
+  flex-shrink: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: normal;
+  letter-spacing: 0.5px;
+}
+
+.payment-saved-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.payment-card-name {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: normal;
+}
+
+.payment-card-exp {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: normal;
+}
+
+/* Default Tag */
+.payment-default-tag {
+  background: rgba(42, 222, 255, 0.15);
+  padding: 4px 8px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.radio-outer {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1.5px solid var(--portal-text-muted);
+.payment-default-tag span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #2adeff;
+  line-height: normal;
+}
+
+/* Action Links */
+.payment-saved-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.payment-action-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  line-height: normal;
+  transition: opacity 0.15s ease;
+}
+
+.payment-action-link:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.payment-action-link--default {
+  color: #2adeff;
+}
+
+.payment-action-link--remove {
+  color: #f55959;
+}
+
+/* Add Card Subform (Matching Figma Node 1252:20697) */
+.payment-add-card-form {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.payment-add-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.payment-radio-icon {
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-  background: rgba(0,0,0,0.15);
+  flex-shrink: 0;
 }
 
-.radio-outer--active {
-  border-color: #2adeff;
-}
-
-.radio-inner {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #2adeff;
-}
-
-.payment-method-title {
+.payment-card-label-group {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--portal-text);
+  gap: 8px;
 }
 
-.payment-card-subform {
+.payment-card-icon-svg {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.payment-card-label-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8a38f5;
+  line-height: normal;
+}
+
+.payment-form-fields-wrapper {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  border-top: 1.5px solid rgba(255, 255, 255, 0.08);
-  padding-top: 16px;
   width: 100%;
-  box-sizing: border-box;
+}
+
+.payment-form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
 }
 
 .payment-field-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .payment-field-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--portal-text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: normal;
 }
 
-.payment-text-input,
-.payment-select-input {
-  height: 38px;
-  border-radius: 4px;
-  background: rgba(13, 27, 41, 0.6);
-  border: 1px solid rgba(42, 222, 255, 0.2);
-  color: var(--portal-text);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  padding: 0 12px;
-  outline: none;
-  box-sizing: border-box;
-  width: 100%;
-  transition: border-color 0.2s ease;
-}
-
-.payment-text-input:focus,
-.payment-select-input:focus {
-  border-color: #2adeff;
-  background: rgba(13, 27, 41, 0.8);
-}
-
-.card-number-input-wrapper {
+.payment-input-with-brands {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
 }
 
-.card-number-input-wrapper .payment-text-input {
-  padding-right: 90px;
+.payment-input-with-brands .payment-text-input {
+  padding-right: 120px;
 }
 
-.card-brand-logos {
+.payment-input-brand-icons {
   position: absolute;
-  right: 12px;
+  right: 16px;
   display: flex;
-  gap: 6px;
   align-items: center;
+  gap: 6px;
+  pointer-events: none;
 }
 
-.brand-logo-circle {
-  width: 22px;
-  height: 14px;
+.payment-input-brand-badge {
+  height: 20px;
   border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 0 4px;
 }
 
-.brand-logo-circle--mastercard {
-  background: linear-gradient(90deg, #ff5f00 50%, #eb001b 50%);
+.payment-input-brand-badge--mastercard {
+  background: #000000;
 }
 
-.brand-logo-circle--visa {
-  background: #002398;
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
+.payment-text-input,
+.payment-select-input {
+  height: 48px;
+  border-radius: 8px;
+  background: rgba(13, 27, 41, 0.6);
+  border: 1px solid rgba(42, 222, 255, 0.25);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  padding: 0 20px;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  transition: all 0.2s ease;
 }
 
-.brand-logo-circle--discover {
-  background: #ff5f00;
+.payment-text-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 15px;
+}
+
+.payment-text-input:focus,
+.payment-select-input:focus {
+  border-color: #2adeff;
+  background: rgba(13, 27, 41, 0.85);
+  box-shadow: 0 0 8px rgba(42, 222, 255, 0.3);
+}
+
+.payment-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.payment-select-input {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 36px;
+}
+
+.payment-select-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgba(255, 255, 255, 0.7);
+  pointer-events: none;
 }
 
 .payment-fields-row {
   display: flex;
   gap: 16px;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .payment-fields-row .payment-field-group {
@@ -189,53 +426,281 @@
   min-width: 0;
 }
 
-.country-select-wrapper {
-  width: 100%;
-  position: relative;
-}
-
-.payment-select-input {
-  appearance: none;
-  -webkit-appearance: none;
-  cursor: pointer;
-  padding-right: 32px;
-}
-
-.country-select-wrapper::after {
-  content: '';
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid var(--portal-text-muted);
-  pointer-events: none;
-}
-
-.payment-card-disclaimer {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  color: var(--portal-text-muted);
-  line-height: 1.4;
+.payment-card-terms-text {
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.5;
 }
 
-.payment-redirect-message {
+.payment-save-default-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.payment-save-default-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: normal;
+}
+
+/* PayPal & Klarna Rows */
+.payment-option-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.payment-checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #0d1b29;
+  transition: all 0.2s ease;
+}
+
+.payment-checkbox--checked {
+  background: #2adeff;
+  border-color: #2adeff;
+}
+
+.payment-option-label-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payment-paypal-icon-wrapper {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.payment-klarna-icon-wrapper {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: #ffb3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.payment-klarna-icon-wrapper span {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
-  color: var(--portal-text-muted);
-  padding: 12px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.01);
-  border: 1px dashed rgba(255, 255, 255, 0.1);
-  width: 100%;
-  box-sizing: border-box;
-  text-align: left;
+  font-weight: 700;
+  color: #0a0a0a;
 }
 
+.payment-option-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* ================================================================
+   Right Column: Your Order Summary Sidebar (Matching Node 1252:20607)
+   ================================================================ */
+
+.payment-order-sidebar {
+  width: 342px;
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.15) 0%, rgba(27, 127, 156, 0.15) 46.34%, rgba(11, 84, 179, 0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.payment-sidebar-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: normal;
+}
+
+/* Product Header */
+.payment-sidebar-product-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.payment-sidebar-gpu-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+}
+
+.product-icon-circle-bg {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #0d1b29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.payment-sidebar-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.payment-sidebar-product-name {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2adeff;
+  line-height: normal;
+}
+
+.payment-sidebar-product-desc {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+/* Row Styling */
+.payment-sidebar-spec-list,
+.payment-sidebar-pricing-list,
+.payment-sidebar-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.payment-sidebar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  line-height: normal;
+}
+
+.payment-sidebar-row--align-start {
+  align-items: flex-start;
+}
+
+.payment-spec-label {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.payment-spec-value {
+  font-weight: 500;
+  color: #ffffff;
+  text-align: right;
+}
+
+.payment-pricing-section-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: normal;
+}
+
+.payment-pricing-item-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.payment-pricing-subcalc {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.payment-pricing-item-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Estimated Total Section */
+.payment-sidebar-total-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.payment-total-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.payment-total-amount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2adeff;
+  line-height: normal;
+}
+
+.payment-total-cycle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Bottom Actions */
 .payment-actions-container {
   display: flex;
   flex-direction: column;
@@ -245,23 +710,145 @@
   align-items: center;
 }
 
+/* Continue Pill Button (Matching Figma Node 1252:20806 OpenBtnM) */
+.payment-continue-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  padding: 12px;
+  border-radius: 100px;
+  border: none;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  user-select: none;
+}
+
+.payment-continue-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0px 2px 12px rgba(0, 163, 218, 0.4);
+}
+
+.payment-continue-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 /* ================================================================
-   Light Theme Overrides
+   Light Theme Overrides (Matching Figma Node 1252:20554 Light Mode)
    ================================================================ */
 
-html[data-bs-theme="light"] .payment-method-card {
-  background: #f8fafc;
-  border-color: #cbd5e1;
+html[data-bs-theme="light"] .payment-card-box,
+html[data-bs-theme="light"] .payment-order-sidebar {
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.2) 0%, rgba(27, 127, 156, 0.2) 46.34%, rgba(11, 84, 179, 0.2) 100%);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-html[data-bs-theme="light"] .payment-method-card:hover {
-  background: #f1f5f9;
-  border-color: #94a3b8;
+html[data-bs-theme="light"] .payment-card-box-title {
+  color: #0d1b29;
 }
 
-html[data-bs-theme="light"] .payment-method-card--selected {
-  border-color: #00a3da;
-  background: #eef3ff;
+html[data-bs-theme="light"] .payment-saved-card-item {
+  background: rgba(255, 255, 255, 0.45);
+  border-color: rgba(102, 102, 102, 0.1);
+}
+
+html[data-bs-theme="light"] .payment-saved-card-item--default {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+html[data-bs-theme="light"] .payment-saved-card-item--selected {
+  border-color: #002398;
+}
+
+html[data-bs-theme="light"] .payment-card-name {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .payment-card-exp {
+  color: rgba(13, 27, 41, 0.8);
+}
+
+html[data-bs-theme="light"] .payment-default-tag {
+  background: rgba(24, 123, 201, 0.1);
+}
+
+html[data-bs-theme="light"] .payment-default-tag span {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .payment-action-link--default {
+  color: #187bc9;
+}
+
+html[data-bs-theme="light"] .payment-action-link--remove {
+  color: #aa0101;
+}
+
+html[data-bs-theme="light"] .payment-checkbox {
+  border-color: rgba(13, 27, 41, 0.4);
+}
+
+html[data-bs-theme="light"] .payment-checkbox--checked {
+  background: #002398;
+  border-color: #002398;
+  color: #ffffff;
+}
+
+html[data-bs-theme="light"] .payment-option-name {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .payment-sidebar-title,
+html[data-bs-theme="light"] .payment-pricing-section-title,
+html[data-bs-theme="light"] .payment-total-label {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .payment-sidebar-product-name {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .payment-sidebar-product-desc {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .payment-sidebar-product-header {
+  border-bottom-color: rgba(13, 27, 41, 0.8);
+}
+
+html[data-bs-theme="light"] .payment-sidebar-spec-list,
+html[data-bs-theme="light"] .payment-sidebar-pricing-list,
+html[data-bs-theme="light"] .payment-sidebar-breakdown-list {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+html[data-bs-theme="light"] .payment-spec-label,
+html[data-bs-theme="light"] .payment-pricing-item-desc,
+html[data-bs-theme="light"] .payment-total-cycle {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .payment-spec-value,
+html[data-bs-theme="light"] .payment-pricing-item-val {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .payment-pricing-subcalc {
+  color: rgba(13, 27, 41, 0.7);
+}
+
+html[data-bs-theme="light"] .payment-total-amount {
+  color: #0d1b29;
 }
 
 html[data-bs-theme="light"] .payment-text-input,
@@ -270,25 +857,46 @@ html[data-bs-theme="light"] .payment-select-input {
   border: 1px solid #262b37;
   color: #0d1b29;
   box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+}
+
+html[data-bs-theme="light"] .payment-field-label {
+  color: rgba(13, 27, 41, 0.8);
+}
+
+html[data-bs-theme="light"] .payment-subform-title {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .payment-card-terms-text {
+  color: rgba(13, 27, 41, 0.3);
+}
+
+html[data-bs-theme="light"] .payment-save-default-label {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .payment-select-wrapper::after {
+  border-top-color: #0d1b29;
 }
 
 html[data-bs-theme="light"] .payment-text-input::placeholder {
   color: rgba(13, 27, 41, 0.3);
 }
 
-html[data-bs-theme="light"] .payment-text-input:focus,
-html[data-bs-theme="light"] .payment-select-input:focus {
-  border-color: #00a3da;
-  background: #ffffff;
-}
+/* ================================================================
+   Responsive Breakpoints
+   ================================================================ */
 
-html[data-bs-theme="light"] .country-select-wrapper::after {
-  border-top-color: #0d1b29;
-}
+@media (max-width: 960px) {
+  .payment-content-columns {
+    flex-direction: column;
+  }
 
-html[data-bs-theme="light"] .payment-redirect-message {
-  background: rgba(0, 0, 0, 0.02);
-  border-color: rgba(0, 0, 0, 0.1);
-  color: #0d1b29;
+  .payment-order-sidebar {
+    width: 100%;
+  }
+
+  .payment-card-box {
+    padding: 20px;
+  }
 }

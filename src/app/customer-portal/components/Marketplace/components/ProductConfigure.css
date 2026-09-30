@@ -491,7 +491,7 @@
   line-height: normal;
 }
 
-/* Agreement Row */
+/* Agreement Row (Matching Figma Node 1252:19793) */
 .configure-agreement-row {
   display: flex;
   gap: 22px;
@@ -500,17 +500,34 @@
   box-sizing: border-box;
 }
 
+.configure-agreement-row .addon-custom-checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1.5px solid rgba(42, 222, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1px;
+}
+
 .configure-agreement-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  width: 165px;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
   line-height: normal;
   color: var(--portal-text);
   cursor: pointer;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  align-items: center;
+  text-align: left;
+  user-select: none;
 }
 
 .configure-terms-link {
@@ -519,6 +536,16 @@
   color: #2adeff;
   font-weight: 600;
   cursor: pointer;
+}
+
+/* Agreement Error State (Matching Figma Node 1252:19642) */
+.configure-agreement-row--error {
+  border-bottom: 1.5px solid #aa0101 !important;
+  padding-bottom: 8px;
+}
+
+.configure-agreement-row .addon-custom-checkbox--error {
+  border-color: #aa0101 !important;
 }
 
 /* Sidebar Actions */
@@ -598,10 +625,10 @@ html[data-bs-theme="light"] .sidebar-btn-primary:hover:not(:disabled) {
   height: 44px;
   padding: 12px;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.8);
   border: none;
   outline: none;
-  color: #ffffff;
+  color: #0d1b29;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -622,7 +649,8 @@ html[data-bs-theme="light"] .sidebar-btn-primary:hover:not(:disabled) {
 }
 
 .sidebar-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.95);
+  color: #0d1b29;
   transform: translateY(-1px);
 }
 
@@ -807,6 +835,17 @@ html[data-bs-theme="light"] .total-caption {
   color: #0d1b29;
 }
 
+html[data-bs-theme="light"] .configure-agreement-row .addon-custom-checkbox {
+  border-color: #001a94;
+  background: transparent;
+}
+
+html[data-bs-theme="light"] .configure-agreement-row .addon-custom-checkbox--checked {
+  background: #001a94 !important;
+  border-color: #001a94 !important;
+  color: #ffffff !important;
+}
+
 html[data-bs-theme="light"] .configure-agreement-text {
   color: #0d1b29;
 }
@@ -970,6 +1009,17 @@ html[data-bs-theme="dark"] .total-caption {
   color: #ffffff;
 }
 
+html[data-bs-theme="dark"] .configure-agreement-row .addon-custom-checkbox {
+  border-color: #2adeff;
+  background: transparent;
+}
+
+html[data-bs-theme="dark"] .configure-agreement-row .addon-custom-checkbox--checked {
+  background: #2adeff !important;
+  border-color: #2adeff !important;
+  color: #0d1b29 !important;
+}
+
 html[data-bs-theme="dark"] .configure-agreement-text {
   color: #ffffff;
 }
@@ -978,13 +1028,21 @@ html[data-bs-theme="dark"] .configure-terms-link {
   color: #2adeff;
 }
 
+html[data-bs-theme="dark"] .configure-agreement-row--error {
+  border-bottom: 1.5px solid #ff4d4f !important;
+}
+
+html[data-bs-theme="dark"] .configure-agreement-row .addon-custom-checkbox--error {
+  border-color: #ff4d4f !important;
+}
+
 html[data-bs-theme="dark"] .sidebar-btn-secondary {
-  background: rgba(102, 102, 102, 0.2);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.8);
+  color: #0d1b29;
 }
 
 html[data-bs-theme="dark"] .sidebar-btn-secondary:hover {
-  background: rgba(102, 102, 102, 0.35);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0d1b29;
   transform: translateY(-1px);
 }

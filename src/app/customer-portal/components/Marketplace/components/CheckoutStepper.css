@@ -5,15 +5,16 @@
 .checkout-stepper-container {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 0;
+  gap: 32px;
+  padding: 12px 8px;
   box-sizing: border-box;
   user-select: none;
+  flex-wrap: wrap;
 }
 
 .checkout-step-col {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 12px;
   cursor: default;
@@ -44,17 +45,17 @@
 
 /* Active / In-process state */
 .step-circle-icon--in-process {
-  border: 1.5px solid #2adeff;
+  border: 1px solid #2adeff;
   background: rgba(42, 222, 255, 0.1);
   color: #2adeff;
-  box-shadow: 0 0 8px rgba(42, 222, 255, 0.3);
+  opacity: 0.9;
 }
 
 /* Done state */
 .step-circle-icon--done {
-  background: linear-gradient(180deg, #ffffff 0%, #2adeff 100%);
+  background: linear-gradient(90deg, #2adeff 0%, #002398 100%);
   border: none;
-  color: #0d1b29;
+  color: #ffffff;
   box-shadow: 0 1px 6px rgba(42, 222, 255, 0.35);
 }
 
@@ -83,21 +84,24 @@
 
 .checkout-step-col--active .step-label-text {
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* 64px Dotted Connector Line */
-.checkout-step-connector-dotted {
+/* 64px Connector Line */
+.checkout-step-connector {
   width: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.4);
-  margin-top: -26px; /* Aligns with the 28px circle center */
+  color: rgba(255, 255, 255, 0.3);
   flex-shrink: 0;
 }
 
-.checkout-step-connector-dotted--active {
+.checkout-step-connector--active {
+  color: #2adeff;
+}
+
+.checkout-step-connector--solid {
   color: #2adeff;
 }
 
@@ -131,11 +135,12 @@ html[data-bs-theme="light"] .checkout-step-col--pending .step-label-text {
   color: rgba(13, 27, 41, 0.5);
 }
 
-html[data-bs-theme="light"] .checkout-step-connector-dotted {
+html[data-bs-theme="light"] .checkout-step-connector {
   color: rgba(0, 26, 148, 0.3);
 }
 
-html[data-bs-theme="light"] .checkout-step-connector-dotted--active {
+html[data-bs-theme="light"] .checkout-step-connector--active,
+html[data-bs-theme="light"] .checkout-step-connector--solid {
   color: #001a94;
 }
 
@@ -145,12 +150,12 @@ html[data-bs-theme="light"] .checkout-step-connector-dotted--active {
 
 @media (max-width: 768px) {
   .checkout-stepper-container {
-    gap: 8px;
+    gap: 16px;
     overflow-x: auto;
     padding-bottom: 4px;
   }
   
-  .checkout-step-connector-dotted {
+  .checkout-step-connector {
     width: 32px;
   }
 

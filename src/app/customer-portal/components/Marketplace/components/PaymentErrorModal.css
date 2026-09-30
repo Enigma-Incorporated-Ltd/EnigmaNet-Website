@@ -1,0 +1,299 @@
+/* ================================================================
+   Payment Error Modal Styles (Matching Figma Node 1252:21204)
+   ================================================================ */
+
+.payment-error-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 12, 22, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  animation: fadeInPaymentError 0.25s ease-out;
+}
+
+@keyframes fadeInPaymentError {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Card */
+.payment-error-card {
+  width: 100%;
+  max-width: 540px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.5);
+  animation: scaleInPaymentError 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  margin: auto;
+}
+
+@keyframes scaleInPaymentError {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Warning Icon Large (Node 1157:8017) */
+.payment-error-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+  width: 100%;
+}
+
+.payment-error-icon-large {
+  width: 64px;
+  height: 64px;
+  border-radius: 36px;
+  border: 4px solid #eb5757;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  animation: popInErrorIcon 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popInErrorIcon {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.payment-error-icon-large span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #eb5757;
+  line-height: 1;
+}
+
+/* Header Text Block (Node 1252:21207) */
+.payment-error-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.payment-error-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 34px;
+  color: #0f172a;
+}
+
+.payment-error-subtitle {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #64748b;
+  max-width: 440px;
+}
+
+/* Divider Line (Node 1252:21210) */
+.payment-error-divider {
+  width: 100%;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+/* Warning Banner Block (Node 1158:8036) */
+.payment-error-banner {
+  background: #fff5f5;
+  border: 1px solid #fee2e2;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.payment-error-icon-small {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  border: 2px solid #eb5757;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.payment-error-icon-small span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #eb5757;
+  line-height: 1;
+}
+
+.payment-error-banner-text {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #aa0101;
+  line-height: 18px;
+  flex: 1;
+}
+
+/* Saved Note (Node 1252:21212) */
+.payment-error-saved-note {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  line-height: 18px;
+}
+
+/* Action Buttons Group (Node 1252:21213) */
+.payment-error-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.payment-error-btn-primary {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.payment-error-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 3px 12px rgba(0, 163, 218, 0.4);
+}
+
+.payment-error-btn-secondary {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #dce6ff;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0d1b29;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.payment-error-btn-secondary:hover {
+  background: #ffffff;
+  border-color: #b9ccfb;
+}
+
+/* ================================================================
+   Dark Theme Adaptation
+   ================================================================ */
+
+html:not([data-bs-theme="light"]) .payment-error-card {
+  background: linear-gradient(180deg, rgba(16, 30, 48, 0.98) 0%, rgba(10, 20, 34, 0.98) 100%);
+  border-color: rgba(235, 87, 87, 0.25);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(235, 87, 87, 0.08);
+}
+
+html:not([data-bs-theme="light"]) .payment-error-title {
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .payment-error-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html:not([data-bs-theme="light"]) .payment-error-divider {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html:not([data-bs-theme="light"]) .payment-error-banner {
+  background: rgba(235, 87, 87, 0.12);
+  border-color: rgba(235, 87, 87, 0.3);
+}
+
+html:not([data-bs-theme="light"]) .payment-error-banner-text {
+  color: #ff8585;
+}
+
+html:not([data-bs-theme="light"]) .payment-error-saved-note {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+html:not([data-bs-theme="light"]) .payment-error-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .payment-error-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 540px) {
+  .payment-error-card {
+    padding: 24px 18px;
+    border-radius: 20px;
+    gap: 16px;
+  }
+
+  .payment-error-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}

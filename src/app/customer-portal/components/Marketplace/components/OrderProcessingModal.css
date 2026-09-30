@@ -1,0 +1,312 @@
+/* ================================================================
+   Order Processing Modal Styles (Matching Figma Node 1252:21187)
+   ================================================================ */
+
+.order-processing-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 12, 22, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeInOrderBackdrop 0.25s ease-out;
+}
+
+@keyframes fadeInOrderBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Card */
+.order-processing-modal {
+  width: 100%;
+  max-width: 440px;
+  background: #f8faff;
+  border: 1px solid #dce6ff;
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+  box-shadow: 0 24px 48px -12px rgba(0, 20, 60, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.5);
+  animation: scaleInOrderModal 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes scaleInOrderModal {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Top Spinner Area (Node 1252:21188) */
+.order-processing-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0 4px;
+  width: 100%;
+}
+
+.order-processing-spinner-wrapper {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-processing-spinner-svg {
+  width: 72px;
+  height: 72px;
+  animation: orderSpinnerRotate 1.5s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes orderSpinnerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Title & Subtitle Group (Node 1252:21190) */
+.order-processing-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+.order-processing-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #0d1b29;
+}
+
+.order-processing-subtitle {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #5b6b8a;
+  max-width: 340px;
+}
+
+/* Warning Banner (Node 1252:21193) */
+.order-processing-warning-banner {
+  background: #f7f9ff;
+  border: 1px solid rgba(42, 222, 255, 0.35);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.order-processing-alert-icon-box {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-processing-alert-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.order-processing-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  flex: 1;
+}
+
+.order-processing-banner-headline {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0d1b29;
+  line-height: normal;
+}
+
+.order-processing-banner-subline {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #5b6b8a;
+  line-height: normal;
+}
+
+/* Processing CTA Pill Indicator (Node 1252:21199) */
+.order-processing-cta {
+  background: #ffffff;
+  border: 1px solid #dce6ff;
+  border-radius: 100px;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.order-processing-cta-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-processing-spoke-loader {
+  width: 16px;
+  height: 16px;
+  animation: orderSpokeRotate 1s steps(8, end) infinite;
+  transform-origin: center;
+}
+
+@keyframes orderSpokeRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.order-processing-cta-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+/* Payment Method Footer (Node 1252:21203) */
+.order-processing-payment-info {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #5b6b8a;
+  text-align: center;
+  width: 100%;
+  line-height: normal;
+}
+
+.order-processing-payment-label {
+  color: #5b6b8a;
+}
+
+.order-processing-payment-value {
+  font-weight: 600;
+  color: #0d1b29;
+}
+
+/* ================================================================
+   Dark Theme Adaptation (Matching Portal Dark Aesthetic)
+   ================================================================ */
+
+html:not([data-bs-theme="light"]) .order-processing-modal {
+  background: linear-gradient(180deg, rgba(16, 30, 48, 0.98) 0%, rgba(10, 20, 34, 0.98) 100%);
+  border-color: rgba(42, 222, 255, 0.2);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(42, 222, 255, 0.08);
+}
+
+html:not([data-bs-theme="light"]) .order-processing-title {
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .order-processing-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html:not([data-bs-theme="light"]) .order-processing-warning-banner {
+  background: rgba(42, 222, 255, 0.08);
+  border-color: rgba(42, 222, 255, 0.25);
+}
+
+html:not([data-bs-theme="light"]) .order-processing-banner-headline {
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .order-processing-banner-subline {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+html:not([data-bs-theme="light"]) .order-processing-cta {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html:not([data-bs-theme="light"]) .order-processing-cta-text {
+  color: #ffffff;
+}
+
+html:not([data-bs-theme="light"]) .order-processing-payment-info {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+html:not([data-bs-theme="light"]) .order-processing-payment-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+html:not([data-bs-theme="light"]) .order-processing-payment-value {
+  color: #2adeff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .order-processing-modal {
+    padding: 24px 20px;
+    border-radius: 20px;
+    gap: 20px;
+  }
+
+  .order-processing-title {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .order-processing-subtitle {
+    font-size: 12px;
+  }
+}

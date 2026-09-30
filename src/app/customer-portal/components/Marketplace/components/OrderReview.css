@@ -49,15 +49,27 @@
 }
 
 .order-review-product-icon {
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: #0d1b29;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(42, 222, 255, 0.25);
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.product-icon-circle-bg {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #0d1b29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .order-review-product-info h4 {

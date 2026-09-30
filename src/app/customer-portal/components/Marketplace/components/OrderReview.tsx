@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './OrderReview.css';
 import type { Product } from '../index';
 import CheckoutStepper from './CheckoutStepper';
+import epConnection from '@/assets/svgs/ep_connection.svg';
 
 interface OrderReviewProps {
   product: Product;
@@ -44,24 +45,13 @@ export default function OrderReview({ product, config, onContinue, onBack }: Ord
     return `${currency}${amount.toFixed(2)}`;
   };
 
-  // Helper to render high quality product illustrations
-  const renderIcon = (id: string) => {
-    switch (id) {
-      case 'esc-lite':
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2adeff" strokeWidth="2">
-            <rect x="3" y="3" width="10" height="10" rx="2" />
-            <rect x="11" y="11" width="10" height="10" rx="2" fill="rgba(42,222,255,0.2)" />
-            <path d="M13 10V11H10V13" />
-          </svg>
-        );
-      default:
-        return (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2adeff" strokeWidth="2">
-            <circle cx="12" cy="12" r="8" />
-          </svg>
-        );
-    }
+  // Helper to render high quality product illustrations (Matching Figma node 1252:20483)
+  const renderIcon = (_id: string) => {
+    return (
+      <div className="product-icon-circle-bg">
+        <img src={epConnection} alt={product.name || 'Product'} width={33} height={30} />
+      </div>
+    );
   };
 
   // Calculate billing dates

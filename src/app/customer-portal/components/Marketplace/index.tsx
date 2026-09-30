@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './marketplace.css';
 import ProductList from './components/ProductList';
 import ProductDetails from './components/ProductDetails';
 import ProductConfigure from './components/ProductConfigure';
 import OrderReview from './components/OrderReview';
 import PaymentBilling from './components/PaymentBilling';
-import SuccessView from './components/SuccessView';
+import OrderConfirmationModal from './components/OrderConfirmationModal';
+import OrderTracking from './components/OrderTracking';
 
 export interface Product {
   id: string;
@@ -275,9 +276,13 @@ interface MarketplaceProps {
 }
 
 export default function Marketplace({ setActiveNav }: MarketplaceProps) {
-  const [step, setStep] = useState<'list' | 'details' | 'configure' | 'review' | 'payment' | 'success'>('list');
+  const [step, setStep] = useState<'list' | 'details' | 'configure' | 'review' | 'payment' | 'confirmed' | 'success'>('list');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [config, setConfig] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [step]);
   
   // Local browsing states (default to ESC Secure Networking matching Figma)
   const [searchQuery, setSearchQuery] = useState('');
@@ -383,17 +388,33 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
         <PaymentBilling 
           product={selectedProduct}
           config={config}
-          onContinue={() => setStep('success')} 
+          onContinue={() => setStep('confirmed')} 
           onBack={() => setStep('review')} 
         />
       )}
-      {step === 'success' && selectedProduct && (
-        <SuccessView 
+      {step === 'confirmed' && selectedProduct && (
+        <OrderConfirmationModal
           product={selectedProduct}
           config={config}
-          onFinish={() => {
+          onGoToServices={() => {
             setStep('list');
-            setActiveNav('dashboard');
+            setActiveNav('services');
+          }}
+          onViewOrderDetails={() => setStep('success')}
+          onBackToMarketplace={() => {
+            setStep('list');
+            setSelectedProduct(null);
+          }}
+        />
+      )}
+      {step === 'success' && selectedProduct && (
+        <OrderTracking 
+          product={selectedProduct}
+          config={config}
+          onBack={() => setStep('confirmed')}
+          onViewServices={() => {
+            setStep('list');
+            setActiveNav('services');
           }} 
         />
       )}

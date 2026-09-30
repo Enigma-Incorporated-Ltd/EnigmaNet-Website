@@ -1,0 +1,741 @@
+/* ================================================================
+   Order Tracking Page Styles (Matching Figma Node 1252:20823)
+   ================================================================ */
+
+.order-tracking-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeInOrderTracking 0.3s ease;
+}
+
+@keyframes fadeInOrderTracking {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Area */
+.order-tracking-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.order-tracking-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.order-tracking-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--portal-text);
+  line-height: normal;
+}
+
+/* Status Badge */
+.order-tracking-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(42, 222, 255, 0.15);
+  border: 0.5px solid #2adeff;
+  color: #2adeff;
+}
+
+.status-badge-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.status-badge-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spin-animation {
+  animation: rotateSpinner 2s linear infinite;
+}
+
+@keyframes rotateSpinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Banner Row */
+.order-tracking-banner-row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Success Banner */
+.order-success-banner {
+  flex: 1;
+  min-width: 0;
+  background: #ecfdf5;
+  border: 1px solid rgba(2, 145, 71, 0.2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.order-success-icon-wrapper {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: #029147;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.order-success-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.order-success-headline {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #029147;
+  line-height: 18px;
+}
+
+.order-success-headline strong {
+  font-weight: 700;
+}
+
+.order-success-subline {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #029147;
+  line-height: 18px;
+}
+
+/* View My Services Button */
+.order-view-services-btn {
+  border: none;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.order-view-services-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 2px 12px rgba(0, 163, 218, 0.4);
+}
+
+/* Grid Layout */
+.order-tracking-grid {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.order-tracking-left-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.order-tracking-right-col {
+  width: 360px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Card Container */
+.order-tracking-card {
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.15) 0%, rgba(27, 127, 156, 0.15) 46.34%, rgba(11, 84, 179, 0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.order-card-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2adeff;
+  line-height: normal;
+}
+
+/* Timeline Track */
+.order-timeline-track {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.timeline-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.timeline-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.timeline-circle--done {
+  background: linear-gradient(90deg, #2adeff 0%, #002398 100%);
+  color: #ffffff;
+}
+
+.timeline-circle--in-progress {
+  border: 1px solid #2adeff;
+  background: rgba(42, 222, 255, 0.1);
+  color: #2adeff;
+}
+
+.timeline-circle--pending {
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: transparent;
+  color: #94a3b8;
+  opacity: 0.7;
+}
+
+.timeline-step-title {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: normal;
+}
+
+.timeline-step-title--active {
+  color: #2adeff;
+}
+
+.timeline-step-title--pending {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.timeline-step-meta {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.timeline-step-meta--active {
+  color: #2adeff;
+  font-weight: 600;
+}
+
+.timeline-step-meta--pending {
+  color: #94a3b8;
+}
+
+/* Product Details Row */
+.order-product-details-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.order-product-main-segment {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.order-product-logo-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: #0d1b29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(42, 222, 255, 0.2);
+}
+
+.order-product-text-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.order-product-name {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2adeff;
+  line-height: normal;
+}
+
+.order-product-plan {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.order-product-billing {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.order-details-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.order-meta-segment {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.order-meta-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.order-meta-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.order-meta-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Configuration Specs */
+.order-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.order-spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+}
+
+.order-spec-row--last {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.order-spec-label {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.order-spec-val {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Right Column: Payment Summary */
+.order-payment-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.order-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+}
+
+.order-summary-label {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.order-summary-val {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Total Paid Box */
+.order-total-paid-box {
+  background: rgba(42, 222, 255, 0.1);
+  border: 1px solid rgba(42, 222, 255, 0.25);
+  padding: 14px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.order-total-paid-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2adeff;
+}
+
+.order-total-paid-amount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2adeff;
+}
+
+/* Card Used Row */
+.order-card-used-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.order-card-brand-badge {
+  width: 32px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.order-card-used-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Billing Address */
+.order-billing-address-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.order-billing-name {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.order-billing-address-lines {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 20px;
+}
+
+.order-billing-address-lines p {
+  margin: 0;
+}
+
+/* Documents */
+.order-documents-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.order-document-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.order-document-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.order-document-name {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.order-document-date {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.order-download-pdf-btn {
+  width: 100%;
+  height: 44px;
+  border: none;
+  background: linear-gradient(90deg, #263777 0%, #00a3da 100%);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.order-download-pdf-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 2px 12px rgba(0, 163, 218, 0.4);
+}
+
+/* ================================================================
+   Light Theme Overrides (Matching Figma Node 1252:20823 Light Mode)
+   ================================================================ */
+
+html[data-bs-theme="light"] .order-tracking-title {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .order-tracking-status-badge {
+  background: rgba(0, 26, 148, 0.1);
+  border-color: #001a94;
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .order-tracking-card {
+  background: linear-gradient(180deg, rgba(35, 193, 239, 0.2) 0%, rgba(27, 127, 156, 0.2) 46.34%, rgba(11, 84, 179, 0.2) 100%);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+html[data-bs-theme="light"] .order-card-title {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .timeline-step-title {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .timeline-step-title--active {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .timeline-step-meta {
+  color: #666666;
+}
+
+html[data-bs-theme="light"] .timeline-step-meta--active {
+  color: #2adeff;
+}
+
+html[data-bs-theme="light"] .order-product-name {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .order-product-plan {
+  color: #666666;
+}
+
+html[data-bs-theme="light"] .order-product-billing {
+  color: #888888;
+}
+
+html[data-bs-theme="light"] .order-details-divider {
+  background: #e2e8f0;
+}
+
+html[data-bs-theme="light"] .order-meta-label {
+  color: #888888;
+}
+
+html[data-bs-theme="light"] .order-meta-val {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .order-spec-label {
+  color: #666666;
+}
+
+html[data-bs-theme="light"] .order-spec-val {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .order-spec-row {
+  border-bottom-color: rgba(13, 27, 41, 0.08);
+}
+
+html[data-bs-theme="light"] .order-summary-label {
+  color: #666666;
+}
+
+html[data-bs-theme="light"] .order-summary-val {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .order-total-paid-box {
+  background: #eff6ff;
+  border-color: rgba(0, 26, 148, 0.15);
+}
+
+html[data-bs-theme="light"] .order-total-paid-label,
+html[data-bs-theme="light"] .order-total-paid-amount {
+  color: #001a94;
+}
+
+html[data-bs-theme="light"] .order-card-used-text {
+  color: #666666;
+}
+
+html[data-bs-theme="light"] .order-billing-name {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .order-billing-address-lines {
+  color: #666666;
+}
+
+html[data-bs-theme="light"] .order-document-name {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .order-document-date {
+  color: #888888;
+}
+
+/* ================================================================
+   Responsive Breakpoints
+   ================================================================ */
+
+@media (max-width: 960px) {
+  .order-tracking-banner-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .order-tracking-grid {
+    flex-direction: column;
+  }
+
+  .order-tracking-right-col {
+    width: 100%;
+  }
+
+  .order-product-details-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .order-details-divider {
+    display: none;
+  }
+
+  .order-timeline-track {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    gap: 16px;
+  }
+}

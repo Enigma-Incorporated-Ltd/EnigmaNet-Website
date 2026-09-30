@@ -29,12 +29,16 @@ function CheckIcon() {
   );
 }
 
-// 64px Dotted Processing Line (Matching Figma imgProcessingLineDark)
-function DottedConnector({ active }: { active?: boolean }) {
+// 64px Solid or Dotted Processing Line (Matching Figma design)
+function StepConnector({ isSolid, active }: { isSolid?: boolean; active?: boolean }) {
   return (
-    <div className={`checkout-step-connector-dotted ${active ? 'checkout-step-connector-dotted--active' : ''}`}>
+    <div className={`checkout-step-connector ${active ? 'checkout-step-connector--active' : ''} ${isSolid ? 'checkout-step-connector--solid' : 'checkout-step-connector--dotted'}`}>
       <svg width="64" height="2" viewBox="0 0 64 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="1" y1="1" x2="63" y2="1" stroke="currentColor" strokeWidth="2" strokeDasharray="2 6" strokeLinecap="round" />
+        {isSolid ? (
+          <line x1="0" y1="1" x2="64" y2="1" stroke="currentColor" strokeWidth="2" />
+        ) : (
+          <line x1="1" y1="1" x2="63" y2="1" stroke="currentColor" strokeWidth="2" strokeDasharray="3 5" strokeLinecap="round" />
+        )}
       </svg>
     </div>
   );
@@ -80,7 +84,10 @@ export default function CheckoutStepper({ currentStep, onStepClick }: CheckoutSt
             </div>
 
             {idx < STEPS.length - 1 && (
-              <DottedConnector active={step.num < currentIndex} />
+              <StepConnector 
+                isSolid={step.num < currentIndex - 1 || (currentIndex === 3 && step.num === 1)} 
+                active={step.num < currentIndex} 
+              />
             )}
           </React.Fragment>
         );

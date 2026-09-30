@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Product } from '../index';
 import './ProductConfigure.css';
 import CheckoutStepper from './CheckoutStepper';
+import epConnection from '@/assets/svgs/ep_connection.svg';
 
 interface ProductConfigureProps {
   product: Product;
@@ -9,48 +10,6 @@ interface ProductConfigureProps {
   setConfig: React.Dispatch<React.SetStateAction<Record<string, string>>>;
   onContinue: () => void;
   onBack: () => void;
-}
-
-// 46x46 Circular GPU Badge Graphic (Matching Figma imgGpuImg)
-function GpuIcon46() {
-  return (
-    <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block' }}>
-      <g clipPath="url(#clip_gpu_46)">
-        <rect width="46" height="46" rx="23" fill="#0D1B29" />
-        <g opacity="0.8" filter="url(#filter0_f_gpu_46)">
-          <ellipse cx="58.65" cy="42.7417" rx="57.5" ry="46.575" fill="#152869" />
-        </g>
-        <g filter="url(#filter1_f_gpu_46)">
-          <circle cx="71.875" cy="51.9417" r="46.575" fill="#0D1B29" />
-        </g>
-        <g filter="url(#filter2_glow_gpu_46)">
-          <path
-            d="M26.3542 19.6458V21.3229H21.3229C20.4333 21.3229 19.5802 21.6763 18.9512 22.3053C18.3221 22.9344 17.9688 23.7875 17.9688 24.6771V28.0313C17.9688 28.9208 18.3221 29.774 18.9512 30.403C19.5802 31.032 20.4333 31.3854 21.3229 31.3854H29.7083C30.5979 31.3854 31.4511 31.032 32.0801 30.403C32.7091 29.774 33.0625 28.9208 33.0625 28.0313V24.6771C33.0623 24.0885 32.9072 23.5104 32.6128 23.0008C32.3184 22.4911 31.8951 22.0679 31.3854 21.7736V19.9315C32.3663 20.2782 33.2155 20.9206 33.8162 21.77C34.4169 22.6194 34.7395 23.6341 34.7396 24.6745V28.0286C34.7396 29.363 34.2095 30.6427 33.266 31.5863C32.3224 32.5298 31.0427 33.0599 29.7083 33.0599H21.3229C19.9885 33.0599 18.7088 32.5298 17.7653 31.5863C16.8217 30.6427 16.2917 29.363 16.2917 28.0286V24.6771C16.2917 23.3427 16.8217 22.063 17.7653 21.1195C18.7088 20.1759 19.9885 19.6458 21.3229 19.6458H26.3542Z"
-            fill="#2ADEFF"
-          />
-          <path
-            d="M19.6458 26.3542V24.6771H24.6771C25.5667 24.6771 26.4198 24.3237 27.0488 23.6947C27.6779 23.0656 28.0313 22.2125 28.0313 21.3229V17.9688C28.0313 17.0792 27.6779 16.226 27.0488 15.597C26.4198 14.968 25.5667 14.6146 24.6771 14.6146H16.2917C15.4021 14.6146 14.5489 14.968 13.9199 15.597C13.2909 16.226 12.9375 17.0792 12.9375 17.9688V21.3229C12.9377 21.9115 13.0928 22.4896 13.3872 22.9992C13.6816 23.5089 14.1049 23.9321 14.6146 24.2264V26.0685C13.6333 25.7216 12.7838 25.0789 12.1831 24.229C11.5823 23.379 11.26 22.3637 11.2604 21.3229V17.9688C11.2604 16.6344 11.7905 15.3547 12.734 14.4111C13.6776 13.4676 14.9573 12.9375 16.2917 12.9375H24.6771C26.0115 12.9375 27.2912 13.4676 28.2347 14.4111C29.1783 15.3547 29.7083 16.6344 29.7083 17.9688V21.3229C29.7083 22.6573 29.1783 23.937 28.2347 24.8806C27.2912 25.8241 26.0115 26.3542 24.6771 26.3542H19.6458Z"
-            fill="#2ADEFF"
-          />
-        </g>
-      </g>
-      <defs>
-        <clipPath id="clip_gpu_46">
-          <rect width="46" height="46" rx="23" fill="white" />
-        </clipPath>
-        <filter id="filter0_f_gpu_46" x="-25.6833" y="-30.6667" width="168.667" height="146.817" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-          <feGaussianBlur stdDeviation="13.4" result="blur" />
-        </filter>
-        <filter id="filter1_f_gpu_46" x="-1.53333" y="-21.4667" width="146.817" height="146.817" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-          <feGaussianBlur stdDeviation="13.4" result="blur" />
-        </filter>
-        <filter id="filter2_glow_gpu_46" x="5.1" y="5.1" width="35.8" height="35.8" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-          <feGaussianBlur stdDeviation="1.5" result="blur" />
-          <feBlend mode="normal" in="SourceGraphic" result="shape" />
-        </filter>
-      </defs>
-    </svg>
-  );
 }
 
 export default function ProductConfigure({
@@ -61,6 +20,7 @@ export default function ProductConfigure({
   onBack
 }: ProductConfigureProps) {
   const [agreed, setAgreed] = useState(true);
+  const [agreementError, setAgreementError] = useState(false);
 
   const sites = parseInt(config.sites || '5', 10);
   const billing = config.billing || 'Monthly';
@@ -117,6 +77,22 @@ export default function ProductConfigure({
 
   const formatPrice = (amount: number) => {
     return `${currency}${amount.toFixed(2)}`;
+  };
+  const handleToggleAgreed = () => {
+    const nextVal = !agreed;
+    setAgreed(nextVal);
+    if (nextVal) {
+      setAgreementError(false);
+    }
+  };
+
+  const handleContinueClick = () => {
+    if (!agreed) {
+      setAgreementError(true);
+      return;
+    }
+    setAgreementError(false);
+    onContinue();
   };
 
   return (
@@ -303,7 +279,9 @@ export default function ProductConfigure({
           {/* Product Details Header */}
           <div className="sidebar-product-header" data-node-id="1252:19740">
             <div className="sidebar-product-icon" data-node-id="1252:19741" data-name="gpu img">
-              <GpuIcon46 />
+              <div className="product-icon-circle-bg">
+                <img src={epConnection} alt={product.name || 'Product'} width={33} height={30} />
+              </div>
             </div>
             <div className="sidebar-product-info" data-node-id="1252:19742">
               <h4 data-node-id="1252:19743">{product.name}</h4>
@@ -331,7 +309,7 @@ export default function ProductConfigure({
               <span className="summary-value" data-node-id="1252:19757">{hasSecurity ? 'Selected' : 'Not selected'}</span>
             </div>
             <div className="summary-row" data-node-id="1252:19758">
-              <span className="summary-label" data-node-id="1252:19759">Resilience Pack</span>
+              <span className="summary-label" data-node-id="1252:19760">Resilience Pack</span>
               <span className="summary-value" data-node-id="1252:19760">{hasResilience ? 'Selected' : 'Not selected'}</span>
             </div>
             <div className="summary-row" data-node-id="1252:19761">
@@ -377,11 +355,14 @@ export default function ProductConfigure({
             <div className="total-caption" data-node-id="1252:19792">Billed {billing === 'Monthly' ? 'monthly' : 'annually'}</div>
           </div>
 
-          {/* Agreement Checkbox (Figma node 852:20275 / 852:20276) */}
-          <div className="configure-agreement-row" data-node-id="852:20275">
+          {/* Agreement Checkbox (Figma node 852:20275 / 1252:19642 Error State) */}
+          <div 
+            className={`configure-agreement-row ${agreementError ? 'configure-agreement-row--error' : ''}`} 
+            data-node-id="1252:19642"
+          >
             <div 
-              className={`addon-custom-checkbox ${agreed ? 'addon-custom-checkbox--checked' : ''}`}
-              onClick={() => setAgreed(!agreed)}
+              className={`addon-custom-checkbox ${agreed ? 'addon-custom-checkbox--checked' : ''} ${agreementError ? 'addon-custom-checkbox--error' : ''}`}
+              onClick={handleToggleAgreed}
               style={{ cursor: 'pointer' }}
             >
               {agreed && (
@@ -390,7 +371,7 @@ export default function ProductConfigure({
                 </svg>
               )}
             </div>
-            <div className="configure-agreement-text" onClick={() => setAgreed(!agreed)}>
+            <div className="configure-agreement-text" onClick={handleToggleAgreed}>
               <span>I agree to the Enigma Net</span>{' '}
               <span className="configure-terms-link">Terms &amp; Conditions</span>
             </div>
@@ -401,8 +382,7 @@ export default function ProductConfigure({
             <button 
               type="button" 
               className="sidebar-btn-primary" 
-              onClick={onContinue}
-              disabled={!agreed}
+              onClick={handleContinueClick}
               data-node-id="1252:19795"
             >
               Continue
