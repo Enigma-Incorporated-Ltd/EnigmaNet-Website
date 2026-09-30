@@ -386,75 +386,103 @@ export default function ProductList({
         </div>
       </div>
 
-      {/* Categories section */}
-      <div className="marketplace-categories-section">
-        <div className="marketplace-categories-header">
-          <h2 className="marketplace-categories-title">Categories</h2>
-          <button
-            type="button"
-            className="marketplace-categories-view-all"
-            onClick={() => setActiveCategory('All')}
-          >
-            <span>View all</span>
-            <svg width="17" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M17.5303 6.0533C17.8232 5.76041 17.8232 5.28553 17.5303 4.99264L12.7574 0.21967C12.4645 -0.0732231 11.9896 -0.0732231 11.6967 0.21967C11.4038 0.512564 11.4038 0.987437 11.6967 1.28033L15.9393 5.52297L11.6967 9.76561C11.4038 10.0585 11.4038 10.5334 11.6967 10.8263C11.9896 11.1192 12.4645 11.1192 12.7574 10.8263L17.5303 6.0533ZM0 5.52297V6.27297H17V5.52297V4.77297H0V5.52297Z"
-                fill="currentColor"
-              />
-            </svg>
-          </button>
-        </div>
-        <div className="marketplace-categories-list">
-          {FIGMA_CATEGORIES.map((cat) => {
-            const isActive = activeCategory === cat.name;
-            return (
-              <button
-                key={cat.name}
-                type="button"
-                className={`marketplace-category-tag ${isActive ? 'marketplace-category-tag--active' : ''}`}
-                onClick={() => setActiveCategory(isActive ? 'All' : cat.name)}
-              >
-                {isActive && (
-                  <svg
-                    className="marketplace-category-tag__bg-svg"
-                    width="177"
-                    height="105"
-                    viewBox="0 0 177 105"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 4C0 1.79086 1.79086 0 4 0H173C175.209 0 177 1.79086 177 4V32C177 34.2091 175.209 36 173 36H138.832C136.623 36 134.832 37.7909 134.832 40V101C134.832 103.209 133.041 105 130.832 105H3.99999C1.79085 105 0 103.209 0 101V4Z"
-                      className="marketplace-category-tag__bg-fill"
-                    />
-                    <path
-                      d="M4 0.0996094H173C175.154 0.0996116 176.9 1.84609 176.9 4V32C176.9 34.1539 175.154 35.9004 173 35.9004H138.832C136.568 35.9006 134.732 37.7357 134.732 40V101C134.732 103.154 132.986 104.9 130.832 104.9H4C1.84609 104.9 0.0996095 103.154 0.0996094 101V4C0.0996094 1.84609 1.84609 0.0996094 4 0.0996094Z"
-                      className="marketplace-category-tag__bg-stroke"
-                    />
-                  </svg>
-                )}
-                <div className="marketplace-category-tag__content">
-                  <span className="marketplace-category-tag__name">{cat.name}</span>
+      {/* Categories section - hidden when searching per Figma node 1252:18970 */}
+      {!searchQuery.trim() && (
+        <div className="marketplace-categories-section">
+          <div className="marketplace-categories-header">
+            <h2 className="marketplace-categories-title">Categories</h2>
+            <button
+              type="button"
+              className="marketplace-categories-view-all"
+              onClick={() => setActiveCategory('All')}
+            >
+              <span>View all</span>
+              <svg width="17" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M17.5303 6.0533C17.8232 5.76041 17.8232 5.28553 17.5303 4.99264L12.7574 0.21967C12.4645 -0.0732231 11.9896 -0.0732231 11.6967 0.21967C11.4038 0.512564 11.4038 0.987437 11.6967 1.28033L15.9393 5.52297L11.6967 9.76561C11.4038 10.0585 11.4038 10.5334 11.6967 10.8263C11.9896 11.1192 12.4645 11.1192 12.7574 10.8263L17.5303 6.0533ZM0 5.52297V6.27297H17V5.52297V4.77297H0V5.52297Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+          <div className="marketplace-categories-list">
+            {FIGMA_CATEGORIES.map((cat) => {
+              const isActive = activeCategory === cat.name;
+              return (
+                <button
+                  key={cat.name}
+                  type="button"
+                  className={`marketplace-category-tag ${isActive ? 'marketplace-category-tag--active' : ''}`}
+                  onClick={() => setActiveCategory(isActive ? 'All' : cat.name)}
+                >
                   {isActive && (
-                    <span className="marketplace-category-tag__desc">{cat.desc}</span>
+                    <svg
+                      className="marketplace-category-tag__bg-svg"
+                      width="177"
+                      height="105"
+                      viewBox="0 0 177 105"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 4C0 1.79086 1.79086 0 4 0H173C175.209 0 177 1.79086 177 4V32C177 34.2091 175.209 36 173 36H138.832C136.623 36 134.832 37.7909 134.832 40V101C134.832 103.209 133.041 105 130.832 105H3.99999C1.79085 105 0 103.209 0 101V4Z"
+                        className="marketplace-category-tag__bg-fill"
+                      />
+                      <path
+                        d="M4 0.0996094H173C175.154 0.0996116 176.9 1.84609 176.9 4V32C176.9 34.1539 175.154 35.9004 173 35.9004H138.832C136.568 35.9006 134.732 37.7357 134.732 40V101C134.732 103.154 132.986 104.9 130.832 104.9H4C1.84609 104.9 0.0996095 103.154 0.0996094 101V4C0.0996094 1.84609 1.84609 0.0996094 4 0.0996094Z"
+                        className="marketplace-category-tag__bg-stroke"
+                      />
+                    </svg>
                   )}
-                </div>
-              </button>
-            );
-          })}
+                  <div className="marketplace-category-tag__content">
+                    <span className="marketplace-category-tag__name">{cat.name}</span>
+                    {isActive && (
+                      <span className="marketplace-category-tag__desc">{cat.desc}</span>
+                    )}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Dynamic Products header title based on active category */}
-      <h2 className="marketplace-products-title">
-        {activeCategory === 'All' ? 'All Products' : activeCategory}
-      </h2>
+      {/* Dynamic Products header title based on active category (only when products exist and not searching) */}
+      {products.length > 0 && !searchQuery.trim() && (
+        <h2 className="marketplace-products-title">
+          {activeCategory === 'All' ? 'All Products' : activeCategory}
+        </h2>
+      )}
 
       {/* Main product display area */}
       {products.length === 0 ? (
-        <div className="marketplace-empty-state">
-          <h2 className="marketplace-empty-title">No products found</h2>
-          <p className="marketplace-empty-subtitle">Try adjusting your search or filters.</p>
+        <div className="marketplace-empty-card" data-node-id="1252:18991" data-name="emty cards">
+          <div className="marketplace-empty-state" data-name="empty-state">
+            <div className="marketplace-empty-icon" data-name="empty state icons">
+              <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(2.67, 2.67)">
+                  <path
+                    d="M1.5 1.5L43.1667 43.1667M38.6833 28.4521C39 27.6854 39 26.8354 39 25.1313V18.1667C39 10.3104 39 6.38125 36.5583 3.94167C34.1167 1.50208 30.1896 1.5 22.3333 1.5C16.7771 1.5 13.1875 1.5 10.6958 2.3625M6.52917 6.52917C5.66667 9.02083 5.66667 12.6125 5.66667 18.1667V27.6333C5.66667 34.3938 5.66667 37.775 7.5125 40.0646C7.88529 40.5269 8.30643 40.948 8.76875 41.3208C11.0625 43.1667 14.4396 43.1667 21.2 43.1667C22.6688 43.1667 23.4042 43.1667 24.0771 42.9292C24.216 42.8792 24.3528 42.8222 24.4875 42.7583C25.1333 42.45 25.6521 41.9313 26.6917 40.8917L33.7917 33.7917"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M24.4167 42.125V40.5604C24.4167 34.6667 24.4167 31.7208 26.2479 29.8896C26.8729 29.2646 27.6271 28.8542 28.5833 28.5833"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </g>
+              </svg>
+            </div>
+            <div className="marketplace-empty-texts" data-name="empty-texts">
+              <p className="marketplace-empty-title">No products found</p>
+              <p className="marketplace-empty-subtitle">Try adjusting your search or filters.</p>
+            </div>
+          </div>
         </div>
       ) : (
         <div className="marketplace-products-grid">
