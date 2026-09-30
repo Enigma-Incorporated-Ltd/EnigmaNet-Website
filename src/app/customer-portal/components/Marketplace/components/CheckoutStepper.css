@@ -1,0 +1,160 @@
+/* ================================================================
+   Checkout Stepper Progress Bar (Matching Figma Node 1252:19116)
+   ================================================================ */
+
+.checkout-stepper-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.checkout-step-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: default;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.checkout-step-col--clickable {
+  cursor: pointer;
+}
+
+.checkout-step-col--clickable:hover .step-label-text {
+  color: #2adeff;
+}
+
+/* 28x28 Circular Icon (Done Icon Processing) */
+.step-circle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Active / In-process state */
+.step-circle-icon--in-process {
+  border: 1.5px solid #2adeff;
+  background: rgba(42, 222, 255, 0.1);
+  color: #2adeff;
+  box-shadow: 0 0 8px rgba(42, 222, 255, 0.3);
+}
+
+/* Done state */
+.step-circle-icon--done {
+  background: linear-gradient(180deg, #ffffff 0%, #2adeff 100%);
+  border: none;
+  color: #0d1b29;
+  box-shadow: 0 1px 6px rgba(42, 222, 255, 0.35);
+}
+
+/* Pending state */
+.step-circle-icon--pending {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 0.7;
+}
+
+/* Step Label Text (Montserrat 14px SemiBold) */
+.step-label-text {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.checkout-step-col--pending .step-label-text {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.checkout-step-col--active .step-label-text {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* 64px Dotted Connector Line */
+.checkout-step-connector-dotted {
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: -26px; /* Aligns with the 28px circle center */
+  flex-shrink: 0;
+}
+
+.checkout-step-connector-dotted--active {
+  color: #2adeff;
+}
+
+/* ================================================================
+   Light Mode Overrides (Matching Figma Node 1252:19676)
+   ================================================================ */
+
+html[data-bs-theme="light"] .step-circle-icon--in-process {
+  border-color: #2adeff;
+  background: rgba(42, 222, 255, 0.1);
+  color: #001a94;
+  box-shadow: 0 0 6px rgba(42, 222, 255, 0.25);
+}
+
+html[data-bs-theme="light"] .step-circle-icon--done {
+  background: linear-gradient(90deg, #2adeff 0%, #002398 100%);
+  color: #ffffff;
+}
+
+html[data-bs-theme="light"] .step-circle-icon--pending {
+  border-color: rgba(0, 26, 148, 0.3);
+  color: rgba(0, 26, 148, 0.4);
+  opacity: 0.7;
+}
+
+html[data-bs-theme="light"] .step-label-text {
+  color: #0d1b29;
+}
+
+html[data-bs-theme="light"] .checkout-step-col--pending .step-label-text {
+  color: rgba(13, 27, 41, 0.5);
+}
+
+html[data-bs-theme="light"] .checkout-step-connector-dotted {
+  color: rgba(0, 26, 148, 0.3);
+}
+
+html[data-bs-theme="light"] .checkout-step-connector-dotted--active {
+  color: #001a94;
+}
+
+/* ================================================================
+   Responsive Breakpoints
+   ================================================================ */
+
+@media (max-width: 768px) {
+  .checkout-stepper-container {
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  
+  .checkout-step-connector-dotted {
+    width: 32px;
+  }
+
+  .step-label-text {
+    font-size: 12px;
+  }
+}
