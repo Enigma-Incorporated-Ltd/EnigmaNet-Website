@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './OrderReview.css';
 import type { Product } from '../index';
+import CheckoutStepper from './CheckoutStepper';
 
 interface OrderReviewProps {
   product: Product;
@@ -82,29 +83,26 @@ export default function OrderReview({ product, config, onContinue, onBack }: Ord
     <div className="details-layout-container">
       {/* Header Area */}
       <div className="details-header-row">
-        <button type="button" className="details-back-arrow-btn" onClick={onBack} aria-label="Go back">
-          <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
-            <defs>
-              <linearGradient id="backArrowGradReview" x1="10" y1="2" x2="2" y2="18" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#0066cc" />
-                <stop offset="50%" stopColor="#00a3da" />
-                <stop offset="100%" stopColor="#2adeff" />
-              </linearGradient>
-            </defs>
-            <polyline 
-              points="10 2 2 10 10 18" 
-              stroke="url(#backArrowGradReview)" 
-              strokeWidth="3" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-        <div className="details-header-titles">
-          <h1 className="details-page-title">Review your order</h1>
-          <p className="details-page-subtitle">Please review your selection and pricing details before proceeding.</p>
+        <div className="details-header-left">
+          <button type="button" className="details-back-arrow-btn" onClick={onBack} aria-label="Go back">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 19L8 12L15 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <div className="details-header-titles">
+            <h1 className="details-page-title">Review your order</h1>
+            <p className="details-page-subtitle">Please review your selection and pricing details before proceeding.</p>
+          </div>
         </div>
       </div>
+
+      {/* 3-Step Progress Indicator */}
+      <CheckoutStepper 
+        currentStep="review" 
+        onStepClick={(step) => {
+          if (step === 'configure') onBack();
+        }} 
+      />
 
       <div className="order-review-container">
         <h3 className="sidebar-title" style={{ borderBottom: 'none', paddingBottom: 0, marginBottom: 0, textAlign: 'left' }}>Your configuration</h3>

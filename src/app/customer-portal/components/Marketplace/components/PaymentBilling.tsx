@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './PaymentBilling.css';
 import type { Product } from '../index';
+import CheckoutStepper from './CheckoutStepper';
 
 interface PaymentBillingProps {
   product: Product;
@@ -118,29 +119,26 @@ export default function PaymentBilling({ product, config, onContinue, onBack }: 
     <div className="details-layout-container">
       {/* Header Area */}
       <div className="details-header-row">
-        <button type="button" className="details-back-arrow-btn" onClick={onBack} aria-label="Go back" disabled={loading}>
-          <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
-            <defs>
-              <linearGradient id="backArrowGradPayment" x1="10" y1="2" x2="2" y2="18" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#0066cc" />
-                <stop offset="50%" stopColor="#00a3da" />
-                <stop offset="100%" stopColor="#2adeff" />
-              </linearGradient>
-            </defs>
-            <polyline 
-              points="10 2 2 10 10 18" 
-              stroke="url(#backArrowGradPayment)" 
-              strokeWidth="3" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-        <div className="details-header-titles">
-          <h1 className="details-page-title">Payment & billing</h1>
-          <p className="details-page-subtitle">Select a payment method and provide your billing information.</p>
+        <div className="details-header-left">
+          <button type="button" className="details-back-arrow-btn" onClick={onBack} aria-label="Go back" disabled={loading}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 19L8 12L15 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <div className="details-header-titles">
+            <h1 className="details-page-title">Payment &amp; billing</h1>
+            <p className="details-page-subtitle">Select a payment method and provide your billing information.</p>
+          </div>
         </div>
       </div>
+
+      {/* 3-Step Progress Indicator */}
+      <CheckoutStepper 
+        currentStep="payment" 
+        onStepClick={(step) => {
+          if (step === 'review') onBack();
+        }} 
+      />
 
       <form onSubmit={handleSubmit} className="payment-layout-form">
         {error && (
