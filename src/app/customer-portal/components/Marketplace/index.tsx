@@ -7,6 +7,7 @@ import OrderReview from './components/OrderReview';
 import PaymentBilling from './components/PaymentBilling';
 import OrderConfirmationModal from './components/OrderConfirmationModal';
 import OrderTracking from './components/OrderTracking';
+import RequestQuote from './components/RequestQuote';
 
 export interface Product {
   id: string;
@@ -276,7 +277,7 @@ interface MarketplaceProps {
 }
 
 export default function Marketplace({ setActiveNav }: MarketplaceProps) {
-  const [step, setStep] = useState<'list' | 'details' | 'configure' | 'review' | 'payment' | 'confirmed' | 'success'>('list');
+  const [step, setStep] = useState<'list' | 'details' | 'configure' | 'review' | 'payment' | 'confirmed' | 'success' | 'quote'>('list');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [config, setConfig] = useState<Record<string, string>>({});
 
@@ -363,8 +364,21 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
           products={MOCK_PRODUCTS}
           onBuy={() => setStep('configure')} 
           onBack={() => setStep('list')} 
+          onRequestQuote={() => setStep('quote')}
           onExploreProduct={handleSelectProduct}
           onViewRequests={() => setActiveNav('activities')}
+        />
+      )}
+      {step === 'quote' && selectedProduct && (
+        <RequestQuote
+          product={selectedProduct}
+          products={MOCK_PRODUCTS}
+          onBack={() => setStep('details')}
+          onViewRequests={() => setActiveNav('activities')}
+          onGoToMarketplace={() => {
+            setStep('list');
+            setSelectedProduct(null);
+          }}
         />
       )}
       {step === 'configure' && selectedProduct && (

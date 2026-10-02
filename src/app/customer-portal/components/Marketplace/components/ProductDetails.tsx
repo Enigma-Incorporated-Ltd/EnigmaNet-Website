@@ -7,6 +7,7 @@ interface ProductDetailsProps {
   products?: Product[];
   onBuy: () => void;
   onBack: () => void;
+  onRequestQuote?: () => void;
   onExploreProduct?: (product: Product) => void;
   onViewRequests?: () => void;
 }
@@ -185,6 +186,7 @@ export default function ProductDetails({
   products = [],
   onBuy,
   onBack,
+  onRequestQuote,
   onExploreProduct,
   onViewRequests
 }: ProductDetailsProps) {
@@ -334,7 +336,7 @@ export default function ProductDetails({
               <button
                 type="button"
                 className="details-btn-secondary"
-                onClick={handleRequestQuote}
+                onClick={onRequestQuote || handleRequestQuote}
                 disabled={quoteStatus !== null && quoteStatus.startsWith('Processing')}
               >
                 Request a quote

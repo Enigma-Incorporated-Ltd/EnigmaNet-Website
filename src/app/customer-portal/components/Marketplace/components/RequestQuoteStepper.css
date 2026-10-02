@@ -1,0 +1,130 @@
+/* ================================================================
+   Request Quote Stepper Progress Bar (Matching Figma Node 1252:21245)
+   ================================================================ */
+
+.quote-stepper-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 8px;
+  box-sizing: border-box;
+  user-select: none;
+  flex-wrap: wrap;
+}
+
+.quote-step-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  cursor: default;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.quote-step-col--clickable {
+  cursor: pointer;
+}
+
+.quote-step-col--clickable:hover .quote-step-label-text {
+  color: #2adeff;
+}
+
+/* 28x28 Circular Icon (Done Icon Processing) */
+.quote-step-circle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Active / In-process state */
+.quote-step-circle-icon--in-process {
+  background: linear-gradient(180deg, #ffffff 0%, #2adeff 100%);
+  border: none;
+  color: #002398;
+  box-shadow: 0 0 12px rgba(42, 222, 255, 0.4);
+}
+
+/* Done state */
+.quote-step-circle-icon--done {
+  background: linear-gradient(180deg, #2adeff 0%, #002398 100%);
+  border: none;
+  color: #ffffff;
+  box-shadow: 0 1px 6px rgba(42, 222, 255, 0.35);
+}
+
+/* Pending state */
+.quote-step-circle-icon--pending {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0.7;
+}
+
+/* Step Label Text (Montserrat 14px SemiBold) */
+.quote-step-label-text {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.quote-step-col--pending .quote-step-label-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.quote-step-col--active .quote-step-label-text {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* 64px Connector Line */
+.quote-step-connector {
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.quote-step-connector--active {
+  color: #2adeff;
+}
+
+/* Light Theme Support */
+[data-bs-theme="light"] .quote-step-label-text {
+  color: #0d1b29;
+}
+
+[data-bs-theme="light"] .quote-step-col--pending .quote-step-label-text {
+  color: rgba(13, 27, 41, 0.6);
+}
+
+[data-bs-theme="light"] .quote-step-circle-icon--pending {
+  border-color: rgba(13, 27, 41, 0.4);
+  color: rgba(13, 27, 41, 0.5);
+}
+
+[data-bs-theme="light"] .quote-step-connector {
+  color: rgba(13, 27, 41, 0.2);
+}
+
+@media (max-width: 900px) {
+  .quote-stepper-container {
+    gap: 16px;
+  }
+  .quote-step-connector {
+    width: 32px;
+  }
+}
