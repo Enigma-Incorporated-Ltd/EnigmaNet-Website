@@ -8,6 +8,9 @@ import PaymentBilling from './components/PaymentBilling';
 import OrderConfirmationModal from './components/OrderConfirmationModal';
 import OrderTracking from './components/OrderTracking';
 import RequestQuote from './components/RequestQuote';
+import QuoteTracking from './components/QuoteTracking';
+import QuoteDetailsReady from './components/QuoteDetailsReady';
+import QuoteRequestsList from './components/QuoteRequestsList';
 
 export interface Product {
   id: string;
@@ -277,7 +280,7 @@ interface MarketplaceProps {
 }
 
 export default function Marketplace({ setActiveNav }: MarketplaceProps) {
-  const [step, setStep] = useState<'list' | 'details' | 'configure' | 'review' | 'payment' | 'confirmed' | 'success' | 'quote'>('list');
+  const [step, setStep] = useState<'list' | 'details' | 'configure' | 'review' | 'payment' | 'confirmed' | 'success' | 'quote' | 'quote-tracking' | 'quote-ready' | 'quote-requests'>('list');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [config, setConfig] = useState<Record<string, string>>({});
 
@@ -355,7 +358,13 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
           setActiveSort={setActiveSort}
           onSelect={handleSelectProduct} 
           onBack={() => setActiveNav('dashboard')} 
-          onViewRequests={() => setActiveNav('activities')}
+          onViewRequests={() => setStep('quote-requests')}
+        />
+      )}
+      {step === 'quote-requests' && (
+        <QuoteRequestsList
+          products={MOCK_PRODUCTS}
+          onBack={() => setStep('list')}
         />
       )}
       {step === 'details' && selectedProduct && (
@@ -366,7 +375,7 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
           onBack={() => setStep('list')} 
           onRequestQuote={() => setStep('quote')}
           onExploreProduct={handleSelectProduct}
-          onViewRequests={() => setActiveNav('activities')}
+          onViewRequests={() => setStep('quote-requests')}
         />
       )}
       {step === 'quote' && selectedProduct && (
@@ -374,11 +383,29 @@ export default function Marketplace({ setActiveNav }: MarketplaceProps) {
           product={selectedProduct}
           products={MOCK_PRODUCTS}
           onBack={() => setStep('details')}
-          onViewRequests={() => setActiveNav('activities')}
+          onViewRequests={() => setStep('quote-requests')}
           onGoToMarketplace={() => {
             setStep('list');
             setSelectedProduct(null);
           }}
+        />
+      )}
+      {step === 'quote-tracking' && selectedProduct && (
+        <QuoteTracking
+          product={selectedProduct}
+          onBack={() => setStep('list')}
+          onViewAllRequests={() => setStep('quote-requests')}
+          onContactSales={() => setActiveNav('activities')}
+        />
+      )}
+      {step === 'quote-ready' && selectedProduct && (
+        <QuoteDetailsReady
+          product={selectedProduct}
+          onBack={() => setStep('quote-tracking')}
+          onViewAllRequests={() => setStep('quote-requests')}
+          onAcceptQuote={() => setStep('configure')}
+          onContactSales={() => setActiveNav('activities')}
+          onDeclineQuote={() => setStep('list')}
         />
       )}
       {step === 'configure' && selectedProduct && (
